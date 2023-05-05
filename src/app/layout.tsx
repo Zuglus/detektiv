@@ -16,7 +16,7 @@ export default function RootLayout({
       <body className='font-sans antialiased'>
         <div className='container mx-auto'>
           <Head />
-          <main className='flex min-h-screen flex-col items-center justify-between p-24'>
+          <main className='flex flex-col items-center justify-between'>
             {children}
           </main>
         </div>
