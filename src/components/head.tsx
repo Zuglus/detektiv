@@ -10,7 +10,7 @@ export default function Head() {
       <h2 className='text-red-500 text-lg antialiased capitalize'>
         ДЕТЕКТИВНОЕ АГЕНТСТВО Г. МОСКВА ЛИЦЕНЗИЯ МВД РФ 50ЧД2021000323
       </h2>
-      <h3 className='max-w-md mx-auto font-semibold mt-4 bg-gradient-to-br from-black from-30% to-red-600'>
+      <h3 className='max-w-md mx-auto font-semibold my-8 bg-gradient-to-br from-black from-30% to-red-600'>
         МЫ ДОРОЖИМ РЕПУТАЦИЕЙ - ЭТО ЛИЦО КОМПАНИИ <br /> СТРОГО КОНФИДЕНЦИАЛЬНО{' '}
         <br />
         ОПЕРАТИВНО И ПРОФЕССИОНАЛЬНО <br /> ПО РФ И ЗА РУБЕЖОМ РАБОТАЕМ С 2010
