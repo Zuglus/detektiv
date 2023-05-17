@@ -1,3 +1,10 @@
+import { Breadcrumbs } from '@/components/breadcrumbs';
+
 export default function Price() {
-  return <h1>Price</h1>
+  return (
+    <>
+      <Breadcrumbs name='Прайс' />
+      <h1>Price</h1>
+    </>
+  );
 }

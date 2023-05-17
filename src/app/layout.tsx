@@ -1,3 +1,4 @@
+import Footer from '@/components/footer';
 import Head from '@/components/head';
 import './globals.css';
 
@@ -13,12 +14,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang='ru'>
-      <body className='font-sans antialiased'>
+      <body className='font-sans antialiased selection:bg-red-600 selection:text-black'>
         <div className='container mx-auto'>
           <Head />
           <main className='flex flex-col items-center justify-between'>
             {children}
           </main>
+          <Footer />
         </div>
       </body>
     </html>
