@@ -1,0 +1,21 @@
+{
+  "phone": {
+    "name": "+7 (915) 001-00-25",
+    "link": "tel:+79150010025"
+  },
+  "email": {
+    "name": "E-mail",
+    "directName": "Pravo018@gmail.com",
+    "link": "mailto:Pravo018@gmail.com"
+  },
+  "whatsapp": {
+    "name": "Whatsapp",
+    "link": "whatsapp://send?phone=79150010025"
+  },
+  "telegram": {
+    "name": "Telegram",
+    "link": "tg://resolve?domain=detective_moscow"
+  },
+  "address": "г. Москва, Проспект Мира, 27",
+  "site": "https://право18.рф"
+}
