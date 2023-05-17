@@ -1,4 +1,5 @@
 import { Breadcrumbs } from '@/components/breadcrumbs';
+import { email, phone, telegram, whatsapp } from '@/data/contacts.json';
 
 export default function Garanty() {
   return (
@@ -44,24 +45,24 @@ export default function Garanty() {
       </p>
       <p>
         Выберите любой вид связи, нажав на ссылку:
-        <a href='tg://resolve?domain=detective_moscow'>
+        <a href={telegram.link}>
           {' '}
-          <strong>Telegram</strong>
+          <strong>{telegram.name}</strong>
         </a>
         ,
-        <a href='whatsapp://send?phone=79150010025'>
+        <a href={whatsapp.link}>
           {' '}
-          <strong>Whatsapp</strong>
+          <strong>{whatsapp.name}</strong>
         </a>
         ,
-        <a href='mailto:Pravo018@gmail.com'>
+        <a href={email.link}>
           {' '}
-          <strong>E-mail</strong>
+          <strong>{email.name}</strong>
         </a>
         ,
-        <a href='tel:+79150010025'>
+        <a href={phone.link}>
           {' '}
-          <strong>+7 (915) 001-00-25</strong>
+          <strong>{phone.name}</strong>
         </a>
         .
       </p>

@@ -6,7 +6,7 @@ export default function Head() {
     <header className='text-center'>
       <Nav />
       <h1 className='text-red-600 font-serif text-6xl antialiased font-bold capitalize'>
-        «ПРАВО»
+        &laquo;ПРАВО&raquo;
       </h1>
       <h2 className='text-red-500 text-lg antialiased capitalize'>
         ДЕТЕКТИВНОЕ АГЕНТСТВО Г. МОСКВА ЛИЦЕНЗИЯ МВД РФ 50ЧД2021000323

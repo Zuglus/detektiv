@@ -9,6 +9,7 @@ export default function Footer() {
       <h2 className='font-bold text-xl border-b-violet-700'>
         ДЕТЕКТИВНОЕ АГЕНТСТВО «ПРАВО»
       </h2>
+      <hr class='my-12 h-0.5 border-t-0 bg-neutral-100 opacity-100 dark:opacity-50' />
       <BottomNav />
       <Image
         className='mx-auto h-24 w-auto'
