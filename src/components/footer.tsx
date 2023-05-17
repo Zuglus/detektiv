@@ -9,15 +9,20 @@ export default function Footer() {
       <h2 className='font-bold text-xl border-b-violet-700'>
         ДЕТЕКТИВНОЕ АГЕНТСТВО «ПРАВО»
       </h2>
-      <hr class='my-12 h-0.5 border-t-0 bg-neutral-100 opacity-100 dark:opacity-50' />
-      <BottomNav />
+      <hr className='my-4 h-px border-t-0 bg-neutral-600 opacity-50' />
+      <div className='flex'>
+        <BottomNav />
+        <hr className='mx-2 w-px h-10 border-t-0 bg-neutral-600 opacity-50' />
+        <div>social icons</div>
+      </div>
       <Image
         className='mx-auto h-24 w-auto'
         src={docImg}
         alt='Фотография лицензии детектива'
         placeholder='blur'
       />
-      <a className='inline-block' href='#'>
+      <hr className='my-4 h-px border-t-0 bg-neutral-600 opacity-50' />
+      <a className='inline-block text-neutral-600 opacity-50' href='#'>
         <svg
           width='18'
           height='10'
