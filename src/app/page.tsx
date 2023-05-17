@@ -12,21 +12,15 @@ export default function About() {
       <p className='text-center'>
         {' '}
         выберите любой вид связи, нажав на ссылку:
-        <a href={telegram.link}>
-          {' '}
-          <strong>{telegram.name}</strong>
-        </a>
-        ,
-        <a href='whatsapp://send?phone=79150010025' className='font-bold'>
-          {' '}
-          Whatsapp
-        </a>
-        ,
-        <a href='mailto:Pravo018@gmail.com' className='font-bold'>
-          {' '}
-          E-mail
-        </a>
-        .
+        {[telegram, whatsapp, email].map((item) => {
+          return (
+            <a key={item.name} href={item.link}>
+              {' '}
+              <strong>{item.name}</strong>
+              {item === email ? '.' : ','}
+            </a>
+          );
+        })}
       </p>
       <p className='indent-5 text-justify mt-4'>
         Детективное агентство &laquo;Право&raquo; является{' '}
@@ -245,19 +239,19 @@ export default function About() {
       <ul className='list-disc'>
         <li>
           Все заказы принимаются на e-mail:{' '}
-          <strong className='selection:select-all'>{email.directName}</strong>,{' '}
-          <a href='tg://resolve?domain=detective_moscow'>
+          <strong className='select-all'>{email.directName}</strong>,{' '}
+          <a href={telegram.link}>
             {' '}
-            <strong>Telegram</strong>
+            <strong>{telegram.name}</strong>
           </a>
           ,{' '}
-          <a href='whatsapp://send?phone=79150010025'>
+          <a href={whatsapp.link}>
             {' '}
-            <strong>Whatsapp</strong>
+            <strong>{whatsapp.name}</strong>
           </a>
           , либо по телефону{' '}
-          <a href='tel:+79150010025'>
-            <strong>+7 (915) 001-00-25</strong>
+          <a href={phone.link}>
+            <strong>{phone.name}</strong>
           </a>
           . 
         </li>

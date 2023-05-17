@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export default function BottomNav() {
   return (
-    <div>
+    <div className='flex-auto'>
       {routes.map((route) => {
         return (
           <Link
