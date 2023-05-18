@@ -4,7 +4,7 @@ import { email, phone, telegram, whatsapp } from '@/data/contacts.json';
 export default function Garanty() {
   return (
     <>
-      <Breadcrumbs name='Гарантии' />
+      <Breadcrumbs name='Гарантии' link={''} secondName={''} />
       <h3>Мы Дорожим Нашей Репутацией - это лицо компании!</h3>
       <p>
         Мы ВПРАВЕ ОТКАЗАТЬ в предоставлении детективных услуг БЕЗ ОБЪЯСНЕНИЯ
