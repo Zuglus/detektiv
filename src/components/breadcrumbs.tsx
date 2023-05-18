@@ -2,8 +2,8 @@ import Link from 'next/link';
 
 export const Breadcrumbs = ({
   name,
-  link = '',
-  secondName = '',
+  link,
+  secondName,
 }: {
   name: string;
   link: string;

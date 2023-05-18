@@ -39,7 +39,7 @@ export default function Footer() {
         </svg>
       </a>
       <p className='uppercase'>
-        &#169;2010-2023 Детективное агентство &ldquo;Право&rdquo; запрещено
+        &#169;2010-2023 Детективное агентство &laquo;Право&raquo; запрещено
         использовать информацию с сайта.
       </p>
     </div>

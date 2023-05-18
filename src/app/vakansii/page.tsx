@@ -5,7 +5,7 @@ import { title } from 'process';
 export default function Job() {
   return (
     <>
-      <Breadcrumbs name='Вакансии' />
+      <Breadcrumbs name='Вакансии' link={''} secondName={''} />
       <Card
         data={{
           title: 'ПОМОЩНИК ДЕТЕКТИВА',
