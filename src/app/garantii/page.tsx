@@ -1,6 +1,10 @@
 import { Breadcrumbs } from '@/components/breadcrumbs';
 import { email, phone, telegram, whatsapp } from '@/data/contacts.json';
 
+export const metadata = {
+  title: 'Детективное агентство «Право» | Гарантии',
+};
+
 export default function Garanty() {
   return (
     <>
