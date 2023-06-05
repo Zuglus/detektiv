@@ -1,10 +1,14 @@
 import Link from 'next/link';
 import Nav from './nav';
+import SocialIcons from './socialIcons';
 
 export default function Head() {
   return (
     <header className='text-center'>
-      <Nav />
+      <div className='md:flex md:justify-between'>
+        <Nav />
+        <SocialIcons />
+      </div>
       <h1 className='text-red-600 font-serif text-6xl antialiased font-bold capitalize'>
         &laquo;ПРАВО&raquo;
       </h1>
