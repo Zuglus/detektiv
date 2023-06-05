@@ -2,6 +2,7 @@ import BottomNav from './bottomNav';
 
 import Image from 'next/image';
 import docImg from '../../public/doc-3374709d.jpeg';
+import SocialIconsFooter from './socialIconsFooter';
 
 export default function Footer() {
   return (
@@ -13,7 +14,7 @@ export default function Footer() {
       <div className='flex'>
         <BottomNav />
         <hr className='mx-2 w-px h-10 border-t-0 bg-neutral-600 opacity-50' />
-        <div>social icons</div>
+        <SocialIconsFooter />
       </div>
       <Image
         className='mx-auto h-24 w-auto'
@@ -24,6 +25,7 @@ export default function Footer() {
       <hr className='my-4 h-px border-t-0 bg-neutral-600 opacity-50' />
       <a className='inline-block text-neutral-600 opacity-50' href='#'>
         <svg
+          className='animate-bounce'
           width='18'
           height='10'
           viewBox='0 0 18 10'

@@ -87,13 +87,10 @@ export default function Price() {
             price: 'от 150.000 рублей',
             text: 'Движимое и недвижимое имущество, счета',
           },
-        ].map((item, index) => {
+        ].map((item) => {
           return (
             <li
-              className={classNames(
-                'flex',
-                index % 2 === 0 ? 'bg-neutral-800' : 'bg-transparent'
-              )}
+              className='flex                odd:bg-neutral-800'
               key={item.title}
             >
               <div className='flex-auto'>
