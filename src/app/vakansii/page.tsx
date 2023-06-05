@@ -1,6 +1,9 @@
 import { Breadcrumbs } from '@/components/breadcrumbs';
 import Card from '@/components/card';
-import { title } from 'process';
+
+export const metadata = {
+  title: 'Детективное агентство «Право» | Вакансии',
+};
 
 export default function Job() {
   return (

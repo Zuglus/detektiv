@@ -2,6 +2,10 @@ import { Breadcrumbs } from '@/components/breadcrumbs';
 import { classNames } from '@/components/classNames';
 import { email, phone, telegram, whatsapp } from '@/data/contacts.json';
 
+export const metadata = {
+  title: 'Детективное агентство «Право» | Прайс',
+};
+
 export default function Price() {
   return (
     <>

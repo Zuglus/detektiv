@@ -6,8 +6,10 @@ import {
   telegram,
   whatsapp,
 } from '@/data/contacts.json';
-import Image from 'next/image';
-import imgTelegram from '../../../public/icons/telegram.svg';
+
+export const metadata = {
+  title: 'Детективное агентство «Право» | Контакты',
+};
 
 export default function Contact() {
   return (
