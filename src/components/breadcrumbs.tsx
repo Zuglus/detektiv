@@ -9,7 +9,7 @@ export const Breadcrumbs = ({
   link: string;
   secondName: string;
 }) => (
-  <div className='w-full p-1 m-1'>
+  <div className='w-full p-1 m-1' aria-hidden='true'>
     <ol className='flex items-center text-red-900'>
       <li className='flex items-center'>
         <Link href='/' className='font-bold '>
