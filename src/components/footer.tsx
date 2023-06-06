@@ -6,7 +6,7 @@ import SocialIconsFooter from './socialIconsFooter';
 
 export default function Footer() {
   return (
-    <div className='bg-red-500 text-center text-black p-10 md:p-20'>
+    <div className='bg-red-500 text-center text-black p-5 md:p-10'>
       <h2 className='font-bold text-xl border-b-violet-700'>
         ДЕТЕКТИВНОЕ АГЕНТСТВО «ПРАВО»
       </h2>

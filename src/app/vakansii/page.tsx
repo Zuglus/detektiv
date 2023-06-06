@@ -15,19 +15,21 @@ export default function Job() {
           text: 'Подработка на разовые задания',
         }}
       />
-      <p>В резюме укажите следующие данные:</p>
-      <ul className='list-disc'>
-        <li>Ваше фото</li>
-        <li>Полная биография о себе</li>
-        <li>Контактные данные</li>
-        <li>Информация о близких родственниках</li>
+      <p className='md:text-start md:w-1/2'>
+        В резюме укажите следующие данные:
+      </p>
+      <ul className='list-disc p-3'>
+        <li className='md:mb-2'>Ваше фото</li>
+        <li className='md:mb-2'>Полная биография о себе</li>
+        <li className='md:mb-2'>Контактные данные</li>
+        <li className='md:mb-2'>Информация о близких родственниках</li>
         <li>Перечень своих качеств и возможностей</li>
       </ul>
-      <p>
+      <p className='md:w-1/2 md:text-start'>
         Резюме отправляйте на e-mail: <strong>Pravo018@gmail.com</strong> или по
         мессенджарам.
       </p>
-      <p>
+      <p className='md:mt-5 md:mb-10 md:p-4 bg-red-950'>
         <strong>Важно!</strong> Звонить не надо, при заинтересованности в вашей
         кандидатуре мы сами с вами свяжемся.
       </p>
