@@ -2,7 +2,7 @@ import { email, phone, telegram, whatsapp } from '@/data/contacts.json';
 
 export default function SocialIcons() {
   return (
-    <div className='hidden md:flex'>
+    <div className='hidden md:flex md:pr-10'>
       {[phone, email, telegram, whatsapp].map((icon) => {
         return (
           <a href={icon.link} key={icon.name} className='my-auto ml-2'>

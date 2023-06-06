@@ -5,7 +5,7 @@ import SocialIcons from './socialIcons';
 export default function Head() {
   return (
     <header className='text-center'>
-      <div className='md:flex md:justify-between'>
+      <div className='md:flex md:justify-between md:py-1'>
         <Nav />
         <SocialIcons />
       </div>
