@@ -10,16 +10,18 @@ export default function Price() {
   return (
     <>
       <Breadcrumbs name='Прайс' link={''} secondName={''} />
-      <ul className='list-disc'>
+      <ul className='list-disc mt-10'>
         {[
           'Консультация для Вас бесплатная',
           'К выполнению заказа, приступаем только после полной оплаты',
           'Услуги предоставляем на всей территории России, СНГ и за рубежом',
         ].map((item) => (
-          <li key={item}>{item}</li>
+          <li className='mb-5' key={item}>
+            {item}
+          </li>
         ))}
       </ul>
-      <p>
+      <p className='my-3 text-justify'>
         Стоимость услуг в прайсе указана ориентировочно, определить точную сумму
         заказа зависит от представленной информации, от уровня сложности заказа,
         определения ресурсов привлекаемого для достижения цели.
@@ -89,20 +91,17 @@ export default function Price() {
           },
         ].map((item) => {
           return (
-            <li
-              className='flex                odd:bg-neutral-800'
-              key={item.title}
-            >
+            <li className='flex odd:bg-neutral-900 p-3' key={item.title}>
               <div className='flex-auto'>
-                <div>{item.title}</div>
-                <div>{item.text}</div>
+                <div className='pr-20'>{item.title}</div>
+                <div className='text-xs text-neutral-400'>{item.text}</div>
               </div>
               <div className='flex-none'>{item.price}</div>
             </li>
           );
         })}
       </ul>
-      <p>
+      <p className='pt-2 text-justify'>
         Работаем при полной предоплате заказа, что позволяет приступить к его
         незамедлительному выполнению. Наши услуги не дороги по сравнению с Вашим
         спокойствием и стабильностью в Вашей жизни, профессиональный результат
@@ -114,7 +113,7 @@ export default function Price() {
         профессиональный результат - он стоит затрат. Если для Вас важен
         качество услуги - мы готовы помочь.
       </p>
-      <p>
+      <p className='py-10'>
         Выберите любой вид связи, нажав на ссылку:{' '}
         {[telegram, whatsapp, email, phone].map((item) => (
           <a key={item.name} href={item.link}>
