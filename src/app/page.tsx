@@ -1,4 +1,5 @@
 import Card from '@/components/card';
+import CardPrinciple from '@/components/cardPrinciple';
 import CardService from '@/components/cardService';
 import { email, phone, site, telegram, whatsapp } from '@/data/contacts.json';
 import { classNames } from '../components/classNames';
@@ -22,7 +23,7 @@ export default function About() {
           );
         })}
       </p>
-      <p className='indent-5 text-justify mt-4'>
+      <p className='indent-5 text-justify mt-4 text-neutral-400'>
         Детективное агентство &laquo;Право&raquo; является{' '}
         <strong>элитарным</strong> и оказывает детективные услуги для тех, кто
         может финансово их заказать - Профессиональные услуги стоят дорого.
@@ -94,7 +95,7 @@ export default function About() {
         })}
       </div>
       <h3 className='text-red-600 mt-8 uppercase'>о нас</h3>
-      <p className='indent-5 text-justify mt-4'>
+      <p className='indent-5 text-justify mt-4 text-neutral-400'>
         Детективное агентство &laquo;Право&raquo; создано в 2010 году, офицером
         в отставке - старшим оперуполномоченным по особо важным делам, ветераном
         боевых действий, награжденным государственными наградами. На основании
@@ -106,7 +107,7 @@ export default function About() {
         офицеры в отставке. Каждый Сыщик профессионально выполняет свою работу
         на высоком должном уровне.
       </p>
-      <p className='indent-5 text-justify mt-4'>
+      <p className='indent-5 text-justify mt-4 text-neutral-400'>
         Сегодняшний рынок детективных услуг на просторах интернета насыщен
         непрофессиональными кадрами, либо &laquo;гражданскими-стажерами&raquo;,
         получившими лицензию после трехмесячного срока обучения не имеющих
@@ -115,7 +116,7 @@ export default function About() {
         любого задания существует риск, либо форс-мажор, который настоящий
         Профессионал учитывает и обговаривает с Заказчиком.
       </p>
-      <p className='indent-5 text-justify mt-4'>
+      <p className='indent-5 text-justify mt-4 text-neutral-400'>
         Стоимость наших услуг, на первый взгляд, может показаться дорогой, но
         после решения Ваших семейных, бизнес и иных проблем, на практике
         окажется оправданной. Покупая дешевый товар, Вы осознанно принимаете его
@@ -123,7 +124,7 @@ export default function About() {
         будьте внимательны при выборе частного детектива - Детективное агентство
         &laquo;Право&raquo; предоставляет Профессиональные услуги.
       </p>
-      <ul className='list-none text-center max-w-3xl py-5'>
+      <ul className='list-none text-center max-w-3xl py-5 my-3'>
         {[
           {
             id: 1,
@@ -160,7 +161,7 @@ export default function About() {
           );
         })}
       </ul>
-      <div className='bg-neutral-900 p-6'>
+      <div className='bg-neutral-900 p-6 my-3'>
         <h2 className='text-center text-lg'>
           ПРЕДЛАГАЕМ ПОМОЩЬ В РЕШЕНИИ ВАШИХ ПРОБЛЕМ И ЗАДАЧ
         </h2>
@@ -170,10 +171,10 @@ export default function About() {
           важна благодарность заказчика. Безвыходных ситуаций не бывает!
         </p>
       </div>
-      <h2 className='text-center text-lg text-red-600 uppercase pt-6 mt-2'>
+      <h2 className='text-center text-lg text-red-600 uppercase pt-10 pb-3'>
         ПРИНЦИПЫ ЧАСТНОГО ДЕТЕКТИВА «ПРАВО»
       </h2>
-      <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 mt-10'>
+      <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10'>
         {[
           {
             title: 'КОНФИДЕНЦИАЛЬНОСТЬ',
@@ -200,11 +201,11 @@ export default function About() {
             text: 'За каждой историей стоят люди: их чувства и судьбы',
           },
         ].map((item) => {
-          return <Card key={item.title} data={item} />;
+          return <CardPrinciple key={item.title} data={item} />;
         })}
       </div>
       <div>
-        <h4 className='text-center'>
+        <h4 className='text-center pt-10 pb-3'>
           ПРОЦЕСС ЗАКАЗА ВЫГЛЯДИТ СЛЕДУЮЩИМ ОБРАЗОМ:
         </h4>
         <ul>
@@ -217,10 +218,7 @@ export default function About() {
           ].map((li, i) => {
             return (
               <li
-                className={classNames(
-                  'text-neutral-400 font-bold',
-                  i % 2 === 0 ? 'bg-neutral-900' : 'bg-transparent'
-                )}
+                className='text-neutral-400 font-bold odd:bg-neutral-900 p-3'
                 key={i}
               >
                 {li}
@@ -229,15 +227,15 @@ export default function About() {
           })}
         </ul>
       </div>
-      <h4>ОСТЕРЕГАЙТЕСЬ МОШЕННИКОВ!</h4>
-      <p>
+      <h4 className='pt-10 pb-3'>ОСТЕРЕГАЙТЕСЬ МОШЕННИКОВ!</h4>
+      <p className='text-neutral-400'>
         <strong>Частное детективное агентство &laquo;Право&raquo;</strong> имеет
         безупречную репутацию на рынке детективных услуг. Возможны случаи, когда
         мошенники или недобросовестные коллеги могут представляться сотрудниками
         нашего агентства. Чтобы распознать аферистов, помните следующее:
       </p>
-      <ul className='list-disc'>
-        <li>
+      <ul className='list-disc pt-3'>
+        <li className='pb-2 text-neutral-400'>
           Все заказы принимаются на e-mail:{' '}
           <strong className='select-all'>{email.directName}</strong>,{' '}
           <a href={telegram.link}>
@@ -255,7 +253,7 @@ export default function About() {
           </a>
           . 
         </li>
-        <li>
+        <li className='text-neutral-400'>
           Наш сайт:{' '}
           <a href={site}>
             <strong>{site}</strong>
@@ -263,6 +261,7 @@ export default function About() {
           .
         </li>
       </ul>
+      <div className='p-10 text-2xl'>Нам доверяют решение любых вопросов!</div>
     </>
   );
 }
