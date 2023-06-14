@@ -1,0 +1,17 @@
+[
+  {
+    "slug": "junior-react-dev",
+    "title": "Junior Web Developer",
+    "description": "Familiar with modern front end development."
+  },
+  {
+    "slug": "ios-dev",
+    "title": "IOS Developer",
+    "description": "Passionate for crafting great mobile"
+  },
+  {
+    "slug": "python-data-scientist",
+    "title": "Data Scientist",
+    "description": "Love for big data"
+  }
+]
