@@ -1,6 +1,6 @@
+import '@/app/globals.css';
 import Footer from '@/components/footer';
 import Head from '@/components/head';
-import './globals.css';
 
 export const metadata = {
   title: 'Детективное агентство «Право»',
