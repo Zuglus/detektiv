@@ -10,37 +10,37 @@ export const Breadcrumbs = ({
   secondName: string;
 }) => (
   <div className='w-full p-1 m-1' aria-hidden='true'>
-    <ol className='flex items-center text-red-900'>
-      <li className='flex items-center'>
-        <Link href='/' className='font-bold '>
-          <svg
-            xmlns='http://www.w3.org/2000/svg'
-            className='h-4 w-4 fill-red-900'
-            viewBox='0 0 20 20'
-          >
-            <path d='M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z' />
-          </svg>
-        </Link>
-        <span className='ml-2'>
-          <svg
-            xmlns='http://www.w3.org/2000/svg'
-            className='w-4 h-4'
-            fill='none'
-            viewBox='0 0 24 24'
-            stroke='currentColor'
-          >
-            <path
-              stroke-linecap='round'
-              strokeLinejoin='round'
-              stroke-width='2'
-              d='M9 5l7 7-7 7'
-            />
-          </svg>
-        </span>
-      </li>
+    <ul className='flex items-center text-red-900 md:ml-10'>
+      <Link href='/' className='font-bold '>
+        <svg
+          xmlns='http://www.w3.org/2000/svg'
+          className='h-4 w-4 fill-red-900'
+          viewBox='0 0 20 20'
+        >
+          <path d='M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z' />
+        </svg>
+      </Link>
+      <span className='ml-2'>
+        <svg
+          xmlns='http://www.w3.org/2000/svg'
+          className='w-4 h-4'
+          fill='none'
+          viewBox='0 0 24 24'
+          stroke='currentColor'
+        >
+          <path
+            stroke-linecap='round'
+            strokeLinejoin='round'
+            stroke-width='2'
+            d='M9 5l7 7-7 7'
+          />
+        </svg>
+      </span>
       {link ? (
-        <li className='flex items-center ml-2'>
-          <Link href={link}>{name}</Link>
+        <>
+          <Link className='flex items-center ml-2 text-red-900' href={link}>
+            {name}
+          </Link>
           <span className='ml-2'>
             <svg
               xmlns='http://www.w3.org/2000/svg'
@@ -57,15 +57,19 @@ export const Breadcrumbs = ({
               />
             </svg>
           </span>
-        </li>
+        </>
       ) : (
-        <li className='flex items-center ml-2 font-bold'>{name}</li>
+        <li className='flex items-center ml-2 font-bold text-red-900'>
+          {name}
+        </li>
       )}
       {secondName ? (
-        <li className='flex items-center ml-2 font-bold'>{secondName}</li>
+        <li className='flex items-center ml-2 font-bold text-red-900'>
+          {secondName}
+        </li>
       ) : (
         ''
       )}
-    </ol>
+    </ul>
   </div>
 );
