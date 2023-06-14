@@ -1,6 +1,5 @@
 import { Breadcrumbs } from '@/components/breadcrumbs';
-import { classNames } from '@/components/classNames';
-import { email, phone, telegram, whatsapp } from '@/data/contacts.json';
+import contacts from '@/data/contacts.json';
 
 export const metadata = {
   title: 'Детективное агентство «Право» | Прайс',
@@ -115,11 +114,16 @@ export default function Price() {
       </p>
       <p className='py-10'>
         Выберите любой вид связи, нажав на ссылку:{' '}
-        {[telegram, whatsapp, email, phone].map((item) => (
+        {[
+          contacts.telegram,
+          contacts.whatsapp,
+          contacts.email,
+          contacts.phone,
+        ].map((item) => (
           <a key={item.name} href={item.link}>
             {' '}
             <strong>{item.name}</strong>
-            {item === phone ? '.' : ','}
+            {item === contacts.phone ? '.' : ','}
           </a>
         ))}
       </p>

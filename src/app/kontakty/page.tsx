@@ -1,11 +1,5 @@
 import { Breadcrumbs } from '@/components/breadcrumbs';
-import {
-  address,
-  email,
-  phone,
-  telegram,
-  whatsapp,
-} from '@/data/contacts.json';
+import contacts from '@/data/contacts.json';
 
 export const metadata = {
   title: 'Детективное агентство «Право» | Контакты',
@@ -23,19 +17,19 @@ export default function Contact() {
               <div className='text-neutral-400'>
                 Официальный и единственный адрес:
               </div>
-              <div>{address}</div>
+              <div>{contacts.address}</div>
             </li>
             <li className='bg-neutral-900 p-3 mb-5 md:w-1/2 mx-auto'>
               <div className='text-neutral-400'>E-mail:</div>
-              <a href={email.link}>{email.directName}</a>
+              <a href={contacts.email.link}>{contacts.email.directName}</a>
             </li>
             <li className='bg-neutral-900 p-3 mb-5 md:w-1/2 mx-auto'>
               <div className='text-neutral-400'>Мобильный:</div>
-              <a href={phone.link}>{phone.name}</a>
+              <a href={contacts.phone.link}>{contacts.phone.name}</a>
             </li>
             <li className='bg-neutral-900 p-3 mb-5 md:w-1/2 mx-auto'>
               <div className='text-neutral-400'>Telegram (нажать иконку):</div>
-              <a href={telegram.link}>
+              <a href={contacts.telegram.link}>
                 <svg
                   className='m-auto'
                   height={40}
@@ -47,13 +41,13 @@ export default function Contact() {
                   viewBox='0 0 24 24'
                   fill='white'
                 >
-                  <path d={telegram.icon} />
+                  <path d={contacts.telegram.icon} />
                 </svg>
               </a>
             </li>
             <li className='bg-neutral-900 p-3 md:w-1/2 mx-auto'>
               <div className='text-neutral-400'>Whatsapp (нажать иконку):</div>
-              <a href={whatsapp.link}>
+              <a href={contacts.whatsapp.link}>
                 <svg
                   className='m-auto'
                   height={40}
@@ -65,7 +59,7 @@ export default function Contact() {
                   viewBox='0 0 24 24'
                   fill='white'
                 >
-                  <path d={whatsapp.icon} />
+                  <path d={contacts.whatsapp.icon} />
                 </svg>
               </a>
             </li>

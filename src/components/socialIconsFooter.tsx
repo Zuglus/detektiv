@@ -1,15 +1,18 @@
-import { email, phone, telegram, whatsapp } from '@/data/contacts.json';
+import contacts from '@/data/contacts.json';
 
 export default function SocialIconsFooter() {
   return (
-    <div className='hidden md:flex md:flex-grow md:justify-center'>
-      {[phone, email, telegram, whatsapp].map((icon) => {
+    <div className='flex md:flex-grow justify-center mt-6 md:mt-0'>
+      {[
+        contacts.phone,
+        contacts.email,
+        contacts.telegram,
+        contacts.whatsapp,
+      ].map((icon) => {
         return (
-          <a href={icon.link} key={icon.name} className='my-auto ml-2'>
+          <a href={icon.link} key={icon.name} className='my-auto ml-4 md:ml-2'>
             <svg
-              className='fill-neutral-700'
-              height={20}
-              width={20}
+              className='fill-neutral-700 h-7 w-7 md:h-5 md:w-7'
               fill-rule='evenodd'
               stroke-linejoin='round'
               stroke-miterlimit='1.414'

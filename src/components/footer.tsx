@@ -11,9 +11,9 @@ export default function Footer() {
         ДЕТЕКТИВНОЕ АГЕНТСТВО «ПРАВО»
       </h2>
       <hr className='my-4 h-px border-t-0 bg-neutral-600 opacity-50' />
-      <div className='flex my-10'>
+      <div className='flex flex-col md:flex-row my-10'>
         <BottomNav />
-        <hr className='mx-2 w-px h-10 border-t-0 bg-neutral-600 opacity-50' />
+        <hr className='hidden md:inline-block mx-2 my-auto w-px h-10 border-t-0 bg-neutral-600 opacity-50' />
         <SocialIconsFooter />
       </div>
       <hr className='my-4 h-px border-t-0 bg-neutral-600 opacity-50' />
@@ -40,10 +40,10 @@ export default function Footer() {
           ></polyline>
         </svg>
       </a>
-      <p className='uppercase mt-10'>
+      <div className='uppercase mt-10'>
         &#169;2010-2023 Детективное агентство &laquo;Право&raquo; запрещено
         использовать информацию с сайта.
-      </p>
+      </div>
     </div>
   );
 }

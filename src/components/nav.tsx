@@ -52,6 +52,7 @@ export default function Nav() {
               )}
               href={link.href}
               key={link.name}
+              onClick={() => setIsOpen(false)}
             >
               {link.name}
             </Link>

@@ -1,8 +1,6 @@
-import Card from '@/components/card';
 import CardPrinciple from '@/components/cardPrinciple';
 import CardService from '@/components/cardService';
-import { email, phone, site, telegram, whatsapp } from '@/data/contacts.json';
-import { classNames } from '../components/classNames';
+import contacts from '@/data/contacts.json';
 
 export default function About() {
   return (
@@ -13,17 +11,17 @@ export default function About() {
       <p className='text-center'>
         {' '}
         выберите любой вид связи, нажав на ссылку:
-        {[telegram, whatsapp, email].map((item) => {
+        {[contacts.telegram, contacts.whatsapp, contacts.email].map((item) => {
           return (
             <a key={item.name} href={item.link}>
               {' '}
-              <strong>{item.name}</strong>
-              {item === email ? '.' : ','}
+              {item.name}
+              {item === contacts.email ? '.' : ','}
             </a>
           );
         })}
       </p>
-      <p className='indent-5 text-justify mt-4 text-neutral-400'>
+      <p>
         Детективное агентство &laquo;Право&raquo; является{' '}
         <strong>элитарным</strong> и оказывает детективные услуги для тех, кто
         может финансово их заказать - Профессиональные услуги стоят дорого.
@@ -95,7 +93,7 @@ export default function About() {
         })}
       </div>
       <h3 className='text-red-600 mt-8 uppercase'>о нас</h3>
-      <p className='indent-5 text-justify mt-4 text-neutral-400'>
+      <p>
         Детективное агентство &laquo;Право&raquo; создано в 2010 году, офицером
         в отставке - старшим оперуполномоченным по особо важным делам, ветераном
         боевых действий, награжденным государственными наградами. На основании
@@ -107,7 +105,7 @@ export default function About() {
         офицеры в отставке. Каждый Сыщик профессионально выполняет свою работу
         на высоком должном уровне.
       </p>
-      <p className='indent-5 text-justify mt-4 text-neutral-400'>
+      <p>
         Сегодняшний рынок детективных услуг на просторах интернета насыщен
         непрофессиональными кадрами, либо &laquo;гражданскими-стажерами&raquo;,
         получившими лицензию после трехмесячного срока обучения не имеющих
@@ -116,7 +114,7 @@ export default function About() {
         любого задания существует риск, либо форс-мажор, который настоящий
         Профессионал учитывает и обговаривает с Заказчиком.
       </p>
-      <p className='indent-5 text-justify mt-4 text-neutral-400'>
+      <p>
         Стоимость наших услуг, на первый взгляд, может показаться дорогой, но
         после решения Ваших семейных, бизнес и иных проблем, на практике
         окажется оправданной. Покупая дешевый товар, Вы осознанно принимаете его
@@ -148,15 +146,9 @@ export default function About() {
           },
         ].map((item) => {
           return (
-            <li
-              key={item.id}
-              className={classNames(
-                item.id % 2 === 0 ? 'transparent' : 'bg-neutral-900',
-                'px-4 py-3'
-              )}
-            >
+            <li key={item.id} className='odd:bg-neutral-900 px-4 py-3'>
               <h3>{item.title}</h3>
-              <p className='text-neutral-400'>{item.text}</p>
+              <p>{item.text}</p>
             </li>
           );
         })}
@@ -165,7 +157,7 @@ export default function About() {
         <h2 className='text-center text-lg'>
           ПРЕДЛАГАЕМ ПОМОЩЬ В РЕШЕНИИ ВАШИХ ПРОБЛЕМ И ЗАДАЧ
         </h2>
-        <p className='text-neutral-400 text-justify'>
+        <p>
           Меры, которые предлагаем мы, ориентированы не только на результат, а
           также на минимизацию затрат времени и финансов. Потому, что для нас
           важна благодарность заказчика. Безвыходных ситуаций не бывает!
@@ -237,28 +229,16 @@ export default function About() {
       <ul className='list-disc pt-3'>
         <li className='pb-2 text-neutral-400'>
           Все заказы принимаются на e-mail:{' '}
-          <strong className='select-all'>{email.directName}</strong>,{' '}
-          <a href={telegram.link}>
-            {' '}
-            <strong>{telegram.name}</strong>
-          </a>
-          ,{' '}
-          <a href={whatsapp.link}>
-            {' '}
-            <strong>{whatsapp.name}</strong>
-          </a>
-          , либо по телефону{' '}
-          <a href={phone.link}>
-            <strong>{phone.name}</strong>
-          </a>
+          <strong className='select-all text-white'>
+            {contacts.email.directName}
+          </strong>
+          , <a href={contacts.telegram.link}> {contacts.telegram.name}</a>,{' '}
+          <a href={contacts.whatsapp.link}> {contacts.whatsapp.name}</a>, либо
+          по телефону <a href={contacts.phone.link}>{contacts.phone.name}</a>
           . 
         </li>
         <li className='text-neutral-400'>
-          Наш сайт:{' '}
-          <a href={site}>
-            <strong>{site}</strong>
-          </a>
-          .
+          Наш сайт: <a href={contacts.site}>{contacts.site}</a>.
         </li>
       </ul>
       <div className='p-10 text-2xl'>Нам доверяют решение любых вопросов!</div>

@@ -1,5 +1,5 @@
 import { Breadcrumbs } from '@/components/breadcrumbs';
-import { email, phone, telegram, whatsapp } from '@/data/contacts.json';
+import contacts from '@/data/contacts.json';
 
 export const metadata = {
   title: 'Детективное агентство «Право» | Гарантии',
@@ -51,24 +51,24 @@ export default function Garanty() {
       </p>
       <p className='mb-10 mt-5'>
         Выберите любой вид связи, нажав на ссылку:
-        <a href={telegram.link}>
+        <a href={contacts.telegram.link}>
           {' '}
-          <strong>{telegram.name}</strong>
+          <strong>{contacts.telegram.name}</strong>
         </a>
         ,
-        <a href={whatsapp.link}>
+        <a href={contacts.whatsapp.link}>
           {' '}
-          <strong>{whatsapp.name}</strong>
+          <strong>{contacts.whatsapp.name}</strong>
         </a>
         ,
-        <a href={email.link}>
+        <a href={contacts.email.link}>
           {' '}
-          <strong>{email.name}</strong>
+          <strong>{contacts.email.name}</strong>
         </a>
         ,
-        <a href={phone.link}>
+        <a href={contacts.phone.link}>
           {' '}
-          <strong>{phone.name}</strong>
+          <strong>{contacts.phone.name}</strong>
         </a>
         .
       </p>

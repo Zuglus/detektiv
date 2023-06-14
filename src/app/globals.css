@@ -26,3 +26,18 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+p {
+  @apply max-w-4xl;
+  @apply indent-5;
+  @apply mt-4;
+  @apply text-neutral-400;
+  @apply text-justify;
+  @apply leading-6;
+  @apply px-4;
+}
+
+a {
+  @apply text-white;
+  @apply font-bold;
+}
