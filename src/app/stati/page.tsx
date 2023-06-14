@@ -1,4 +1,5 @@
 import { Breadcrumbs } from '@/components/breadcrumbs';
+import posts from '@/data/posts.json';
 import Link from 'next/link';
 
 export const metadata = {
@@ -9,12 +10,11 @@ export default function Blog() {
   return (
     <>
       <Breadcrumbs name='Заказы' link={''} secondName={''} />
-      <Link href='/stati/4-informatsiya-po-ugolovnym-grazhdanskim-delam-uslugi-chastnogo-detektiva'>
-        ИНФОРМАЦИЯ ПО УГОЛОВНЫМ, ГРАЖДАНСКИМ ДЕЛАМ - УСЛУГИ ЧАСТНОГО ДЕТЕКТИВА
-      </Link>
-      <Link href='/stati/7-konfidentsialnoe-vypolnenie-poruchenij-chastnym-detektivom-v-moskve'>
-        ВЫПОЛНЕНИЕ ДЕЛИКАТНЫХ ПОРУЧЕНИЙ ЧАСТНЫМ ДЕТЕКТИВОМ В МОСКВЕ
-      </Link>
+      {posts.map((post) => (
+        <Link key={post.title} href={`/stati/${post.slug}`}>
+          {post.title}
+        </Link>
+      ))}
     </>
   );
 }
