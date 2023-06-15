@@ -20,7 +20,7 @@ export default async function Post({ params }: Props) {
   return (
     <>
       <Breadcrumbs name='Заказы' link={'/stati'} secondName={post.title} />
-      <div className='my-10'>
+      <div className='my-10 shadow-md shadow-neutral-800 py-5'>
         <h2 className='font-serif text-3xl text-center mx-auto uppercase font-bold max-w-2xl'>
           {post.title}
         </h2>

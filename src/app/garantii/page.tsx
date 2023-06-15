@@ -16,7 +16,7 @@ export default function Garanty() {
         Мы ВПРАВЕ ОТКАЗАТЬ в предоставлении детективных услуг БЕЗ ОБЪЯСНЕНИЯ
         ПРИЧИН.
       </p>
-      <p className='py-5 text-justify text-neutral-400'>
+      <p className='shadow-md shadow-neutral-800 py-4'>
         Детективное агентство <strong>&laquo;Право&raquo;</strong> осуществляет
         свою деятельность с 2010 года на основании Лицензии МВД 50ЧД20210003323.
         У нас только <strong>положительные рейтинги</strong> и{' '}
