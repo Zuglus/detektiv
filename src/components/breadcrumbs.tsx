@@ -1,14 +1,12 @@
 import Link from 'next/link';
 
-export const Breadcrumbs = ({
-  name,
-  link = '',
-  secondName = '',
-}: {
+type Bread = {
   name: string;
   link: string;
   secondName: string;
-}) => (
+};
+
+export const Breadcrumbs = ({ name, link = '', secondName = '' }: Bread) => (
   <div className='w-full p-1 m-1' aria-hidden='true'>
     <ul className='flex items-center text-red-900 md:ml-10'>
       <Link href='/' className='font-bold '>

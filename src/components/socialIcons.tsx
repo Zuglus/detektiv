@@ -2,7 +2,7 @@ import contacts from '@/data/contacts.json';
 
 export default function SocialIcons() {
   return (
-    <div className='hidden md:flex md:pr-10'>
+    <div className='hidden md:flex md:pr-10 md:ju'>
       {[
         contacts.phone,
         contacts.email,
@@ -10,7 +10,7 @@ export default function SocialIcons() {
         contacts.whatsapp,
       ].map((icon) => {
         return (
-          <a href={icon.link} key={icon.name} className='my-auto ml-2'>
+          <a href={icon.link} key={icon.name} className='my-auto ml-2 maxw'>
             <svg
               height={25}
               width={25}

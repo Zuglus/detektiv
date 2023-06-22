@@ -1,5 +1,10 @@
 RewriteEngine On
 RewriteBase /
+
+DirectorySlash Off
+
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-ErrorDocument 404 404.html
+RewriteRule ^(([-\w]+/)*?[-\w]+)(/?)$ $1.html [L]
+
+RewriteCond %{REQUEST_URI} /$ [NC]
+RewriteRule ^(.*)(/)$ $1 [L,R=301]

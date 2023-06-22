@@ -122,7 +122,7 @@ export default function Price() {
         ].map((item) => (
           <a key={item.name} href={item.link}>
             {' '}
-            <strong>{item.name}</strong>
+            {item.name}
             {item === contacts.phone ? '.' : ','}
           </a>
         ))}
