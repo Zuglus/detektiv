@@ -10,7 +10,12 @@ export default function SocialIcons() {
         contacts.whatsapp,
       ].map((icon) => {
         return (
-          <a href={icon.link} key={icon.name} className='my-auto ml-2 maxw'>
+          <a
+            href={icon.link}
+            key={icon.name}
+            title={icon.name}
+            className='my-auto ml-2 maxw'
+          >
             <svg
               height={25}
               width={25}
