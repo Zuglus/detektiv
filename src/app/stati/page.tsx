@@ -17,7 +17,7 @@ export default function Blog() {
             key={post.title}
             className='group text-center py-10 shadow-md shadow-neutral-800'
           >
-            <h3 className='text-2xl uppercase'>{post.title}</h3>
+            <h3 className='text-2xl uppercase px-5'>{post.title}</h3>
             <div
               className='p-4 mb-7'
               dangerouslySetInnerHTML={{ __html: post.short }}

@@ -9,18 +9,24 @@ export default function Head() {
         <Nav />
         <SocialIcons />
       </div>
-      <h1 className='text-red-600 font-serif text-6xl antialiased font-bold capitalize'>
-        &laquo;ПРАВО&raquo;
+      <h1 className='text-red-600 font-serif text-5xl sm:text-6xl antialiased font-bold uppercase'>
+        &laquo;право&raquo;
       </h1>
-      <h2 className='text-red-500 text-lg antialiased capitalize'>
-        ДЕТЕКТИВНОЕ АГЕНТСТВО Г. МОСКВА ЛИЦЕНЗИЯ МВД РФ 50ЧД2021000323
+      <h2 className='text-red-500 text-sm sm:text-lg antialiased uppercase'>
+        детективное агентство г. Москва
+        <br className='md:hidden' /> лицензия МВД РФ 50ЧД2021000323
       </h2>
-      <h3 className='max-w-md mx-auto font-semibold my-8 bg-gradient-to-br from-black from-30% to-red-600'>
-        МЫ ДОРОЖИМ РЕПУТАЦИЕЙ - ЭТО ЛИЦО КОМПАНИИ <br /> СТРОГО КОНФИДЕНЦИАЛЬНО{' '}
+      <div className='text-sm sm:text-base max-w-xs sm:max-w-md mx-auto font-semibold my-8 bg-gradient-to-br from-black from-30% to-red-600 uppercase'>
+        мы дорожим репутацией
+        <br className='sm:hidden' /> - это лицо компании
         <br />
-        ОПЕРАТИВНО И ПРОФЕССИОНАЛЬНО <br /> ПО РФ И ЗА РУБЕЖОМ РАБОТАЕМ С 2010
-        ГОДА
-      </h3>
+        строго конфиденциально
+        <br />
+        оперативно и профессионально
+        <br />
+        по РФ и за рубежом
+        <br className='sm:hidden' /> работаем с 2010 года
+      </div>
     </header>
   );
 }

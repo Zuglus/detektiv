@@ -41,3 +41,15 @@ a {
   @apply text-white;
   @apply font-bold;
 }
+
+ul {
+  @apply list-disc m-8 text-neutral-400;
+}
+
+ul > li {
+  @apply md:mb-2 leading-6;
+}
+
+.subheader {
+  @apply m-4 mt-8 uppercase;
+}

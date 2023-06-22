@@ -1,6 +1,11 @@
 import '@/app/globals.css';
 import Footer from '@/components/footer';
 import Head from '@/components/head';
+import { ReactNode } from 'react';
+
+type Props = {
+  children: ReactNode;
+};
 
 export const metadata = {
   title: 'Детективное агентство «Право»',
@@ -10,11 +15,7 @@ export const metadata = {
     'Детективное агентство «Право»-Частный Детектив в Москве. Профессионально✅ Оперативно✅ Достоверно✅ Гарантия✅',
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: Props) {
   return (
     <html lang='ru'>
       <body className='font-sans antialiased p-4 selection:bg-red-600 selection:text-black'>

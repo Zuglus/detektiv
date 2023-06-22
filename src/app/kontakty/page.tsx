@@ -1,9 +1,11 @@
+'use client';
+
 import { Breadcrumbs } from '@/components/breadcrumbs';
 import contacts from '@/data/contacts.json';
 
-export const metadata = {
-  title: 'Детективное агентство «Право» | Контакты',
-};
+// export const metadata = {
+//   title: 'Детективное агентство «Право» | Контакты',
+// };
 
 export default function Contact() {
   return (

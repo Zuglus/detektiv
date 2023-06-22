@@ -5,11 +5,10 @@ import contacts from '@/data/contacts.json';
 export default function About() {
   return (
     <>
-      <p className='text-center'>
-        ДЛЯ ВАШЕЙ КОНФИДЕНЦИАЛЬНОСТИ РАБОТАЕМ ДИСТАНЦИОННО ОНЛАЙН,
+      <p className='text-center uppercase'>
+        для вашей конфиденциальности работаем дистанционно онлайн,
       </p>
       <p className='text-center'>
-        {' '}
         выберите любой вид связи, нажав на ссылку:
         {[contacts.telegram, contacts.whatsapp, contacts.email].map((item) => {
           return (
