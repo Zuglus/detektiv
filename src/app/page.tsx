@@ -12,7 +12,7 @@ export default function About() {
         выберите любой вид связи, нажав на ссылку:
         {[contacts.telegram, contacts.whatsapp, contacts.email].map((item) => {
           return (
-            <a key={item.name} href={item.link}>
+            <a key={item.name} href={item.link} title={item.link}>
               {' '}
               {item.name}
               {item === contacts.email ? '.' : ','}
