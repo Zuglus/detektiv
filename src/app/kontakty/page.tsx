@@ -14,7 +14,7 @@ export default function Contact() {
       <section className='md:w-full mb-12 text-center'>
         <div className='px-3 lg:px-6'>
           <h2 className='text-3xl font-bold mb-10'>Контакты</h2>
-          <ul>
+          <ul className='list-none'>
             <li className='bg-neutral-900 p-3 mb-5 md:w-1/2 mx-auto'>
               <div className='text-neutral-400'>
                 Официальный и единственный адрес:
