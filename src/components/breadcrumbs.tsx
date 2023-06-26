@@ -8,7 +8,7 @@ type Bread = {
 
 export const Breadcrumbs = ({ name, link = '', secondName = '' }: Bread) => (
   <div className='w-full p-1 m-1' aria-hidden='true'>
-    <ul className='flex items-center text-red-900 md:ml-10'>
+    <div className='flex items-center text-red-900 md:ml-10'>
       <Link href='/' className='font-bold '>
         <svg
           xmlns='http://www.w3.org/2000/svg'
@@ -57,9 +57,7 @@ export const Breadcrumbs = ({ name, link = '', secondName = '' }: Bread) => (
           </span>
         </>
       ) : (
-        <li className='flex items-center ml-2 font-bold text-red-900'>
-          {name}
-        </li>
+        <div className='ml-2 font-bold text-red-900'>{name}</div>
       )}
       {secondName ? (
         <li className='flex items-center ml-2 font-bold text-red-900'>
@@ -68,6 +66,6 @@ export const Breadcrumbs = ({ name, link = '', secondName = '' }: Bread) => (
       ) : (
         ''
       )}
-    </ul>
+    </div>
   </div>
 );
