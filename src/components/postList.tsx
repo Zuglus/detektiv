@@ -13,12 +13,16 @@ interface Post {
 }
 
 export default function PostList({ posts }: any) {
-  const [baseList, setBaseList] = useState(3);
+  const [baseList, setBaseList] = useState(0);
+  const active =
+    'px-3 py-2 leading-tight border border-neutral-700 bg-neutral-800 hover:bg-red-950 hover:text-red-700 z-10 text-red-600';
+  const standard =
+    'px-3 py-2 leading-tight text-neutral-500 bg-neutral-900 border border-neutral-600 hover:bg-neutral-900 hover:text-neutral-700';
   return (
     <div className='flex flex-col items-center'>
       <div className='grid grid-cols-1 gap-x-6 gap-y-10 md:grid-cols-2 xl:grid-cols-3 xl:gap-x-8 my-10'>
         {posts.map((post: Post, index: number) =>
-          index > baseList * 5 && index <= baseList * 5 + 5 ? (
+          index >= baseList * 6 && index < baseList * 6 + 6 ? (
             <div
               key={post.title}
               className='group text-center py-10 shadow-md shadow-neutral-800'
@@ -37,9 +41,9 @@ export default function PostList({ posts }: any) {
       </div>
       <ul className='flex list-none items-center -space-x-px'>
         <li>
-          <a
-            href='#'
-            className='block px-3 py-2 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white'
+          <button
+            onClick={() => setBaseList(baseList > 0 ? baseList - 1 : 0)}
+            className=' rounded-l-lg block px-3 py-2 leading-tight text-neutral-500 bg-neutral-900 border border-neutral-600 hover:bg-neutral-900 hover:text-neutral-700'
           >
             <span className='sr-only'>Previous</span>
             <svg
@@ -55,53 +59,55 @@ export default function PostList({ posts }: any) {
                 clip-rule='evenodd'
               ></path>
             </svg>
-          </a>
+          </button>
         </li>
         <li>
-          <a
-            href='#'
-            className='px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white'
+          <button
+            className={baseList === 0 ? active : standard}
+            onClick={() => setBaseList(0)}
           >
             1
-          </a>
+          </button>
         </li>
         <li>
-          <a
-            href='#'
-            className='px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white'
+          <button
+            className={baseList === 1 ? active : standard}
+            onClick={() => setBaseList(1)}
           >
             2
-          </a>
+          </button>
         </li>
         <li>
-          <a
-            href='#'
+          <button
+            onClick={() => setBaseList(2)}
             aria-current='page'
-            className='z-10 px-3 py-2 leading-tight text-blue-600 border border-blue-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white'
+            className={baseList === 2 ? active : standard}
           >
             3
-          </a>
+          </button>
         </li>
         <li>
-          <a
-            href='#'
-            className='px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white'
+          <button
+            onClick={() => setBaseList(3)}
+            className={baseList === 3 ? active : standard}
           >
             4
-          </a>
+          </button>
         </li>
         <li>
-          <a
-            href='#'
-            className='px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white'
+          <button
+            onClick={() => setBaseList(4)}
+            className={baseList === 4 ? active : standard}
           >
             5
-          </a>
+          </button>
         </li>
         <li>
-          <a
-            href='#'
-            className='block px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white'
+          <button
+            onClick={() => {
+              setBaseList(baseList < 4 ? baseList + 1 : 4);
+            }}
+            className='block px-3 py-2 leading-tight text-neutral-500 bg-neutral-900 border border-neutral-600 rounded-r-lg hover:bg-neutral-900 hover:text-neutral-700'
           >
             <span className='sr-only'>Next</span>
             <svg
@@ -117,7 +123,7 @@ export default function PostList({ posts }: any) {
                 clip-rule='evenodd'
               ></path>
             </svg>
-          </a>
+          </button>
         </li>
       </ul>
     </div>

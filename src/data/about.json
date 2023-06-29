@@ -1,0 +1,240 @@
+{
+  "ru": {
+    "header": "для вашей конфиденциальности работаем дистанционно онлайн,",
+    "subheader": "выберите любой вид связи, нажав на ссылку:",
+    "intro": "Детективное агентство &laquo;Право&raquo; является <strong>элитарным</strong> и оказывает детективные услуги для тех, кто может финансово их заказать - Профессиональные услуги стоят дорого. Организовываем поиск, розыск, собираем и проверяем информацию разного направления, проводим анализ и выстраиваем алгоритм действий по конкретной ситуации. Повторяющихся заказов в исполнении нет, всегда применяются новые креативные методы и задействуются различные ресурсы, требующие финансовых затрат. Мы <strong>Гарантируем</strong> <strong>Профессиональное</strong> и <strong>Оперативное</strong> исполнение Вашего Заказа - Вы получаете <strong>Результат</strong> и <strong>Конфиденциальность</strong>, Вам не нужно переживать за обращение к нам, мы не соохраняем никаких данных о Заказчике и результаты работ. Отношения между Нами выстраиваются <strong>Доверительными</strong> и <strong>Уважительными</strong>. Штаб-квартира расположена в Москве, осуществляем детективную деятельность на всей территории России, СНГ и за рубежом. Наши сотрудники не прохлаждаются в офисе, так как постоянно находятся в разъездах, выполняя свою работу.",
+    "serviceList": [
+      {
+        "title": "ДОСЬЕ",
+        "price": "От 150.000 рублей",
+        "text": "Сбор интересующей информации о человеке, об объекте"
+      },
+      {
+        "title": "НАБЛЮДЕНИЕ",
+        "price": "От 150.000 рублей",
+        "text": "Установление образа жизни, фиксация контактов и др."
+      },
+      {
+        "title": "ЧАСТНЫЕ РАССЛЕДОВАНИЯ",
+        "price": "От 1.000.000 рублей",
+        "text": "Установление истины, сбор сведений, очевидцев, свидетелей."
+      },
+      {
+        "title": "ПРОВЕРКА НА ИЗМЕНУ, ЛИБО ЕЕ ОТСУТСТВИЕ",
+        "price": "От 500.000 рублей",
+        "text": "Наблюдение, контакты, связи, соц. сети"
+      },
+      {
+        "title": "ЧАСТНЫЙ ПОИСК ЛЮДЕЙ, РОЗЫСК ДОЛЖНИКОВ",
+        "price": "От 500.000 рублей",
+        "text": "Оперативный поиск по России и за рубежом"
+      },
+      {
+        "title": "ПРОВЕРКА ПЕРСОНАЛА",
+        "price": "От 250.000 рублей",
+        "text": "Сбор и проверка предоставленных данных кандидатом"
+      },
+      {
+        "title": "ПРОВЕРКА ФИРМ И ДЕЛОВЫХ ПАРТНЕРОВ",
+        "price": "От 1.000.000 рублей",
+        "text": "Сбор и проверка сведений, счетов, баланса, имущества, разоблачение мошенников"
+      },
+      {
+        "title": "IT - ИНТЕРНЕТ",
+        "price": "От 700.000 рублей",
+        "text": "Поиск и установление данных в глобальной сети, мессенджерах, соц. сетях и др."
+      },
+      {
+        "title": "ИНФОРМАЦИЯ ЗА РУБЕЖОМ",
+        "price": "От 1.500.000 рублей",
+        "text": "Сбор и проверка интересующей информации о человеке, об объекте"
+      }
+    ],
+    "aboutHeader": "о нас",
+    "aboutText": "<p>Детективное агентство &laquo;Право&raquo; создано в 2010 году, офицером в отставке - старшим оперуполномоченным по особо важным делам, ветераном боевых действий, награжденным государственными наградами. На основании Лицензии МВД РФ 50ЧД2021000323 наше агентство оказывает детективные услуги на территории России и за Рубежом. В детективном агентстве &laquo;Право&raquo; работают опытные, квалифицированные и профессиональные сыщики с высшими образованиями, многолетним опытом - исключительно оперативный состав различных силовых служб ФСБ, МВД, МО - офицеры в отставке. Каждый Сыщик профессионально выполняет свою работу на высоком должном уровне.</p><p>Сегодняшний рынок детективных услуг на просторах интернета насыщен непрофессиональными кадрами, либо &laquo;гражданскими-стажерами&raquo;, получившими лицензию после трехмесячного срока обучения не имеющих совсем опыта в сыске или попросту мошенниками без лицензий, которые якобы гарантируют 100% результат. Имейте ввиду, что при выполнении любого задания существует риск, либо форс-мажор, который настоящий Профессионал учитывает и обговаривает с Заказчиком.</p><p>Стоимость наших услуг, на первый взгляд, может показаться дорогой, но после решения Ваших семейных, бизнес и иных проблем, на практике окажется оправданной. Покупая дешевый товар, Вы осознанно принимаете его изначальное низкое качество, либо сомнительное происхождение. Поэтому, будьте внимательны при выборе частного детектива - Детективное агентство &laquo;Право&raquo; предоставляет Профессиональные услуги.</p>",
+    "benefitsList": [
+      {
+        "id": 1,
+        "title": "ВСЕГДА ПРИДЕРЖИВАЕМСЯ СТРОГОЙ КОНФИДЕНЦИАЛЬНОСТИ.",
+        "text": "После передачи информации заказчику, все сведения, хранящиеся у нас, в обязательном порядке уничтожаются."
+      },
+      {
+        "id": 2,
+        "title": "ПРИМЕНЯЕМ НАРАБОТАННЫЕ СВЯЗИ",
+        "text": "Взаимодействуем с коллегами по всему миру, а также с правоохранительными органами и государственными учреждениями."
+      },
+      {
+        "id": 3,
+        "title": "ПОСТОЯННО ПОВЫШАЕМ УРОВЕНЬ ПРОФЕССИОНАЛЬНОГО РАЗВИТИЯ",
+        "text": "Идем в ногу со временем, внедряем новейшие технологии."
+      },
+      {
+        "id": 4,
+        "title": "РАБОТАЕМ ДИСТАНЦИОННО - ОНЛАЙН",
+        "text": "Конфиденциальность и экономия время, приступаем незамедлительно к выполнению задания"
+      }
+    ],
+    "proposeHeader": "ПРЕДЛАГАЕМ ПОМОЩЬ В РЕШЕНИИ ВАШИХ ПРОБЛЕМ И ЗАДАЧ",
+    "proposeText": "Меры, которые предлагаем мы, ориентированы не только на результат, а также на минимизацию затрат времени и финансов. Потому, что для нас важна благодарность заказчика. Безвыходных ситуаций не бывает!",
+    "detektivePrinciplesHeader": "ПРИНЦИПЫ ЧАСТНОГО ДЕТЕКТИВА «ПРАВО»",
+    "detektivePrinciplesList": [
+      {
+        "title": "КОНФИДЕНЦИАЛЬНОСТЬ",
+        "text": "Ваши секреты строго охраняются, после работы все данные уничтожаются"
+      },
+      {
+        "title": "КОМПЕТЕНТНОСТЬ",
+        "text": "Знания и опыт позволяют оказывать услуги профессионально"
+      },
+      {
+        "title": "ДОСТОВЕРНОСТЬ ИНФОРМАЦИИ",
+        "text": "Проверенные нами данные – это ваши правильные уверенные решения"
+      },
+      {
+        "title": "ЗАКОННОСТЬ",
+        "text": "Действуем в правовом поле – в рамках действующего законодательства"
+      },
+      {
+        "title": "ОПЕРАТИВНОСТЬ",
+        "text": "От скорости поиска людей и сбора информации зависит итог дела"
+      },
+      {
+        "title": "ЧЕЛОВЕЧНОСТЬ",
+        "text": "За каждой историей стоят люди: их чувства и судьбы"
+      }
+    ],
+    "orderListHeader": "ПРОЦЕСС ЗАКАЗА ВЫГЛЯДИТ СЛЕДУЮЩИМ ОБРАЗОМ:",
+    "orderList": [
+      "Бесплатная предварительная консультация по телефону, email, telegram, whatsapp",
+      "Получение вводных данных от Заказчика для определения сроков исполнения и стоимости услуги",
+      "Оплата через СБП (систему быстрых платежей) на карту банка, привязанную к мобильному номеру, а также криптовалютой",
+      "Сбор информации / Сыскные мероприятия",
+      "Предоставление отчета"
+    ],
+    "alertHeader": "ОСТЕРЕГАЙТЕСЬ МОШЕННИКОВ!",
+    "alertText": "<strong>Частное детективное агентство &laquo;Право&raquo;</strong> имеет безупречную репутацию на рынке детективных услуг. Возможны случаи, когда мошенники или недобросовестные коллеги могут представляться сотрудниками нашего агентства. Чтобы распознать аферистов, помните следующее:",
+    "alertSubstring1": "Все заказы принимаются на e-mail: ",
+    "alertSubstring2": " либо по телефону ",
+    "alertSubstring3": "Наш сайт: ",
+    "alertPost": "Нам доверяют решение любых вопросов!"
+  },
+  "en": {
+    "header": "for your privacy, we work remotely online,",
+    "subheader": "select any type of connection by clicking on the link:",
+    "intro": "Detective agency &laquo;Pravo&raquo; is <strong>elite</strong> and provides detective services for those who can financially order them - Professional services are expensive. We organize search, search, collect and check information of different directions, analyze and build an algorithm of actions for a specific situation. There are no recurring orders in execution, new creative methods are always used and various resources that require financial costs are involved. We are <strong>We guarantee</strong> <strong>Professional</strong> and <strong>Prompt</strong> execution of your Order - You get <strong>Result</strong> and <strong>Confidentiality</strong>, you do not need to worry about contacting us, we do not save any data about the Customer and the results of the work. The relationship between Us is building <strong>Trusted</strong> and <strong>Respectful</strong>. The headquarters is located in Moscow, we carry out detective work throughout Russia, the CIS and abroad. Our employees do not cool off in the office, as they are constantly on the move, doing their job.",
+    "serviceList": [
+      {
+        "title": "dossier",
+        "price": "from $800",
+        "text": "Collecting interesting information about a person, about an object"
+      },
+      {
+        "title": "surveillance",
+        "price": "from $800",
+        "text": "Establishing a lifestyle, fixing contacts, etc."
+      },
+      {
+        "title": "private investigations",
+        "price": "from $4500",
+        "text": "Establishing the truth, collecting information, eyewitnesses, witnesses"
+      },
+      {
+        "title": "CHECKING FOR TREASON, OR ITS ABSENCE",
+        "price": "from $3000",
+        "text": "Surveillance, contacts, communications, social networks"
+      },
+      {
+        "title": "PRIVATE SEARCH FOR PEOPLE AND SEARCH FOR DEBTORS, ALIMONY",
+        "price": "from $2000",
+        "text": "Operational search in Russia and abroad"
+      },
+      {
+        "title": "PERSONNEL CHECK",
+        "price": "from $1500",
+        "text": "Collection and verification of the data provided by the candidate"
+      },
+      {
+        "title": "CHECKING FIRMS AND BUSINESS PARTNERS",
+        "price": "from $3500",
+        "text": "Collection and verification of information, accounts, balance, property, exposure of fraudsters"
+      },
+      {
+        "title": "IT - INTERNET",
+        "price": "from $3000",
+        "text": "Search and establishment of data in the global network, messengers, social networks. networks, etc."
+      },
+      {
+        "title": "INFORMATION ABROAD",
+        "price": "from $7000",
+        "text": "Collection and verification of information of interest about a person, about an object"
+      }
+    ],
+    "aboutHeader": "About us",
+    "aboutText": "<p>The detective agency &laquo;Pravo&raquo; was established in 2010 by a retired officer - a senior operative for particularly important cases, a combat veteran, awarded state awards. Based on the License of the Ministry of Internal Affairs of the Russian Federation 50CHD2021000323, our agency provides detective services in Russia and abroad. The detective agency &laquo;Pravo&raquo; employs experienced, qualified and professional detectives with higher education, many years of experience - exclusively the operational staff of various security services of the FSB, the Ministry of Internal Affairs, the Ministry of Defense - retired officers. Each Detective professionally performs his work at a high proper level.</p><p>Today's market of detective services on the Internet is saturated with unprofessional personnel, or &laquo;civilian trainees&raquo; who received a license after a three-month training period without any experience in detective work, or simply scammers without licenses who allegedly guarantee 100% results. Keep in mind that when performing any task, there is a risk, or force majeure, which a real Professional takes into account and negotiates with the Customer.</p><p>The cost of our services, at first glance, may seem expensive, but after solving your family, business and other problems, in practice it will be justified. Buying a cheap product, you consciously accept its original poor quality or questionable origin. Therefore, be careful when choosing a private detective - the detective agency &laquo;Pravo&raquo; provides Professional services.</p>",
+    "benefitsList": [
+      {
+        "id": 1,
+        "title": "WE ALWAYS ADHERE TO STRICT CONFIDENTIALITY.",
+        "text": "After the transfer of information to the customer, all information stored with us is necessarily destroyed."
+      },
+      {
+        "id": 2,
+        "title": "WE USE THE ESTABLISHED CONNECTIONS",
+        "text": "We interact with colleagues around the world, as well as with law enforcement agencies and government agencies."
+      },
+      {
+        "id": 3,
+        "title": "WE ARE CONSTANTLY IMPROVING THE LEVEL OF PROFESSIONAL DEVELOPMENT",
+        "text": "We are keeping up with the times, introducing the latest technologies."
+      },
+      {
+        "id": 4,
+        "title": "WE WORK REMOTELY - ONLINE",
+        "text": "Confidentiality and saving time, we proceed immediately to the task."
+      }
+    ],
+    "proposeHeader": "WE OFFER ASSISTANCE IN SOLVING YOUR PROBLEMS AND TASKS",
+    "proposeText": "The measures we propose are focused not only on results, but also on minimizing time and financial costs. Because the customer's gratitude is important to us. There are no hopeless situations!",
+    "detektivePrinciplesHeader": "Principles of the private detective «Pravo»",
+    "detektivePrinciplesList": [
+      {
+        "title": "PRIVACY",
+        "text": "Your secrets are strictly guarded, all data is destroyed after work"
+      },
+      {
+        "title": "COMPETENCE",
+        "text": "Knowledge and experience allow us to provide services professionally"
+      },
+      {
+        "title": "RELIABILITY OF INFORMATION",
+        "text": "The data verified by us is your correct confident decisions"
+      },
+      {
+        "title": "LEGALITY",
+        "text": "We act in the legal field – within the framework of the current legislation"
+      },
+      {
+        "title": "EFFICIENCY",
+        "text": "The outcome of the case depends on the speed of finding people and collecting information"
+      },
+      {
+        "title": "HUMANITY",
+        "text": "There are people behind every story: their feelings and destinies"
+      }
+    ],
+    "orderListHeader": "THE ORDER PROCESS LOOKS LIKE THIS:",
+    "orderList": [
+      "Free preliminary consultation by phone, email, telegram, whatsapp",
+      "Receiving input data from the Customer to determine the terms of performance and cost of the service",
+      "Payment via the SBR (fast payment system) to a bank card linked to a mobile number, as well as cryptocurrency",
+      "Information gathering / Detective activities",
+      "Providing a report"
+    ],
+    "alertHeader": "BEWARE OF SCAMMERS!",
+    "alertText": "<strong>Private detective agency &laquo;Pravo&raquo</strong>  has an impeccable reputation in the market of detective services. There may be cases when fraudsters or unscrupulous colleagues may present themselves as employees of our agency. To recognize scammers, remember the following:",
+    "alertSubstring1": "All orders are accepted by e-mail: ",
+    "alertSubstring2": " or by phone ",
+    "alertSubstring3": "Our website: ",
+    "alertPost": "We are trusted to solve any issues!"
+  }
+}
