@@ -1,8 +1,12 @@
 {
   "ru": {
-    "title": "ДЕТЕКТИВНОЕ АГЕНТСТВО «ПРАВО»",
-    "imgAlt": "Фотография лицензии детектива",
-    "copyright": "&#169;2010-2023 Детективное агентство &laquo;Право&raquo; запрещено использовать информацию с сайта."
+    "title": "детективное агентство «право»",
+    "imgalt": "фотография лицензии детектива",
+    "copyright": "&#169;2010-2023 детективное агентство &laquo;право&raquo; запрещено использовать информацию с сайта."
   },
-  "en": ""
+  "en": {
+    "title": "Detective agency «Pravo»",
+    "imgAlt": "Photo of the detective's license",
+    "copyright": "&#169;2010-2023 Detective agency &laquo;Pravo&raquo; is prohibited from using information from the website."
+  }
 }
