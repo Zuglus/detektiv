@@ -8,7 +8,7 @@ import { Rout } from './types';
 export default function Footer({routes, content}: {routes: Rout[], content: any}) {
   return (
     <div className='bg-red-500 text-center text-black p-5 md:p-10'>
-      <h2 className='font-bold text-xl border-b-violet-700'>
+      <h2 className='font-bold text-xl border-b-violet-700 uppercase'>
       {content.title}
       </h2>
       <hr className='my-4 h-px border-t-0 bg-neutral-600 opacity-50' />

@@ -24,5 +24,31 @@
       "name": "вакансии",
       "href": "/vakansii"
     }
+  ],
+  "en": [
+    {
+      "name": "About",
+      "href": "en/"
+    },
+    {
+      "name": "Price",
+      "href": "en/price-en"
+    },
+    {
+      "name": "Contact",
+      "href": "en/contact"
+    },
+    {
+      "name": "Guarantee",
+      "href": "en/guarantee"
+    },
+    {
+      "name": "Blog",
+      "href": "en/blog"
+    },
+    {
+      "name": "Job",
+      "href": "en/job"
+    }
   ]
 }
