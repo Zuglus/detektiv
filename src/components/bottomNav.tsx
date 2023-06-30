@@ -1,7 +1,9 @@
-import routes from '@/data/routes.json';
-import Link from 'next/link';
+'use client';
 
-export default function BottomNav() {
+import Link from 'next/link';
+import { Rout } from './types';
+
+export default function BottomNav({routes}: {routes: Rout[]}) {
   return (
     <div className='flex-auto'>
       {routes.map((route) => {

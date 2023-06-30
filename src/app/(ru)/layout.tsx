@@ -1,11 +1,10 @@
 import '@/app/globals.css';
 import Footer from '@/components/footer';
 import Head from '@/components/head';
-import { ReactNode } from 'react';
-
-type Props = {
-  children: ReactNode;
-};
+import { Props } from '@/components/types';
+import footerContent from '@/data/footer.json';
+import headData from '@/data/header.json';
+import routes from '@/data/routes.json';
 
 export const metadata = {
   title: 'Детективное агентство «Право»',
@@ -20,11 +19,11 @@ export default function RootLayout({ children }: Props) {
     <html lang='ru'>
       <body className='font-sans antialiased p-4 selection:bg-red-600 selection:text-black'>
         <div className='container mx-auto'>
-          <Head />
+          <Head data={headData.ru} routes={routes.ru} />
           <main className='flex flex-col items-center justify-between'>
             {children}
           </main>
-          <Footer />
+          <Footer content={footerContent.ru} routes={routes.ru}/>
         </div>
       </body>
     </html>

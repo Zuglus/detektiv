@@ -3,16 +3,17 @@ import BottomNav from './bottomNav';
 import Image from 'next/image';
 import docImg from '../../public/doc-3374709d.jpeg';
 import SocialIconsFooter from './socialIconsFooter';
+import { Rout } from './types';
 
-export default function Footer() {
+export default function Footer({routes, content}: {routes: Rout[], content: any}) {
   return (
     <div className='bg-red-500 text-center text-black p-5 md:p-10'>
       <h2 className='font-bold text-xl border-b-violet-700'>
-        ДЕТЕКТИВНОЕ АГЕНТСТВО «ПРАВО»
+      {content.title}
       </h2>
       <hr className='my-4 h-px border-t-0 bg-neutral-600 opacity-50' />
       <div className='flex flex-col md:flex-row my-10'>
-        <BottomNav />
+        <BottomNav routes={routes}/>
         <hr className='hidden md:inline-block mx-2 my-auto w-px h-10 border-t-0 bg-neutral-600 opacity-50' />
         <SocialIconsFooter />
       </div>
@@ -20,7 +21,7 @@ export default function Footer() {
       <Image
         className='mx-auto h-24 w-auto my-10'
         src={docImg}
-        alt='Фотография лицензии детектива'
+        alt={content.imgAlt}
         placeholder='blur'
       />
       <a className='inline-block text-neutral-600 opacity-50' href='#'>
@@ -40,10 +41,7 @@ export default function Footer() {
           ></polyline>
         </svg>
       </a>
-      <div className='uppercase mt-10'>
-        &#169;2010-2023 Детективное агентство &laquo;Право&raquo; запрещено
-        использовать информацию с сайта.
-      </div>
+      <div className='uppercase mt-10' dangerouslySetInnerHTML={{__html: content.copyright}}/>
     </div>
   );
 }

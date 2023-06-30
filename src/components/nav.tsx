@@ -1,12 +1,12 @@
 'use client';
 
-import routes from '@/data/routes.json';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { classNames } from './classNames';
+import { Rout } from './types';
 
-export default function Nav() {
+export default function Nav({routes}:{routes: Rout[]}) {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   return (
@@ -41,7 +41,7 @@ export default function Nav() {
           isOpen ? 'flex' : 'hidden md:flex'
         }`}
       >
-        {routes.map((link: { name: string; href: string }) => {
+        {routes.map((link: Rout) => {
           return (
             <Link
               className={classNames(
