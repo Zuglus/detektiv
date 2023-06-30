@@ -1,26 +1,28 @@
-[
-  {
-    "name": "о нас",
-    "href": "/"
-  },
-  {
-    "name": "прайс",
-    "href": "/price"
-  },
-  {
-    "name": "контакты",
-    "href": "/kontakty"
-  },
-  {
-    "name": "гарантии",
-    "href": "/garantii"
-  },
-  {
-    "name": "заказы",
-    "href": "/stati"
-  },
-  {
-    "name": "вакансии",
-    "href": "/vakansii"
-  }
-]
+{
+  "ru": [
+    {
+      "name": "о нас",
+      "href": "/"
+    },
+    {
+      "name": "прайс",
+      "href": "/price"
+    },
+    {
+      "name": "контакты",
+      "href": "/kontakty"
+    },
+    {
+      "name": "гарантии",
+      "href": "/garantii"
+    },
+    {
+      "name": "заказы",
+      "href": "/stati"
+    },
+    {
+      "name": "вакансии",
+      "href": "/vakansii"
+    }
+  ]
+}
