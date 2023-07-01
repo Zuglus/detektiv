@@ -3,43 +3,39 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
+import ButtonTranslate from './buttonTranslate';
 import { classNames } from './classNames';
 import { Rout } from './types';
 
-export default function Nav({routes}:{routes: Rout[]}) {
+export default function Nav({ routes }: { routes: Rout[] }) {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className='p-10'>
+    <div className='flex md:justify-between md:w-full p-10'>
       <button
         type='button'
         onClick={() => setIsOpen(!isOpen)}
-        className={`${'float-right group flex md:hidden h-7 w-7 cursor-pointer items-center justify-center rounded p-2'} ${
-          isOpen ? 'bg-red-800' : 'bg-transparent'
-        }`}
+        className={`${'float-right group flex md:hidden h-7 w-7 cursor-pointer items-center justify-center rounded p-2'} ${isOpen ? 'bg-red-800' : 'bg-transparent'
+          }`}
       >
         <div className='space-y-1'>
           <span
-            className={`${'block h-[2px] w-5 origin-center rounded-full transition-transform ease-in-out'} ${
-              isOpen ? 'bg-white translate-y-1 rotate-45' : 'bg-gray-500'
-            }`}
+            className={`${'block h-[2px] w-5 origin-center rounded-full transition-transform ease-in-out'} ${isOpen ? 'bg-white translate-y-1 rotate-45' : 'bg-gray-500'
+              }`}
           ></span>
           <span
-            className={`${'h-[2px] w-5 origin-center rounded-full bg-slate-500'} ${
-              isOpen ? 'hidden' : 'block'
-            }`}
+            className={`${'h-[2px] w-5 origin-center rounded-full bg-slate-500'} ${isOpen ? 'hidden' : 'block'
+              }`}
           ></span>
           <span
-            className={`${'block h-[2px] w-5 origin-center rounded-full transition-transform ease-in-out'} ${
-              isOpen ? 'bg-white -translate-y-full -rotate-45' : 'bg-gray-500'
-            }`}
+            className={`${'block h-[2px] w-5 origin-center rounded-full transition-transform ease-in-out'} ${isOpen ? 'bg-white -translate-y-full -rotate-45' : 'bg-gray-500'
+              }`}
           ></span>
         </div>
       </button>
       <div
-        className={`${'flex-col items-center md:flex-row'} ${
-          isOpen ? 'flex' : 'hidden md:flex'
-        }`}
+        className={`${'flex-col items-center md:flex-row'} ${isOpen ? 'flex' : 'hidden md:flex'
+          }`}
       >
         {routes.map((link: Rout) => {
           return (
@@ -59,6 +55,7 @@ export default function Nav({routes}:{routes: Rout[]}) {
           );
         })}
       </div>
+      <ButtonTranslate url={pathname} />
     </div>
   );
 }

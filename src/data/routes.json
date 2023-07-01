@@ -2,7 +2,9 @@
   "ru": [
     {
       "name": "о нас",
-      "href": "/"
+      "href": "/",
+      "hrefEn": "/en",
+      "translate": true
     },
     {
       "name": "прайс",
@@ -28,27 +30,27 @@
   "en": [
     {
       "name": "About",
-      "href": "en/"
+      "href": "/en"
     },
     {
       "name": "Price",
-      "href": "en/price-en"
+      "href": "/en/price-en"
     },
     {
       "name": "Contact",
-      "href": "en/contact"
+      "href": "/en/contact"
     },
     {
       "name": "Guarantee",
-      "href": "en/guarantee"
+      "href": "/en/guarantee"
     },
     {
       "name": "Blog",
-      "href": "en/blog"
+      "href": "/en/blog"
     },
     {
       "name": "Job",
-      "href": "en/job"
+      "href": "/en/job"
     }
   ]
 }
