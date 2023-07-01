@@ -1,0 +1,62 @@
+[
+  {
+    "link": "/",
+    "linkTrans": "/en",
+    "flag": true
+  },
+  {
+    "link": "/en",
+    "linkTrans": "/",
+    "flag": false
+  },
+  {
+    "link": "/price",
+    "linkTrans": "/en/price-en",
+    "flag": true
+  },
+  {
+    "link": "/en/price-en",
+    "linkTrans": "/price",
+    "flag": false
+  },
+  {
+    "link": "/kontakty",
+    "linkTrans": "/en/contact",
+    "flag": true
+  },
+  {
+    "link": "/en/contact",
+    "linkTrans": "/kontakty",
+    "flag": false
+  },
+  {
+    "link": "/garantii",
+    "linkTrans": "/en/guarantee",
+    "flag": true
+  },
+  {
+    "link": "/en/guarantee",
+    "linkTrans": "/garantii",
+    "flag": false
+  },
+  {
+    "link": "/stati",
+    "linkTrans": "/en/blog",
+    "flag": true
+  },
+  {
+    "link": "/en/blog",
+    "linkTrans": "/stati",
+    "flag": false
+  },
+  {
+    "link": "/vakansii",
+    "linkTrans": "/en/job",
+    "flag": true
+  },
+  {
+    "link": "/en/job",
+    "linkTrans": "/vakansii",
+    "flag": false
+  }
+]
