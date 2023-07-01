@@ -11,7 +11,7 @@ export default function Nav({ routes }: { routes: Rout[] }) {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className='flex md:justify-between md:w-full p-10'>
+    <div className='flex flex-row-reverse justify-between md:flex-row md:w-full p-10'>
       <button
         type='button'
         onClick={() => setIsOpen(!isOpen)}
@@ -34,8 +34,7 @@ export default function Nav({ routes }: { routes: Rout[] }) {
         </div>
       </button>
       <div
-        className={`${'flex-col items-center md:flex-row'} ${isOpen ? 'flex' : 'hidden md:flex'
-          }`}
+        className={classNames('flex-col items-center md:flex-row', isOpen ? 'flex mx-auto' : 'hidden md:flex')}
       >
         {routes.map((link: Rout) => {
           return (
@@ -55,7 +54,7 @@ export default function Nav({ routes }: { routes: Rout[] }) {
           );
         })}
       </div>
-      <ButtonTranslate url={pathname} />
+      <ButtonTranslate url={pathname} isOpen={isOpen} />
     </div>
   );
 }
