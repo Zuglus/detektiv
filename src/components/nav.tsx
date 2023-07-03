@@ -7,7 +7,7 @@ import ButtonTranslate from './buttonTranslate';
 import { classNames } from './classNames';
 import { Rout } from './types';
 
-export default function Nav({ routes }: { routes: Rout[] }) {
+export default function Nav({ routes, routesToTrans }: { routes: Rout[], routesToTrans: Rout[] }) {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   return (
@@ -54,7 +54,7 @@ export default function Nav({ routes }: { routes: Rout[] }) {
           );
         })}
       </div>
-      <ButtonTranslate url={pathname} isOpen={isOpen} />
+      <ButtonTranslate url={pathname} isOpen={isOpen} flag={true} />
     </div>
   );
 }
