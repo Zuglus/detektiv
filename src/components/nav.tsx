@@ -7,7 +7,7 @@ import ButtonTranslate from './buttonTranslate';
 import { classNames } from './classNames';
 import { Rout } from './types';
 
-export default function Nav({ routes, routesToTrans }: { routes: Rout[], routesToTrans: Rout[] }) {
+export default function Nav({ routes }: { routes: Rout[] }) {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   return (

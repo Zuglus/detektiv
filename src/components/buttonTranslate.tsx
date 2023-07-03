@@ -7,7 +7,7 @@ import TranslateUrl from "./translateUrl";
 export default function ButtonTranslate({ url, isOpen, flag }: { url: string, isOpen: boolean, flag: boolean }) {
   const trans = TranslateUrl(url);
   return (
-    <Link className={classNames(isOpen ? 'hidden' : '', 'my-auto')} href={trans?.link}>{trans?.flag ? <svg xmlns="http://www.w3.org/2000/svg" height={20} viewBox="0 0 640 480">
+    <Link className={classNames(isOpen ? 'hidden' : '', 'my-auto')} href={trans.link || '/'}>{trans?.flag ? <svg xmlns="http://www.w3.org/2000/svg" height={20} viewBox="0 0 640 480">
       <path fill="#bd3d44" d="M0 0h640v480H0" />
       <path stroke="#fff" stroke-width="37" d="M0 55.3h640M0 129h640M0 203h640M0 277h640M0 351h640M0 425h640" />
       <path fill="#192f5d" d="M0 0h364.8v258.5H0" />
