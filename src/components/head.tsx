@@ -2,11 +2,11 @@ import Nav from './nav';
 import SocialIcons from './socialIcons';
 import { Rout } from './types';
 
-export default function Head({ data, routes, routesToTrans }: { data: any, routes: Rout[], routesToTrans: Rout[] }) {
+export default function Head({ data, routes }: { data: any, routes: Rout[] }) {
   return (
     <header className='text-center'>
       <div className='md:flex md:justify-between md:py-1'>
-        <Nav routes={routes} routesToTrans={routesToTrans} />
+        <Nav routes={routes} />
         <SocialIcons />
       </div>
       <h1 className='text-red-600 font-serif text-5xl sm:text-6xl antialiased font-bold uppercase'>
