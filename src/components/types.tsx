@@ -25,3 +25,9 @@ export type Rout = {
 export type Props = {
   children: ReactNode;
 };
+
+export type Service = {
+  title: string;
+  price: string;
+  text: string;
+}
