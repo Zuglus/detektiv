@@ -1,5 +1,4 @@
 import { Breadcrumbs } from '@/components/breadcrumbs';
-import Button from '@/components/button';
 import { getPosts } from '@/components/getPosts';
 import PostList from '@/components/postList';
 
