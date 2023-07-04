@@ -14,22 +14,22 @@ export default function ContentGuarantee({ data, contacts }: { data: any, contac
       {data.propose}
       <a href={contacts.telegram.link}>
         {' '}
-        <strong>{contacts.telegram.name}</strong>
+        {contacts.telegram.name}
       </a>
       ,
       <a href={contacts.whatsapp.link}>
         {' '}
-        <strong>{contacts.whatsapp.name}</strong>
+        {contacts.whatsapp.name}
       </a>
       ,
       <a href={contacts.email.link}>
         {' '}
-        <strong>{contacts.email.name}</strong>
+        {contacts.email.name}
       </a>
       ,
       <a href={contacts.phone.link}>
         {' '}
-        <strong>{contacts.phone.name}</strong>
+        {contacts.phone.name}
       </a>
       .
     </p>

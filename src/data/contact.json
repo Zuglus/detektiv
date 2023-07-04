@@ -1,0 +1,22 @@
+{
+  "ru": {
+    "header": "Контакты",
+    "addressTitle": "Официальный и единственный адрес:",
+    "address": "г. Москва, Проспект Мира, 27",
+    "email": "E-mail:",
+    "mobile": "Мобильный:",
+    "telegram": "Telegram (нажать иконку):",
+    "whatsapp": "Whatsapp (нажать иконку):",
+    "accord": "Согласно ФЗ № 152 «О персональных данных» при заполнении граф на нашем сайте своих личных данных, вы автоматически даете согласие на их обработку. При заключении с нами договора, в нем данный пункт прописан отдельно."
+  },
+  "en": {
+    "header": "Contact",
+    "addressTitle": "The official and only address:",
+    "address": "Moscow, Prospekt Mira, 27",
+    "email": "E-mail:",
+    "mobile": "Mobile:",
+    "telegram": "Telegram (click the icon):",
+    "whatsapp": "Whatsapp (click the icon):",
+    "accord": "According to Federal Law No. 152 «On Personal Data», when filling out the column on our website of your personal data, you automatically consent to their processing. When concluding an agreement with us, this paragraph is spelled out separately in it."
+  }
+}
