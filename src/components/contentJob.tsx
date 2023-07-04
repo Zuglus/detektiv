@@ -14,7 +14,7 @@ export default function ContentJob({ data, contacts }: { data: any, contacts: an
       </p>
       <ul className='text-white'>
         {
-          data.portfolioList.map((i: string) => <li className='md:mb-2'>{i}</li>)
+          data.portfolioList.map((i: string) => <li key={i} className='md:mb-2'>{i}</li>)
         }
       </ul>
       <p className='md:w-1/2 md:text-start' dangerouslySetInnerHTML={{ __html: data.portfolioLink }} />

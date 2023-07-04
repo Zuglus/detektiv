@@ -10,7 +10,7 @@ export const metadata = {
 export default function Job() {
   return (
     <>
-      <Breadcrumbs name='Вакансии' link={''} secondName={''} />
+      <Breadcrumbs home='/' name='Вакансии' link={''} secondName={''} />
       <ContentJob contacts={contacts} data={content.ru} />
     </>
   );

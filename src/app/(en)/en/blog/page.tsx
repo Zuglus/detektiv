@@ -10,8 +10,8 @@ export default async function Blog() {
   const posts = await getEnPosts();
   return (
     <>
-      <Breadcrumbs name='Blog' link={''} secondName={''} />
-      <PostList posts={posts} />
+      <Breadcrumbs home='/en' name='Blog' link={''} secondName={''} />
+      <PostList posts={posts} base='en/blog' buttonName="continue reading" />
     </>
   );
 }

@@ -10,7 +10,7 @@ export const metadata = {
 export default function Contact() {
   return (
     <>
-      <Breadcrumbs name='Контакты' link={''} secondName={''} />
+      <Breadcrumbs home='/' name='Контакты' link={''} secondName={''} />
       <ContentContact contacts={contacts} data={content.ru} />
     </>
   );

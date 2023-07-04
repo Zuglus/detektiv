@@ -10,7 +10,7 @@ export const metadata = {
 export default function Guarantee() {
   return (
     <>
-      <Breadcrumbs name='Guarantee' link={''} secondName={''} />
+      <Breadcrumbs home="/en" name='Guarantee' link={''} secondName={''} />
       <ContentGuarantee contacts={contacts} data={content.en} />
     </>
   );

@@ -10,7 +10,7 @@ export const metadata = {
 export default function Contact() {
   return (
     <>
-      <Breadcrumbs name='Contact' link={''} secondName={''} />
+      <Breadcrumbs home="/en" name='Contact' link={''} secondName={''} />
       <ContentContact contacts={contacts} data={content.en} />
     </>
   );

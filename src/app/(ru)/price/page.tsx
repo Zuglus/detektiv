@@ -10,7 +10,7 @@ export const metadata = {
 export default function Price() {
   return (
     <>
-      <Breadcrumbs name='Прайс' link='' secondName='' />
+      <Breadcrumbs home='/' name='Прайс' link='' secondName='' />
       <ContentPrice contacts={contacts} data={content.ru} />
     </>
   );
