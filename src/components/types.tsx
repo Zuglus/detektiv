@@ -31,3 +31,18 @@ export type Service = {
   price: string;
   text: string;
 }
+
+export interface Post {
+  slug: string;
+  title: string;
+  short: string;
+  content: string;
+  prev: string;
+  next: string;
+}
+
+export interface Slugs {
+  params: {
+    slug: string;
+  };
+}

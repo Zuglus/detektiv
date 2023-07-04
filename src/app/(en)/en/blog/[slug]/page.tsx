@@ -1,10 +1,10 @@
 import { Breadcrumbs } from '@/components/breadcrumbs';
 import { classNames } from '@/components/classNames';
-import { getPosts } from '@/components/getPosts';
+import { getEnPosts } from '@/components/getEnPosts';
 import { Slugs } from '@/components/types';
 
 export async function generateStaticParams() {
-  const posts = await getPosts();
+  const posts = await getEnPosts();
 
   return posts.map((post) => ({
     slug: post.slug,
@@ -12,10 +12,10 @@ export async function generateStaticParams() {
 }
 
 export default async function Post({ params }: Slugs) {
-  const [post] = await getPosts(params.slug);
+  const [post] = await getEnPosts(params.slug);
   return (
     <>
-      <Breadcrumbs name='Заказы' link={'/stati'} secondName={post.title} />
+      <Breadcrumbs name='Blog' link={'/blog'} secondName={post.title} />
       <div className='my-10 shadow-md shadow-neutral-800 py-5 max-w-4xl'>
         <h2 className='font-serif text-3xl text-center mx-auto uppercase font-bold max-w-2xl'>
           {post.title}
