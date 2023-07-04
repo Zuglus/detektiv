@@ -2,17 +2,9 @@
 
 import { useState } from 'react';
 import Button from './button';
+import { Post } from './types';
 
-interface Post {
-  slug: string;
-  title: string;
-  short: string;
-  content: string;
-  prev: string;
-  next: string;
-}
-
-export default function PostList({ posts }: any) {
+export default function PostList({ posts, base, buttonName }: { posts: Post[], base: string, buttonName: string }) {
   const [baseList, setBaseList] = useState(0);
   const active =
     'px-3 py-2 leading-tight border border-neutral-700 bg-neutral-800 hover:bg-red-950 hover:text-red-700 z-10 text-red-600';
@@ -32,7 +24,7 @@ export default function PostList({ posts }: any) {
                 className='p-4 mb-7'
                 dangerouslySetInnerHTML={{ __html: post.short }}
               />
-              <Button name='ПОДРОБНЕЕ' url={`stati/${post.slug}`} />
+              <Button name={buttonName} url={`${base}/${post.slug}`} />
             </div>
           ) : (
             ''

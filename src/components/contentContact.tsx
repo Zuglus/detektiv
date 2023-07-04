@@ -8,7 +8,7 @@ export default function ContentContact({ data, contacts }: { data: any, contacts
             <div className='text-neutral-400'>
               {data.addressTitle}
             </div>
-            <div>{data.address}</div>
+            <div className="text-neutral-200">{data.address}</div>
           </li>
           <li className='bg-neutral-900 p-3 mb-5 md:w-1/2 mx-auto'>
             <div className='text-neutral-400'>{data.email}</div>

@@ -15,7 +15,7 @@ export default async function Post({ params }: Slugs) {
   const [post] = await getPosts(params.slug);
   return (
     <>
-      <Breadcrumbs name='Заказы' link={'/stati'} secondName={post.title} />
+      <Breadcrumbs home='/' name='Заказы' link={'/stati'} secondName={post.title} />
       <div className='my-10 shadow-md shadow-neutral-800 py-5 max-w-4xl'>
         <h2 className='font-serif text-3xl text-center mx-auto uppercase font-bold max-w-2xl'>
           {post.title}

@@ -9,7 +9,7 @@ export default function Button({
 }): JSX.Element {
   return (
     <Link
-      className='text-lg m-3 p-3 border border-red-500 hover:bg-red-500 hover:text-black'
+      className='text-lg m-3 p-3 border border-red-500 hover:bg-red-500 hover:text-black uppercase'
       href={url}
     >
       {name}

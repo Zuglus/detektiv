@@ -10,7 +10,7 @@ export const metadata = {
 export default function Garanty() {
   return (
     <>
-      <Breadcrumbs name='Гарантии' link={''} secondName={''} />
+      <Breadcrumbs home='/' name='Гарантии' link={''} secondName={''} />
       <ContentGuarantee contacts={contacts} data={content.ru} />
     </>
   );

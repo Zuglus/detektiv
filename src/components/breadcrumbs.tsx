@@ -1,9 +1,10 @@
 import Link from 'next/link';
+import { Breadcrumb } from './types';
 
-export const Breadcrumbs = ({ name, link, secondName }: { name: string, link: string, secondName: string }) => (
+export const Breadcrumbs = ({ home, name, link, secondName }: Breadcrumb) => (
   <div className='w-full p-1 m-1' aria-hidden='true'>
     <div className='flex items-center text-red-900 md:ml-10'>
-      <Link href='/' className='font-bold '>
+      <Link href={home} className='font-bold '>
         <svg
           xmlns='http://www.w3.org/2000/svg'
           className='h-4 w-4 fill-red-900'

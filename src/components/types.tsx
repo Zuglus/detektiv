@@ -33,6 +33,7 @@ export type Service = {
 }
 
 export interface Post {
+  id: number
   slug: string;
   title: string;
   short: string;
@@ -45,4 +46,11 @@ export interface Slugs {
   params: {
     slug: string;
   };
+}
+
+export type Breadcrumb = {
+  home: string;
+  name: string;
+  link: string;
+  secondName: string;
 }
