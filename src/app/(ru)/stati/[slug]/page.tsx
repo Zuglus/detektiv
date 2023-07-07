@@ -4,7 +4,7 @@ import { getPosts } from '@/components/getPosts';
 import { Slugs } from '@/components/types';
 
 export async function generateStaticParams() {
-  const posts = await getPosts();
+  const posts = await getPosts('ru');
 
   return posts.map((post) => ({
     slug: post.slug,
@@ -12,7 +12,7 @@ export async function generateStaticParams() {
 }
 
 export default async function Post({ params }: Slugs) {
-  const [post] = await getPosts(params.slug);
+  const [post] = await getPosts('ru', params.slug);
   return (
     <>
       <Breadcrumbs home='/' name='Заказы' link={'/stati'} secondName={post.title} />

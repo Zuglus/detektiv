@@ -1,10 +1,10 @@
 import { Breadcrumbs } from '@/components/breadcrumbs';
 import { classNames } from '@/components/classNames';
-import { getEnPosts } from '@/components/getEnPosts';
+import { getPosts } from '@/components/getPosts';
 import { Slugs } from '@/components/types';
 
 export async function generateStaticParams() {
-  const posts = await getEnPosts();
+  const posts = await getPosts('en');
 
   return posts.map((post) => ({
     slug: post.slug,
@@ -12,7 +12,7 @@ export async function generateStaticParams() {
 }
 
 export default async function Post({ params }: Slugs) {
-  const [post] = await getEnPosts(params.slug);
+  const [post] = await getPosts('en', params.slug);
   return (
     <>
       <Breadcrumbs home='/en' name='Blog' link={'en/blog'} secondName={post.title} />

@@ -1,5 +1,5 @@
 import { Breadcrumbs } from "@/components/breadcrumbs";
-import { getEnPosts } from "@/components/getEnPosts";
+import { getPosts } from "@/components/getPosts";
 import PostList from "@/components/postList";
 
 export const metadata = {
@@ -7,7 +7,7 @@ export const metadata = {
 };
 
 export default async function Blog() {
-  const posts = await getEnPosts();
+  const posts = await getPosts('en');
   return (
     <>
       <Breadcrumbs home='/en' name='Blog' link={''} secondName={''} />

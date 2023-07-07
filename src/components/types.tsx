@@ -18,6 +18,7 @@ export type Principle = {
 };
 
 export type Rout = {
+  id: number;
   name: string;
   href: string;
 }
