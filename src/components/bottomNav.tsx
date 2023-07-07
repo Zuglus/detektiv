@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { Rout } from './types';
 
-export default function BottomNav({routes}: {routes: Rout[]}) {
+export default function BottomNav({ routes }: { routes: Rout[] }) {
   return (
     <div className='flex-auto'>
       {routes.map((route) => {

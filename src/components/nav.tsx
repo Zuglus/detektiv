@@ -54,7 +54,7 @@ export default function Nav({ routes }: { routes: Rout[] }) {
           );
         })}
       </div>
-      <ButtonTranslate url={pathname} isOpen={isOpen} flag={true} />
+      <ButtonTranslate url={pathname} isOpen={isOpen} />
     </div>
   );
 }

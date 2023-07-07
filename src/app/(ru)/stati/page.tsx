@@ -7,7 +7,7 @@ export const metadata = {
 };
 
 export default async function Blog() {
-  const posts = await getPosts();
+  const posts = await getPosts('ru');
   return (
     <>
       <Breadcrumbs home='/' name='Заказы' link={''} secondName={''} />
