@@ -2,28 +2,37 @@ import BottomNav from './bottomNav';
 
 import Image from 'next/image';
 import docImg from '../../public/doc-3374709d.jpeg';
+import gerbImg from '../../public/gerb.jpg';
 import SocialIconsFooter from './socialIconsFooter';
 import { Rout } from './types';
 
-export default function Footer({routes, content}: {routes: Rout[], content: any}) {
+export default function Footer({ routes, content }: { routes: Rout[], content: any }) {
   return (
     <div className='bg-red-500 text-center text-black p-5 md:p-10'>
       <h2 className='font-bold text-xl border-b-violet-700 uppercase'>
-      {content.title}
+        {content.title}
       </h2>
       <hr className='my-4 h-px border-t-0 bg-neutral-600 opacity-50' />
       <div className='flex flex-col md:flex-row my-10'>
-        <BottomNav routes={routes}/>
+        <BottomNav routes={routes} />
         <hr className='hidden md:inline-block mx-2 my-auto w-px h-10 border-t-0 bg-neutral-600 opacity-50' />
         <SocialIconsFooter />
       </div>
       <hr className='my-4 h-px border-t-0 bg-neutral-600 opacity-50' />
-      <Image
-        className='mx-auto h-24 w-auto my-10'
-        src={docImg}
-        alt={content.imgAlt}
-        placeholder='blur'
-      />
+      <div className='flex flex-col md:flex-row'>
+        <Image
+          className='mx-auto md:ml-auto md:mr-3 h-24 w-auto my-10'
+          src={docImg}
+          alt={content.imgAlt}
+          placeholder='blur'
+        />
+        <Image
+          className='mx-auto md:mr-auto md:ml-3 h-24 w-auto my-10'
+          src={gerbImg}
+          alt={content.imgAlt}
+          placeholder='blur'
+        />
+      </div>
       <a className='inline-block text-neutral-600 opacity-50' href='#'>
         <svg
           className='animate-bounce'
@@ -41,7 +50,7 @@ export default function Footer({routes, content}: {routes: Rout[], content: any}
           ></polyline>
         </svg>
       </a>
-      <div className='uppercase mt-10' dangerouslySetInnerHTML={{__html: content.copyright}}/>
+      <div className='uppercase mt-10' dangerouslySetInnerHTML={{ __html: content.copyright }} />
     </div>
   );
 }
