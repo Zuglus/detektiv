@@ -11,6 +11,7 @@ export default function ContentAbout({
 }) {
   return (
     <>
+      <div className='p-10 text-2xl'>{data.alertPost}</div>
       <p className='text-center uppercase'>{data.header}</p>
       <p className='text-center'>
         {data.subheader}
@@ -92,14 +93,13 @@ export default function ContentAbout({
           <a href={contacts.whatsapp.link}> {contacts.whatsapp.name}</a>,
           {data.alertSubstring2}
           <a href={contacts.phone.link}>{contacts.phone.name}</a>
-          . 
+          .
         </li>
         <li className='text-neutral-400'>
           {data.alertSubstring3}
           <a href={contacts.site}>{contacts.site}</a>.
         </li>
       </ul>
-      <div className='p-10 text-2xl'>{data.alertPost}</div>
     </>
   );
 }
