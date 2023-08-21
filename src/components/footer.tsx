@@ -1,8 +1,13 @@
 import BottomNav from './bottomNav';
 
 import Image from 'next/image';
+import actImg from '../../public/act.jpg';
 import docImg from '../../public/doc-3374709d.jpeg';
 import gerbImg from '../../public/gerb.jpg';
+import iniImg from '../../public/ini.jpg';
+import pozdImg from '../../public/pozd.jpg';
+import svidImg from '../../public/svid.jpg';
+import vypImg from '../../public/vyp.jpg';
 import SocialIconsFooter from './socialIconsFooter';
 import { Rout } from './types';
 
@@ -19,16 +24,46 @@ export default function Footer({ routes, content }: { routes: Rout[], content: a
         <SocialIconsFooter />
       </div>
       <hr className='my-4 h-px border-t-0 bg-neutral-600 opacity-50' />
-      <div className='flex flex-col md:flex-row'>
+      <div className='flex flex-wrap justify-between md:justify-around md:max-w-2xl mx-auto'>
         <Image
-          className='mx-auto md:ml-auto md:mr-3 h-24 w-auto my-10'
+          className='mx-auto h-24 w-auto my-10'
           src={docImg}
           alt={content.imgAlt}
           placeholder='blur'
         />
         <Image
-          className='mx-auto md:mr-auto md:ml-3 h-24 w-auto my-10'
+          className='mx-auto h-24 w-auto my-10'
           src={gerbImg}
+          alt={content.imgAlt}
+          placeholder='blur'
+        />
+        <Image
+          className='mx-auto h-24 w-auto my-10'
+          src={actImg}
+          alt={content.imgAlt}
+          placeholder='blur'
+        />
+        <Image
+          className='mx-auto h-24 w-auto my-10'
+          src={vypImg}
+          alt={content.imgAlt}
+          placeholder='blur'
+        />
+        <Image
+          className='mx-auto h-24 w-auto my-10'
+          src={iniImg}
+          alt={content.imgAlt}
+          placeholder='blur'
+        />
+        <Image
+          className='mx-auto h-24 w-auto my-10'
+          src={svidImg}
+          alt={content.imgAlt}
+          placeholder='blur'
+        />
+        <Image
+          className='mx-auto h-24 w-auto my-10'
+          src={pozdImg}
           alt={content.imgAlt}
           placeholder='blur'
         />
