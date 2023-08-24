@@ -11,7 +11,7 @@ export default async function Blog() {
   return (
     <>
       <Breadcrumbs home='/en' name='Blog' link={''} secondName={''} />
-      <PostList posts={posts} base='en/blog' buttonName="continue reading" />
+      <PostList posts={posts} base='blog' buttonName="continue reading" />
     </>
   );
 }
