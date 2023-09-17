@@ -1,7 +1,7 @@
 {
   "ru": {
     "header": "Контакты",
-    "addressTitle": "Официальный и единственный адрес:",
+    "addressTitle": "Адрес:",
     "address": "г. Москва, Проспект Мира, 27",
     "email": "E-mail:",
     "mobile": "Мобильный:",
@@ -11,7 +11,7 @@
   },
   "en": {
     "header": "Contact",
-    "addressTitle": "The official and only address:",
+    "addressTitle": "Address:",
     "address": "Moscow, Prospekt Mira, 27",
     "email": "E-mail:",
     "mobile": "Mobile:",
