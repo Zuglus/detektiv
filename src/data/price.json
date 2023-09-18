@@ -15,12 +15,12 @@
       {
         "title": "Наружное наблюдение",
         "price": "от 50.000 ",
-        "text": "1 час - от 5.000 рублей, минимальный заказ 10 часов, срочный + 50% от суммы"
+        "text": "Минимальный заказ 5 часов, срочный + 50% от суммы"
       },
       {
         "title": "Частные расследования",
         "price": "от 350.000 ",
-        "text": "от 350.000 рублей + расходы оплачиваются отдельно"
+        "text": "Расходы оплачиваются отдельно"
       },
       {
         "title": "Выявление слежки",
@@ -30,7 +30,7 @@
       {
         "title": "Частный поиск людей",
         "price": "от 25.000 ",
-        "text": "Одноклассников, сослуживцев, соседей, попутчиков и др."
+        "text": "Родственников, одноклассников, сослуживцев, соседей, попутчиков и др."
       },
       {
         "title": "Проверка персонала",
@@ -83,12 +83,12 @@
       {
         "title": "Outdoor surveillance",
         "price": "from $550",
-        "text": "1 hour - from $55, minimum order 10 hours, urgent + 50% of the amount"
+        "text": "Minimum order 5 hours, urgent + 50% of the amount"
       },
       {
         "title": "Private investigations",
         "price": "from $3700",
-        "text": "from $3700 + expenses are paid separately"
+        "text": "Expenses are paid separately"
       },
       {
         "title": "Detection of surveillance",
@@ -98,7 +98,7 @@
       {
         "title": "Private search for people",
         "price": "from $275",
-        "text": "Classmates, colleagues, neighbors, fellow travelers, etc."
+        "text": "Relatives, classmates, co-workers, neighbors, fellow travelers, etc."
       },
       {
         "title": "Personnel check",
