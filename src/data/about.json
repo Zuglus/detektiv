@@ -1,6 +1,6 @@
 {
   "ru": {
-    "header": "для вашей конфиденциальности работаем дистанционно онлайн,",
+    "header": "для вашего удобства, работаем как дистанционно, так и принимаем в офисе,",
     "subheader": "выберите любой вид связи, нажав на ссылку:",
     "intro": "Детективное агентство &laquo;Право&raquo; является <strong>элитарным</strong> и оказывает детективные услуги для тех, кто может финансово их заказать - Профессиональные услуги стоят дорого. Организовываем поиск, розыск, собираем и проверяем информацию разного направления, проводим анализ и выстраиваем алгоритм действий по конкретной ситуации. Повторяющихся заказов в исполнении нет, всегда применяются новые креативные методы и задействуются различные ресурсы, требующие финансовых затрат. Мы <strong>Гарантируем</strong> <strong>Профессиональное</strong> и <strong>Оперативное</strong> исполнение Вашего Заказа - Вы получаете <strong>Результат</strong> и <strong>Конфиденциальность</strong>, Вам не нужно переживать за обращение к нам, мы не соохраняем никаких данных о Заказчике и результаты работ. Отношения между Нами выстраиваются <strong>Доверительными</strong> и <strong>Уважительными</strong>. Штаб-квартира расположена в Москве, осуществляем детективную деятельность на всей территории России, СНГ и за рубежом. Наши сотрудники не прохлаждаются в офисе, так как постоянно находятся в разъездах, выполняя свою работу.",
     "serviceList": [
@@ -119,13 +119,13 @@
     "alertPost": "Нам доверяют решение любых вопросов!"
   },
   "en": {
-    "header": "for your privacy, we work remotely online,",
+    "header": "for your convenience, we work both remotely and in the office,",
     "subheader": "select any type of connection by clicking on the link:",
     "intro": "Detective agency &laquo;Pravo&raquo; is <strong>elite</strong> and provides detective services for those who can financially order them - Professional services are expensive. We organize search, search, collect and check information of different directions, analyze and build an algorithm of actions for a specific situation. There are no recurring orders in execution, new creative methods are always used and various resources that require financial costs are involved. We are <strong>We guarantee</strong> <strong>Professional</strong> and <strong>Prompt</strong> execution of your Order - You get <strong>Result</strong> and <strong>Confidentiality</strong>, you do not need to worry about contacting us, we do not save any data about the Customer and the results of the work. The relationship between Us is building <strong>Trusted</strong> and <strong>Respectful</strong>. The headquarters is located in Moscow, we carry out detective work throughout Russia, the CIS and abroad. Our employees do not cool off in the office, as they are constantly on the move, doing their job.",
     "serviceList": [
       {
         "title": "dossier",
-        "price": "from $800",
+        "price": "from $260",
         "text": "Collecting interesting information about a person, about an object"
       },
       {

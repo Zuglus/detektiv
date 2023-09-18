@@ -9,13 +9,13 @@
     "serviceList": [
       {
         "title": "Досье о человеке, об объекте",
-        "price": "от 50.000 ",
+        "price": "от 25.000 ",
         "text": "Стоимость зависит от перечня сведений"
       },
       {
         "title": "Наружное наблюдение",
-        "price": "от 100.000 ",
-        "text": "1 час - от 10.000 рублей, минимальный заказ 10 часов, срочный + 50% от суммы"
+        "price": "от 50.000 ",
+        "text": "1 час - от 5.000 рублей, минимальный заказ 10 часов, срочный + 50% от суммы"
       },
       {
         "title": "Частные расследования",
@@ -24,17 +24,17 @@
       },
       {
         "title": "Выявление слежки",
-        "price": "от 150.000 ",
+        "price": "от 50.000 ",
         "text": "Контрнаблюдение"
       },
       {
         "title": "Частный поиск людей",
-        "price": "от 80.000 ",
+        "price": "от 25.000 ",
         "text": "Одноклассников, сослуживцев, соседей, попутчиков и др."
       },
       {
         "title": "Проверка персонала",
-        "price": "от 80.000 ",
+        "price": "от 25.000 ",
         "text": "Проверка предоставленных данных и сбор дополнительной информации"
       },
       {
@@ -59,7 +59,7 @@
       },
       {
         "title": "Поиск имущества и активов",
-        "price": "от 150.000 ",
+        "price": "от 50.000 ",
         "text": "Движимое и недвижимое имущество, счета"
       }
     ],
@@ -77,13 +77,13 @@
     "serviceList": [
       {
         "title": "Dossier about a person, about an object",
-        "price": "from $550",
+        "price": "from $275",
         "text": "The cost depends on the list of information"
       },
       {
         "title": "Outdoor surveillance",
-        "price": "from $1100",
-        "text": "1 hour - from $110, minimum order 10 hours, urgent + 50% of the amount"
+        "price": "from $550",
+        "text": "1 hour - from $55, minimum order 10 hours, urgent + 50% of the amount"
       },
       {
         "title": "Private investigations",
@@ -92,17 +92,17 @@
       },
       {
         "title": "Detection of surveillance",
-        "price": "from $1600",
+        "price": "from $550",
         "text": "Counter-surveillance"
       },
       {
         "title": "Private search for people",
-        "price": "from $850",
+        "price": "from $275",
         "text": "Classmates, colleagues, neighbors, fellow travelers, etc."
       },
       {
         "title": "Personnel check",
-        "price": "from $850",
+        "price": "from $275",
         "text": "Verification of the data provided and collection of additional information"
       },
       {
@@ -117,7 +117,7 @@
       },
       {
         "title": "Information abroad",
-        "price": "from $10600",
+        "price": "from $10400",
         "text": "Verification and installation of information of interest outside the Russian Federation"
       },
       {
@@ -127,7 +127,7 @@
       },
       {
         "title": "Property and asset search",
-        "price": "from $1600",
+        "price": "from $550",
         "text": "Movable and immovable property, accounts"
       }
     ],
