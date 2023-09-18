@@ -5,7 +5,6 @@ import Head from '@/components/head';
 import { Props } from '@/components/types';
 import footerContent from '@/data/footer.json';
 import headData from '@/data/header.json';
-import routes from '@/data/routes.json';
 
 export const metadata = {
   title: 'Детективное агентство «Право»',
