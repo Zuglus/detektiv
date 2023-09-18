@@ -77,13 +77,13 @@
     "serviceList": [
       {
         "title": "Dossier about a person, about an object",
-        "price": "from $550",
+        "price": "from $275",
         "text": "The cost depends on the list of information"
       },
       {
         "title": "Outdoor surveillance",
-        "price": "from $1100",
-        "text": "1 hour - from $110, minimum order 10 hours, urgent + 50% of the amount"
+        "price": "from $550",
+        "text": "1 hour - from $55, minimum order 10 hours, urgent + 50% of the amount"
       },
       {
         "title": "Private investigations",
@@ -92,17 +92,17 @@
       },
       {
         "title": "Detection of surveillance",
-        "price": "from $1600",
+        "price": "from $550",
         "text": "Counter-surveillance"
       },
       {
         "title": "Private search for people",
-        "price": "from $850",
+        "price": "from $275",
         "text": "Classmates, colleagues, neighbors, fellow travelers, etc."
       },
       {
         "title": "Personnel check",
-        "price": "from $850",
+        "price": "from $275",
         "text": "Verification of the data provided and collection of additional information"
       },
       {
@@ -117,7 +117,7 @@
       },
       {
         "title": "Information abroad",
-        "price": "from $10600",
+        "price": "from $10400",
         "text": "Verification and installation of information of interest outside the Russian Federation"
       },
       {
@@ -127,7 +127,7 @@
       },
       {
         "title": "Property and asset search",
-        "price": "from $1600",
+        "price": "from $550",
         "text": "Movable and immovable property, accounts"
       }
     ],
