@@ -119,13 +119,13 @@
     "alertPost": "Нам доверяют решение любых вопросов!"
   },
   "en": {
-    "header": "for your privacy, we work remotely online,",
+    "header": "for your convenience, we work both remotely and in the office,",
     "subheader": "select any type of connection by clicking on the link:",
     "intro": "Detective agency &laquo;Pravo&raquo; is <strong>elite</strong> and provides detective services for those who can financially order them - Professional services are expensive. We organize search, search, collect and check information of different directions, analyze and build an algorithm of actions for a specific situation. There are no recurring orders in execution, new creative methods are always used and various resources that require financial costs are involved. We are <strong>We guarantee</strong> <strong>Professional</strong> and <strong>Prompt</strong> execution of your Order - You get <strong>Result</strong> and <strong>Confidentiality</strong>, you do not need to worry about contacting us, we do not save any data about the Customer and the results of the work. The relationship between Us is building <strong>Trusted</strong> and <strong>Respectful</strong>. The headquarters is located in Moscow, we carry out detective work throughout Russia, the CIS and abroad. Our employees do not cool off in the office, as they are constantly on the move, doing their job.",
     "serviceList": [
       {
         "title": "dossier",
-        "price": "from $800",
+        "price": "from $260",
         "text": "Collecting interesting information about a person, about an object"
       },
       {
