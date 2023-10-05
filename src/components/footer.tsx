@@ -7,6 +7,7 @@ import gerbImg from '../../public/gerb.jpg';
 import iniImg from '../../public/ini.jpg';
 import pozdImg from '../../public/pozd.jpg';
 import svidImg from '../../public/svid.jpg';
+import udostImg from '../../public/udost.jpg';
 import vypImg from '../../public/vyp.jpg';
 import SocialIconsFooter from './socialIconsFooter';
 import { Rout } from './types';
@@ -28,6 +29,12 @@ export default function Footer({ routes, content }: { routes: Rout[], content: a
         <Image
           className='mx-auto h-24 w-auto my-10'
           src={docImg}
+          alt={content.imgAlt}
+          placeholder='blur'
+        />
+        <Image
+          className='mx-auto h-24 w-auto my-10'
+          src={udostImg}
           alt={content.imgAlt}
           placeholder='blur'
         />
@@ -80,7 +87,7 @@ export default function Footer({ routes, content }: { routes: Rout[], content: a
           <polyline
             fill='none'
             stroke='#000'
-            stroke-width='1.2'
+            strokeWidth='1.2'
             points='1 9 9 1 17 9 '
           ></polyline>
         </svg>

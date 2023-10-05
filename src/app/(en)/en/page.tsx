@@ -1,5 +1,3 @@
-import CardPrinciple from '@/components/cardPrinciple';
-import CardService from '@/components/cardService';
 import ContentAbout from '@/components/contentAbout';
 import content from '@/data/about.json';
 import contacts from '@/data/contacts.json';

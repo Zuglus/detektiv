@@ -13,10 +13,10 @@ export default function SocialIconsFooter() {
           <a href={icon.link} key={icon.name} className='my-auto ml-4 md:ml-2'>
             <svg
               className='fill-neutral-700 h-7 w-7 md:h-5 md:w-7'
-              fill-rule='evenodd'
-              stroke-linejoin='round'
-              stroke-miterlimit='1.414'
-              clip-rule='evenodd'
+              fillRule='evenodd'
+              strokeLinejoin='round'
+              strokeMiterlimit='1.414'
+              clipRule='evenodd'
               viewBox='0 0 24 24'
             >
               <path d={icon.icon} />
