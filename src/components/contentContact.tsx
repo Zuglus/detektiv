@@ -26,9 +26,9 @@ export default function ContentContact({ data, contacts }: { data: any, contacts
                 height={40}
                 width={40}
                 fill-rule='evenodd'
-                stroke-linejoin='round'
+                strokeLinejoin='round'
                 stroke-miterlimit='1.414'
-                clip-rule='evenodd'
+                clipRule='evenodd'
                 viewBox='0 0 24 24'
                 fill='white'
               >
@@ -43,10 +43,10 @@ export default function ContentContact({ data, contacts }: { data: any, contacts
                 className='mx-auto mt-2'
                 height={40}
                 width={40}
-                fill-rule='evenodd'
-                stroke-linejoin='round'
+                fillRule='evenodd'
+                strokeLinejoin='round'
                 stroke-miterlimit='1.414'
-                clip-rule='evenodd'
+                clipRule='evenodd'
                 viewBox='0 0 24 24'
                 fill='white'
               >

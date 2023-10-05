@@ -22,9 +22,9 @@ export const Breadcrumbs = ({ home, name, link, secondName }: Breadcrumb) => (
           stroke='currentColor'
         >
           <path
-            stroke-linecap='round'
+            strokeLinecap='round'
             strokeLinejoin='round'
-            stroke-width='2'
+            strokeWidth='2'
             d='M9 5l7 7-7 7'
           />
         </svg>
@@ -43,9 +43,9 @@ export const Breadcrumbs = ({ home, name, link, secondName }: Breadcrumb) => (
               stroke='currentColor'
             >
               <path
-                stroke-linecap='round'
-                stroke-linejoin='round'
-                stroke-width='2'
+                strokeLinecap='round'
+                strokeLinejoin='round'
+                strokeWidth='2'
                 d='M9 5l7 7-7 7'
               />
             </svg>

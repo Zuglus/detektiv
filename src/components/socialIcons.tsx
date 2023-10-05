@@ -21,8 +21,8 @@ export default function SocialIcons() {
               width={25}
               fillRule='evenodd'
               strokeLinejoin='round'
-              stroke-miterlimit='1.414'
-              clip-rule='evenodd'
+              strokeMiterlimit='1.414'
+              clipRule='evenodd'
               viewBox='0 0 24 24'
               fill='red'
             >
