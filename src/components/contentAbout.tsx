@@ -11,8 +11,6 @@ export default function ContentAbout({
 }) {
   return (
     <>
-      <div className='p-10 text-2xl'>{data.alertPost}</div>
-      <p className='text-center uppercase'>{data.header}</p>
       <p className='text-center'>
         {data.subheader}
         {[contacts.telegram, contacts.whatsapp, contacts.email].map((item) => {
