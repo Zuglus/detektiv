@@ -5,17 +5,17 @@
     "serviceList": [
       {
         "title": "досье",
-        "price": "От 50.000 рублей",
+        "price": "От 25.000 рублей",
         "text": "Сбор интересующей информации о человеке, об объекте"
       },
       {
         "title": "наблюдение",
-        "price": "От 100.000 рублей",
+        "price": "От 50.000 рублей",
         "text": "Установление образа жизни, фиксация контактов и др."
       },
       {
         "title": "частные расследования",
-        "price": "От 350.000 рублей",
+        "price": "От 500.000 рублей",
         "text": "Установление истины, сбор сведений, очевидцев, свидетелей."
       },
       {
@@ -25,27 +25,27 @@
       },
       {
         "title": "частный розыск должников и алиментщиков",
-        "price": "От 250.000 рублей",
+        "price": "От 350.000 рублей",
         "text": "Оперативный поиск по России и за рубежом"
       },
       {
         "title": "проверка персонала",
-        "price": "От 80.000 рублей",
+        "price": "От 50.000 рублей",
         "text": "Сбор и проверка предоставленных данных кандидатом"
       },
       {
         "title": "проверка фирм и деловых партнеров",
-        "price": "От 350.000 рублей",
+        "price": "От 200.000 рублей",
         "text": "Сбор и проверка сведений, счетов, баланса, имущества, разоблачение мошенников"
       },
       {
         "title": "it - интернет",
-        "price": "От 350.000 рублей",
+        "price": "От 100.000 рублей",
         "text": "Поиск и установление данных в глобальной сети, мессенджерах, соц. сетях и др."
       },
       {
         "title": "информация за рубежом",
-        "price": "От 1 млн. рублей",
+        "price": "От 500.000 рублей",
         "text": "Сбор и проверка интересующей информации о человеке, об объекте"
       }
     ],
@@ -122,12 +122,12 @@
     "serviceList": [
       {
         "title": "dossier",
-        "price": "from $260",
+        "price": "from $275",
         "text": "Collecting interesting information about a person, about an object"
       },
       {
         "title": "observation",
-        "price": "from $1100",
+        "price": "from $550",
         "text": "Establishing a lifestyle, fixing contacts, etc."
       },
       {
@@ -137,17 +137,17 @@
       },
       {
         "title": "private search for people, classroom partners, relatives, etc.",
-        "price": "from $550",
+        "price": "from $275",
         "text": "Establishment of complete data, contacts, etc."
       },
       {
         "title": "private search for debtors and aliment",
-        "price": "from $2700",
+        "price": "from $3700",
         "text": "Operational search in Russia and abroad"
       },
       {
         "title": "personnel check",
-        "price": "from $850",
+        "price": "from $275",
         "text": "Collection and verification of the data provided by the candidate"
       },
       {
@@ -162,7 +162,7 @@
       },
       {
         "title": "information abroad",
-        "price": "from $10600",
+        "price": "from $10400",
         "text": "Collection and verification of information of interest about a person, about an object"
       }
     ],
