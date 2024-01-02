@@ -30,11 +30,11 @@ export default function ContentPrice({
                 <div className='pr-20'>{item.title}</div>
                 <div className='text-xs text-neutral-600'>{item.text}</div>
               </div>
-              {/* <div className='flex-none text-xs sm:text-base'>
+              <div className='flex-none text-xs sm:text-base'>
                 {item.price}
                 <br className='sm:hidden' />
                 {data.currency}
-              </div> */}
+              </div>
             </li>
           );
         })}
