@@ -14,12 +14,12 @@
       },
       {
         "title": "Наружное наблюдение",
-        "price": "от 100 тысяч ",
-        "text": "Минимальный заказ 8 часов, срочный + 50% от суммы"
+        "price": "100 тысяч ",
+        "text": "Наблюдение 8 часов, срочный + 50% от суммы"
       },
       {
         "title": "Частные расследования",
-        "price": "от 3 миллионов ",
+        "price": "от 900 тысяч ",
         "text": "Расходы оплачиваются отдельно"
       },
       {
@@ -49,7 +49,7 @@
       },
       {
         "title": "Информация за рубежом",
-        "price": "от 1.5 миллионнов ",
+        "price": "от 900 тысяч ",
         "text": "Проверка и установка интересующей информации за пределами РФ"
       },
       {
@@ -77,57 +77,57 @@
     "serviceList": [
       {
         "title": "Dossier about a person, about an object",
-        "price": "from $275",
+        "price": "from $1100",
         "text": "The cost depends on the list of information"
       },
       {
         "title": "Outdoor surveillance",
-        "price": "from $550",
-        "text": "Minimum order 5 hours, urgent + 50% of the amount"
+        "price": "$1100",
+        "text": "Surveillance 8 hours, urgent + 50% of the amount"
       },
       {
         "title": "Private investigations",
-        "price": "from $3700",
+        "price": "from $10150",
         "text": "Expenses are paid separately"
       },
       {
         "title": "Detection of surveillance",
-        "price": "from $550",
+        "price": "from $1700",
         "text": "Counter-surveillance"
       },
       {
         "title": "Private search for people",
-        "price": "from $275",
+        "price": "from $1100",
         "text": "Relatives, classmates, co-workers, neighbors, fellow travelers, etc."
       },
       {
         "title": "Personnel check",
-        "price": "from $275",
+        "price": "from $1700",
         "text": "Verification of the data provided and collection of additional information"
       },
       {
         "title": "Checking firms and business partners",
-        "price": "from $3700",
+        "price": "from $5650",
         "text": "From individuals, legal entities to corporations"
       },
       {
         "title": "IT-Internet by social. networks, messengers, e-mail, dating sites, etc.",
-        "price": "from $3700",
+        "price": "from $3400",
         "text": "Search for information and installation of information on the Internet, etc."
       },
       {
         "title": "Information abroad",
-        "price": "from $10400",
+        "price": "from $10150",
         "text": "Verification and installation of information of interest outside the Russian Federation"
       },
       {
         "title": "Search for debtors, alimony",
-        "price": "from $3700",
+        "price": "from $7900",
         "text": "We are not engaged in debt collection"
       },
       {
         "title": "Property and asset search",
-        "price": "from $550",
+        "price": "from $1100",
         "text": "Movable and immovable property, accounts"
       }
     ],
