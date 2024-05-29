@@ -3,7 +3,9 @@ import BottomNav from './bottomNav';
 import Image from 'next/image';
 import docImg from '../../public/doc-3374709d.jpeg';
 // import udostImg from '../../public/udost.jpg';
-import gerbImg from '../../public/gerb.jpg';
+// import gerbImg from '../../public/gerb.jpg';
+import visitImg from '../../public/visitar.jpg';
+import cabinetImg from '../../public/cabinet.jpg';
 // import actImg from '../../public/act.jpg';
 // import vypImg from '../../public/vyp.jpg';
 // import iniImg from '../../public/ini.jpg';
@@ -39,9 +41,21 @@ export default function Footer({ routes, content }: { routes: Rout[], content: a
           alt={content.imgAlt}
           placeholder='blur'
         /> */}
-        <Image
+        {/* <Image
           className='mx-auto h-24 w-auto my-10'
           src={gerbImg}
+          alt={content.imgAlt}
+          placeholder='blur'
+        /> */}
+        <Image
+          className='mx-auto h-24 w-auto my-10'
+          src={visitImg}
+          alt={content.imgAlt}
+          placeholder='blur'
+        />
+        <Image
+          className='mx-auto h-24 w-auto my-10'
+          src={cabinetImg}
           alt={content.imgAlt}
           placeholder='blur'
         />
