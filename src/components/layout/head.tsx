@@ -1,6 +1,6 @@
 import Nav from './nav';
-import SocialIcons from './socialIcons';
-import { Rout } from './types';
+import SocialIcons from '@/components/ui/socialIcons';
+import { Rout } from '@/components/utility/types';
 
 export default function Head({ data, routes }: { data: any, routes: Rout[] }) {
   return (
@@ -9,11 +9,11 @@ export default function Head({ data, routes }: { data: any, routes: Rout[] }) {
         <Nav routes={routes} />
         <SocialIcons />
       </div>
-      <h1 className='text-red-600 font-serif text-5xl sm:text-6xl antialiased font-bold uppercase'>
+      <h1 className='font-bold font-serif text-5xl text-red-600 sm:text-6xl antialiased uppercase'>
         &laquo;{data.header}&raquo;
       </h1>
       <h2 className='text-red-500 text-sm sm:text-lg antialiased uppercase' dangerouslySetInnerHTML={{ __html: data.div1 }} />
-      <div className='text-sm sm:text-base max-w-xs sm:max-w-md mx-auto font-semibold my-8 bg-gradient-to-br from-black from-30% to-red-600 uppercase' dangerouslySetInnerHTML={{ __html: data.div2 }} />
+      <div className='bg-gradient-to-br from-30% from-black to-red-600 mx-auto my-8 max-w-xs sm:max-w-md font-semibold text-sm sm:text-base uppercase' dangerouslySetInnerHTML={{ __html: data.div2 }} />
     </header>
   );
 }

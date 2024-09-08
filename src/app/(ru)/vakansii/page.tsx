@@ -1,5 +1,5 @@
-import { Breadcrumbs } from '@/components/breadcrumbs';
-import ContentJob from '@/components/contentJob';
+import { Breadcrumbs } from '@/components/layout/breadcrumbs';
+import ContentJob from '@/components/content/contentJob';
 import contacts from '@/data/contacts.json';
 import content from '@/data/job.json';
 

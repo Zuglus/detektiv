@@ -1,4 +1,4 @@
-import ContentAbout from '@/components/contentAbout';
+import ContentAbout from '@/components/content/contentAbout';
 import content from '@/data/about.json';
 import contacts from '@/data/contacts.json';
 
