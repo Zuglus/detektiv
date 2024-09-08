@@ -1,7 +1,7 @@
-import { Breadcrumbs } from '@/components/breadcrumbs';
-import { classNames } from '@/components/classNames';
-import { getPosts } from '@/components/getPosts';
-import { Slugs } from '@/components/types';
+import { Breadcrumbs } from '@/components/layout/breadcrumbs';
+import { classNames } from '@/components/utility/classNames';
+import { getPosts } from '@/components/utility/getPosts';
+import { Slugs } from '@/components/utility/types';
 
 export async function generateStaticParams() {
   const posts = await getPosts('ru');
@@ -16,8 +16,8 @@ export default async function Post({ params }: Slugs) {
   return (
     <>
       <Breadcrumbs home='/' name='Заказы' link={'/stati'} secondName={post.title} />
-      <div className='my-10 shadow-md shadow-neutral-800 py-5 max-w-4xl'>
-        <h2 className='font-serif text-3xl text-center mx-auto uppercase font-bold max-w-2xl'>
+      <div className='shadow-md shadow-neutral-800 my-10 py-5 max-w-4xl'>
+        <h2 className='mx-auto max-w-2xl font-bold font-serif text-3xl text-center uppercase'>
           {post.title}
         </h2>
         <div dangerouslySetInnerHTML={{ __html: post.content }} />
@@ -37,7 +37,7 @@ export default async function Post({ params }: Slugs) {
         >
           <svg
             aria-hidden='true'
-            className='w-5 h-5 mr-2'
+            className='mr-2 w-5 h-5'
             fill='currentColor'
             viewBox='0 0 20 20'
             xmlns='http://www.w3.org/2000/svg'
@@ -58,7 +58,7 @@ export default async function Post({ params }: Slugs) {
         >
           <svg
             aria-hidden='true'
-            className='w-5 h-5 ml-2'
+            className='ml-2 w-5 h-5'
             fill='currentColor'
             viewBox='0 0 20 20'
             xmlns='http://www.w3.org/2000/svg'

@@ -1,6 +1,6 @@
-import { Breadcrumbs } from '@/components/breadcrumbs';
-import { getPosts } from '@/components/getPosts';
-import PostList from '@/components/postList';
+import { Breadcrumbs } from '@/components/layout/breadcrumbs';
+import { getPosts } from '@/components/utility/getPosts';
+import PostList from '@/components/ui/postList';
 
 export const metadata = {
   title: 'Детективное агентство «Право» | Заказы',

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Rout } from './types';
+import { Rout } from '../utility/types';
 
 export default function BottomNav({ routes }: { routes: Rout[] }) {
   return (
@@ -7,7 +7,7 @@ export default function BottomNav({ routes }: { routes: Rout[] }) {
       {routes.map((route) => {
         return (
           <Link
-            className='inline-block font-normal text-red-900 ml-3 px-3 py-2 text-sm rounded capitalize shadow-sm focus:outline-none'
+            className='inline-block shadow-sm ml-3 px-3 py-2 rounded font-normal text-red-900 text-sm capitalize focus:outline-none'
             key={route.name}
             href={route.href}
           >

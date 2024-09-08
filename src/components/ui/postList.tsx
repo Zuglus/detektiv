@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Button from './button';
-import { Post } from './types';
+import { Post } from '@/components/utility/types'
 
 export default function PostList({ posts, base, buttonName }: { posts: Post[], base: string, buttonName: string }) {
   const [baseList, setBaseList] = useState(0);
@@ -12,16 +12,16 @@ export default function PostList({ posts, base, buttonName }: { posts: Post[], b
     'px-3 py-2 leading-tight text-neutral-500 bg-neutral-900 border border-neutral-600 hover:bg-neutral-900 hover:text-neutral-700';
   return (
     <div className='flex flex-col items-center'>
-      <div className='grid grid-cols-1 gap-x-6 gap-y-10 md:grid-cols-2 xl:grid-cols-3 xl:gap-x-8 my-10'>
+      <div className='gap-x-6 gap-y-10 xl:gap-x-8 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 my-10'>
         {posts.map((post: Post, index: number) =>
           index >= baseList * 6 && index < baseList * 6 + 6 ? (
             <div
               key={post.title}
-              className='group text-center py-10 shadow-md shadow-neutral-800'
+              className='shadow-md shadow-neutral-800 py-10 text-center group'
             >
-              <h3 className='text-2xl uppercase px-5'>{post.title}</h3>
+              <h3 className='px-5 text-2xl uppercase'>{post.title}</h3>
               <div
-                className='p-4 mb-7'
+                className='mb-7 p-4'
                 dangerouslySetInnerHTML={{ __html: post.short }}
               />
               <Button name={buttonName} url={`${base}/${post.slug}`} />
@@ -31,11 +31,11 @@ export default function PostList({ posts, base, buttonName }: { posts: Post[], b
           )
         )}
       </div>
-      <ul className='flex list-none items-center -space-x-px'>
+      <ul className='flex items-center -space-x-px list-none'>
         <li>
           <button
             onClick={() => setBaseList(baseList > 0 ? baseList - 1 : 0)}
-            className=' rounded-l-lg block px-3 py-2 leading-tight text-neutral-500 bg-neutral-900 border border-neutral-600 hover:bg-neutral-900 hover:text-neutral-700'
+            className='block border-neutral-600 bg-neutral-900 hover:bg-neutral-900 px-3 py-2 border rounded-l-lg text-neutral-500 hover:text-neutral-700 leading-tight'
           >
             <span className='sr-only'>Previous</span>
             <svg
@@ -99,7 +99,7 @@ export default function PostList({ posts, base, buttonName }: { posts: Post[], b
             onClick={() => {
               setBaseList(baseList < 4 ? baseList + 1 : 4);
             }}
-            className='block px-3 py-2 leading-tight text-neutral-500 bg-neutral-900 border border-neutral-600 rounded-r-lg hover:bg-neutral-900 hover:text-neutral-700'
+            className='block border-neutral-600 bg-neutral-900 hover:bg-neutral-900 px-3 py-2 border rounded-r-lg text-neutral-500 hover:text-neutral-700 leading-tight'
           >
             <span className='sr-only'>Next</span>
             <svg

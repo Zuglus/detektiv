@@ -1,4 +1,4 @@
-import Card from "./card";
+import Card from "@/components/ui/card";
 
 export default function ContentJob({ data, contacts }: { data: any, contacts: any }) {
   return (
@@ -9,7 +9,7 @@ export default function ContentJob({ data, contacts }: { data: any, contacts: an
           text: data.cardText,
         }}
       />
-      <p className='md:text-start md:w-1/2'>
+      <p className='md:w-1/2 md:text-start'>
         {data.portfolioTitle}
       </p>
       <ul className='text-white'>
@@ -18,6 +18,6 @@ export default function ContentJob({ data, contacts }: { data: any, contacts: an
         }
       </ul>
       <p className='md:w-1/2 md:text-start' dangerouslySetInnerHTML={{ __html: data.portfolioLink }} />
-      <p className='mb-5 mt-1 p-2 md:mt-5 md:mb-10 md:p-4 bg-red-950' dangerouslySetInnerHTML={{ __html: data.portfolioAlert }} />
+      <p className='bg-red-950 mt-1 md:mt-5 mb-5 md:mb-10 p-2 md:p-4' dangerouslySetInnerHTML={{ __html: data.portfolioAlert }} />
     </>);
 }

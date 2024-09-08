@@ -3,15 +3,15 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
-import ButtonTranslate from './buttonTranslate';
-import { classNames } from './classNames';
-import { Rout } from './types';
+import ButtonTranslate from '../ui/buttonTranslate';
+import { classNames } from '../utility/classNames';
+import { Rout } from '../utility/types';
 
 export default function Nav({ routes }: { routes: Rout[] }) {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className='flex flex-row-reverse justify-between md:flex-row md:w-full p-10'>
+    <div className='flex md:flex-row flex-row-reverse justify-between p-10 md:w-full'>
       <button
         type='button'
         onClick={() => setIsOpen(!isOpen)}
