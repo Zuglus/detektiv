@@ -12,21 +12,25 @@ export default function ContentAbout({
   return (
     <>
       {/* Header Section - Elegant and Inviting */}
-      <div className="bg-[#a8d0b9] shadow-lg py-12 text-center text-gray-900">
-        <p className="mb-4 font-extrabold text-3xl tracking-wider">{data.subheader}</p>
-        <div className="space-x-4">
+      <div className="bg-[#a8d0b9] py-5 text-center text-gray-900">
+        <p className="drop-shadow-lg mb-4 font-extrabold text-4xl leading-relaxed tracking-widest">
+          {data.subheader}
+        </p>
+        <div className="flex justify-center space-x-8 mt-6">
           {[contacts.telegram, contacts.whatsapp, contacts.email].map((item) => (
             <a
               key={item.name}
               href={item.link}
               title={item.link}
-              className="text-lg hover:text-gray-700 underline transition-all duration-300 ease-in-out"
+              className="bg-white hover:bg-[#5f6368] shadow-lg px-5 py-3 rounded-full text-[#4a5568] text-lg hover:text-[#ffcb77] transform transition-transform hover:scale-105 duration-300 ease-in-out"
             >
               {item.name}{item === contacts.email ? '.' : ','}
             </a>
           ))}
         </div>
       </div>
+
+
 
       {/* Intro Section - Clean, Focused on Typography */}
       <div className="bg-white shadow-xl hover:shadow-2xl my-10 p-12 rounded-lg text-gray-800 leading-relaxed transition-transform duration-300">
@@ -95,8 +99,8 @@ export default function ContentAbout({
       <ul className="pl-5 text-gray-600 list-disc">
         <li className="pb-4">
           {data.alertSubstring1}
-          <strong className="text-gray-900">{contacts.email.directName}</strong>, 
-          <a className="text-[#a8d0b9] hover:underline transition-all duration-300" href={contacts.telegram.link}> {contacts.telegram.name}</a>, 
+          <strong className="text-gray-900">{contacts.email.directName}</strong>,
+          <a className="text-[#a8d0b9] hover:underline transition-all duration-300" href={contacts.telegram.link}> {contacts.telegram.name}</a>,
           <a className="text-[#a8d0b9] hover:underline transition-all duration-300" href={contacts.whatsapp.link}> {contacts.whatsapp.name}</a>,
           {data.alertSubstring2}
           <a className="text-[#a8d0b9] hover:underline transition-all duration-300" href={contacts.phone.link}>{contacts.phone.name}</a>.

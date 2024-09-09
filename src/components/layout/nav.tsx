@@ -12,12 +12,11 @@ export default function Nav({ routes }: { routes: Rout[] }) {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    // Обработчик состояния должен вызываться только на клиенте
     setIsOpen(false);
   }, []);
 
   return (
-    <div className="relative flex md:flex-row flex-row-reverse justify-between border-yellow-500 bg-olive-900 shadow-md p-4 border-t-4 text-olive-50 transition-all duration-300">
+    <div className="relative flex md:flex-row flex-row-reverse justify-between border-gold bg-olive-900 p-4 border-t-4 text-olive-50 transition-all duration-300">
       {/* Mobile Toggle Button */}
       <button
         type="button"
@@ -31,7 +30,7 @@ export default function Nav({ routes }: { routes: Rout[] }) {
           <span
             className={classNames(
               'block h-0.5 w-8 rounded-full transition-transform transform',
-              isOpen ? 'bg-yellow-400 translate-y-2 rotate-45' : 'bg-white'
+              isOpen ? 'bg-gold translate-y-2 rotate-45' : 'bg-white'
             )}
           />
           <span
@@ -43,7 +42,7 @@ export default function Nav({ routes }: { routes: Rout[] }) {
           <span
             className={classNames(
               'block h-0.5 w-8 rounded-full transition-transform transform',
-              isOpen ? 'bg-yellow-400 -translate-y-2 -rotate-45' : 'bg-white'
+              isOpen ? 'bg-gold -translate-y-2 -rotate-45' : 'bg-white'
             )}
           />
         </div>
@@ -63,8 +62,8 @@ export default function Nav({ routes }: { routes: Rout[] }) {
             className={classNames(
               'block px-6 py-3 rounded-md uppercase tracking-widest transition-all duration-300 ease-in-out font-semibold',
               pathname === link.href
-                ? 'bg-yellow-400 text-black shadow-lg hover:shadow-xl'
-                : 'hover:bg-olive-700 hover:text-yellow-300'
+                ? 'bg-gold text-black shadow-lg hover:shadow-xl'  // Золотой цвет для активных элементов
+                : 'hover:bg-olive-700 hover:text-gold'
             )}
             onClick={() => setIsOpen(false)}
           >

@@ -23,7 +23,7 @@ export default function RootLayout({ children }: Props) {
       <body className="bg-[#a8d0b9] selection:bg-[#333] font-sans text-[#333] selection:text-white antialiased">
         <div className="mx-auto px-4 container">
           <Header data={headData[lang]} routes={routes} />
-          <main className="flex flex-col justify-center items-center py-12">
+          <main className="flex flex-col justify-center items-center">
             {children}
           </main>
           <Footer content={footerContent[lang]} routes={routes} />

@@ -1,9 +1,4 @@
 import BottomNav from './bottomNav';
-import Image from 'next/image';
-import docImg from '@/../public/images/doc-3374709d.jpeg';
-import visitImg from '@/../public/images/visitar.jpg';
-import cabinetImg from '@/../public/images/cabinet.jpg';
-import rosinfoImg from '@/../public/images/rosinfo.jpg';
 import SocialIconsFooter from '@/components/ui/socialIconsFooter';
 import { Rout } from '@/components/utility/types';
 
@@ -19,18 +14,6 @@ export default function Footer({ routes, content }: { routes: Rout[], content: a
         <SocialIconsFooter />
       </div>
       <hr className="bg-gray-400 opacity-80 my-6 border-t-0 h-px" />
-      
-      <div className="flex flex-wrap justify-around space-y-6 md:space-y-0 mx-auto max-w-4xl">
-        {[docImg, visitImg, cabinetImg, rosinfoImg].map((imgSrc, index) => (
-          <Image
-            key={index}
-            className="mx-auto w-auto h-24 hover:scale-105 transform transition-transform duration-300"
-            src={imgSrc}
-            alt={content.imgAlt}
-            placeholder="blur"
-          />
-        ))}
-      </div>
 
       <a className="inline-block opacity-70 mt-6 text-gray-600 hover:text-gray-900 transition-all duration-300" href="#">
         <svg
