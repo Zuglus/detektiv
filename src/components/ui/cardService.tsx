@@ -4,10 +4,16 @@ export default function CardService({
   data: { title: string; price: string; text: string };
 }) {
   return (
-    <div className='text-center p-6 border-2 border-solid border-gray-800 hover:animate-pulse'>
-      <h4 className='text-red-500 uppercase font-bold text-lg'>{data.title}</h4>
-      <div className='mt-4 text-neutral-400 font-light'>{data.text}</div>
-      <div className='mt-4 text-sm'>{data.price}</div>
+    <div className="border-2 border-olive-600 bg-olive-50 shadow-md hover:shadow-lg p-6 rounded-lg text-center transition-shadow duration-300">
+      <h4 className="font-bold text-olive-800 text-xl uppercase tracking-wider">
+        {data.title}
+      </h4>
+      <div className="mt-4 font-light text-olive-600 leading-relaxed">
+        {data.text}
+      </div>
+      <div className="mt-6 font-semibold text-lg text-olive-700">
+        {data.price}
+      </div>
     </div>
   );
 }
