@@ -1,4 +1,4 @@
-import { Service } from "./types";
+import { Service } from "@/components/utility/types";
 
 export default function ContentPrice({
   data,
@@ -28,7 +28,7 @@ export default function ContentPrice({
             >
               <div className='flex-auto'>
                 <div className='pr-20'>{item.title}</div>
-                <div className='text-xs text-neutral-600'>{item.text}</div>
+                <div className='text-neutral-600 text-xs'>{item.text}</div>
               </div>
               <div className='flex-none text-xs sm:text-base'>
                 {item.price}

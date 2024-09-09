@@ -10,51 +10,68 @@ import { Rout } from '../utility/types';
 export default function Nav({ routes }: { routes: Rout[] }) {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <div className='flex md:flex-row flex-row-reverse justify-between p-10 md:w-full'>
+    <div className="relative flex md:flex-row flex-row-reverse justify-between border-yellow-500 bg-olive-900 shadow-md p-4 border-t-4 text-olive-50 transition-all duration-300">
+      {/* Mobile Toggle Button */}
       <button
-        type='button'
+        type="button"
         onClick={() => setIsOpen(!isOpen)}
-        className={`${'float-right group flex md:hidden h-7 w-7 cursor-pointer items-center justify-center rounded p-2'} ${isOpen ? 'bg-red-800' : 'bg-transparent'
-          }`}
+        className={classNames(
+          'md:hidden h-10 w-10 rounded-lg p-2 transition-transform transform hover:scale-105',
+          isOpen ? 'bg-olive-700 text-white' : 'bg-olive-600 text-white'
+        )}
       >
-        <div className='space-y-1'>
+        <div className="space-y-1">
           <span
-            className={`${'block h-[2px] w-5 origin-center rounded-full transition-transform ease-in-out'} ${isOpen ? 'bg-white translate-y-1 rotate-45' : 'bg-gray-500'
-              }`}
-          ></span>
+            className={classNames(
+              'block h-0.5 w-8 rounded-full transition-transform transform',
+              isOpen ? 'bg-yellow-400 translate-y-2 rotate-45' : 'bg-white'
+            )}
+          />
           <span
-            className={`${'h-[2px] w-5 origin-center rounded-full bg-slate-500'} ${isOpen ? 'hidden' : 'block'
-              }`}
-          ></span>
+            className={classNames(
+              'block h-0.5 w-8 rounded-full transition-transform transform',
+              isOpen ? 'hidden' : 'bg-white'
+            )}
+          />
           <span
-            className={`${'block h-[2px] w-5 origin-center rounded-full transition-transform ease-in-out'} ${isOpen ? 'bg-white -translate-y-full -rotate-45' : 'bg-gray-500'
-              }`}
-          ></span>
+            className={classNames(
+              'block h-0.5 w-8 rounded-full transition-transform transform',
+              isOpen ? 'bg-yellow-400 -translate-y-2 -rotate-45' : 'bg-white'
+            )}
+          />
         </div>
       </button>
-      <div
-        className={classNames('flex-col items-center md:flex-row', isOpen ? 'flex mx-auto' : 'hidden md:flex')}
+
+      {/* Navigation Links */}
+      <nav
+        className={classNames(
+          'md:flex flex-col md:flex-row md:items-center text-lg md:space-x-6 space-y-6 md:space-y-0 transition-all duration-300 ease-in-out',
+          isOpen ? 'block' : 'hidden md:block'
+        )}
       >
-        {routes.map((link: Rout) => {
-          return (
-            <Link
-              className={classNames(
-                'inline-block ml-3 px-3 py-2 text-sm rounded uppercase shadow-sm focus:outline-none',
-                pathname === link.href
-                  ? 'bg-red-950'
-                  : 'text-gray-300 hover:text-red-500'
-              )}
-              href={link.href}
-              key={link.name}
-              onClick={() => setIsOpen(false)}
-            >
-              {link.name}
-            </Link>
-          );
-        })}
+        {routes.map((link: Rout) => (
+          <Link
+            key={link.name}
+            href={link.href}
+            className={classNames(
+              'block px-6 py-3 rounded-md uppercase tracking-widest transition-all duration-300 ease-in-out font-semibold',
+              pathname === link.href
+                ? 'bg-yellow-400 text-black shadow-lg hover:shadow-xl'
+                : 'hover:bg-olive-700 hover:text-yellow-300'
+            )}
+            onClick={() => setIsOpen(false)}
+          >
+            {link.name}
+          </Link>
+        ))}
+      </nav>
+
+      {/* Language Toggle */}
+      <div className="top-4 right-4 absolute transform transition-transform hover:scale-110">
+        <ButtonTranslate url={pathname} isOpen={isOpen} />
       </div>
-      <ButtonTranslate url={pathname} isOpen={isOpen} />
     </div>
   );
 }

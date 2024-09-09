@@ -2,34 +2,4 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  color: rgb(255, 255, 255);
-  background: rgb(0, 0, 0)
-}
-
-p {
-  @apply max-w-4xl;
-  @apply indent-5;
-  @apply mt-4;
-  @apply text-neutral-400;
-  @apply text-justify;
-  @apply leading-6;
-  @apply px-4;
-}
-
-a {
-  @apply text-white;
-  @apply font-bold;
-}
-
-ul {
-  @apply list-disc m-8 text-neutral-400;
-}
-
-ul > li {
-  @apply md:mb-2 leading-6;
-}
-
-.subheader {
-  @apply m-4 mt-8 uppercase;
-}
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap');

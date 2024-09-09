@@ -11,91 +11,99 @@ export default function ContentAbout({
 }) {
   return (
     <>
-      <p className='text-center'>
-        {data.subheader}
-        {[contacts.telegram, contacts.whatsapp, contacts.email].map((item) => {
-          return (
-            <a key={item.name} href={item.link} title={item.link}>
-              {' '}
-              {item.name}
-              {item === contacts.email ? '.' : ','}
+      {/* Header Section - Bold and Eye-catching */}
+      <div className="bg-[#b3c100] shadow-lg py-10 text-center text-white">
+        <p className="mb-6 font-extrabold text-2xl tracking-wide">{data.subheader}</p>
+        <div className="space-x-4">
+          {[contacts.telegram, contacts.whatsapp, contacts.email].map((item) => (
+            <a
+              key={item.name}
+              href={item.link}
+              title={item.link}
+              className="text-lg hover:text-gray-300 underline transition-all duration-200 ease-in-out"
+            >
+              {item.name}{item === contacts.email ? '.' : ','}
             </a>
-          );
-        })}
-      </p>
-      <p
-        className='shadow-md shadow-neutral-800'
-        dangerouslySetInnerHTML={{ __html: data.intro }}
-      />
-      <div className='gap-x-20 gap-y-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-10'>
-        {data.serviceList.map((card: Card) => {
-          return <CardService key={card.title} data={card} />;
-        })}
+          ))}
+        </div>
       </div>
-      <div className='shadow-md shadow-neutral-800 mt-5 pb-5'>
-        <h3 className='mt-8 text-center text-red-600 uppercase'>
+
+      {/* Intro Section - Clean and Accessible */}
+      <div className="bg-white shadow-xl my-10 p-10 rounded-lg text-gray-800 leading-relaxed">
+        <p className="text-justify" dangerouslySetInnerHTML={{ __html: data.intro }} />
+      </div>
+
+      {/* Service Cards - Highlight with Subtle Animation */}
+      <div className="gap-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-10">
+        {data.serviceList.map((card: Card) => (
+          <CardService key={card.title} data={card} />
+        ))}
+      </div>
+
+      {/* About Section - Clear Contrast with Text Focus */}
+      <div className="bg-[#9db500] shadow-xl mt-12 p-10 rounded-lg">
+        <h3 className="mb-6 font-bold text-3xl text-center text-white uppercase tracking-wider">
           {data.aboutHeader}
         </h3>
+        <p className="text-white leading-loose" dangerouslySetInnerHTML={{ __html: data.aboutText }} />
+      </div>
 
-        <div dangerouslySetInnerHTML={{ __html: data.aboutText }} />
-      </div>
-      <ul className='my-3 py-5 max-w-3xl text-center list-none'>
-        {data.benefitsList.map((item: Benefit) => {
-          return (
-            <li key={item.id} className='odd:bg-neutral-900 px-4 py-3'>
-              <h3>{item.title}</h3>
-              <p>{item.text}</p>
-            </li>
-          );
-        })}
+      {/* Benefits List - Clean and Structured */}
+      <ul className="bg-white shadow-xl mx-auto my-10 py-8 rounded-lg max-w-4xl text-center list-none">
+        {data.benefitsList.map((item: Benefit) => (
+          <li key={item.id} className="odd:bg-gray-100 mb-6 p-6 rounded-lg">
+            <h3 className="font-bold text-xl">{item.title}</h3>
+            <p>{item.text}</p>
+          </li>
+        ))}
       </ul>
-      <div className='bg-neutral-900 my-3 p-6'>
-        <h2 className='text-center text-lg'>{data.proposeHeader}</h2>
-        <p>{data.proposeText}</p>
+
+      {/* Proposal Section - Attention-Grabbing with Bold Typography */}
+      <div className="bg-[#b3c100] shadow-xl my-10 p-8 rounded-lg text-white">
+        <h2 className="mb-6 font-extrabold text-3xl text-center tracking-wide">{data.proposeHeader}</h2>
+        <p className="leading-loose">{data.proposeText}</p>
       </div>
-      <h2 className='pt-10 pb-3 text-center text-lg text-red-600 uppercase'>
+
+      {/* Detective Principles - Focus on Simplicity and Readability */}
+      <h2 className="pt-10 pb-6 font-bold text-[#b3c100] text-3xl text-center uppercase tracking-widest">
         {data.detektivePrinciplesHeader}
       </h2>
-      <div className='gap-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'>
-        {data.detektivePrinciplesList.map((item: Principle) => {
-          return <CardPrinciple key={item.title} data={item} />;
-        })}
+      <div className="gap-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+        {data.detektivePrinciplesList.map((item: Principle) => (
+          <CardPrinciple key={item.title} data={item} />
+        ))}
       </div>
-      <div>
-        <h4 className='pt-10 pb-3 text-center'>{data.orderListHeader}</h4>
-        <ul className='list-none'>
-          {data.orderList.map((li: string, i: number) => {
-            return (
-              <li
-                className='odd:bg-neutral-900 p-3 font-bold text-neutral-400'
-                key={i}
-              >
-                {li}
-              </li>
-            );
-          })}
+
+      {/* Order List - Clear and Distinct with Alternating Styles */}
+      <div className="bg-white shadow-xl mt-10 p-8 rounded-lg">
+        <h4 className="mb-6 font-bold text-2xl text-center">{data.orderListHeader}</h4>
+        <ul className="list-none">
+          {data.orderList.map((li: string, i: number) => (
+            <li key={i} className="odd:bg-gray-100 mb-4 p-4 rounded-lg font-bold text-gray-700">
+              {li}
+            </li>
+          ))}
         </ul>
       </div>
-      <h4 className='pt-10 pb-3'>{data.alertHeader}</h4>
-      <p
-        className='text-neutral-400'
-        dangerouslySetInnerHTML={{ __html: data.alertText }}
-      />
-      <ul className='pt-3 list-disc'>
-        <li className='pb-2 text-neutral-400'>
+
+      {/* Alerts Section - Subtle Color Changes to Highlight Links */}
+      <h4 className="mt-12 mb-6 font-bold text-[#b3c100] text-2xl">
+        {data.alertHeader}
+      </h4>
+      <p className="text-gray-600 leading-relaxed" dangerouslySetInnerHTML={{ __html: data.alertText }} />
+
+      <ul className="pl-5 text-gray-600 list-disc">
+        <li className="pb-4">
           {data.alertSubstring1}
-          <strong className='text-white select-all'>
-            {contacts.email.directName}
-          </strong>
-          , <a href={contacts.telegram.link}> {contacts.telegram.name}</a>,{' '}
-          <a href={contacts.whatsapp.link}> {contacts.whatsapp.name}</a>,
+          <strong className="text-gray-900">{contacts.email.directName}</strong>, 
+          <a className="text-[#b3c100] hover:underline" href={contacts.telegram.link}> {contacts.telegram.name}</a>, 
+          <a className="text-[#b3c100] hover:underline" href={contacts.whatsapp.link}> {contacts.whatsapp.name}</a>,
           {data.alertSubstring2}
-          <a href={contacts.phone.link}>{contacts.phone.name}</a>
-          .
+          <a className="text-[#b3c100] hover:underline" href={contacts.phone.link}>{contacts.phone.name}</a>.
         </li>
-        <li className='text-neutral-400'>
+        <li>
           {data.alertSubstring3}
-          <a href={contacts.site}>{contacts.site}</a>.
+          <a className="text-[#b3c100] hover:underline" href={contacts.site}>{contacts.site}</a>.
         </li>
       </ul>
     </>

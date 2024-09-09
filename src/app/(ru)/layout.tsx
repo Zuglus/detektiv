@@ -1,7 +1,7 @@
 import '@/app/globals.css';
 import Footer from '@/components/layout/footer';
 import getRoutes from '@/components/utility/getRoutes';
-import Head from '@/components/layout/head';
+import Header from '@/components/layout/header';
 import { Props } from '@/components/utility/types';
 import footerContent from '@/data/footer.json';
 import headData from '@/data/header.json';
@@ -15,16 +15,18 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }: Props) {
-  const routes = getRoutes('ru');
+  const lang = 'ru';
+  const routes = getRoutes(lang);
+
   return (
-    <html lang='ru'>
-      <body className='selection:bg-red-600 p-4 font-sans selection:text-black antialiased'>
-        <div className='mx-auto container'>
-          <Head data={headData.ru} routes={routes} />
-          <main className='flex flex-col justify-between items-center'>
+    <html lang={lang}>
+      <body className="bg-[#b3c100] selection:bg-[#333] font-sans text-[#333] selection:text-white antialiased">
+        <div className="mx-auto px-4 container">
+          <Header data={headData[lang]} routes={routes} />
+          <main className="flex flex-col justify-center items-center py-12">
             {children}
           </main>
-          <Footer content={footerContent.ru} routes={routes} />
+          <Footer content={footerContent[lang]} routes={routes} />
         </div>
       </body>
     </html>
