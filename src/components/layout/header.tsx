@@ -10,21 +10,18 @@ export default function Header({ data, routes }: { data: any, routes: Rout[] }) 
         <SocialIcons />
       </div>
 
-      <h1 
-  className="relative mt-4 font-bold text-4xl text-olive-50 sm:text-5xl lg:text-6xl hover:text-yellow-400 uppercase tracking-wide transform transition-all duration-300 ease-in-out hover:scale-105"
-  style={{ 
-    fontFamily: "'Dancing Script', cursive", /* Рукописный стиль */
-    textShadow: '2px 4px 6px rgba(0,0,0,0.7)', /* Объемная тень */
-    padding: '0 20px', 
-    letterSpacing: '0.1em', /* Увеличенный трекинг для выразительности */
-    transition: 'transform 0.3s ease, color 0.3s ease', /* Плавные анимации */
-    backgroundClip: 'text', /* Текст как бы "вырезан" на фоне */
-  }}
->
-  &laquo;{data.header}&raquo;
-</h1>
-
-
+      <h1
+        className="relative mt-4 font-extrabold text-[#f0f0f0] text-5xl sm:text-6xl lg:text-7xl uppercase tracking-wide transform transition-all duration-200 ease-in-out"
+        style={{
+          fontFamily: "'Roboto', sans-serif", /* Строгий современный шрифт */
+          textShadow: '1px 2px 3px rgba(0,0,0,0.5)', /* Легкая тень для четкости */
+          padding: '0 20px',
+          letterSpacing: '0.05em', /* Легкое увеличение интервала между буквами */
+          transition: 'transform 0.2s ease, color 0.2s ease', /* Уменьшение времени анимаций */
+        }}
+      >
+        &laquo;{data.header}&raquo;
+      </h1>
 
 
       <h2
