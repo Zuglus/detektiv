@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import ButtonTranslate from '../ui/buttonTranslate';
 import { classNames } from '../utility/classNames';
 import { Rout } from '../utility/types';
@@ -10,6 +10,11 @@ import { Rout } from '../utility/types';
 export default function Nav({ routes }: { routes: Rout[] }) {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    // Обработчик состояния должен вызываться только на клиенте
+    setIsOpen(false);
+  }, []);
 
   return (
     <div className="relative flex md:flex-row flex-row-reverse justify-between border-yellow-500 bg-olive-900 shadow-md p-4 border-t-4 text-olive-50 transition-all duration-300">

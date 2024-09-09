@@ -9,9 +9,9 @@ import headData from '@/data/header.json';
 export const metadata = {
   title: 'Детективное агентство «Право»',
   description:
-    'Детективное агентство «Право»-Частный Детектив в Москве. Профессионально✅ Оперативно✅ Достоверно✅ Гарантия✅',
+    'Детективное агентство «Право» - Частный Детектив в Москве. Профессионально ✅ Оперативно ✅ Достоверно ✅ Гарантия ✅',
   keywords:
-    'Детективное агентство «Право»-Частный Детектив в Москве. Профессионально✅ Оперативно✅ Достоверно✅ Гарантия✅',
+    'Детективное агентство «Право», Частный Детектив в Москве, Профессионально, Оперативно, Достоверно, Гарантия',
 };
 
 export default function RootLayout({ children }: Props) {
@@ -20,7 +20,7 @@ export default function RootLayout({ children }: Props) {
 
   return (
     <html lang={lang}>
-      <body className="bg-[#b3c100] selection:bg-[#333] font-sans text-[#333] selection:text-white antialiased">
+      <body className="bg-[#a8d0b9] selection:bg-[#333] font-sans text-[#333] selection:text-white antialiased">
         <div className="mx-auto px-4 container">
           <Header data={headData[lang]} routes={routes} />
           <main className="flex flex-col justify-center items-center py-12">

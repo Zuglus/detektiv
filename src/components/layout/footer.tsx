@@ -9,43 +9,30 @@ import { Rout } from '@/components/utility/types';
 
 export default function Footer({ routes, content }: { routes: Rout[], content: any }) {
   return (
-    <div className="bg-olive-700 p-6 md:p-12 text-center text-white">
-      <h2 className="border-olive-400 mb-6 border-b-2 font-bold text-2xl uppercase">
+    <div className="bg-[#a8d0b9] shadow-lg p-8 md:p-12 rounded-t-lg text-center text-gray-900">
+      <h2 className="border-gray-300 mb-6 border-b-4 font-bold text-3xl uppercase tracking-wide">
         {content.title}
       </h2>
       <div className="flex md:flex-row flex-col my-10">
         <BottomNav routes={routes} />
-        <hr className="md:inline-block hidden bg-olive-500 mx-4 my-auto border-t-0 w-px h-10" />
+        <hr className="md:inline-block hidden bg-gray-400 mx-4 my-auto border-t-0 w-px h-12" />
         <SocialIconsFooter />
       </div>
-      <hr className="bg-olive-400 opacity-75 my-6 border-t-0 h-px" />
-      <div className="flex flex-wrap justify-between md:justify-around mx-auto md:max-w-4xl">
-        <Image
-          className="mx-auto my-6 w-auto h-24"
-          src={docImg}
-          alt={content.imgAlt}
-          placeholder="blur"
-        />
-        <Image
-          className="mx-auto my-6 w-auto h-24"
-          src={visitImg}
-          alt={content.imgAlt}
-          placeholder="blur"
-        />
-        <Image
-          className="mx-auto my-6 w-auto h-24"
-          src={cabinetImg}
-          alt={content.imgAlt}
-          placeholder="blur"
-        />
-        <Image
-          className="mx-auto my-6 w-auto h-24"
-          src={rosinfoImg}
-          alt={content.imgAlt}
-          placeholder="blur"
-        />
+      <hr className="bg-gray-400 opacity-80 my-6 border-t-0 h-px" />
+      
+      <div className="flex flex-wrap justify-around space-y-6 md:space-y-0 mx-auto max-w-4xl">
+        {[docImg, visitImg, cabinetImg, rosinfoImg].map((imgSrc, index) => (
+          <Image
+            key={index}
+            className="mx-auto w-auto h-24 hover:scale-105 transform transition-transform duration-300"
+            src={imgSrc}
+            alt={content.imgAlt}
+            placeholder="blur"
+          />
+        ))}
       </div>
-      <a className="inline-block opacity-70 mt-4 text-olive-500 hover:text-white" href="#">
+
+      <a className="inline-block opacity-70 mt-6 text-gray-600 hover:text-gray-900 transition-all duration-300" href="#">
         <svg
           className="animate-bounce"
           width="18"
@@ -62,7 +49,8 @@ export default function Footer({ routes, content }: { routes: Rout[], content: a
           />
         </svg>
       </a>
-      <div className="mt-10 text-sm uppercase" dangerouslySetInnerHTML={{ __html: content.copyright }} />
+      
+      <div className="mt-10 text-gray-700 text-sm uppercase" dangerouslySetInnerHTML={{ __html: content.copyright }} />
     </div>
   );
 }
