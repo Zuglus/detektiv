@@ -62,14 +62,19 @@ export default function ContentAbout({
         ))}
       </ul>
 
-      {/* Proposal Section - Subtle yet Striking */}
-      <div className="bg-[#a8d0b9] shadow-lg my-10 p-10 rounded-lg text-gray-900">
-        <h2 className="mb-6 font-extrabold text-3xl text-center tracking-wide">{data.proposeHeader}</h2>
-        <p className="leading-loose">{data.proposeText}</p>
+      {/* Proposal Section - Enhanced with Accents and Animation */}
+      <div className="relative bg-gradient-to-r from-[#a8d0b9] to-[#b3c100] shadow-xl hover:shadow-2xl mb-8 p-12 rounded-lg text-gray-900 transform transition-all hover:scale-105">
+        <h2 className="mb-6 font-extrabold text-4xl text-center text-gray-800 uppercase tracking-widest">
+          {data.proposeHeader}
+        </h2>
+        <p className="mx-auto max-w-2xl text-center text-gray-700 text-lg leading-relaxed">
+          {data.proposeText}
+        </p>
       </div>
 
+
       {/* Detective Principles - Well-Spaced with Focus on Simplicity */}
-      <h2 className="pt-10 pb-6 font-bold text-[#a8d0b9] text-3xl text-center uppercase tracking-widest">
+      <h2 className="font-bold text-[#a8d0b9] text-3xl text-center uppercase tracking-widest">
         {data.detektivePrinciplesHeader}
       </h2>
       <div className="gap-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
@@ -78,17 +83,30 @@ export default function ContentAbout({
         ))}
       </div>
 
-      {/* Order List - Clear and Structured */}
-      <div className="bg-white shadow-lg mt-10 p-8 rounded-lg">
-        <h4 className="mb-6 font-bold text-2xl text-center">{data.orderListHeader}</h4>
-        <ul className="list-none">
-          {data.orderList.map((li: string, i: number) => (
-            <li key={i} className="hover:bg-gray-200 odd:bg-gray-100 mb-4 p-4 rounded-lg font-bold text-gray-700 transition-colors duration-300">
-              {li}
-            </li>
-          ))}
-        </ul>
-      </div>
+      {/* Order List - Elegant with Dark Green Accents */}
+<div className="bg-[#f4f4f4] shadow-lg hover:shadow-2xl mt-12 p-10 rounded-lg transition-shadow duration-300">
+  {/* Заголовок списка */}
+  <h4 className="mb-6 font-bold text-[#2e4d3f] text-2xl text-center uppercase tracking-wide">
+    {data.orderListHeader}
+  </h4>
+
+  {/* Декоративная линия */}
+  <div className="bg-[#2e4d3f] mx-auto mb-6 rounded-full w-20 h-1"></div>
+
+  {/* Список */}
+  <ul className="list-none">
+    {data.orderList.map((li: string, i: number) => (
+      <li
+        key={i}
+        className={`mb-4 p-4 rounded-lg font-medium text-[#2e4d3f] bg-white hover:bg-[#e6f2ed] hover:text-[#2e4d3f] transition-colors duration-300 shadow-sm hover:shadow-md`}
+      >
+        {li}
+      </li>
+    ))}
+  </ul>
+</div>
+
+
 
       {/* Alerts Section - Interactive Links */}
       <h4 className="mt-12 mb-6 font-bold text-[#a8d0b9] text-2xl">
@@ -99,15 +117,15 @@ export default function ContentAbout({
       <ul className="pl-5 text-gray-600 list-disc">
         <li className="pb-4">
           {data.alertSubstring1}
-          <strong className="text-gray-900">{contacts.email.directName}</strong>,
-          <a className="text-[#a8d0b9] hover:underline transition-all duration-300" href={contacts.telegram.link}> {contacts.telegram.name}</a>,
-          <a className="text-[#a8d0b9] hover:underline transition-all duration-300" href={contacts.whatsapp.link}> {contacts.whatsapp.name}</a>,
+          <a className="hover:underline transition-all duration-300" href={contacts.email.link}>{contacts.email.directName}</a>,
+          <a className="hover:underline transition-all duration-300" href={contacts.telegram.link}> {contacts.telegram.name}</a>,
+          <a className="hover:underline transition-all duration-300" href={contacts.whatsapp.link}> {contacts.whatsapp.name}</a>,
           {data.alertSubstring2}
-          <a className="text-[#a8d0b9] hover:underline transition-all duration-300" href={contacts.phone.link}>{contacts.phone.name}</a>.
+          <a className="hover:underline transition-all duration-300" href={contacts.phone.link}>{contacts.phone.name}</a>.
         </li>
         <li>
           {data.alertSubstring3}
-          <a className="text-[#a8d0b9] hover:underline transition-all duration-300" href={contacts.site}>{contacts.site}</a>.
+          <a className="hover:underline transition-all duration-300" href={contacts.site}>{contacts.site}</a>.
         </li>
       </ul>
     </>

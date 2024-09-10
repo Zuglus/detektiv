@@ -11,17 +11,20 @@ export default function Header({ data, routes }: { data: any, routes: Rout[] }) 
       </div>
 
       <h1
-        className="relative mt-4 font-extrabold text-[#f0f0f0] text-5xl sm:text-6xl lg:text-7xl uppercase tracking-wide transform transition-all duration-200 ease-in-out"
-        style={{
-          fontFamily: "'Roboto', sans-serif", /* Строгий современный шрифт */
-          textShadow: '1px 2px 3px rgba(0,0,0,0.5)', /* Легкая тень для четкости */
-          padding: '0 20px',
-          letterSpacing: '0.05em', /* Легкое увеличение интервала между буквами */
-          transition: 'transform 0.2s ease, color 0.2s ease', /* Уменьшение времени анимаций */
-        }}
-      >
-        &laquo;{data.header}&raquo;
-      </h1>
+  className="relative mt-6 font-extrabold text-[#f0f0f0] text-4xl sm:text-5xl lg:text-6xl xl:text-7xl uppercase tracking-wider transform transition-all duration-200 ease-in-out"
+  style={{
+    fontFamily: "'Playfair Display', serif", /* Элегантный и профессиональный шрифт с засечками */
+    textShadow: '2px 3px 4px rgba(0,0,0,0.6)', /* Более четкая тень для выделения */
+    padding: '10px 20px',
+    letterSpacing: '0.08em', /* Чуть большее межбуквенное расстояние для выразительности */
+    lineHeight: '1.2', /* Четкость и читаемость на всех экранах */
+    transition: 'transform 0.3s ease, color 0.3s ease', /* Более плавные и замедленные анимации */
+    color: '#fff', /* Контрастный белый цвет для текста */
+  }}
+>
+  {data.header}<br/>
+  {data.headerName}
+</h1>
 
 
       <h2
