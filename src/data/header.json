@@ -1,13 +1,15 @@
 {
   "ru": {
-    "header": "Кынтэрец",
+    "intro": "частный детектив",
+    "header": "Грозный",
     "headerName": "Эдуард Николаевич",
-    "div1": "детективное агентство г. Москва<br class='md:hidden' /> лицензия МВД РФ 50ЧД2021000323",
-    "div2": "ваша гарантия<br class='sm:hidden' /> - наша репутация<br />строго конфиденциально<br />оперативно и профессионально<br />по РФ и за рубежом<br class='sm:hidden' /> работаем с 2010 года"
+    "div1": "ваша гарантия<br class='sm:hidden' /> - наша репутация<br />строго конфиденциально<br />оперативно и профессионально<br />по РФ и за рубежом<br class='sm:hidden' /> работаем с 2010 года",
+    "div2": "г. Москва<br class='md:hidden' /> лицензия МВД РФ 50ЧД2021000323"
   },
   "en": {
+    "intro": "private investigator",
     "header": "Pravo",
-    "div1": "detective agency moscow<br class='md:hidden' /> license мвд рф 50чд2021000323",
-    "div2": "your guarantee<br class='sm:hidden' /> - our reputation<br />strictly confidential<br />promptly and professionally<br />we have been working in russia<br /> and abroad since 2010"
+    "div1": "your guarantee<br class='sm:hidden' /> - our reputation<br />strictly confidential<br />promptly and professionally<br />we have been working in russia<br /> and abroad since 2010",
+    "div2": "detective agency moscow<br class='md:hidden' /> license мвд рф 50чд2021000323"
   }
 }

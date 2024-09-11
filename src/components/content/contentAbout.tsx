@@ -44,6 +44,16 @@ export default function ContentAbout({
         ))}
       </div>
 
+      {/* Proposal Section - Enhanced with Accents and Animation */}
+      <div className="relative bg-gradient-to-r from-[#a8d0b9] to-[#b3c100] shadow-xl hover:shadow-2xl mt-10 p-12 rounded-lg text-gray-900 transform transition-all hover:scale-105">
+        <h2 className="mb-6 font-extrabold text-4xl text-center text-gray-800 uppercase tracking-widest">
+          {data.proposeHeader}
+        </h2>
+        <p className="mx-auto max-w-2xl text-center text-gray-700 text-lg leading-relaxed">
+          {data.proposeText}
+        </p>
+      </div>
+
       {/* About Section - Soft Contrast and Attention-Grabbing Typography */}
       <div className="bg-[#8bb298] shadow-lg mt-12 p-10 rounded-lg">
         <h3 className="mb-6 font-bold text-3xl text-center text-white uppercase tracking-wider">
@@ -61,17 +71,6 @@ export default function ContentAbout({
           </li>
         ))}
       </ul>
-
-      {/* Proposal Section - Enhanced with Accents and Animation */}
-      <div className="relative bg-gradient-to-r from-[#a8d0b9] to-[#b3c100] shadow-xl hover:shadow-2xl mb-8 p-12 rounded-lg text-gray-900 transform transition-all hover:scale-105">
-        <h2 className="mb-6 font-extrabold text-4xl text-center text-gray-800 uppercase tracking-widest">
-          {data.proposeHeader}
-        </h2>
-        <p className="mx-auto max-w-2xl text-center text-gray-700 text-lg leading-relaxed">
-          {data.proposeText}
-        </p>
-      </div>
-
 
       {/* Detective Principles - Well-Spaced with Focus on Simplicity */}
       <h2 className="font-bold text-[#a8d0b9] text-3xl text-center uppercase tracking-widest">
