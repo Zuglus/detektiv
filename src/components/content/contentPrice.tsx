@@ -19,26 +19,37 @@ export default function ContentPrice({
       <p className='my-3 text-justify'>
         {data.intro}
       </p>
-      <ul>
-        {data.serviceList.map((item: Service) => {
-          return (
-            <li
-              className='flex odd:bg-neutral-900 p-3 text-sm'
-              key={item.title}
-            >
-              <div className='flex-auto'>
-                <div className='pr-20'>{item.title}</div>
-                <div className='text-neutral-600 text-xs'>{item.text}</div>
-              </div>
-              <div className='flex-none text-xs sm:text-base'>
-                {item.price}
-                <br className='sm:hidden' />
-                {data.currency}
-              </div>
-            </li>
-          );
-        })}
-      </ul>
+      
+      <ul className="bg-[#f0f0f0] shadow-lg rounded-lg divide-y divide-[#a8d0b9]">
+    {data.serviceList.map((item: Service, index: number) => {
+      return (
+        <li
+          className={`flex items-center p-4 text-sm transition-transform duration-300 ease-in-out transform hover:scale-105 ${
+            index % 2 === 0 ? 'bg-[#a8d0b9]' : 'bg-[#50c878]'
+          }`}
+          key={item.title}
+        >
+          {/* Service Title and Description */}
+          <div className="flex-auto">
+            <div className="pr-20 font-bold text-[#2a4f4f] text-lg">
+              {item.title}
+            </div>
+            <div className="mt-1 text-[#333] text-sm sm:text-base">
+              {item.text}
+            </div>
+          </div>
+          
+          {/* Price Section */}
+          <div className="text-right flex-none font-semibold text-[#333] text-base sm:text-lg">
+            {item.price}
+            <br className="sm:hidden" />
+            <span className="text-[#2a4f4f] text-sm sm:text-base">{data.currency}</span>
+          </div>
+        </li>
+      );
+    })}
+  </ul>
+
       <p className='pt-2 text-justify' dangerouslySetInnerHTML={{ __html: data.text }} />
       <p className='py-10'>
         {data.propose}

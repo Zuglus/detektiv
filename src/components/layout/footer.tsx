@@ -5,12 +5,8 @@ import { Rout } from '@/components/utility/types';
 export default function Footer({ routes, content }: { routes: Rout[], content: any }) {
   return (
     <div className="bg-[#a8d0b9] shadow-lg p-8 md:p-12 rounded-t-lg text-center text-gray-900">
-      <h2 className="border-gray-300 mb-6 border-b-4 font-bold text-3xl uppercase tracking-wide">
-        {content.title}
-      </h2>
+
       <div className="flex md:flex-row flex-col my-10">
-        <BottomNav routes={routes} />
-        <hr className="md:inline-block hidden bg-gray-400 mx-4 my-auto border-t-0 w-px h-12" />
         <SocialIconsFooter />
       </div>
       <hr className="bg-gray-400 opacity-80 my-6 border-t-0 h-px" />
@@ -32,7 +28,7 @@ export default function Footer({ routes, content }: { routes: Rout[], content: a
           />
         </svg>
       </a>
-      
+
       <div className="mt-10 text-gray-700 text-sm uppercase" dangerouslySetInnerHTML={{ __html: content.copyright }} />
     </div>
   );
