@@ -10,38 +10,25 @@ export default function Header({ data, routes }: { data: any, routes: Rout[] }) 
         <SocialIcons />
       </div>
 
-      <div
-        className="inline-block relative mt-6 text-[#f0f0f0] text-xl sm:text-2xl lg:text-3xl xl:text-4xl leading-tight tracking-wide transform transition-all duration-200 ease-in-out"
-        style={{
-          fontFamily: "'Playfair Display', serif", /* Совместимость шрифта с заголовком */
-          textShadow: '1px 2px 3px rgba(0,0,0,0.4)', /* Легкая тень для выделения текста */
-          letterSpacing: '0.08em', /* Увеличенное межбуквенное расстояние */
-          lineHeight: '1.4', /* Четкость и читаемость */
-          backgroundColor: '#2a4f4f', /* Темно-зеленый фон для контраста с текстом */
-          borderRadius: '10px', /* Мягкие углы для элегантности */
-          padding: '15px 30px', /* Просторные отступы */
-          width: 'fit-content', /* Ширина подстраивается под текст */
-          transition: 'background-color 0.3s ease, transform 0.3s ease', /* Плавные изменения при наведении */
-        }}
-      >
-        {data.intro}
-      </div>
-
       <h1
-        className="relative mt-6 font-extrabold text-[#f0f0f0] text-4xl sm:text-5xl lg:text-6xl xl:text-7xl uppercase tracking-wider transform transition-all duration-200 ease-in-out"
+        className="relative my-10 font-extrabold text-4xl text-gray-900 sm:text-5xl lg:text-6xl uppercase tracking-widest"
         style={{
-          fontFamily: "'Playfair Display', serif", /* Элегантный и профессиональный шрифт с засечками */
-          textShadow: '2px 3px 4px rgba(0,0,0,0.6)', /* Более четкая тень для выделения */
-          padding: '10px 20px',
-          letterSpacing: '0.08em', /* Чуть большее межбуквенное расстояние для выразительности */
-          lineHeight: '1.2', /* Четкость и читаемость на всех экранах */
-          transition: 'transform 0.3s ease, color 0.3s ease', /* Более плавные и замедленные анимации */
-          color: '#fff', /* Контрастный белый цвет для текста */
+          fontFamily: "'Playfair Display', serif", /* Elegant serif font */
+          letterSpacing: '0.15em',
+          padding: '20px',
+          background: 'linear-gradient(135deg, #8bb298, #a8d0b9)', /* Dark Green to Gold */
+          borderRadius: '10px',
+          border: '3px solid #d4af37',
+          boxShadow: '0 10px 25px rgba(0, 0, 0, 0.5)', /* Shadow for depth */
+          textShadow: '2px 4px 8px rgba(0, 0, 0, 0.7)', /* Text shadow for legibility */
+          display: 'inline-block', /* Shrinks width to fit content */
         }}
       >
-        {data.header}<br />
+        {data.intro} <br />
+        {data.header} <br />
         {data.headerName}
       </h1>
+
 
       <div
         className="bg-olive-600 bg-gradient-to-r from-olive-500 to-olive-400 shadow-md mx-auto my-6 px-4 py-2 rounded-lg max-w-xs sm:max-w-md font-semibold text-base text-center sm:text-lg uppercase"

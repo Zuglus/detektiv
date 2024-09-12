@@ -2,7 +2,7 @@ import contacts from '@/data/contacts.json';
 
 export default function SocialIconsFooter() {
   return (
-    <div className="flex md:flex-grow justify-center space-x-4 md:space-x-2 mt-6 md:mt-0">
+    <div className="flex md:flex-grow justify-center space-x-6 md:space-x-4 mt-6 md:mt-0">
       {[
         contacts.phone,
         contacts.email,
@@ -13,11 +13,13 @@ export default function SocialIconsFooter() {
           <a
             href={icon.link}
             key={icon.name}
-            className="transform transition-transform hover:scale-110"
+            className="relative transform transition-transform group hover:scale-125"
             title={icon.name}
           >
+            {/* Добавляем светящийся эффект при наведении */}
+            <div className="absolute inset-0 bg-olive-500 opacity-0 group-hover:opacity-100 blur-lg rounded-full transition-opacity duration-300"></div>
             <svg
-              className="w-8 md:w-6 h-8 md:h-6 fill-olive-700 hover:fill-olive-900"
+              className="group-hover:fill-emerald-900 w-10 md:w-8 h-10 md:h-8 transition-colors duration-300 fill-emerald-700"
               viewBox="0 0 24 24"
               fillRule="evenodd"
               strokeLinejoin="round"
