@@ -1,7 +1,9 @@
 export default function Card({
   data,
+  className = '',
 }: {
   data: { title: string; text: string };
+  className?: string; 
 }) {
   return (
     <div className="border-4 border-olive-600 bg-olive-50 shadow-lg hover:shadow-2xl my-10 p-8 rounded-lg md:w-1/2 text-center transition-shadow duration-300">
