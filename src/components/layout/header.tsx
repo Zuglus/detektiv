@@ -13,21 +13,21 @@ export default function Header({ data, routes }: { data: any, routes: Rout[] }) 
       <h1
         className="relative my-10 font-extrabold text-4xl text-gray-900 sm:text-5xl lg:text-6xl uppercase tracking-widest"
         style={{
-          fontFamily: "'Playfair Display', serif", /* Elegant serif font */
+          fontFamily: "'Playfair Display', serif",
           letterSpacing: '0.15em',
           padding: '20px',
           background: 'linear-gradient(135deg, #8bb298, #a8d0b9)', /* Dark Green to Gold */
           borderRadius: '10px',
-          border: '3px solid #d4af37',
           boxShadow: '0 10px 25px rgba(0, 0, 0, 0.5)', /* Shadow for depth */
           textShadow: '2px 4px 8px rgba(0, 0, 0, 0.7)', /* Text shadow for legibility */
-          display: 'inline-block', /* Shrinks width to fit content */
+          display: 'inline-block',
         }}
       >
         {data.intro} <br />
-        {data.header} <br />
-        {data.headerName}
+        <span style={{ fontSize: '0.8em' }}>{data.header}</span> <br />
+        <span style={{ fontSize: '0.8em' }}>{data.headerName}</span>
       </h1>
+
 
 
       <div
