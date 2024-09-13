@@ -3,7 +3,7 @@ import getRoutes from '@/components/utility/getRoutes';
 import Header from '@/components/layout/header';
 import footerContent from '@/data/footer.json';
 import headData from '@/data/header.json';
-import { Props } from '@/components/utility/types';
+import { Props, HeaderProps } from '@/components/utility/types';
 
 type Lang = keyof typeof headData;
 

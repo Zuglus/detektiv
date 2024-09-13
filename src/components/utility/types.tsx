@@ -99,7 +99,7 @@ export interface HeaderProps {
   data: {
     intro: string;
     header: string;
-    headerName: string;
+    headerName?: string;
     div1: string;
     div2: string;
   };
