@@ -4,7 +4,7 @@ import content from '@/data/contact.json';
 import contacts from '@/data/contacts.json';
 
 export const metadata = {
-  title: 'Детективное агентство «Право» | Контакты',
+  title: 'Детективное агентство Грозного Эдуарда Николаевича | Контакты',
 };
 
 export default function Contact() {

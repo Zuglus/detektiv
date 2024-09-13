@@ -3,7 +3,7 @@ import { getPosts } from '@/components/utility/getPosts';
 import PostList from '@/components/ui/postList';
 
 export const metadata = {
-  title: 'Детективное агентство «Право» | Заказы',
+  title: 'Детективное агентство Грозного Эдуарда Николаевича | Заказы',
 };
 
 export default async function Blog() {
