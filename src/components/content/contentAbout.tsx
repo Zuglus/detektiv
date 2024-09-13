@@ -29,7 +29,6 @@ export default function ContentAbout({
                 style={{
                   padding: '20px',
                   background: 'linear-gradient(135deg, #8bb298, #a8d0b9)',
-                  border: '1px solid #d4af37',
                   display: 'inline-block', /* Shrinks width to fit content */
                 }}>
                 {item.name}{item === contacts.email ? '.' : ','}
