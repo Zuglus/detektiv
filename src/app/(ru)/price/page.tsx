@@ -4,7 +4,7 @@ import contacts from '@/data/contacts.json';
 import content from '@/data/price.json';
 
 export const metadata = {
-  title: 'Детективное агентство «Право» | Прайс',
+  title: 'Детективное агентство Грозного Эдуарда Николаевича | Прайс',
 };
 
 export default function Price() {
