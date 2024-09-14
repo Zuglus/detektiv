@@ -1,8 +1,5 @@
-'use client';
-
-import Link from 'next/link';
-import { classNames } from '../utility/classNames';
-import TranslateUrl from '../utility/translateUrl';
+import Link from "next/link";
+import TranslateUrl from "../utility/translateUrl";
 
 function RuFlag() {
   return (
@@ -28,12 +25,11 @@ function EnFlag() {
   );
 }
 
-export default function ButtonTranslate({ url, isOpen }: { url: string, isOpen: boolean }) {
+export default function ButtonTranslate({ url }: { url: string }) {
   const trans = TranslateUrl(url);
-
   return (
     <Link
-      className={classNames(isOpen ? 'hidden' : '', 'my-auto border-y border-neutral-800 text-neutral-500')}
+      className="inline-block m-10 text-center transition-all duration-300 ease-in-out"
       href={trans.link}
     >
       {trans.flag ? <EnFlag /> : <RuFlag />}
