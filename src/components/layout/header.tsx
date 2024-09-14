@@ -15,7 +15,7 @@ export default function Header({ data, routes }: HeaderProps) {
 
       {/* Основной заголовок */}
       <h1
-        className="inline-block relative bg-gradient-to-r from-[#8bb298] to-[#a8d0b9] shadow-xl mt-6 mb-4 px-3 sm:px-5 py-3 sm:py-5 rounded-lg max-w-full font-extrabold text-2xl text-gray-900 sm:text-4xl lg:text-6xl uppercase tracking-widest"
+        className="inline-block relative bg-gradient-to-r from-[#8bb298] to-[#a8d0b9] shadow-xl mt-6 mb-4 px-3 sm:px-5 py-3 sm:py-5 rounded-lg max-w-full font-extrabold text-gray-900 text-xl sm:text-4xl lg:text-6xl uppercase tracking-widest"
         style={{
           fontFamily: "'Playfair Display', serif",
           letterSpacing: '0.15em',

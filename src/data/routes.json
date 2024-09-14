@@ -2,7 +2,7 @@
   "ru": [
     {
       "id": 1,
-      "name": "о нас",
+      "name": "главная",
       "href": "/"
     },
     {
@@ -29,12 +29,17 @@
       "id": 6,
       "name": "вакансии",
       "href": "/vakansii"
+    },
+    {
+      "id": 7,
+      "name": "о нас",
+      "href": "/onas"
     }
   ],
   "en": [
     {
       "id": 1,
-      "name": "About",
+      "name": "Main",
       "href": "/en"
     },
     {
@@ -61,6 +66,11 @@
       "id": 6,
       "name": "Job",
       "href": "/en/job"
+    },
+    {
+      "id": 7,
+      "name": "About",
+      "href": "/about"
     }
   ]
 }

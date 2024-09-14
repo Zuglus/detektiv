@@ -23,28 +23,20 @@ export default function ContentGuarantee({ data, contacts }: { data: any, contac
       </p>
 
       {/* Contact Proposal Section */}
-      <p className="mt-8 text-lg">
+      <p className='py-10'>
         {data.propose}
-        <a href={contacts.telegram.link} className="text-[#50c878] hover:underline transition-all duration-200">
-          {' '}
-          {contacts.telegram.name}
-        </a>
-        ,
-        <a href={contacts.whatsapp.link} className="text-[#50c878] hover:underline transition-all duration-200">
-          {' '}
-          {contacts.whatsapp.name}
-        </a>
-        ,
-        <a href={contacts.email.link} className="text-[#50c878] hover:underline transition-all duration-200">
-          {' '}
-          {contacts.email.name}
-        </a>
-        ,
-        <a href={contacts.phone.link} className="text-[#50c878] hover:underline transition-all duration-200">
-          {' '}
-          {contacts.phone.name}
-        </a>
-        .
+        {[
+          contacts.telegram,
+          contacts.whatsapp,
+          contacts.email,
+          contacts.phone,
+        ].map((item) => (
+          <a key={item.name} href={item.link}>
+            {' '}
+            {item.name}
+            {item === contacts.phone ? '.' : ','}
+          </a>
+        ))}
       </p>
     </>
   );
