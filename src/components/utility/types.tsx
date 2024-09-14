@@ -78,8 +78,6 @@ interface Data {
   serviceList: Card[];
   orderListHeader: string;
   orderList: string[];
-  aboutHeader: string;
-  aboutText: string;
   benefitsList: Benefit[];
   detektivePrinciplesHeader: string;
   detektivePrinciplesList: Principle[];
