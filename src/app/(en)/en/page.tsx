@@ -1,11 +1,11 @@
-import ContentAbout from '@/components/content/contentAbout';
-import content from '@/data/about.json';
+import ContentMain from '@/components/content/contentMain';
+import content from '@/data/main.json';
 import contacts from '@/data/contacts.json';
 
-export default function AboutEn() {
+export default function MainEn() {
   return (
     <>
-      <ContentAbout data={content.en} contacts={contacts} />
+      <ContentMain data={content.en} contacts={contacts} />
     </>
   );
 }
