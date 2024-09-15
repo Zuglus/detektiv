@@ -17,7 +17,7 @@ export type Principle = {
   text: string;
 };
 
-export type Rout = {
+export type Route = {
   id: number;
   name: string;
   href: string;
@@ -101,10 +101,12 @@ export interface HeaderProps {
     div1: string;
     div2: string;
   };
-  routes: Rout[];
+  routes: Route[];
 }
 
 export interface ContentData {
   ru: Data;
   en: Data;
 }
+
+export type Lang = 'ru' | 'en';

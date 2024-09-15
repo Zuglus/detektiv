@@ -1,6 +1,11 @@
 import contacts from '@/data/contacts.json';
+import { Lang } from '../utility/types';
 
-export default function SocialIcons() {
+interface IconsProps {
+  lang: Lang;
+}
+
+export default function SocialIcons({lang}: IconsProps) {
   return (
     <div className="float-right md:flex space-x-6 hidden">
       {[

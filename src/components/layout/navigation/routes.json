@@ -1,0 +1,76 @@
+{
+  "ru": [
+    {
+      "id": 1,
+      "name": "главная",
+      "href": "/"
+    },
+    {
+      "id": 2,
+      "name": "прайс",
+      "href": "/price"
+    },
+    {
+      "id": 3,
+      "name": "контакты",
+      "href": "/kontakty"
+    },
+    {
+      "id": 4,
+      "name": "гарантии",
+      "href": "/garantii"
+    },
+    {
+      "id": 5,
+      "name": "заказы",
+      "href": "/stati"
+    },
+    {
+      "id": 6,
+      "name": "вакансии",
+      "href": "/vakansii"
+    },
+    {
+      "id": 7,
+      "name": "о нас",
+      "href": "/onas"
+    }
+  ],
+  "en": [
+    {
+      "id": 1,
+      "name": "главная",
+      "href": "/"
+    },
+    {
+      "id": 2,
+      "name": "прайс",
+      "href": "/price"
+    },
+    {
+      "id": 3,
+      "name": "контакты",
+      "href": "/kontakty"
+    },
+    {
+      "id": 4,
+      "name": "гарантии",
+      "href": "/garantii"
+    },
+    {
+      "id": 5,
+      "name": "заказы",
+      "href": "/stati"
+    },
+    {
+      "id": 6,
+      "name": "вакансии",
+      "href": "/vakansii"
+    },
+    {
+      "id": 7,
+      "name": "о нас",
+      "href": "/onas"
+    }
+  ]
+}
