@@ -1,13 +1,20 @@
-import BottomNav from './bottomNav';
 import SocialIconsFooter from '@/components/ui/socialIconsFooter';
-import { Rout } from '@/components/utility/types';
+import footerData from './footer.json';
+import { Lang } from '../../utility/types';
 
-export default function Footer({ routes, content }: { routes: Rout[], content: any }) {
+export default function Footer({ lang }: { lang: Lang }) {
+  const footerContent = footerData[lang];
+
+  if (!footerContent) {
+    return <div>Language data not available.</div>;
+  }
+
+  const { licenseInfo, years, location, companyName, socialIcons } = footerContent;
+
   return (
     <div className="bg-[#a8d0b9] shadow-lg p-8 md:p-12 rounded-t-lg text-center text-gray-900">
-
       <div className="flex md:flex-row flex-col my-10">
-        <SocialIconsFooter />
+        {socialIcons && <SocialIconsFooter />}
       </div>
       <hr className="bg-gray-400 opacity-80 my-6 border-t-0 h-px" />
 
@@ -18,7 +25,6 @@ export default function Footer({ routes, content }: { routes: Rout[], content: a
           height="10"
           viewBox="0 0 18 10"
           xmlns="http://www.w3.org/2000/svg"
-          data-svg="totop"
         >
           <polyline
             fill="none"
@@ -29,7 +35,9 @@ export default function Footer({ routes, content }: { routes: Rout[], content: a
         </svg>
       </a>
 
-      <div className="mt-10 text-gray-700 text-sm uppercase" dangerouslySetInnerHTML={{ __html: content.copyright }} />
+      <div className="mt-10 text-gray-700 text-sm uppercase">
+        &#169; {years} {companyName}, {location}. {licenseInfo}
+      </div>
     </div>
   );
 }

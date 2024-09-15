@@ -1,0 +1,16 @@
+{
+    "ru": {
+        "licenseInfo": "детективное агентство Грозного Эдуарда Николаевича г. Москва лицензия МВД РФ 50ЧД2021000323 Копировать, использовать, ссылаться на информацию с сайта запрещено",
+        "years": "2010-2024",
+        "location": "г. Москва",
+        "companyName": "Детективное агентство Грозного Эдуарда Николаевича",
+        "socialIcons": true
+    },
+    "en": {
+        "licenseInfo": "License 50CHD2021000323",
+        "years": "2010-2024",
+        "location": "Moscow",
+        "companyName": "Detective Agency of Eduard Nikolaevich Grozny",
+        "socialIcons": true
+    }
+}

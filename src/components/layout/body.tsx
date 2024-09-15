@@ -1,23 +1,16 @@
-import Footer from '@/components/layout/footer';
-import getRoutes from '@/components/utility/getRoutes';
-import Header from '@/components/layout/header';
-import footerContent from '@/data/footer.json';
-import headData from '@/data/header.json';
-import { Props, HeaderProps } from '@/components/utility/types';
-
-type Lang = keyof typeof headData;
+import Footer from '@/components/layout/footer/footer';
+import Header from '@/components/layout/header/header';
+import { Props, Lang } from '@/components/utility/types';
 
 export default function Body({ lang, children }: { lang: Lang } & Props) {
-  const routes = getRoutes(lang);
-
   return (
     <body className="bg-[#a8d0b9] selection:bg-[#333] font-sans text-[#333] selection:text-white antialiased">
       <div className="mx-auto px-4 container">
-        <Header data={headData[lang]} routes={routes} />
+        <Header lang={lang} />
         <main className="flex flex-col justify-center items-center">
           {children}
         </main>
-        <Footer content={footerContent[lang]} routes={routes} />
+        <Footer lang={lang} />
       </div>
     </body>
   );
