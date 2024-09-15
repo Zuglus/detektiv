@@ -19,7 +19,7 @@ export default function ContentMain({ data, contacts }: { data: any; contacts: a
               className="group"
             >
               <span
-                className="group-hover:scale-110 inline-block relative z-10 bg-gradient-to-r from-green-fog-700 to-green-fog-500 shadow-lg px-5 py-3 rounded-full text-emerald-800 text-lg hover:text-green-500 transform transition-transform duration-300 ease-in-out"
+                className="group-hover:scale-110 inline-block relative z-0 bg-gradient-to-r from-green-fog-700 to-green-fog-500 shadow-lg px-5 py-3 rounded-full text-emerald-800 text-lg hover:text-green-500 transform transition-transform duration-300 ease-in-out"
               >
                 {item.name}
                 {item === contacts.email ? '.' : ','}
