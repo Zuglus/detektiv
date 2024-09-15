@@ -24,7 +24,7 @@ export default function Nav({ routes }: { routes: Rout[] }) {
             key={route.name}
             href={route.href}
             className={classNames(
-              'px-3 py-1 md:px-0 lg:px-5 rounded-md uppercase tracking-wide md:tracking-widest font-semibold text-sm md:text-base lg:text-lg transition-all duration-300',
+              'px-3 py-1 md:px-0 xl:px-5 rounded-md uppercase tracking-wide md:tracking-widest font-semibold text-sm md:text-base lg:text-lg transition-all duration-300',
               pathname === route.href ? 'text-black' : 'hover:bg-olive-700 hover:text-gold',
               'md:-rotate-45 lg:rotate-0'
             )}

@@ -8,10 +8,9 @@ export default function Header({ data, routes }: HeaderProps) {
   return (
     <header className="bg-olive-700 p-4 sm:p-6 text-center text-white">
       {/* Навигация и социальные иконки */}
-      <div className="flex md:flex-row flex-col md:justify-between items-center md:py-2">
         <Nav routes={routes} />
-        <SocialIcons />
-      </div>
+
+          <SocialIcons />
 
       {/* Основной заголовок */}
       <h1

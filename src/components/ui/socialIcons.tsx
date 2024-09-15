@@ -2,7 +2,7 @@ import contacts from '@/data/contacts.json';
 
 export default function SocialIcons() {
   return (
-    <div className="md:flex space-x-6 hidden md:pr-10">
+    <div className="float-right md:flex space-x-6 hidden">
       {[
         contacts.phone,
         contacts.email,
