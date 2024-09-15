@@ -1,10 +1,9 @@
-import ContentAbout from '@/components/content/contentAbout';
-import content from '@/data/about.json';
+import ContentMain from '@/components/content/contentMain';
+import contentData from '@/data/main.json';
+import contactsData from '@/data/contacts.json';
 
 export default function AboutEn() {
   return (
-    <>
-      <ContentAbout data={content.en} />
-    </>
+      <ContentMain data={contentData.en} contacts={contactsData} />
   );
 }
