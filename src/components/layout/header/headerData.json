@@ -1,16 +1,46 @@
 {
-    "title": "Детективное агентство",
-    "name": "Грозного",
-    "fullName": "Эдуарда Николаевича",
+    "title": {
+        "ru": "Детективное агентство",
+        "en": "Detective Agency"
+    },
+    "name": {
+        "ru": "Грозного",
+        "en": "Grozny"
+    },
+    "fullName": {
+        "ru": "Эдуарда Николаевича",
+        "en": "Eduard Nikolaevich"
+    },
     "guaranteeInfo": {
-        "firstLine": "ваша гарантия - наша репутация",
-        "secondLine": "строго конфиденциально",
-        "thirdLine": "оперативно и профессионально",
-        "fourthLine": "по РФ и за рубежом",
-        "fifthLine": "работаем с 2010 года"
+        "firstLine": {
+            "ru": "ваша гарантия - наша репутация",
+            "en": "your guarantee - our reputation"
+        },
+        "secondLine": {
+            "ru": "строго конфиденциально",
+            "en": "strictly confidential"
+        },
+        "thirdLine": {
+            "ru": "оперативно и профессионально",
+            "en": "efficiently and professionally"
+        },
+        "fourthLine": {
+            "ru": "по РФ и за рубежом",
+            "en": "across Russia and abroad"
+        },
+        "fifthLine": {
+            "ru": "работаем с 2010 года",
+            "en": "in business since 2010"
+        }
     },
     "licenseInfo": {
-        "location": "г. Москва",
-        "license": "лицензия МВД РФ 50ЧД2021000323"
+        "location": {
+            "ru": "г. Москва",
+            "en": "Moscow"
+        },
+        "license": {
+            "ru": "лицензия МВД РФ 50ЧД2021000323",
+            "en": "MIA license of the Russian Federation 50ЧД2021000323"
+        }
     }
 }
