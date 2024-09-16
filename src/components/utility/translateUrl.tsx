@@ -1,5 +1,5 @@
 import posts from '@/data/translatedPosts.json';
-import getRoutes from './getRoutes';
+import getRoutes from './getRoutes/getRoutes';
 
 export default function TranslateUrl(url: string): { link: string, flag: boolean } {
   const [finded] = getRoutes('ru', url);

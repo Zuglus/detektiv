@@ -39,37 +39,37 @@
   "en": [
     {
       "id": 1,
-      "name": "Main",
+      "name": "main",
       "href": "/en"
     },
     {
       "id": 2,
-      "name": "Price",
-      "href": "/en/price-en"
+      "name": "price",
+      "href": "/en/price"
     },
     {
       "id": 3,
-      "name": "Contact",
+      "name": "contact",
       "href": "/en/contact"
     },
     {
       "id": 4,
-      "name": "Guarantee",
+      "name": "guarantee",
       "href": "/en/guarantee"
     },
     {
       "id": 5,
-      "name": "Blog",
+      "name": "blog",
       "href": "/en/blog"
     },
     {
       "id": 6,
-      "name": "Job",
+      "name": "job",
       "href": "/en/job"
     },
     {
       "id": 7,
-      "name": "About",
+      "name": "about",
       "href": "/en/about"
     }
   ]

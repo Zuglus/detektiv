@@ -1,12 +1,12 @@
 'use client';
 
 import Link from 'next/link';
-import { classNames } from '../../utility/classNames';
+import { classNames } from '@/components/utility/classNames';
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
-import { Lang, Route } from '../../utility/types';
-import ButtonTranslate from '../../ui/buttonTranslate';
-import routesList from './routes.json';
+import { Lang, Route } from '@/components/utility/types';
+import ButtonTranslate from '@/components/ui/buttonTranslate';
+import getRoutes from '../utility/getRoutes/getRoutes';
 
 interface NavProps {
   lang: Lang;
@@ -15,7 +15,7 @@ interface NavProps {
 export default function Nav({ lang }: NavProps) {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
-  const routes: Route[] = routesList[lang];
+  const routes: Route[] = getRoutes(lang);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
