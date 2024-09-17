@@ -1,11 +1,10 @@
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
-import ContentJob from "@/components/content/contentJob";
+import ContentJob from "@/components/content/job/contentJob";
 import contacts from '@/data/contacts.json';
-import content from '@/data/job.json';
 import { Breadcrumb } from "@/components/utility/types";
 
 export const metadata = {
-  title: 'Detective agency «Pravo» | Job',
+  title: 'Detective Agency of Eduard Nikolaevich Grozny | Job',
 };
 
 export default function Job() {
@@ -18,6 +17,6 @@ export default function Job() {
   return (
     <>
       <Breadcrumbs breadcrumb={breadcrumb} />
-      <ContentJob contacts={contacts} data={content.en} /></>
+      <ContentJob lang='en' /></>
   )
 }

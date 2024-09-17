@@ -5,7 +5,7 @@ import content from "@/data/guarantee.json";
 import { Breadcrumb } from "@/components/utility/types";
 
 export const metadata = {
-  title: 'Detective agency «Pravo» | Guarantee',
+  title: 'Detective Agency of Eduard Nikolaevich Grozny | Guarantee',
 };
 
 export default function Guarantee() {

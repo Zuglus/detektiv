@@ -4,7 +4,7 @@ import PostList from "@/components/ui/postList";
 import { Breadcrumb } from "@/components/utility/types";
 
 export const metadata = {
-  title: 'Detective agency «Pravo» | Blog',
+  title: 'Detective Agency of Eduard Nikolaevich Grozny | Blog',
 };
 
 export default async function Blog() {

@@ -5,7 +5,7 @@ import contacts from '@/data/contacts.json';
 import { Breadcrumb } from "@/components/utility/types";
 
 export const metadata = {
-  title: 'Detective agency «Pravo» | Contact',
+  title: 'Detective Agency of Eduard Nikolaevich Grozny | Contact',
 };
 
 export default function Contact() {
