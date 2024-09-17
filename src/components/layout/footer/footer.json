@@ -1,16 +1,22 @@
 {
-    "ru": {
-        "licenseInfo": "лицензия МВД РФ 50ЧД2021000323 Копировать, использовать, ссылаться на информацию с сайта запрещено",
-        "years": "2010-2024",
-        "location": "г. Москва",
-        "companyName": "Детективное агентство Грозного Эдуарда Николаевича",
-        "socialIcons": true
+    "companyName": {
+        "ru": "Детективное агентство Грозного Эдуарда Николаевича",
+        "en": "Grozny Eduard Nikolaevich's Detective Agency"
     },
-    "en": {
-        "licenseInfo": "Russian Ministry of Internal Affairs License 50ЧД2021000323. Copying, using, or referencing information from the website is prohibited",
-        "years": "2010-2024",
-        "location": "Moscow",
-        "companyName": "Grozny Eduard Nikolaevich's Detective Agency",
-        "socialIcons": true
+    "licenseInfo": {
+        "ru": "лицензия МВД РФ 50ЧД2021000323 Копировать, использовать, ссылаться на информацию с сайта запрещено",
+        "en": "Russian Ministry of Internal Affairs License 50ЧД2021000323. Copying, using, or referencing information from the website is prohibited"
+    },
+    "years": {
+        "ru": "2010-2024",
+        "en": "2010-2024"
+    },
+    "location": {
+        "ru": "г. Москва",
+        "en": "Moscow"
+    },
+    "socialIcons": {
+        "ru": true,
+        "en": true
     }
 }

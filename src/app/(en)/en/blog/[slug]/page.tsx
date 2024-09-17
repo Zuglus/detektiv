@@ -1,7 +1,7 @@
 import { Breadcrumbs } from '@/components/layout/breadcrumbs';
 import { classNames } from '@/components/utility/classNames';
 import { getPosts } from '@/components/utility/getPosts';
-import { Slugs } from '@/components/utility/types';
+import { Breadcrumb, Slugs } from '@/components/utility/types';
 
 export async function generateStaticParams() {
   const posts = await getPosts('en');
@@ -13,9 +13,15 @@ export async function generateStaticParams() {
 
 export default async function Post({ params }: Slugs) {
   const [post] = await getPosts('en', params.slug);
+  const breadcrumb: Breadcrumb = {
+    home: '/en',
+    name: 'Blog',
+    link: '/en/blog',
+    secondName: post.title
+  }
   return (
     <>
-      <Breadcrumbs home='/en' name='Blog' link={'/en/blog'} secondName={post.title} />
+      <Breadcrumbs breadcrumb={breadcrumb} />
       <div className='shadow-md shadow-neutral-800 my-10 py-5 max-w-4xl'>
         <h2 className='mx-auto max-w-2xl font-bold font-serif text-3xl text-center uppercase'>
           {post.title}

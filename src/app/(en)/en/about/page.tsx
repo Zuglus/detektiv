@@ -1,9 +1,23 @@
-import ContentMain from '@/components/content/contentMain';
-import contentData from '@/data/main.json';
-import contactsData from '@/data/contacts.json';
+import { Breadcrumbs } from '@/components/layout/breadcrumbs';
+import ContentAbout from '@/components/content/about/contentAbout';
+import { Breadcrumb } from '@/components/utility/types';
+
+export const metadata = {
+  title: 'Detective Agency of Eduard Nikolaevich Grozny | About',
+};
 
 export default function AboutEn() {
+  const breadcrumb: Breadcrumb = {
+    home: '/',
+    name: 'About',
+    link: '',
+    secondName: ''
+  }
   return (
-      <ContentMain data={contentData.en} contacts={contactsData} />
+    <>
+      <Breadcrumbs breadcrumb={breadcrumb} />
+      <ContentAbout lang="en" />
+    </>
   );
 }
+
