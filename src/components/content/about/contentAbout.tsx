@@ -1,22 +1,16 @@
-interface Content {
-  title: string;
-  paragraphs: string[];
-}
+import { ContentLang } from '@/components/utility/types';
+import content from './aboutData.json';
 
-interface ContentAboutProps {
-  content: Content;
-}
-
-export default function ContentAbout({ content }: ContentAboutProps) {
+export default function ContentAbout({ lang }: ContentLang) {
   const { title, paragraphs } = content;
 
   return (
     <div className="bg-[#f4f4f4] shadow-lg mx-auto mt-12 p-6 md:p-10 rounded-lg max-w-prose font-serif text-black">
       <h3 className="mb-6 font-extrabold text-3xl text-center text-gray-700 uppercase tracking-widest">
-        {title}
+        {title[lang]}
       </h3>
       <div className="space-y-4 leading-loose">
-        {paragraphs.map((paragraph, index) => (
+        {paragraphs[lang].map((paragraph: string, index: number) => (
           <p key={index} className="text-base md:text-lg">{paragraph}</p>
         ))}
       </div>

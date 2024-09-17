@@ -3,7 +3,7 @@ import footerData from './footer.json';
 import { Lang } from '../../utility/types';
 
 export default function Footer({ lang }: { lang: Lang }) {
-  const footerContent = footerData[lang];
+  const footerContent = footerData;
 
   if (!footerContent) {
     return <div>Language data not available.</div>;
@@ -36,7 +36,7 @@ export default function Footer({ lang }: { lang: Lang }) {
       </a>
 
       <div className="mt-10 text-gray-700 text-sm uppercase">
-        &#169; {years} {companyName}, {location}. {licenseInfo}
+        &#169; {years[lang]} {companyName[lang]}, {location[lang]}. {licenseInfo[lang]}
       </div>
     </div>
   );

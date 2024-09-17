@@ -88,11 +88,6 @@ interface Data {
   alertSubstring3: string;
 }
 
-interface ContentAboutProps {
-  data: Data;
-  contacts: Contacts;
-}
-
 export interface HeaderProps {
   data: {
     intro: string;
@@ -110,3 +105,9 @@ export interface ContentData {
 }
 
 export type Lang = 'ru' | 'en';
+
+
+// уже новый отсюда
+export interface ContentLang {
+  lang: 'ru' | 'en';
+}

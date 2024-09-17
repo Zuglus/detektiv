@@ -1,33 +1,45 @@
 import posts from '@/data/translatedPosts.json';
 import getRoutes from './getRoutes/getRoutes';
 
-export default function TranslateUrl(url: string): { link: string, flag: boolean } {
-  const [finded] = getRoutes('ru', url);
-  if (finded) return {
-    link: getRoutes('en', finded.id)[0].href,
-    flag: true
+export default function translateUrl(url: string): { link: string; flag: boolean } {
+  // Attempt to find a matching route in Russian
+  const [foundRu] = getRoutes('ru', url);
+  if (foundRu) {
+    return {
+      link: getRoutes('en', foundRu.id)[0]?.href || '/',
+      flag: true,
+    };
   }
 
-  const [findedEn] = getRoutes('en', url);
-  if (findedEn) return {
-    link: getRoutes('ru', findedEn.id)[0].href,
-    flag: false
+  // Attempt to find a matching route in English
+  const [foundEn] = getRoutes('en', url);
+  if (foundEn) {
+    return {
+      link: getRoutes('ru', foundEn.id)[0]?.href || '/',
+      flag: false,
+    };
   }
 
-  const RuLink = posts.find(f => '/stati/' + f.ru === url);
-  if (RuLink) return {
-    link: '/en/blog/' + RuLink.en,
-    flag: true
+  // Search for translated posts if not found in routes
+  const ruLink = posts.find((post) => `/stati/${post.ru}` === url);
+  if (ruLink) {
+    return {
+      link: `/en/blog/${ruLink.en}`,
+      flag: true,
+    };
   }
 
-  const EnLink = posts.find(f => '/en/blog/' + f.en === url);
-  if (EnLink) return {
-    link: '/stati/' + EnLink.ru,
-    flag: false
+  const enLink = posts.find((post) => `/en/blog/${post.en}` === url);
+  if (enLink) {
+    return {
+      link: `/stati/${enLink.ru}`,
+      flag: false,
+    };
   }
 
+  // Fallback to homepage
   return {
     link: '/',
-    flag: true
-  }
+    flag: true,
+  };
 }
