@@ -5,7 +5,7 @@ import content from '@/data/price.json';
 import { Breadcrumb } from "@/components/utility/types";
 
 export const metadata = {
-  title: 'Detective agency «Pravo» | Price',
+  title: 'Detective Agency of Eduard Nikolaevich Grozny | Price',
 };
 
 export default function Price() {

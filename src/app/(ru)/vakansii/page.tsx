@@ -1,7 +1,5 @@
 import { Breadcrumbs } from '@/components/layout/breadcrumbs';
-import ContentJob from '@/components/content/contentJob';
-import contacts from '@/data/contacts.json';
-import content from '@/data/job.json';
+import ContentJob from '@/components/content/job/contentJob';
 import { Breadcrumb } from '@/components/utility/types';
 
 export const metadata = {
@@ -18,7 +16,7 @@ export default function Job() {
   return (
     <>
       <Breadcrumbs breadcrumb={breadcrumb} />
-      <ContentJob contacts={contacts} data={content.ru} />
+      <ContentJob lang='ru' />
     </>
   );
 }
