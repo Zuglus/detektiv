@@ -12,26 +12,20 @@
         "en": "Eduard Nikolaevich"
     },
     "guaranteeInfo": {
-        "firstLine": {
-            "ru": "ваша гарантия - наша репутация",
-            "en": "your guarantee - our reputation"
-        },
-        "secondLine": {
-            "ru": "строго конфиденциально",
-            "en": "strictly confidential"
-        },
-        "thirdLine": {
-            "ru": "оперативно и профессионально",
-            "en": "efficiently and professionally"
-        },
-        "fourthLine": {
-            "ru": "по РФ и за рубежом",
-            "en": "across Russia and abroad"
-        },
-        "fifthLine": {
-            "ru": "работаем с 2010 года",
-            "en": "in business since 2010"
-        }
+        "ru": [
+            "ваша гарантия - наша репутация",
+            "строго конфиденциально",
+            "оперативно и профессионально",
+            "по РФ и за рубежом",
+            "работаем с 2010 года"
+        ],
+        "en": [
+            "your guarantee - our reputation",
+            "strictly confidential",
+            "efficiently and professionally",
+            "across Russia and abroad",
+            "in business since 2010"
+        ]
     },
     "licenseInfo": {
         "location": {
