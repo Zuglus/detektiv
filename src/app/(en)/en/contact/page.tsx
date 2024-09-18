@@ -1,7 +1,5 @@
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
-import ContentContact from "@/components/content/contentContact";
-import content from '@/data/contact.json';
-import contacts from '@/data/contacts.json';
+import ContentContact from "@/components/content/contact/contentContact";
 import { Breadcrumb } from "@/components/utility/types";
 
 export const metadata = {
@@ -18,7 +16,7 @@ export default function Contact() {
   return (
     <>
       <Breadcrumbs breadcrumb={breadcrumb} />
-      <ContentContact contacts={contacts} data={content.en} />
+      <ContentContact lang='en' />
     </>
   );
 }
