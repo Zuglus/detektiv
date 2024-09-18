@@ -1,7 +1,5 @@
 import { Breadcrumbs } from '@/components/layout/breadcrumbs';
-import ContentPrice from '@/components/content/contentPrice';
-import contacts from '@/data/contacts.json';
-import content from '@/data/price.json';
+import ContentPrice from '@/components/content/price/contentPrice';
 import { Breadcrumb } from '@/components/utility/types';
 
 export const metadata = {
@@ -18,7 +16,7 @@ export default function Price() {
   return (
     <>
       <Breadcrumbs breadcrumb={breadcrumb} />
-      <ContentPrice contacts={contacts} data={content.ru} />
+      <ContentPrice lang='ru' />
     </>
   );
 }

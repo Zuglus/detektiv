@@ -1,0 +1,190 @@
+{
+  "intro": {
+    "list": {
+      "ru": [
+        "Консультация для Вас бесплатная",
+        "К выполнению заказа, приступаем только после полной оплаты",
+        "Услуги предоставляем на всей территории России, СНГ и за рубежом"
+      ],
+      "en": [
+        "The consultation is free for you",
+        "We proceed to the execution of the order only after full payment",
+        "We provide services throughout Russia, CIS, and abroad"
+      ]
+    },
+    "text": {
+      "ru": "Стоимость услуг в прайсе указана ориентировочно, определить точную сумму заказа зависит от представленной информации, от уровня сложности заказа, определения ресурсов привлекаемого для достижения цели.",
+      "en": "The cost of services in the price list is approximate, the exact amount of the order depends on the information provided, the complexity of the order, and the resources required to achieve the goal."
+    }
+  },
+  "services": [
+    {
+      "title": {
+        "ru": "Досье о человеке, об объекте",
+        "en": "Dossier about a person, about an object"
+      },
+      "price": {
+        "ru": "от 100 тысяч рублей",
+        "en": "from $1100"
+      },
+      "description": {
+        "ru": "Стоимость зависит от перечня сведений",
+        "en": "The cost depends on the list of information"
+      }
+    },
+    {
+      "title": {
+        "ru": "Наружное наблюдение",
+        "en": "Outdoor surveillance"
+      },
+      "price": {
+        "ru": "100 тысяч рублей",
+        "en": "$1100"
+      },
+      "description": {
+        "ru": "Наблюдение 8 часов, срочный + 50% от суммы",
+        "en": "Surveillance for 8 hours, urgent +50% of the amount"
+      }
+    },
+    {
+      "title": {
+        "ru": "Частные расследования",
+        "en": "Private investigations"
+      },
+      "price": {
+        "ru": "от 900 тысяч рублей",
+        "en": "from $10150"
+      },
+      "description": {
+        "ru": "Расходы оплачиваются отдельно",
+        "en": "Expenses are paid separately"
+      }
+    },
+    {
+      "title": {
+        "ru": "Выявление слежки",
+        "en": "Detection of surveillance"
+      },
+      "price": {
+        "ru": "от 150 тысяч рублей",
+        "en": "from $1700"
+      },
+      "description": {
+        "ru": "Контрнаблюдение",
+        "en": "Counter-surveillance"
+      }
+    },
+    {
+      "title": {
+        "ru": "Частный поиск людей",
+        "en": "Private search for people"
+      },
+      "price": {
+        "ru": "от 100 тысяч рублей",
+        "en": "from $1100"
+      },
+      "description": {
+        "ru": "Родственников, одноклассников, сослуживцев, соседей, попутчиков и др.",
+        "en": "Relatives, classmates, co-workers, neighbors, fellow travelers, etc."
+      }
+    },
+    {
+      "title": {
+        "ru": "Проверка персонала",
+        "en": "Personnel check"
+      },
+      "price": {
+        "ru": "от 150 тысяч рублей",
+        "en": "from $1700"
+      },
+      "description": {
+        "ru": "Проверка предоставленных данных и сбор дополнительной информации",
+        "en": "Verification of the data provided and collection of additional information"
+      }
+    },
+    {
+      "title": {
+        "ru": "Проверка фирм и деловых партнеров",
+        "en": "Checking firms and business partners"
+      },
+      "price": {
+        "ru": "от 500 тысяч рублей",
+        "en": "from $5650"
+      },
+      "description": {
+        "ru": "От физических, юридических лиц до корпораций",
+        "en": "From individuals, legal entities to corporations"
+      }
+    },
+    {
+      "title": {
+        "ru": "IT-Интернет по соц. сетям, мессенджерам, e-mail, сайтам знакомств и др.",
+        "en": "IT-Internet by social networks, messengers, e-mail, dating sites, etc."
+      },
+      "price": {
+        "ru": "от 300 тысяч рублей",
+        "en": "from $3400"
+      },
+      "description": {
+        "ru": "Поиск информации и установка сведений в интернете и др.",
+        "en": "Search for information and installation of data on the Internet and more"
+      }
+    },
+    {
+      "title": {
+        "ru": "Информация за рубежом",
+        "en": "Information abroad"
+      },
+      "price": {
+        "ru": "от 900 тысяч рублей",
+        "en": "from $10150"
+      },
+      "description": {
+        "ru": "Проверка и установка интересующей информации за пределами РФ",
+        "en": "Verification and installation of information of interest outside the Russian Federation"
+      }
+    },
+    {
+      "title": {
+        "ru": "Розыск должников, алиментщиков",
+        "en": "Search for debtors, alimony"
+      },
+      "price": {
+        "ru": "от 700 тысяч рублей",
+        "en": "from $7900"
+      },
+      "description": {
+        "ru": "Взысканием долгов не занимаемся",
+        "en": "We are not engaged in debt collection"
+      }
+    },
+    {
+      "title": {
+        "ru": "Поиск имущества и активов",
+        "en": "Property and asset search"
+      },
+      "price": {
+        "ru": "от 100 тысяч рублей",
+        "en": "from $1100"
+      },
+      "description": {
+        "ru": "Движимое и недвижимое имущество, счета",
+        "en": "Movable and immovable property, accounts"
+      }
+    }
+  ],
+  "footer": {
+    "currency": {
+      "ru": "рублей",
+      "en": ""
+    },
+    "text": {
+      "ru": "Работаем при полной предоплате заказа, что позволяет приступить к его незамедлительному выполнению. Наши услуги не дороги по сравнению с Вашим спокойствием и стабильностью в Вашей жизни, профессиональный результат требует немалых затрат для получения объективного результата, кроме того не ведитесь на обещания мошенников, предлагающих решить Ваш вопрос за «копейки» со 100% результатом. Каждый труд должен быть оплачен, если Вы покупаете товар по дешевой цене, качество соответствует ей - «скупой платит дважды», соотвественно, хотите получить профессиональный результат - он стоит затрат. Если для Вас важен качество услуги - мы готовы помочь.",
+      "en": "We operate with full prepayment, which allows us to proceed with the order immediately. Our services are reasonably priced compared to the peace of mind and stability they provide. A professional result requires significant resources to ensure objectivity. Beware of scammers offering solutions for 'pennies' with 100% guarantees. Every service has its cost, and if you buy something cheaply, it often reflects on the quality – 'a miser pays twice.' If you want a professional result, it comes at a price. If service quality is important to you, we are ready to help."
+    },
+    "propose": {
+      "ru": "Мы на связи онлайн: ",
+      "en": "We are available online: "
+    }
+  }
+}

@@ -37,13 +37,17 @@ function GuaranteeInfo({ lang }: { lang: Lang }) {
 
   return (
     <div
-      className="bg-olive-600 bg-gradient-to-r from-olive-500 to-olive-400 shadow-md mx-auto my-4 px-3 sm:px-4 py-2 rounded-lg max-w-xs sm:max-w-md font-semibold text-center text-sm sm:text-base uppercase">
-      {guaranteeInfo.firstLine[lang]}<br />
-      {guaranteeInfo.secondLine[lang]}<br />
-      {guaranteeInfo.thirdLine[lang]}<br />
-      {guaranteeInfo.fourthLine[lang]}<br className='sm:hidden' />
-      {guaranteeInfo.fifthLine[lang]}
+      className="bg-olive-600 bg-gradient-to-r from-olive-500 to-olive-400 shadow-md mx-auto my-4 px-3 sm:px-4 py-2 rounded-lg max-w-xs sm:max-w-md font-semibold text-center text-sm sm:text-base uppercase"
+    >
+      <ul>
+        {guaranteeInfo[lang].map((line, index) => (
+          <li key={index} className="my-1">
+            {line}
+          </li>
+        ))}
+      </ul>
     </div>
+
   );
 }
 
