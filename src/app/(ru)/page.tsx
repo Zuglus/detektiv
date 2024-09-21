@@ -1,10 +1,8 @@
-import ContentMain from '@/components/content/contentMain';
-import contentData from '@/data/main.json';
-import contactsData from '@/data/contacts.json';
+import ContentMain from '@/components/content/main/contentMain';
 
 export default function About() {
 
   return (
-    <ContentMain data={contentData.ru} contacts={contactsData} />
+    <ContentMain lang='ru' />
   );
 }

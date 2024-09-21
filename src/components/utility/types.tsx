@@ -1,11 +1,5 @@
 import { ReactNode } from "react";
 
-export type Card = {
-  title: string;
-  price: string;
-  text: string;
-};
-
 export type Benefit = {
   id: number;
   title: string;
@@ -75,7 +69,6 @@ interface Data {
   intro: string;
   proposeHeader: string;
   proposeText: string;
-  serviceList: Card[];
   orderListHeader: string;
   orderList: string[];
   benefitsList: Benefit[];
@@ -106,8 +99,6 @@ export interface ContentData {
 
 export type Lang = 'ru' | 'en';
 
-
-// уже новый отсюда
 export interface ContentLang {
   lang: 'ru' | 'en';
 }
