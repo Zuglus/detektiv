@@ -104,15 +104,8 @@ export default function ContentMain({ lang }: { lang: Lang }) {
 
       {/* Alerts Section */}
       <h4
-        className="inline-block relative mt-12 mb-6 px-4 py-3 rounded-lg font-extrabold text-xl sm:text-2xl md:text-3xl uppercase tracking-wide"
-        style={{
-          fontFamily: "'Playfair Display', serif",
-          background: 'linear-gradient(135deg, #a8d0b9, #50c878)',
-          boxShadow: '0 4px 10px rgba(0, 0, 0, 0.2)',
-          textShadow: '1px 2px 2px rgba(0, 0, 0, 0.3)',
-          color: '#2a4f4f',
-          lineHeight: '1.2',
-        }}
+        className="inline-block relative bg-gradient-to-r from-[#a8d0b9] to-[#50c878] shadow-md text-shadow-lg mt-12 mb-6 px-4 py-3 rounded-lg font-extrabold text-[#2a4f4f] text-xl sm:text-2xl md:text-3xl uppercase tracking-wide"
+        style={{ fontFamily: "'Playfair Display', serif" }}
       >
         {content.alertHeader[lang]}
       </h4>
@@ -140,6 +133,7 @@ export default function ContentMain({ lang }: { lang: Lang }) {
           </a>.
         </li>
       </ul>
+
     </>
   );
 }

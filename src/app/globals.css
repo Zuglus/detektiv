@@ -3,3 +3,33 @@
 @tailwind components;
 @tailwind utilities;
 
+@keyframes menuFadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes menuFadeOut {
+    0% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+  }
+  
+  .show-menu {
+    animation: menuFadeIn 0.5s ease forwards;
+  }
+  
+  .hide-menu {
+    animation: menuFadeOut 0.5s ease forwards;
+  }
+  
