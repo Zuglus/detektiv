@@ -1,17 +1,21 @@
+import { useMemo } from 'react';
 import CardPrinciple from '@/components/ui/cardPrinciple';
 import CardService from '@/components/ui/cardService';
-import content from './main.json';
+import rawContent from './main.json';
+import rawContacts from '@/data/contacts.json';
 import { Benefit, Lang, Principle } from '../../utility/types';
-import contacts from '@/data/contacts.json';
 
 export default function ContentMain({ lang }: { lang: Lang }) {
+  const content = useMemo(() => rawContent, []);
+  const contacts = useMemo(() => rawContacts, []);
   return (
     <>
       {/* Header Section */}
       <div className="bg-green-fog py-5 text-center text-gray-900">
-        <p className="drop-shadow-lg mb-4 font-extrabold text-4xl leading-relaxed tracking-widest">
+        <p className="drop-shadow-lg mb-4 font-extrabold text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-relaxed tracking-widest">
           {content.subheader[lang]}
         </p>
+
         <div className="flex flex-wrap justify-center gap-4 mt-6">
           {[contacts.telegram, contacts.whatsapp, contacts.email].map((item) => (
             <a
@@ -20,7 +24,7 @@ export default function ContentMain({ lang }: { lang: Lang }) {
               title={item.link}
               className="group"
             >
-              <span className="group-hover:scale-110 inline-block relative z-0 bg-gradient-to-r from-green-fog-700 to-green-fog-500 shadow-lg px-5 py-3 rounded-full text-emerald-800 text-lg hover:text-green-500 transform transition-transform duration-300 ease-in-out">
+              <span className="group-hover:scale-110 inline-block relative z-0 bg-gradient-to-r from-green-fog-700 to-green-fog-500 shadow-lg px-4 sm:px-6 py-2 sm:py-3 rounded-full text-emerald-800 text-lg hover:text-green-500 transform transition-transform duration-300 ease-in-out hover:scale-110">
                 {item.name}
                 {item === contacts.email ? '.' : ','}
               </span>
@@ -31,11 +35,11 @@ export default function ContentMain({ lang }: { lang: Lang }) {
 
       {/* Intro Section */}
       <div className="bg-white shadow-xl hover:shadow-2xl mx-auto my-10 p-6 md:p-12 rounded-lg max-w-prose text-gray-800 leading-relaxed transition-transform duration-300">
-        <p className="text-justify" dangerouslySetInnerHTML={{ __html: content.intro[lang] }} />
+        <p className="text-base text-justify md:text-lg" dangerouslySetInnerHTML={{ __html: content.intro[lang] }} />
       </div>
 
       {/* Proposal Section */}
-      <div className="relative bg-green-fog-700 shadow-lg hover:shadow-xl mt-10 p-6 md:p-12 rounded-lg text-gray-900 transform transition-all hover:scale-105">
+      <div className="relative bg-green-fog-700 shadow-lg hover:shadow-xl mx-auto mt-10 p-6 md:p-12 rounded-lg max-w-sm md:max-w-lg text-gray-900 transform transition-all hover:scale-105">
         <h2 className="mb-6 font-extrabold text-3xl text-center text-gray-800 md:text-4xl uppercase tracking-widest">
           {content.proposeHeader[lang]}
         </h2>
@@ -45,7 +49,7 @@ export default function ContentMain({ lang }: { lang: Lang }) {
       </div>
 
       {/* Service Cards */}
-      <div className="gap-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-10">
+      <div className="gap-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-10">
         {content.serviceList.map((card) => (
           <CardService key={card[lang].title} data={card[lang]} />
         ))}
@@ -57,7 +61,7 @@ export default function ContentMain({ lang }: { lang: Lang }) {
           {content.orderListHeader[lang]}
         </h4>
         <div className="bg-[#2e4d3f] mx-auto mb-6 rounded-full w-20 h-1"></div>
-        <ul className="space-y-4 list-none">
+        <ul className="space-y-4 md:space-y-6 list-none">
           {content.orderList[lang].map((li: string, i: number) => (
             <li key={i} className="bg-white hover:bg-[#e6f2ed] shadow-sm hover:shadow-md mb-4 p-4 rounded-lg font-medium text-[#2e4d3f] hover:text-[#2e4d3f] transition-colors duration-300">
               {li}
@@ -100,7 +104,7 @@ export default function ContentMain({ lang }: { lang: Lang }) {
 
       {/* Alerts Section */}
       <h4
-        className="inline-block relative mt-12 mb-6 px-4 py-3 rounded-lg font-extrabold text-xl md:text-2xl uppercase tracking-wide"
+        className="inline-block relative mt-12 mb-6 px-4 py-3 rounded-lg font-extrabold text-xl sm:text-2xl md:text-3xl uppercase tracking-wide"
         style={{
           fontFamily: "'Playfair Display', serif",
           background: 'linear-gradient(135deg, #a8d0b9, #50c878)',
@@ -112,7 +116,7 @@ export default function ContentMain({ lang }: { lang: Lang }) {
       >
         {content.alertHeader[lang]}
       </h4>
-      <p className="bg-[#f0f0f0] shadow-sm pl-3 rounded-md text-gray-700 leading-relaxed" dangerouslySetInnerHTML={{ __html: content.alertText[lang] }} />
+      <p className="bg-[#f0f0f0] shadow-sm pl-3 rounded-md text-gray-700 text-sm md:text-base leading-relaxed" dangerouslySetInnerHTML={{ __html: content.alertText[lang] }} />
       <ul className="bg-[#f0f0f0] shadow-sm px-4 md:px-10 py-5 rounded-md rounded-t-none text-gray-700 list-disc">
         <li className="pb-4">
           {content.alertSubstring1[lang]}

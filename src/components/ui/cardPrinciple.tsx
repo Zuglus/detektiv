@@ -4,7 +4,7 @@ export default function CardPrinciple({
   data: { title: string; text: string };
 }) {
   return (
-    <div className="border-2 border-olive-600 bg-olive-50 shadow-lg p-6 border-solid rounded-lg text-center transform transition-transform hover:scale-105 duration-300">
+    <div className="hover:scale-105 border-2 border-olive-600 bg-olive-50 shadow-lg p-6 border-solid rounded-lg text-center transform transition-transform duration-300 ease-in-out">
       <h4 className="font-bold text-olive-800 text-xl uppercase tracking-wide">
         {data.title}
       </h4>

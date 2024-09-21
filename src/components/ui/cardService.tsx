@@ -4,7 +4,7 @@ export default function CardService({
   data: { title: string; price: string; text: string };
 }) {
   return (
-    <div className="border-2 border-olive-600 bg-olive-50 shadow-md hover:shadow-lg p-6 rounded-lg text-center transition-shadow duration-300">
+    <div className="hover:scale-105 border-2 border-olive-600 bg-olive-50 shadow-md hover:shadow-lg p-6 rounded-lg text-center transition-transform duration-300 ease-in-out">
       <h4 className="font-bold text-olive-800 text-xl uppercase tracking-wider">
         {data.title}
       </h4>

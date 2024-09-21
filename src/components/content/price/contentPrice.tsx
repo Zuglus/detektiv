@@ -39,8 +39,6 @@ export default function ContentPrice({ lang }: { lang: Lang }) {
             {/* Price Section */}
             <div className="text-right flex-none font-semibold text-[#333] text-base sm:text-lg">
               {item.price[lang]}
-              <br className="sm:hidden" />
-              <span className="text-[#2a4f4f] text-sm sm:text-base">{content.footer.currency[lang]}</span>
             </div>
           </li>
         ))}
