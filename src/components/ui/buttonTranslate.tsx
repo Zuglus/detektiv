@@ -29,8 +29,9 @@ export default function ButtonTranslate({ url }: { url: string }) {
   const trans = TranslateUrl(url);
   return (
     <Link
-      className="inline-block m-10 text-center transition-all duration-300 ease-in-out"
-      href={trans.link}
+    className="inline-block m-2 md:m-10 text-center transition-all duration-300 ease-in-out hover:scale-110"
+    href={trans.link}
+    aria-label={`Switch to ${trans.flag ? 'English' : 'Russian'}`}
     >
       {trans.flag ? <EnFlag /> : <RuFlag />}
     </Link>
