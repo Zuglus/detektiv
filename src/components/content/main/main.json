@@ -1,0 +1,280 @@
+{
+  "subheader": {
+    "ru": "Мы на связи онлайн:",
+    "en": "We are online and ready to help:"
+  },
+  "intro": {
+    "ru": "Детективное агентство является <strong>элитарным</strong> и оказывает детективные услуги для тех, кто может финансово их заказать - <strong>Профессиональные услуги стоят дорого</strong>. Организовываем поиск, розыск, собираем и проверяем информацию разного направления, проводим анализ и выстраиваем алгоритм действий по конкретной ситуации. Повторяющихся заказов в исполнении нет, всегда применяются новые креативные методы и задействуются различные ресурсы, требующие финансовых затрат. Мы <strong>Гарантируем</strong> <strong>Профессиональное</strong> и <strong>Оперативное</strong> исполнение Вашего Заказа - Вы получаете <strong>Результат</strong> и <strong>Конфиденциальность</strong>. Отношения между Нами выстраиваются <strong>Доверительными</strong> и <strong>Уважительными</strong>. Штаб квартира расположена в Москве, осуществляем детективную деятельность на всей территории России, СНГ и за рубежом.",
+    "en": "The detective agency is <strong>elite</strong> and provides services for those who can afford them—Professional services are expensive. We conduct searches, investigations, collect and verify diverse information, analyze, and develop a strategy based on specific cases. Each case requires unique, creative methods and resources that demand financial investment. We Guarantee Professional and Efficient service, ensuring Results and Confidentiality. Our relationship is built on Trust and Respect. Based in Moscow, we operate throughout Russia, the CIS, and internationally."
+  },
+  "serviceList": [
+    {
+      "ru": {
+        "title": "досье",
+        "price": "от 100 тысяч рублей",
+        "text": "Сбор интересующей информации о человеке, об объекте"
+      },
+      "en": {
+        "title": "dossier",
+        "price": "from 100,000 rubles",
+        "text": "Collection of relevant information about a person or object"
+      }
+    },
+    {
+      "ru": {
+        "title": "наблюдение",
+        "price": "от 100 тысяч рублей",
+        "text": "Установление образа жизни, фиксация контактов и др."
+      },
+      "en": {
+        "title": "surveillance",
+        "price": "from 100,000 rubles",
+        "text": "Determination of lifestyle, recording contacts, etc."
+      }
+    },
+    {
+      "ru": {
+        "title": "частные расследования",
+        "price": "от 900 тысяч рублей",
+        "text": "Установление истины, сбор сведений, очевидцев, свидетелей."
+      },
+      "en": {
+        "title": "private investigations",
+        "price": "from 900,000 rubles",
+        "text": "Establishing truth, collecting data, eyewitnesses, and witnesses."
+      }
+    },
+    {
+      "ru": {
+        "title": "частный поиск людей, одноклассников, попутчиков, родственников и т.д.",
+        "price": "от 100 тысяч рублей",
+        "text": "Установление полных данных, контактов и др."
+      },
+      "en": {
+        "title": "private search for people, classmates, fellow travelers, relatives, etc.",
+        "price": "from 100,000 rubles",
+        "text": "Establishing complete information, contacts, etc."
+      }
+    },
+    {
+      "ru": {
+        "title": "частный розыск должников и алиментщиков",
+        "price": "от 700 тысяч рублей",
+        "text": "Оперативный поиск по России и за рубежом"
+      },
+      "en": {
+        "title": "private search for debtors and alimony payers",
+        "price": "from 700,000 rubles",
+        "text": "Operational search in Russia and abroad"
+      }
+    },
+    {
+      "ru": {
+        "title": "проверка персонала",
+        "price": "от 150 тысяч рублей",
+        "text": "Сбор и проверка предоставленных данных кандидатом"
+      },
+      "en": {
+        "title": "personnel check",
+        "price": "from 150,000 rubles",
+        "text": "Collection and verification of the candidate's provided data"
+      }
+    },
+    {
+      "ru": {
+        "title": "проверка фирм и деловых партнеров",
+        "price": "от 500 тысяч рублей",
+        "text": "Сбор и проверка сведений, счетов, баланса, имущества, разоблачение мошенников"
+      },
+      "en": {
+        "title": "business partner and company check",
+        "price": "from 500,000 rubles",
+        "text": "Collection and verification of information, accounts, balance sheets, property, and exposing fraudsters"
+      }
+    },
+    {
+      "ru": {
+        "title": "it - интернет",
+        "price": "от 300 тысяч рублей",
+        "text": "Поиск и установление данных в глобальной сети, мессенджерах, соц. сетях и др."
+      },
+      "en": {
+        "title": "IT - internet",
+        "price": "from 300,000 rubles",
+        "text": "Search and establishment of data on the internet, messengers, social networks, etc."
+      }
+    },
+    {
+      "ru": {
+        "title": "информация за рубежом",
+        "price": "от 900 тысяч рублей",
+        "text": "Сбор и проверка интересующей информации о человеке, об объекте"
+      },
+      "en": {
+        "title": "information abroad",
+        "price": "from 900,000 rubles",
+        "text": "Collection and verification of the relevant information about a person or object"
+      }
+    }
+  ],
+  "benefitsList": [
+    {
+      "id": 1,
+      "ru": {
+        "title": "всегда придерживаемся строгой конфиденциальности",
+        "text": "После передачи информации заказчику, все сведения, хранящиеся у нас, в обязательном порядке уничтожаются."
+      },
+      "en": {
+        "title": "we always adhere to strict confidentiality",
+        "text": "After the information is passed to the client, all data stored with us is obligatorily destroyed."
+      }
+    },
+    {
+      "id": 2,
+      "ru": {
+        "title": "применяем наработанные связи",
+        "text": "Взаимодействуем с коллегами по всему миру, а также с правоохранительными органами и государственными учреждениями."
+      },
+      "en": {
+        "title": "we apply well-established connections",
+        "text": "We cooperate with colleagues worldwide, as well as with law enforcement agencies and government institutions."
+      }
+    },
+    {
+      "id": 3,
+      "ru": {
+        "title": "постоянно повышаем уровень профессионального развития",
+        "text": "Идем в ногу со временем, внедряем новейшие технологии."
+      },
+      "en": {
+        "title": "we constantly raise our level of professional development",
+        "text": "We keep up with the times and implement the latest technologies."
+      }
+    },
+    {
+      "id": 4,
+      "ru": {
+        "title": "работаем дистанционно - онлайн",
+        "text": "Конфиденциальность и экономия время, приступаем незамедлительно к выполнению задания."
+      },
+      "en": {
+        "title": "we work remotely - online",
+        "text": "Confidentiality and time-saving, we immediately start executing the task."
+      }
+    }
+  ],
+  "proposeHeader": {
+    "ru": "предлагаем помощь в решении ваших вопросов",
+    "en": "we offer help in solving your issues"
+  },
+  "proposeText": {
+    "ru": "Меры, которые предлагаем мы, ориентированы на получение исключительно профессионального результата в короткие сроки - для нас важна благодарность заказчика.",
+    "en": "The measures we offer are focused on achieving exclusively professional results in a short time - the customer's gratitude is important to us."
+  },
+  "detektivePrinciplesHeader": {
+    "ru": "принципы нашего агентства",
+    "en": "principles of our agency"
+  },
+  "detektivePrinciplesList": [
+    {
+      "ru": {
+        "title": "конфиденциальность",
+        "text": "Ваши секреты строго охраняются, после работы все данные уничтожаются"
+      },
+      "en": {
+        "title": "Confidentiality",
+        "text": "Your secrets are strictly protected, and all data is destroyed after the work is completed"
+      }
+    },
+    {
+      "ru": {
+        "title": "компетентность",
+        "text": "Знания и опыт позволяют оказывать услуги профессионально"
+      },
+      "en": {
+        "title": "Competence",
+        "text": "Knowledge and experience enable us to provide professional services"
+      }
+    },
+    {
+      "ru": {
+        "title": "достоверность информации",
+        "text": "Проверенные нами данные – это ваши правильные уверенные решения"
+      },
+      "en": {
+        "title": "Information accuracy",
+        "text": "The verified data we provide leads to informed and confident decisions"
+      }
+    },
+    {
+      "ru": {
+        "title": "законность",
+        "text": "Действуем в правовом поле – в рамках действующего законодательства"
+      },
+      "en": {
+        "title": "Legality",
+        "text": "We operate within the legal framework and abide by the law"
+      }
+    },
+    {
+      "ru": {
+        "title": "оперативность",
+        "text": "От скорости поиска людей и сбора информации зависит итог дела"
+      },
+      "en": {
+        "title": "Efficiency",
+        "text": "The speed of finding people and gathering information affects the outcome of the case"
+      }
+    },
+    {
+      "ru": {
+        "title": "человечность",
+        "text": "За каждой историей стоят люди: их чувства и судьбы"
+      },
+      "en": {
+        "title": "Humanity",
+        "text": "Behind every story are people: their feelings and fates"
+      }
+    }
+  ],
+  "orderListHeader": {
+    "ru": "процесс заказа выглядит следующим образом:",
+    "en": "the order process is as follows:"
+  },
+  "orderList": {
+    "ru": [
+      "Бесплатная предварительная консультация по телефону, email, telegram, whatsapp",
+      "Получение вводных данных от Заказчика для определения сроков исполнения и стоимости услуги",
+      "Оплата через СБП (систему быстрых платежей) или криптовалютой",
+      "Сбор информации / Сыскные мероприятия",
+      "Предоставление отчета"
+    ],
+    "en": [
+      "Free preliminary consultation via phone, email, telegram, whatsapp",
+      "Receiving initial data from the client to determine deadlines and service costs",
+      "Payment through fast payment system or cryptocurrency",
+      "Collection of information / Investigative activities",
+      "Report submission"
+    ]
+  },
+  "alertHeader": {
+    "ru": "остерегайтесь мошенников!",
+    "en": "beware of fraudsters!"
+  },
+  "alertText": {
+    "ru": "Наше детективное агентство имеет безупречную репутацию на рынке детективных услуг. Возможны случаи, когда мошенники или недобросовестные коллеги могут представляться сотрудниками нашего агентства. Чтобы распознать аферистов, помните следующее:",
+    "en": "Our detective agency has an impeccable reputation in the detective services market. There may be cases where fraudsters or dishonest colleagues impersonate our agency's employees. To recognize these scammers, keep the following in mind:"
+  },
+  "alertSubstring1": {
+    "ru": "Все заказы принимаются на e-mail: ",
+    "en": "All orders are accepted via email: "
+  },
+  "alertSubstring2": {
+    "ru": " либо по телефону ",
+    "en": " or by phone "
+  },
+  "alertSubstring3": {
+    "ru": "Наш сайт: ",
+    "en": "Our website: "
+  }
+}

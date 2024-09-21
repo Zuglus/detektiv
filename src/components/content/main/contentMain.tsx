@@ -1,14 +1,16 @@
 import CardPrinciple from '@/components/ui/cardPrinciple';
 import CardService from '@/components/ui/cardService';
-import { Benefit, Card, Principle } from '../utility/types';
+import content from './main.json';
+import { Benefit, Lang, Principle } from '../../utility/types';
+import contacts from '@/data/contacts.json';
 
-export default function ContentMain({ data, contacts }: { data: any; contacts: any; }) {
+export default function ContentMain({ lang }: { lang: Lang }) {
   return (
     <>
       {/* Header Section */}
       <div className="bg-green-fog py-5 text-center text-gray-900">
         <p className="drop-shadow-lg mb-4 font-extrabold text-4xl leading-relaxed tracking-widest">
-          {data.subheader}
+          {content.subheader[lang]}
         </p>
         <div className="flex flex-wrap justify-center gap-4 mt-6">
           {[contacts.telegram, contacts.whatsapp, contacts.email].map((item) => (
@@ -18,9 +20,7 @@ export default function ContentMain({ data, contacts }: { data: any; contacts: a
               title={item.link}
               className="group"
             >
-              <span
-                className="group-hover:scale-110 inline-block relative z-0 bg-gradient-to-r from-green-fog-700 to-green-fog-500 shadow-lg px-5 py-3 rounded-full text-emerald-800 text-lg hover:text-green-500 transform transition-transform duration-300 ease-in-out"
-              >
+              <span className="group-hover:scale-110 inline-block relative z-0 bg-gradient-to-r from-green-fog-700 to-green-fog-500 shadow-lg px-5 py-3 rounded-full text-emerald-800 text-lg hover:text-green-500 transform transition-transform duration-300 ease-in-out">
                 {item.name}
                 {item === contacts.email ? '.' : ','}
               </span>
@@ -30,42 +30,36 @@ export default function ContentMain({ data, contacts }: { data: any; contacts: a
       </div>
 
       {/* Intro Section */}
-      <div className="bg-white shadow-xl hover:shadow-2xl my-10 p-6 md:p-12 rounded-lg text-gray-800 leading-relaxed transition-transform duration-300">
-        <p
-          className="text-justify"
-          dangerouslySetInnerHTML={{ __html: data.intro }}
-        />
+      <div className="bg-white shadow-xl hover:shadow-2xl mx-auto my-10 p-6 md:p-12 rounded-lg max-w-prose text-gray-800 leading-relaxed transition-transform duration-300">
+        <p className="text-justify" dangerouslySetInnerHTML={{ __html: content.intro[lang] }} />
       </div>
 
       {/* Proposal Section */}
       <div className="relative bg-green-fog-700 shadow-lg hover:shadow-xl mt-10 p-6 md:p-12 rounded-lg text-gray-900 transform transition-all hover:scale-105">
         <h2 className="mb-6 font-extrabold text-3xl text-center text-gray-800 md:text-4xl uppercase tracking-widest">
-          {data.proposeHeader}
+          {content.proposeHeader[lang]}
         </h2>
         <p className="mx-auto max-w-2xl text-center text-gray-700 text-lg leading-relaxed">
-          {data.proposeText}
+          {content.proposeText[lang]}
         </p>
       </div>
 
       {/* Service Cards */}
       <div className="gap-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-10">
-        {data.serviceList.map((card: Card) => (
-          <CardService key={card.title} data={card} />
+        {content.serviceList.map((card) => (
+          <CardService key={card[lang].title} data={card[lang]} />
         ))}
       </div>
 
       {/* Order List */}
       <div className="bg-[#f4f4f4] shadow-lg hover:shadow-2xl mt-12 p-6 md:p-10 rounded-lg transition-shadow duration-300">
         <h4 className="mb-6 font-bold text-[#2e4d3f] text-center text-xl md:text-2xl uppercase tracking-wide">
-          {data.orderListHeader}
+          {content.orderListHeader[lang]}
         </h4>
         <div className="bg-[#2e4d3f] mx-auto mb-6 rounded-full w-20 h-1"></div>
         <ul className="space-y-4 list-none">
-          {data.orderList.map((li: string, i: number) => (
-            <li
-              key={i}
-              className="bg-white hover:bg-[#e6f2ed] shadow-sm hover:shadow-md mb-4 p-4 rounded-lg font-medium text-[#2e4d3f] hover:text-[#2e4d3f] transition-colors duration-300"
-            >
+          {content.orderList[lang].map((li: string, i: number) => (
+            <li key={i} className="bg-white hover:bg-[#e6f2ed] shadow-sm hover:shadow-md mb-4 p-4 rounded-lg font-medium text-[#2e4d3f] hover:text-[#2e4d3f] transition-colors duration-300">
               {li}
             </li>
           ))}
@@ -73,14 +67,11 @@ export default function ContentMain({ data, contacts }: { data: any; contacts: a
       </div>
 
       {/* Benefits List */}
-      <ul className="bg-white shadow-lg mx-auto my-10 py-6 rounded-lg max-w-4xl text-center list-none">
-        {data.benefitsList.map((item: Benefit) => (
-          <li
-            key={item.id}
-            className="hover:bg-gray-100 odd:bg-gray-50 mb-6 p-6 rounded-lg transition-colors duration-300"
-          >
-            <h3 className="font-bold text-xl">{item.title}</h3>
-            <p>{item.text}</p>
+      <ul className="space-y-6 bg-white shadow-lg mx-auto my-10 px-3 py-6 rounded-lg max-w-4xl text-center list-none">
+        {content.benefitsList.map((item) => (
+          <li key={item.id} className="relative border-green-500 bg-gray-50 hover:bg-gray-100 p-6 border-l-4 rounded-lg transition-colors">
+            <h3 className="font-bold text-xl">{item[lang].title}</h3>
+            <p className="mt-2 text-gray-600">{item[lang].text}</p>
           </li>
         ))}
       </ul>
@@ -99,12 +90,11 @@ export default function ContentMain({ data, contacts }: { data: any; contacts: a
           display: 'inline-block',
         }}
       >
-        {data.detektivePrinciplesHeader}
+        {content.detektivePrinciplesHeader[lang]}
       </h2>
-
       <div className="gap-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-        {data.detektivePrinciplesList.map((item: Principle) => (
-          <CardPrinciple key={item.title} data={item} />
+        {content.detektivePrinciplesList.map((item) => (
+          <CardPrinciple key={item[lang].title} data={item[lang]} />
         ))}
       </div>
 
@@ -120,53 +110,30 @@ export default function ContentMain({ data, contacts }: { data: any; contacts: a
           lineHeight: '1.2',
         }}
       >
-        {data.alertHeader}
+        {content.alertHeader[lang]}
       </h4>
-      <p
-        className="bg-[#f0f0f0] shadow-sm pl-3 rounded-md text-gray-700 leading-relaxed"
-        dangerouslySetInnerHTML={{ __html: data.alertText }}
-      />
+      <p className="bg-[#f0f0f0] shadow-sm pl-3 rounded-md text-gray-700 leading-relaxed" dangerouslySetInnerHTML={{ __html: content.alertText[lang] }} />
       <ul className="bg-[#f0f0f0] shadow-sm px-4 md:px-10 py-5 rounded-md rounded-t-none text-gray-700 list-disc">
         <li className="pb-4">
-          {data.alertSubstring1}
-          <a
-            className="font-semibold text-[#2a4f4f] hover:underline transition-all duration-300"
-            href={contacts.email.link}
-          >
+          {content.alertSubstring1[lang]}
+          <a className="font-semibold text-[#2a4f4f] hover:underline transition-all duration-300" href={contacts.email.link}>
             {contacts.email.directName}
           </a>
-          ,
-          <a
-            className="font-semibold text-[#2a4f4f] hover:underline transition-all duration-300"
-            href={contacts.telegram.link}
-          >
+          , <a className="font-semibold text-[#2a4f4f] hover:underline transition-all duration-300" href={contacts.telegram.link}>
             {contacts.telegram.name}
           </a>
-          ,
-          <a
-            className="font-semibold text-[#2a4f4f] hover:underline transition-all duration-300"
-            href={contacts.whatsapp.link}
-          >
+          , <a className="font-semibold text-[#2a4f4f] hover:underline transition-all duration-300" href={contacts.whatsapp.link}>
             {contacts.whatsapp.name}
-          </a>
-          , {data.alertSubstring2}
-          <a
-            className="font-semibold text-[#2a4f4f] hover:underline transition-all duration-300"
-            href={contacts.phone.link}
-          >
+          </a>, {content.alertSubstring2[lang]}
+          <a className="font-semibold text-[#2a4f4f] hover:underline transition-all duration-300" href={contacts.phone.link}>
             {contacts.phone.name}
-          </a>
-          .
+          </a>.
         </li>
         <li>
-          {data.alertSubstring3}
-          <a
-            className="font-semibold text-[#2a4f4f] hover:underline transition-all duration-300"
-            href={contacts.site}
-          >
+          {content.alertSubstring3[lang]}
+          <a className="font-semibold text-[#2a4f4f] hover:underline transition-all duration-300" href={contacts.site}>
             {contacts.site}
-          </a>
-          .
+          </a>.
         </li>
       </ul>
     </>
