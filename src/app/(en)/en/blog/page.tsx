@@ -1,11 +1,8 @@
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
-import { getPosts } from "@/components/utility/getPosts";
-import PostList from "@/components/ui/postList";
 import { Breadcrumb } from "@/components/utility/types";
-
-export const metadata = {
-  title: 'Detective Agency of Eduard Nikolaevich Grozny | Blog',
-};
+import { getPosts } from '@/components/utility/getPosts';
+import ContentBlog from '@/components/content/blog/contentBlog';
+import { Post } from '@/components/utility/types';
 
 export default async function Blog() {
   const breadcrumb: Breadcrumb = {
@@ -14,11 +11,22 @@ export default async function Blog() {
     link: '',
     secondName: ''
   }
-  const posts = await getPosts('en');
+  const posts: Post[] = await getPosts('en');
+  const postsPerPage = 6;
+  const totalPages = Math.ceil(posts.length / postsPerPage);
+  const currentPage = 1;
+
+  const paginatedPosts = posts.slice(0, postsPerPage);
+
   return (
     <>
       <Breadcrumbs breadcrumb={breadcrumb} />
-      <PostList posts={posts} base='blog' buttonName="continue reading" />
+      <ContentBlog
+        posts={paginatedPosts}
+        totalPages={totalPages}
+        currentPage={currentPage}
+        lang="en"
+      />
     </>
   );
 }

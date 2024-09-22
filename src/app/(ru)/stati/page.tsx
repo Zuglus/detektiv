@@ -1,24 +1,31 @@
-import { Breadcrumbs } from '@/components/layout/breadcrumbs';
 import { getPosts } from '@/components/utility/getPosts';
-import PostList from '@/components/ui/postList';
-import { Breadcrumb } from '@/components/utility/types';
+import ContentBlog from '@/components/content/blog/contentBlog';
+import { Breadcrumb, Post } from '@/components/utility/types';
+import { Breadcrumbs } from '@/components/layout/breadcrumbs';
 
-export const metadata = {
-  title: 'Детективное агентство Грозного Эдуарда Николаевича | Заказы',
-};
+export default async function BlogPage() {
+    const breadcrumb: Breadcrumb = {
+        home: '/en',
+        name: 'Blog',
+        link: '',
+        secondName: ''
+    }
+    const posts: Post[] = await getPosts('ru');
+    const postsPerPage = 6;
+    const totalPages = Math.ceil(posts.length / postsPerPage);
+    const currentPage = 1;
 
-export default async function Blog() {
-  const breadcrumb: Breadcrumb = {
-    home: '/',
-    name: 'Заказы',
-    link: '',
-    secondName: ''
-  }
-  const posts = await getPosts('ru');
-  return (
-    <>
-      <Breadcrumbs breadcrumb={breadcrumb} />
-      <PostList posts={posts} base='stati' buttonName='подробнее' />
-    </>
-  );
+    const paginatedPosts = posts.slice(0, postsPerPage);
+
+    return (
+        <>
+            <Breadcrumbs breadcrumb={breadcrumb} />
+            <ContentBlog
+                posts={paginatedPosts}
+                totalPages={totalPages}
+                currentPage={currentPage}
+                lang="ru"
+            />
+        </>
+    );
 }
