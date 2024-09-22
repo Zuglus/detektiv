@@ -65,8 +65,8 @@ export default function ContentPrice({ lang }: { lang: Lang }) {
       {/* Propose and Contacts */}
       <p className="py-10 text-gray-700 text-lg">
         {content.footer.propose[lang]}
-        <span className="block inline md:hidden">
-          <div className="flex flex-col space-y-2">
+        <span className="block md:hidden mt-3">
+          <span className="flex flex-col space-y-3">
             {[
               contacts.telegram,
               contacts.whatsapp,
@@ -74,7 +74,7 @@ export default function ContentPrice({ lang }: { lang: Lang }) {
               contacts.phone,
             ].map((item) => (
               <a
-                className="font-semibold text-green-600 hover:underline"
+                className="font-semibold text-green-600"
                 key={item.name}
                 href={item.link}
               >
@@ -82,7 +82,7 @@ export default function ContentPrice({ lang }: { lang: Lang }) {
                 {item === contacts.phone ? '.' : ','}
               </a>
             ))}
-          </div>
+          </span>
         </span>
         <span className="md:inline hidden">
           {[
@@ -97,7 +97,7 @@ export default function ContentPrice({ lang }: { lang: Lang }) {
               href={item.link}
             >
               {item.name}
-              {item === contacts.phone ? '.' : ','}
+              {item === contacts.phone ? '.' : ', '}
             </a>
           ))}
         </span>
