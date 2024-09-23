@@ -1,10 +1,9 @@
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import ContentJob from "@/components/content/job/contentJob";
-import contacts from '@/data/contacts.json';
 import { Breadcrumb } from "@/components/utility/types";
 
 export const metadata = {
-  title: 'Detective Agency of Eduard Nikolaevich Grozny | Job',
+  title: 'Detective Agency «Pravo» | Job',
 };
 
 export default function Job() {

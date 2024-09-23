@@ -3,7 +3,7 @@ import ContentAbout from '@/components/content/about/contentAbout';
 import { Breadcrumb } from '@/components/utility/types';
 
 export const metadata = {
-  title: 'Детективное агентство Грозного Эдуарда Николаевича | О нас',
+  title: 'Детективное агентство «Право» | О нас',
 };
 
 export default function Price() {
