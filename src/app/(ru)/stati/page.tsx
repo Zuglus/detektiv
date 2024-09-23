@@ -5,8 +5,8 @@ import { Breadcrumbs } from '@/components/layout/breadcrumbs';
 
 export default async function BlogPage() {
     const breadcrumb: Breadcrumb = {
-        home: '/en',
-        name: 'Blog',
+        home: '/',
+        name: 'Заказы',
         link: '',
         secondName: ''
     }
