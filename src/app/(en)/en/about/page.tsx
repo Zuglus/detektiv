@@ -3,7 +3,7 @@ import ContentAbout from '@/components/content/about/contentAbout';
 import { Breadcrumb } from '@/components/utility/types';
 
 export const metadata = {
-  title: 'Detective Agency of Eduard Nikolaevich Grozny | About',
+  title: 'Detective Agency «Pravo» | About',
 };
 
 export default function AboutEn() {

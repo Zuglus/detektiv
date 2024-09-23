@@ -3,7 +3,7 @@ import ContentGuarantee from "@/components/content/guarantee/contentGuarantee";
 import { Breadcrumb } from "@/components/utility/types";
 
 export const metadata = {
-  title: 'Detective Agency of Eduard Nikolaevich Grozny | Guarantee',
+  title: 'Detective Agency «Pravo» | Guarantee',
 };
 
 export default function Guarantee() {

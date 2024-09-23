@@ -3,7 +3,7 @@ import ContentJob from '@/components/content/job/contentJob';
 import { Breadcrumb } from '@/components/utility/types';
 
 export const metadata = {
-  title: 'Детективное агентство Грозного Эдуарда Николаевича | Вакансии',
+  title: 'Детективное агентство «Право» | Вакансии',
 };
 
 export default function Job() {

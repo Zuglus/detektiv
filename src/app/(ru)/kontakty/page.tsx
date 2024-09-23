@@ -3,7 +3,7 @@ import ContentContact from '@/components/content/contact/contentContact';
 import { Breadcrumb } from '@/components/utility/types';
 
 export const metadata = {
-  title: 'Детективное агентство Грозного Эдуарда Николаевича | Контакты',
+  title: 'Детективное агентство «Право» | Контакты',
 };
 
 export default function Contact() {
