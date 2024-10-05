@@ -28,13 +28,12 @@ export type Service = {
 }
 
 export interface Post {
-  id: number
-  slug: string;
-  title: string;
-  short: string;
-  content: string;
-  prev: string;
   next: string;
+  previous: string;
+  title: string;
+  slug: string;
+  shortDescription: string;
+  content: string;
 }
 
 export interface Slugs {
