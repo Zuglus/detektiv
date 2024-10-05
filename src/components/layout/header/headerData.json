@@ -1,11 +1,15 @@
 {
     "title": {
-        "ru": "«право»",
-        "en": "«pravo»"
+        "ru": "Детективное агентство",
+        "en": "Detective Agency"
     },
-    "subtitle": {
-        "ru": "детективное агентство",
-        "en": "detective agency"
+    "name": {
+        "ru": "Грозного",
+        "en": "Grozny"
+    },
+    "fullName": {
+        "ru": "Эдуарда Николаевича",
+        "en": "Eduard Nikolaevich"
     },
     "guaranteeInfo": {
         "ru": [

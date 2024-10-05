@@ -9,9 +9,10 @@ interface HeaderProps {
 }
 
 function Title({ lang }: { lang: Lang }) {
-  const { title, subtitle } = {
+  const { title, name, fullName } = {
     title: headerData.title[lang],
-    subtitle: headerData.subtitle[lang],
+    name: headerData.name[lang],
+    fullName: headerData.fullName[lang]
   };
 
   return (
@@ -25,7 +26,8 @@ function Title({ lang }: { lang: Lang }) {
       }}
     >
       {title} <br />
-      <span className="text-xl sm:text-2xl lg:text-4xl">{subtitle}</span>
+      <span className="text-xl sm:text-3xl lg:text-5xl">{name}</span> <br />
+      <span className="text-lg sm:text-2xl lg:text-4xl">{fullName}</span>
     </h1>
   );
 }
