@@ -4,8 +4,8 @@
     "en": "We are online and ready to help:"
   },
   "intro": {
-    "ru": "Детективное агентство является <strong>элитарным</strong> и оказывает детективные услуги для тех, кто может финансово их заказать - <strong>Профессиональные услуги стоят дорого</strong>. Организовываем поиск, розыск, собираем и проверяем информацию разного направления, проводим анализ и выстраиваем алгоритм действий по конкретной ситуации. Повторяющихся заказов в исполнении нет, всегда применяются новые креативные методы и задействуются различные ресурсы, требующие финансовых затрат. Мы <strong>Гарантируем</strong> <strong>Профессиональное</strong> и <strong>Оперативное</strong> исполнение Вашего Заказа - Вы получаете <strong>Результат</strong> и <strong>Конфиденциальность</strong>. Отношения между Нами выстраиваются <strong>Доверительными</strong> и <strong>Уважительными</strong>. Штаб квартира расположена в Москве, осуществляем детективную деятельность на всей территории России, СНГ и за рубежом.",
-    "en": "The detective agency is <strong>elite</strong> and provides services for those who can afford them—Professional services are expensive. We conduct searches, investigations, collect and verify diverse information, analyze, and develop a strategy based on specific cases. Each case requires unique, creative methods and resources that demand financial investment. We Guarantee Professional and Efficient service, ensuring Results and Confidentiality. Our relationship is built on Trust and Respect. Based in Moscow, we operate throughout Russia, the CIS, and internationally."
+    "ru": "Детективное агентство Грозного Эдуарда Николаевича является <strong>элитарным</strong> и оказывает детективные услуги для тех, кто может финансово их заказать - <strong>Профессиональные услуги стоят дорого</strong>. Организовываем поиск, розыск, собираем и проверяем информацию разного направления, проводим анализ и выстраиваем алгоритм действий по конкретной ситуации. Повторяющихся заказов в исполнении нет, всегда применяются новые креативные методы и задействуются различные ресурсы, требующие финансовых затрат. Мы <strong>Гарантируем</strong> <strong>Профессиональное</strong> и <strong>Оперативное</strong> исполнение Вашего Заказа - Вы получаете <strong>Результат</strong> и <strong>Конфиденциальность</strong>. Отношения между Нами выстраиваются <strong>Доверительными</strong> и <strong>Уважительными</strong>. Штаб квартира расположена в Москве, осуществляем детективную деятельность на всей территории России, СНГ и за рубежом.",
+    "en": "The detective agency of Grozny Edward Nikolaevich is <strong>elite</strong> and provides services for those who can afford them—Professional services are expensive. We conduct searches, investigations, collect and verify diverse information, analyze, and develop a strategy based on specific cases. Each case requires unique, creative methods and resources that demand financial investment. We Guarantee Professional and Efficient service, ensuring Results and Confidentiality. Our relationship is built on Trust and Respect. Based in Moscow, we operate throughout Russia, the CIS, and internationally."
   },
   "serviceList": [
     {
@@ -52,7 +52,7 @@
       },
       "en": {
         "title": "private search for people, classmates, fellow travelers, relatives, etc.",
-        "price": "from from $1,000",
+        "price": "from $1,000",
         "text": "Establishing complete information, contacts, etc."
       }
     },
