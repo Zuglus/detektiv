@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import Button from '@/components/ui/button';
 import { Lang, Post } from '@/components/utility/types';
 
@@ -25,7 +26,7 @@ export default function ContentBlog({ posts, totalPages, currentPage, lang }: Co
               <h3 className="font-bold text-[#2a4f4f] text-2xl uppercase">{post.title}</h3>
               <div
                 className="my-7 text-gray-600 leading-relaxed"
-                dangerouslySetInnerHTML={{ __html: post.short }}
+                dangerouslySetInnerHTML={{ __html: post.shortDescription }}
               />
               <div className="right-5 bottom-4 absolute">
                 <Button name={buttonName} url={`${base}/${post.slug}`} />
@@ -43,38 +44,38 @@ export default function ContentBlog({ posts, totalPages, currentPage, lang }: Co
           {/* Кнопка "Назад" */}
           {currentPage > 1 && (
             <li>
-              <a
+              <Link
                 href={`${base}/page/${currentPage - 1}`}
-                className={`px-4 py-2 leading-tight border border-[#2a4f4f] bg-[#e8f5e9] text-[#2a4f4f] hover:bg-[#c8e6c9] hover:text-[#2a4f4f]`}
+                className="border-[#2a4f4f] bg-[#e8f5e9] hover:bg-[#c8e6c9] px-4 py-2 border text-[#2a4f4f] hover:text-[#2a4f4f] leading-tight"
               >
                 Назад
-              </a>
+              </Link>
             </li>
           )}
 
           {/* Номера страниц */}
           {Array.from({ length: totalPages }, (_, i) => (
             <li key={i}>
-              <a
+              <Link
                 href={`${base}/page/${i + 1}`}
                 className={`px-4 py-2 leading-tight border border-[#2a4f4f] ${
                   currentPage === i + 1 ? 'bg-[#50c878] text-white' : 'bg-[#e8f5e9] text-[#2a4f4f] hover:bg-[#c8e6c9] hover:text-[#2a4f4f]'
                 }`}
               >
                 {i + 1}
-              </a>
+              </Link>
             </li>
           ))}
 
           {/* Кнопка "Вперед" */}
           {currentPage < totalPages && (
             <li>
-              <a
+              <Link
                 href={`${base}/page/${currentPage + 1}`}
-                className={`px-4 py-2 leading-tight border border-[#2a4f4f] bg-[#e8f5e9] text-[#2a4f4f] hover:bg-[#c8e6c9] hover:text-[#2a4f4f]`}
+                className="border-[#2a4f4f] bg-[#e8f5e9] hover:bg-[#c8e6c9] px-4 py-2 border text-[#2a4f4f] hover:text-[#2a4f4f] leading-tight"
               >
                 Вперед
-              </a>
+              </Link>
             </li>
           )}
         </ul>

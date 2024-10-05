@@ -26,7 +26,7 @@ export default async function Post({ params }: Slugs) {
       <PostContent
         title={post.title}
         content={post.content}
-        prev={post.prev}
+        prev={post.previous}
         next={post.next}
       />
     </>
