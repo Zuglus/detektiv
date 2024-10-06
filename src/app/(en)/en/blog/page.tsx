@@ -1,8 +1,7 @@
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
-import { Breadcrumb } from "@/components/utility/types";
+import { Breadcrumb, Post } from "@/components/utility/types";
 import { getPosts } from '@/components/utility/getPosts';
 import ContentBlog from '@/components/content/blog/contentBlog';
-import { Post } from '@/components/utility/types';
 
 export default async function Blog() {
   const breadcrumb: Breadcrumb = {
