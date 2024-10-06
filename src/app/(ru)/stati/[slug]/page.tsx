@@ -13,22 +13,18 @@ export async function generateStaticParams() {
 
 export default async function Post({ params }: Slugs) {
   const [post] = await getPosts('ru', params.slug);
+
   const breadcrumb: Breadcrumb = {
     home: '/',
     name: 'Заказы',
     link: '/stati',
-    secondName: post.title
+    secondName: post.title,
   };
 
   return (
     <>
       <Breadcrumbs breadcrumb={breadcrumb} />
-      <PostContent
-        title={post.title}
-        content={post.content}
-        prev={post.previous}
-        next={post.next}
-      />
+      <PostContent post={post} />
     </>
   );
 }
