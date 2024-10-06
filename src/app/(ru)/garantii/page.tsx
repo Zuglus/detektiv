@@ -3,7 +3,7 @@ import ContentGuarantee from '@/components/content/guarantee/contentGuarantee';
 import { Breadcrumb } from '@/components/utility/types';
 
 export const metadata = {
-  title: 'Детективное агентство «Право» | Гарантии',
+  title: 'Детективное агентство Грозного Эдуарда Николаевича | Гарантии',
 };
 
 export default function Garanty() {

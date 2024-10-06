@@ -3,7 +3,7 @@ import { Props } from '@/components/utility/types';
 import Body from '@/components/layout/body';
 
 export const metadata = {
-  title: 'Детективное агентство «Право»',
+  title: 'Детективное агентство Грозного Эдуарда Николаевича',
   description:
     'Детективное агентство «Право» в Москве. Профессионально ✅ Оперативно ✅ Достоверно ✅ Гарантия ✅',
   keywords:
