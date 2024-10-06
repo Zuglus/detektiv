@@ -13,6 +13,7 @@ export async function generateStaticParams() {
 
 export default async function Post({ params }: Slugs) {
   const [post] = await getPosts('en', params.slug);
+
   const breadcrumb: Breadcrumb = {
     home: '/en',
     name: 'Blog',
@@ -23,12 +24,7 @@ export default async function Post({ params }: Slugs) {
   return (
     <>
       <Breadcrumbs breadcrumb={breadcrumb} />
-      <PostContent
-        title={post.title}
-        content={post.content}
-        prev={post.prev}
-        next={post.next}
-      />
+      <PostContent post={post} />
     </>
   );
 }

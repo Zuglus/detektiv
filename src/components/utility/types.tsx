@@ -15,7 +15,7 @@ export type Route = {
   id: number;
   name: string;
   href: string;
-}
+};
 
 export type Props = {
   children: ReactNode;
@@ -25,15 +25,15 @@ export type Service = {
   title: string;
   price: string;
   text: string;
-}
+};
 
 export interface Post {
-  next: string;
-  previous: string;
   title: string;
   slug: string;
   shortDescription: string;
   content: string;
+  previous: string | null;  // Указывает на предыдущий пост или null
+  next: string | null;      // Указывает на следующий пост или null
 }
 
 export interface Slugs {
@@ -47,7 +47,7 @@ export type Breadcrumb = {
   name: string;
   link: string;
   secondName: string;
-}
+};
 
 interface Contact {
   name: string;
@@ -100,4 +100,8 @@ export type Lang = 'ru' | 'en';
 
 export interface ContentLang {
   lang: 'ru' | 'en';
+}
+
+export interface PostContentProps {
+  post: Post; // Теперь принимаем объект поста
 }

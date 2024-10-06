@@ -1,63 +1,69 @@
 import fs from 'fs';
 import path from 'path';
+import matter from 'gray-matter';
+import { marked } from 'marked';
 import { Post } from './types';
 
-// Путь к файлу с постами
-function getPostsFilePath(lang: string): string {
-  const fileMap: Record<string, string> = {
-    en: 'src/data/blog.md',
-    ru: 'src/data/stati.md',
+// Получаем путь к папке с постами в зависимости от языка
+function getPostsDirectory(lang: string): string {
+  const directoryMap: Record<string, string> = {
+    en: 'src/data/blog',
+    ru: 'src/data/stati',
   };
-  return path.resolve(fileMap[lang] || fileMap['ru']);
+  return path.resolve(directoryMap[lang] || directoryMap['ru']);
 }
 
 // Функция для получения всех постов
-export async function getPosts(lang: string, slug?: string): Promise<Array<Post>> {
+export async function getPosts(lang: string, slug?: string): Promise<Post[]> {
   try {
-    const filePath = getPostsFilePath(lang);
-    const fileContent = fs.readFileSync(filePath, 'utf-8');
+    const directory = getPostsDirectory(lang);
+    const filenames = fs.readdirSync(directory);
 
-    // Регулярное выражение для разделения постов по заголовкам, slug, краткому описанию, контенту, предыдущему и следующему посту
-    const postPattern = /# (.+)\n\n\*\*Slug\*\*: (.+)\n\n\*\*Short Description\*\*: (.+)\n\n\*\*Content\*\*:\n((.|\n)*?)\n\n\*\*Previous\*\*: (.+)\n\n\*\*Next\*\*: (.+)\n---/g;
+    // Сортировка файлов по возрастанию номеров в названии
+    const sortedFilenames = filenames.sort((a, b) => {
+      const numA = parseInt(a.split('.')[0]);
+      const numB = parseInt(b.split('.')[0]);
+      return numA - numB;
+    });
 
-    // Массив для хранения всех постов
-    const posts: Post[] = [];
+    const posts: Post[] = await Promise.all(
+      sortedFilenames.map(async (filename) => {
+        const filePath = path.join(directory, filename);
+        const fileContent = fs.readFileSync(filePath, 'utf-8');
 
-    let match;
-    while ((match = postPattern.exec(fileContent)) !== null) {
-      const title = match[1]?.trim();  // Заголовок
-      const slugValue = match[2]?.trim();  // Slug
-      const shortDescription = match[3]?.trim();  // Краткое описание
-      const content = match[4]?.trim();  // Контент
-      const previous = match[6]?.trim();  // Previous
-      const next = match[7]?.trim();  // Next
+        const { data: metadata, content } = matter(fileContent);
+        const contentHtml = await marked(content);
 
-      // Создание объекта поста
-      const post: Post = {
-        title,
-        slug: slugValue,
-        shortDescription,
-        content,
-        previous,
-        next,
-      };
+        return {
+          title: metadata.title || 'Без названия',
+          slug: metadata.slug,
+          shortDescription: metadata.short,
+          content: contentHtml,
+          previous: null, // Заполним ниже
+          next: null,     // Заполним ниже
+        };
+      })
+    );
 
-      // Добавление поста в массив
-      posts.push(post);
+    // Присваиваем ссылки на предыдущий и следующий посты
+    for (let i = 0; i < posts.length; i++) {
+      if (i > 0) {
+        posts[i].previous = posts[i - 1].slug;
+      }
+      if (i < posts.length - 1) {
+        posts[i].next = posts[i + 1].slug;
+      }
     }
 
     // Фильтрация по slug, если передан
     if (slug) {
       const filteredPosts = posts.filter((post: Post) => post.slug === slug);
-      if (filteredPosts.length === 0) {
-        console.log(`Пост с slug "${slug}" не найден.`);
-      }
       return filteredPosts;
     }
 
     return posts;
   } catch (err) {
-    console.error('Ошибка при чтении или обработке файла:', err);
+    console.error('Ошибка при чтении или обработке файлов:', err);
     return [];
   }
 }

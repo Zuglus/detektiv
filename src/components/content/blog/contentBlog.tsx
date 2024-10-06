@@ -12,7 +12,6 @@ interface ContentBlogProps {
 export default function ContentBlog({ posts, totalPages, currentPage, lang }: ContentBlogProps) {
   const base = lang === 'ru' ? '/stati' : '/en/blog';
   const buttonName = lang === 'ru' ? 'Читать далее' : 'Read more';
-
   return (
     <div className="flex flex-col items-center">
       {/* Сетка постов */}
