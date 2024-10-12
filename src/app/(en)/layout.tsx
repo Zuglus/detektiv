@@ -3,11 +3,11 @@ import Body from '@/components/layout/body';
 import { Props } from '@/components/utility/types';
 
 export const metadata = {
-  title: 'Detective Agency «Pravo»',
+  title: "Grozny Eduard Nikolayevich's Detective Agency",
   description:
-    'Detective Agency «Pravo» in Moscow. Professional ✅ Efficient ✅ Reliable ✅ Guarantee ✅',
+    "Grozny Eduard Nikolayevich's Detective Agency in Moscow. Professional ✅ Efficient ✅ Reliable ✅ Guarantee ✅",
   keywords:
-    'Detective Agency «Pravo» in Moscow. Professional ✅ Efficient ✅ Reliable ✅ Guarantee ✅',
+    "Grozny Eduard Nikolayevich's Detective Agency in Moscow. Professional ✅ Efficient ✅ Reliable ✅ Guarantee ✅",
 };
 
 export default function RootLayout({ children }: Props) {
