@@ -3,7 +3,7 @@ import ContentPrice from "@/components/content/price/contentPrice";
 import { Breadcrumb } from "@/components/utility/types";
 
 export const metadata = {
-  title: 'Detective Agency «Pravo» | Price',
+  title: "Grozny Eduard Nikolayevich's Detective Agency | Price",
 };
 
 export default function Price() {

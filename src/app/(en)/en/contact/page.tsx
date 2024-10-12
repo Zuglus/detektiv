@@ -3,7 +3,7 @@ import ContentContact from "@/components/content/contact/contentContact";
 import { Breadcrumb } from "@/components/utility/types";
 
 export const metadata = {
-  title: 'Detective Agency «Pravo» | Contact',
+  title: "Grozny Eduard Nikolayevich's Detective Agency | Contact",
 };
 
 export default function Contact() {
