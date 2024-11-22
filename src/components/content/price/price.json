@@ -38,12 +38,12 @@
         "en": "Outdoor surveillance"
       },
       "price": {
-        "ru": "от 100 тысяч рублей",
-        "en": "from $1100"
+        "ru": "10 тысяч рублей",
+        "en": "$100"
       },
       "description": {
-        "ru": "Наблюдение 8 часов, срочный + 50% от суммы",
-        "en": "Surveillance for 8 hours, urgent +50% of the amount"
+        "ru": "1 час",
+        "en": "1 hour"
       }
     },
     {

@@ -23,12 +23,12 @@
     {
       "ru": {
         "title": "наблюдение",
-        "price": "от 100 тысяч рублей",
+        "price": "10 тысяч рублей",
         "text": "Установление образа жизни, фиксация контактов и др."
       },
       "en": {
         "title": "surveillance",
-        "price": "from $1,000",
+        "price": "$100",
         "text": "Determination of lifestyle, recording contacts, etc."
       }
     },
