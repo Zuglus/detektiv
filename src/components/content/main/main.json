@@ -23,12 +23,12 @@
     {
       "ru": {
         "title": "наблюдение",
-        "price": "1 час наблюдения - 10 тысяч рублей",
+        "price": "1 час наблюдения - 15 тысяч рублей",
         "text": "Установление образа жизни, фиксация контактов и др."
       },
       "en": {
         "title": "surveillance",
-        "price": "1 hour of surveillance $100",
+        "price": "1 hour of surveillance $150",
         "text": "Determination of lifestyle, recording contacts, etc."
       }
     },
