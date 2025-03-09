@@ -25,14 +25,11 @@ jobs:
         run: npm run build
         
       - name: Deploy to Jino via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        # Используем альтернативное действие для деплоя
+        uses: sebastianpopp/ftp-action@releases/v2
         with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
+          host: ${{ secrets.FTP_SERVER }}
+          user: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./out/
-          server-dir: ${{ secrets.FTP_SERVER_DIR }}
-          port: 21
-          protocol: ftp
-          timeout: 60000
-          dangerous-clean-slate: false
+          localDir: "out"
+          remoteDir: ${{ secrets.FTP_SERVER_DIR }}
