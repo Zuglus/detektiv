@@ -1,5 +1,5 @@
 import Link from "next/link";
-import TranslateUrl from "../utility/translateUrl";
+import translateUrl from "../utility/translateUrl";
 
 function RuFlag() {
   return (
@@ -26,12 +26,17 @@ function EnFlag() {
 }
 
 export default function ButtonTranslate({ url }: { url: string }) {
-  const trans = TranslateUrl(url);
+  const trans = translateUrl(url);
+  
+  // Определяем текст для скринридеров
+  const ariaLabel = trans.flag ? 'Switch to English' : 'Переключиться на русский';
+  
   return (
     <Link
-    className="inline-block m-2 md:m-10 text-center transition-all duration-300 ease-in-out hover:scale-110"
-    href={trans.link}
-    aria-label={`Switch to ${trans.flag ? 'English' : 'Russian'}`}
+      className="inline-block m-2 md:m-10 text-center transition-all duration-300 ease-in-out hover:scale-110"
+      href={trans.link}
+      aria-label={ariaLabel}
+      title={ariaLabel}
     >
       {trans.flag ? <EnFlag /> : <RuFlag />}
     </Link>
