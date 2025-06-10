@@ -4,14 +4,12 @@ import { Props, Lang } from '@/components/utility/types';
 
 export default function Body({ lang, children }: { lang: Lang } & Props) {
   return (
-    <body className="bg-[#a8d0b9] selection:bg-[#333] font-sans text-[#333] selection:text-white antialiased">
-      <div className="mx-auto px-4 container">
-        <Header lang={lang} />
-        <main className="flex flex-col justify-center items-center">
-          {children}
-        </main>
-        <Footer lang={lang} />
-      </div>
+    <body className="font-primary text-secondary-800 selection:bg-primary-500 selection:text-white antialiased">
+      <Header lang={lang} />
+      <main className="relative">
+        {children}
+      </main>
+      <Footer lang={lang} />
     </body>
   );
 }
