@@ -28,17 +28,25 @@ function EnFlag() {
 export default function ButtonTranslate({ url }: { url: string }) {
   const trans = translateUrl(url);
   
-  // Определяем текст для скринридеров
   const ariaLabel = trans.flag ? 'Switch to English' : 'Переключиться на русский';
+  const langText = trans.flag ? 'EN' : 'РУ';
   
   return (
     <Link
-      className="inline-block m-2 md:m-10 text-center transition-all duration-300 ease-in-out hover:scale-110"
+      className="
+        inline-flex items-center gap-2 px-3 py-2 
+        bg-white/10 backdrop-blur-sm border border-white/20 
+        rounded-lg text-white text-sm font-medium
+        transition-all duration-normal hover:scale-105 hover:bg-white/20
+        focus:outline-none focus:ring-2 focus:ring-primary-500
+      "
       href={trans.link}
       aria-label={ariaLabel}
       title={ariaLabel}
     >
+      <span className="sr-only">{ariaLabel}</span>
       {trans.flag ? <EnFlag /> : <RuFlag />}
+      <span className="hidden sm:inline">{langText}</span>
     </Link>
   );
 }

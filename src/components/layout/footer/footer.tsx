@@ -1,3 +1,5 @@
+'use client';
+
 import SocialIconsFooter from '@/components/ui/socialIconsFooter';
 import footerData from './footer.json';
 import { Lang } from '../../utility/types';
@@ -11,33 +13,48 @@ export default function Footer({ lang }: { lang: Lang }) {
 
   const { licenseInfo, years, location, companyName, socialIcons } = footerContent;
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
-    <div className="bg-[#a8d0b9] shadow-lg p-8 md:p-12 rounded-t-lg text-center text-gray-900">
-      <div className="flex md:flex-row flex-col my-10">
-        {socialIcons && <SocialIconsFooter />}
-      </div>
-      <hr className="bg-gray-400 opacity-80 my-6 border-t-0 h-px" />
+    <footer className="bg-secondary-900 text-white">
+      <div className="max-w-7xl mx-auto px-6 py-16">
+        {/* Social Icons Section */}
+        <div className="text-center mb-12">
+          {socialIcons && <SocialIconsFooter />}
+        </div>
 
-      <a className="inline-block opacity-70 mt-6 text-gray-600 hover:text-gray-900 transition-all duration-300" href="#">
-        <svg
-          className="animate-bounce"
-          width="18"
-          height="10"
-          viewBox="0 0 18 10"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <polyline
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.2"
-            points="1 9 9 1 17 9"
-          />
-        </svg>
-      </a>
+        <div className="border-t border-secondary-700 pt-12">
+          {/* Back to Top Button */}
+          <div className="text-center mb-8">
+            <button
+              onClick={scrollToTop}
+              className="inline-flex items-center justify-center w-12 h-12 bg-primary-600 hover:bg-primary-700 text-white rounded-full transition-all duration-normal hover:scale-110 focus:outline-none focus:ring-2 focus:ring-primary-500"
+              aria-label="Back to top"
+            >
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M5 10l7-7m0 0l7 7m-7-7v18"
+                />
+              </svg>
+            </button>
+          </div>
 
-      <div className="mt-10 text-gray-700 text-sm uppercase">
-        &#169; {years[lang]} {companyName[lang]}, {location[lang]}. {licenseInfo[lang]}
+          {/* Copyright */}
+          <div className="text-center text-body-sm text-secondary-400">
+            © {years[lang]} {companyName[lang]}, {location[lang]}. {licenseInfo[lang]}
+          </div>
+        </div>
       </div>
-    </div>
+    </footer>
   );
 }
