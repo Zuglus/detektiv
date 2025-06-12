@@ -30,7 +30,10 @@ export default function ScrollReveal({
           observer.unobserve(element);
         }
       },
-      { threshold, rootMargin: '50px' }
+      {
+        threshold,
+        rootMargin: '0px 0px -50px 0px'
+      }
     );
 
     observer.observe(element);

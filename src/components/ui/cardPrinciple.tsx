@@ -6,29 +6,15 @@ export default function CardPrinciple({
   data: { title: string; text: string };
 }) {
   return (
-    <div 
-      className="p-6 rounded-xl group cursor-pointer transition-all shadow-lg hover:shadow-xl"
-      style={{
-        background: 'rgba(26, 82, 47, 0.4)',
-        backdropFilter: 'blur(16px)',
-        border: '1px solid rgba(87, 187, 122, 0.5)',
-        color: 'white'
-      }}
-      onMouseEnter={(e) => {
-        e.currentTarget.style.background = 'rgba(30, 102, 56, 0.5)';
-      }}
-      onMouseLeave={(e) => {
-        e.currentTarget.style.background = 'rgba(26, 82, 47, 0.4)';
-      }}
-    >
+    <article className="principle-card group transition-all duration-300 hover:scale-105 focus-within:scale-105 focus-not-obscured" tabIndex={0} role="article">
       <div className="text-center">
-        <h4 className="text-xl font-semibold text-white mb-4 uppercase tracking-wider group-hover:text-primary-200 transition-colors">
+        <h4 className="text-heading-sm font-semibold text-white mb-4 uppercase tracking-wider group-hover:text-primary-100 group-focus:text-primary-100 transition-colors duration-300">
           {data.title}
         </h4>
-        <div className="text-base text-white/95 leading-relaxed">
+        <div className="text-body-md text-white leading-relaxed">
           {data.text}
         </div>
       </div>
-    </div>
+    </article>
   );
 }

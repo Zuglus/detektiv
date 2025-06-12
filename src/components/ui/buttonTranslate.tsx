@@ -35,9 +35,9 @@ export default function ButtonTranslate({ url }: { url: string }) {
     <Link
       className="
         inline-flex items-center gap-2 px-3 py-2 
-        bg-white/10 backdrop-blur-sm border border-white/20 
+        bg-white/20 backdrop-blur-xs border border-white/30 
         rounded-lg text-white text-sm font-medium
-        transition-all duration-normal hover:scale-105 hover:bg-white/20
+        transition-all duration-normal hover:scale-105 hover:bg-white/30
         focus:outline-none focus:ring-2 focus:ring-primary-500
       "
       href={trans.link}

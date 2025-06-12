@@ -1,72 +1,100 @@
 import { Lang } from "@/components/utility/types";
 import content from './price.json';
 import contacts from '@/data/contacts.json';
+import ScrollReveal from '@/components/utility/scrollReveal';
 
 export default function ContentPrice({ lang }: { lang: Lang }) {
   return (
-    <>
-      {/* Intro List */}
-      <ul className="bg-[#f0f0f0] shadow-lg mt-10 p-6 rounded-lg list-disc list-inside">
-        {content.intro.list[lang].map((item: string) => (
-          <li className="mb-4 font-medium text-[#2a4f4f] text-lg" key={item}>
-            {item}
-          </li>
-        ))}
-      </ul>
+    <div className="space-y-8">
+      {/* Intro List - Using design system */}
+      <ScrollReveal>
+        <div className="card">
+          <ul className="space-y-4">
+            {content.intro.list[lang].map((item: string) => (
+              <li className="flex items-start space-x-3" key={item}>
+                <div className="flex-shrink-0 w-2 h-2 rounded-full gradient-primary mt-3"></div>
+                <span className="text-body-lg font-medium">
+                  {item}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </ScrollReveal>
 
       {/* Intro Text */}
-      <p className="shadow-md my-6 p-6 rounded-lg text-gray-700 text-justify text-lg leading-relaxed">
-        {content.intro.text[lang]}
-      </p>
+      <ScrollReveal delay={100}>
+        <div className="card">
+          <p className="text-body-lg leading-relaxed">
+            {content.intro.text[lang]}
+          </p>
+        </div>
+      </ScrollReveal>
 
-
-      {/* Services List */}
-      <div className="mx-auto max-w-screen-lg">
-        {/* Таблица для больших экранов */}
-        <table className="hidden md:table bg-[#f0f0f0] shadow-lg rounded-lg divide-y divide-[#a8d0b9] w-full">
-          <thead>
-            <tr>
-              <th className="px-4 py-2 text-[#2a4f4f] text-left text-lg">Услуга</th>
-              <th className="text-right px-4 py-2 text-[#2a4f4f] text-lg">Цена</th>
-            </tr>
-          </thead>
-          <tbody>
-            {content.services.map((item, index) => (
-              <tr key={item.title[lang]} className={`hover:bg-[#e6f2ed] transition-colors duration-300 ${index % 2 === 0 ? 'bg-[#a8d0b9]' : 'bg-[#50c878]'}`}>
-                <td className="align-top px-4 py-2">
-                  <span className="block font-bold">{item.title[lang]}</span>
-                  <p className="mt-1 text-gray-700 text-sm">{item.description[lang]}</p>
-                </td>
-                <td className="text-right px-4 py-2 font-semibold text-[#333]">
-                  {item.price[lang]}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-
-        {/* Альтернативное отображение для маленьких экранов */}
-        <ul className="block md:hidden">
+      {/* Services - Modern Card Layout */}
+      <ScrollReveal delay={200}>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {content.services.map((item, index) => (
-            <li key={item.title[lang]} className={`p-4 mb-4 rounded-lg shadow-lg transition-transform duration-300 ${index % 2 === 0 ? 'bg-[#a8d0b9]' : 'bg-[#50c878]'}`}>
-              <h3 className="font-bold text-[#2a4f4f] text-lg">{item.title[lang]}</h3>
-              <p className="mt-2 text-gray-700 text-sm">{item.description[lang]}</p>
-              <p className="text-right mt-2 font-semibold text-green-600">{item.price[lang]}</p>
-            </li>
+            <div 
+              key={item.title[lang]} 
+              className="group relative overflow-hidden"
+              style={{ animationDelay: `${index * 100}ms` }}
+            >
+              {/* Backdrop blur card */}
+              <div className="card hover:scale-105 transition-all duration-300 backdrop-blur-xs border border-secondary-200/70">
+                {/* Popular badge for featured services */}
+                {index === 1 && (
+                  <div className="absolute -top-2 -right-2 z-10">
+                    <div className="gradient-accent text-white text-xs font-semibold px-3 py-1 rounded-full transform rotate-12">
+                      {lang === 'ru' ? 'Популярно' : 'Popular'}
+                    </div>
+                  </div>
+                )}
+                
+                <div className="space-y-4">
+                  <h3 className="text-heading-sm font-semibold leading-tight">
+                    {item.title[lang]}
+                  </h3>
+                  
+                  <p className="text-body-sm leading-relaxed opacity-80">
+                    {item.description[lang]}
+                  </p>
+                  
+                  <div className="pt-4 border-t border-secondary-200">
+                    <div className="flex items-center justify-between">
+                      <span className="text-body-sm opacity-70 font-medium">
+                        {lang === 'ru' ? 'От' : 'From'}
+                      </span>
+                      <span className="text-heading-md font-bold text-primary-600">
+                        {item.price[lang]}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           ))}
-        </ul>
-      </div>
-
+        </div>
+      </ScrollReveal>
 
       {/* Closing Text */}
-      <p className="bg-[#f0f0f0] shadow-md mt-6 p-4 rounded-lg text-gray-700 text-justify leading-relaxed" dangerouslySetInnerHTML={{ __html: content.footer.text[lang] }} />
+      <ScrollReveal delay={300}>
+        <div className="card backdrop-blur-xs">
+          <div 
+            className="text-body-md leading-relaxed" 
+            dangerouslySetInnerHTML={{ __html: content.footer.text[lang] }} 
+          />
+        </div>
+      </ScrollReveal>
 
-
-      {/* Propose and Contacts */}
-      <p className="py-10 text-gray-700 text-lg">
-        {content.footer.propose[lang]}
-        <span className="block md:hidden mt-3">
-          <span className="flex flex-col space-y-3">
+      {/* Contact Section - Enhanced */}
+      <ScrollReveal delay={400}>
+        <div className="card text-center">
+          <p className="text-heading-sm mb-6">
+            {content.footer.propose[lang]}
+          </p>
+          
+          <div className="flex flex-wrap justify-center gap-4">
             {[
               contacts.telegram,
               contacts.whatsapp,
@@ -74,35 +102,16 @@ export default function ContentPrice({ lang }: { lang: Lang }) {
               contacts.phone,
             ].map((item) => (
               <a
-                className="font-semibold text-green-600"
                 key={item.name}
                 href={item.link}
+                className="btn-primary hover:scale-105 transition-all duration-300 inline-flex items-center space-x-2 text-sm"
               >
-                {item.name}
-                {item === contacts.phone ? '.' : ','}
+                <span>{item.name}</span>
               </a>
             ))}
-          </span>
-        </span>
-        <span className="md:inline hidden">
-          {[
-            contacts.telegram,
-            contacts.whatsapp,
-            contacts.email,
-            contacts.phone,
-          ].map((item, index) => (
-            <a
-              className="font-semibold text-green-600 hover:underline"
-              key={item.name}
-              href={item.link}
-            >
-              {item.name}
-              {item === contacts.phone ? '.' : ', '}
-            </a>
-          ))}
-        </span>
-      </p>
-
-    </>
+          </div>
+        </div>
+      </ScrollReveal>
+    </div>
   );
 }

@@ -1,4 +1,3 @@
-import Card from "@/components/ui/card";
 import { Lang } from "@/components/utility/types";
 import content from './job.json';
 
@@ -18,44 +17,51 @@ export default function ContentJob({ lang }: { lang: Lang }) {
   } = content;
 
   return (
-    <>
+    <div className="max-w-4xl mx-auto px-6 py-16">
       {/* Job Card Section */}
-      <Card
-        data={{
-          title: cardTitle[lang],
-          text: cardText[lang],
-        }}
-        className="bg-[#a8d0b9] shadow-lg p-6 rounded-lg font-semibold text-gray-900 tracking-wide"
-      />
+      <div className="card mb-8 border-l-4 border-primary-500 bg-primary-50">
+        <h2 className="text-heading-lg font-semibold text-secondary-900 mb-4">
+          {cardTitle[lang]}
+        </h2>
+        <p className="text-body-lg text-secondary-700 leading-relaxed">
+          {cardText[lang]}
+        </p>
+      </div>
 
       {/* Portfolio Title */}
-      <p className="mt-6 md:w-1/2 font-bold text-[#2a4f4f] text-lg md:text-start">
-        {portfolioTitle[lang]}
-      </p>
+      <div className="card mb-6">
+        <h3 className="text-heading-md font-semibold text-secondary-900">
+          {portfolioTitle[lang]}
+        </h3>
+      </div>
 
       {/* Portfolio List */}
-      <ul className="space-y-2 mt-4 text-gray-800">
+      <div className="space-y-3 mb-8">
         {portfolioList[lang].map((item: string, index: number) => (
-          <li
+          <div
             key={index}
-            className="bg-white hover:bg-[#50c878] shadow-md p-3 rounded-lg transition-colors duration-300"
+            className="card hover:scale-102 transition-all duration-300 border-l-2 border-primary-400"
           >
-            {item}
-          </li>
+            <p className="text-body-md text-secondary-700">{item}</p>
+          </div>
         ))}
-      </ul>
+      </div>
 
       {/* Portfolio Link */}
-      <p
-        className="mt-6 md:w-1/2 font-light text-gray-900 md:text-start leading-relaxed"
-        dangerouslySetInnerHTML={{ __html: portfolioLink[lang] }}
-      />
+      <div className="card mb-8">
+        <div
+          className="text-body-lg text-secondary-700 leading-relaxed"
+          dangerouslySetInnerHTML={{ __html: portfolioLink[lang] }}
+        />
+      </div>
 
       {/* Portfolio Alert */}
-      <p
-        className="bg-[#2a4f4f] shadow-md mt-6 p-4 rounded-lg text-white"
-        dangerouslySetInnerHTML={{ __html: portfolioAlert[lang] }}
-      />
-    </>
+      <div className="card border-l-4 border-secondary-500 bg-secondary-50">
+        <div
+          className="text-body-lg font-medium text-secondary-900"
+          dangerouslySetInnerHTML={{ __html: portfolioAlert[lang] }}
+        />
+      </div>
+    </div>
   );
 }

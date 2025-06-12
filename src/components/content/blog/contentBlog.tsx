@@ -13,71 +13,72 @@ export default function ContentBlog({ posts, totalPages, currentPage, lang }: Co
   const base = lang === 'ru' ? '/stati' : '/en/blog';
   const buttonName = lang === 'ru' ? 'Читать далее' : 'Read more';
   return (
-    <div className="flex flex-col items-center">
+    <div className="max-w-7xl mx-auto px-6 py-16">
       {/* Сетка постов */}
-      <div className="gap-x-6 gap-y-10 xl:gap-x-8 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 my-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mb-12">
         {posts?.length > 0 ? (
           posts.map((post: Post) => (
             <div
               key={post.title}
-              className="relative border-[#a8d0b9] bg-white shadow-lg p-6 border rounded-lg transform transition-transform group hover:scale-105"
+              className="card group hover:scale-105 transition-all duration-300 relative pb-16"
             >
-              <h3 className="font-bold text-[#2a4f4f] text-2xl uppercase">{post.title}</h3>
+              <h3 className="text-heading-sm font-semibold text-secondary-900 mb-4 leading-tight">
+                {post.title}
+              </h3>
               <div
-                className="my-7 text-gray-600 leading-relaxed"
+                className="text-body-md text-secondary-700 leading-relaxed mb-6"
                 dangerouslySetInnerHTML={{ __html: post.shortDescription }}
               />
-              <div className="right-5 bottom-4 absolute">
+              <div className="absolute bottom-6 right-6">
                 <Button name={buttonName} url={`${base}/${post.slug}`} />
               </div>
             </div>
           ))
         ) : (
-          <p className="text-center text-gray-600">Нет доступных постов.</p>
+          <div className="card text-center col-span-full">
+            <p className="text-body-lg text-secondary-600">Нет доступных постов.</p>
+          </div>
         )}
       </div>
 
       {/* Пагинация */}
       {totalPages > 1 && (
-        <ul className="flex items-center space-x-2 mt-6 list-none">
+        <div className="flex items-center justify-center space-x-2">
           {/* Кнопка "Назад" */}
           {currentPage > 1 && (
-            <li>
-              <Link
-                href={`${base}/page/${currentPage - 1}`}
-                className="border-[#2a4f4f] bg-[#e8f5e9] hover:bg-[#c8e6c9] px-4 py-2 border text-[#2a4f4f] hover:text-[#2a4f4f] leading-tight"
-              >
-                Назад
-              </Link>
-            </li>
+            <Link
+              href={`${base}/page/${currentPage - 1}`}
+              className="btn-secondary"
+            >
+              {lang === 'ru' ? 'Назад' : 'Previous'}
+            </Link>
           )}
 
           {/* Номера страниц */}
           {Array.from({ length: totalPages }, (_, i) => (
-            <li key={i}>
-              <Link
-                href={`${base}/page/${i + 1}`}
-                className={`px-4 py-2 leading-tight border border-[#2a4f4f] ${
-                  currentPage === i + 1 ? 'bg-[#50c878] text-white' : 'bg-[#e8f5e9] text-[#2a4f4f] hover:bg-[#c8e6c9] hover:text-[#2a4f4f]'
-                }`}
-              >
-                {i + 1}
-              </Link>
-            </li>
+            <Link
+              key={i}
+              href={`${base}/page/${i + 1}`}
+              className={`px-4 py-2 rounded-lg font-medium transition-all duration-300 ${
+                currentPage === i + 1 
+                  ? 'bg-primary-600 text-white shadow-lg' 
+                  : 'bg-white text-secondary-700 border border-secondary-200 hover:bg-primary-50 hover:border-primary-300'
+              }`}
+            >
+              {i + 1}
+            </Link>
           ))}
 
           {/* Кнопка "Вперед" */}
           {currentPage < totalPages && (
-            <li>
-              <Link
-                href={`${base}/page/${currentPage + 1}`}
-                className="border-[#2a4f4f] bg-[#e8f5e9] hover:bg-[#c8e6c9] px-4 py-2 border text-[#2a4f4f] hover:text-[#2a4f4f] leading-tight"
-              >
-                Вперед
-              </Link>
-            </li>
+            <Link
+              href={`${base}/page/${currentPage + 1}`}
+              className="btn-secondary"
+            >
+              {lang === 'ru' ? 'Вперед' : 'Next'}
+            </Link>
           )}
-        </ul>
+        </div>
       )}
     </div>
   );

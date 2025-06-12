@@ -5,7 +5,7 @@ export const Breadcrumbs = ({ breadcrumb }: { breadcrumb: Breadcrumb }) => {
   const { home, name, link, secondName } = breadcrumb;
 
   return (
-    <nav className="bg-[#a8d0b9] shadow-sm m-2 p-2 rounded-lg w-full" aria-label="breadcrumb">
+    <nav className="bg-[#a8d0b9] shadow-sm m-2 p-2 rounded-lg w-full relative z-10" aria-label="breadcrumb">
       <div className="flex items-center text-[#333]">
         <Link href={home} className="font-semibold hover:text-[#666] transition-colors duration-300">
           <svg
