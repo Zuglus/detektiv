@@ -10,75 +10,60 @@ export default function ContentGuarantee({ lang }: { lang: Lang }) {
     propose
   } = content;
   return (
-    <>
+    <div className="max-w-4xl mx-auto px-6 py-16">
       {/* Header Section */}
-      <h3 className="py-6 font-extrabold text-[#2a4f4f] text-lg md:text-2xl xl:text-4xl tracking-wide">
-        {header[lang]}
-      </h3>
-
-
-      <div className="border-[#50c878] mx-auto mb-3 border-t-4 w-16"></div>
-
+      <div className="text-center mb-12">
+        <h1 className="text-display-md text-secondary-900 mb-4 font-bold">
+          {header[lang]}
+        </h1>
+        <div className="w-24 h-1 gradient-primary mx-auto rounded-full" />
+      </div>
 
       {/* Subheader */}
-      <p className="mb-6 text-base xl:text-lg leading-relaxed">
-        {subheader[lang]}
-      </p>
+      <div className="card text-center mb-8">
+        <p className="text-body-lg text-secondary-700 leading-relaxed">
+          {subheader[lang]}
+        </p>
+      </div>
 
+      {/* Main Content */}
+      <div className="card mb-8">
+        <div 
+          className="text-body-lg text-secondary-700 leading-relaxed space-y-4"
+          dangerouslySetInnerHTML={{ __html: text[lang] }}
+        />
+      </div>
 
-      {/* Main Content with Shadow and Padding */}
-      <p
-        className="space-y-4 bg-[#f4f4f4] shadow-lg mx-auto mt-12 p-6 md:p-10 rounded-lg max-w-prose font-serif text-[#333] text-base md:text-lg leading-loose"
-        dangerouslySetInnerHTML={{ __html: text[lang] }}
-      />
+      {/* Highlight Section */}
+      <div className="card mb-8 border-l-4 border-primary-500 bg-primary-50">
+        <p className="text-body-lg font-semibold text-secondary-900">
+          {boxText[lang]}
+        </p>
+      </div>
 
-
-      {/* Boxed Highlight Section */}
-      <p className="bg-[#a8d0b9] shadow-md mt-6 p-4 rounded-lg font-semibold text-[#1a3d3d] text-lg">
-        {boxText[lang]}
-      </p>
-
-
-      {/* Propose and Contacts */}
-      <p className="py-10 text-gray-700 text-lg">
-        {propose[lang]}
-        <span className="block md:hidden mt-3">
-          <span className="flex flex-col space-y-3">
-            {[
-              contacts.telegram,
-              contacts.whatsapp,
-              contacts.email,
-              contacts.phone,
-            ].map((item) => (
-              <a
-                className="font-semibold text-green-600"
-                key={item.name}
-                href={item.link}
-              >
-                {item.name}
-                {item === contacts.phone ? '.' : ','}
-              </a>
-            ))}
-          </span>
-        </span>
-        <span className="md:inline hidden">
+      {/* Contact Section */}
+      <div className="card text-center">
+        <p className="text-body-lg text-secondary-700 mb-6">
+          {propose[lang]}
+        </p>
+        
+        <div className="flex flex-wrap justify-center gap-4">
           {[
             contacts.telegram,
             contacts.whatsapp,
             contacts.email,
             contacts.phone,
-          ].map((item, index) => (
+          ].map((item) => (
             <a
-              className="font-semibold text-green-600 hover:underline"
               key={item.name}
               href={item.link}
+              className="btn-primary hover:scale-105 transition-all duration-300"
             >
               {item.name}
-              {item === contacts.phone ? '.' : ', '}
             </a>
           ))}
-        </span>
-      </p>
-    </>
+        </div>
+      </div>
+    </div>
   );
 }

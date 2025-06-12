@@ -15,7 +15,7 @@ export default function RootLayout({ children }: Props) {
 
   return (
     <html lang={lang}>
-      <Body lang={lang}>
+      <Body lang={lang} showHero={true}>
         {children}
       </Body>
     </html>

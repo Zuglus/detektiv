@@ -59,120 +59,143 @@ export default function Nav({ lang }: NavProps) {
       {/* Desktop Navigation */}
       <nav 
         className={`
-          fixed top-0 left-0 right-0 z-50 hidden md:block
+          fixed top-6 left-0 right-0 z-[9999] block
           transition-all duration-300 ease-in-out
           ${isScrolled 
-            ? 'backdrop-blur-md bg-white/90 shadow-lg border-b border-secondary-200' 
-            : 'bg-black/20 backdrop-blur-sm'
+            ? 'nav-scrolled' 
+            : 'nav-transparent'
           }
         `}
+        role="navigation"
+        aria-label="Main navigation"
       >
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6 hidden lg:block">
           <div className="flex items-center justify-between h-16">
-            <div className="flex items-center space-x-8">
+            {/* Desktop Navigation */}
+            <div className="hidden lg:flex items-center space-x-8">
               {routes.map((route) => (
                 <Link
                   key={route.name}
                   href={route.href}
                   className={`
-                    relative px-3 py-2 text-sm font-medium uppercase tracking-wider
-                    transition-all duration-normal hover:scale-105
+                    relative px-4 py-3 text-sm font-medium uppercase tracking-wider
+                    transition-all duration-300 hover:scale-105
+                    focus:outline-none
+                    rounded-lg
                     ${pathname === route.href 
-                      ? 'text-primary-600 font-semibold' 
-                      : isScrolled 
-                        ? 'text-secondary-700 hover:text-primary-600' 
-                        : 'text-white hover:text-primary-200 drop-shadow-lg'
+                      ? 'text-primary-600 font-semibold bg-primary-50/80' 
+                      : 'text-secondary-800 hover:text-primary-600 hover:bg-primary-50/50'
                     }
-                    after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5
+                    after:absolute after:bottom-1 after:left-1 after:right-1 after:h-0.5
                     after:bg-primary-500 after:transform after:scale-x-0 after:transition-transform
-                    after:duration-normal hover:after:scale-x-100
+                    after:duration-300 hover:after:scale-x-100
                     ${pathname === route.href ? 'after:scale-x-100' : ''}
                   `}
+                  aria-current={pathname === route.href ? 'page' : undefined}
                 >
                   {route.name}
                 </Link>
               ))}
             </div>
             
-            {/* Language Toggle */}
-            <div className="flex items-center">
+            {/* Language Toggle - Desktop Only */}
+            <div className="hidden lg:flex items-center">
               <ButtonTranslate url={pathname} />
             </div>
           </div>
         </div>
       </nav>
 
-      {/* Mobile Menu Button */}
+      {/* Mobile/Tablet Menu Button */}
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
         className="
-          fixed top-4 right-4 z-50 md:hidden
-          w-12 h-12 rounded-xl
-          bg-white/90 backdrop-blur-sm shadow-lg border border-secondary-200
+          fixed top-6 right-6 z-[9999] lg:hidden
+          w-14 h-14 rounded-full
+          bg-transparent backdrop-blur-sm shadow-lg 
           flex items-center justify-center
-          transition-all duration-normal hover:scale-110 hover:shadow-xl
-          focus:outline-none focus:ring-2 focus:ring-primary-500
+          transition-all var(--transition-normal) hover:scale-110 hover:shadow-xl
+          focus:outline-none
+          active:scale-95
+          group
         "
-        aria-label={isOpen ? 'Close menu' : 'Open menu'}
+        aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}
+        aria-expanded={isOpen}
+        aria-controls="mobile-menu"
+        aria-haspopup="true"
       >
-        <div className="relative w-6 h-6">
+        <div className="relative w-8 h-8 flex flex-col justify-center items-center">
           <span 
             className={`
-              absolute left-0 top-1 w-6 h-0.5 bg-secondary-700 transition-all duration-300
-              ${isOpen ? 'rotate-45 translate-y-2' : ''}
+              block w-7 h-1 bg-white rounded-full
+              transition-all duration-300 ease-in-out transform origin-center absolute
+              group-hover:bg-white/90
+              ${isOpen ? 'rotate-45' : '-translate-y-3'}
             `}
           />
           <span 
             className={`
-              absolute left-0 top-3 w-6 h-0.5 bg-secondary-700 transition-all duration-300
-              ${isOpen ? 'opacity-0' : ''}
+              block w-7 h-1 bg-white rounded-full
+              transition-all duration-300 ease-in-out absolute
+              group-hover:bg-white/90
+              ${isOpen ? 'opacity-0 scale-0' : 'opacity-100 scale-100'}
             `}
           />
           <span 
             className={`
-              absolute left-0 top-5 w-6 h-0.5 bg-secondary-700 transition-all duration-300
-              ${isOpen ? '-rotate-45 -translate-y-2' : ''}
+              block w-7 h-1 bg-white rounded-full
+              transition-all duration-300 ease-in-out transform origin-center absolute
+              group-hover:bg-white/90
+              ${isOpen ? '-rotate-45' : 'translate-y-3'}
             `}
           />
         </div>
       </button>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile/Tablet Menu Overlay */}
       {isOpen && (
         <div 
-          className="fixed inset-0 bg-secondary-900/50 backdrop-blur-sm z-40 md:hidden"
+          className="fixed inset-0 bg-secondary-900/50 backdrop-blur-sm z-[9998] lg:hidden"
           onClick={() => setIsOpen(false)}
         />
       )}
 
-      {/* Mobile Menu */}
+      {/* Mobile/Tablet Menu */}
       <div
         ref={menuRef}
+        id="mobile-menu"
         className={`
-          fixed top-0 right-0 h-full w-80 max-w-[85vw] z-40 md:hidden
-          bg-white/95 backdrop-blur-md border-l border-secondary-200
-          transform transition-transform duration-300 ease-out
+          fixed top-0 right-0 h-auto w-80 max-w-[85vw] z-[9998] lg:hidden
+          bg-gradient-to-b from-secondary-900/30 to-secondary-800/20 backdrop-blur-xl
+          transform transition-transform var(--transition-smooth)
           ${isOpen ? 'translate-x-0' : 'translate-x-full'}
         `}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="mobile-menu-heading"
+        aria-hidden={!isOpen}
       >
-        <div className="p-6 pt-20">
-          <nav className="space-y-4">
+        <div className="p-6 pt-40">
+          <h2 id="mobile-menu-heading" className="sr-only">Navigation Menu</h2>
+          <nav className="space-y-4" role="navigation" aria-label="Mobile navigation">
             {routes.map((route, index) => (
               <Link
                 key={route.name}
                 href={route.href}
                 className={`
                   block px-4 py-3 rounded-xl text-base font-medium uppercase tracking-wider
-                  transition-all duration-normal hover:scale-105 hover:shadow-md
+                  transition-all var(--transition-normal) hover:scale-105 hover:shadow-md
                   animate-fade-in-up
+                  focus:outline-none
                   ${pathname === route.href 
-                    ? 'bg-primary-50 text-primary-700 border-l-4 border-primary-500' 
-                    : 'text-secondary-700 hover:bg-secondary-50 hover:text-primary-600'
+                    ? 'bg-white/20 text-white border-l-4 border-white shadow-sm' 
+                    : 'text-white/90 hover:bg-white/10 hover:text-white'
                   }
                 `}
                 style={{ animationDelay: `${index * 50}ms` }}
                 onClick={() => setIsOpen(false)}
+                aria-current={pathname === route.href ? 'page' : undefined}
               >
                 {route.name}
               </Link>

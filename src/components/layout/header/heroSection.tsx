@@ -10,13 +10,13 @@ function GuaranteeInfo({ lang }: { lang: Lang }) {
   const { guaranteeInfo } = headerData;
 
   return (
-    <div className="max-w-md mx-auto">
-      <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-6 text-white">
-        <ul className="space-y-2">
+    <div className="mx-auto w-fit">
+      <div className="bg-white/10 backdrop-blur-sm border border-white/15 rounded-2xl p-8 text-white shadow-lg">
+        <ul className="space-y-3">
           {guaranteeInfo[lang].map((line, index) => (
-            <li key={index} className="flex items-center text-sm">
-              <div className="w-2 h-2 bg-primary-400 rounded-full mr-3 flex-shrink-0" />
-              {line}
+            <li key={index} className="flex items-center text-body-md">
+              <div className="w-3 h-3 bg-primary-400 rounded-full mr-4 flex-shrink-0" />
+              <span className="leading-relaxed">{line}</span>
             </li>
           ))}
         </ul>
@@ -29,17 +29,16 @@ function LicenseInfo({ lang }: { lang: Lang }) {
   const { licenseInfo } = headerData;
 
   return (
-    <div className="mt-8">
-      <div className="max-w-2xl mx-auto">
-        <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-4 text-center">
-          <div className="text-white/90 leading-relaxed">
-            <span className="font-medium text-primary-200">
+    <div className="mt-12">
+      <div className="max-w-3xl mx-auto">
+        <div className="border border-white/30 rounded-2xl p-6 text-center">
+          <div className="text-white/90 leading-relaxed space-y-2">
+            <div className="font-semibold text-primary-200 text-body-lg">
               {licenseInfo.location[lang]}
-            </span>
-            <br />
-            <span className="text-white/70 text-sm">
+            </div>
+            <div className="text-white/70 text-body-md">
               {licenseInfo.license[lang]}
-            </span>
+            </div>
           </div>
         </div>
       </div>
@@ -54,22 +53,23 @@ export default function HeroSection({ lang }: HeroSectionProps) {
     fullName: headerData.fullName[lang]
   };
 
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center text-center px-6">
+    <section className="relative min-h-screen flex items-center justify-center text-center px-6 -mt-16">
       {/* Background with gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary-800 via-primary-700 to-primary-900" />
       <div className="absolute inset-0 bg-gradient-to-t from-secondary-900/20 to-transparent" />
 
       {/* Content */}
-      <div className="relative z-10 max-w-4xl mx-auto pt-16">
-        <div>
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold text-white mb-6 leading-tight">
+      <div className="relative z-10 max-w-5xl mx-auto pt-16">
+        <div className="text-center">
+          <h1 className="text-display-xl text-white mb-6 leading-tight font-bold font-display sm:whitespace-nowrap">
             {title}
           </h1>
-          <div className="text-2xl md:text-3xl text-primary-200 mb-3 font-display">
+          <h2 className="text-display-lg text-primary-200 mb-4 font-semibold font-display">
             {name}
-          </div>
-          <div className="text-xl md:text-2xl text-primary-300 mb-8 font-display">
+          </h2>
+          <div className="text-display-md text-primary-300 mb-12 font-normal font-display">
             {fullName}
           </div>
         </div>

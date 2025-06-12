@@ -1,19 +1,50 @@
 import Link from 'next/link';
 
+interface ButtonProps {
+  name: string;
+  url: string;
+  variant?: 'primary' | 'secondary';
+  size?: 'sm' | 'md' | 'lg';
+  external?: boolean;
+}
+
 export default function Button({
   name,
   url,
-}: {
-  name: string;
-  url: string;
-}): JSX.Element {
+  variant = 'primary',
+  size = 'md',
+  external = false,
+}: ButtonProps): JSX.Element {
+  const sizeClasses = {
+    sm: 'px-4 py-2 text-sm',
+    md: 'px-6 py-3 text-base',
+    lg: 'px-8 py-4 text-lg'
+  };
+
+  const variantClasses = variant === 'primary' 
+    ? 'btn-primary bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 focus:from-primary-600 focus:to-primary-700 text-white'
+    : 'btn-secondary bg-secondary-100 hover:bg-secondary-200 text-secondary-700 border border-secondary-200';
+
   return (
     <Link
-      className="bg-gradient-to-r from-[#50c878] hover:from-[#2a4f4f] to-[#2a6f4f] hover:to-[#1e453f] shadow-md hover:shadow-lg m-2 px-5 py-2 rounded-full font-medium text-sm text-white hover:text-[#b3e5a6] uppercase tracking-wide transform transition-all duration-300 ease-in-out hover:scale-105"
+      className={`
+        inline-block text-center rounded-full font-medium uppercase tracking-wide
+        transform transition-all var(--transition-normal)
+        hover:scale-105 focus:scale-105
+        focus:outline-none focus:ring-4 focus:ring-primary-500/30
+        focus-not-obscured shadow-md hover:shadow-lg focus:shadow-lg
+        ${variantClasses}
+        ${sizeClasses[size]}
+        m-2
+      `}
       href={url}
+      aria-label={`Navigate to ${name}${external ? ' (opens in new tab)' : ''}`}
+      target={external ? '_blank' : undefined}
+      rel={external ? 'noopener noreferrer' : undefined}
+      role="link"
     >
       {name}
+      {external && <span className="sr-only"> (opens in new tab)</span>}
     </Link>
-
   );
 }

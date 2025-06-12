@@ -5,14 +5,18 @@ export default function ContentAbout({ lang }: ContentLang) {
   const { title, paragraphs } = content;
 
   return (
-    <div className="bg-[#f4f4f4] shadow-lg mx-auto mt-12 p-6 md:p-10 rounded-lg max-w-prose font-serif text-[#333]">
-      <h3 className="mb-6 font-extrabold text-3xl text-center text-gray-700 uppercase tracking-widest">
-        {title[lang]}
-      </h3>
-      <div className="space-y-4 leading-loose">
-        {paragraphs[lang].map((paragraph: string, index: number) => (
-          <p key={index} className="text-base md:text-lg">{paragraph}</p>
-        ))}
+    <div className="max-w-4xl mx-auto px-6 py-16">
+      <div className="card text-center">
+        <h1 className="text-display-md text-secondary-900 mb-8 font-bold">
+          {title[lang]}
+        </h1>
+        <div className="space-y-6 text-left max-w-3xl mx-auto">
+          {paragraphs[lang].map((paragraph: string, index: number) => (
+            <p key={index} className="text-body-lg text-secondary-700 leading-relaxed">
+              {paragraph}
+            </p>
+          ))}
+        </div>
       </div>
     </div>
   );
