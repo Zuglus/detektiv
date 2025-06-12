@@ -17,160 +17,441 @@
       "en": "The cost of services in the price list is approximate, the exact amount of the order depends on the information provided, the complexity of the order, and the resources required to achieve the goal."
     }
   },
-  "services": [
+  "trustElements": {
+    "title": {
+      "ru": "Почему выбирают нас",
+      "en": "Why Choose Us"
+    },
+    "items": {
+      "ru": [
+        "Более 15 лет опыта в детективной деятельности",
+        "Гарантия конфиденциальности и законности",
+        "Профессиональное оборудование и методики",
+        "Работаем по официальному договору"
+      ],
+      "en": [
+        "More than 15 years of experience in detective work",
+        "Guarantee of confidentiality and legality",
+        "Professional equipment and methods",
+        "We work under an official contract"
+      ]
+    }
+  },
+  "serviceCategories": [
     {
+      "id": "basic",
       "title": {
-        "ru": "Досье о человеке, об объекте",
-        "en": "Dossier about a person, about an object"
-      },
-      "price": {
-        "ru": "от 100 тысяч рублей",
-        "en": "from $1100"
+        "ru": "Базовые услуги",
+        "en": "Basic Services"
       },
       "description": {
-        "ru": "Стоимость зависит от перечня сведений",
-        "en": "The cost depends on the list of information"
-      }
+        "ru": "Стандартные детективные услуги с быстрым выполнением",
+        "en": "Standard detective services with quick execution"
+      },
+      "services": [
+        {
+          "title": {
+            "ru": "Досье о человеке, об объекте",
+            "en": "Dossier about a person, about an object"
+          },
+          "price": {
+            "ru": "от 100 000 ₽",
+            "en": "from $1,100"
+          },
+          "hourlyRate": {
+            "ru": "от 5 000 ₽/час",
+            "en": "from $55/hour"
+          },
+          "description": {
+            "ru": "Сбор и анализ информации о физических лицах, организациях или объектах недвижимости",
+            "en": "Collection and analysis of information about individuals, organizations or real estate objects"
+          },
+          "features": {
+            "ru": [
+              "Проверка биографических данных",
+              "Анализ деловой репутации",
+              "Поиск скрытых связей",
+              "Официальный отчет"
+            ],
+            "en": [
+              "Biographical data verification",
+              "Business reputation analysis",
+              "Hidden connections search",
+              "Official report"
+            ]
+          },
+          "popular": false
+        },
+        {
+          "title": {
+            "ru": "Частный поиск людей",
+            "en": "Private search for people"
+          },
+          "price": {
+            "ru": "от 100 000 ₽",
+            "en": "from $1,100"
+          },
+          "hourlyRate": {
+            "ru": "от 4 000 ₽/час",
+            "en": "from $45/hour"
+          },
+          "description": {
+            "ru": "Поиск родственников, одноклассников, сослуживцев, соседей, попутчиков и других лиц",
+            "en": "Search for relatives, classmates, co-workers, neighbors, fellow travelers and other persons"
+          },
+          "features": {
+            "ru": [
+              "Поиск по архивным данным",
+              "Работа с базами данных",
+              "Опрос свидетелей",
+              "Гарантия результата"
+            ],
+            "en": [
+              "Archive data search",
+              "Database work",
+              "Witness interviews",
+              "Result guarantee"
+            ]
+          },
+          "popular": true
+        },
+        {
+          "title": {
+            "ru": "Поиск имущества и активов",
+            "en": "Property and asset search"
+          },
+          "price": {
+            "ru": "от 100 000 ₽",
+            "en": "from $1,100"
+          },
+          "hourlyRate": {
+            "ru": "от 6 000 ₽/час",
+            "en": "from $65/hour"
+          },
+          "description": {
+            "ru": "Выявление движимого и недвижимого имущества, банковских счетов и других активов",
+            "en": "Detection of movable and immovable property, bank accounts and other assets"
+          },
+          "features": {
+            "ru": [
+              "Поиск скрытых активов",
+              "Проверка регистрации имущества",
+              "Анализ финансовых операций",
+              "Юридическое сопровождение"
+            ],
+            "en": [
+              "Hidden assets search",
+              "Property registration check",
+              "Financial operations analysis",
+              "Legal support"
+            ]
+          },
+          "popular": false
+        }
+      ]
     },
     {
+      "id": "surveillance",
       "title": {
-        "ru": "Наружное наблюдение",
-        "en": "Outdoor surveillance"
-      },
-      "price": {
-        "ru": "от 100 тысяч рублей",
-        "en": "from $1000"
+        "ru": "Наблюдение и безопасность",
+        "en": "Surveillance and Security"
       },
       "description": {
-        "ru": "1 час - 15 тысяч рублей",
-        "en": "1 hour - $150"
-      }
+        "ru": "Профессиональное наблюдение и обеспечение безопасности",
+        "en": "Professional surveillance and security services"
+      },
+      "services": [
+        {
+          "title": {
+            "ru": "Наружное наблюдение",
+            "en": "Outdoor surveillance"
+          },
+          "price": {
+            "ru": "от 100 000 ₽",
+            "en": "from $1,000"
+          },
+          "hourlyRate": {
+            "ru": "15 000 ₽/час",
+            "en": "$150/hour"
+          },
+          "description": {
+            "ru": "Профессиональное скрытое наблюдение за объектами с фото- и видеофиксацией",
+            "en": "Professional covert surveillance of objects with photo and video recording"
+          },
+          "features": {
+            "ru": [
+              "Скрытое наблюдение 24/7",
+              "Профессиональное оборудование",
+              "Фото и видео доказательства",
+              "Детальный отчет"
+            ],
+            "en": [
+              "Covert surveillance 24/7",
+              "Professional equipment",
+              "Photo and video evidence",
+              "Detailed report"
+            ]
+          },
+          "popular": true
+        },
+        {
+          "title": {
+            "ru": "Выявление слежки",
+            "en": "Detection of surveillance"
+          },
+          "price": {
+            "ru": "от 150 000 ₽",
+            "en": "from $1,700"
+          },
+          "hourlyRate": {
+            "ru": "от 8 000 ₽/час",
+            "en": "from $85/hour"
+          },
+          "description": {
+            "ru": "Обнаружение и нейтрализация несанкционированного наблюдения (контрнаблюдение)",
+            "en": "Detection and neutralization of unauthorized surveillance (counter-surveillance)"
+          },
+          "features": {
+            "ru": [
+              "Проверка на прослушку",
+              "Поиск скрытых камер",
+              "Анализ поведения подозрительных лиц",
+              "Рекомендации по безопасности"
+            ],
+            "en": [
+              "Bug detection",
+              "Hidden camera search",
+              "Suspicious behavior analysis",
+              "Security recommendations"
+            ]
+          },
+          "popular": false
+        }
+      ]
     },
     {
+      "id": "business",
       "title": {
-        "ru": "Частные расследования",
-        "en": "Private investigations"
-      },
-      "price": {
-        "ru": "от 900 тысяч рублей",
-        "en": "from $10150"
+        "ru": "Корпоративные расследования",
+        "en": "Corporate Investigations"
       },
       "description": {
-        "ru": "Расходы оплачиваются отдельно",
-        "en": "Expenses are paid separately"
-      }
+        "ru": "Профессиональные услуги для бизнеса и корпораций",
+        "en": "Professional services for business and corporations"
+      },
+      "services": [
+        {
+          "title": {
+            "ru": "Проверка персонала",
+            "en": "Personnel check"
+          },
+          "price": {
+            "ru": "от 150 000 ₽",
+            "en": "from $1,700"
+          },
+          "hourlyRate": {
+            "ru": "от 7 000 ₽/час",
+            "en": "from $75/hour"
+          },
+          "description": {
+            "ru": "Всесторонняя проверка кандидатов и действующих сотрудников компании",
+            "en": "Comprehensive verification of candidates and current company employees"
+          },
+          "features": {
+            "ru": [
+              "Проверка трудовой биографии",
+              "Анализ криминального прошлого",
+              "Верификация документов",
+              "Проверка рекомендаций"
+            ],
+            "en": [
+              "Work history verification",
+              "Criminal background analysis",
+              "Document verification",
+              "Reference checking"
+            ]
+          },
+          "popular": true
+        },
+        {
+          "title": {
+            "ru": "Проверка фирм и деловых партнеров",
+            "en": "Checking firms and business partners"
+          },
+          "price": {
+            "ru": "от 500 000 ₽",
+            "en": "from $5,650"
+          },
+          "hourlyRate": {
+            "ru": "от 10 000 ₽/час",
+            "en": "from $110/hour"
+          },
+          "description": {
+            "ru": "Комплексная проверка надежности партнеров - от ИП до крупных корпораций",
+            "en": "Comprehensive reliability check of partners - from individual entrepreneurs to large corporations"
+          },
+          "features": {
+            "ru": [
+              "Финансовая проверка",
+              "Анализ деловой репутации",
+              "Проверка учредителей",
+              "Оценка рисков сотрудничества"
+            ],
+            "en": [
+              "Financial verification",
+              "Business reputation analysis",
+              "Founders verification",
+              "Cooperation risk assessment"
+            ]
+          },
+          "popular": false
+        }
+      ]
     },
     {
+      "id": "complex",
       "title": {
-        "ru": "Выявление слежки",
-        "en": "Detection of surveillance"
-      },
-      "price": {
-        "ru": "от 150 тысяч рублей",
-        "en": "from $1700"
+        "ru": "Сложные расследования",
+        "en": "Complex Investigations"
       },
       "description": {
-        "ru": "Контрнаблюдение",
-        "en": "Counter-surveillance"
-      }
-    },
-    {
-      "title": {
-        "ru": "Частный поиск людей",
-        "en": "Private search for people"
+        "ru": "Масштабные многоэтапные расследования повышенной сложности",
+        "en": "Large-scale multi-stage investigations of increased complexity"
       },
-      "price": {
-        "ru": "от 100 тысяч рублей",
-        "en": "from $1100"
-      },
-      "description": {
-        "ru": "Родственников, одноклассников, сослуживцев, соседей, попутчиков и др.",
-        "en": "Relatives, classmates, co-workers, neighbors, fellow travelers, etc."
-      }
-    },
-    {
-      "title": {
-        "ru": "Проверка персонала",
-        "en": "Personnel check"
-      },
-      "price": {
-        "ru": "от 150 тысяч рублей",
-        "en": "from $1700"
-      },
-      "description": {
-        "ru": "Проверка предоставленных данных и сбор дополнительной информации",
-        "en": "Verification of the data provided and collection of additional information"
-      }
-    },
-    {
-      "title": {
-        "ru": "Проверка фирм и деловых партнеров",
-        "en": "Checking firms and business partners"
-      },
-      "price": {
-        "ru": "от 500 тысяч рублей",
-        "en": "from $5650"
-      },
-      "description": {
-        "ru": "От физических, юридических лиц до корпораций",
-        "en": "From individuals, legal entities to corporations"
-      }
-    },
-    {
-      "title": {
-        "ru": "IT-Интернет по соц. сетям, мессенджерам, e-mail, сайтам знакомств и др.",
-        "en": "IT-Internet by social networks, messengers, e-mail, dating sites, etc."
-      },
-      "price": {
-        "ru": "от 300 тысяч рублей",
-        "en": "from $3400"
-      },
-      "description": {
-        "ru": "Поиск информации и установка сведений в интернете и др.",
-        "en": "Search for information and installation of data on the Internet and more"
-      }
-    },
-    {
-      "title": {
-        "ru": "Информация за рубежом",
-        "en": "Information abroad"
-      },
-      "price": {
-        "ru": "от 900 тысяч рублей",
-        "en": "from $10150"
-      },
-      "description": {
-        "ru": "Проверка и установка интересующей информации за пределами РФ",
-        "en": "Verification and installation of information of interest outside the Russian Federation"
-      }
-    },
-    {
-      "title": {
-        "ru": "Розыск должников, алиментщиков",
-        "en": "Search for debtors, alimony"
-      },
-      "price": {
-        "ru": "от 700 тысяч рублей",
-        "en": "from $7900"
-      },
-      "description": {
-        "ru": "Взысканием долгов не занимаемся",
-        "en": "We are not engaged in debt collection"
-      }
-    },
-    {
-      "title": {
-        "ru": "Поиск имущества и активов",
-        "en": "Property and asset search"
-      },
-      "price": {
-        "ru": "от 100 тысяч рублей",
-        "en": "from $1100"
-      },
-      "description": {
-        "ru": "Движимое и недвижимое имущество, счета",
-        "en": "Movable and immovable property, accounts"
-      }
+      "services": [
+        {
+          "title": {
+            "ru": "Частные расследования",
+            "en": "Private investigations"
+          },
+          "price": {
+            "ru": "от 900 000 ₽",
+            "en": "from $10,150"
+          },
+          "hourlyRate": {
+            "ru": "от 15 000 ₽/час",
+            "en": "from $165/hour"
+          },
+          "description": {
+            "ru": "Комплексные многоэтапные расследования сложных дел (расходы оплачиваются отдельно)",
+            "en": "Complex multi-stage investigations of complicated cases (expenses are paid separately)"
+          },
+          "features": {
+            "ru": [
+              "Многоэтапное планирование",
+              "Команда специалистов",
+              "Использование спецтехники",
+              "Юридическое оформление"
+            ],
+            "en": [
+              "Multi-stage planning",
+              "Team of specialists",
+              "Special equipment usage",
+              "Legal documentation"
+            ]
+          },
+          "popular": false
+        },
+        {
+          "title": {
+            "ru": "IT-расследования",
+            "en": "IT investigations"
+          },
+          "price": {
+            "ru": "от 300 000 ₽",
+            "en": "from $3,400"
+          },
+          "hourlyRate": {
+            "ru": "от 12 000 ₽/час",
+            "en": "from $130/hour"
+          },
+          "description": {
+            "ru": "Поиск информации в социальных сетях, мессенджерах, на сайтах знакомств и других интернет-ресурсах",
+            "en": "Information search in social networks, messengers, dating sites and other internet resources"
+          },
+          "features": {
+            "ru": [
+              "Цифровая криминалистика",
+              "Анализ интернет-активности",
+              "Восстановление удаленных данных",
+              "Экспертиза цифровых следов"
+            ],
+            "en": [
+              "Digital forensics",
+              "Internet activity analysis",
+              "Deleted data recovery",
+              "Digital traces expertise"
+            ]
+          },
+          "popular": true
+        },
+        {
+          "title": {
+            "ru": "Информация за рубежом",
+            "en": "Information abroad"
+          },
+          "price": {
+            "ru": "от 900 000 ₽",
+            "en": "from $10,150"
+          },
+          "hourlyRate": {
+            "ru": "от 20 000 ₽/час",
+            "en": "from $220/hour"
+          },
+          "description": {
+            "ru": "Проверка и получение информации за пределами Российской Федерации",
+            "en": "Verification and obtaining information outside the Russian Federation"
+          },
+          "features": {
+            "ru": [
+              "Международная сеть партнеров",
+              "Работа по международному праву",
+              "Многоязычная поддержка",
+              "Легализация документов"
+            ],
+            "en": [
+              "International partner network",
+              "International law compliance",
+              "Multilingual support",
+              "Document legalization"
+            ]
+          },
+          "popular": false
+        },
+        {
+          "title": {
+            "ru": "Розыск должников, алиментщиков",
+            "en": "Search for debtors, alimony"
+          },
+          "price": {
+            "ru": "от 700 000 ₽",
+            "en": "from $7,900"
+          },
+          "hourlyRate": {
+            "ru": "от 12 000 ₽/час",
+            "en": "from $130/hour"
+          },
+          "description": {
+            "ru": "Профессиональный поиск лиц, уклоняющихся от исполнения обязательств (взысканием долгов не занимаемся)",
+            "en": "Professional search for persons evading obligations (we are not engaged in debt collection)"
+          },
+          "features": {
+            "ru": [
+              "Поиск по всей территории РФ",
+              "Работа с судебными приставами",
+              "Анализ финансовых следов",
+              "Официальные запросы"
+            ],
+            "en": [
+              "Search throughout Russia",
+              "Work with bailiffs",
+              "Financial trail analysis",
+              "Official requests"
+            ]
+          },
+          "popular": false
+        }
+      ]
     }
   ],
   "footer": {
