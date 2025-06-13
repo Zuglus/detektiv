@@ -59,7 +59,7 @@ export default function Nav({ lang }: NavProps) {
       {/* Desktop Navigation */}
       <nav 
         className={`
-          fixed top-6 left-0 right-0 z-[9999] block
+          fixed top-6 left-0 right-0 z-[9998] block
           transition-all duration-300 ease-in-out
           ${isScrolled 
             ? 'nav-scrolled' 
@@ -111,12 +111,12 @@ export default function Nav({ lang }: NavProps) {
         type="button"
         onClick={() => setIsOpen(!isOpen)}
         className="
-          fixed top-6 right-6 z-[9999] lg:hidden
+          fixed top-6 right-6 z-[10000] lg:hidden
           w-14 h-14 rounded-full
-          bg-transparent backdrop-blur-sm shadow-lg 
+          bg-white/90 backdrop-blur-sm shadow-lg border border-white/20
           flex items-center justify-center
-          transition-all var(--transition-normal) hover:scale-110 hover:shadow-xl
-          focus:outline-none
+          transition-all duration-300 hover:scale-110 hover:shadow-xl hover:bg-white/95
+          focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2
           active:scale-95
           group
         "
@@ -128,25 +128,25 @@ export default function Nav({ lang }: NavProps) {
         <div className="relative w-8 h-8 flex flex-col justify-center items-center">
           <span 
             className={`
-              block w-7 h-1 bg-white rounded-full
+              block w-7 h-1 bg-secondary-700 rounded-full
               transition-all duration-300 ease-in-out transform origin-center absolute
-              group-hover:bg-white/90
+              group-hover:bg-secondary-800
               ${isOpen ? 'rotate-45' : '-translate-y-3'}
             `}
           />
           <span 
             className={`
-              block w-7 h-1 bg-white rounded-full
+              block w-7 h-1 bg-secondary-700 rounded-full
               transition-all duration-300 ease-in-out absolute
-              group-hover:bg-white/90
+              group-hover:bg-secondary-800
               ${isOpen ? 'opacity-0 scale-0' : 'opacity-100 scale-100'}
             `}
           />
           <span 
             className={`
-              block w-7 h-1 bg-white rounded-full
+              block w-7 h-1 bg-secondary-700 rounded-full
               transition-all duration-300 ease-in-out transform origin-center absolute
-              group-hover:bg-white/90
+              group-hover:bg-secondary-800
               ${isOpen ? '-rotate-45' : 'translate-y-3'}
             `}
           />
@@ -156,7 +156,7 @@ export default function Nav({ lang }: NavProps) {
       {/* Mobile/Tablet Menu Overlay */}
       {isOpen && (
         <div 
-          className="fixed inset-0 bg-secondary-900/50 backdrop-blur-sm z-[9998] lg:hidden"
+          className="fixed inset-0 bg-secondary-900/50 backdrop-blur-sm z-[9999] lg:hidden"
           onClick={() => setIsOpen(false)}
         />
       )}
@@ -166,9 +166,10 @@ export default function Nav({ lang }: NavProps) {
         ref={menuRef}
         id="mobile-menu"
         className={`
-          fixed top-0 right-0 h-auto w-80 max-w-[85vw] z-[9998] lg:hidden
-          bg-gradient-to-b from-secondary-900/30 to-secondary-800/20 backdrop-blur-xl
-          transform transition-transform var(--transition-smooth)
+          fixed top-0 right-0 h-auto w-80 max-w-[85vw] z-[9999] lg:hidden
+          bg-gradient-to-b from-secondary-900/95 to-secondary-800/90 backdrop-blur-xl
+          border-l border-secondary-700/30 shadow-2xl
+          transform transition-transform duration-300 ease-in-out
           ${isOpen ? 'translate-x-0' : 'translate-x-full'}
         `}
         role="dialog"

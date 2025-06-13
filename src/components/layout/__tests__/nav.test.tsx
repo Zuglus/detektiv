@@ -53,10 +53,11 @@ describe('Nav', () => {
   it('renders navigation with correct routes for Russian', () => {
     render(<Nav lang="ru" />)
     
-    expect(screen.getByText('Главная')).toBeInTheDocument()
-    expect(screen.getByText('О нас')).toBeInTheDocument()
-    expect(screen.getByText('Цены')).toBeInTheDocument()
-    expect(screen.getByText('Контакты')).toBeInTheDocument()
+    // Check that all navigation items appear (both desktop and mobile)
+    expect(screen.getAllByText('Главная')).toHaveLength(2) // Desktop and mobile
+    expect(screen.getAllByText('О нас')).toHaveLength(2)
+    expect(screen.getAllByText('Цены')).toHaveLength(2)
+    expect(screen.getAllByText('Контакты')).toHaveLength(2)
   })
 
   it('renders language toggle button', () => {
