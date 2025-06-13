@@ -260,21 +260,51 @@ body {
 /* Navigation states - специфичные для навигации состояния */
 @layer components {
   .nav-transparent {
-    @apply backdrop-blur-sm;
+    /* Fallback for browsers without backdrop-filter support */
     background: rgba(255, 255, 255, 0.97);
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    /* Modern backdrop-filter with fallback */
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
   }
 
   .nav-scrolled {
-    @apply backdrop-blur-sm;
+    /* Fallback for browsers without backdrop-filter support */
     background: rgba(255, 255, 255, 0.98);
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    /* Modern backdrop-filter with fallback */
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
   }
 
   .nav-home-transparent {
-    @apply backdrop-blur-md;
+    /* Fallback for browsers without backdrop-filter support */
     background: rgba(255, 255, 255, 0.15);
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    /* Modern backdrop-filter with fallback */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  /* Feature detection fallback for non-supporting browsers */
+  @supports not (backdrop-filter: blur(1px)) and not (-webkit-backdrop-filter: blur(1px)) {
+    .nav-transparent {
+      background: rgba(255, 255, 255, 0.99);
+      border-bottom: 1px solid rgba(200, 200, 200, 0.3);
+    }
+    
+    .nav-scrolled {
+      background: rgba(255, 255, 255, 1);
+      border-bottom: 1px solid rgba(200, 200, 200, 0.3);
+    }
+    
+    .nav-home-transparent {
+      background: rgba(255, 255, 255, 0.95);
+      border-bottom: 1px solid rgba(200, 200, 200, 0.2);
+    }
   }
 }
 
@@ -390,28 +420,66 @@ body {
 /* Glass morphism utilities - специфичные эффекты */
 @layer utilities {
   .glass-card {
-    background: var(--glass-medium);
-    @apply backdrop-blur border border-white/20 rounded-xl;
+    /* Fallback background for non-supporting browsers */
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 0.75rem;
     box-shadow: 
       0 8px 32px rgba(0, 0, 0, 0.1),
       inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    /* Modern backdrop-filter */
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
   }
 
   .glass-nav {
-    background: var(--glass-light);
-    @apply backdrop-blur-md border-b border-white/20;
+    /* Fallback background for non-supporting browsers */
+    background: rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+    /* Modern backdrop-filter */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
   }
 
   .glass-button {
-    background: var(--glass-medium);
-    @apply backdrop-blur-sm border border-white/20 transition-all duration-300;
-    @apply hover:-translate-y-0.5 hover:shadow-lg;
+    /* Fallback background for non-supporting browsers */
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 300ms ease-in-out;
+    /* Modern backdrop-filter */
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
   }
 
   .glass-button:hover {
-    background: var(--glass-strong);
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-0.125rem);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
   }
+
+  /* Feature detection fallbacks for glass effects */
+  @supports not (backdrop-filter: blur(1px)) and not (-webkit-backdrop-filter: blur(1px)) {
+    .glass-card {
+      background: rgba(255, 255, 255, 0.95);
+      border: 1px solid rgba(200, 200, 200, 0.4);
+    }
+    
+    .glass-nav {
+      background: rgba(255, 255, 255, 0.98);
+      border-bottom: 1px solid rgba(200, 200, 200, 0.3);
+    }
+    
+    .glass-button {
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(200, 200, 200, 0.4);
+    }
+    
+    .glass-button:hover {
+      background: rgba(255, 255, 255, 1);
+    }
+  }
+}
 
   .gradient-primary {
     background: linear-gradient(135deg, #339955 0%, #247d44 100%);
