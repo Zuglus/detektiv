@@ -39,26 +39,26 @@ describe('ContentAbout', () => {
   it('renders expertise section', () => {
     render(<ContentAbout lang="ru" />)
     
-    expect(screen.getByText('Сферы деятельности')).toBeInTheDocument()
-    expect(screen.getByText(/Слежка и наблюдение/)).toBeInTheDocument()
-    expect(screen.getByText('🕵️')).toBeInTheDocument()
+    expect(screen.getByText('Наши преимущества')).toBeInTheDocument()
+    expect(screen.getByText(/Профессиональная команда/)).toBeInTheDocument()
+    expect(screen.getByText('👤')).toBeInTheDocument()
   })
 
   it('renders founder section', () => {
     render(<ContentAbout lang="ru" />)
     
-    expect(screen.getByText('Руководитель агентства')).toBeInTheDocument()
+    expect(screen.getByText('Основатель агентства')).toBeInTheDocument()
     expect(screen.getByText('Грозный Эдуард Николаевич')).toBeInTheDocument()
-    expect(screen.getByText(/Лицензированный частный детектив/)).toBeInTheDocument()
+    expect(screen.getByText(/Офицер в отставке/)).toBeInTheDocument()
     expect(screen.getByText('ЭГ')).toBeInTheDocument()
   })
 
   it('renders principles section', () => {
     render(<ContentAbout lang="ru" />)
     
-    expect(screen.getByText('Ценности и принципы')).toBeInTheDocument()
-    expect(screen.getByText('Конфиденциальность')).toBeInTheDocument()
-    expect(screen.getByText(/Вся информация/)).toBeInTheDocument()
+    expect(screen.getByText('Наши принципы')).toBeInTheDocument()
+    expect(screen.getByText('Профессионализм')).toBeInTheDocument()
+    expect(screen.getByText(/Настоящий профессионал/)).toBeInTheDocument()
   })
 
   it('renders warning section', () => {

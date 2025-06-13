@@ -5,6 +5,8 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Lang, Route } from '@/components/utility/types';
 import ButtonTranslate from '@/components/ui/buttonTranslate';
+import SkipLink from '@/components/ui/skipLink';
+import { useFocusTrap } from '@/hooks/useFocusTrap';
 import getRoutes from '../utility/getRoutes/getRoutes';
 
 interface NavProps {
@@ -16,27 +18,54 @@ export default function Nav({ lang }: NavProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+  useFocusTrap(isOpen); // Just call the hook, don't try to share refs
 
   const routes: Route[] = getRoutes(lang);
 
-  // Handle scroll effect for backdrop blur
+  // Handle scroll effect for backdrop blur with optimization
   useEffect(() => {
+    let ticking = false;
+    let lastScrollY = 0;
+    const threshold = 20;
+    
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const currentScrollY = window.scrollY;
+          // Only update state if crossing threshold to avoid unnecessary renders
+          if ((lastScrollY <= threshold && currentScrollY > threshold) || 
+              (lastScrollY > threshold && currentScrollY <= threshold)) {
+            setIsScrolled(currentScrollY > threshold);
+          }
+          lastScrollY = currentScrollY;
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close menu on outside click
-  const handleClickOutside = (event: MouseEvent) => {
-    if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-      setIsOpen(false);
-    }
+  // Close menu function with focus restoration
+  const closeMenu = () => {
+    setIsOpen(false);
+    // Restore focus to menu button
+    setTimeout(() => {
+      menuButtonRef.current?.focus();
+    }, 100);
   };
 
   useEffect(() => {
+    // Close menu on outside click
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        closeMenu();
+      }
+    };
+
     if (isOpen) {
       document.addEventListener('click', handleClickOutside);
       document.body.style.overflow = 'hidden'; // Prevent scroll when menu is open
@@ -56,6 +85,7 @@ export default function Nav({ lang }: NavProps) {
 
   return (
     <div className="relative">
+      <SkipLink />
       {/* Desktop Navigation */}
       <nav 
         className={`
@@ -78,9 +108,9 @@ export default function Nav({ lang }: NavProps) {
                   key={route.name}
                   href={route.href}
                   className={`
+                    nav-link interactive-hint
                     relative px-4 py-3 text-sm font-medium uppercase tracking-wider
-                    transition-all duration-300 hover:scale-105
-                    focus:outline-none
+                    focus:outline-none focus-not-obscured
                     rounded-lg
                     ${pathname === route.href 
                       ? 'text-primary-600 font-semibold bg-primary-50/80' 
@@ -108,45 +138,48 @@ export default function Nav({ lang }: NavProps) {
 
       {/* Mobile/Tablet Menu Button */}
       <button
+        ref={menuButtonRef}
         type="button"
         onClick={() => setIsOpen(!isOpen)}
         className="
+          hamburger-btn
           fixed top-6 right-6 z-[10000] lg:hidden
           w-14 h-14 rounded-full
           bg-white/90 backdrop-blur-sm shadow-lg border border-white/20
           flex items-center justify-center
           transition-all duration-300 hover:scale-110 hover:shadow-xl hover:bg-white/95
-          focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2
-          active:scale-95
+          focus:outline-none focus:ring-4 focus:ring-primary-600 focus:ring-offset-2
+          focus-not-obscured
           group
         "
         aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}
         aria-expanded={isOpen}
         aria-controls="mobile-menu"
         aria-haspopup="true"
+        data-close-on-escape="true"
       >
         <div className="relative w-8 h-8 flex flex-col justify-center items-center">
           <span 
             className={`
+              hamburger-line
               block w-7 h-1 bg-secondary-700 rounded-full
-              transition-all duration-300 ease-in-out transform origin-center absolute
-              group-hover:bg-secondary-800
+              ease-in-out transform origin-center absolute
               ${isOpen ? 'rotate-45' : '-translate-y-3'}
             `}
           />
           <span 
             className={`
+              hamburger-line
               block w-7 h-1 bg-secondary-700 rounded-full
-              transition-all duration-300 ease-in-out absolute
-              group-hover:bg-secondary-800
+              ease-in-out absolute
               ${isOpen ? 'opacity-0 scale-0' : 'opacity-100 scale-100'}
             `}
           />
           <span 
             className={`
+              hamburger-line
               block w-7 h-1 bg-secondary-700 rounded-full
-              transition-all duration-300 ease-in-out transform origin-center absolute
-              group-hover:bg-secondary-800
+              ease-in-out transform origin-center absolute
               ${isOpen ? '-rotate-45' : 'translate-y-3'}
             `}
           />
@@ -156,8 +189,9 @@ export default function Nav({ lang }: NavProps) {
       {/* Mobile/Tablet Menu Overlay */}
       {isOpen && (
         <div 
-          className="fixed inset-0 bg-secondary-900/50 backdrop-blur-sm z-[9999] lg:hidden"
-          onClick={() => setIsOpen(false)}
+          className="menu-overlay fixed inset-0 bg-secondary-900/50 z-[9999] lg:hidden"
+          onClick={closeMenu}
+          aria-hidden="true"
         />
       )}
 
@@ -185,17 +219,16 @@ export default function Nav({ lang }: NavProps) {
                 key={route.name}
                 href={route.href}
                 className={`
+                  menu-item interactive-hint focus-dark
                   block px-4 py-3 rounded-xl text-base font-medium uppercase tracking-wider
                   transition-all var(--transition-normal) hover:scale-105 hover:shadow-md
-                  animate-fade-in-up
-                  focus:outline-none
+                  focus:outline-none focus-not-obscured
                   ${pathname === route.href 
                     ? 'bg-white/20 text-white border-l-4 border-white shadow-sm' 
                     : 'text-white/90 hover:bg-white/10 hover:text-white'
                   }
                 `}
-                style={{ animationDelay: `${index * 50}ms` }}
-                onClick={() => setIsOpen(false)}
+                onClick={closeMenu}
                 aria-current={pathname === route.href ? 'page' : undefined}
               >
                 {route.name}

@@ -125,7 +125,7 @@ describe('Nav', () => {
   it('sets up scroll event listener on mount', () => {
     render(<Nav lang="ru" />)
     
-    expect(mockAddEventListener).toHaveBeenCalledWith('scroll', expect.any(Function))
+    expect(mockAddEventListener).toHaveBeenCalledWith('scroll', expect.any(Function), { passive: true })
   })
 
   it('prevents body scroll when mobile menu is open', () => {

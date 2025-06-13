@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useMemo, memo } from 'react';
 import CardPrinciple from '@/components/ui/cardPrinciple';
 import CardService from '@/components/ui/cardService';
 import ScrollReveal from '@/components/utility/scrollReveal';
@@ -6,7 +6,8 @@ import rawContent from './main.json';
 import rawContacts from '@/data/contacts.json';
 import { Benefit, Lang, Principle } from '../../utility/types';
 
-export default function ContentMain({ lang }: { lang: Lang }) {
+function ContentMain({ lang }: { lang: Lang }) {
+  // Memoize static content to prevent unnecessary re-parsing
   const content = useMemo(() => rawContent, []);
   const contacts = useMemo(() => rawContacts, []);
   
@@ -217,3 +218,6 @@ export default function ContentMain({ lang }: { lang: Lang }) {
     </main>
   );
 }
+
+// Memoize the component to prevent unnecessary re-renders
+export default memo(ContentMain);
