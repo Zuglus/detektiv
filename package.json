@@ -39,7 +39,6 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@next/swc-darwin-x64": "^15.3.3",
     "@playwright/test": "^1.53.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",
