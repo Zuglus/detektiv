@@ -13,7 +13,8 @@ describe('Breadcrumbs', () => {
   it('renders home icon as link', () => {
     render(<Breadcrumbs breadcrumb={defaultBreadcrumb} />)
     
-    const homeLink = screen.getByRole('link')
+    const allLinks = screen.getAllByRole('link')
+    const homeLink = allLinks[0] // First link should be home
     expect(homeLink).toHaveAttribute('href', '/')
     
     const homeIcon = screen.getByRole('navigation').querySelector('svg')
@@ -73,14 +74,15 @@ describe('Breadcrumbs', () => {
     
     render(<Breadcrumbs breadcrumb={breadcrumbWithSecondName} />)
     
-    const separators = screen.getAllByLabelText('', { hidden: true })
-    expect(separators.length).toBeGreaterThan(0)
+    const navigation = screen.getByRole('navigation')
+    const separators = navigation.querySelectorAll('li[aria-hidden="true"]')
+    expect(separators.length).toBe(2) // Should have exactly 2 separators
   })
 
   it('has correct navigation aria-label', () => {
     render(<Breadcrumbs breadcrumb={defaultBreadcrumb} />)
     
-    const navigation = screen.getByRole('navigation', { name: 'breadcrumb' })
+    const navigation = screen.getByRole('navigation', { name: 'Breadcrumb navigation' })
     expect(navigation).toBeInTheDocument()
   })
 
@@ -90,8 +92,8 @@ describe('Breadcrumbs', () => {
     const navigation = screen.getByRole('navigation')
     expect(navigation).toHaveClass('w-full', 'relative', 'z-10')
     
-    const container = navigation.querySelector('div')
-    expect(container).toHaveClass('max-w-7xl', 'mx-auto', 'bg-[#a8d0b9]')
+    const container = navigation.querySelector('ol')
+    expect(container).toHaveClass('max-w-7xl', 'mx-auto', 'bg-primary-200')
   })
 
   it('renders all elements in correct order', () => {
@@ -104,17 +106,18 @@ describe('Breadcrumbs', () => {
     
     render(<Breadcrumbs breadcrumb={breadcrumbWithSecondName} />)
     
-    const container = screen.getByRole('navigation').querySelector('div')
+    const container = screen.getByRole('navigation').querySelector('ol')
     const children = Array.from(container?.children || [])
     
-    // Should have: home link, separator, name link, separator, second name
+    // Should have: home li, separator li, name li, separator li, second name li
     expect(children.length).toBe(5)
     
-    // Check that home link is first
-    expect(children[0].tagName.toLowerCase()).toBe('a')
-    expect(children[0]).toHaveAttribute('href', '/')
+    // Check that first item contains home link
+    expect(children[0].tagName.toLowerCase()).toBe('li')
+    const homeLink = children[0].querySelector('a')
+    expect(homeLink).toHaveAttribute('href', '/')
     
-    // Check that second name is last
+    // Check that last item contains second name
     expect(children[4]).toHaveTextContent('Название статьи')
   })
 
@@ -128,7 +131,8 @@ describe('Breadcrumbs', () => {
     
     render(<Breadcrumbs breadcrumb={breadcrumbWithCustomHome} />)
     
-    const homeLink = screen.getByRole('link')
+    const allLinks = screen.getAllByRole('link')
+    const homeLink = allLinks[0] // First link should be home
     expect(homeLink).toHaveAttribute('href', '/en')
   })
 })

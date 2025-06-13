@@ -13,7 +13,7 @@ export default function Body({
   return (
     <body className="font-primary text-secondary-800 selection:bg-primary-500 selection:text-white antialiased">
       <Header lang={lang} showHero={showHero} />
-      <main className="relative">
+      <main id="main-content" className="relative" role="main" tabIndex={-1}>
         {children}
       </main>
       <Footer lang={lang} />

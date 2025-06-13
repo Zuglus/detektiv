@@ -44,19 +44,19 @@ describe('Footer', () => {
   it('renders footer with Russian content', () => {
     render(<Footer lang="ru" />)
     
-    expect(screen.getByText('Детективное Агентство Право')).toBeInTheDocument()
-    expect(screen.getByText('Москва')).toBeInTheDocument()
-    expect(screen.getByText('Все права защищены.')).toBeInTheDocument()
-    expect(screen.getByText('2010-2024')).toBeInTheDocument()
+    expect(screen.getByText('Детективное агентство Грозного Эдуарда Николаевича')).toBeInTheDocument()
+    expect(screen.getByText(/г\. Москва/)).toBeInTheDocument()
+    expect(screen.getByText(/лицензия МВД РФ/)).toBeInTheDocument()
+    expect(screen.getByText(/2010-2025/)).toBeInTheDocument()
   })
 
   it('renders footer with English content', () => {
     render(<Footer lang="en" />)
     
-    expect(screen.getByText('Detective Agency Pravo')).toBeInTheDocument()
-    expect(screen.getByText('Moscow')).toBeInTheDocument()
-    expect(screen.getByText('All rights reserved.')).toBeInTheDocument()
-    expect(screen.getByText('2010-2024')).toBeInTheDocument()
+    expect(screen.getByText(/Grozny Edward Nikolaevich Detective Agency/)).toBeInTheDocument()
+    expect(screen.getByText(/Moscow/)).toBeInTheDocument()
+    expect(screen.getByText(/Russian Ministry of Internal Affairs License/)).toBeInTheDocument()
+    expect(screen.getByText(/2010-2025/)).toBeInTheDocument()
   })
 
   it('renders social icons when enabled', () => {
@@ -114,7 +114,7 @@ describe('Footer', () => {
     expect(screen.getByText(/©/)).toBeInTheDocument()
     
     // Check that company name has proper styling
-    const companyName = screen.getByText('Детективное Агентство Право')
+    const companyName = screen.getByText('Детективное агентство Грозного Эдуарда Николаевича')
     expect(companyName).toHaveClass('font-medium', 'text-primary-200')
   })
 
@@ -152,9 +152,9 @@ describe('Footer', () => {
 
   it('displays year range consistently across languages', () => {
     const { rerender } = render(<Footer lang="ru" />)
-    expect(screen.getByText('2010-2024')).toBeInTheDocument()
+    expect(screen.getByText(/2010-2025/)).toBeInTheDocument()
     
     rerender(<Footer lang="en" />)
-    expect(screen.getByText('2010-2024')).toBeInTheDocument()
+    expect(screen.getByText(/2010-2025/)).toBeInTheDocument()
   })
 })

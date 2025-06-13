@@ -7,7 +7,7 @@ interface IconsProps {
 
 export default function SocialIcons({lang}: IconsProps) {
   return (
-    <div className="float-right md:flex space-x-6 hidden">
+    <div className="float-right md:flex space-x-6 hidden social-group">
       {[
         contacts.phone,
         contacts.email,
@@ -19,9 +19,9 @@ export default function SocialIcons({lang}: IconsProps) {
             href={icon.link}
             key={icon.name}
             title={icon.name}
-            className="relative group"
+            className="social-icon interactive-hint focus-not-obscured"
+            aria-label={`Contact via ${icon.name}`}
           >
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 rounded-full transition-opacity duration-300"></div>
             <svg
               height={40}
               width={40}
@@ -30,8 +30,8 @@ export default function SocialIcons({lang}: IconsProps) {
               strokeMiterlimit="1.414"
               clipRule="evenodd"
               viewBox="0 0 24 24"
-              fill="#50C878"
-              className="group-hover:scale-110 relative z-10 hover:fill-emerald-800 transform transition-colors duration-300"
+              fill="currentColor"
+              className="relative z-10 text-primary-500 hover:text-primary-700"
             >
               <path d={icon.icon} />
             </svg>

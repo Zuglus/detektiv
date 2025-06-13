@@ -3,7 +3,7 @@ import translateUrl from "../utility/translateUrl";
 
 function RuFlag() {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" height={15} viewBox="0 0 640 480">
+    <svg xmlns="http://www.w3.org/2000/svg" height={15} viewBox="0 0 640 480" role="img" aria-label="Russian flag">
       <g fillRule="evenodd" strokeWidth="1pt">
         <path fill="#fff" d="M0 0h640v480H0z" />
         <path fill="#0039a6" d="M0 160h640v320H0z" />
@@ -15,7 +15,7 @@ function RuFlag() {
 
 function EnFlag() {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" height={15} viewBox="0 0 640 480">
+    <svg xmlns="http://www.w3.org/2000/svg" height={15} viewBox="0 0 640 480" role="img" aria-label="United Kingdom flag">
       <path fill="#012169" d="M0 0h640v480H0z" />
       <path fill="#FFF" d="m75 0 244 181L562 0h78v62L400 241l240 178v61h-80L320 301 81 480H0v-60l239-178L0 64V0h75z" />
       <path fill="#C8102E" d="m424 281 216 159v40L369 281h55zm-184 20 6 35L54 480H0l240-179zM640 0v3L391 191l2-44L590 0h50zM0 0l239 176h-60L0 42V0z" />
@@ -38,7 +38,7 @@ export default function ButtonTranslate({ url }: { url: string }) {
         bg-white/20 backdrop-blur-xs border border-white/30 
         rounded-lg text-white text-sm font-medium
         transition-all duration-normal hover:scale-105 hover:bg-white/30
-        focus:outline-none focus:ring-2 focus:ring-primary-500
+        focus:outline-none focus:ring-4 focus:ring-primary-600/40
       "
       href={trans.link}
       aria-label={ariaLabel}

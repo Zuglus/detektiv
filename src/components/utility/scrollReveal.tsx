@@ -21,12 +21,30 @@ export default function ScrollReveal({
     const element = elementRef.current;
     if (!element) return;
 
+    // Check for reduced motion preference
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    
+    if (prefersReducedMotion.matches) {
+      // If reduced motion is preferred, show immediately
+      element.classList.add('revealed');
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setTimeout(() => {
-            element.classList.add('revealed');
-          }, delay);
+          // Use requestAnimationFrame for better performance
+          if (delay > 0) {
+            setTimeout(() => {
+              requestAnimationFrame(() => {
+                element.classList.add('revealed');
+              });
+            }, delay);
+          } else {
+            requestAnimationFrame(() => {
+              element.classList.add('revealed');
+            });
+          }
           observer.unobserve(element);
         }
       },

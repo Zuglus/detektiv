@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap');
+/* Font optimization: Moved to head with preconnect and preload */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -40,21 +40,8 @@ body {
   @apply text-secondary-800 bg-secondary-50 selection:bg-primary-500 selection:text-white antialiased;
 }
 
-/* ========================================
-   CSS CUSTOM PROPERTIES ДЛЯ КОНТАКТОВ
-   ======================================== */
 :root {
-  /* Typography - используется в font-family */
-  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-display: 'Playfair Display', serif;
-  
-  /* Glass morphism - специфичные rgba значения для эффектов */
-  --glass-light: rgba(255, 255, 255, 0.1);
-  --glass-medium: rgba(255, 255, 255, 0.15);
-  --glass-strong: rgba(255, 255, 255, 0.25);
-  --glass-border: rgba(255, 255, 255, 0.2);
-
-  /* Contact Page Variables */
+  /* Contact Page Variables - consolidated */
   --contact-emergency-bg: linear-gradient(135deg, rgba(239, 68, 68, 0.03), rgba(251, 146, 60, 0.03));
   --contact-emergency-hover: linear-gradient(135deg, rgba(239, 68, 68, 0.08), rgba(251, 146, 60, 0.08));
   --contact-response-time: #f59e0b;
@@ -66,15 +53,69 @@ body {
    КОМПОНЕНТЫ С УНИКАЛЬНОЙ ЛОГИКОЙ
    ======================================== */
 
-/* Button animations - сложные pseudo-элементы и анимации */
+/* Enhanced Social Icon Microinteractions */
+@layer components {
+  .social-icon {
+    position: relative;
+    transition: all 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+    transform-origin: center;
+  }
+
+  .social-icon::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(51, 153, 85, 0.2), transparent 70%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 400ms cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: -1;
+  }
+
+  .social-icon:hover::before {
+    width: 200%;
+    height: 200%;
+  }
+
+  .social-icon:hover {
+    transform: scale(1.2) rotate(5deg);
+  }
+
+  .social-icon:active {
+    transform: scale(1.1) rotate(2deg);
+    transition-duration: 100ms;
+  }
+
+  /* Staggered animation for social icon groups */
+  .social-group .social-icon:nth-child(1) { transition-delay: 0ms; }
+  .social-group .social-icon:nth-child(2) { transition-delay: 50ms; }
+  .social-group .social-icon:nth-child(3) { transition-delay: 100ms; }
+  .social-group .social-icon:nth-child(4) { transition-delay: 150ms; }
+}
+
+/* Enhanced Button animations with loading states and feedback */
 @layer components {
   .btn-primary {
-    @apply bg-gradient-to-br from-primary-500 to-primary-600 text-white;
+    @apply bg-gradient-to-br from-primary-700 to-primary-800 text-white;
     @apply px-8 py-4 rounded-xl font-medium cursor-pointer border-0;
     @apply relative overflow-hidden transition-all duration-300 ease-out;
-    @apply shadow-lg hover:shadow-xl hover:-translate-y-1 hover:scale-105;
-    @apply hover:from-primary-600 hover:to-primary-700;
+    @apply shadow-lg hover:shadow-xl;
+    @apply hover:from-primary-800 hover:to-primary-900;
     will-change: transform;
+    transform: translateZ(0); /* Force hardware acceleration */
+  }
+  
+  .btn-primary:hover {
+    transform: translate3d(0, -4px, 0) scale3d(1.05, 1.05, 1); /* Hardware accelerated */
+  }
+
+  .btn-primary:active {
+    transform: translate3d(0, -1px, 0) scale3d(1.02, 1.02, 1);
+    transition-duration: 100ms;
+    box-shadow: 0 4px 12px rgba(51, 153, 85, 0.3);
   }
 
   .btn-primary::before {
@@ -85,6 +126,28 @@ body {
 
   .btn-primary:hover::before {
     @apply left-full;
+  }
+
+  /* Loading state for buttons */
+  .btn-loading {
+    @apply pointer-events-none relative;
+  }
+
+  .btn-loading::after {
+    content: '';
+    @apply absolute inset-0 bg-white/20 rounded-xl;
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+
+  /* Enhanced secondary button */
+  .btn-secondary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  }
+
+  .btn-secondary:active {
+    transform: translateY(0);
+    transition-duration: 100ms;
   }
 
   .btn-secondary {
@@ -105,13 +168,14 @@ body {
       0 4px 16px rgba(0, 0, 0, 0.08),
       inset 0 1px 0 rgba(255, 255, 255, 0.4);
     will-change: transform;
+    transform: translateZ(0); /* Force hardware acceleration */
   }
 
   /* Special card variants that preserve background colors */
   .card-dark {
     @apply relative overflow-hidden transition-all duration-smooth p-6 rounded-2xl;
     @apply border border-secondary-700;
-    background: #1f2937 !important; /* Ensure dark background is preserved */
+    background: theme('colors.secondary.800') !important; /* Ensure dark background is preserved */
     box-shadow: 
       0 8px 32px rgba(0, 0, 0, 0.2),
       0 4px 16px rgba(0, 0, 0, 0.15);
@@ -120,8 +184,8 @@ body {
 
   .card-dark:hover {
     @apply -translate-y-2 scale-[1.025];
-    background: #1f2937 !important; /* Maintain background on hover */
-    border-color: #374151;
+    background: theme('colors.secondary.800') !important; /* Maintain background on hover */
+    border-color: theme('colors.secondary.600');
     box-shadow: 
       0 20px 60px rgba(0, 0, 0, 0.25),
       0 12px 30px rgba(0, 0, 0, 0.18);
@@ -223,13 +287,34 @@ body {
   }
 
   .card:hover {
-    @apply -translate-y-2 scale-[1.025];
+    transform: translate3d(0, -8px, 0) scale3d(1.025, 1.025, 1); /* Hardware accelerated */
     background: rgba(255, 255, 255, 0.98);
     border-color: rgba(255, 255, 255, 0.4);
     box-shadow: 
       0 20px 60px rgba(0, 0, 0, 0.18),
       0 12px 30px rgba(0, 0, 0, 0.12),
       inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  }
+
+  /* Enhanced card content animations */
+  .card h4,
+  .card h3 {
+    transition: color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .card:hover h4,
+  .card:hover h3 {
+    color: theme('colors.primary.600');
+    text-shadow: 0 1px 2px rgba(51, 153, 85, 0.1);
+  }
+
+  /* Subtle content lift on hover */
+  .card-content {
+    transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .card:hover .card-content {
+    transform: translateY(-2px);
   }
 
   .card:hover::after {
@@ -267,6 +352,7 @@ body {
     /* Modern backdrop-filter with fallback */
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
+    transition: all 300ms cubic-bezier(0.25, 0.1, 0.25, 1);
   }
 
   .nav-scrolled {
@@ -277,6 +363,44 @@ body {
     /* Modern backdrop-filter with fallback */
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
+    transition: all 300ms cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+
+  /* Enhanced navigation link microinteractions */
+  .nav-link {
+    position: relative;
+    overflow: hidden;
+    transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .nav-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(51, 153, 85, 0.1), rgba(51, 153, 85, 0.05));
+    border-radius: inherit;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: -1;
+  }
+
+  .nav-link:hover::before,
+  .nav-link:focus::before {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .nav-link:hover {
+    transform: translateY(-1px);
+  }
+
+  .nav-link:active {
+    transform: translateY(0) scale(0.98);
+    transition-duration: 100ms;
   }
 
   .nav-home-transparent {
@@ -335,8 +459,70 @@ body {
   }
 
   .principle-card div {
-    color: #f8fafc;
+    color: theme('colors.secondary.50');
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* ========================================
+   INPUT AND FORM MICROINTERACTIONS
+   ======================================== */
+
+@layer components {
+  .input-field {
+    transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid theme('colors.secondary.200');
+  }
+
+  .input-field:focus {
+    border-color: theme('colors.primary.400');
+    box-shadow: 
+      0 0 0 3px theme('colors.primary.100'),
+      0 4px 12px rgba(51, 153, 85, 0.15);
+    transform: translateY(-1px);
+  }
+
+  .input-field:focus::placeholder {
+    opacity: 0.7;
+    transform: translateY(-2px);
+  }
+
+  /* Loading states for various elements */
+  .loading-skeleton {
+    background: linear-gradient(90deg, 
+      theme('colors.secondary.200') 0%, 
+      theme('colors.secondary.100') 50%, 
+      theme('colors.secondary.200') 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s ease-in-out infinite;
+  }
+
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+
+  /* Success state animations */
+  .success-state {
+    animation: successPulse 600ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  @keyframes successPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+
+  /* Error state animations */
+  .error-state {
+    animation: errorShake 400ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  @keyframes errorShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-4px); }
+    75% { transform: translateX(4px); }
   }
 }
 
@@ -489,14 +675,44 @@ body {
     background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
   }
 
-  /* Professional Pricing Components */
+  /* Enhanced Professional Pricing Components */
   .pricing-card {
-    @apply relative bg-white border-2 rounded-xl shadow-lg transition-all duration-300;
-    @apply hover:shadow-xl hover:-translate-y-1 hover:border-primary-300;
+    @apply relative bg-white border-2 rounded-xl shadow-lg;
+    transition: all 400ms cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+    transform: translateZ(0);
+  }
+
+  .pricing-card:hover {
+    transform: translate3d(0, -8px, 0) scale3d(1.02, 1.02, 1);
+    box-shadow: 
+      0 25px 50px rgba(0, 0, 0, 0.15),
+      0 12px 30px rgba(0, 0, 0, 0.1);
+    border-color: theme('colors.primary.300');
   }
 
   .pricing-card.popular {
     @apply border-primary-400 ring-2 ring-primary-100;
+    animation: gentlePulse 3s ease-in-out infinite;
+  }
+
+  .pricing-card.popular:hover {
+    animation: none;
+    transform: translate3d(0, -12px, 0) scale3d(1.03, 1.03, 1);
+    box-shadow: 
+      0 30px 60px rgba(51, 153, 85, 0.2),
+      0 15px 35px rgba(51, 153, 85, 0.1);
+  }
+
+  @keyframes gentlePulse {
+    0%, 100% { 
+      ring-color: theme('colors.primary.100');
+      ring-opacity: 1;
+    }
+    50% { 
+      ring-color: theme('colors.primary.200');
+      ring-opacity: 0.8;
+    }
   }
 
   .pricing-badge {
@@ -599,27 +815,93 @@ body {
     .btn-secondary {
       @apply min-h-[44px] py-3; /* Ensure minimum 44px touch target */
     }
+    
+    /* Ensure social icons meet touch target requirements */
+    .social-icon {
+      @apply min-w-[44px] min-h-[44px] p-3;
+    }
+    
+    /* Navigation links touch targets */
+    .nav-link {
+      @apply min-h-[44px] py-3;
+    }
+    
+    /* Menu items touch targets */
+    .menu-item {
+      @apply min-h-[44px] py-4;
+    }
   }
-}
 
 /* ========================================
    ACCESSIBILITY И WCAG 2.2
    ======================================== */
 
-/* Enhanced Focus Styles */
+/* Enhanced Focus Styles with microinteractions */
 *:focus-visible {
-  @apply outline outline-primary-500 outline-offset-2 rounded-sm;
-  outline-width: 3px;
-  box-shadow: 0 0 0 1px theme('colors.primary.200');
+  @apply outline outline-primary-600 outline-offset-2 rounded-sm;
+  outline-width: 4px;
+  box-shadow: 0 0 0 2px theme('colors.white'), 0 0 0 6px theme('colors.primary.600');
+  transition: box-shadow 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Enhanced focus for dark backgrounds */
+.focus-dark:focus-visible {
+  @apply outline outline-white outline-offset-2 rounded-sm;
+  outline-width: 4px;
+  box-shadow: 0 0 0 2px theme('colors.secondary.900'), 0 0 0 6px theme('colors.white');
 }
 
 .focus-not-obscured:focus-visible {
-  @apply relative z-[999] outline outline-primary-500;
-  outline-width: 3px;
+  @apply relative z-[999] outline outline-primary-600;
+  outline-width: 4px;
   outline-offset: 3px;
   box-shadow: 
-    0 0 0 1px theme('colors.primary.200'),
-    0 4px 12px theme('colors.primary.500 / 30%');
+    0 0 0 2px theme('colors.white'),
+    0 0 0 8px theme('colors.primary.600'),
+    0 4px 12px theme('colors.primary.600 / 40%');
+  animation: focusPulse 2s ease-in-out infinite;
+}
+
+/* Interactive focus pulse animation */
+@keyframes focusPulse {
+  0%, 100% { 
+    box-shadow: 
+      0 0 0 2px theme('colors.white'),
+      0 0 0 8px theme('colors.primary.600'),
+      0 4px 12px theme('colors.primary.600 / 40%');
+  }
+  50% { 
+    box-shadow: 
+      0 0 0 2px theme('colors.white'),
+      0 0 0 10px theme('colors.primary.500'),
+      0 6px 20px theme('colors.primary.600 / 50%');
+  }
+}
+
+/* Enhanced link focus states */
+a:focus-visible {
+  transform: scale(1.02);
+  transition: transform 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Interactive element hover hints */
+.interactive-hint {
+  position: relative;
+}
+
+.interactive-hint::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(51, 153, 85, 0.1), transparent);
+  opacity: 0;
+  transition: opacity 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: -1;
+}
+
+.interactive-hint:hover::after {
+  opacity: 1;
 }
 
 /* Screen reader only text */
@@ -662,7 +944,103 @@ body {
   .border-primary-500 { border-color: #000000 !important; }
 }
 
-/* Reduced motion preferences */
+/* Mobile Performance Optimizations */
+@media (max-width: 768px) {
+  /* Disable all hover transforms on mobile for better performance and INP */
+  .card:hover,
+  .btn-primary:hover,
+  .card-dark:hover,
+  .card-colored:hover,
+  .gradient-card-isolated:hover,
+  .trust-indicator:hover {
+    transform: none !important;
+  }
+  
+  /* Reduce backdrop blur on mobile for better performance */
+  .nav-transparent,
+  .nav-scrolled {
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+  }
+  
+  .nav-home-transparent {
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+  }
+  
+  /* Remove complex pseudo-elements on mobile to reduce paint time */
+  .card::before,
+  .card::after,
+  .social-icon::before {
+    display: none !important;
+  }
+  
+  /* Faster transitions for better INP */
+  .principle-card,
+  .trust-icon,
+  .social-icon {
+    transition-duration: 100ms !important;
+  }
+  
+  /* Disable complex animations on mobile */
+  .pricing-card.popular {
+    animation: none !important;
+  }
+}
+
+/* Enhanced hamburger menu microinteractions */
+@layer components {
+  .hamburger-line {
+    transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: center;
+  }
+
+  .hamburger-btn:hover .hamburger-line {
+    background-color: theme('colors.primary.600');
+  }
+
+  .hamburger-btn:active {
+    transform: scale(0.95);
+  }
+
+  /* Menu overlay with staggered animation */
+  .menu-overlay {
+    animation: overlayFadeIn 300ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  @keyframes overlayFadeIn {
+    from { 
+      opacity: 0;
+      backdrop-filter: blur(0px);
+    }
+    to { 
+      opacity: 1;
+      backdrop-filter: blur(4px);
+    }
+  }
+
+  /* Staggered menu items animation */
+  .menu-item {
+    opacity: 0;
+    transform: translateX(100%) scale(0.8);
+    animation: menuItemSlideIn 400ms cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  }
+
+  .menu-item:nth-child(1) { animation-delay: 50ms; }
+  .menu-item:nth-child(2) { animation-delay: 100ms; }
+  .menu-item:nth-child(3) { animation-delay: 150ms; }
+  .menu-item:nth-child(4) { animation-delay: 200ms; }
+  .menu-item:nth-child(5) { animation-delay: 250ms; }
+
+  @keyframes menuItemSlideIn {
+    to {
+      opacity: 1;
+      transform: translateX(0) scale(1);
+    }
+  }
+}
+
+/* Reduced motion preferences - comprehensive support */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -670,5 +1048,40 @@ body {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+    transform: none !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Keep essential transitions but make them instant */
+  .card:hover,
+  .btn-primary:hover,
+  .nav-link:hover {
+    transition-duration: 0.01ms !important;
+  }
+
+  /* Disable floating animations */
+  .pricing-card.popular {
+    animation: none !important;
+  }
+
+  .focus-not-obscured:focus-visible {
+    animation: none !important;
+  }
+  
+  /* Disable scroll reveal animations */
+  .scroll-reveal {
+    @apply opacity-100 translate-y-0 !important;
+  }
+  
+  /* Disable hamburger menu animations */
+  .hamburger-line {
+    transition: none !important;
+  }
+  
+  /* Disable menu slide animations */
+  .menu-item {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
   }
 }

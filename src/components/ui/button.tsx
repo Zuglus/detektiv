@@ -22,8 +22,8 @@ export default function Button({
   };
 
   const variantClasses = variant === 'primary' 
-    ? 'btn-primary bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 focus:from-primary-600 focus:to-primary-700 text-white'
-    : 'btn-secondary bg-secondary-100 hover:bg-secondary-200 text-secondary-700 border border-secondary-200';
+    ? 'btn-primary bg-gradient-to-r from-primary-700 to-primary-800 hover:from-primary-800 hover:to-primary-900 focus:from-primary-800 focus:to-primary-900 text-white'
+    : 'btn-secondary bg-secondary-100 hover:bg-secondary-200 text-secondary-700 border border-secondary-200 hover:text-secondary-800';
 
   return (
     <Link
@@ -31,7 +31,7 @@ export default function Button({
         inline-block text-center rounded-full font-medium uppercase tracking-wide
         transform transition-all var(--transition-normal)
         hover:scale-105 focus:scale-105
-        focus:outline-none focus:ring-4 focus:ring-primary-500/30
+        focus:outline-none focus:ring-4 focus:ring-primary-600/40
         focus-not-obscured shadow-md hover:shadow-lg focus:shadow-lg
         ${variantClasses}
         ${sizeClasses[size]}
