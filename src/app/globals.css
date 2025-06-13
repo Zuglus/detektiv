@@ -19,6 +19,10 @@
   --glass-medium: rgba(255, 255, 255, 0.15);
   --glass-strong: rgba(255, 255, 255, 0.25);
   --glass-border: rgba(255, 255, 255, 0.2);
+  
+  /* Transitions - соответствуют Tailwind config */
+  --transition-normal: 300ms;
+  --transition-smooth: 600ms;
 }
 
 /* Base Styles - базовые настройки браузера */
