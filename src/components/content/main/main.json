@@ -46,9 +46,9 @@
     },
     {
       "ru": {
-        "title": "частный поиск людей, одноклассников, попутчиков, родственников и т.д.",
+        "title": "частный поиск людей",
         "price": "от 100 тысяч рублей",
-        "text": "Установление полных данных, контактов и др."
+        "text": "Одноклассников, попутчиков, родственников и т.д. Установление полных данных, контактов и др."
       },
       "en": {
         "title": "private search for people, classmates, fellow travelers, relatives, etc.",
@@ -164,7 +164,7 @@
     }
   ],
   "proposeHeader": {
-    "ru": "предлагаем помощь в решении ваших вопросов",
+    "ru": "предлагаем помощь\n в решении ваших вопросов",
     "en": "we offer help in solving your issues"
   },
   "proposeText": {
@@ -198,11 +198,11 @@
     },
     {
       "ru": {
-        "title": "достоверность информации",
+        "title": "достоверность",
         "text": "Проверенные нами данные – это ваши правильные уверенные решения"
       },
       "en": {
-        "title": "Information accuracy",
+        "title": "Accuracy",
         "text": "The verified data we provide leads to informed and confident decisions"
       }
     },

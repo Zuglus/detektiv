@@ -54,11 +54,12 @@ export default function Footer({ lang }: { lang: Lang }) {
                 focus:outline-none focus:ring-4 focus:ring-primary-500/30
                 focus-not-obscured
                 shadow-lg hover:shadow-xl
+                hover:animate-gentle-bounce
               "
               aria-label="Scroll back to top of page"
             >
               <svg
-                className="w-6 h-6"
+                className="w-9 h-9"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -67,8 +68,8 @@ export default function Footer({ lang }: { lang: Lang }) {
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  strokeWidth={2.5}
-                  d="M5 10l7-7m0 0l7 7m-7-7v18"
+                  strokeWidth={2}
+                  d="m7 14 5-5 5 5"
                 />
               </svg>
             </button>

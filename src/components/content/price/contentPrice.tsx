@@ -46,7 +46,7 @@ export default function ContentPrice({ lang }: { lang: Lang }) {
       {/* Enhanced Professional Header */}
       <ScrollReveal>
         <div className="text-center space-y-8">
-          <div className="card bg-gradient-to-br from-primary-600 to-primary-700 text-white">
+          <div className="gradient-card-isolated bg-gradient-to-br from-primary-600 to-primary-700 text-white border-primary-500">
             <h1 className="text-display-md font-display font-bold mb-6">
               {lang === 'ru' ? 'Прозрачные цены на детективные услуги' : 'Transparent Detective Service Pricing'}
             </h1>
@@ -73,9 +73,9 @@ export default function ContentPrice({ lang }: { lang: Lang }) {
           </h2>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {typedContent.trustElements.items[lang].map((item: string, index: number) => (
-              <div key={item} className="flex items-start space-x-3">
-                <div className="flex-shrink-0 w-6 h-6 rounded-full bg-primary-500 text-white flex items-center justify-center text-sm font-bold mt-1">
+            {typedContent.trustElements.items[lang].map((item: string) => (
+              <div key={item} className="trust-indicator">
+                <div className="trust-icon">
                   ✓
                 </div>
                 <span className="text-body-md font-medium leading-relaxed">{item}</span>
@@ -87,7 +87,7 @@ export default function ContentPrice({ lang }: { lang: Lang }) {
 
       {/* Price Disclaimer */}
       <ScrollReveal delay={150}>
-        <div className="card bg-accent-50 border-l-4 border-accent-500">
+        <div className="card-colored bg-accent-50 border-l-4 border-accent-500">
           <div className="flex items-start space-x-3">
             <div className="flex-shrink-0 text-accent-600 text-xl">ℹ️</div>
             <p className="text-body-md leading-relaxed text-accent-800">
@@ -121,16 +121,13 @@ export default function ContentPrice({ lang }: { lang: Lang }) {
                 >
                   {/* Professional Service Card */}
                   <div className={`
-                    h-full bg-white border-2 rounded-xl shadow-lg transition-all duration-300
-                    hover:shadow-xl hover:-translate-y-1 hover:border-primary-300
-                    ${service.popular ? 'border-primary-400 ring-2 ring-primary-100' : 'border-secondary-200'}
+                    pricing-card h-full
+                    ${service.popular ? 'popular' : ''}
                   `}>
                     {/* Popular Badge */}
                     {service.popular && (
-                      <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                        <div className="bg-accent-500 text-white text-sm font-semibold px-4 py-1 rounded-full shadow-md">
-                          {lang === 'ru' ? 'Популярная услуга' : 'Popular Service'}
-                        </div>
+                      <div className="pricing-badge">
+                        {lang === 'ru' ? 'Популярная услуга' : 'Popular Service'}
                       </div>
                     )}
                     
@@ -151,7 +148,7 @@ export default function ContentPrice({ lang }: { lang: Lang }) {
                           <span className="text-body-sm font-medium text-secondary-500">
                             {lang === 'ru' ? 'Стоимость проекта:' : 'Project cost:'}
                           </span>
-                          <span className="text-heading-sm font-bold text-primary-600">
+                          <span className="pricing-value text-primary-600">
                             {service.price[lang]}
                           </span>
                         </div>
@@ -159,7 +156,7 @@ export default function ContentPrice({ lang }: { lang: Lang }) {
                           <span className="text-body-sm font-medium text-secondary-500">
                             {lang === 'ru' ? 'Почасовая ставка:' : 'Hourly rate:'}
                           </span>
-                          <span className="text-body-md font-semibold text-secondary-700">
+                          <span className="pricing-currency text-secondary-700">
                             {service.hourlyRate[lang]}
                           </span>
                         </div>
@@ -189,12 +186,13 @@ export default function ContentPrice({ lang }: { lang: Lang }) {
                           className={`
                             w-full inline-flex items-center justify-center px-6 py-3 rounded-lg 
                             font-medium text-sm transition-all duration-300 hover:scale-105
-                            focus:outline-none focus:ring-2 focus:ring-offset-2
+                            focus:outline-none focus:ring-2 focus:ring-offset-2 focus-not-obscured
                             ${service.popular 
-                              ? 'bg-primary-600 hover:bg-primary-700 text-white focus:ring-primary-500' 
-                              : 'bg-secondary-100 hover:bg-secondary-200 text-secondary-800 focus:ring-secondary-500'
+                              ? 'btn-primary' 
+                              : 'btn-secondary'
                             }
                           `}
+                          aria-label={`${lang === 'ru' ? 'Получить консультацию по услуге' : 'Get consultation for service'}: ${service.title[lang]}`}
                         >
                           {lang === 'ru' ? 'Получить консультацию' : 'Get Consultation'}
                         </a>
@@ -212,7 +210,7 @@ export default function ContentPrice({ lang }: { lang: Lang }) {
       <ScrollReveal delay={400}>
         <div className="space-y-8">
           {/* Value Proposition */}
-          <div className="card bg-secondary-800 text-white">
+          <div className="card-dark text-white">
             <div className="text-center space-y-6">
               <h2 className="text-heading-md font-display font-semibold">
                 {lang === 'ru' ? 'Профессиональный результат требует инвестиций' : 'Professional Results Require Investment'}
@@ -225,7 +223,7 @@ export default function ContentPrice({ lang }: { lang: Lang }) {
           </div>
 
           {/* Contact Section */}
-          <div className="card text-center bg-gradient-to-br from-primary-50 to-accent-50 border-2 border-primary-200">
+          <div className="gradient-card-isolated text-center bg-gradient-to-br from-primary-50 to-accent-50 border-primary-200">
             <h3 className="text-heading-md font-semibold mb-6 text-primary-700">
               {typedContent.footer.propose[lang]}
             </h3>
@@ -240,7 +238,8 @@ export default function ContentPrice({ lang }: { lang: Lang }) {
                 <a
                   key={item.name}
                   href={item.link}
-                  className="btn-primary text-center transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
+                  className="btn-primary text-center transition-all duration-300 hover:scale-105 focus-not-obscured"
+                  aria-label={`${lang === 'ru' ? 'Связаться через' : 'Contact via'} ${item.displayName}`}
                 >
                   <span className="block text-sm font-medium">{item.displayName}</span>
                 </a>

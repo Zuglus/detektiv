@@ -73,7 +73,7 @@ export default function ContentMain({ lang }: { lang: Lang }) {
           <div className="max-w-7xl mx-auto px-6">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {content.serviceList.map((card, index) => (
-                <div key={card[lang].title} style={{ animationDelay: `${index * 100}ms` }}>
+                <div key={card[lang].title} className="h-full" style={{ animationDelay: `${index * 100}ms` }}>
                   <CardService data={card[lang]} />
                 </div>
               ))}
