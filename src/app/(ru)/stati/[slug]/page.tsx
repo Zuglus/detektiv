@@ -16,7 +16,7 @@ export default async function Post({ params }: Slugs) {
 
   const breadcrumb: Breadcrumb = {
     home: '/',
-    name: 'Заказы',
+    name: 'Статьи',
     link: '/stati',
     secondName: post.title,
   };

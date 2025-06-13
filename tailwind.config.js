@@ -126,6 +126,15 @@ module.exports = {
         'DEFAULT': '20px',
         'xl': '40px',
       },
+      keyframes: {
+        'gentle-bounce': {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-8px)' }
+        }
+      },
+      animation: {
+        'gentle-bounce': 'gentle-bounce 2s ease-in-out infinite'
+      },
       fontSize: {
         // Display - For hero headlines
         'display-xl': ['clamp(3rem, 8vw, 6rem)', { lineHeight: '0.9', letterSpacing: '-0.02em' }],

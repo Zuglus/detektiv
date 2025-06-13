@@ -8,105 +8,193 @@ export default function ContentContact({
   lang: Lang;
 }) {
   return (
-    <div className="max-w-4xl mx-auto px-6 py-16">
-      <div className="text-center mb-12">
-        {/* Header */}
-        <h1 className="text-display-md text-secondary-900 mb-4 font-bold">
+    <div className="max-w-6xl mx-auto px-6 py-16">
+      {/* Header Section */}
+      <div className="text-center mb-16">
+        <h1 className="text-display-lg text-secondary-900 mb-4 font-bold">
           {content.header[lang]}
         </h1>
-        <div className="w-24 h-1 gradient-primary mx-auto rounded-full" />
+        <p className="text-body-xl text-secondary-600 mb-6 max-w-2xl mx-auto">
+          {content.subtitle[lang]}
+        </p>
+        <div className="w-32 h-1 gradient-primary mx-auto rounded-full" />
       </div>
 
+      {/* Bento Grid Layout */}
+      <div className="grid grid-cols-12 gap-6 mb-12">
+        
+        {/* Emergency Contact - Hero Block */}
+        <div className="col-span-12 lg:col-span-8 card-emergency group relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-red-500/10 to-orange-500/10 group-hover:from-red-500/20 group-hover:to-orange-500/20 transition-all duration-500" />
+          <div className="relative z-10 p-8">
+            <div className="flex items-start justify-between mb-6">
+              <div>
+                <h2 className="text-heading-lg font-bold text-secondary-900 mb-2">
+                  {content.emergency.title[lang]}
+                </h2>
+                <p className="text-body-lg text-secondary-700">
+                  {content.emergency.description[lang]}
+                </p>
+              </div>
+              <div className="text-accent-600 text-body-sm font-semibold bg-accent-50 px-3 py-1 rounded-full">
+                {content.responseTime.phone[lang]}
+              </div>
+            </div>
+            <a
+              href={contacts.phone.link}
+              className="inline-flex items-center gap-3 text-heading-md font-bold text-primary-600 hover:text-primary-700 transition-all duration-300 group"
+            >
+              <div className="p-3 bg-primary-100 rounded-xl group-hover:bg-primary-200 transition-colors duration-300">
+                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path d={contacts.phone.icon} />
+                </svg>
+              </div>
+              {contacts.phone.name}
+            </a>
+          </div>
+        </div>
 
-      {/* Contact Information */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-        {/* Address */}
-        <div className="card text-center">
-          <h3 className="text-heading-sm font-semibold text-secondary-900 mb-4">
-            {content.addressTitle[lang]}
-          </h3>
-          <p className="text-body-md text-secondary-700">
-            {content.address[lang]}
-          </p>
+        {/* Office Address */}
+        <div className="col-span-12 lg:col-span-4 card text-center group">
+          <div className="p-6">
+            <h3 className="text-heading-sm font-semibold text-secondary-900 mb-3">
+              {content.addressTitle[lang]}
+            </h3>
+            <p className="text-body-md text-secondary-700 mb-4">
+              {content.address[lang]}
+            </p>
+            <p className="text-body-sm text-secondary-500">
+              {content.addressDescription[lang]}
+            </p>
+          </div>
         </div>
 
         {/* Email */}
-        <div className="card text-center">
-          <h3 className="text-heading-sm font-semibold text-secondary-900 mb-4">
-            {content.email[lang]}
-          </h3>
-          <a
-            href={contacts.email.link}
-            className="text-body-md text-primary-600 hover:text-primary-700 underline transition-colors duration-300"
-          >
-            {contacts.email.directName}
-          </a>
-        </div>
-
-        {/* Mobile */}
-        <div className="card text-center">
-          <h3 className="text-heading-sm font-semibold text-secondary-900 mb-4">
-            {content.mobile[lang]}
-          </h3>
-          <a
-            href={contacts.phone.link}
-            className="text-body-md text-primary-600 hover:text-primary-700 underline transition-colors duration-300"
-          >
-            {contacts.phone.name}
-          </a>
-        </div>
-
-        {/* Telegram */}
-        <div className="card text-center">
-          <h3 className="text-heading-sm font-semibold text-secondary-900 mb-4">
-            {content.telegram[lang]}
-          </h3>
-          <a href={contacts.telegram.link} className="inline-block">
-            <svg
-              className="mx-auto transition-transform hover:scale-110 duration-300 text-primary-600 hover:text-primary-700"
-              height={50}
-              width={50}
-              fillRule="evenodd"
-              strokeLinejoin="round"
-              strokeMiterlimit="1.414"
-              clipRule="evenodd"
-              viewBox="0 0 24 24"
-              fill="currentColor"
+        <div className="col-span-12 md:col-span-6 lg:col-span-4 card group">
+          <div className="p-6 text-center">
+            <div className="flex justify-between items-center mb-4">
+              <h3 className="text-heading-sm font-semibold text-secondary-900">
+                {content.email[lang]}
+              </h3>
+              <span className="text-body-xs text-accent-600 bg-accent-50 px-2 py-1 rounded-full">
+                {content.responseTime.email[lang]}
+              </span>
+            </div>
+            <a
+              href={contacts.email.link}
+              className="inline-flex items-center gap-2 text-body-md text-primary-600 hover:text-primary-700 transition-colors duration-300 group-hover:underline"
             >
-              <path d={contacts.telegram.icon} />
-            </svg>
-          </a>
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d={contacts.email.icon} />
+              </svg>
+              {contacts.email.directName}
+            </a>
+            <p className="text-body-sm text-secondary-500 mt-2">
+              {content.emailDescription[lang]}
+            </p>
+          </div>
+        </div>
+
+        {/* Messengers Block */}
+        <div className="col-span-12 md:col-span-6 lg:col-span-8 card group">
+          <div className="p-6">
+            <div className="flex justify-between items-center mb-6">
+              <div>
+                <h3 className="text-heading-sm font-semibold text-secondary-900 mb-2">
+                  {content.messengers.title[lang]}
+                </h3>
+                <p className="text-body-md text-secondary-600">
+                  {content.messengers.description[lang]}
+                </p>
+              </div>
+              <span className="text-body-xs text-accent-600 bg-accent-50 px-2 py-1 rounded-full">
+                {content.responseTime.messengers[lang]}
+              </span>
+            </div>
+            
+            <div className="grid grid-cols-2 gap-4">
+              {/* Telegram */}
+              <a
+                href={contacts.telegram.link}
+                className="flex flex-col items-center p-4 bg-secondary-50 hover:bg-secondary-100 rounded-xl transition-all duration-300 group/messenger"
+              >
+                <svg
+                  className="w-10 h-10 mb-3 text-primary-600 group-hover/messenger:text-primary-700 transition-colors duration-300 group-hover/messenger:scale-110 transform"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d={contacts.telegram.icon} />
+                </svg>
+                <span className="text-body-sm font-medium text-secondary-800">
+                  {content.telegram[lang]}
+                </span>
+              </a>
+
+              {/* WhatsApp */}
+              <a
+                href={contacts.whatsapp.link}
+                className="flex flex-col items-center p-4 bg-secondary-50 hover:bg-secondary-100 rounded-xl transition-all duration-300 group/messenger"
+              >
+                <svg
+                  className="w-10 h-10 mb-3 text-primary-600 group-hover/messenger:text-primary-700 transition-colors duration-300 group-hover/messenger:scale-110 transform"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d={contacts.whatsapp.icon} />
+                </svg>
+                <span className="text-body-sm font-medium text-secondary-800">
+                  {content.whatsapp[lang]}
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      {/* Confidentiality Section */}
+      <div className="card-accent relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-primary-500/5 to-accent-500/5" />
+        <div className="relative z-10 p-8 text-center">
+          <div className="max-w-3xl mx-auto">
+            <h3 className="text-heading-md font-bold text-secondary-900 mb-4">
+              {content.confidentiality.title[lang]}
+            </h3>
+            <p className="text-body-lg text-secondary-700 leading-relaxed">
+              {content.confidentiality.description[lang]}
+            </p>
+          </div>
         </div>
       </div>
 
-      {/* WhatsApp - Full Width */}
-      <div className="card text-center mb-8">
-        <h3 className="text-heading-sm font-semibold text-secondary-900 mb-4">
-          {content.whatsapp[lang]}
-        </h3>
-        <a href={contacts.whatsapp.link} className="inline-block">
-          <svg
-            className="mx-auto transition-transform hover:scale-110 duration-300 text-primary-600 hover:text-primary-700"
-            height={50}
-            width={50}
-            fillRule="evenodd"
-            strokeLinejoin="round"
-            strokeMiterlimit="1.414"
-            clipRule="evenodd"
-            viewBox="0 0 24 24"
-            fill="currentColor"
-          >
-            <path d={contacts.whatsapp.icon} />
-          </svg>
-        </a>
-      </div>
-
-      {/* Accord Section */}
-      <div className="card text-center">
-        <p className="text-body-lg text-secondary-700 leading-relaxed">
-          {content.accord[lang]}
-        </p>
-      </div>
+      {/* Schema.org structured data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Детективное агентство",
+            "url": "https://право18.рф",
+            "contactPoint": [
+              {
+                "@type": "ContactPoint",
+                "telephone": contacts.phone.name,
+                "contactType": "customer service",
+                "availableLanguage": ["Russian", "English"],
+                "hoursAvailable": "24/7"
+              }
+            ],
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Проспект Мира, 27",
+              "addressLocality": "Москва",
+              "addressCountry": "RU"
+            },
+            "email": contacts.email.directName
+          })
+        }}
+      />
     </div>
   );
 }

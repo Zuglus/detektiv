@@ -28,7 +28,7 @@ export default function SocialIconsFooter() {
             {/* Добавляем светящийся эффект при наведении без размытия */}
             <div className="absolute inset-0 bg-primary-500/30 opacity-0 group-hover:opacity-100 rounded-full transition-opacity duration-300 shadow-lg group-hover:shadow-primary-500/50"></div>
             <svg
-              className="group-hover:fill-primary-900 w-10 md:w-8 h-10 md:h-8 transition-colors duration-300 fill-primary-700"
+              className="group-hover:fill-primary-900 w-9 h-9 transition-colors duration-300 fill-primary-700"
               viewBox="0 0 24 24"
               fillRule="evenodd"
               strokeLinejoin="round"

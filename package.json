@@ -6,7 +6,13 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next build && npx serve@latest out",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
+    "test:all": "npm run test && npm run test:e2e"
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.5.15",
@@ -33,6 +39,14 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "csvtojson": "^2.0.10"
+    "@next/swc-darwin-x64": "^15.3.3",
+    "@playwright/test": "^1.53.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/jest": "^29.5.14",
+    "csvtojson": "^2.0.10",
+    "jest": "^30.0.0",
+    "jest-environment-jsdom": "^30.0.0"
   }
 }

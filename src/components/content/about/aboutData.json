@@ -1,18 +1,164 @@
 {
-  "title": {
-    "ru": "о нас",
-    "en": "about"
+  "hero": {
+    "title": {
+      "ru": "о нас",
+      "en": "about us"
+    },
+    "subtitle": {
+      "ru": "Профессиональные детективные услуги с 2010 года",
+      "en": "Professional detective services since 2010"
+    },
+    "description": {
+      "ru": "Опыт, конфиденциальность и результат — основа нашей работы",
+      "en": "Experience, reliability and results — the foundation of our work"
+    }
   },
-  "paragraphs": {
-    "ru": [
-      "Детективное агентство создано Грозным Эдуардом Николаевичем в 2010 году, офицером в отставке - старшим оперуполномоченным по особо важным делам, ветераном боевых действий, награжденным государственными наградами. В детективном агентстве работают квалифицированные и профессиональные специалисты с высшими образованиями, многолетним опытом.",
-      "Сегодняшний рынок детективных услуг на просторах интернета насыщен непрофессиональными кадрами, либо \"гражданскими-стажерами\", получившими лицензию после трехмесячного срока обучения, не имеющих совсем опыта в сыске или попросту мошенниками без лицензий, которые якобы гарантируют 100% результат. Имейте ввиду, что при выполнении любого задания существует риск, либо форс-мажор, который настоящий Профессионал учитывает и обговаривает с Заказчиком.",
-      "Стоимость наших услуг, на первый взгляд, может показаться дорогой, но после решения Ваших семейных, бизнес и иных проблем, на практике окажется оправданной. Покупая дешевый товар, Вы осознанно принимаете его изначальное низкое качество, либо сомнительное происхождение. Поэтому, будьте внимательны при выборе частного детектива - наше детективное агентство предоставляет Профессиональные услуги."
-    ],
-    "en": [
-      "The detective agency was founded by Grozny Edward Nikolaevich in 2010, a retired officer – senior operative for especially important cases, a combat veteran decorated with state awards. The Detective Agency employs highly qualified and professional specialists with higher education and years of experience.",
-      "Today's detective services market is flooded with unprofessional staff or 'civil interns' who obtained a license after a three-month training period without any investigation experience, or simply fraudsters without licenses guaranteeing 100% results. Remember, there is always a risk with any task that a true professional discusses with the client.",
-      "Our services may seem expensive at first glance, but after solving your family, business, or other problems, the price proves justified. By choosing cheaper services, you knowingly accept low quality or questionable origins. Therefore, be careful when selecting a private detective—our agency offers Professional services."
-    ]
+  "timeline": {
+    "title": {
+      "ru": "Наша история",
+      "en": "Our History"
+    },
+    "items": {
+      "ru": [
+        {
+          "year": "2010",
+          "title": "Основание агентства",
+          "description": "Детективное агентство создано Грозным Эдуардом Николаевичем, офицером в отставке — старшим оперуполномоченным по особо важным делам"
+        },
+        {
+          "year": "2010-2025",
+          "title": "15 лет опыта",
+          "description": "Более полутора десятков лет успешной работы, решения сложных семейных и бизнес задач"
+        }
+      ],
+      "en": [
+        {
+          "year": "2010",
+          "title": "Agency Founded",
+          "description": "The detective agency was founded by Grozny Edward Nikolaevich, a retired officer — senior operative for especially important cases"
+        },
+        {
+          "year": "2010-2025",
+          "title": "15 Years Experience",
+          "description": "Over fifteen years of successful work, solving complex family and business tasks"
+        }
+      ]
+    }
+  },
+  "expertise": {
+    "title": {
+      "ru": "Наши преимущества",
+      "en": "Our Expertise"
+    },
+    "items": {
+      "ru": [
+        {
+          "icon": "👤",
+          "title": "Профессиональная команда",
+          "description": "Квалифицированные специалисты с высшим образованием и многолетним опытом"
+        },
+        {
+          "icon": "🏆",
+          "title": "Государственные награды",
+          "description": "Ветеран боевых действий, награжденный государственными наградами"
+        },
+        {
+          "icon": "📋",
+          "title": "Официальная лицензия",
+          "description": "Работаем исключительно в правовом поле с полным пакетом документов"
+        },
+        {
+          "icon": "⚖️",
+          "title": "Честный подход",
+          "description": "Учитываем и обговариваем все риски с заказчиком заранее"
+        }
+      ],
+      "en": [
+        {
+          "icon": "👤",
+          "title": "Professional Team",
+          "description": "Qualified specialists with higher education and years of experience"
+        },
+        {
+          "icon": "🏆",
+          "title": "State Awards",
+          "description": "Combat veteran decorated with state awards"
+        },
+        {
+          "icon": "📋",
+          "title": "Official License",
+          "description": "We work exclusively within the legal framework with full documentation"
+        },
+        {
+          "icon": "⚖️",
+          "title": "Honest Approach",
+          "description": "We consider and discuss all risks with the client in advance"
+        }
+      ]
+    }
+  },
+  "founder": {
+    "title": {
+      "ru": "Основатель агентства",
+      "en": "Agency Founder"
+    },
+    "name": {
+      "ru": "Грозный Эдуард Николаевич",
+      "en": "Grozny Edward Nikolaevich"
+    },
+    "subtitle": {
+      "ru": "Старший оперуполномоченный в отставке",
+      "en": "Retired Senior Operative"
+    },
+    "description": {
+      "ru": "Офицер в отставке по особо важным делам, ветеран боевых действий, награжденный государственными наградами. Более 15 лет профессиональной детективной деятельности.",
+      "en": "Retired officer for especially important cases, combat veteran decorated with state awards. Over 15 years of professional detective work."
+    }
+  },
+  "principles": {
+    "title": {
+      "ru": "Наши принципы",
+      "en": "Our Principles"
+    },
+    "items": {
+      "ru": [
+        {
+          "title": "Профессионализм",
+          "description": "Настоящий профессионал всегда учитывает риски и форс-мажоры, обговаривая их с заказчиком"
+        },
+        {
+          "title": "Качество услуг",
+          "description": "Стоимость наших услуг может показаться высокой, но качество и результат всегда оправдывают вложения"
+        },
+        {
+          "title": "Честность",
+          "description": "Мы не обещаем 100% результат, как мошенники — мы работаем профессионально и честно"
+        }
+      ],
+      "en": [
+        {
+          "title": "Professionalism",
+          "description": "A true professional always considers risks and force majeure, discussing them with the client"
+        },
+        {
+          "title": "Service Quality",
+          "description": "Our services may seem expensive, but quality and results always justify the investment"
+        },
+        {
+          "title": "Honesty",
+          "description": "We don't promise 100% results like fraudsters — we work professionally and honestly"
+        }
+      ]
+    }
+  },
+  "warning": {
+    "title": {
+      "ru": "Остерегайтесь мошенников",
+      "en": "Beware of Fraudsters"
+    },
+    "description": {
+      "ru": "Рынок детективных услуг насыщен непрофессиональными кадрами: \"гражданскими-стажерами\" без опыта, получившими лицензию после трехмесячного обучения, или мошенниками без лицензий, гарантирующими 100% результат.",
+      "en": "The detective services market is flooded with unprofessional staff: 'civil interns' without experience who obtained licenses after three-month training, or fraudsters without licenses guaranteeing 100% results."
+    }
   }
 }

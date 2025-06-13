@@ -1,34 +1,65 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Детективное агентство - Сайт с полным тестовым покрытием
 
-## Getting Started
+Сайт детективного агентства на Next.js с комплексной системой тестирования.
 
-First, run the development server:
+## Запуск проекта
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Откройте [http://localhost:3000](http://localhost:3000) в браузере.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Тестирование
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Unit тесты (Jest + React Testing Library)
+```bash
+npm test                # Запуск тестов
+npm run test:watch      # Режим наблюдения
+npm run test:coverage   # С покрытием кода
+```
 
-## Learn More
+### E2E тесты (Playwright)
+```bash
+npm run test:e2e        # Запуск E2E тестов
+npm run test:e2e:ui     # UI режим
+npm run test:all        # Все тесты
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Структура тестов
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+src/components/
+├── ui/__tests__/               # UI компоненты
+├── utility/__tests__/          # Утилиты
+├── layout/__tests__/           # Layout компоненты
+└── content/__tests__/          # Content компоненты
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+e2e/                           # E2E тесты
+├── homepage.spec.ts
+└── navigation.spec.ts
+```
 
-## Deploy on Vercel
+## Покрытие тестами
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+✅ **UI компоненты**: Button, Card, CardService, CardPrinciple  
+✅ **Утилиты**: classNames, translateUrl, getPosts  
+✅ **Layout**: Header, Navigation  
+✅ **Content**: ContentMain  
+✅ **E2E**: Навигация, отзывчивость, доступность
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Технологии
+
+- **Framework**: Next.js 14
+- **Styling**: Tailwind CSS
+- **Testing**: Jest, React Testing Library, Playwright
+- **TypeScript**: Полная типизация
+
+## Сборка
+
+```bash
+npm run build    # Сборка проекта
+npm run start    # Статический сервер
+npm run lint     # Линтинг
+```

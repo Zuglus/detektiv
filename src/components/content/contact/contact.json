@@ -1,34 +1,90 @@
 {
   "header": {
-    "ru": "Контакты",
-    "en": "Contacts"
+    "ru": "Связаться с нами",
+    "en": "Get in Touch"
+  },
+  "subtitle": {
+    "ru": "Конфиденциальная консультация по вашему делу",
+    "en": "Confidential consultation for your case"
+  },
+  "emergency": {
+    "title": {
+      "ru": "Быстрая связь",
+      "en": "Priority Contact"
+    },
+    "description": {
+      "ru": "Оперативное реагирование на срочные обращения",
+      "en": "Rapid response for urgent inquiries"
+    }
   },
   "addressTitle": {
-    "ru": "Адрес:",
-    "en": "Address:"
+    "ru": "Офис в Москве",
+    "en": "Moscow Office"
   },
   "address": {
     "ru": "г. Москва, Проспект Мира, 27",
     "en": "Moscow, Prospekt Mira, 27"
   },
+  "addressDescription": {
+    "ru": "Личные встречи по предварительной записи",
+    "en": "In-person meetings by appointment"
+  },
   "email": {
-    "ru": "E-mail:",
-    "en": "E-mail:"
+    "ru": "Электронная почта",
+    "en": "Email"
+  },
+  "emailDescription": {
+    "ru": "Ответ в течение 2 часов",
+    "en": "Response within 2 hours"
   },
   "mobile": {
-    "ru": "Мобильный:",
-    "en": "Mobile:"
+    "ru": "Телефон",
+    "en": "Phone"
+  },
+  "mobileDescription": {
+    "ru": "Прямая линия для консультаций",
+    "en": "Direct line for consultations"
+  },
+  "messengers": {
+    "title": {
+      "ru": "Мессенджеры",
+      "en": "Messengers"
+    },
+    "description": {
+      "ru": "Быстрая связь в любое время",
+      "en": "Quick contact anytime"
+    }
   },
   "telegram": {
-    "ru": "Telegram (нажать иконку):",
-    "en": "Telegram (click the icon):"
+    "ru": "Telegram",
+    "en": "Telegram"
   },
   "whatsapp": {
-    "ru": "Whatsapp (нажать иконку):",
-    "en": "Whatsapp (click the icon):"
+    "ru": "WhatsApp",
+    "en": "WhatsApp"
   },
-  "accord": {
-    "ru": "Согласно ФЗ № 152 «О персональных данных» при заполнении граф на нашем сайте своих личных данных, вы автоматически даете согласие на их обработку. При заключении с нами договора, в нем данный пункт прописан отдельно.",
-    "en": "In accordance with Federal Law No. 152 \"On Personal Data\", by filling in your personal data on our website, you automatically consent to its processing. When entering into a contract with us, this clause is specified separately."
+  "confidentiality": {
+    "title": {
+      "ru": "Гарантия конфиденциальности",
+      "en": "Confidentiality Guarantee"
+    },
+    "description": {
+      "ru": "Все обращения строго конфиденциальны. Согласно ФЗ № 152 «О персональных данных» при обращении к нам вы автоматически даете согласие на обработку персональных данных исключительно в рамках оказания услуг.",
+      "en": "All inquiries are strictly confidential. In accordance with Federal Law No. 152 \"On Personal Data\", by contacting us you automatically consent to the processing of personal data exclusively for service provision."
+    }
+  },
+  "responseTime": {
+    "phone": {
+      "ru": "Оперативно",
+      "en": "Prompt"
+    },
+    "email": {
+      "ru": "В рабочие часы",
+      "en": "Business hours"
+    },
+    "messengers": {
+      "ru": "Быстро",
+      "en": "Quick"
+    }
   }
 }
