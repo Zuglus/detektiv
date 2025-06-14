@@ -56,7 +56,7 @@ export default function Footer({ lang }: { lang: Lang }) {
                 shadow-lg hover:shadow-xl
                 hover:animate-gentle-bounce
               "
-              aria-label="Scroll back to top of page"
+              aria-label="Прокрутить обратно к началу страницы"
             >
               <svg
                 className="w-9 h-9"

@@ -17,19 +17,37 @@ export default function ContentJob({ lang }: { lang: Lang }) {
 
   const requirementIcons = [
     <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" key="photo">
-      <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 1H5C3.89 1 3 1.89 3 3V21C3 22.1 3.89 23 5 23H19C20.1 23 21 22.1 21 21V9M19 21H5V3H13V9H19Z"/>
+      <path fillRule="evenodd" d="M4 4H7L9 2H15L17 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4ZM18.5 7.5C18.78 7.5 19 7.72 19 8S18.78 8.5 18.5 8.5S18 8.28 18 8S18.22 7.5 18.5 7.5ZM12 7C14.76 7 17 9.24 17 12S14.76 17 12 17S7 14.76 7 12S9.24 7 12 7ZM12 10C13.1 10 14 10.9 14 12S13.1 14 12 14S10 13.1 10 12S10.9 10 12 10Z" clipRule="evenodd"/>
     </svg>,
     <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" key="bio">
-      <path d="M12 2C6.48 2 2 6.48 2 12S6.48 22 12 22 22 17.52 22 12 17.52 2 12 2ZM12 6C13.1 6 14 6.9 14 8S13.1 10 12 10 10 9.1 10 8 10.9 6 12 6ZM16 18H8V16.5C8 14.6 11.33 13.5 12 13.5S16 14.6 16 16.5V18Z"/>
+      <path d="M19 3H5C3.9 3 3 3.9 3 5V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3ZM9 8C9.83 8 10.5 8.67 10.5 9.5S9.83 11 9 11S7.5 10.33 7.5 9.5S8.17 8 9 8ZM12 17H6V16C6 14.33 9.33 13.5 9 13.5S12 14.33 12 16V17ZM17 13H13V11H17V13ZM17 9H13V7H17V9Z"/>
     </svg>,
     <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" key="contact">
-      <path d="M6.62 10.79C8.06 13.62 10.38 15.94 13.21 17.38L15.41 15.18C15.69 14.9 16.08 14.82 16.43 14.93C17.55 15.3 18.75 15.5 20 15.5C20.55 15.5 21 15.95 21 16.5V20C21 20.55 20.55 21 20 21C10.61 21 3 13.39 3 4C3 3.45 3.45 3 4 3H7.5C8.05 3 8.5 3.45 8.5 4C8.5 5.25 8.7 6.45 9.07 7.57C9.18 7.92 9.1 8.31 8.82 8.59L6.62 10.79Z"/>
+      <path d="M19 3H8C6.9 3 6 3.9 6 5V19C6 20.1 6.9 21 8 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3ZM4 7H2V5C2 3.9 2.9 3 4 3V7ZM4 11H2V9H4V11ZM4 15H2V13H4V15ZM4 19H2V17H4V19ZM13.5 9C14.33 9 15 9.67 15 10.5S14.33 12 13.5 12S12 11.33 12 10.5S12.67 9 13.5 9ZM17 18H10V17C10 15.34 11.34 14 13 14H14C15.66 14 17 15.34 17 17V18Z"/>
     </svg>,
-    <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" key="family">
-      <path d="M16 4C16.55 4 17 4.45 17 5S16.55 6 16 6 15 5.55 15 5 15.45 4 16 4M13 2C13.55 2 14 2.45 14 3S13.55 4 13 4 12 3.55 12 3 12.45 2 13 2M16 6.3C17.06 6.3 17.93 7.17 17.93 8.23S17.06 10.16 16 10.16 14.07 9.29 14.07 8.23 14.94 6.3 16 6.3M13 4.3C14.06 4.3 14.93 5.17 14.93 6.23S14.06 8.16 13 8.16 11.07 7.29 11.07 6.23 11.94 4.3 13 4.3M16 22V18.5C16 17.12 14.88 16 13.5 16H12.5C11.12 16 10 17.12 10 18.5V22H16Z"/>
+    <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 128 128" key="family">
+      <circle cx="24" cy="30" r="18"/>
+      <rect x="12" y="52" width="24" height="60" rx="6"/>
+      <circle cx="104" cy="30" r="18"/>
+      <rect x="92" y="52" width="24" height="60" rx="6"/>
+      <circle cx="64" cy="42" r="16"/>
+      <rect x="52" y="62" width="24" height="52" rx="6"/>
+      <line x1="36" y1="80" x2="52" y2="80" stroke="currentColor" strokeWidth="6"/>
+      <line x1="92" y1="80" x2="76" y2="80" stroke="currentColor" strokeWidth="6"/>
     </svg>,
     <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" key="skills">
-      <path d="M12 2L13.09 8.26L19 7L18.74 13.09L23 12L21.09 18.26L17 19L17.26 12.91L13 14L14.91 7.74L12 2Z"/>
+      <circle cx="6" cy="6" r="3"/>
+      <rect x="2" y="10" width="8" height="12" rx="2"/>
+      <rect x="3" y="12" width="2" height="8" rx="1"/>
+      <rect x="7" y="12" width="2" height="8" rx="1"/>
+      <rect x="12" y="5" width="4" height="2" rx="1"/>
+      <path d="M18 4L19.5 5.5L22.5 2.5" stroke="currentColor" strokeWidth="1.5" fill="none"/>
+      <rect x="12" y="9" width="4" height="2" rx="1"/>
+      <path d="M18 8L19.5 9.5L22.5 6.5" stroke="currentColor" strokeWidth="1.5" fill="none"/>
+      <rect x="12" y="13" width="4" height="2" rx="1"/>
+      <path d="M18 12L19.5 13.5L22.5 10.5" stroke="currentColor" strokeWidth="1.5" fill="none"/>
+      <rect x="12" y="17" width="4" height="2" rx="1"/>
+      <path d="M18 16L19.5 17.5L22.5 14.5" stroke="currentColor" strokeWidth="1.5" fill="none"/>
     </svg>
   ];
 

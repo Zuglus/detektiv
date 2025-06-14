@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Lang } from "@/components/utility/types";
 import content from './guarantee.json';
 import contacts from '@/data/contacts.json';
+import IconSvg from '@/components/ui/IconSvg';
 
 interface TrustBadgeProps {
   title: string;
@@ -44,11 +45,13 @@ function TrustBadge({ title, value, description, icon, index }: TrustBadgeProps)
       role="article"
       aria-label={`${title}: ${value}`}
     >
-      <div 
-        className="text-3xl sm:text-4xl mb-3 sm:mb-4 group-hover:scale-110 transition-transform duration-300"
-        aria-hidden="true"
-      >
-        {icon}
+      <div className="mb-3 sm:mb-4 group-hover:scale-110 transition-transform duration-300">
+        <IconSvg 
+          name={icon} 
+          size="3xl" 
+          color="primary" 
+          className="mx-auto"
+        />
       </div>
       <h3 className="text-base sm:text-lg font-semibold text-secondary-900 mb-2">{title}</h3>
       <div className="text-xl sm:text-2xl font-bold text-primary-600 mb-2">{value}</div>
@@ -97,11 +100,12 @@ function GuaranteeCard({ title, description, features, icon, index }: GuaranteeC
       aria-labelledby={`guarantee-title-${index}`}
     >
       <div className="flex items-center mb-4 lg:mb-6">
-        <div 
-          className="text-2xl lg:text-3xl mr-3 lg:mr-4 group-hover:scale-110 transition-transform duration-300"
-          aria-hidden="true"
-        >
-          {icon}
+        <div className="mr-3 lg:mr-4 group-hover:scale-110 transition-transform duration-300">
+          <IconSvg 
+            name={icon} 
+            size="2xl" 
+            color="primary"
+          />
         </div>
         <h3 
           id={`guarantee-title-${index}`}
@@ -192,19 +196,19 @@ export default function ContentGuarantee({ lang }: { lang: Lang }) {
       title: trustBadges.license[lang].title,
       value: trustBadges.license[lang].number,
       description: trustBadges.license[lang].description,
-      icon: "🛡️"
+      icon: "shield"
     },
     {
       title: trustBadges.experience[lang].title,
       value: trustBadges.experience[lang].years,
       description: trustBadges.experience[lang].description,
-      icon: "⏰"
+      icon: "clock"
     },
     {
       title: trustBadges.reputation[lang].title,
       value: trustBadges.reputation[lang].rating,
       description: trustBadges.reputation[lang].description,
-      icon: "⭐"
+      icon: "star"
     }
   ];
 
@@ -213,19 +217,19 @@ export default function ContentGuarantee({ lang }: { lang: Lang }) {
       title: guarantees.quality[lang].title,
       description: guarantees.quality[lang].description,
       features: guarantees.quality[lang].features,
-      icon: "🎯"
+      icon: "target"
     },
     {
       title: guarantees.confidentiality[lang].title,
       description: guarantees.confidentiality[lang].description,
       features: guarantees.confidentiality[lang].features,
-      icon: "🔒"
+      icon: "lock"
     },
     {
       title: guarantees.transparency[lang].title,
       description: guarantees.transparency[lang].description,
       features: guarantees.transparency[lang].features,
-      icon: "📊"
+      icon: "chart"
     }
   ];
 
@@ -242,7 +246,7 @@ export default function ContentGuarantee({ lang }: { lang: Lang }) {
       {/* Trust Badges */}
       <section className="mb-16 lg:mb-20" aria-labelledby="trust-section">
         <h2 id="trust-section" className="sr-only">
-          {lang === 'ru' ? 'Показатели доверия' : 'Trust Indicators'}
+          {lang === 'ru' ? 'Показатели доверия' : 'Показатели доверия'}
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
           {trustBadgeData.map((badge, index) => (
@@ -259,7 +263,7 @@ export default function ContentGuarantee({ lang }: { lang: Lang }) {
       <section className="mb-16 lg:mb-20" aria-labelledby="guarantees-section">
         <div className="text-center mb-8 lg:mb-12">
           <h2 id="guarantees-section" className="text-xl sm:text-2xl lg:text-display-sm text-secondary-900 mb-4 font-bold">
-            {lang === 'ru' ? 'Наши гарантии' : 'Our Guarantees'}
+            {lang === 'ru' ? 'Наши гарантии' : 'Наши гарантии'}
           </h2>
           <div className="w-20 lg:w-24 h-1 bg-gradient-to-r from-primary-500 to-primary-600 mx-auto rounded-full" />
         </div>
@@ -279,11 +283,12 @@ export default function ContentGuarantee({ lang }: { lang: Lang }) {
       <section className="mb-16 lg:mb-20" aria-labelledby="refund-section">
         <div className="bg-gradient-to-r from-primary-50 to-primary-100 rounded-xl lg:rounded-2xl p-6 lg:p-8 border border-primary-200">
           <div className="flex flex-col sm:flex-row items-start">
-            <div 
-              className="text-3xl lg:text-4xl mb-4 sm:mb-0 sm:mr-6 sm:mt-2"
-              aria-hidden="true"
-            >
-              💰
+            <div className="mb-4 sm:mb-0 sm:mr-6 sm:mt-2">
+              <IconSvg 
+                name="money" 
+                size="4xl" 
+                color="primary"
+              />
             </div>
             <div className="flex-1">
               <h3 
@@ -353,7 +358,7 @@ export default function ContentGuarantee({ lang }: { lang: Lang }) {
                 key={item.name}
                 href={item.link}
                 className="bg-primary-600 text-white px-6 lg:px-8 py-2 lg:py-3 rounded-lg font-semibold hover:bg-primary-700 hover:scale-105 focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50 focus:outline-none transition-all duration-300 shadow-sm hover:shadow-md text-sm lg:text-base"
-                aria-label={`${lang === 'ru' ? 'Связаться через' : 'Contact via'} ${item.name}`}
+                aria-label={`${lang === 'ru' ? 'Связаться через' : 'Связаться через'} ${item.name}`}
               >
                 {item.name}
               </a>

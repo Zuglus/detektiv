@@ -5,20 +5,20 @@ export const Breadcrumbs = ({ breadcrumb }: { breadcrumb: Breadcrumb }) => {
   const { home, name, link, secondName } = breadcrumb;
 
   return (
-    <nav className="w-full relative z-10" aria-label="Breadcrumb navigation">
+    <nav className="w-full relative z-10" aria-label="Навигация по хлебным крошкам">
       <ol className="max-w-7xl mx-auto bg-primary-200 shadow-sm m-2 p-2 rounded-lg flex items-center text-secondary-700 list-none">
         <li>
           <Link 
             href={home} 
             className="font-semibold hover:text-secondary-500 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-primary-600 rounded"
-            aria-label="Home"
+            aria-label="Главная"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="w-5 h-5 text-secondary-700 hover:text-secondary-500 transition-all duration-300 fill-current"
               viewBox="0 0 20 20"
               role="img"
-              aria-label="Home icon"
+              aria-label="Иконка главной"
             >
               <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
             </svg>

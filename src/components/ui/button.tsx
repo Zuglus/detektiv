@@ -38,13 +38,13 @@ export default function Button({
         m-2
       `}
       href={url}
-      aria-label={`Navigate to ${name}${external ? ' (opens in new tab)' : ''}`}
+      aria-label={`Перейти к ${name}${external ? ' (откроется в новой вкладке)' : ''}`}
       target={external ? '_blank' : undefined}
       rel={external ? 'noopener noreferrer' : undefined}
       role="link"
     >
       {name}
-      {external && <span className="sr-only"> (opens in new tab)</span>}
+      {external && <span className="sr-only"> (откроется в новой вкладке)</span>}
     </Link>
   );
 }

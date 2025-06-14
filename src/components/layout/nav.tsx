@@ -97,7 +97,7 @@ export default function Nav({ lang }: NavProps) {
           }
         `}
         role="navigation"
-        aria-label="Main navigation"
+        aria-label="Основная навигация"
       >
         <div className="max-w-7xl mx-auto px-6 hidden lg:block">
           <div className="flex items-center justify-between h-16">
@@ -152,7 +152,7 @@ export default function Nav({ lang }: NavProps) {
           focus-not-obscured
           group
         "
-        aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}
+        aria-label={isOpen ? 'Закрыть меню навигации' : 'Открыть меню навигации'}
         aria-expanded={isOpen}
         aria-controls="mobile-menu"
         aria-haspopup="true"
@@ -212,8 +212,8 @@ export default function Nav({ lang }: NavProps) {
         aria-hidden={!isOpen}
       >
         <div className="p-6 pt-40">
-          <h2 id="mobile-menu-heading" className="sr-only">Navigation Menu</h2>
-          <nav className="space-y-4" role="navigation" aria-label="Mobile navigation">
+          <h2 id="mobile-menu-heading" className="sr-only">Меню навигации</h2>
+          <nav className="space-y-4" role="navigation" aria-label="Мобильная навигация">
             {routes.map((route, index) => (
               <Link
                 key={route.name}
