@@ -2,6 +2,7 @@ import { useMemo, memo } from 'react';
 import CardPrinciple from '@/components/ui/cardPrinciple';
 import CardService from '@/components/ui/cardService';
 import ScrollReveal from '@/components/utility/scrollReveal';
+import IconSvg from '@/components/ui/IconSvg';
 import rawContent from './main.json';
 import rawContacts from '@/data/contacts.json';
 import { Benefit, Lang, Principle } from '../../utility/types';
@@ -163,51 +164,56 @@ function ContentMain({ lang }: { lang: Lang }) {
 
       {/* Contact Information */}
       <ScrollReveal delay={1200}>
-        <section className="py-16 bg-secondary-50">
+        <section className="py-20">
           <div className="max-w-4xl mx-auto px-6">
-            <div className="card text-center">
-              <h3 className="text-display-sm text-secondary-900 mb-6">
+            <div className="card-emergency text-center p-12">
+              <div className="mb-8 flex justify-center">
+                <IconSvg 
+                  name="warning" 
+                  size="4xl" 
+                  color="error"
+                />
+              </div>
+              <h3 className="text-3xl font-bold text-red-700 mb-6 font-display">
                 {content.alertHeader[lang]}
               </h3>
               
               <div 
-                className="text-body-lg text-secondary-700 mb-6 leading-relaxed" 
+                className="text-body-lg text-secondary-700 mb-8 leading-relaxed" 
                 dangerouslySetInnerHTML={{ __html: content.alertText[lang] }} 
               />
 
-              <div className="bg-primary-50 rounded-xl p-6 text-left">
-                <div className="space-y-3 text-secondary-700">
-                  <div className="flex items-start">
-                    <div className="w-2 h-2 gradient-primary rounded-full mt-2 mr-3 flex-shrink-0" />
-                    <div className="text-body-md">
-                      {content.alertSubstring1[lang]}{' '}
-                      <a className="font-semibold text-primary-600 hover:text-primary-700 transition-colors" href={contacts.email.link}>
-                        {contacts.email.directName}
-                      </a>
-                      ,{' '}
-                      <a className="font-semibold text-primary-600 hover:text-primary-700 transition-colors" href={contacts.telegram.link}>
-                        {contacts.telegram.name}
-                      </a>
-                      ,{' '}
-                      <a className="font-semibold text-primary-600 hover:text-primary-700 transition-colors" href={contacts.whatsapp.link}>
-                        {contacts.whatsapp.name}
-                      </a>
-                      , {content.alertSubstring2[lang]}{' '}
-                      <a className="font-semibold text-primary-600 hover:text-primary-700 transition-colors" href={contacts.phone.link}>
-                        {contacts.phone.name}
-                      </a>
-                      .
-                    </div>
+              <div className="space-y-4 text-secondary-700 text-left">
+                <div className="flex items-start">
+                  <div className="w-2 h-2 gradient-primary rounded-full mt-2 mr-3 flex-shrink-0" />
+                  <div className="text-body-md">
+                    {content.alertSubstring1[lang]}{' '}
+                    <a className="font-semibold text-primary-600 hover:text-primary-700 transition-colors" href={contacts.email.link}>
+                      {contacts.email.directName}
+                    </a>
+                    ,{' '}
+                    <a className="font-semibold text-primary-600 hover:text-primary-700 transition-colors" href={contacts.telegram.link}>
+                      {contacts.telegram.name}
+                    </a>
+                    ,{' '}
+                    <a className="font-semibold text-primary-600 hover:text-primary-700 transition-colors" href={contacts.whatsapp.link}>
+                      {contacts.whatsapp.name}
+                    </a>
+                    , {content.alertSubstring2[lang]}{' '}
+                    <a className="font-semibold text-primary-600 hover:text-primary-700 transition-colors" href={contacts.phone.link}>
+                      {contacts.phone.name}
+                    </a>
+                    .
                   </div>
-                  <div className="flex items-start">
-                    <div className="w-2 h-2 gradient-primary rounded-full mt-2 mr-3 flex-shrink-0" />
-                    <div className="text-body-md">
-                      {content.alertSubstring3[lang]}{' '}
-                      <a className="font-semibold text-primary-600 hover:text-primary-700 transition-colors" href={contacts.site}>
-                        {contacts.site}
-                      </a>
-                      .
-                    </div>
+                </div>
+                <div className="flex items-start">
+                  <div className="w-2 h-2 gradient-primary rounded-full mt-2 mr-3 flex-shrink-0" />
+                  <div className="text-body-md">
+                    {content.alertSubstring3[lang]}{' '}
+                    <a className="font-semibold text-primary-600 hover:text-primary-700 transition-colors" href={contacts.site}>
+                      {contacts.site}
+                    </a>
+                    .
                   </div>
                 </div>
               </div>
