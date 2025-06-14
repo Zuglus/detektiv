@@ -2,7 +2,7 @@ import { useMemo, memo } from 'react';
 import CardPrinciple from '@/components/ui/cardPrinciple';
 import CardService from '@/components/ui/cardService';
 import ScrollReveal from '@/components/utility/scrollReveal';
-import IconSvg from '@/components/ui/iconSvg';
+import IconSvg from '@/components/ui/IconSvg';
 import rawContent from './main.json';
 import rawContacts from '@/data/contacts.json';
 import { Benefit, Lang, Principle } from '../../utility/types';
