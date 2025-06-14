@@ -3,6 +3,7 @@
 import { ContentLang } from '@/components/utility/types';
 import ScrollReveal from '@/components/utility/scrollReveal';
 import content from './aboutData.json';
+import IconSvg from '@/components/ui/IconSvg';
 
 export default function ContentAbout({ lang }: ContentLang) {
   const { hero, timeline, expertise, founder, principles, warning } = content;
@@ -42,8 +43,18 @@ export default function ContentAbout({ lang }: ContentLang) {
               <ScrollReveal key={index} delay={index * 150}>
                 <div className="card p-8">
                   <div className="flex items-center mb-4">
-                    <div className="w-16 h-16 bg-gradient-to-br from-primary-500 to-primary-600 rounded-2xl flex items-center justify-center text-white text-xl font-bold mr-6">
-                      {item.year.slice(0, 4)}
+                    <div className="w-16 h-16 bg-gradient-to-br from-primary-500 to-primary-600 rounded-2xl flex items-center justify-center mr-6">
+                      {item.icon ? (
+                        <IconSvg 
+                          name={item.icon} 
+                          size="xl" 
+                          color="white"
+                        />
+                      ) : (
+                        <span className="text-white text-xs font-bold">
+                          {item.year.slice(0, 4)}
+                        </span>
+                      )}
                     </div>
                     <div>
                       <h3 className="text-2xl font-bold text-secondary-900 mb-2 font-display">
@@ -77,8 +88,12 @@ export default function ContentAbout({ lang }: ContentLang) {
             {expertise.items[lang].map((item: any, index: number) => (
               <ScrollReveal key={index} delay={index * 100}>
                 <div className="card text-center p-8 hover:shadow-xl transition-all duration-300">
-                  <div className="text-6xl mb-6">
-                    {item.icon}
+                  <div className="mb-6 flex justify-center">
+                    <IconSvg 
+                      name={item.icon} 
+                      size="4xl" 
+                      color="primary"
+                    />
                   </div>
                   <h3 className="text-xl font-bold text-secondary-900 mb-4 font-display">
                     {item.title}
@@ -102,8 +117,12 @@ export default function ContentAbout({ lang }: ContentLang) {
             </h2>
             
             <div className="card-dark p-12 text-center">
-              <div className="w-32 h-32 bg-gradient-to-br from-primary-500 to-primary-600 rounded-full mx-auto mb-8 flex items-center justify-center text-4xl font-bold">
-                ЭГ
+              <div className="w-32 h-32 bg-gradient-to-br from-primary-500 to-primary-600 rounded-full mx-auto mb-8 flex items-center justify-center">
+                <IconSvg 
+                  name="detective" 
+                  size="4xl" 
+                  color="white"
+                />
               </div>
               <h3 className="text-3xl font-bold mb-2 font-display text-white">
                 {founder.name[lang]}
@@ -152,7 +171,13 @@ export default function ContentAbout({ lang }: ContentLang) {
         <div className="max-w-4xl mx-auto px-6">
           <ScrollReveal>
             <div className="card-emergency text-center p-12">
-              <div className="text-6xl mb-8">⚠️</div>
+              <div className="mb-8 flex justify-center">
+                <IconSvg 
+                  name="warning" 
+                  size="4xl" 
+                  color="error"
+                />
+              </div>
               <h2 className="text-3xl font-bold text-red-700 mb-6 font-display">
                 {warning.title[lang]}
               </h2>

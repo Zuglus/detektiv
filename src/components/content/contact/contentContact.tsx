@@ -43,10 +43,10 @@ export default function ContentContact({
             <a
               href={contacts.phone.link}
               className="inline-flex items-center gap-3 text-heading-md font-bold text-primary-600 hover:text-primary-700 transition-all duration-300 group focus:outline-none focus:ring-4 focus:ring-primary-600/40 rounded-lg"
-              aria-label={`Call emergency number ${contacts.phone.name}`}
+              aria-label={`Позвонить по экстренному номеру ${contacts.phone.name}`}
             >
               <div className="p-3 bg-primary-100 rounded-xl group-hover:bg-primary-200 transition-colors duration-300">
-                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" role="img" aria-label="Phone icon">
+                <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 24 24" role="img" aria-label="Иконка телефона">
                   <path d={contacts.phone.icon} />
                 </svg>
               </div>
@@ -84,9 +84,9 @@ export default function ContentContact({
             <a
               href={contacts.email.link}
               className="inline-flex items-center gap-2 text-body-md text-primary-600 hover:text-primary-700 transition-colors duration-300 group-hover:underline focus:outline-none focus:ring-2 focus:ring-primary-600 rounded"
-              aria-label={`Send email to ${contacts.email.directName}`}
+              aria-label={`Отправить email на ${contacts.email.directName}`}
             >
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" role="img" aria-label="Email icon">
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" role="img" aria-label="Иконка email">
                 <path d={contacts.email.icon} />
               </svg>
               {contacts.email.directName}
@@ -119,14 +119,14 @@ export default function ContentContact({
               <a
                 href={contacts.telegram.link}
                 className="flex flex-col items-center p-4 bg-secondary-50 hover:bg-secondary-100 rounded-xl transition-all duration-300 group/messenger focus:outline-none focus:ring-2 focus:ring-primary-600"
-                aria-label="Contact via Telegram"
+                aria-label="Связаться через Telegram"
               >
                 <svg
                   className="w-10 h-10 mb-3 text-primary-600 group-hover/messenger:text-primary-700 transition-colors duration-300 group-hover/messenger:scale-110 transform"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                   role="img"
-                  aria-label="Telegram icon"
+                  aria-label="Иконка Telegram"
                 >
                   <path d={contacts.telegram.icon} />
                 </svg>
@@ -139,14 +139,14 @@ export default function ContentContact({
               <a
                 href={contacts.whatsapp.link}
                 className="flex flex-col items-center p-4 bg-secondary-50 hover:bg-secondary-100 rounded-xl transition-all duration-300 group/messenger focus:outline-none focus:ring-2 focus:ring-primary-600"
-                aria-label="Contact via WhatsApp"
+                aria-label="Связаться через WhatsApp"
               >
                 <svg
                   className="w-10 h-10 mb-3 text-primary-600 group-hover/messenger:text-primary-700 transition-colors duration-300 group-hover/messenger:scale-110 transform"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                   role="img"
-                  aria-label="WhatsApp icon"
+                  aria-label="Иконка WhatsApp"
                 >
                   <path d={contacts.whatsapp.icon} />
                 </svg>

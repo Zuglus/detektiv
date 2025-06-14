@@ -4,7 +4,7 @@ export default function SocialIconsFooter() {
   return (
     <nav 
       className="flex md:flex-grow justify-center space-x-6 md:space-x-4 mt-6 md:mt-0"
-      aria-label="Contact links"
+      aria-label="Ссылки для связи"
       role="navigation"
     >
       {[
@@ -20,8 +20,8 @@ export default function SocialIconsFooter() {
             href={icon.link}
             key={icon.name}
             className="relative transform transition-transform group hover:scale-125 focus-not-obscured focus:outline-none focus:ring-3 focus:ring-primary-500 focus:ring-offset-2 rounded-lg p-2"
-            title={`Contact us via ${icon.name}`}
-            aria-label={`Contact us via ${icon.name}${isExternal ? ' (opens in new tab)' : ''}`}
+            title={`Связаться с нами через ${icon.name}`}
+            aria-label={`Связаться с нами через ${icon.name}${isExternal ? ' (откроется в новой вкладке)' : ''}`}
             target={isExternal && !icon.link.startsWith('tel') && !icon.link.startsWith('mailto') ? '_blank' : undefined}
             rel={isExternal && !icon.link.startsWith('tel') && !icon.link.startsWith('mailto') ? 'noopener noreferrer' : undefined}
           >

@@ -97,7 +97,7 @@ function ContentMain({ lang }: { lang: Lang }) {
             <div className="space-y-4">
               {content.orderList[lang].map((step: string, index: number) => (
                 <ScrollReveal key={index} delay={500 + index * 100}>
-                  <div className="flex items-start">
+                  <div className="flex items-center">
                     <div className="flex-shrink-0 w-10 h-10 gradient-primary text-white rounded-full flex items-center justify-center font-semibold mr-4 text-body-sm">
                       {index + 1}
                     </div>
