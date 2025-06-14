@@ -1,5 +1,6 @@
 import { Lang } from "@/components/utility/types";
 import content from './job.json';
+import InfoIcon from '@/components/ui/infoIcon';
 
 export default function ContentJob({ lang }: { lang: Lang }) {
   if (!content) {
@@ -177,17 +178,14 @@ export default function ContentJob({ lang }: { lang: Lang }) {
       </div>
 
       {/* Important Notice */}
-      <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-amber-50 to-orange-50 border-l-4 border-amber-400 p-6 md:p-8">
-        <div className="absolute top-0 right-0 w-32 h-32 bg-amber-200/20 rounded-full blur-2xl transform translate-x-10 -translate-y-10"></div>
-        <div className="relative flex items-start gap-4">
-          <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-amber-400 to-amber-500 rounded-xl flex items-center justify-center text-white shadow-lg">
-            <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2C6.48 2 2 6.48 2 12S6.48 22 12 22 22 17.52 22 12 17.52 2 12 2ZM13 17H11V11H13V17ZM13 9H11V7H13V9Z"/>
-            </svg>
+      <div className="card-colored bg-accent-50 border-l-4 border-accent-500">
+        <div className="flex items-start space-x-3">
+          <div className="flex-shrink-0">
+            <InfoIcon size="lg" className="text-accent-600" />
           </div>
           <div className="flex-1">
             <div
-              className="text-lg font-medium text-amber-900 leading-relaxed"
+              className="text-body-md leading-relaxed text-accent-800"
               dangerouslySetInnerHTML={{ __html: portfolioAlert[lang] }}
             />
           </div>
