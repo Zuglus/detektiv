@@ -1,6 +1,6 @@
 import { Lang } from "@/components/utility/types";
 import content from './job.json';
-import InfoIcon from '@/components/ui/infoIcon';
+import InfoIcon from '@/components/ui/InfoIcon';
 
 export default function ContentJob({ lang }: { lang: Lang }) {
   if (!content) {
