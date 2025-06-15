@@ -31,7 +31,7 @@ export default function TrustIndicators({ trustElements, lang }: TrustIndicators
                 />
               </svg>
             </div>
-            <span className="text-body-md font-medium leading-relaxed pl-12">{item}</span>
+            <span className="text-body-md font-medium leading-relaxed">{item}</span>
           </div>
         ))}
       </div>

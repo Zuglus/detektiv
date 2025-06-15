@@ -736,8 +736,9 @@ body {
   }
 
   .trust-icon {
-    @apply absolute top-2 left-2 w-12 h-12 rounded-full text-white shadow-sm;
+    @apply flex-shrink-0 w-12 h-12 rounded-full text-white shadow-sm;
     @apply flex items-center justify-center transition-transform duration-300;
+    @apply mt-1; /* Выравниваем по центру первой строки текста */
     background: linear-gradient(135deg, theme('colors.primary.400'), theme('colors.primary.600'));
   }
 
