@@ -371,15 +371,15 @@
           },
           "features": {
             "ru": [
-              "Цифровая криминалистика",
-              "Анализ интернет-активности",
-              "Восстановление удаленных данных",
+              "Исследование цифровых профилей",
+              "Мониторинг онлайн-присутствия",
+              "Восстановление утраченной информации",
               "Анализ цифровых следов"
             ],
             "en": [
-              "Digital forensics",
-              "Internet activity analysis",
-              "Deleted data recovery",
+              "Digital profile investigation",
+              "Online presence monitoring",
+              "Lost information recovery",
               "Digital traces expertise"
             ]
           },
@@ -405,15 +405,15 @@
           "features": {
             "ru": [
               "Международная сеть партнеров",
-              "Работа по международному праву",
-              "Многоязычная поддержка",
-              "Легализация документов"
+              "Зарубежные расследования",
+              "Трансграничные проверки",
+              "Международное сотрудничество"
             ],
             "en": [
               "International partner network",
-              "International law compliance",
-              "Multilingual support",
-              "Document legalization"
+              "Foreign investigations",
+              "Cross-border verifications",
+              "International cooperation"
             ]
           },
           "popular": false
@@ -432,21 +432,21 @@
             "en": "from $130/hour"
           },
           "description": {
-            "ru": "Профессиональный поиск лиц, уклоняющихся от исполнения обязательств (взысканием долгов не занимаемся)",
+            "ru": "Профессиональный поиск лиц, уклоняющихся от исполнения обязательств *(взысканием долгов не занимаемся)*",
             "en": "Professional search for persons evading obligations (we are not engaged in debt collection)"
           },
           "features": {
             "ru": [
-              "Поиск по всей территории РФ",
-              "Работа с судебными приставами",
+              "Поиск по всей территории РФ и за рубежом",
+              "Взаимодействие с госорганами",
               "Анализ финансовых данных",
-              "Официальные запросы"
+              "Документооборот и запросы"
             ],
             "en": [
-              "Search throughout Russia",
-              "Work with bailiffs",
+              "Search throughout Russia and abroad",
+              "Government agencies cooperation",
               "Financial data analysis",
-              "Official requests"
+              "Documentation and requests"
             ]
           },
           "popular": false

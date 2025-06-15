@@ -30,7 +30,12 @@ export default function ServiceCard({ service, lang, animationDelay = 0 }: Servi
               {service.title[lang]}
             </h3>
             <p className="text-body-sm leading-relaxed text-secondary-600">
-              {service.description[lang]}
+              <span dangerouslySetInnerHTML={{
+                __html: service.description[lang].replace(
+                  /\*\(([^)]+)\)\*/g,
+                  '<span class="disclaimer-text">($1)</span>'
+                )
+              }} />
             </p>
           </div>
 
