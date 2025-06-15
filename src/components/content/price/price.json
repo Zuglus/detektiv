@@ -175,18 +175,18 @@
             "en": "$150/hour"
           },
           "description": {
-            "ru": "Профессиональное скрытое наблюдение за объектами с фото- и видеофиксацией",
-            "en": "Professional covert surveillance of objects with photo and video recording"
+            "ru": "Профессиональное наблюдение за объектами с фото- и видеофиксацией в рамках закона",
+            "en": "Professional surveillance of objects with photo and video recording within legal framework"
           },
           "features": {
             "ru": [
-              "Скрытое наблюдение 24/7",
+              "Наблюдение в общественных местах 24/7",
               "Профессиональное оборудование",
               "Фото и видео доказательства",
               "Детальный отчет"
             ],
             "en": [
-              "Covert surveillance 24/7",
+              "Surveillance in public places 24/7",
               "Professional equipment",
               "Photo and video evidence",
               "Detailed report"
@@ -213,13 +213,13 @@
           },
           "features": {
             "ru": [
-              "Проверка на прослушку",
+              "Обнаружение слежки за вами",
               "Поиск скрытых камер",
               "Анализ поведения подозрительных лиц",
               "Рекомендации по безопасности"
             ],
             "en": [
-              "Bug detection",
+              "Detection of surveillance against you",
               "Hidden camera search",
               "Suspicious behavior analysis",
               "Security recommendations"
@@ -374,7 +374,7 @@
               "Цифровая криминалистика",
               "Анализ интернет-активности",
               "Восстановление удаленных данных",
-              "Экспертиза цифровых следов"
+              "Анализ цифровых следов"
             ],
             "en": [
               "Digital forensics",

@@ -25,8 +25,8 @@ export default function ServiceCard({ service, lang, animationDelay = 0 }: Servi
         )}
         
         <div className="p-6 space-y-6">
-          <div className="space-y-2">
-            <h3 className="text-heading-sm font-semibold leading-tight text-secondary-800">
+          <div className={`space-y-2 ${service.popular ? 'pt-3' : ''}`}>
+            <h3 className="text-heading-sm font-semibold leading-tight text-secondary-800 text-center">
               {service.title[lang]}
             </h3>
             <p className="text-body-sm leading-relaxed text-secondary-600">
@@ -43,6 +43,16 @@ export default function ServiceCard({ service, lang, animationDelay = 0 }: Servi
                 {service.price[lang]}
               </span>
             </div>
+            {service.title[lang] === (lang === 'ru' ? 'Наружное наблюдение' : 'Outdoor surveillance') && service.hourlyRate && (
+              <div className="flex items-center justify-between">
+                <span className="text-body-sm font-medium text-secondary-500">
+                  {lang === 'ru' ? 'Почасовая оплата:' : 'Hourly rate:'}
+                </span>
+                <span className="text-body-sm font-semibold text-secondary-700">
+                  {service.hourlyRate[lang]}
+                </span>
+              </div>
+            )}
           </div>
 
           <div className="space-y-3">
