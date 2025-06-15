@@ -55,8 +55,8 @@
             "en": "Dossier about a person, about an object"
           },
           "price": {
-            "ru": "от 100 000 ₽",
-            "en": "from $1,100"
+            "ru": "от 50 000 ₽",
+            "en": "from $550"
           },
           "hourlyRate": {
             "ru": "от 5 000 ₽/час",
@@ -70,14 +70,14 @@
             "ru": [
               "Проверка биографических данных",
               "Анализ деловой репутации",
-              "Поиск скрытых связей",
-              "Официальный отчет"
+              "Информация интересующая заказчика",
+              "Профессиональная консультация"
             ],
             "en": [
               "Biographical data verification",
               "Business reputation analysis",
-              "Hidden connections search",
-              "Official report"
+              "Information of client interest",
+              "Professional consultation"
             ]
           },
           "popular": false
@@ -104,13 +104,13 @@
               "Поиск по архивным данным",
               "Работа с информационными ресурсами",
               "Проведение интервью",
-              "Гарантия результата"
+              "Профессиональный подход"
             ],
             "en": [
               "Archive data search",
               "Information resources work",
               "Conducting interviews",
-              "Result guarantee"
+              "Professional approach"
             ]
           },
           "popular": true
@@ -121,8 +121,8 @@
             "en": "Property and asset search"
           },
           "price": {
-            "ru": "от 100 000 ₽",
-            "en": "from $1,100"
+            "ru": "от 50 000 ₽",
+            "en": "from $550"
           },
           "hourlyRate": {
             "ru": "от 6 000 ₽/час",
@@ -137,13 +137,13 @@
               "Поиск скрытых активов",
               "Проверка регистрации имущества",
               "Финансовый анализ",
-              "Юридическое сопровождение"
+              "Экспертная поддержка"
             ],
             "en": [
               "Hidden assets search",
               "Property registration check",
               "Financial analysis",
-              "Legal support"
+              "Expert support"
             ]
           },
           "popular": false
@@ -208,19 +208,19 @@
             "en": "from $85/hour"
           },
           "description": {
-            "ru": "Обнаружение и нейтрализация несанкционированного наблюдения (контрнаблюдение)",
-            "en": "Detection and neutralization of unauthorized surveillance (counter-surveillance)"
+            "ru": "Обнаружение несанкционированного наблюдения (контрнаблюдение)",
+            "en": "Detection of unauthorized surveillance (counter-surveillance)"
           },
           "features": {
             "ru": [
               "Обнаружение слежки за вами",
-              "Поиск скрытых камер",
+              "Техническое обследование помещений",
               "Анализ поведения подозрительных лиц",
               "Рекомендации по безопасности"
             ],
             "en": [
               "Detection of surveillance against you",
-              "Hidden camera search",
+              "Technical premises inspection",
               "Suspicious behavior analysis",
               "Security recommendations"
             ]
