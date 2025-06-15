@@ -47,7 +47,7 @@ describe('Button', () => {
     const button = screen.getByRole('link')
     expect(button).toHaveAttribute('target', '_blank')
     expect(button).toHaveAttribute('rel', 'noopener noreferrer')
-    expect(screen.getByText('(opens in new tab)')).toBeInTheDocument()
+    expect(screen.getByText('(откроется в новой вкладке)')).toBeInTheDocument()
   })
 
   it('has correct href attribute', () => {
@@ -58,11 +58,11 @@ describe('Button', () => {
 
   it('has correct aria-label', () => {
     render(<Button {...defaultProps} />)
-    expect(screen.getByLabelText('Navigate to Test Button')).toBeInTheDocument()
+    expect(screen.getByLabelText('Перейти к Test Button')).toBeInTheDocument()
   })
 
   it('has correct aria-label for external links', () => {
     render(<Button {...defaultProps} external />)
-    expect(screen.getByLabelText('Navigate to Test Button (opens in new tab)')).toBeInTheDocument()
+    expect(screen.getByLabelText('Перейти к Test Button (откроется в новой вкладке)')).toBeInTheDocument()
   })
 })

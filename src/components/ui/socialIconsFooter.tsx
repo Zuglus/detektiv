@@ -1,6 +1,14 @@
 import contacts from '@/data/contacts.json';
+import IconSvg from './IconSvg';
 
 export default function SocialIconsFooter() {
+  const iconMapping: { [key: string]: 'phone' | 'email' | 'telegram' | 'whatsapp' } = {
+    [contacts.phone.name]: 'phone',
+    [contacts.email.name]: 'email',
+    [contacts.telegram.name]: 'telegram',
+    [contacts.whatsapp.name]: 'whatsapp',
+  };
+
   return (
     <nav 
       className="flex md:flex-grow justify-center space-x-6 md:space-x-4 mt-6 md:mt-0"
@@ -27,16 +35,13 @@ export default function SocialIconsFooter() {
           >
             {/* Добавляем светящийся эффект при наведении без размытия */}
             <div className="absolute inset-0 bg-primary-500/30 opacity-0 group-hover:opacity-100 rounded-full transition-opacity duration-300 shadow-lg group-hover:shadow-primary-500/50"></div>
-            <svg
-              className="group-hover:fill-primary-900 w-9 h-9 transition-colors duration-300 fill-primary-700"
-              viewBox="0 0 24 24"
-              fillRule="evenodd"
-              strokeLinejoin="round"
-              strokeMiterlimit="1.414"
-              clipRule="evenodd"
-            >
-              <path d={icon.icon} />
-            </svg>
+            <div className="group-hover:text-primary-900 transition-colors duration-300 text-primary-700">
+              <IconSvg 
+                name={iconMapping[icon.name]} 
+                size="lg" 
+                color="current"
+              />
+            </div>
           </a>
         );
       })}

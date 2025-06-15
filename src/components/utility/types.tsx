@@ -45,8 +45,8 @@ export interface Slugs {
 export type Breadcrumb = {
   home: string;
   name: string;
-  link: string;
-  secondName: string;
+  link?: string;
+  secondName?: string;
 };
 
 interface Contact {

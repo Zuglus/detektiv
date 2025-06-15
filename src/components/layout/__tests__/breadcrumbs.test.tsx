@@ -82,7 +82,7 @@ describe('Breadcrumbs', () => {
   it('has correct navigation aria-label', () => {
     render(<Breadcrumbs breadcrumb={defaultBreadcrumb} />)
     
-    const navigation = screen.getByRole('navigation', { name: 'Breadcrumb navigation' })
+    const navigation = screen.getByRole('navigation', { name: 'Навигация по хлебным крошкам' })
     expect(navigation).toBeInTheDocument()
   })
 

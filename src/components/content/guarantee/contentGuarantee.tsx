@@ -10,7 +10,7 @@ interface TrustBadgeProps {
   title: string;
   value: string;
   description: string;
-  icon: 'shield' | 'clock' | 'star' | 'target' | 'lock' | 'chart' | 'money' | 'user' | 'trophy' | 'document' | 'scales' | 'warning' | 'experience' | 'detective' | 'founder';
+  icon: 'shield' | 'clock' | 'star' | 'target' | 'lock' | 'chart' | 'money' | 'refund' | 'user' | 'trophy' | 'document' | 'scales' | 'warning' | 'experience' | 'detective' | 'founder';
   index: number;
 }
 
@@ -285,7 +285,7 @@ export default function ContentGuarantee({ lang }: { lang: Lang }) {
           <div className="flex flex-col sm:flex-row items-start">
             <div className="mb-4 sm:mb-0 sm:mr-6 sm:mt-2">
               <IconSvg 
-                name="money" 
+                name="refund" 
                 size="4xl" 
                 color="primary"
               />
