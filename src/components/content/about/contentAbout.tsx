@@ -119,7 +119,7 @@ export default function ContentAbout({ lang }: ContentLang) {
             <div className="card-dark p-12 text-center">
               <div className="w-32 h-32 bg-gradient-to-br from-primary-500 to-primary-600 rounded-full mx-auto mb-8 flex items-center justify-center">
                 <IconSvg 
-                  name="detective" 
+                  name="founder" 
                   size="4xl" 
                   color="white"
                 />
