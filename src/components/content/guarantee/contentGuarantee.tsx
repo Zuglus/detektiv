@@ -10,7 +10,7 @@ interface TrustBadgeProps {
   title: string;
   value: string;
   description: string;
-  icon: string;
+  icon: 'shield' | 'clock' | 'star' | 'target' | 'lock' | 'chart' | 'money' | 'user' | 'trophy' | 'document' | 'scales' | 'warning' | 'experience' | 'detective' | 'founder';
   index: number;
 }
 
@@ -64,7 +64,7 @@ interface GuaranteeCardProps {
   title: string;
   description: string;
   features: string[];
-  icon: string;
+  icon: 'shield' | 'clock' | 'star' | 'target' | 'lock' | 'chart' | 'money' | 'user' | 'trophy' | 'document' | 'scales' | 'warning' | 'experience' | 'detective' | 'founder';
   index: number;
 }
 
@@ -196,19 +196,19 @@ export default function ContentGuarantee({ lang }: { lang: Lang }) {
       title: trustBadges.license[lang].title,
       value: trustBadges.license[lang].number,
       description: trustBadges.license[lang].description,
-      icon: "shield"
+      icon: "shield" as const
     },
     {
       title: trustBadges.experience[lang].title,
       value: trustBadges.experience[lang].years,
       description: trustBadges.experience[lang].description,
-      icon: "clock"
+      icon: "clock" as const
     },
     {
       title: trustBadges.reputation[lang].title,
       value: trustBadges.reputation[lang].rating,
       description: trustBadges.reputation[lang].description,
-      icon: "star"
+      icon: "star" as const
     }
   ];
 
@@ -217,19 +217,19 @@ export default function ContentGuarantee({ lang }: { lang: Lang }) {
       title: guarantees.quality[lang].title,
       description: guarantees.quality[lang].description,
       features: guarantees.quality[lang].features,
-      icon: "target"
+      icon: "target" as const
     },
     {
       title: guarantees.confidentiality[lang].title,
       description: guarantees.confidentiality[lang].description,
       features: guarantees.confidentiality[lang].features,
-      icon: "lock"
+      icon: "lock" as const
     },
     {
       title: guarantees.transparency[lang].title,
       description: guarantees.transparency[lang].description,
       features: guarantees.transparency[lang].features,
-      icon: "chart"
+      icon: "chart" as const
     }
   ];
 
