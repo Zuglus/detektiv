@@ -102,14 +102,14 @@
           "features": {
             "ru": [
               "Поиск по архивным данным",
-              "Работа с базами данных",
-              "Опрос свидетелей",
+              "Работа с информационными ресурсами",
+              "Проведение интервью",
               "Гарантия результата"
             ],
             "en": [
               "Archive data search",
-              "Database work",
-              "Witness interviews",
+              "Information resources work",
+              "Conducting interviews",
               "Result guarantee"
             ]
           },
@@ -136,13 +136,13 @@
             "ru": [
               "Поиск скрытых активов",
               "Проверка регистрации имущества",
-              "Анализ финансовых операций",
+              "Финансовый анализ",
               "Юридическое сопровождение"
             ],
             "en": [
               "Hidden assets search",
               "Property registration check",
-              "Financial operations analysis",
+              "Financial analysis",
               "Legal support"
             ]
           },
@@ -424,8 +424,8 @@
             "en": "Search for debtors, alimony"
           },
           "price": {
-            "ru": "от 700 000 ₽",
-            "en": "from $7,900"
+            "ru": "от 300 000 ₽",
+            "en": "from $3,800"
           },
           "hourlyRate": {
             "ru": "от 12 000 ₽/час",
@@ -439,13 +439,13 @@
             "ru": [
               "Поиск по всей территории РФ",
               "Работа с судебными приставами",
-              "Анализ финансовых следов",
+              "Анализ финансовых данных",
               "Официальные запросы"
             ],
             "en": [
               "Search throughout Russia",
               "Work with bailiffs",
-              "Financial trail analysis",
+              "Financial data analysis",
               "Official requests"
             ]
           },

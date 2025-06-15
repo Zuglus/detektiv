@@ -3,7 +3,7 @@ import { Lang } from "@/components/utility/types";
 export interface ServiceFeature {
   title: { [key in Lang]: string };
   price: { [key in Lang]: string };
-  hourlyRate: { [key in Lang]: string };
+  hourlyRate?: { [key in Lang]: string };
   description: { [key in Lang]: string };
   features: { [key in Lang]: string[] };
   popular: boolean;
