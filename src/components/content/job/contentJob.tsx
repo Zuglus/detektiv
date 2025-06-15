@@ -142,9 +142,6 @@ export default function ContentJob({ lang }: { lang: Lang }) {
             </svg>
           </div>
           
-          <h3 className="text-2xl font-bold text-secondary-900 mb-4">
-            {lang === 'ru' ? 'Готовы присоединиться к команде?' : 'Ready to join the team?'}
-          </h3>
           
           <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-6 mb-6 border border-white/50">
             <div

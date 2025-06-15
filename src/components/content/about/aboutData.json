@@ -23,26 +23,26 @@
         {
           "year": "2010",
           "title": "Основание агентства",
-          "description": "Детективное агентство создано Грозным Эдуардом Николаевичем, офицером в отставке — старшим оперуполномоченным по особо важным делам"
+          "description": "Детективное агентство создано Грозным Эдуардом Николаевичем, офицером в отставке — старшим оперуполномоченным по особо важным делам. Ветераном боевых действий, награжденным государственными наградами"
         },
         {
           "year": "2010-2025",
           "icon": "experience",
-          "title": "15 лет опыта",
-          "description": "Более полутора десятков лет успешной работы, решения сложных семейных и бизнес задач"
+          "title": "15 лет детективной деятельности",
+          "description": "Более полутора десятков лет успешной детективной работы, решения сложных семейных и бизнес задач, не включая предыдущий опыт работы в правоохранительных органах"
         }
       ],
       "en": [
         {
           "year": "2010",
           "title": "Agency Founded",
-          "description": "The detective agency was founded by Grozny Edward Nikolaevich, a retired officer — senior operative for especially important cases"
+          "description": "The detective agency was founded by Grozny Edward Nikolaevich, a retired officer — senior operative for especially important cases. Combat veteran decorated with state awards"
         },
         {
           "year": "2010-2025",
           "icon": "experience",
-          "title": "15 Years Experience",
-          "description": "Over fifteen years of successful work, solving complex family and business tasks"
+          "title": "15 Years Detective Work",
+          "description": "Over fifteen years of successful detective work, solving complex family and business tasks, not including previous law enforcement experience"
         }
       ]
     }
@@ -61,8 +61,8 @@
         },
         {
           "icon": "trophy",
-          "title": "Государственные награды",
-          "description": "Ветеран боевых действий, награжденный государственными наградами"
+          "title": "Оперативная работа",
+          "description": "Работаем оперативно и результативно. Приступаем к выполнению задач немедленно, без проволочек"
         },
         {
           "icon": "document",
@@ -83,8 +83,8 @@
         },
         {
           "icon": "trophy",
-          "title": "State Awards",
-          "description": "Combat veteran decorated with state awards"
+          "title": "Immediate Action",
+          "description": "We work promptly and efficiently. We begin task execution immediately, without delays"
         },
         {
           "icon": "document",
@@ -100,10 +100,6 @@
     }
   },
   "founder": {
-    "title": {
-      "ru": "Основатель агентства",
-      "en": "Agency Founder"
-    },
     "name": {
       "ru": "Грозный Эдуард Николаевич",
       "en": "Grozny Edward Nikolaevich"

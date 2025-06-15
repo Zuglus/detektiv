@@ -47,12 +47,12 @@
     {
       "ru": {
         "title": "частный поиск людей",
-        "price": "от 100 тысяч рублей",
+        "price": "от 50 тысяч рублей",
         "text": "Одноклассников, попутчиков, родственников и т.д. Установление полных данных, контактов и др."
       },
       "en": {
         "title": "private search for people, classmates, fellow travelers, relatives, etc.",
-        "price": "from $1,000",
+        "price": "from $550",
         "text": "Establishing complete information, contacts, etc."
       }
     },
@@ -71,12 +71,12 @@
     {
       "ru": {
         "title": "проверка персонала",
-        "price": "от 150 тысяч рублей",
+        "price": "от 50 тысяч рублей",
         "text": "Сбор и проверка предоставленных данных кандидатом"
       },
       "en": {
         "title": "personnel check",
-        "price": "from $1,600",
+        "price": "from $550",
         "text": "Collection and verification of the candidate's provided data"
       }
     },

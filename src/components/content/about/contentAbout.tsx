@@ -112,10 +112,6 @@ export default function ContentAbout({ lang }: ContentLang) {
       <section className="bg-gradient-to-br from-secondary-900 to-secondary-800 py-20 text-white">
         <ScrollReveal>
           <div className="max-w-4xl mx-auto px-6 text-center">
-            <h2 className="text-display-lg font-bold font-display mb-6">
-              {founder.title[lang]}
-            </h2>
-            
             <div className="card-dark p-12 text-center">
               <div className="w-32 h-32 bg-gradient-to-br from-primary-500 to-primary-600 rounded-full mx-auto mb-8 flex items-center justify-center">
                 <IconSvg 
