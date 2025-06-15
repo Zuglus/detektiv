@@ -14,15 +14,6 @@ export default function PostContent({ post }: PostContentProps) {
   const wordCount = cleanText.split(' ').length;
   const readingTime = Math.max(1, Math.ceil(wordCount / 200)); // ~200 слов в минуту
   
-  // Получаем дату публикации из slug
-  const getPublishDate = (title: string) => {
-    const now = new Date();
-    return now.toLocaleDateString('ru-RU', { 
-      day: 'numeric', 
-      month: 'long', 
-      year: 'numeric' 
-    });
-  };
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
@@ -60,12 +51,6 @@ export default function PostContent({ post }: PostContentProps) {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3a4 4 0 118 0v4m-4 1v8m0 0l3-3m-3 3l-3-3" />
               </svg>
               {wordCount.toLocaleString()} слов
-            </div>
-            <div className="flex items-center bg-white/80 backdrop-blur-sm px-4 py-2 rounded-xl border border-secondary-200">
-              <svg className="w-4 h-4 mr-2 text-secondary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3a4 4 0 118 0v4m-4 1v8m0 0l3-3m-3 3l-3-3" />
-              </svg>
-              {getPublishDate(title)}
             </div>
           </div>
           

@@ -1,6 +1,6 @@
 import { Lang } from "@/components/utility/types";
 import content from './job.json';
-import InfoIcon from '@/components/ui/InfoIcon';
+import IconSvg from '@/components/ui/IconSvg';
 
 export default function ContentJob({ lang }: { lang: Lang }) {
   if (!content) {
@@ -169,7 +169,7 @@ export default function ContentJob({ lang }: { lang: Lang }) {
               className="inline-flex items-center gap-3 bg-white/80 backdrop-blur-sm hover:bg-white text-secondary-700 hover:text-primary-700 font-semibold px-8 py-4 rounded-xl border border-gray-200 hover:border-primary-300 shadow-sm hover:shadow-md transform hover:-translate-y-0.5 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-primary-500/30"
             >
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M18.384,22.779c0.322,0.228 0.737,0.285 1.107,0.145c0.37,-0.141 0.642,-0.457 0.724,-0.84c0.869,-4.084 2.977,-14.421 3.768,-18.136c0.06,-0.28 -0.04,-0.571 -0.26,-0.758c-0.22,-0.187 -0.525,-0.241 -0.797,-0.14c-4.193,1.552 -17.106,6.397 -22.384,8.35c-0.335,0.124 -0.553,0.446 -0.542,0.799c0.012,0.354 0.25,0.661 0.593,0.764c2.367,0.708 5.474,1.693 5.474,1.693c0,0 1.452,4.385 2.209,6.615c0.095,0.28 0.314,0.5 0.603,0.576c0.288,0.075 0.596,-0.004 0.811,-0.207c1.216,-1.148 3.096,-2.923 3.096,-2.923c0,0 3.572,2.619 5.598,4.062Zm-11.01,-8.677l1.679,5.538l0.373,-3.507c0,0 6.487,-5.851 10.185,-9.186c0.108,-0.098 0.123,-0.262 0.033,-0.377c-0.089,-0.115 -0.253,-0.142 -0.376,-0.064c-4.286,2.737 -11.894,7.596 -11.894,7.596Z"/>
+                <path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 2.3 11.75c-1.16-.35-1.16-.83.26-1.22L21.26 3.5c.89-.4 1.67.18 1.39 1.32L20.84 18.3c-.25 1.14-.97 1.42-1.96.88l-5.4-3.99L11.8 17c-.46.43-.85.4-1.18.07l-.84-2.42z"/>
               </svg>
               {lang === 'ru' ? 'Написать в Telegram' : 'Write in Telegram'}
             </a>
@@ -181,7 +181,7 @@ export default function ContentJob({ lang }: { lang: Lang }) {
       <div className="card-colored bg-accent-50 border-l-4 border-accent-500">
         <div className="flex items-start space-x-3">
           <div className="flex-shrink-0">
-            <InfoIcon size="lg" className="text-accent-600" />
+            <IconSvg name="info" size="lg" color="current" className="text-accent-600" />
           </div>
           <div className="flex-1">
             <div

@@ -68,15 +68,15 @@ describe('Footer', () => {
   it('renders back to top button', () => {
     render(<Footer lang="ru" />)
     
-    const backToTopButton = screen.getByRole('button', { name: /scroll back to top/i })
+    const backToTopButton = screen.getByRole('button', { name: /прокрутить обратно к началу страницы/i })
     expect(backToTopButton).toBeInTheDocument()
-    expect(backToTopButton).toHaveAttribute('aria-label', 'Scroll back to top of page')
+    expect(backToTopButton).toHaveAttribute('aria-label', 'Прокрутить обратно к началу страницы')
   })
 
   it('calls window.scrollTo when back to top button is clicked', () => {
     render(<Footer lang="ru" />)
     
-    const backToTopButton = screen.getByRole('button', { name: /scroll back to top/i })
+    const backToTopButton = screen.getByRole('button', { name: /прокрутить обратно к началу страницы/i })
     fireEvent.click(backToTopButton)
     
     expect(mockScrollTo).toHaveBeenCalledWith({
@@ -121,7 +121,7 @@ describe('Footer', () => {
   it('renders back to top button with correct styling', () => {
     render(<Footer lang="ru" />)
     
-    const backToTopButton = screen.getByRole('button', { name: /scroll back to top/i })
+    const backToTopButton = screen.getByRole('button', { name: /прокрутить обратно к началу страницы/i })
     expect(backToTopButton).toHaveClass(
       'w-14',
       'h-14',
@@ -134,7 +134,7 @@ describe('Footer', () => {
   it('contains SVG arrow icon in back to top button', () => {
     render(<Footer lang="ru" />)
     
-    const backToTopButton = screen.getByRole('button', { name: /scroll back to top/i })
+    const backToTopButton = screen.getByRole('button', { name: /прокрутить обратно к началу страницы/i })
     const svgIcon = backToTopButton.querySelector('svg')
     
     expect(svgIcon).toBeInTheDocument()

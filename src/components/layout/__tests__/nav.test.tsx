@@ -158,7 +158,7 @@ describe('Nav', () => {
   it('applies correct CSS classes based on scroll state', () => {
     const { rerender } = render(<Nav lang="ru" />)
     
-    const nav = screen.getByRole('navigation', { name: 'Main navigation' })
+    const nav = screen.getByRole('navigation', { name: 'Основная навигация' })
     expect(nav).toHaveClass('nav-transparent')
     
     // Simulate scroll

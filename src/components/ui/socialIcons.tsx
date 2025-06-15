@@ -1,11 +1,19 @@
 import contacts from '@/data/contacts.json';
 import { Lang } from '../utility/types';
+import IconSvg from './IconSvg';
 
 interface IconsProps {
   lang: Lang;
 }
 
 export default function SocialIcons({lang}: IconsProps) {
+  const iconMapping: { [key: string]: 'phone' | 'email' | 'telegram' | 'whatsapp' } = {
+    [contacts.phone.name]: 'phone',
+    [contacts.email.name]: 'email',
+    [contacts.telegram.name]: 'telegram',
+    [contacts.whatsapp.name]: 'whatsapp',
+  };
+
   return (
     <div className="float-right md:flex space-x-6 hidden social-group">
       {[
@@ -22,19 +30,13 @@ export default function SocialIcons({lang}: IconsProps) {
             className="social-icon interactive-hint focus-not-obscured"
             aria-label={`Contact via ${icon.name}`}
           >
-            <svg
-              height={40}
-              width={40}
-              fillRule="evenodd"
-              strokeLinejoin="round"
-              strokeMiterlimit="1.414"
-              clipRule="evenodd"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              className="relative z-10 text-primary-500 hover:text-primary-700"
-            >
-              <path d={icon.icon} />
-            </svg>
+            <div className="relative z-10 text-primary-500 hover:text-primary-700">
+              <IconSvg 
+                name={iconMapping[icon.name]} 
+                size="xl" 
+                color="current"
+              />
+            </div>
           </a>
         );
       })}
