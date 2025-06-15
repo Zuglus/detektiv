@@ -6,7 +6,7 @@ import content from './aboutData.json';
 import IconSvg from '@/components/ui/IconSvg';
 
 export default function ContentAbout({ lang }: ContentLang) {
-  const { hero, timeline, expertise, founder, principles, warning } = content;
+  const { hero, timeline, expertise, principles, warning } = content;
 
   return (
     <div className="min-h-screen">
@@ -108,32 +108,6 @@ export default function ContentAbout({ lang }: ContentLang) {
         </div>
       </section>
 
-      {/* Founder Section */}
-      <section className="bg-gradient-to-br from-secondary-900 to-secondary-800 py-20 text-white">
-        <ScrollReveal>
-          <div className="max-w-4xl mx-auto px-6 text-center">
-            <div className="card-dark p-12 text-center">
-              <div className="w-32 h-32 bg-gradient-to-br from-primary-500 to-primary-600 rounded-full mx-auto mb-8 flex items-center justify-center">
-                <IconSvg 
-                  name="founder" 
-                  size="4xl" 
-                  color="white"
-                />
-              </div>
-              <h3 className="text-3xl font-bold mb-2 font-display text-white">
-                {founder.name[lang]}
-              </h3>
-              <p className="text-primary-300 text-xl mb-6 font-medium">
-                {founder.subtitle[lang]}
-              </p>
-              <p className="text-secondary-200 leading-relaxed text-lg max-w-2xl mx-auto">
-                {founder.description[lang]}
-              </p>
-            </div>
-          </div>
-        </ScrollReveal>
-      </section>
-
       {/* Principles Section */}
       <section className="py-20 bg-gradient-to-br from-primary-50 to-secondary-50">
         <div className="max-w-6xl mx-auto px-6">
@@ -149,10 +123,10 @@ export default function ContentAbout({ lang }: ContentLang) {
             {principles.items[lang].map((item: any, index: number) => (
               <ScrollReveal key={index} delay={index * 120}>
                 <div className="principle-card">
-                  <h4 className="text-2xl font-bold mb-4 font-display">
+                  <h4 className="text-2xl font-bold mb-4 font-display text-center">
                     {item.title}
                   </h4>
-                  <div className="text-secondary-100 leading-relaxed text-lg">
+                  <div className="text-secondary-100 leading-relaxed text-lg max-w-[80%] mx-auto text-left">
                     {item.description}
                   </div>
                 </div>

@@ -99,20 +99,6 @@
       ]
     }
   },
-  "founder": {
-    "name": {
-      "ru": "Грозный Эдуард Николаевич",
-      "en": "Grozny Edward Nikolaevich"
-    },
-    "subtitle": {
-      "ru": "Старший оперуполномоченный в отставке",
-      "en": "Retired Senior Operative"
-    },
-    "description": {
-      "ru": "Офицер в отставке по особо важным делам, ветеран боевых действий, награжденный государственными наградами. Более 15 лет профессиональной детективной деятельности.",
-      "en": "Retired officer for especially important cases, combat veteran decorated with state awards. Over 15 years of professional detective work."
-    }
-  },
   "principles": {
     "title": {
       "ru": "Наши принципы",

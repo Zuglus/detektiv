@@ -32,7 +32,7 @@ export default function Footer({ lang }: { lang: Lang }) {
         {/* Social Icons Section */}
         <div className="text-center mb-12">
           {socialIcons && (
-            <div className="glass-card inline-block px-8 py-6">
+            <div className="glass-card inline-flex items-center justify-center px-8 py-6">
               <SocialIconsFooter />
             </div>
           )}

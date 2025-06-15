@@ -82,17 +82,7 @@ const icons = {
     </svg>
   ),
   trophy: (
-    <svg fill="currentColor" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-      <path fill="none" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" strokeMiterlimit="10" d="M22.786,6
-	c0,0,0.715-1,2.214-1c1.377,0,3,1.05,3,3c0,3.21-5,4.242-5,8c0,0.982,1,1.993,1,1.993"/>
-<path fill="none" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" strokeMiterlimit="10" d="M8,17.993
-	c0,0,1-1.011,1-1.993c0-3.758-5-4.79-5-8c0-1.95,1.623-3,3-3c1.498,0,2.214,1,2.214,1"/>
-<path fill="none" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" strokeMiterlimit="10" d="M9,6c0,6.528,3.689,17,6.983,17
-	S23,12.568,23,6H9z"/>
-<path fill="none" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" strokeMiterlimit="10" d="M18,24h-4c-1.657,0-3,1.343-3,3v0
-	h10v0C21,25.343,19.657,24,18,24z"/>
-<line fill="none" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" strokeMiterlimit="10" x1="16" y1="15" x2="16" y2="10"/>
-    </svg>
+    <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="none" stroke="currentColor" d="M12.17 7.5H9.5L12.96 1c.12-.28-.01-.5-.29-.5H7.5c-.28 0-.6.22-.71.5L4.21 7c-.11.28.01.5.29.5h2.45l-2.64 7.24c-.19.51-.04.95.59.38l7.29-6.87c.43-.4.4-.75-.02-.75z"/></svg>
   ),
   document: (
     <svg fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -248,7 +238,7 @@ export default function IconSvg({
 
   return (
     <div 
-      className={`inline-flex items-center justify-center ${sizeClass} ${colorClass} ${className}`}
+      className={`flex items-center justify-center ${sizeClass} ${colorClass} ${className}`}
       aria-hidden="true"
     >
       {iconElement}
