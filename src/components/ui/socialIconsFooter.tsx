@@ -11,7 +11,7 @@ export default function SocialIconsFooter() {
 
   return (
     <nav 
-      className="flex md:flex-grow justify-center space-x-6 md:space-x-4 mt-6 md:mt-0"
+      className="flex items-center justify-center space-x-4"
       aria-label="Ссылки для связи"
       role="navigation"
     >
@@ -27,21 +27,17 @@ export default function SocialIconsFooter() {
           <a
             href={icon.link}
             key={icon.name}
-            className="relative transform transition-transform group hover:scale-125 focus-not-obscured focus:outline-none focus:ring-3 focus:ring-primary-500 focus:ring-offset-2 rounded-lg p-2"
+            className="flex items-center justify-center w-12 h-12 rounded-lg transition-all duration-300 focus-not-obscured focus:outline-none focus:ring-3 focus:ring-primary-500 focus:ring-offset-2 text-primary-700 hover:text-primary-900 hover:scale-110 hover:bg-primary-500/20 hover:shadow-lg hover:shadow-primary-500/40"
             title={`Связаться с нами через ${icon.name}`}
             aria-label={`Связаться с нами через ${icon.name}${isExternal ? ' (откроется в новой вкладке)' : ''}`}
             target={isExternal && !icon.link.startsWith('tel') && !icon.link.startsWith('mailto') ? '_blank' : undefined}
             rel={isExternal && !icon.link.startsWith('tel') && !icon.link.startsWith('mailto') ? 'noopener noreferrer' : undefined}
           >
-            {/* Добавляем светящийся эффект при наведении без размытия */}
-            <div className="absolute inset-0 bg-primary-500/30 opacity-0 group-hover:opacity-100 rounded-full transition-opacity duration-300 shadow-lg group-hover:shadow-primary-500/50"></div>
-            <div className="group-hover:text-primary-900 transition-colors duration-300 text-primary-700">
-              <IconSvg 
-                name={iconMapping[icon.name]} 
-                size="lg" 
-                color="current"
-              />
-            </div>
+            <IconSvg 
+              name={iconMapping[icon.name]} 
+              size="xl" 
+              color="current"
+            />
           </a>
         );
       })}

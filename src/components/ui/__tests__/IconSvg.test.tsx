@@ -91,7 +91,7 @@ describe('IconSvg', () => {
     
     const iconDiv = container.querySelector('div')
     expect(iconDiv).toHaveClass(
-      'inline-flex',
+      'flex',
       'items-center',
       'justify-center'
     )
