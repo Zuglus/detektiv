@@ -59,12 +59,12 @@
     {
       "ru": {
         "title": "частный розыск должников и алиментщиков",
-        "price": "от 700 тысяч рублей",
+        "price": "от 300 тысяч рублей",
         "text": "Оперативный поиск по России и за рубежом"
       },
       "en": {
         "title": "private search for debtors and alimony payers",
-        "price": "from $7,500",
+        "price": "from $3,800",
         "text": "Operational search in Russia and abroad"
       }
     },

@@ -43,14 +43,6 @@ export default function ServiceCard({ service, lang, animationDelay = 0 }: Servi
                 {service.price[lang]}
               </span>
             </div>
-            <div className="flex items-center justify-between">
-              <span className="text-body-sm font-medium text-secondary-500">
-                {lang === 'ru' ? 'Почасовая ставка:' : 'Hourly rate:'}
-              </span>
-              <span className="pricing-currency text-secondary-700">
-                {service.hourlyRate[lang]}
-              </span>
-            </div>
           </div>
 
           <div className="space-y-3">
