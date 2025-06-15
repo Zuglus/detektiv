@@ -11,12 +11,12 @@
     {
       "ru": {
         "title": "досье",
-        "price": "от 100 тысяч рублей",
+        "price": "от 50 тысяч рублей",
         "text": "Сбор интересующей информации о человеке, об объекте"
       },
       "en": {
         "title": "dossier",
-        "price": "from $1,000",
+        "price": "from $550",
         "text": "Collection of relevant information about a person or object"
       }
     },
