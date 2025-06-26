@@ -149,8 +149,8 @@ jest.mock('@/components/content/main/main.json', () => ({
     }
   ],
   alertHeader: {
-    ru: 'остерегайтесь мошенников!',
-    en: 'beware of fraudsters!'
+    ru: 'Остерегайтесь мошенников!',
+    en: 'Beware of fraudsters!'
   },
   alertText: {
     ru: 'Наше детективное агентство имеет безупречную репутацию',
@@ -235,7 +235,7 @@ describe('ContentMain', () => {
   it('renders contact information section', () => {
     render(<ContentMain lang="ru" />)
     
-    expect(screen.getByText('остерегайтесь мошенников!')).toBeInTheDocument()
+    expect(screen.getByText('Остерегайтесь мошенников!')).toBeInTheDocument()
     expect(screen.getByText('detectivegroznyi@gmail.com')).toBeInTheDocument()
   })
 
