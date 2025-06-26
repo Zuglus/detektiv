@@ -10,9 +10,9 @@
 
 /* CSS Custom Properties только для того, что нельзя реализовать в Tailwind */
 :root {
-  /* Typography - используется в font-family */
-  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-display: 'Playfair Display', serif;
+  /* Typography - используется в font-family, теперь используем CSS variables от next/font */
+  --font-primary: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: var(--font-playfair-display), Georgia, 'Times New Roman', serif;
   
   /* Glass morphism - специфичные rgba значения для эффектов */
   --glass-light: rgba(255, 255, 255, 0.1);
