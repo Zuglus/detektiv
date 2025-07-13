@@ -49,9 +49,9 @@ describe('ContentAbout', () => {
   it('renders founder section', () => {
     const { container } = render(<ContentAbout lang="ru" />)
     
-    expect(screen.getByText('Основатель агентства')).toBeInTheDocument()
-    expect(screen.getByText('Грозный Эдуард Николаевич')).toBeInTheDocument()
-    expect(screen.getByText(/Офицер в отставке/)).toBeInTheDocument()
+    expect(screen.getByText('Основание агентства')).toBeInTheDocument()
+    expect(screen.getByText(/Детективное агентство создано/)).toBeInTheDocument()
+    expect(screen.getByText(/офицером в отставке/)).toBeInTheDocument()
     // Check for founder icon instead of specific text
     const iconElements = container.querySelectorAll('svg')
     expect(iconElements.length).toBeGreaterThan(0)
