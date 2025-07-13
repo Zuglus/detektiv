@@ -78,7 +78,7 @@ describe('Nav', () => {
   it('renders mobile menu button', () => {
     render(<Nav lang="ru" />)
     
-    const menuButton = screen.getByRole('button', { name: /open navigation menu/i })
+    const menuButton = screen.getByRole('button', { name: /Открыть меню навигации/i })
     expect(menuButton).toBeInTheDocument()
     expect(menuButton).toHaveAttribute('aria-expanded', 'false')
   })
@@ -86,11 +86,11 @@ describe('Nav', () => {
   it('opens mobile menu when button is clicked', () => {
     render(<Nav lang="ru" />)
     
-    const menuButton = screen.getByRole('button', { name: /open navigation menu/i })
+    const menuButton = screen.getByRole('button', { name: /Открыть меню навигации/i })
     fireEvent.click(menuButton)
     
     expect(menuButton).toHaveAttribute('aria-expanded', 'true')
-    expect(menuButton).toHaveAttribute('aria-label', 'Close navigation menu')
+    expect(menuButton).toHaveAttribute('aria-label', 'Закрыть меню навигации')
     
     const mobileMenu = screen.getByRole('dialog')
     expect(mobileMenu).toBeInTheDocument()
@@ -100,7 +100,7 @@ describe('Nav', () => {
   it('closes mobile menu when overlay is clicked', () => {
     render(<Nav lang="ru" />)
     
-    const menuButton = screen.getByRole('button', { name: /open navigation menu/i })
+    const menuButton = screen.getByRole('button', { name: /Открыть меню навигации/i })
     fireEvent.click(menuButton)
     
     const overlay = screen.getByRole('dialog').previousSibling as HTMLElement
@@ -112,7 +112,7 @@ describe('Nav', () => {
   it('closes mobile menu when navigation link is clicked', () => {
     render(<Nav lang="ru" />)
     
-    const menuButton = screen.getByRole('button', { name: /open navigation menu/i })
+    const menuButton = screen.getByRole('button', { name: /Открыть меню навигации/i })
     fireEvent.click(menuButton)
     
     // Click on mobile navigation link (second instance)
@@ -132,7 +132,7 @@ describe('Nav', () => {
     const originalStyle = document.body.style.overflow
     render(<Nav lang="ru" />)
     
-    const menuButton = screen.getByRole('button', { name: /open navigation menu/i })
+    const menuButton = screen.getByRole('button', { name: /Открыть меню навигации/i })
     fireEvent.click(menuButton)
     
     expect(document.body.style.overflow).toBe('hidden')
@@ -147,10 +147,10 @@ describe('Nav', () => {
   it('has correct accessibility attributes', () => {
     render(<Nav lang="ru" />)
     
-    const navigation = screen.getByRole('navigation', { name: 'Main navigation' })
+    const navigation = screen.getByRole('navigation', { name: 'Основная навигация' })
     expect(navigation).toBeInTheDocument()
     
-    const menuButton = screen.getByRole('button', { name: /open navigation menu/i })
+    const menuButton = screen.getByRole('button', { name: /Открыть меню навигации/i })
     expect(menuButton).toHaveAttribute('aria-controls', 'mobile-menu')
     expect(menuButton).toHaveAttribute('aria-haspopup', 'true')
   })
