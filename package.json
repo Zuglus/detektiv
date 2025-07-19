@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "node scripts/generate-translations.js",
     "build": "next build",
     "start": "next build && npx serve@latest out",
     "lint": "next lint",
@@ -12,7 +13,8 @@
     "test:coverage": "jest --coverage",
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
-    "test:all": "npm run test && npm run test:e2e"
+    "test:all": "npm run test && npm run test:e2e",
+    "sync-translations": "node scripts/generate-translations.js"
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.5.15",
