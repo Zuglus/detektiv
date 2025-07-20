@@ -2,6 +2,7 @@ import '@/app/globals.css';
 import { inter, playfairDisplay } from '@/app/fonts';
 import { Props } from '@/components/utility/types';
 import Body from '@/components/layout/body';
+import CommonHead from '@/components/layout/CommonHead';
 import metadataConfig from '@/data/metadata.json';
 
 export const metadata = {
@@ -16,13 +17,7 @@ export default function RootLayout({ children }: Props) {
   return (
     <html lang={lang} className={`${inter.variable} ${playfairDisplay.variable}`}>
       <head>
-        {/* Critical resource hints */}
-        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-        
-        {/* Favicon and icons */}
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="apple-touch-icon" href="/favicon.ico" />
-        <meta name="theme-color" content="#339955" />
+        <CommonHead />
       </head>
       <Body lang={lang} showHero={true}>
         {children}
