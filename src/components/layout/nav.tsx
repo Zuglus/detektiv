@@ -19,7 +19,18 @@ export default function Nav({ lang }: NavProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
-  useFocusTrap(isOpen); // Just call the hook, don't try to share refs
+  
+  // Enhanced focus trap with improved accessibility
+  useFocusTrap(isOpen, {
+    containerId: 'mobile-menu',
+    restoreFocusRef: menuButtonRef,
+    hideBackground: true,
+    onEscape: () => setIsOpen(false),
+    onDeactivate: () => {
+      // Ensure menu state is synchronized when focus trap deactivates
+      setIsOpen(false);
+    }
+  });
 
   const routes: Route[] = getRoutes(lang);
 
@@ -214,7 +225,7 @@ export default function Nav({ lang }: NavProps) {
         <div className="p-6 pt-40">
           <h2 id="mobile-menu-heading" className="sr-only">Меню навигации</h2>
           <nav className="space-y-4" role="navigation" aria-label="Мобильная навигация">
-            {routes.map((route, index) => (
+            {routes.map((route) => (
               <Link
                 key={route.name}
                 href={route.href}
