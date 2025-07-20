@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation';
 import { Lang, Route } from '@/components/utility/types';
 import ButtonTranslate from '@/components/ui/buttonTranslate';
 import SkipLink from '@/components/ui/skipLink';
-import { useFocusTrap } from '@/hooks/useFocusTrap';
+import { useFocusTrap } from '@/components/utility/useFocusTrap';
 import getRoutes from '../utility/getRoutes/getRoutes';
 
 interface NavProps {
