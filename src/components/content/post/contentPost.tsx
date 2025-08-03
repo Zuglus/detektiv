@@ -56,7 +56,7 @@ export default function PostContent({ post, lang }: PostContentProps) {
       confidentiality: 'Complete Confidentiality',
       quickResponse: 'Quick Response',
       experience: 'Years of Experience',
-      contactsPath: '/en/contacts'
+      contactsPath: '/en/contact'
     }
   };
   
