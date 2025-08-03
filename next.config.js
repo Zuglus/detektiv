@@ -47,7 +47,7 @@ const nextConfig = {
           },
           {
             key: 'Permissions-Policy',
-            value: 'camera=(), microphone=(), geolocation=(), interest-cohort=()',
+            value: 'camera=(), microphone=(), geolocation=(), interest-cohort=(), payment=(), usb=(), accelerometer=(), gyroscope=(), magnetometer=()',
           },
           // Content Security Policy
           {
@@ -55,16 +55,18 @@ const nextConfig = {
             value: [
               "default-src 'self'",
               "script-src 'self' 'unsafe-inline' 'unsafe-eval'", // Allow inline scripts for Next.js
-              "style-src 'self' 'unsafe-inline' fonts.googleapis.com",
-              "font-src 'self' fonts.gstatic.com",
-              "img-src 'self' data: blob:",
-              "connect-src 'self'",
+              "style-src 'self' 'unsafe-inline' fonts.googleapis.com cdnjs.cloudflare.com",
+              "font-src 'self' fonts.gstatic.com cdnjs.cloudflare.com",
+              "img-src 'self' data: blob: https:",
+              "connect-src 'self' https://api.github.com",
               "frame-src 'none'",
               "object-src 'none'",
               "base-uri 'self'",
               "form-action 'self'",
               "frame-ancestors 'none'",
-              "upgrade-insecure-requests"
+              "upgrade-insecure-requests",
+              "block-all-mixed-content",
+              "require-trusted-types-for 'script'"
             ].join('; '),
           },
         ],

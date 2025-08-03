@@ -71,7 +71,7 @@ describe('Nav', () => {
     render(<Nav lang="ru" />)
     
     const activeLink = screen.getAllByText('О нас')[0] // Desktop version
-    expect(activeLink).toHaveClass('text-primary-600')
+    expect(activeLink).toHaveClass('text-primary-700')
     expect(activeLink).toHaveAttribute('aria-current', 'page')
   })
 

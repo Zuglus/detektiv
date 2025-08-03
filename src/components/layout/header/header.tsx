@@ -10,7 +10,7 @@ interface HeaderProps {
 
 export default function Header({ lang, showHero = false }: HeaderProps) {
   return (
-    <header className="relative">
+    <header className="relative" id="navigation">
       <Nav lang={lang} />
       {showHero && <HeroSection lang={lang} />}
       {!showHero && <div className="h-16" />}

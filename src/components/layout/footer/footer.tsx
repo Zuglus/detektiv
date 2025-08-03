@@ -22,6 +22,7 @@ export default function Footer({ lang }: { lang: Lang }) {
 
   return (
     <footer 
+      id="footer"
       className="
         bg-gradient-to-t from-secondary-900 via-secondary-800 to-secondary-900 
         text-white backdrop-blur-xs
