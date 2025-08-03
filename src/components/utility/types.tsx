@@ -104,4 +104,5 @@ export interface ContentLang {
 
 export interface PostContentProps {
   post: Post; // Теперь принимаем объект поста
+  lang: Lang; // Язык для определения путей и текстов
 }
