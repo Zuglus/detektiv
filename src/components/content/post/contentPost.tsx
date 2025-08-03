@@ -1,18 +1,66 @@
 import Link from 'next/link';
 import ScrollReveal from '@/components/utility/scrollReveal';
-import { Post } from '@/components/utility/types';
+import { Post, Lang } from '@/components/utility/types';
 
 interface PostContentProps {
   post: Post;
+  lang: Lang;
 }
 
-export default function PostContent({ post }: PostContentProps) {
+export default function PostContent({ post, lang }: PostContentProps) {
   const { title, content, previous: prev, next } = post;
   
   // Вычисляем примерное время чтения с улучшенной формулой
   const cleanText = content.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
   const wordCount = cleanText.split(' ').length;
   const readingTime = Math.max(1, Math.ceil(wordCount / 200)); // ~200 слов в минуту
+  
+  // Определяем базовый путь для статей в зависимости от языка
+  const articlesPath = lang === 'en' ? '/en/blog' : '/stati';
+  
+  // Тексты для разных языков
+  const texts = {
+    ru: {
+      caseType: 'Реальный кейс из практики',
+      readingTime: 'мин чтения',
+      words: 'слов',
+      continueReading: 'Продолжить чтение',
+      otherCases: 'Изучите другие реальные кейсы из нашей практики',
+      prevArticle: 'Предыдущая статья',
+      readPrevCase: 'Читать предыдущий кейс',
+      nextArticle: 'Следующая статья',
+      readNextCase: 'Читать следующий кейс',
+      needHelp: 'Нужна помощь детектива?',
+      helpText: 'Каждая ситуация уникальна. Получите конфиденциальную консультацию от профессионалов с многолетним опытом.',
+      contactUs: 'Связаться с нами',
+      allArticles: 'Все статьи',
+      confidentiality: 'Полная конфиденциальность',
+      quickResponse: 'Оперативное реагирование',
+      experience: 'Многолетний опыт',
+      contactsPath: '/kontakty'
+    },
+    en: {
+      caseType: 'Real case from practice',
+      readingTime: 'min read',
+      words: 'words',
+      continueReading: 'Continue Reading',
+      otherCases: 'Explore other real cases from our practice',
+      prevArticle: 'Previous Article',
+      readPrevCase: 'Read Previous Case',
+      nextArticle: 'Next Article',
+      readNextCase: 'Read Next Case',
+      needHelp: 'Need Detective Help?',
+      helpText: 'Every situation is unique. Get a confidential consultation from professionals with years of experience.',
+      contactUs: 'Contact Us',
+      allArticles: 'All Articles',
+      confidentiality: 'Complete Confidentiality',
+      quickResponse: 'Quick Response',
+      experience: 'Years of Experience',
+      contactsPath: '/en/contacts'
+    }
+  };
+  
+  const t = texts[lang];
   
 
   return (
@@ -27,7 +75,7 @@ export default function PostContent({ post }: PostContentProps) {
               <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
               </svg>
-              Реальный кейс из практики
+              {t.caseType}
             </div>
 
             <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-display font-bold text-secondary-900 mb-8 leading-tight max-w-4xl mx-auto">
@@ -44,13 +92,13 @@ export default function PostContent({ post }: PostContentProps) {
               <svg className="w-4 h-4 mr-2 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
-              {readingTime} мин чтения
+              {readingTime} {t.readingTime}
             </div>
             <div className="flex items-center bg-white/80 backdrop-blur-sm px-4 py-2 rounded-xl border border-secondary-200">
               <svg className="w-4 h-4 mr-2 text-accent-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3a4 4 0 118 0v4m-4 1v8m0 0l3-3m-3 3l-3-3" />
               </svg>
-              {wordCount.toLocaleString()} слов
+              {wordCount.toLocaleString()} {t.words}
             </div>
           </div>
           
@@ -105,23 +153,23 @@ export default function PostContent({ post }: PostContentProps) {
           <div className="bg-gradient-to-r from-primary-50/80 via-white/90 to-accent-50/80 backdrop-blur-sm border border-secondary-200 rounded-3xl p-8 mb-16">
             <div className="text-center mb-8">
               <h3 className="text-xl font-display font-semibold text-secondary-900 mb-2">
-                Продолжить чтение
+                {t.continueReading}
               </h3>
               <p className="text-secondary-600">
-                Изучите другие реальные кейсы из нашей практики
+                {t.otherCases}
               </p>
             </div>
             
             <nav 
               className="grid grid-cols-1 md:grid-cols-2 gap-6"
-              aria-label="Навигация между статьями"
+              aria-label={lang === 'ru' ? 'Навигация между статьями' : 'Article navigation'}
             >
               {/* Предыдущая статья */}
               {prev && (
                 <Link
-                  href={`/stati/${prev}`}
+                  href={`${articlesPath}/${prev}`}
                   className="group relative bg-white/80 backdrop-blur-sm border border-secondary-200 rounded-2xl p-6 transition-all duration-500 hover:shadow-xl hover:shadow-primary-500/10 hover:-translate-y-2 hover:border-primary-300 hover:bg-white/95"
-                  aria-label="Перейти к предыдущей статье"
+                  aria-label={lang === 'ru' ? 'Перейти к предыдущей статье' : 'Go to previous article'}
                 >
                   <div className="flex items-center text-primary-600 text-sm font-medium mb-3">
                     <div className="w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center mr-3 group-hover:bg-primary-200 transition-colors duration-300">
@@ -129,10 +177,10 @@ export default function PostContent({ post }: PostContentProps) {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                       </svg>
                     </div>
-                    Предыдущая статья
+                    {t.prevArticle}
                   </div>
                   <div className="text-lg font-display font-semibold text-secondary-900 group-hover:text-primary-700 transition-colors duration-300 leading-tight">
-                    Читать предыдущий кейс
+                    {t.readPrevCase}
                   </div>
                   
                   {/* Декоративный элемент */}
@@ -143,14 +191,14 @@ export default function PostContent({ post }: PostContentProps) {
               {/* Следующая статья */}
               {next && (
                 <Link
-                  href={`/stati/${next}`}
+                  href={`${articlesPath}/${next}`}
                   className={`group relative bg-white/80 backdrop-blur-sm border border-secondary-200 rounded-2xl p-6 transition-all duration-500 hover:shadow-xl hover:shadow-primary-500/10 hover:-translate-y-2 hover:border-primary-300 hover:bg-white/95 ${
                     !prev ? 'md:col-start-2' : ''
                   }`}
-                  aria-label="Перейти к следующей статье"
+                  aria-label={lang === 'ru' ? 'Перейти к следующей статье' : 'Go to next article'}
                 >
                   <div className="flex items-center justify-end text-primary-600 text-sm font-medium mb-3">
-                    Следующая статья
+                    {t.nextArticle}
                     <div className="w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center ml-3 group-hover:bg-primary-200 transition-colors duration-300">
                       <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -158,7 +206,7 @@ export default function PostContent({ post }: PostContentProps) {
                     </div>
                   </div>
                   <div className="text-lg font-display font-semibold text-secondary-900 group-hover:text-primary-700 transition-colors duration-300 text-right leading-tight">
-                    Читать следующий кейс
+                    {t.readNextCase}
                   </div>
                   
                   {/* Декоративный элемент */}
@@ -186,33 +234,33 @@ export default function PostContent({ post }: PostContentProps) {
             </div>
             
             <h3 className="text-2xl lg:text-3xl font-display font-bold text-white mb-4">
-              Нужна помощь детектива?
+              {t.needHelp}
             </h3>
             <p className="text-lg text-primary-100 mb-8 max-w-2xl mx-auto leading-relaxed">
-              Каждая ситуация уникальна. Получите конфиденциальную консультацию от профессионалов с многолетним опытом.
+              {t.helpText}
             </p>
             
             <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
               <Link
-                href="/kontakty"
+                href={t.contactsPath}
                 className="group inline-flex items-center px-8 py-4 bg-white text-primary-700 font-semibold rounded-2xl hover:bg-primary-50 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-white/30"
               >
                 <svg className="w-5 h-5 mr-3 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
-                Связаться с нами
+                {t.contactUs}
                 <svg className="w-4 h-4 ml-3 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </Link>
               <Link
-                href="/stati"
+                href={articlesPath}
                 className="group inline-flex items-center px-8 py-4 bg-white/10 backdrop-blur-sm text-white border border-white/20 font-medium rounded-2xl hover:bg-white/20 hover:border-white/30 transition-all duration-300 hover:-translate-y-1 focus:outline-none focus:ring-4 focus:ring-white/30"
               >
                 <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
                 </svg>
-                Все статьи
+                {t.allArticles}
               </Link>
             </div>
             
@@ -223,19 +271,19 @@ export default function PostContent({ post }: PostContentProps) {
                   <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                   </svg>
-                  Полная конфиденциальность
+                  {t.confidentiality}
                 </div>
                 <div className="flex items-center">
                   <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
-                  Оперативное реагирование
+                  {t.quickResponse}
                 </div>
                 <div className="flex items-center">
                   <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
-                  Многолетний опыт
+                  {t.experience}
                 </div>
               </div>
             </div>

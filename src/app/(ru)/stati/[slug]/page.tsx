@@ -24,7 +24,7 @@ export default async function Post({ params }: Slugs) {
   return (
     <>
       <Breadcrumbs breadcrumb={breadcrumb} />
-      <PostContent post={post} />
+      <PostContent post={post} lang="ru" />
     </>
   );
 }
