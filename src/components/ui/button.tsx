@@ -1,3 +1,4 @@
+import React from 'react';
 import Link from 'next/link';
 
 interface ButtonProps {
@@ -14,7 +15,7 @@ export default function Button({
   variant = 'primary',
   size = 'md',
   external = false,
-}: ButtonProps): JSX.Element {
+}: ButtonProps): React.JSX.Element {
   const sizeClasses = {
     sm: 'px-4 py-2 text-sm',
     md: 'px-6 py-3 text-base',

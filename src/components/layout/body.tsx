@@ -1,5 +1,6 @@
 import Footer from '@/components/layout/footer/footer';
 import Header from '@/components/layout/header/header';
+import PerformanceMonitor from '@/components/ui/PerformanceMonitor';
 import { Props, Lang } from '@/components/utility/types';
 
 export default function Body({ 
@@ -17,6 +18,7 @@ export default function Body({
         {children}
       </main>
       <Footer lang={lang} />
+      <PerformanceMonitor />
     </body>
   );
 }
