@@ -18,7 +18,7 @@ jest.mock('next/link', () => {
   }
 })
 
-const mockTranslateUrl = require('@/components/utility/translateUrl').default as jest.MockedFunction<typeof translateUrl>
+const mockTranslateUrl = require('@/components/utility/translateUrl').default as jest.MockedFunction<any>
 
 describe('ButtonTranslate', () => {
   beforeEach(() => {

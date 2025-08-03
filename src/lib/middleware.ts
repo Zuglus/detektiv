@@ -34,11 +34,11 @@ export function withRateLimit(
     const now = Date.now();
     
     // Clean expired entries
-    for (const [ip, data] of rateLimitStore.entries()) {
+    rateLimitStore.forEach((data, ip) => {
       if (now > data.resetTime) {
         rateLimitStore.delete(ip);
       }
-    }
+    });
     
     // Get or create rate limit data
     let rateLimitData = rateLimitStore.get(clientIP);
@@ -228,10 +228,4 @@ export function withSecurityMiddleware<T>(
   return securedHandler;
 }
 
-export {
-  withSecurity,
-  withRateLimit,
-  withValidation,
-  withCsrf,
-  withSecurityLogging
-};
+// Middleware is already exported individually above

@@ -6,7 +6,7 @@ jest.mock('next/navigation', () => ({
   usePathname: jest.fn()
 }))
 
-const mockUsePathname = require('next/navigation').usePathname as jest.MockedFunction<typeof usePathname>
+const mockUsePathname = require('next/navigation').usePathname as jest.MockedFunction<any>
 
 describe('SkipLink', () => {
   beforeEach(() => {

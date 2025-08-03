@@ -224,7 +224,7 @@ describe('useFocusTrap', () => {
       mockContainer.querySelectorAll.mockReturnValue([mockButton]);
       mockGetElementById.mockReturnValue(mockContainer);
       
-      renderHook(() => useFocusTrap(true, { initialFocusRef }));
+      renderHook(() => useFocusTrap(true, { initialFocusRef: initialFocusRef as any }));
       
       setTimeout(() => {
         expect(mockInitialElement.focus).toHaveBeenCalled();
