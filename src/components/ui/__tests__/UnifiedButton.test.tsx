@@ -41,7 +41,7 @@ describe('UnifiedButton', () => {
     expect(screen.getByRole('button')).toHaveClass('bg-secondary-100', 'text-secondary-700')
 
     rerender(<UnifiedButton variant="outline">Outline</UnifiedButton>)
-    expect(screen.getByRole('button')).toHaveClass('bg-transparent', 'text-primary-600', 'border-2')
+    expect(screen.getByRole('button')).toHaveClass('bg-transparent', 'text-primary-700', 'border-2')
 
     rerender(<UnifiedButton variant="ghost">Ghost</UnifiedButton>)
     expect(screen.getByRole('button')).toHaveClass('bg-transparent', 'text-secondary-700')
@@ -168,7 +168,7 @@ describe('Convenience Components', () => {
   it('OutlineButton applies outline variant', () => {
     render(<OutlineButton>Outline</OutlineButton>)
     
-    expect(screen.getByRole('button')).toHaveClass('bg-transparent', 'text-primary-600', 'border-2')
+    expect(screen.getByRole('button')).toHaveClass('bg-transparent', 'text-primary-700', 'border-2')
   })
 
   it('GhostButton applies ghost variant', () => {

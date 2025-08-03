@@ -124,8 +124,8 @@ export default function Nav({ lang }: NavProps) {
                     focus:outline-none focus-not-obscured
                     rounded-lg
                     ${pathname === route.href 
-                      ? 'text-primary-600 font-semibold bg-primary-50/80' 
-                      : 'text-secondary-800 hover:text-primary-600 hover:bg-primary-50/50'
+                      ? 'text-primary-700 font-semibold bg-primary-50/80' 
+                      : 'text-secondary-800 hover:text-primary-700 hover:bg-primary-50/80'
                     }
                     after:absolute after:bottom-1 after:left-1 after:right-1 after:h-0.5
                     after:bg-primary-500 after:transform after:scale-x-0 after:transition-transform

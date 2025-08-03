@@ -49,9 +49,9 @@ const buttonVariants: Record<ButtonVariant, string> = {
     'focus:bg-secondary-100'
   ),
   outline: cn(
-    'bg-transparent text-primary-600 border-2 border-primary-600',
-    'hover:bg-primary-600 hover:text-white',
-    'focus:bg-primary-600 focus:text-white'
+    'bg-transparent text-primary-700 border-2 border-primary-700',
+    'hover:bg-primary-700 hover:text-white',
+    'focus:bg-primary-700 focus:text-white'
   ),
   danger: cn(
     'bg-gradient-to-br from-red-600 to-red-700 text-white',
