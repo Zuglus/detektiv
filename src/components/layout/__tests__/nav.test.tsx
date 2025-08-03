@@ -92,7 +92,7 @@ describe('Nav', () => {
     expect(menuButton).toHaveAttribute('aria-expanded', 'true')
     expect(menuButton).toHaveAttribute('aria-label', 'Закрыть меню навигации')
     
-    const mobileMenu = screen.getByRole('dialog')
+    const mobileMenu = screen.getByRole('dialog', { hidden: true })
     expect(mobileMenu).toBeInTheDocument()
     expect(mobileMenu).toHaveAttribute('aria-hidden', 'false')
   })
@@ -103,7 +103,8 @@ describe('Nav', () => {
     const menuButton = screen.getByRole('button', { name: /Открыть меню навигации/i })
     fireEvent.click(menuButton)
     
-    const overlay = screen.getByRole('dialog').previousSibling as HTMLElement
+    // Ищем оверлей по классу menu-overlay
+    const overlay = screen.getByRole('dialog', { hidden: true }).previousElementSibling as HTMLElement
     fireEvent.click(overlay)
     
     expect(menuButton).toHaveAttribute('aria-expanded', 'false')

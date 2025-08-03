@@ -145,7 +145,7 @@ export default function ContentBlog({ posts, totalPages, currentPage, lang }: Co
                   }
                 </p>
                 <Link
-                  href={lang === 'ru' ? '/kontakty' : '/en/contacts'}
+                  href={lang === 'ru' ? '/kontakty' : '/en/contact'}
                   className="inline-flex items-center px-6 py-3 bg-primary-600 text-white font-medium rounded-xl hover:bg-primary-700 transition-colors duration-300"
                 >
                   {lang === 'ru' ? 'Связаться с нами' : 'Contact us'}
