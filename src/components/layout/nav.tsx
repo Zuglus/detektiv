@@ -23,7 +23,7 @@ export default function Nav({ lang }: NavProps) {
   // Enhanced focus trap with improved accessibility
   useFocusTrap(isOpen, {
     containerId: 'mobile-menu',
-    restoreFocusRef: menuButtonRef,
+    restoreFocusRef: menuButtonRef as React.RefObject<HTMLElement>,
     hideBackground: true,
     onEscape: () => setIsOpen(false),
     onDeactivate: () => {
