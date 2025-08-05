@@ -1,4 +1,5 @@
 import { Lang } from "@/components/utility/types";
+import UnifiedButton from '@/components/ui/UnifiedButton';
 import contacts from '@/data/contacts.json';
 
 interface ContactButtonsProps {
@@ -20,14 +21,17 @@ export default function ContactButtons({ lang, proposeText }: ContactButtonsProp
           { ...contacts.email, displayName: 'Email' },
           { ...contacts.phone, displayName: lang === 'ru' ? 'Телефон' : 'Phone' },
         ].map((item) => (
-          <a
+          <UnifiedButton
             key={item.name}
+            as="link"
             href={item.link}
-            className="btn-primary text-center transition-all duration-300 hover:scale-105 focus-not-obscured"
+            variant="primary"
+            size="md"
+            className="w-full"
             aria-label={`${lang === 'ru' ? 'Связаться через' : 'Contact via'} ${item.displayName}`}
           >
-            <span className="block text-sm font-medium">{item.displayName}</span>
-          </a>
+            {item.displayName}
+          </UnifiedButton>
         ))}
       </div>
 

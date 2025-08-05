@@ -2,15 +2,22 @@ import { render, screen } from '@testing-library/react'
 import ContentMain from '../main/contentMain'
 
 // Mock child components
-jest.mock('@/components/ui/cardPrinciple', () => {
-  return function MockCardPrinciple({ data }: { data: any }) {
-    return <div data-testid="card-principle">{data.title}</div>
+jest.mock('@/components/ui/UnifiedCard', () => {
+  return function MockUnifiedCard({ children, variant, interactive, ...props }: any) {
+    return (
+      <div data-testid={`unified-card-${variant || 'default'}`} data-interactive={interactive} {...props}>
+        {children}
+      </div>
+    )
   }
 })
 
-jest.mock('@/components/ui/cardService', () => {
-  return function MockCardService({ data }: { data: any }) {
-    return <div data-testid="card-service">{data.title}</div>
+jest.mock('@/components/ui/UnifiedButton', () => {
+  return function MockUnifiedButton({ children, as, ...props }: any) {
+    if (as === 'link') {
+      return <a data-testid="unified-button" {...props}>{children}</a>
+    }
+    return <button data-testid="unified-button" {...props}>{children}</button>
   }
 })
 
@@ -199,16 +206,27 @@ describe('ContentMain', () => {
   it('renders contact buttons', () => {
     render(<ContentMain lang="ru" />)
     
-    expect(screen.getAllByRole('link', { name: 'Telegram' })).toHaveLength(2)
-    expect(screen.getAllByRole('link', { name: 'Whatsapp' })).toHaveLength(2)
-    expect(screen.getByRole('link', { name: 'E-mail' })).toBeInTheDocument()
+    // Check for UnifiedButton contact buttons in the quick contact section
+    const contactButtons = screen.getAllByTestId('unified-button').slice(0, 3)
+    expect(contactButtons).toHaveLength(3)
+    expect(contactButtons[0]).toHaveTextContent('Telegram')
+    expect(contactButtons[1]).toHaveTextContent('Whatsapp')
+    expect(contactButtons[2]).toHaveTextContent('E-mail')
   })
 
   it('renders service cards', () => {
     render(<ContentMain lang="ru" />)
     
-    expect(screen.getAllByTestId('card-service')).toHaveLength(9)
+    // Check for service titles in the content
     expect(screen.getByText('досье')).toBeInTheDocument()
+    expect(screen.getByText('наблюдение')).toBeInTheDocument()
+    expect(screen.getByText('частные расследования')).toBeInTheDocument()
+    expect(screen.getByText('частный поиск людей')).toBeInTheDocument()
+    expect(screen.getByText('частный розыск должников и алиментщиков')).toBeInTheDocument()
+    expect(screen.getByText('проверка персонала')).toBeInTheDocument()
+    expect(screen.getByText('проверка фирм и деловых партнеров')).toBeInTheDocument()
+    expect(screen.getByText('it - интернет')).toBeInTheDocument()
+    expect(screen.getByText('информация за рубежом')).toBeInTheDocument()
   })
 
   it('renders order process steps', () => {
@@ -229,7 +247,7 @@ describe('ContentMain', () => {
     render(<ContentMain lang="ru" />)
     
     expect(screen.getByText('принципы нашего агентства')).toBeInTheDocument()
-    expect(screen.getAllByTestId('card-principle')).toHaveLength(6)
+    expect(screen.getAllByTestId('unified-card-principle')).toHaveLength(6)
   })
 
   it('renders contact information section', () => {
