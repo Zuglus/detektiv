@@ -1,5 +1,7 @@
 import { Lang } from "@/components/utility/types";
-import ServiceCard from './serviceCard';
+import UnifiedCard from '@/components/ui/UnifiedCard';
+import UnifiedButton from '@/components/ui/UnifiedButton';
+import contacts from '@/data/contacts.json';
 import type { ServiceFeature, ServiceCategory } from "@/components/content/price/types";
 
 interface CategorySectionProps {
@@ -21,12 +23,102 @@ export default function CategorySection({ category, lang }: CategorySectionProps
 
       <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
         {category.services.map((service: ServiceFeature, serviceIndex: number) => (
-          <ServiceCard
-            key={service.title[lang]}
-            service={service}
-            lang={lang}
-            animationDelay={serviceIndex * 50}
-          />
+          <div 
+            key={service.title[lang]} 
+            className="group relative"
+            style={{ animationDelay: `${serviceIndex * 50}ms` }}
+          >
+            <UnifiedCard 
+              variant="pricing" 
+              className="h-full"
+              interactive
+            >
+              {service.popular && (
+                <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-10">
+                  <div className="bg-gradient-to-r from-primary-600 to-primary-700 text-white px-4 py-1 rounded-full text-sm font-semibold shadow-lg">
+                    {lang === 'ru' ? 'Популярная услуга' : 'Popular Service'}
+                  </div>
+                </div>
+              )}
+              
+              <div className="space-y-6">
+                <div className={`space-y-2 ${service.popular ? 'pt-3' : ''}`}>
+                  <h3 className="text-heading-sm font-semibold leading-tight text-secondary-800 text-center">
+                    {service.title[lang]}
+                  </h3>
+                  <p className="text-body-sm leading-relaxed text-secondary-600">
+                    <span dangerouslySetInnerHTML={{
+                      __html: service.description[lang].replace(
+                        /\*\(([^)]+)\)\*/g,
+                        '<span class="text-secondary-500 text-xs">($1)</span>'
+                      )
+                    }} />
+                  </p>
+                </div>
+
+                <div className="space-y-3 py-4 border-y border-secondary-100">
+                  <div className="flex items-center justify-between">
+                    <span className="text-body-sm font-medium text-secondary-500">
+                      {lang === 'ru' ? 'Стоимость проекта:' : 'Project cost:'}
+                    </span>
+                    <span className="text-primary-600 font-semibold">
+                      {service.price[lang]}
+                    </span>
+                  </div>
+                  {service.title[lang] === (lang === 'ru' ? 'Наружное наблюдение' : 'Outdoor surveillance') && service.hourlyRate && (
+                    <div className="flex items-center justify-between">
+                      <span className="text-body-sm font-medium text-secondary-500">
+                        {lang === 'ru' ? 'Почасовая оплата:' : 'Hourly rate:'}
+                      </span>
+                      <span className="text-body-sm font-semibold text-secondary-700">
+                        {service.hourlyRate[lang]}
+                      </span>
+                    </div>
+                  )}
+                </div>
+
+                <div className="space-y-3">
+                  <h4 className="text-body-md font-semibold text-secondary-700">
+                    {lang === 'ru' ? 'Что включено:' : 'What\'s included:'}
+                  </h4>
+                  <ul className="space-y-2">
+                    {service.features[lang].map((feature: string) => (
+                      <li key={feature} className="flex items-center space-x-3">
+                        <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-br from-primary-400 to-primary-600 shadow-sm flex items-center justify-center transition-all duration-200 group-hover:scale-110">
+                          <svg 
+                            className="w-5 h-5 text-white" 
+                            fill="none" 
+                            stroke="currentColor" 
+                            viewBox="0 0 24 24"
+                            strokeWidth="3"
+                          >
+                            <path 
+                              strokeLinecap="round" 
+                              strokeLinejoin="round" 
+                              d="M5 13l4 4L19 7"
+                            />
+                          </svg>
+                        </div>
+                        <span className="text-body-sm text-secondary-600">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="pt-4">
+                  <UnifiedButton
+                    as="link"
+                    href={contacts.telegram.link}
+                    variant={service.popular ? "primary" : "secondary"}
+                    className="w-full"
+                    aria-label={`${lang === 'ru' ? 'Получить консультацию по услуге' : 'Get consultation for service'}: ${service.title[lang]}`}
+                  >
+                    {lang === 'ru' ? 'Получить консультацию' : 'Get Consultation'}
+                  </UnifiedButton>
+                </div>
+              </div>
+            </UnifiedCard>
+          </div>
         ))}
       </div>
     </section>

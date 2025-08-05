@@ -1,6 +1,6 @@
 import { useMemo, memo } from 'react';
-import CardPrinciple from '@/components/ui/cardPrinciple';
-import CardService from '@/components/ui/cardService';
+import UnifiedCard from '@/components/ui/UnifiedCard';
+import UnifiedButton from '@/components/ui/UnifiedButton';
 import ScrollReveal from '@/components/utility/scrollReveal';
 import IconSvg from '@/components/ui/IconSvg';
 import rawContent from './main.json';
@@ -25,14 +25,15 @@ function ContentMain({ lang }: { lang: Lang }) {
 
             <div className="flex flex-wrap justify-center gap-4 mt-8">
               {[contacts.telegram, contacts.whatsapp, contacts.email].map((item) => (
-                <a
+                <UnifiedButton
                   key={item.name}
+                  as="link"
                   href={item.link}
+                  variant="primary"
                   title={item.link}
-                  className="btn-primary"
                 >
                   {item.name}
-                </a>
+                </UnifiedButton>
               ))}
             </div>
           </div>
@@ -76,7 +77,23 @@ function ContentMain({ lang }: { lang: Lang }) {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {content.serviceList.map((card, index) => (
                 <div key={card[lang].title} className="h-full" style={{ animationDelay: `${index * 100}ms` }}>
-                  <CardService data={card[lang]} />
+                  <UnifiedCard 
+                    variant="default" 
+                    interactive 
+                    className="h-full"
+                  >
+                    <div className="text-center">
+                      <h4 className="text-heading-sm font-semibold text-secondary-900 mb-8 uppercase tracking-wide hover:text-primary-600 transition-colors w-2/3 mx-auto">
+                        {card[lang].title}
+                      </h4>
+                      <p className="text-body-sm text-secondary-700 leading-relaxed mb-8">
+                        {card[lang].text}
+                      </p>
+                      <div className="inline-flex items-center justify-center px-8 py-4 bg-primary-50 text-primary-700 font-bold text-xl rounded-xl border border-primary-200 hover:bg-primary-100 transition-colors">
+                        {card[lang].price}
+                      </div>
+                    </div>
+                  </UnifiedCard>
                 </div>
               ))}
             </div>
@@ -102,9 +119,13 @@ function ContentMain({ lang }: { lang: Lang }) {
                     <div className="flex-shrink-0 w-10 h-10 gradient-primary text-white rounded-full flex items-center justify-center font-semibold mr-4 text-body-sm">
                       {index + 1}
                     </div>
-                    <div className="card card-compact flex-1">
+                    <UnifiedCard 
+                      variant="default" 
+                      size="compact" 
+                      className="flex-1"
+                    >
                       <p className="text-body-md text-secondary-700">{step}</p>
-                    </div>
+                    </UnifiedCard>
                   </div>
                 </ScrollReveal>
               ))}
@@ -119,9 +140,10 @@ function ContentMain({ lang }: { lang: Lang }) {
           <div className="max-w-6xl mx-auto px-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {content.benefitsList.map((item, index) => (
-                <div 
+                <UnifiedCard 
                   key={item.id} 
-                  className="card h-full border-l-4 border-primary-500"
+                  variant="default" 
+                  className="h-full border-l-4 border-primary-500"
                   style={{ animationDelay: `${index * 150}ms` }}
                 >
                   <h3 className="text-heading-sm text-secondary-900 mb-3">
@@ -130,7 +152,7 @@ function ContentMain({ lang }: { lang: Lang }) {
                   <p className="text-body-md text-secondary-600">
                     {item[lang].text}
                   </p>
-                </div>
+                </UnifiedCard>
               ))}
             </div>
           </div>
@@ -150,12 +172,21 @@ function ContentMain({ lang }: { lang: Lang }) {
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {content.detektivePrinciplesList.map((item, index) => (
-                <div 
+                <UnifiedCard 
                   key={item[lang].title}
+                  variant="principle"
+                  interactive
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
-                  <CardPrinciple data={item[lang]} />
-                </div>
+                  <div className="text-center">
+                    <h4 className="text-heading-sm font-semibold text-white mb-4 uppercase tracking-wider hover:text-primary-100 transition-colors duration-300">
+                      {item[lang].title}
+                    </h4>
+                    <div className="text-body-md text-white leading-relaxed">
+                      {item[lang].text}
+                    </div>
+                  </div>
+                </UnifiedCard>
               ))}
             </div>
           </div>
@@ -166,7 +197,10 @@ function ContentMain({ lang }: { lang: Lang }) {
       <ScrollReveal delay={1200}>
         <section className="py-20">
           <div className="max-w-4xl mx-auto px-6">
-            <div className="card-emergency text-center p-12">
+            <UnifiedCard 
+              variant="emergency" 
+              className="text-center p-12"
+            >
               <div className="mb-8 flex justify-center">
                 <IconSvg 
                   name="warning" 
@@ -217,7 +251,7 @@ function ContentMain({ lang }: { lang: Lang }) {
                   </div>
                 </div>
               </div>
-            </div>
+            </UnifiedCard>
           </div>
         </section>
       </ScrollReveal>

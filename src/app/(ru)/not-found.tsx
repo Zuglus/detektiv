@@ -1,4 +1,4 @@
-import Button from '@/components/ui/button';
+import UnifiedButton from '@/components/ui/UnifiedButton';
 
 export default function NotFound() {
   return (
@@ -9,7 +9,9 @@ export default function NotFound() {
       <div className="my-10">
         Страница отсутствует! Проверьте адрес.
       </div>
-      <Button name="Главная страница" url="/" />
+      <UnifiedButton as="link" href="/" variant="primary">
+        Главная страница
+      </UnifiedButton>
     </div>
   );
 }

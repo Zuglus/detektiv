@@ -14,6 +14,7 @@ export interface UnifiedCardProps {
   interactive?: boolean;
   className?: string;
   onClick?: () => void;
+  style?: React.CSSProperties;
   'data-testid'?: string;
 }
 
@@ -48,6 +49,7 @@ export default function UnifiedCard({
   interactive = false,
   className = '',
   onClick,
+  style,
   'data-testid': testId,
   ...props
 }: UnifiedCardProps) {
@@ -91,7 +93,7 @@ export default function UnifiedCard({
   const cardContent = (
     <div 
       className={baseClasses}
-      style={gradientStyles}
+      style={{...gradientStyles, ...style}}
       onClick={onClick}
       data-testid={testId}
       role={interactive ? 'button' : undefined}

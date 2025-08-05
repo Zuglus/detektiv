@@ -26,6 +26,7 @@ interface LinkElementProps extends BaseButtonProps {
   external?: boolean;
   target?: string;
   rel?: string;
+  title?: string;
 }
 
 type UnifiedButtonProps = ButtonElementProps | LinkElementProps;
@@ -152,6 +153,7 @@ export default function UnifiedButton(props: UnifiedButtonProps) {
       href={linkProps.href}
       target={isExternal ? '_blank' : linkProps.target}
       rel={isExternal ? 'noopener noreferrer' : linkProps.rel}
+      title={linkProps.title}
       data-testid={testId}
       aria-label={
         typeof children === 'string' 
