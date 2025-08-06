@@ -102,6 +102,9 @@ export function useFocusTrap(isActive: boolean, options: FocusTrapOptions = {}) 
     const container = document.getElementById(containerId);
     if (!container) return;
 
+    // Get the navigation container that contains the hamburger button
+    const navigationHeader = document.getElementById('navigation');
+    
     // Find all siblings of the container and set aria-hidden
     const siblings = Array.from(document.body.children).filter(
       child => child !== container && child.tagName !== 'SCRIPT'
@@ -112,7 +115,12 @@ export function useFocusTrap(isActive: boolean, options: FocusTrapOptions = {}) 
       value: sibling.getAttribute('aria-hidden')
     }));
 
+    // Apply aria-hidden to siblings, but exclude the navigation header
     siblings.forEach(sibling => {
+      // Skip the navigation header to avoid hiding the hamburger button
+      if (sibling === navigationHeader) {
+        return;
+      }
       sibling.setAttribute('aria-hidden', 'true');
     });
 

@@ -35,7 +35,7 @@ export default function CategorySection({ category, lang }: CategorySectionProps
             >
               {service.popular && (
                 <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-10">
-                  <div className="bg-gradient-to-r from-primary-600 to-primary-700 text-white px-4 py-1 rounded-full text-sm font-semibold shadow-lg">
+                  <div className="bg-gradient-to-r from-accent-400 to-accent-500 text-white px-4 py-1 rounded-full text-sm font-semibold shadow-xl ring-2 ring-accent-200 animate-gentle-bounce">
                     {lang === 'ru' ? 'Популярная услуга' : 'Popular Service'}
                   </div>
                 </div>
