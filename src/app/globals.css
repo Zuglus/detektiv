@@ -38,6 +38,49 @@ body {
   font-family: var(--font-primary);
   line-height: 1.6;
   @apply text-secondary-800 bg-secondary-50 selection:bg-primary-500 selection:text-white antialiased;
+  
+  /* Mobile performance optimizations */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Mobile performance optimizations */
+@media screen and (max-width: 768px) {
+  html {
+    font-size: 16px; /* Prevent zoom on iOS */
+  }
+  
+  /* Reduce font loading impact on mobile */
+  body {
+    font-display: swap;
+  }
+  
+  /* Optimize transitions for 60fps on mobile */
+  * {
+    transition-duration: 150ms !important;
+  }
+  
+  /* Hardware acceleration for mobile */
+  .transform-gpu {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+  
+  /* Reduce motion for mobile */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      transition-duration: 0ms !important;
+      animation-duration: 0ms !important;
+    }
+  }
+  
+  /* Content-visibility optimization */
+  .lazy-section {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 500px;
+  }
 }
 
 :root {
