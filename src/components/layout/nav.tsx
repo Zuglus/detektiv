@@ -99,8 +99,9 @@ export default function Nav({ lang }: NavProps) {
       <SkipLink />
       {/* Desktop Navigation */}
       <nav 
+        id="navigation"
         className={`
-          fixed top-6 left-0 right-0 z-[9998] block
+          fixed top-6 left-0 right-0 z-[50] block
           transition-all duration-300 ease-in-out
           ${isScrolled 
             ? 'nav-scrolled' 
@@ -154,10 +155,10 @@ export default function Nav({ lang }: NavProps) {
         onClick={() => setIsOpen(!isOpen)}
         className="
           hamburger-btn
-          fixed top-6 right-6 z-[10000] lg:hidden
+          fixed top-6 right-6 z-[100] lg:hidden
           w-14 h-14 rounded-full
           bg-white/90 backdrop-blur-sm shadow-lg border border-white/20
-          flex items-center justify-center
+          flex items-center justify-center shrink-0
           transition-all duration-300 hover:scale-110 hover:shadow-xl hover:bg-white/95
           focus:outline-none focus:ring-4 focus:ring-primary-600 focus:ring-offset-2
           focus-not-obscured
@@ -211,10 +212,10 @@ export default function Nav({ lang }: NavProps) {
         ref={menuRef}
         id="mobile-menu"
         className={`
-          fixed top-0 right-0 h-auto w-80 max-w-[85vw] z-[9999] lg:hidden
+          fixed top-0 right-0 h-full w-72 max-w-[calc(100vw-2rem)] z-[9999] lg:hidden
           bg-gradient-to-b from-secondary-900/95 to-secondary-800/90 backdrop-blur-xl
           border-l border-secondary-700/30 shadow-2xl
-          transform transition-transform duration-300 ease-in-out
+          transform transition-transform duration-300 ease-in-out overflow-y-auto
           ${isOpen ? 'translate-x-0' : 'translate-x-full'}
         `}
         role="dialog"
@@ -222,7 +223,7 @@ export default function Nav({ lang }: NavProps) {
         aria-labelledby="mobile-menu-heading"
         aria-hidden={!isOpen}
       >
-        <div className="p-6 pt-40">
+        <div className="p-6 pt-40 min-h-full">
           <h2 id="mobile-menu-heading" className="sr-only">Меню навигации</h2>
           <nav className="space-y-4" role="navigation" aria-label="Мобильная навигация">
             {routes.map((route) => (
@@ -246,8 +247,10 @@ export default function Nav({ lang }: NavProps) {
               </Link>
             ))}
             
-            <div className="pt-6 border-t border-secondary-200">
-              <ButtonTranslate url={pathname} />
+            <div className="pt-6 border-t border-secondary-200 flex justify-center">
+              <div className="w-[44px] h-[44px]">
+                <ButtonTranslate url={pathname} />
+              </div>
             </div>
           </nav>
         </div>

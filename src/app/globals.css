@@ -857,8 +857,8 @@ body {
 }
 
 .focus-not-obscured:focus-visible {
-  @apply relative z-[999] outline outline-primary-600;
-  outline-width: 4px;
+  @apply z-[999];
+  outline: 4px solid theme('colors.primary.600');
   outline-offset: 3px;
   box-shadow: 
     0 0 0 2px theme('colors.white'),
