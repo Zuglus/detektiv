@@ -17,9 +17,9 @@ function ContentMain({ lang }: { lang: Lang }) {
 
       {/* Quick Contact Section */}
       <ScrollReveal>
-        <section className="bg-primary-50 py-16">
-          <div className="max-w-6xl mx-auto px-6 text-center">
-            <h2 className="text-display-sm text-secondary-900 mb-8">
+        <section className="bg-primary-50 py-12 md:py-16 transform-gpu lazy-section">
+          <div className="max-w-6xl mx-auto px-4 md:px-6 text-center">
+            <h2 className="text-display-sm text-secondary-900 mb-6 md:mb-8">
               {content.subheader[lang]}
             </h2>
 

@@ -4,8 +4,9 @@ const nextConfig = {
   images: { 
     unoptimized: true,
     formats: ['image/webp', 'image/avif'],
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
-    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    // Mobile-optimized device sizes
+    deviceSizes: [320, 375, 414, 768, 1024, 1200],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256],
   },
   swcMinify: true,
   reactStrictMode: true,
@@ -14,7 +15,9 @@ const nextConfig = {
   
   // Performance optimizations
   experimental: {
-    optimizePackageImports: ['react-icons'],
+    optimizePackageImports: ['react-icons', 'lucide-react'],
+    swcMinify: true,
+    cpus: 1, // Optimize for mobile builds
   },
   
   // Compiler optimizations
@@ -22,57 +25,9 @@ const nextConfig = {
     removeConsole: process.env.NODE_ENV === 'production',
   },
   
-  // Security headers
-  async headers() {
-    return [
-      {
-        source: '/(.*)',
-        headers: [
-          // Security headers for OWASP compliance
-          {
-            key: 'X-Frame-Options',
-            value: 'DENY',
-          },
-          {
-            key: 'X-Content-Type-Options',
-            value: 'nosniff',
-          },
-          {
-            key: 'Referrer-Policy',
-            value: 'strict-origin-when-cross-origin',
-          },
-          {
-            key: 'X-XSS-Protection',
-            value: '1; mode=block',
-          },
-          {
-            key: 'Permissions-Policy',
-            value: 'camera=(), microphone=(), geolocation=(), interest-cohort=(), payment=(), usb=(), accelerometer=(), gyroscope=(), magnetometer=()',
-          },
-          // Content Security Policy
-          {
-            key: 'Content-Security-Policy',
-            value: [
-              "default-src 'self'",
-              "script-src 'self' 'unsafe-inline' 'unsafe-eval'", // Allow inline scripts for Next.js
-              "style-src 'self' 'unsafe-inline' fonts.googleapis.com cdnjs.cloudflare.com",
-              "font-src 'self' fonts.gstatic.com cdnjs.cloudflare.com",
-              "img-src 'self' data: blob: https:",
-              "connect-src 'self' https://api.github.com",
-              "frame-src 'none'",
-              "object-src 'none'",
-              "base-uri 'self'",
-              "form-action 'self'",
-              "frame-ancestors 'none'",
-              "upgrade-insecure-requests",
-              "block-all-mixed-content",
-              "require-trusted-types-for 'script'"
-            ].join('; '),
-          },
-        ],
-      },
-    ];
-  },
+  // Security headers - moved to _headers file for static export
+  // Note: For static export, security headers should be configured in _headers file
+  // See: https://nextjs.org/docs/app/building-your-application/deploying/static-exports#headers
   
   // Webpack optimizations
   webpack: (config, { dev, isServer }) => {
@@ -97,12 +52,48 @@ const nextConfig = {
         },
       };
       
-      // Add performance hints
+      // Mobile-optimized performance settings
       config.performance = {
         ...config.performance,
         hints: 'warning',
-        maxEntrypointSize: 512000,
-        maxAssetSize: 512000,
+        maxEntrypointSize: 250000, // Smaller for mobile
+        maxAssetSize: 250000,
+      };
+      
+      // Tree shaking for mobile
+      config.optimization.usedExports = true;
+      config.optimization.sideEffects = false;
+      
+      // Separate React for better caching
+      config.optimization.splitChunks = {
+        ...config.optimization.splitChunks,
+        cacheGroups: {
+          ...config.optimization.splitChunks.cacheGroups,
+          react: {
+            name: 'react',
+            test: /[\/]node_modules[\/](react|react-dom)[\/]/,
+            priority: 20,
+            chunks: 'all',
+            minSize: 20000,
+            maxSize: 50000,
+          },
+          vendor: {
+            test: /[\/]node_modules[\/]/,
+            name: 'vendors',
+            priority: 10,
+            chunks: 'all',
+            minSize: 15000,
+            maxSize: 40000,
+          },
+          common: {
+            name: 'common',
+            minChunks: 2,
+            chunks: 'all',
+            priority: 5,
+            minSize: 8000,
+            maxSize: 20000,
+          },
+        },
       };
     }
     
