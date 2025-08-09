@@ -1,5 +1,5 @@
 interface IconSvgProps {
-  name: 'shield' | 'clock' | 'star' | 'target' | 'lock' | 'chart' | 'money' | 'refund' | 'user' | 'trophy' | 'document' | 'scales' | 'warning' | 'experience' | 'detective' | 'founder' | 'info' | 'phone' | 'email' | 'telegram' | 'whatsapp';
+  name: string;
   size?: 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl';
   color?: 'primary' | 'secondary' | 'accent' | 'success' | 'error' | 'white' | 'current';
   className?: string;

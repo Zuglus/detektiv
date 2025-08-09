@@ -2,34 +2,48 @@ name: Deploy to Jino Hosting
 
 on:
   push:
-    branches: [ main ] # или master, в зависимости от вашей основной ветки
+    branches: [ main ]
+  workflow_dispatch:
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
-        
+        uses: actions/checkout@v4
+
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: '18'
           cache: 'npm'
-          
+
       - name: Install dependencies
         run: npm ci
-        
-      - name: Build project
+
+      - name: Build project (Next export)
+        env:
+          SITE_URL: https://право18.рф
         run: npm run build
-        
-      - name: Deploy to Jino via FTP
-        # Используем альтернативное действие для деплоя
-        uses: sebastianpopp/ftp-action@releases/v2
+
+      - name: Offline link validation
+        run: node scripts/offline-validate.js
+
+      - name: Deploy to Jino via FTP (clean)
+        uses: SamKirkland/FTP-Deploy-Action@v4
         with:
-          host: ${{ secrets.FTP_SERVER }}
-          user: ${{ secrets.FTP_USERNAME }}
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          localDir: "out/"
-          remoteDir: ${{ secrets.FTP_SERVER_DIR }}
+          protocol: ftp
+          port: 21
+          local-dir: out/
+          server-dir: ${{ secrets.FTP_SERVER_DIR }}
+          dangerous-clean-slate: true
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            **/.DS_Store
+            **/Thumbs.db
+            .well-known/**
