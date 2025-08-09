@@ -3,7 +3,17 @@ import ContentMain from '../main/contentMain'
 
 // Mock child components
 jest.mock('@/components/ui/UnifiedCard', () => {
-  return function MockUnifiedCard({ children, variant, interactive, ...props }: any) {
+  return function MockUnifiedCard({
+    children,
+    variant,
+    interactive,
+    ...props
+  }: {
+    children: React.ReactNode;
+    variant?: string;
+    interactive?: boolean;
+    [key: string]: unknown;
+  }) {
     return (
       <div data-testid={`unified-card-${variant || 'default'}`} data-interactive={interactive} {...props}>
         {children}
@@ -13,7 +23,15 @@ jest.mock('@/components/ui/UnifiedCard', () => {
 })
 
 jest.mock('@/components/ui/UnifiedButton', () => {
-  return function MockUnifiedButton({ children, as, ...props }: any) {
+  return function MockUnifiedButton({
+    children,
+    as,
+    ...props
+  }: {
+    children: React.ReactNode;
+    as?: string;
+    [key: string]: unknown;
+  }) {
     if (as === 'link') {
       return <a data-testid="unified-button" {...props}>{children}</a>
     }

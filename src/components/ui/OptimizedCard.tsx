@@ -1,4 +1,5 @@
 import React, { memo, useMemo } from 'react';
+import Image from 'next/image';
 import LazyComponent from './LazyComponent';
 
 interface OptimizedCardProps {
@@ -56,11 +57,12 @@ const OptimizedCard = memo<OptimizedCardProps>(({
       >
         {image && (
           <div className="mb-4 overflow-hidden rounded-lg">
-            <img
+            <Image
               src={image}
               alt={title}
+              width={400}
+              height={200}
               className="w-full h-48 object-cover transition-transform duration-300 hover:scale-105"
-              loading="lazy"
             />
           </div>
         )}

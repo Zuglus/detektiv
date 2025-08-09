@@ -94,7 +94,7 @@ describe('getRoutes', () => {
   })
 
   it('handles null find parameter', () => {
-    const routes = getRoutes('ru', null as any)
+    const routes = getRoutes('ru', null as unknown as never)
     
     expect(routes).toHaveLength(7)
   })
