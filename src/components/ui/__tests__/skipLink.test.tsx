@@ -1,12 +1,13 @@
 import { render, screen } from '@testing-library/react'
 import SkipLink from '../skipLink'
+import { usePathname } from 'next/navigation'
 
 // Mock Next.js hooks
 jest.mock('next/navigation', () => ({
   usePathname: jest.fn()
 }))
 
-const mockUsePathname = require('next/navigation').usePathname as jest.MockedFunction<any>
+const mockUsePathname = usePathname as jest.MockedFunction<typeof usePathname>
 
 describe('SkipLink', () => {
   beforeEach(() => {

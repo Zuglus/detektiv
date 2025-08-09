@@ -5,7 +5,7 @@ import ScrollReveal from '@/components/utility/scrollReveal';
 import IconSvg from '@/components/ui/IconSvg';
 import rawContent from './main.json';
 import rawContacts from '@/data/contacts.json';
-import { Benefit, Lang, Principle } from '../../utility/types';
+import { Lang } from '../../utility/types';
 
 function ContentMain({ lang }: { lang: Lang }) {
   // Memoize static content to prevent unnecessary re-parsing

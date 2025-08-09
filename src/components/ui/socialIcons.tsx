@@ -1,12 +1,7 @@
 import contacts from '@/data/contacts.json';
-import { Lang } from '../utility/types';
 import IconSvg from './IconSvg';
 
-interface IconsProps {
-  lang: Lang;
-}
-
-export default function SocialIcons({lang}: IconsProps) {
+export default function SocialIcons() {
   const iconMapping: { [key: string]: 'phone' | 'email' | 'telegram' | 'whatsapp' } = {
     [contacts.phone.name]: 'phone',
     [contacts.email.name]: 'email',
