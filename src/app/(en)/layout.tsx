@@ -13,11 +13,22 @@ export const metadata = {
 
 export default function RootLayout({ children }: Props) {
   const lang = 'en';
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    url: 'https://право18.рф/en',
+    name: metadataConfig.en.title,
+    inLanguage: lang,
+  };
 
   return (
     <html lang={lang} className={`${inter.variable} ${playfairDisplay.variable}`}>
       <head>
         <CommonHead />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
       </head>
       <Body lang={lang} showHero={true}>
         {children}

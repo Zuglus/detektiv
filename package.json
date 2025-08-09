@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild": "node scripts/generate-translations.js",
+    "prebuild": "node scripts/generate-translations.js && node scripts/generate-sitemap.js",
     "build": "next build",
     "start": "next build && npx serve@latest out",
     "lint": "next lint",
