@@ -1,4 +1,4 @@
-import React, { lazy } from 'react';
+import { lazy } from 'react';
 import LazyComponent from '../ui/LazyComponent';
 
 // Lazy load heavy layout components
@@ -10,7 +10,9 @@ const LazyNav = lazy(() => import('./nav'));
  * Lazy loaded wrapper for layout components
  * Provides better performance by code splitting
  */
-export function LazyFooterComponent(props: any) {
+export function LazyFooterComponent(
+  props: React.ComponentProps<typeof LazyFooter>,
+) {
   return (
     <LazyComponent fallback={<div className="h-64 bg-gray-100 animate-pulse" />}>
       <LazyFooter {...props} />
@@ -18,7 +20,9 @@ export function LazyFooterComponent(props: any) {
   );
 }
 
-export function LazyHeaderComponent(props: any) {
+export function LazyHeaderComponent(
+  props: React.ComponentProps<typeof LazyHeader>,
+) {
   return (
     <LazyComponent fallback={<div className="h-20 bg-gray-100 animate-pulse" />}>
       <LazyHeader {...props} />
@@ -26,7 +30,9 @@ export function LazyHeaderComponent(props: any) {
   );
 }
 
-export function LazyNavComponent(props: any) {
+export function LazyNavComponent(
+  props: React.ComponentProps<typeof LazyNav>,
+) {
   return (
     <LazyComponent fallback={<div className="h-16 bg-gray-100 animate-pulse" />}>
       <LazyNav {...props} />

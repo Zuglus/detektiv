@@ -1,7 +1,9 @@
+import bundleAnalyzer from '@next/bundle-analyzer';
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
-  images: { 
+  images: {
     unoptimized: true,
     formats: ['image/webp', 'image/avif'],
     // Mobile-optimized device sizes
@@ -12,23 +14,19 @@ const nextConfig = {
   reactStrictMode: true,
   compress: true,
   poweredByHeader: false,
-  
+
   // Performance optimizations
   experimental: {
     optimizePackageImports: ['react-icons', 'lucide-react'],
     swcMinify: true,
     cpus: 1, // Optimize for mobile builds
   },
-  
+
   // Compiler optimizations
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },
-  
-  // Security headers - moved to _headers file for static export
-  // Note: For static export, security headers should be configured in _headers file
-  // See: https://nextjs.org/docs/app/building-your-application/deploying/static-exports#headers
-  
+
   // Webpack optimizations
   webpack: (config, { dev, isServer }) => {
     // Production optimizations
@@ -38,7 +36,7 @@ const nextConfig = {
         cacheGroups: {
           ...config.optimization.splitChunks.cacheGroups,
           vendor: {
-            test: /[\\/]node_modules[\\/]/,
+            test: /node_modules/,
             name: 'vendors',
             priority: 10,
             chunks: 'all',
@@ -51,7 +49,7 @@ const nextConfig = {
           },
         },
       };
-      
+
       // Mobile-optimized performance settings
       config.performance = {
         ...config.performance,
@@ -59,11 +57,11 @@ const nextConfig = {
         maxEntrypointSize: 250000, // Smaller for mobile
         maxAssetSize: 250000,
       };
-      
+
       // Tree shaking for mobile
       config.optimization.usedExports = true;
       config.optimization.sideEffects = false;
-      
+
       // Separate React for better caching
       config.optimization.splitChunks = {
         ...config.optimization.splitChunks,
@@ -71,14 +69,14 @@ const nextConfig = {
           ...config.optimization.splitChunks.cacheGroups,
           react: {
             name: 'react',
-            test: /[\/]node_modules[\/](react|react-dom)[\/]/,
+            test: /node_modules\/(react|react-dom)\//,
             priority: 20,
             chunks: 'all',
             minSize: 20000,
             maxSize: 50000,
           },
           vendor: {
-            test: /[\/]node_modules[\/]/,
+            test: /node_modules/,
             name: 'vendors',
             priority: 10,
             chunks: 'all',
@@ -96,18 +94,18 @@ const nextConfig = {
         },
       };
     }
-    
+
     // Add bundle analyzer plugin for development
     if (dev && process.env.ANALYZE === 'true') {
-      const BundleAnalyzerPlugin = require('@next/bundle-analyzer')({
+      const BundleAnalyzerPlugin = bundleAnalyzer({
         enabled: process.env.ANALYZE === 'true',
       });
       config.plugins.push(BundleAnalyzerPlugin);
     }
-    
+
     return config;
   },
-  
-}
+};
 
-module.exports = nextConfig;
+export default nextConfig;
+

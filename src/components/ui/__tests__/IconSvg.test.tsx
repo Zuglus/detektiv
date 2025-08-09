@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import IconSvg from '../IconSvg'
 
 describe('IconSvg', () => {
@@ -77,7 +77,9 @@ describe('IconSvg', () => {
     // This test checks console.warn behavior
     const consoleSpy = jest.spyOn(console, 'warn').mockImplementation(() => {})
     
-    const { container } = render(<IconSvg name={'unknown' as any} />)
+    const { container } = render(
+      <IconSvg name={'unknown' as unknown as never} />,
+    )
     
     // Component returns null for unknown icons, so no div is rendered
     expect(container.firstChild).toBeNull()

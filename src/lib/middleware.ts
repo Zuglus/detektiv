@@ -85,7 +85,7 @@ export function withRateLimit(
 export function withValidation<T>(
   handler: (req: NextRequest, validatedData: T) => Promise<NextResponse>,
   schema: {
-    validate: (data: any) => { success: boolean; data?: T; error?: string };
+    validate: (data: unknown) => { success: boolean; data?: T; error?: string };
   }
 ) {
   return async (req: NextRequest): Promise<NextResponse> => {
@@ -107,7 +107,7 @@ export function withValidation<T>(
       const parsedData = JSON.parse(sanitizedData);
       
       return await handler(req, parsedData);
-    } catch (error) {
+    } catch {
       return NextResponse.json(
         { error: 'Invalid request', message: 'Unable to parse request body' },
         { status: 400 }
@@ -194,7 +194,7 @@ export function withSecurityLogging(
 export function withSecurityMiddleware<T>(
   handler: (req: NextRequest, validatedData?: T) => Promise<NextResponse>,
   options?: {
-    schema?: { validate: (data: any) => { success: boolean; data?: T; error?: string } };
+    schema?: { validate: (data: unknown) => { success: boolean; data?: T; error?: string } };
     eventName?: string;
     enableRateLimit?: boolean;
     enableCsrf?: boolean;
