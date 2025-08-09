@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import ButtonTranslate from '../buttonTranslate'
+import translateUrl from '@/components/utility/translateUrl'
 
 // Mock translateUrl utility
 jest.mock('@/components/utility/translateUrl', () => ({
@@ -9,7 +10,21 @@ jest.mock('@/components/utility/translateUrl', () => ({
 
 // Mock Next.js Link component
 jest.mock('next/link', () => {
-  return function MockLink({ children, href, className, ariaLabel, title, ...props }: any) {
+  return function MockLink({
+    children,
+    href,
+    className,
+    ariaLabel,
+    title,
+    ...props
+  }: {
+    children: React.ReactNode;
+    href: string;
+    className?: string;
+    ariaLabel?: string;
+    title?: string;
+    [key: string]: unknown;
+  }) {
     return (
       <a href={href} className={className} aria-label={ariaLabel} title={title} {...props}>
         {children}
@@ -17,8 +32,7 @@ jest.mock('next/link', () => {
     )
   }
 })
-
-const mockTranslateUrl = require('@/components/utility/translateUrl').default as jest.MockedFunction<any>
+const mockTranslateUrl = translateUrl as jest.MockedFunction<typeof translateUrl>
 
 describe('ButtonTranslate', () => {
   beforeEach(() => {

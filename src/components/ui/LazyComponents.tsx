@@ -1,4 +1,4 @@
-import React, { lazy } from 'react';
+import { lazy } from 'react';
 
 // Lazy load heavy components
 const LazyUnifiedCard = lazy(() => import('./UnifiedCard'));

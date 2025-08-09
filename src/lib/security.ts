@@ -146,7 +146,7 @@ export const validate = {
 // Security monitoring configuration
 export const securityMonitoring = {
   // Log security events
-  logEvent: (event: string, details: Record<string, any>): void => {
+  logEvent: (event: string, details: Record<string, unknown>): void => {
     if (process.env.NODE_ENV === 'production') {
       console.log(`[Security Event] ${event}:`, details);
     }
@@ -163,11 +163,13 @@ export const securityMonitoring = {
   ] as const
 } as const;
 
-export default {
+const security = {
   CSP_CONFIG,
   SECURITY_HEADERS,
   securityHeaders,
   securityUtils,
   validate,
-  securityMonitoring
+  securityMonitoring,
 };
+
+export default security;

@@ -1,8 +1,8 @@
-const nextJest = require('next/jest')
+import nextJest from 'next/jest';
 
 const createJestConfig = nextJest({
   dir: './',
-})
+});
 
 const customJestConfig = {
   setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
@@ -10,9 +10,7 @@ const customJestConfig = {
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
   },
-  transformIgnorePatterns: [
-    '/node_modules/(?!(marked)/)',
-  ],
+  transformIgnorePatterns: ['/node_modules/(?!(marked)/)'],
   testPathIgnorePatterns: [
     '<rootDir>/.next/',
     '<rootDir>/node_modules/',
@@ -26,10 +24,7 @@ const customJestConfig = {
     '!src/app/**/page.tsx',
   ],
   coverageReporters: ['text', 'lcov', 'html'],
-  testMatch: [
-    '**/__tests__/**/*.(js|jsx|ts|tsx)',
-    '**/*.(test|spec).(js|jsx|ts|tsx)',
-  ],
-}
+  testMatch: ['**/__tests__/**/*.(js|jsx|ts|tsx)', '**/*.(test|spec).(js|jsx|ts|tsx)'],
+};
 
-module.exports = createJestConfig(customJestConfig)
+export default createJestConfig(customJestConfig);
