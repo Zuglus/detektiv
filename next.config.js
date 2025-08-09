@@ -8,7 +8,6 @@ const nextConfig = {
     deviceSizes: [320, 375, 414, 768, 1024, 1200],
     imageSizes: [16, 32, 48, 64, 96, 128, 256],
   },
-  swcMinify: true,
   reactStrictMode: true,
   compress: true,
   poweredByHeader: false,
@@ -16,7 +15,6 @@ const nextConfig = {
   // Performance optimizations
   experimental: {
     optimizePackageImports: ['react-icons', 'lucide-react'],
-    swcMinify: true,
     cpus: 1, // Optimize for mobile builds
   },
   
