@@ -66,7 +66,13 @@ const icons = {
     </svg>
   ),
   refund: (
-    <svg fill="transparent" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" stroke-width="2" stroke="currentColor"><path d="M55.5,31a23.93,23.93,0,0,1-.41,5.44,23.51,23.51,0,0,1-42.37,9" strokeLinecap="round"/><path d="M8.49,32.6a23.26,23.26,0,0,1,.42-5A23.51,23.51,0,0,1,51.2,18.43" stroke-linecap="round"/><polyline points="40.63 17.46 51.48 18.73 52.56 8.55" stroke-linecap="round"/><polyline points="23.08 46.19 12.24 44.92 11.15 55.1" stroke-linecap="round"/>
+    <svg
+      fill="transparent"
+      viewBox="0 0 64 64"
+      xmlns="http://www.w3.org/2000/svg"
+      strokeWidth="2"
+      stroke="currentColor"
+    ><path d="M55.5,31a23.93,23.93,0,0,1-.41,5.44,23.51,23.51,0,0,1-42.37,9" strokeLinecap="round"/><path d="M8.49,32.6a23.26,23.26,0,0,1,.42-5A23.51,23.51,0,0,1,51.2,18.43" strokeLinecap="round"/><polyline points="40.63 17.46 51.48 18.73 52.56 8.55" strokeLinecap="round"/><polyline points="23.08 46.19 12.24 44.92 11.15 55.1" strokeLinecap="round"/>
 <rect x="19" y="25" width="26" height="14"/>
 <circle cx="32" cy="32" r="4"/>
 <path d="M24,26c0,2.2-1.8,4-4,4"/>
