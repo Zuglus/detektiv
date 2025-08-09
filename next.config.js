@@ -1,4 +1,4 @@
-import bundleAnalyzer from '@next/bundle-analyzer';
+// Bundle analyzer is optional; removed to avoid build-time dependency errors
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -93,17 +93,10 @@ const nextConfig = {
       };
     }
 
-    // Add bundle analyzer plugin for development
-    if (dev && process.env.ANALYZE === 'true') {
-      const BundleAnalyzerPlugin = bundleAnalyzer({
-        enabled: process.env.ANALYZE === 'true',
-      });
-      config.plugins.push(BundleAnalyzerPlugin);
-    }
+    // Note: bundle analyzer integration removed to keep build self-contained
 
     return config;
   },
 };
 
-export default nextConfig;
-
+module.exports = nextConfig;
