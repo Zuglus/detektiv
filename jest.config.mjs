@@ -1,8 +1,8 @@
-import nextJest from 'next/jest.js';
+import nextJest from 'next/jest.js'
 
 const createJestConfig = nextJest({
   dir: './',
-});
+})
 
 const customJestConfig = {
   setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
@@ -25,6 +25,7 @@ const customJestConfig = {
   ],
   coverageReporters: ['text', 'lcov', 'html'],
   testMatch: ['**/__tests__/**/*.(js|jsx|ts|tsx)', '**/*.(test|spec).(js|jsx|ts|tsx)'],
-};
+}
 
-export default createJestConfig(customJestConfig);
+export default createJestConfig(customJestConfig)
+

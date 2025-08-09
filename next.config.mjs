@@ -1,4 +1,9 @@
 // Bundle analyzer is optional; removed to avoid build-time dependency errors
+import path from 'path'
+import { fileURLToPath } from 'url'
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -27,6 +32,15 @@ const nextConfig = {
 
   // Webpack optimizations
   webpack: (config, { dev, isServer }) => {
+    // Offline build: stub next/font/google to avoid network fetch
+    if (process.env.OFFLINE_BUILD === '1') {
+      config.resolve = config.resolve || {}
+      config.resolve.alias = {
+        ...(config.resolve.alias || {}),
+        'next/font/google': path.resolve(__dirname, 'scripts/mocks/next-font-google.js'),
+      }
+    }
+
     // Production optimizations
     if (!dev && !isServer) {
       config.optimization.splitChunks = {
@@ -46,7 +60,7 @@ const nextConfig = {
             priority: 5,
           },
         },
-      };
+      }
 
       // Mobile-optimized performance settings
       config.performance = {
@@ -54,11 +68,11 @@ const nextConfig = {
         hints: 'warning',
         maxEntrypointSize: 250000, // Smaller for mobile
         maxAssetSize: 250000,
-      };
+      }
 
       // Tree shaking for mobile
-      config.optimization.usedExports = true;
-      config.optimization.sideEffects = false;
+      config.optimization.usedExports = true
+      config.optimization.sideEffects = false
 
       // Separate React for better caching
       config.optimization.splitChunks = {
@@ -90,13 +104,14 @@ const nextConfig = {
             maxSize: 20000,
           },
         },
-      };
+      }
     }
 
     // Note: bundle analyzer integration removed to keep build self-contained
 
-    return config;
+    return config
   },
-};
+}
 
-module.exports = nextConfig;
+export default nextConfig
+
