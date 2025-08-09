@@ -1,7 +1,6 @@
 import '@/app/globals.css';
 import { inter, playfairDisplay } from '@/app/fonts';
 import Body from '@/components/layout/body';
-import CommonHead from '@/components/layout/CommonHead';
 import { Props } from '@/components/utility/types';
 import metadataConfig from '@/data/metadata.json';
 
@@ -13,16 +12,24 @@ export const createMetadata = (lang: Lang) => {
     title: config.title,
     description: config.description,
     keywords: config.keywords,
+    icons: {
+      icon: '/favicon.ico',
+      apple: '/favicon.ico',
+    },
   };
 };
+
+export const createViewport = () => ({
+  width: 'device-width' as const,
+  initialScale: 1,
+  viewportFit: 'cover' as const,
+  themeColor: '#339955',
+});
 
 export const createRootLayout = (lang: Lang) => {
   return function RootLayout({ children }: Props) {
     return (
       <html lang={lang} className={`${inter.variable} ${playfairDisplay.variable}`}>
-        <head>
-          <CommonHead />
-        </head>
         <Body lang={lang} showHero={true}>
           {children}
         </Body>
@@ -30,4 +37,3 @@ export const createRootLayout = (lang: Lang) => {
     );
   };
 };
-
