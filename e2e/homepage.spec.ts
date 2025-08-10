@@ -13,7 +13,7 @@ test.describe('Homepage', () => {
   test('should display navigation menu', async ({ page }) => {
     await page.goto('/');
     
-    const nav = page.locator('nav');
+    const nav = page.getByRole('navigation', { name: /основная навигация|main navigation/i });
     await expect(nav).toBeVisible();
     
     // Check for common navigation items
@@ -59,7 +59,7 @@ test.describe('Homepage', () => {
     await expect(page.locator('main')).toBeVisible();
     
     // Check that mobile navigation is working
-    const nav = page.locator('nav');
+    const nav = page.getByRole('navigation', { name: /основная навигация|main navigation/i });
     await expect(nav).toBeVisible();
   });
 
@@ -125,7 +125,8 @@ test.describe('Homepage', () => {
   test('should load pricing page', async ({ page }) => {
     await page.goto('/');
     
-    const priceLink = page.getByRole('link', { name: /цены|price/i });
+    const priceLink = page.getByRole('link', { name: /прайс|цены|price/i });
+    await expect(priceLink).toBeVisible();
     await priceLink.click();
     
     await expect(page).toHaveURL(/price/);
