@@ -6,7 +6,7 @@ test.describe('Homepage', () => {
     
     await expect(page).toHaveTitle(/детектив/i);
     await expect(page.locator('header')).toBeVisible();
-    await expect(page.locator('main')).toBeVisible();
+    await expect(page.locator('main#main-content')).toBeVisible();
     await expect(page.locator('footer')).toBeVisible();
   });
 
@@ -56,7 +56,7 @@ test.describe('Homepage', () => {
     await page.goto('/');
     
     await expect(page.locator('header')).toBeVisible();
-    await expect(page.locator('main')).toBeVisible();
+    await expect(page.locator('main#main-content')).toBeVisible();
     
     // Check that mobile navigation is working
     const nav = page.getByRole('navigation', { name: /основная навигация|main navigation/i });
@@ -68,7 +68,7 @@ test.describe('Homepage', () => {
     
     // Check for proper semantic HTML
     await expect(page.locator('header')).toBeVisible();
-    await expect(page.locator('main')).toBeVisible();
+    await expect(page.locator('main#main-content')).toBeVisible();
     await expect(page.locator('footer')).toBeVisible();
     
     // Check for proper heading hierarchy
@@ -109,7 +109,7 @@ test.describe('Homepage', () => {
     await contactLink.click();
     
     await expect(page).toHaveURL(/kontakty|contact/);
-    await expect(page.locator('main')).toBeVisible();
+    await expect(page.locator('main#main-content')).toBeVisible();
   });
 
   test('should load about page', async ({ page }) => {
@@ -119,7 +119,7 @@ test.describe('Homepage', () => {
     await aboutLink.click();
     
     await expect(page).toHaveURL(/onas|about/);
-    await expect(page.locator('main')).toBeVisible();
+    await expect(page.locator('main#main-content')).toBeVisible();
   });
 
   test('should load pricing page', async ({ page }) => {
@@ -130,6 +130,6 @@ test.describe('Homepage', () => {
     await priceLink.click();
     
     await expect(page).toHaveURL(/price/);
-    await expect(page.locator('main')).toBeVisible();
+    await expect(page.locator('main#main-content')).toBeVisible();
   });
 });
