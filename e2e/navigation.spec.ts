@@ -162,16 +162,24 @@ test.describe('Navigation', () => {
     await page.goto('/onas');
     
     // Look for active navigation indicator within the primary navigation
-    const primaryNav = page.getByRole('navigation', { name: /основная навигация|main navigation/i });
-    const activeNav = primaryNav
-      .locator('a[aria-current="page"], a.active, a[class*="active"]').first();
-    
-    if (await activeNav.count() > 0) {
-      await expect(activeNav).toBeVisible();
-      
-      // Verify the active item corresponds to current page
-      const href = await activeNav.getAttribute('href');
-      expect(href).toMatch(/onas|about/);
+    const primaryNav = page.getByRole('navigation', {
+      name: /основная навигация|main navigation/i,
+    });
+    const activeNavItems = primaryNav.locator(
+      'a[aria-current="page"], a.active, a[class*="active"]'
+    );
+    const count = await activeNavItems.count();
+    expect(count).toBeGreaterThan(0);
+
+    let matched = false;
+    for (let i = 0; i < count; i++) {
+      const href = await activeNavItems.nth(i).getAttribute('href');
+      if (href && /onas|about/.test(href)) {
+        matched = true;
+        break;
+      }
     }
+
+    expect(matched).toBeTruthy();
   });
 });

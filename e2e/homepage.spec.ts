@@ -19,7 +19,7 @@ test.describe('Homepage', () => {
     // Check for common navigation items
     await expect(page.getByRole('link', { name: /главная|home/i })).toBeVisible();
     await expect(page.getByRole('link', { name: /о нас|about/i })).toBeVisible();
-    await expect(page.getByRole('link', { name: /цены|price/i })).toBeVisible();
+    await expect(page.getByRole('link', { name: /прайс|цены|price/i })).toBeVisible();
     await expect(page.getByRole('link', { name: /контакты|contact/i })).toBeVisible();
   });
 
@@ -27,7 +27,10 @@ test.describe('Homepage', () => {
     await page.goto('/');
     
     // Check if contact buttons are present and clickable
-    const contactSection = page.locator('section').filter({ hasText: /telegram|whatsapp|email/i });
+    const contactSection = page
+      .locator('section')
+      .filter({ hasText: /telegram|whatsapp|email/i })
+      .first();
     await expect(contactSection).toBeVisible();
     
     const telegramLink = page.getByRole('link', { name: /telegram/i });
@@ -43,7 +46,10 @@ test.describe('Homepage', () => {
     await page.goto('/');
     
     // Look for service cards section
-    const serviceSection = page.locator('section').filter({ hasText: /услуг|service/i });
+    const serviceSection = page
+      .locator('section')
+      .filter({ hasText: /услуг|service/i })
+      .first();
     await expect(serviceSection).toBeVisible();
     
     // Check that service cards are displayed
