@@ -65,7 +65,9 @@ test.describe('Navigation', () => {
     
     await expect(page).toHaveURL(/onas/);
     await expect(page.locator('main')).toBeVisible();
-    await expect(page.locator('nav')).toBeVisible();
+    await expect(
+      page.getByRole('navigation', { name: /основная навигация|main navigation/i })
+    ).toBeVisible();
   });
 
   test('should handle mobile navigation menu', async ({ page }) => {
@@ -159,8 +161,10 @@ test.describe('Navigation', () => {
   test('should show active navigation state', async ({ page }) => {
     await page.goto('/onas');
     
-    // Look for active navigation indicator
-    const activeNav = page.locator('nav a[aria-current="page"], nav a.active, nav a[class*="active"]').first();
+    // Look for active navigation indicator within the primary navigation
+    const primaryNav = page.getByRole('navigation', { name: /основная навигация|main navigation/i });
+    const activeNav = primaryNav
+      .locator('a[aria-current="page"], a.active, a[class*="active"]').first();
     
     if (await activeNav.count() > 0) {
       await expect(activeNav).toBeVisible();
