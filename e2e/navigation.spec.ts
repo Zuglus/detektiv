@@ -20,7 +20,7 @@ test.describe('Navigation', () => {
       if (await link.count() > 0) {
         await link.click();
         await expect(page).toHaveURL(pageInfo.url);
-        await expect(page.locator('main')).toBeVisible();
+        await expect(page.locator('main#main-content')).toBeVisible();
         
         // Go back to home
         const homeLink = page.getByRole('link', { name: /главная|home/i }).first();
@@ -64,7 +64,7 @@ test.describe('Navigation', () => {
     await page.reload();
     
     await expect(page).toHaveURL(/onas/);
-    await expect(page.locator('main')).toBeVisible();
+    await expect(page.locator('main#main-content')).toBeVisible();
     await expect(
       page.getByRole('navigation', { name: /основная навигация|main navigation/i })
     ).toBeVisible();
