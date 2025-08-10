@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+/* eslint-disable @typescript-eslint/no-require-imports */
 /**
  * Offline link validator for static export in `out/`.
  *
@@ -72,7 +73,7 @@ function resolveCandidates(currentHtmlRel, url) {
   let decoded = cleaned;
   try {
     decoded = decodeURIComponent(cleaned);
-  } catch (_) {
+  } catch {
     // ignore decoding errors; fall back to original
     decoded = cleaned;
   }
