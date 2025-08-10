@@ -20,7 +20,7 @@ test.describe('Navigation', () => {
       if (await link.count() > 0) {
         await link.click();
         await expect(page).toHaveURL(pageInfo.url);
-        await expect(page.locator('main')).toBeVisible();
+        await expect(page.locator('main#main-content')).toBeVisible();
         
         // Go back to home
         const homeLink = page.getByRole('link', { name: /главная|home/i }).first();
@@ -64,8 +64,11 @@ test.describe('Navigation', () => {
     await page.reload();
     
     await expect(page).toHaveURL(/onas/);
-    await expect(page.locator('main')).toBeVisible();
-    await expect(page.locator('nav')).toBeVisible();
+    await expect(page.locator('main#main-content')).toBeVisible();
+    const primaryNav = page.getByRole('navigation', {
+      name: /основная навигация|main navigation/i,
+    });
+    await expect(primaryNav).toBeVisible();
   });
 
   test('should handle mobile navigation menu', async ({ page }) => {
@@ -159,15 +162,25 @@ test.describe('Navigation', () => {
   test('should show active navigation state', async ({ page }) => {
     await page.goto('/onas');
     
-    // Look for active navigation indicator
-    const activeNav = page.locator('nav a[aria-current="page"], nav a.active, nav a[class*="active"]').first();
-    
-    if (await activeNav.count() > 0) {
-      await expect(activeNav).toBeVisible();
-      
-      // Verify the active item corresponds to current page
-      const href = await activeNav.getAttribute('href');
-      expect(href).toMatch(/onas|about/);
+    // Look for active navigation indicator within the primary navigation
+    const primaryNav = page.getByRole('navigation', {
+      name: /основная навигация|main navigation/i,
+    });
+    const activeNavItems = primaryNav.locator(
+      'a[aria-current="page"], a.active, a[class*="active"]'
+    );
+    const count = await activeNavItems.count();
+    expect(count).toBeGreaterThan(0);
+
+    let matched = false;
+    for (let i = 0; i < count; i++) {
+      const href = await activeNavItems.nth(i).getAttribute('href');
+      if (href && /onas|about/.test(href)) {
+        matched = true;
+        break;
+      }
     }
+
+    expect(matched).toBeTruthy();
   });
 });
