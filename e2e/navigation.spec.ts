@@ -65,9 +65,10 @@ test.describe('Navigation', () => {
     
     await expect(page).toHaveURL(/onas/);
     await expect(page.locator('main#main-content')).toBeVisible();
-    await expect(
-      page.getByRole('navigation', { name: /основная навигация|main navigation/i })
-    ).toBeVisible();
+    const primaryNav = page.getByRole('navigation', {
+      name: /основная навигация|main navigation/i,
+    });
+    await expect(primaryNav).toBeVisible();
   });
 
   test('should handle mobile navigation menu', async ({ page }) => {
