@@ -27,16 +27,17 @@ test.describe('Homepage', () => {
     await page.goto('/');
     
     // Check if contact buttons are present and clickable
-    const contactSection = page
-      .locator('section')
-      .filter({ hasText: /telegram|whatsapp|email/i })
-      .first();
-    await expect(contactSection).toBeVisible();
-    
-    const telegramLink = page.getByRole('link', { name: /telegram/i });
-    const whatsappLink = page.getByRole('link', { name: /whatsapp/i });
-    const emailLink = page.getByRole('link', { name: /email/i });
-    
+    const contactNav = page.getByRole('navigation', {
+      name: /ссылки для связи|contact links/i,
+    });
+    await expect(contactNav).toBeVisible();
+
+    const telegramLink = contactNav.getByRole('link', { name: /telegram/i }).first();
+    const whatsappLink = contactNav.getByRole('link', { name: /whatsapp/i }).first();
+    const emailLink = contactNav.getByRole('link', {
+      name: /email|e-mail|почта|mail/i,
+    }).first();
+
     await expect(telegramLink).toBeVisible();
     await expect(whatsappLink).toBeVisible();
     await expect(emailLink).toBeVisible();
