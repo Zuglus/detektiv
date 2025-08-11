@@ -85,19 +85,19 @@ function getTranslatedUrl(type: RouteType, params: Record<string, string>): Tran
           : { link: '/stati', flag: false };
       }
       
-    case 'standard':
+    case 'standard': {
       const routeId = Number(params.id);
       if (isCurrentRu) {
         return {
           link: getRoutes('en', routeId)[0]?.href || '/en',
-          flag: true
-        };
-      } else {
-        return {
-          link: getRoutes('ru', routeId)[0]?.href || '/',
-          flag: false
+          flag: true,
         };
       }
+      return {
+        link: getRoutes('ru', routeId)[0]?.href || '/',
+        flag: false,
+      };
+    }
       
     default:
       return { link: targetLang === 'en' ? '/en' : '/', flag: !isCurrentRu };

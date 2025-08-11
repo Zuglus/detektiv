@@ -19,7 +19,14 @@ jest.mock('../about/contentAbout', () => ({
 
 jest.mock('../blog/contentBlog', () => ({
   __esModule: true,
-  default: ({ lang, posts, totalPages, currentPage }: any) => <div data-testid="lazy-blog">Blog Content {lang}</div>,
+  default: (
+    props: {
+      lang: string;
+      posts: unknown[];
+      totalPages: number;
+      currentPage: number;
+    },
+  ) => <div data-testid="lazy-blog">Blog Content {props.lang}</div>,
 }));
 
 jest.mock('../contact/contentContact', () => ({
