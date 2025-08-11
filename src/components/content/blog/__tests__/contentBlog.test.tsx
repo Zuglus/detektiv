@@ -12,6 +12,8 @@ const mockPosts = [
     excerpt: 'Test excerpt',
     content: 'Test content',
     shortDescription: 'Test short description',
+    previous: null,
+    next: null,
   },
 ];
 

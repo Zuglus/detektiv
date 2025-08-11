@@ -24,6 +24,7 @@ jest.mock('@/components/utility/getPosts', () => ({
       title: 'Test Post',
       date: '2024-01-01',
       content: 'Test content',
+      shortDescription: 'Test short description',
     },
   ])),
 }));
@@ -33,6 +34,7 @@ const mockPost = {
   title: 'Test Post',
   date: '2024-01-01',
   content: 'Test content',
+  shortDescription: 'Test short description',
   previous: null,
   next: null,
 };

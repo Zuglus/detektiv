@@ -13,11 +13,11 @@ jest.mock('next/link', () => {
 
 describe('ContentContact', () => {
   it('should render without crashing', () => {
-    render(<ContentContact />);
+    render(<ContentContact lang="ru" />);
   });
 
   it('should display contact information', () => {
-    render(<ContentContact />);
+    render(<ContentContact lang="ru" />);
     
     // Check for actual content rendered by the component
     expect(screen.getByText('+7 (915) 001-00-25')).toBeInTheDocument();
@@ -25,7 +25,7 @@ describe('ContentContact', () => {
   });
 
   it('should have contact links', () => {
-    render(<ContentContact />);
+    render(<ContentContact lang="ru" />);
     
     expect(screen.getByLabelText('Позвонить по экстренному номеру +7 (915) 001-00-25')).toBeInTheDocument();
     expect(screen.getByLabelText('Отправить email на detectivegroznyi@gmail.com')).toBeInTheDocument();
@@ -34,7 +34,7 @@ describe('ContentContact', () => {
   });
 
   it('should have proper structure', () => {
-    render(<ContentContact />);
+    render(<ContentContact lang="ru" />);
     
     // Check for basic structure elements
     expect(screen.getByRole('heading', { level: 1 })).toBeInTheDocument();
