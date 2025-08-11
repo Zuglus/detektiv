@@ -19,13 +19,17 @@
     "test:all": "npm run test && npm run test:e2e",
     "sync-translations": "node scripts/generate-translations.js"
   },
-  "dependencies": {
+  "dependencies": {},
+  "description": "Сайт детектива Грозного",
+
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
     "@tailwindcss/typography": "^0.5.16",
     "@types/node": "^24.1.0",
     "@types/react": "^19.1.9",
     "@types/react-dom": "^19.1.7",
     "autoprefixer": "^10.4.21",
-    "cross-env": "^7.0.3",
     "eslint": "^9.32.0",
     "eslint-config-next": "^15.4.5",
     "gray-matter": "^4.0.3",
@@ -37,13 +41,7 @@
     "react-icons": "^5.5.0",
     "sharp": "^0.34.3",
     "tailwindcss": "^3.4.17",
-    "typescript": "~5.8.2"
-  },
-  "description": "Сайт детектива Право",
-  "main": "next.config.mjs",
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
+    "typescript": "~5.8.2",
     "@eslint/eslintrc": "^3.3.1",
     "@eslint/js": "^9.32.0",
     "@playwright/test": "^1.54.2",
@@ -51,7 +49,6 @@
     "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^14.6.1",
     "@types/jest": "^30.0.0",
-    "csvtojson": "^2.0.10",
     "jest": "^30.0.5",
     "jest-environment-jsdom": "^30.0.5"
   }
