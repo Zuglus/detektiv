@@ -1,0 +1,46 @@
+name: CI
+
+on:
+  pull_request:
+
+jobs:
+  build_and_validate:
+    runs-on: ubuntu-latest
+    env:
+      # Default domain; override via repository variable SITE_URL if needed
+      SITE_URL: https://право18.рф
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build (Next export)
+        run: npm run build
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Unit tests
+        run: npm test -- --ci --reporters=default
+
+      - name: Offline link validation
+        run: node scripts/offline-validate.js
+
+      - name: Ensure sitemap and robots exist
+        run: |
+          test -f out/sitemap.xml && echo 'sitemap.xml ok'
+          test -f out/robots.txt && echo 'robots.txt ok'
+
+      - name: Install Playwright (Chromium only)
+        run: npx playwright install --with-deps chromium
+
+      - name: E2E smoke on static export (Chromium)
+        run: npx playwright test --config e2e-export.config.ts --project=chromium

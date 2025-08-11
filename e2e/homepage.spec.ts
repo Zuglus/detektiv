@@ -6,20 +6,20 @@ test.describe('Homepage', () => {
     
     await expect(page).toHaveTitle(/детектив/i);
     await expect(page.locator('header')).toBeVisible();
-    await expect(page.locator('main')).toBeVisible();
+    await expect(page.locator('main#main-content')).toBeVisible();
     await expect(page.locator('footer')).toBeVisible();
   });
 
   test('should display navigation menu', async ({ page }) => {
     await page.goto('/');
     
-    const nav = page.locator('nav');
+    const nav = page.getByRole('navigation', { name: /основная навигация|main navigation/i });
     await expect(nav).toBeVisible();
     
     // Check for common navigation items
     await expect(page.getByRole('link', { name: /главная|home/i })).toBeVisible();
     await expect(page.getByRole('link', { name: /о нас|about/i })).toBeVisible();
-    await expect(page.getByRole('link', { name: /цены|price/i })).toBeVisible();
+    await expect(page.getByRole('link', { name: /прайс|цены|price/i })).toBeVisible();
     await expect(page.getByRole('link', { name: /контакты|contact/i })).toBeVisible();
   });
 
@@ -27,13 +27,17 @@ test.describe('Homepage', () => {
     await page.goto('/');
     
     // Check if contact buttons are present and clickable
-    const contactSection = page.locator('section').filter({ hasText: /telegram|whatsapp|email/i });
-    await expect(contactSection).toBeVisible();
-    
-    const telegramLink = page.getByRole('link', { name: /telegram/i });
-    const whatsappLink = page.getByRole('link', { name: /whatsapp/i });
-    const emailLink = page.getByRole('link', { name: /email/i });
-    
+    const contactNav = page.getByRole('navigation', {
+      name: /ссылки для связи|contact links/i,
+    });
+    await expect(contactNav).toBeVisible();
+
+    const telegramLink = contactNav.getByRole('link', { name: /telegram/i }).first();
+    const whatsappLink = contactNav.getByRole('link', { name: /whatsapp/i }).first();
+    const emailLink = contactNav.getByRole('link', {
+      name: /email|e-mail|почта|mail/i,
+    }).first();
+
     await expect(telegramLink).toBeVisible();
     await expect(whatsappLink).toBeVisible();
     await expect(emailLink).toBeVisible();
@@ -43,7 +47,10 @@ test.describe('Homepage', () => {
     await page.goto('/');
     
     // Look for service cards section
-    const serviceSection = page.locator('section').filter({ hasText: /услуг|service/i });
+    const serviceSection = page
+      .locator('section')
+      .filter({ hasText: /услуг|service/i })
+      .first();
     await expect(serviceSection).toBeVisible();
     
     // Check that service cards are displayed
@@ -56,10 +63,10 @@ test.describe('Homepage', () => {
     await page.goto('/');
     
     await expect(page.locator('header')).toBeVisible();
-    await expect(page.locator('main')).toBeVisible();
+    await expect(page.locator('main#main-content')).toBeVisible();
     
     // Check that mobile navigation is working
-    const nav = page.locator('nav');
+    const nav = page.getByRole('navigation', { name: /основная навигация|main navigation/i });
     await expect(nav).toBeVisible();
   });
 
@@ -68,7 +75,7 @@ test.describe('Homepage', () => {
     
     // Check for proper semantic HTML
     await expect(page.locator('header')).toBeVisible();
-    await expect(page.locator('main')).toBeVisible();
+    await expect(page.locator('main#main-content')).toBeVisible();
     await expect(page.locator('footer')).toBeVisible();
     
     // Check for proper heading hierarchy
@@ -109,7 +116,7 @@ test.describe('Homepage', () => {
     await contactLink.click();
     
     await expect(page).toHaveURL(/kontakty|contact/);
-    await expect(page.locator('main')).toBeVisible();
+    await expect(page.locator('main#main-content')).toBeVisible();
   });
 
   test('should load about page', async ({ page }) => {
@@ -119,16 +126,17 @@ test.describe('Homepage', () => {
     await aboutLink.click();
     
     await expect(page).toHaveURL(/onas|about/);
-    await expect(page.locator('main')).toBeVisible();
+    await expect(page.locator('main#main-content')).toBeVisible();
   });
 
   test('should load pricing page', async ({ page }) => {
     await page.goto('/');
     
-    const priceLink = page.getByRole('link', { name: /цены|price/i });
+    const priceLink = page.getByRole('link', { name: /прайс|цены|price/i });
+    await expect(priceLink).toBeVisible();
     await priceLink.click();
     
     await expect(page).toHaveURL(/price/);
-    await expect(page.locator('main')).toBeVisible();
+    await expect(page.locator('main#main-content')).toBeVisible();
   });
 });

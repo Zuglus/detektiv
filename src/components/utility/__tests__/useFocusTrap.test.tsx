@@ -218,13 +218,13 @@ describe('useFocusTrap', () => {
       const mockButton = createMockElement('button');
       const mockContainer = createMockElement('div');
       
-      // @ts-ignore - setting current for test
+      // @ts-expect-error - setting current for test
       initialFocusRef.current = mockInitialElement;
       
       mockContainer.querySelectorAll.mockReturnValue([mockButton]);
       mockGetElementById.mockReturnValue(mockContainer);
       
-      renderHook(() => useFocusTrap(true, { initialFocusRef: initialFocusRef as any }));
+      renderHook(() => useFocusTrap(true, { initialFocusRef }));
       
       setTimeout(() => {
         expect(mockInitialElement.focus).toHaveBeenCalled();

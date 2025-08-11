@@ -3,7 +3,17 @@ import UnifiedButton, { PrimaryButton, SecondaryButton, OutlineButton, GhostButt
 
 // Mock Next.js Link component
 jest.mock('next/link', () => {
-  return function MockLink({ children, href, className, ...props }: any) {
+  return function MockLink({
+    children,
+    href,
+    className,
+    ...props
+  }: {
+    children: React.ReactNode;
+    href: string;
+    className?: string;
+    [key: string]: unknown;
+  }) {
     return (
       <a href={href} className={className} {...props}>
         {children}
