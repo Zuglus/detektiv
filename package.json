@@ -4,10 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild": "node scripts/generate-translations.js",
-    "build": "next build",
-    "build:offline": "OFFLINE_BUILD=1 next build",
-    "postbuild": "node scripts/generate-sitemap.mjs",
+    "build": "node scripts/generate-translations.js && OFFLINE_BUILD=1 next build && node scripts/generate-sitemap.mjs",
     "start": "npx serve@latest out",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
