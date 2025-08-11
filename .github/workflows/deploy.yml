@@ -30,7 +30,7 @@ jobs:
         run: node scripts/offline-validate.js
 
       - name: Deploy to Jino via FTP (clean)
-        uses: SamKirkland/FTP-Deploy-Action@v4
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
