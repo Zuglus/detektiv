@@ -21,7 +21,6 @@ const nextConfig = {
 
   // Performance optimizations
   experimental: {
-    optimizePackageImports: ['react-icons', 'lucide-react'],
     cpus: 1, // Optimize for mobile builds
   },
 
@@ -114,4 +113,3 @@ const nextConfig = {
 }
 
 export default nextConfig
-

@@ -11,6 +11,7 @@ const eslintConfig = [
   {
     rules: {
       'react/display-name': 'off',
+      'react/jsx-no-target-blank': 'warn',
       '@next/next/no-img-element': 'error',
       '@next/next/no-html-link-for-pages': 'error',
     },
@@ -47,9 +48,21 @@ const eslintConfig = [
     },
   },
   {
-    ignores: ['.next/**', 'out/**', 'node_modules/**', 'coverage/**'],
+    ignores: [
+      '.next/**',
+      'out/**',
+      'node_modules/**',
+      'coverage/**',
+      // E2E artifacts and reports
+      'playwright-report/**',
+      'test-results/**',
+      'blob-report/**',
+      'playwright/.cache/**',
+      // Misc build/cache folders
+      '.swc/**',
+      '.vercel/**',
+    ],
   },
 ]
 
 export default eslintConfig
-

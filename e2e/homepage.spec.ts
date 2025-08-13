@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import { ensurePrimaryNav, clickNavLink } from './utils/nav';
 
 test.describe('Homepage', () => {
   test('should load homepage successfully', async ({ page }) => {
@@ -13,14 +14,14 @@ test.describe('Homepage', () => {
   test('should display navigation menu', async ({ page }) => {
     await page.goto('/');
     
-    const nav = page.getByRole('navigation', { name: /основная навигация|main navigation/i });
+    const nav = await ensurePrimaryNav(page);
     await expect(nav).toBeVisible();
-    
-    // Check for common navigation items
-    await expect(page.getByRole('link', { name: /главная|home/i })).toBeVisible();
-    await expect(page.getByRole('link', { name: /о нас|about/i })).toBeVisible();
-    await expect(page.getByRole('link', { name: /прайс|цены|price/i })).toBeVisible();
-    await expect(page.getByRole('link', { name: /контакты|contact/i })).toBeVisible();
+
+    // Check for common navigation items scoped to the primary nav
+    await expect(nav.getByRole('link', { name: /главная|home/i }).first()).toBeVisible();
+    await expect(nav.getByRole('link', { name: /о нас|about/i }).first()).toBeVisible();
+    await expect(nav.getByRole('link', { name: /прайс|цены|price/i }).first()).toBeVisible();
+    await expect(nav.getByRole('link', { name: /контакты|contact/i }).first()).toBeVisible();
   });
 
   test('should have working contact links', async ({ page }) => {
@@ -66,7 +67,7 @@ test.describe('Homepage', () => {
     await expect(page.locator('main#main-content')).toBeVisible();
     
     // Check that mobile navigation is working
-    const nav = page.getByRole('navigation', { name: /основная навигация|main navigation/i });
+    const nav = await ensurePrimaryNav(page);
     await expect(nav).toBeVisible();
   });
 
@@ -111,32 +112,19 @@ test.describe('Homepage', () => {
 
   test('should load contact page', async ({ page }) => {
     await page.goto('/');
-    
-    const contactLink = page.getByRole('link', { name: /контакты|contact/i });
-    await contactLink.click();
-    
-    await expect(page).toHaveURL(/kontakty|contact/);
+    await clickNavLink(page, { name: /контакты|contact/i, url: /kontakty|contact/ });
     await expect(page.locator('main#main-content')).toBeVisible();
   });
 
   test('should load about page', async ({ page }) => {
     await page.goto('/');
-    
-    const aboutLink = page.getByRole('link', { name: /о нас|about/i });
-    await aboutLink.click();
-    
-    await expect(page).toHaveURL(/onas|about/);
+    await clickNavLink(page, { name: /о нас|about/i, url: /onas|about/ });
     await expect(page.locator('main#main-content')).toBeVisible();
   });
 
   test('should load pricing page', async ({ page }) => {
     await page.goto('/');
-    
-    const priceLink = page.getByRole('link', { name: /прайс|цены|price/i });
-    await expect(priceLink).toBeVisible();
-    await priceLink.click();
-    
-    await expect(page).toHaveURL(/price/);
+    await clickNavLink(page, { name: /прайс|цены|price/i, url: /price/ });
     await expect(page.locator('main#main-content')).toBeVisible();
   });
 });
