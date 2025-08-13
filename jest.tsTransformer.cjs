@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 const ts = require('typescript')
 
 function process(src, filename) {
@@ -20,4 +21,3 @@ function process(src, filename) {
 }
 
 module.exports = { process }
-

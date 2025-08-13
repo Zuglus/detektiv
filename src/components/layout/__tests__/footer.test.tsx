@@ -1,12 +1,13 @@
 import { render, screen, fireEvent } from '@testing-library/react'
-import Footer from '../footer/footer'
 
-// Mock SocialIconsFooter component
+// Mock SocialIconsFooter component before importing Footer
 jest.mock('@/components/ui/socialIconsFooter', () => {
   return function MockSocialIconsFooter() {
     return <div data-testid="social-icons-footer">Social Icons</div>
   }
 })
+
+import Footer from '../footer/footer'
 
 // Mock footer.json data
 jest.mock('@/components/layout/footer/footer.json', () => ({

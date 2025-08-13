@@ -1,5 +1,4 @@
 import { render, screen } from '@testing-library/react'
-import ContentMain from '../main/contentMain'
 
 // Mock child components
 jest.mock('@/components/ui/UnifiedCard', () => {
@@ -202,6 +201,8 @@ jest.mock('@/data/contacts.json', () => ({
   phone: { name: '+7 (915) 001-00-25', link: 'tel:+79150010025' },
   site: 'https://право18.рф'
 }), { virtual: true })
+
+import ContentMain from '../main/contentMain'
 
 describe('ContentMain', () => {
   it('renders main content for Russian language', () => {

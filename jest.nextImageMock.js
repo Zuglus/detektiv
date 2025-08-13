@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 const React = require('react')
 
 function NextImage(props) {
@@ -6,4 +7,3 @@ function NextImage(props) {
 }
 
 module.exports = NextImage
-
