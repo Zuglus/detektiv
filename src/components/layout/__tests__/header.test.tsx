@@ -1,7 +1,6 @@
 import { render, screen } from '@testing-library/react'
-import Header from '../header/header'
 
-// Mock the child components
+// Mock the child components before importing Header
 jest.mock('../nav', () => {
   return function MockNav({ lang }: { lang: string }) {
     return <nav data-testid="nav" data-lang={lang}>Nav Component</nav>
@@ -13,6 +12,8 @@ jest.mock('../header/heroSection', () => {
     return <section data-testid="hero" data-lang={lang}>Hero Section</section>
   }
 })
+
+import Header from '../header/header'
 
 describe('Header', () => {
   const defaultProps = {

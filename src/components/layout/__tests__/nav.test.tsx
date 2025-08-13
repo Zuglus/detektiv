@@ -23,6 +23,15 @@ jest.mock('@/components/utility/getRoutes/getRoutes', () => {
     { name: 'Контакты', href: '/kontakty' }
   ])
 })
+// Also mock the relative import path used inside Nav
+jest.mock('../../utility/getRoutes/getRoutes', () => {
+  return jest.fn(() => [
+    { name: 'Главная', href: '/' },
+    { name: 'О нас', href: '/onas' },
+    { name: 'Цены', href: '/price' },
+    { name: 'Контакты', href: '/kontakty' }
+  ])
+})
 
 // Mock window scroll events
 const mockAddEventListener = jest.fn()

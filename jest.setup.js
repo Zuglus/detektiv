@@ -1,4 +1,4 @@
-import '@testing-library/jest-dom'
+require('@testing-library/jest-dom')
 
 // Mock IntersectionObserver
 global.IntersectionObserver = class IntersectionObserver {
@@ -46,7 +46,10 @@ jest.mock('next/router', () => ({
   },
 }))
 
-// Mock next/navigation
+// Mock next/navigation with jest.fn to allow per-test overrides
+const mockUsePathname = jest.fn(() => '/')
+const mockUseSearchParams = jest.fn(() => new URLSearchParams())
+
 jest.mock('next/navigation', () => ({
   useRouter() {
     return {
@@ -58,10 +61,9 @@ jest.mock('next/navigation', () => ({
       refresh: jest.fn(),
     }
   },
-  usePathname() {
-    return '/'
-  },
-  useSearchParams() {
-    return new URLSearchParams()
-  },
+  usePathname: mockUsePathname,
+  useSearchParams: mockUseSearchParams,
 }))
+
+// Expose mocks for tests that want to tweak return values
+global.__JEST_NEXT_NAVIGATION_MOCKS__ = { mockUsePathname, mockUseSearchParams }

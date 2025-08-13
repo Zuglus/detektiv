@@ -1,13 +1,12 @@
-import { render, screen } from '@testing-library/react'
-import ContentAbout from '../about/contentAbout'
-
-// Mock ScrollReveal component
+// Mock ScrollReveal component first so it applies without hoisting
 jest.mock('@/components/utility/scrollReveal', () => {
   return function MockScrollReveal({ children }: { children: React.ReactNode }) {
     return <div data-testid="scroll-reveal">{children}</div>
   }
 })
 
+import { render, screen } from '@testing-library/react'
+import ContentAbout from '../about/contentAbout'
 // We'll use the real aboutData.json since mocking doesn't seem to work properly
 // The component will use the actual data from the file
 
