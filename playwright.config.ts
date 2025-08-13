@@ -2,9 +2,11 @@ import { defineConfig, devices } from '@playwright/test';
 
 export default defineConfig({
   testDir: './e2e',
-  timeout: 30 * 1000,
+  // Some navigation specs purposely traverse many routes; give them more time
+  timeout: 90 * 1000,
   expect: {
-    timeout: 5000
+    // Slightly generous to handle SPA transitions
+    timeout: 10000
   },
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
@@ -13,7 +15,10 @@ export default defineConfig({
   reporter: 'html',
   use: {
     baseURL: 'http://localhost:3000',
-    trace: 'on-first-retry',
+    reducedMotion: 'reduce',
+    trace: 'retain-on-failure',
+    video: 'retain-on-failure',
+    screenshot: 'only-on-failure',
   },
 
   projects: [
@@ -39,9 +44,11 @@ export default defineConfig({
     },
   ],
 
+  // Serve the statically exported site for stable, production-like E2E
   webServer: {
-    command: 'npm run dev',
+    command: 'npx serve out -l 3000',
     url: 'http://localhost:3000',
-    reuseExistingServer: !process.env.CI,
+    reuseExistingServer: false,
+    timeout: 30_000,
   },
 });

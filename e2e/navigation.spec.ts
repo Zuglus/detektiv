@@ -1,36 +1,36 @@
 import { test, expect } from '@playwright/test';
+import { clickNavLink, ensurePrimaryNav } from './utils/nav';
 
 test.describe('Navigation', () => {
-  test('should navigate between all main pages', async ({ page }) => {
+  test('should navigate between main pages (set 1)', async ({ page }) => {
     await page.goto('/');
-    
-    // Test navigation to each main page
-    const pages = [
+
+    const pagesPart1 = [
       { name: /о нас|about/i, url: /onas|about/ },
       { name: /цены|price/i, url: /price/ },
       { name: /контакты|contact/i, url: /kontakty|contact/ },
+    ];
+
+    for (const pageInfo of pagesPart1) {
+      await clickNavLink(page, { name: pageInfo.name, url: pageInfo.url });
+      await expect(page.locator('main#main-content')).toBeVisible();
+      await page.goto('/');
+    }
+  });
+
+  test('should navigate between main pages (set 2)', async ({ page }) => {
+    await page.goto('/');
+
+    const pagesPart2 = [
       { name: /статьи|blog/i, url: /stati|blog/ },
       { name: /вакансии|job/i, url: /vakansii|job/ },
-      { name: /гарантии|guarantee/i, url: /garantii|guarantee/ }
+      { name: /гарантии|guarantee/i, url: /garantii|guarantee/ },
     ];
-    
-    for (const pageInfo of pages) {
-      const link = page.getByRole('link', { name: pageInfo.name }).first();
-      
-      if (await link.count() > 0) {
-        await link.click();
-        await expect(page).toHaveURL(pageInfo.url);
-        await expect(page.locator('main#main-content')).toBeVisible();
-        
-        // Go back to home
-        const homeLink = page.getByRole('link', { name: /главная|home/i }).first();
-        if (await homeLink.count() > 0) {
-          await homeLink.click();
-          await expect(page).toHaveURL(/^\/$|\/$/);
-        } else {
-          await page.goto('/');
-        }
-      }
+
+    for (const pageInfo of pagesPart2) {
+      await clickNavLink(page, { name: pageInfo.name, url: pageInfo.url });
+      await expect(page.locator('main#main-content')).toBeVisible();
+      await page.goto('/');
     }
   });
 
@@ -76,52 +76,22 @@ test.describe('Navigation', () => {
     await page.goto('/');
     
     // Look for mobile menu button (hamburger menu)
-    const mobileMenuButton = page.locator('button').filter({ 
-      hasText: /menu|меню|☰|≡/ 
-    }).or(page.locator('[aria-label*="menu"]')).first();
-    
-    if (await mobileMenuButton.count() > 0) {
-      await mobileMenuButton.click();
-      
-      // Check that mobile menu opens
-      const mobileMenu = page.locator('[role="menu"], .mobile-menu, [data-testid="mobile-menu"]');
-      if (await mobileMenu.count() > 0) {
-        await expect(mobileMenu).toBeVisible();
-        
-        // Test navigation from mobile menu
-        const aboutLink = mobileMenu.getByRole('link', { name: /о нас|about/i });
-        if (await aboutLink.count() > 0) {
-          await aboutLink.click();
-          await expect(page).toHaveURL(/onas|about/);
-        }
-      }
-    }
+    const nav = await ensurePrimaryNav(page);
+    await expect(nav).toBeVisible();
+    await clickNavLink(page, { name: /о нас|about/i, url: /onas|about/ });
   });
 
   test('should handle back and forward browser navigation', async ({ page }) => {
     await page.goto('/');
     
-    // Navigate to about page
-    const aboutLink = page.getByRole('link', { name: /о нас|about/i });
-    if (await aboutLink.count() > 0) {
-      await aboutLink.click();
-      await expect(page).toHaveURL(/onas|about/);
-      
-      // Navigate to contact page
-      const contactLink = page.getByRole('link', { name: /контакты|contact/i });
-      if (await contactLink.count() > 0) {
-        await contactLink.click();
-        await expect(page).toHaveURL(/kontakty|contact/);
-        
-        // Use browser back button
-        await page.goBack();
-        await expect(page).toHaveURL(/onas|about/);
-        
-        // Use browser forward button
-        await page.goForward();
-        await expect(page).toHaveURL(/kontakty|contact/);
-      }
-    }
+    await clickNavLink(page, { name: /о нас|about/i, url: /onas|about/ });
+    await clickNavLink(page, { name: /контакты|contact/i, url: /kontakty|contact/ });
+    
+    // Use browser back and forward
+    await page.goBack();
+    await expect(page).toHaveURL(/onas|about/);
+    await page.goForward();
+    await expect(page).toHaveURL(/kontakty|contact/);
   });
 
   test('should handle keyboard navigation', async ({ page }) => {
@@ -162,25 +132,10 @@ test.describe('Navigation', () => {
   test('should show active navigation state', async ({ page }) => {
     await page.goto('/onas');
     
-    // Look for active navigation indicator within the primary navigation
-    const primaryNav = page.getByRole('navigation', {
-      name: /основная навигация|main navigation/i,
-    });
-    const activeNavItems = primaryNav.locator(
-      'a[aria-current="page"], a.active, a[class*="active"]'
-    );
-    const count = await activeNavItems.count();
-    expect(count).toBeGreaterThan(0);
-
-    let matched = false;
-    for (let i = 0; i < count; i++) {
-      const href = await activeNavItems.nth(i).getAttribute('href');
-      if (href && /onas|about/.test(href)) {
-        matched = true;
-        break;
-      }
-    }
-
-    expect(matched).toBeTruthy();
+    // Активный пункт в основной навигации должен указывать на "О нас"
+    const primaryNav = page.getByRole('navigation', { name: /основная навигация|main navigation/i });
+    await expect(primaryNav).toBeVisible();
+    const aboutLink = primaryNav.getByRole('link', { name: /о нас|about/i }).first();
+    await expect(aboutLink).toHaveAttribute('aria-current', 'page');
   });
 });
