@@ -46,7 +46,7 @@ export default defineConfig({
 
   // Serve the statically exported site for stable, production-like E2E
   webServer: {
-    command: 'npx serve out -l 3000',
+    command: 'node scripts/static-serve.cjs -d out -p 3000',
     url: 'http://localhost:3000',
     reuseExistingServer: false,
     timeout: 30_000,
