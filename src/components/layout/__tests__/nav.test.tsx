@@ -1,13 +1,7 @@
-import { render, screen, fireEvent } from '@testing-library/react'
-import { usePathname } from 'next/navigation'
-import Nav from '../nav'
-
-// Mock Next.js hooks
+// Mock modules before importing the module under test
 jest.mock('next/navigation', () => ({
-  usePathname: jest.fn()
+  usePathname: jest.fn(),
 }))
-
-// Mock ButtonTranslate component
 jest.mock('@/components/ui/buttonTranslate', () => {
   return function MockButtonTranslate({ url }: { url: string }) {
     return <div data-testid="button-translate">Language Toggle: {url}</div>
@@ -32,6 +26,10 @@ jest.mock('../../utility/getRoutes/getRoutes', () => {
     { name: 'Контакты', href: '/kontakty' }
   ])
 })
+
+import { render, screen, fireEvent } from '@testing-library/react'
+import { usePathname } from 'next/navigation'
+import Nav from '../nav'
 
 // Mock window scroll events
 const mockAddEventListener = jest.fn()

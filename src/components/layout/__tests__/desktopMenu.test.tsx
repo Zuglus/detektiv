@@ -1,11 +1,12 @@
-import { render, screen } from '@testing-library/react'
-import DesktopMenu from '../DesktopMenu'
-
+// Mock before importing DesktopMenu
 jest.mock('@/components/ui/buttonTranslate', () => {
   return function MockButtonTranslate({ url }: { url: string }) {
     return <div data-testid="button-translate">Language Toggle: {url}</div>
   }
 })
+
+import { render, screen } from '@testing-library/react'
+import DesktopMenu from '../DesktopMenu'
 
 const routes = [
   { name: 'Главная', href: '/' },
@@ -34,4 +35,3 @@ describe('DesktopMenu', () => {
     expect(screen.getByTestId('button-translate')).toBeInTheDocument()
   })
 })
-

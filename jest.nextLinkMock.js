@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 const React = require('react')
 
 const NextLink = React.forwardRef(function NextLink({ href, children, ...rest }, ref) {
@@ -6,4 +7,3 @@ const NextLink = React.forwardRef(function NextLink({ href, children, ...rest },
 })
 
 module.exports = NextLink
-

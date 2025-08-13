@@ -1,8 +1,4 @@
-import { render, screen } from '@testing-library/react'
-import ButtonTranslate from '../buttonTranslate'
-import translateUrl from '@/components/utility/translateUrl'
-
-// Mock translateUrl utility
+// Mock translateUrl utility before imports so the mock is applied
 jest.mock('@/components/utility/translateUrl', () => ({
   __esModule: true,
   default: jest.fn()
@@ -32,7 +28,10 @@ jest.mock('next/link', () => {
     )
   }
 })
-const mockTranslateUrl = translateUrl as jest.MockedFunction<typeof translateUrl>
+import { render, screen } from '@testing-library/react'
+import translateUrl from '@/components/utility/translateUrl'
+import ButtonTranslate from '../buttonTranslate'
+const mockTranslateUrl = translateUrl as unknown as jest.MockedFunction<typeof translateUrl>
 
 describe('ButtonTranslate', () => {
   beforeEach(() => {

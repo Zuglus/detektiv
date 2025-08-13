@@ -1,4 +1,4 @@
-export default {
+const config = {
   setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
   testEnvironment: 'jsdom',
   testMatch: ['**/__tests__/**/*.test.(ts|tsx|js|jsx)', '**/*.(test|spec).(ts|tsx|js|jsx)'],
@@ -27,3 +27,4 @@ export default {
   ],
   coverageReporters: ['text', 'lcov', 'html'],
 }
+export default config
