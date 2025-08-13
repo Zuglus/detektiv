@@ -1,9 +1,7 @@
 /**
  * @jest-environment jsdom
  */
-import { Inter, Playfair_Display } from 'next/font/google';
-
-// Mock next/font/google
+// Mock next/font/google before importing
 jest.mock('next/font/google', () => ({
   Inter: jest.fn(() => ({
     className: 'mock-inter-class',
@@ -14,6 +12,8 @@ jest.mock('next/font/google', () => ({
     variable: '--font-playfair',
   })),
 }));
+
+import { Inter, Playfair_Display } from 'next/font/google';
 
 describe('Font Configuration', () => {
   it('should export Inter font', () => {

@@ -1,3 +1,10 @@
+// Mock CSS and fonts to avoid non-JS imports
+jest.mock('@/app/globals.css', () => ({}), { virtual: true })
+jest.mock('next/font/google', () => ({
+  Inter: () => ({ className: 'mock-inter', variable: '--font-inter' }),
+  Playfair_Display: () => ({ className: 'mock-playfair', variable: '--font-playfair' }),
+}))
+
 import { createMetadata, createViewport } from '../createRootLayout'
 
 describe('createMetadata', () => {

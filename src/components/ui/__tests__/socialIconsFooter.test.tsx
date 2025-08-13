@@ -1,25 +1,13 @@
+// Mock the contacts data first so it applies without hoisting
+jest.mock('@/data/contacts.json', () => ({
+  phone: { name: 'Телефон', link: 'tel:+79161234567' },
+  email: { name: 'Email', link: 'mailto:test@example.com' },
+  telegram: { name: 'Telegram', link: 'https://t.me/test' },
+  whatsapp: { name: 'WhatsApp', link: 'https://wa.me/79161234567' },
+}));
+
 import { render, screen } from '@testing-library/react';
 import SocialIconsFooter from '../socialIconsFooter';
-
-// Mock the contacts data
-jest.mock('@/data/contacts.json', () => ({
-  phone: {
-    name: 'Телефон',
-    link: 'tel:+79161234567'
-  },
-  email: {
-    name: 'Email',
-    link: 'mailto:test@example.com'
-  },
-  telegram: {
-    name: 'Telegram',
-    link: 'https://t.me/test'
-  },
-  whatsapp: {
-    name: 'WhatsApp',
-    link: 'https://wa.me/79161234567'
-  }
-}));
 
 describe('SocialIconsFooter', () => {
   it('renders all social icons with proper alignment', () => {

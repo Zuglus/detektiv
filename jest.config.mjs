@@ -1,21 +1,23 @@
-import nextJest from 'next/jest.js'
-
-const createJestConfig = nextJest({
-  dir: './',
-})
-
-const customJestConfig = {
+export default {
   setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
   testEnvironment: 'jsdom',
+  testMatch: ['**/__tests__/**/*.test.(ts|tsx|js|jsx)', '**/*.(test|spec).(ts|tsx|js|jsx)'],
+  transform: {
+    '^.+\\.(ts|tsx)$': '<rootDir>/jest.tsTransformer.cjs',
+  },
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
+    '^@/app/globals\\.css$': '<rootDir>/jest.styleMock.js',
+    '\\.(css|scss|sass|less)$': '<rootDir>/jest.styleMock.js',
+    '^next/image$': '<rootDir>/jest.nextImageMock.js',
+    '^next/link$': '<rootDir>/jest.nextLinkMock.js',
   },
-  transformIgnorePatterns: ['/node_modules/(?!(marked)/)'],
   testPathIgnorePatterns: [
     '<rootDir>/.next/',
     '<rootDir>/node_modules/',
     '<rootDir>/out/',
     '<rootDir>/e2e/',
+    '<rootDir>/.jest-dist/',
   ],
   collectCoverageFrom: [
     'src/**/*.{js,jsx,ts,tsx}',
@@ -24,8 +26,4 @@ const customJestConfig = {
     '!src/app/**/page.tsx',
   ],
   coverageReporters: ['text', 'lcov', 'html'],
-  testMatch: ['**/__tests__/**/*.(js|jsx|ts|tsx)', '**/*.(test|spec).(js|jsx|ts|tsx)'],
 }
-
-export default createJestConfig(customJestConfig)
-
