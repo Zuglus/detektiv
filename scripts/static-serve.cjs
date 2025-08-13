@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+/* eslint-disable @typescript-eslint/no-require-imports */
 /*
   Minimal static file server without external deps.
   Usage: node scripts/static-serve.cjs -d out -p 3000
@@ -75,13 +76,11 @@ const server = http.createServer((req, res) => {
     const stream = fs.createReadStream(filePath)
     res.writeHead(200, { 'Content-Type': mime })
     stream.pipe(res)
-  } catch (e) {
+  } catch {
     send(res, 500, 'Internal Server Error')
   }
 })
 
 server.listen(port, () => {
-  // eslint-disable-next-line no-console
   console.log(`Static server listening on http://localhost:${port} serving ${path.resolve(dir)}`)
 })
-
