@@ -131,9 +131,9 @@ test.describe('Navigation', () => {
 
   test('should show active navigation state', async ({ page }) => {
     await page.goto('/onas');
-    
+    await expect(page.getByRole('main')).toBeVisible();
     // Активный пункт в основной навигации должен указывать на "О нас"
-    const primaryNav = page.getByRole('navigation', { name: /основная навигация|main navigation/i });
+    const primaryNav = await ensurePrimaryNav(page);
     await expect(primaryNav).toBeVisible();
     const aboutLink = primaryNav.getByRole('link', { name: /о нас|about/i }).first();
     await expect(aboutLink).toHaveAttribute('aria-current', 'page');

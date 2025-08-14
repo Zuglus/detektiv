@@ -5,15 +5,13 @@ import { Lang } from '@/components/utility/types';
 
 interface HeaderProps {
   lang: Lang;
-  showHero?: boolean;
 }
 
-export default function Header({ lang, showHero = false }: HeaderProps) {
+export default function Header({ lang }: HeaderProps) {
   return (
     <header className="relative" id="navigation">
       <Nav lang={lang} />
-      {showHero && <HeroSection lang={lang} />}
-      {!showHero && <div className="h-16" />}
+      <HeroSection lang={lang} />
     </header>
   );
 }

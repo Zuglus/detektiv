@@ -30,7 +30,7 @@ export const createRootLayout = (lang: Lang) => {
   return function RootLayout({ children }: Props) {
     return (
       <html lang={lang} className={`${inter.variable} ${playfairDisplay.variable}`}>
-        <Body lang={lang} showHero={true}>
+        <Body lang={lang}>
           {children}
         </Body>
       </html>
