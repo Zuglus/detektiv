@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import ScrollReveal from '@/components/utility/scrollReveal';
+import IconSvg from '@/components/ui/IconSvg';
 import { Post, Lang } from '@/components/utility/types';
 
 interface PostContentProps {
@@ -72,9 +73,7 @@ export default function PostContent({ post, lang }: PostContentProps) {
           <div className="relative">
             {/* Тип контента */}
             <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-primary-100 to-accent-100 text-primary-700 rounded-full text-sm font-medium mb-8">
-              <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-              </svg>
+              <IconSvg name="document" size="sm" color="current" className="mr-2" />
               {t.caseType}
             </div>
 
@@ -89,15 +88,11 @@ export default function PostContent({ post, lang }: PostContentProps) {
           {/* Расширенная мета-информация */}
           <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-8 text-sm font-medium text-secondary-600 mb-8">
             <div className="flex items-center bg-white/80 backdrop-blur-sm px-4 py-2 rounded-xl border border-secondary-200">
-              <svg className="w-4 h-4 mr-2 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
+              <IconSvg name="clock" size="sm" color="current" className="mr-2 text-primary-600" />
               {readingTime} {t.readingTime}
             </div>
             <div className="flex items-center bg-white/80 backdrop-blur-sm px-4 py-2 rounded-xl border border-secondary-200">
-              <svg className="w-4 h-4 mr-2 text-accent-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3a4 4 0 118 0v4m-4 1v8m0 0l3-3m-3 3l-3-3" />
-              </svg>
+              <IconSvg name="document" size="sm" color="current" className="mr-2 text-accent-600" />
               {wordCount.toLocaleString()} {t.words}
             </div>
           </div>
