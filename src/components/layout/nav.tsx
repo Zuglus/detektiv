@@ -5,8 +5,8 @@ import { usePathname } from 'next/navigation';
 import { Lang, Route } from '@/components/utility/types';
 import SkipLink from '@/components/ui/skipLink';
 import getRoutes from '@/components/utility/getRoutes/getRoutes';
-import DesktopMenu from './DesktopMenu';
-import MobileMenu from './MobileMenu';
+import DesktopMenu from '@/components/layout/DesktopMenu';
+import MobileMenu from '@/components/layout/MobileMenu';
 
 interface NavProps {
   lang: Lang;
@@ -17,10 +17,10 @@ export default function Nav({ lang }: NavProps) {
   const routes: Route[] = getRoutes(lang);
 
   return (
-    <div className="relative">
+    <>
       <SkipLink />
       <DesktopMenu routes={routes} pathname={pathname} />
       <MobileMenu routes={routes} pathname={pathname} />
-    </div>
+    </>
   );
 }

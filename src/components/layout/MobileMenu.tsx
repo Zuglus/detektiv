@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react';
 import Link from 'next/link';
 import ButtonTranslate from '@/components/ui/buttonTranslate';
+import { Z } from '@/components/ui/zLayers';
 import { useFocusTrap } from '@/components/utility/useFocusTrap';
 import { Route } from '@/components/utility/types';
 
@@ -36,7 +37,7 @@ export default function MobileMenu({ routes, pathname }: MobileMenuProps) {
         onClick={() => setIsOpen(!isOpen)}
         className="
           hamburger-btn
-          fixed top-6 right-6 z-[10000] lg:hidden
+          fixed top-6 right-6 ${Z.hamburger} lg:hidden
           w-14 h-14 rounded-full
           bg-white/90 backdrop-blur-sm shadow-lg border border-white/20
           flex items-center justify-center shrink-0
@@ -82,7 +83,7 @@ export default function MobileMenu({ routes, pathname }: MobileMenuProps) {
       {/* Mobile/Tablet Menu Overlay */}
       {isOpen && (
         <div 
-          className="menu-overlay fixed inset-0 bg-secondary-900/50 z-[9998] lg:hidden"
+          className={`menu-overlay fixed inset-0 bg-secondary-900/50 ${Z.overlay} lg:hidden`}
           onClick={closeMenu}
           aria-hidden="true"
         />
@@ -92,7 +93,7 @@ export default function MobileMenu({ routes, pathname }: MobileMenuProps) {
       <div
         id="mobile-menu"
         className={`
-          fixed top-0 right-0 h-full w-72 max-w-[calc(100vw-2rem)] z-[9999] lg:hidden
+          fixed top-0 right-0 h-full w-72 max-w-[calc(100vw-2rem)] ${Z.panel} lg:hidden
           bg-gradient-to-b from-secondary-900/95 to-secondary-800/90 backdrop-blur-xl
           border-l border-secondary-700/30 shadow-2xl
           transform transition-transform duration-300 ease-in-out overflow-y-auto
