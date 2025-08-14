@@ -5,13 +5,7 @@ import footerData from './footer.json';
 import { Lang } from '../../utility/types';
 
 export default function Footer({ lang }: { lang: Lang }) {
-  const footerContent = footerData;
-
-  if (!footerContent) {
-    return <div>Language data not available.</div>;
-  }
-
-  const { licenseInfo, years, location, companyName, socialIcons } = footerContent;
+  const { licenseInfo, years, location, companyName, socialIcons } = footerData;
 
   const scrollToTop = () => {
     window.scrollTo({ 

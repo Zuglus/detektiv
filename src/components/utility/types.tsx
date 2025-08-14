@@ -99,7 +99,7 @@ export interface ContentData {
 export type Lang = 'ru' | 'en';
 
 export interface ContentLang {
-  lang: 'ru' | 'en';
+  lang: Lang;
 }
 
 export interface PostContentProps {
