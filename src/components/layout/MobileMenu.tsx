@@ -34,7 +34,7 @@ export default function MobileMenu({ routes, pathname }: MobileMenuProps) {
         ref={menuButtonRef}
         type="button"
         onClick={() => setIsOpen(!isOpen)}
-        className="
+        className={`
           hamburger-btn
           fixed top-6 right-6 ${Z.hamburger} lg:hidden
           w-14 h-14 rounded-full
@@ -44,7 +44,7 @@ export default function MobileMenu({ routes, pathname }: MobileMenuProps) {
           focus:outline-none focus:ring-4 focus:ring-primary-600 focus:ring-offset-2
           focus-not-obscured
           group
-        "
+        `}
         aria-label={isOpen ? 'Закрыть меню навигации' : 'Открыть меню навигации'}
         aria-expanded={isOpen}
         aria-controls="mobile-menu"
