@@ -1,5 +1,6 @@
 import { usePathname } from 'next/navigation';
 import { Lang } from '@/components/utility/types';
+import { Z } from '@/components/ui/zLayers';
 
 interface SkipLinkProps {
   lang?: Lang;
@@ -25,7 +26,7 @@ export default function SkipLink({ lang = 'ru' }: SkipLinkProps) {
   ];
 
   return (
-    <div className="fixed top-4 left-4 z-[10001] space-y-2">
+    <div className={`fixed top-4 left-4 ${Z.skipLinks} space-y-2`}>
       {skipLinks.map((link, index) => (
         <a
           key={link.href}
