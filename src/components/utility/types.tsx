@@ -10,7 +10,6 @@ export type Props = {
   children: ReactNode;
 };
 
-// (removed unused Service type)
 
 export interface Post {
   title: string;
@@ -34,14 +33,10 @@ export type Breadcrumb = {
   secondName?: string;
 };
 
-// (removed unused Contact/Contacts types)
-
-// (removed unused Data, HeaderProps, ContentData types)
+// Shared app types used across components
 
 export type Lang = 'ru' | 'en';
 
 export interface ContentLang {
   lang: Lang;
 }
-
-// (removed duplicate PostContentProps; local in post/contentPost)
