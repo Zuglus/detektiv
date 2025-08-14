@@ -1,15 +1,11 @@
 import { lazy } from 'react';
-import LazyComponent from '../ui/LazyComponent';
+import LazyComponent from '@/components/ui/LazyComponent';
 
 // Lazy load heavy layout components
 const LazyFooter = lazy(() => import('./footer/footer'));
 const LazyHeader = lazy(() => import('./header/header'));
 const LazyNav = lazy(() => import('./nav'));
 
-/**
- * Lazy loaded wrapper for layout components
- * Provides better performance by code splitting
- */
 export function LazyFooterComponent(
   props: React.ComponentProps<typeof LazyFooter>,
 ) {
