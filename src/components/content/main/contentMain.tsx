@@ -5,7 +5,7 @@ import ScrollReveal from '@/components/utility/scrollReveal';
 import IconSvg from '@/components/ui/IconSvg';
 import content from './main.json';
 import contacts from '@/data/contacts.json';
-import { Lang } from '../../utility/types';
+import { Lang } from '@/components/utility/types';
 
 function ContentMain({ lang }: { lang: Lang }) {
   return (
