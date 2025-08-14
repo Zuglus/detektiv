@@ -4,7 +4,6 @@ import matter from 'gray-matter';
 import { marked } from 'marked';
 import { Post, Lang } from './types';
 
-// Получаем путь к папке с постами в зависимости от языка
 function getPostsDirectory(lang: Lang): string {
   const directoryMap: Record<Lang, string> = {
     en: 'src/data/blog',
@@ -13,13 +12,11 @@ function getPostsDirectory(lang: Lang): string {
   return path.resolve(directoryMap[lang]);
 }
 
-// Функция для получения всех постов
 export async function getPosts(lang: Lang, slug?: string): Promise<Post[]> {
   try {
     const directory = getPostsDirectory(lang);
     const filenames = fs.readdirSync(directory);
 
-    // Сортировка файлов по возрастанию номеров в названии
     const sortedFilenames = filenames.sort((a, b) => {
       const numA = parseInt(a.split('.')[0]);
       const numB = parseInt(b.split('.')[0]);
@@ -45,7 +42,6 @@ export async function getPosts(lang: Lang, slug?: string): Promise<Post[]> {
       })
     );
 
-    // Присваиваем ссылки на предыдущий и следующий посты
     for (let i = 0; i < posts.length; i++) {
       if (i > 0) {
         posts[i].previous = posts[i - 1].slug;
@@ -55,7 +51,6 @@ export async function getPosts(lang: Lang, slug?: string): Promise<Post[]> {
       }
     }
 
-    // Фильтрация по slug, если передан
     if (slug) {
       const filteredPosts = posts.filter((post: Post) => post.slug === slug);
       return filteredPosts;

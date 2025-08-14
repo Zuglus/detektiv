@@ -24,7 +24,6 @@ export default function Footer({ lang }: { lang: Lang }) {
       role="contentinfo"
     >
       <div className="max-w-7xl mx-auto px-6 py-16">
-        {/* Social Icons Section */}
         <div className="text-center mb-12">
           {socialIcons && (
             <div className="glass-card inline-flex items-center justify-center px-8 py-6">
@@ -34,7 +33,6 @@ export default function Footer({ lang }: { lang: Lang }) {
         </div>
 
         <div className="border-t border-secondary-700/50 pt-12">
-          {/* Back to Top Button */}
           <div className="text-center mb-8">
             <button
               onClick={scrollToTop}
@@ -70,7 +68,6 @@ export default function Footer({ lang }: { lang: Lang }) {
             </button>
           </div>
 
-          {/* Copyright */}
           <div className="text-center text-body-md text-secondary-300 leading-relaxed">
             <div className="glass-card inline-block px-6 py-4">
               © {years[lang]} <span className="font-medium text-primary-200">{companyName[lang]}</span>

@@ -8,7 +8,6 @@ export default function ContentAbout({ lang }: ContentLang) {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
       <section className="max-w-6xl mx-auto px-6 py-20 lg:py-32">
         <ScrollReveal>
           <div className="text-center space-y-8">
@@ -25,7 +24,6 @@ export default function ContentAbout({ lang }: ContentLang) {
         </ScrollReveal>
       </section>
 
-      {/* Timeline Section */}
       <section className="bg-gradient-to-br from-secondary-50 to-primary-50 py-20">
         <div className="max-w-6xl mx-auto px-6">
           <ScrollReveal>
@@ -75,7 +73,6 @@ export default function ContentAbout({ lang }: ContentLang) {
         </div>
       </section>
 
-      {/* Expertise Section */}
       <section className="py-20">
         <div className="max-w-6xl mx-auto px-6">
           <ScrollReveal>
@@ -114,7 +111,6 @@ export default function ContentAbout({ lang }: ContentLang) {
         </div>
       </section>
 
-      {/* Principles Section */}
       <section className="py-20 bg-gradient-to-br from-primary-50 to-secondary-50">
         <div className="max-w-6xl mx-auto px-6">
           <ScrollReveal>
@@ -146,7 +142,6 @@ export default function ContentAbout({ lang }: ContentLang) {
         </div>
       </section>
 
-      {/* Warning Section */}
       <section className="py-20">
         <div className="max-w-4xl mx-auto px-6">
           <ScrollReveal>
