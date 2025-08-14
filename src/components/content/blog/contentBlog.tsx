@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import ScrollReveal from '@/components/utility/scrollReveal';
+import IconSvg from '@/components/ui/IconSvg';
 import { Lang, Post } from '@/components/utility/types';
 
 interface ContentBlogProps {
@@ -77,9 +78,7 @@ export default function ContentBlog({ posts, totalPages, currentPage, lang }: Co
                           {lang === 'ru' ? 'Кейс' : 'Case'}
                         </span>
                         <div className="flex items-center text-secondary-500">
-                          <svg className="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                          </svg>
+                          <IconSvg name="clock" color="current" className="w-3 h-3 mr-1" />
                           {readingTime} {lang === 'ru' ? 'мин' : 'min'}
                         </div>
                       </div>
@@ -100,9 +99,7 @@ export default function ContentBlog({ posts, totalPages, currentPage, lang }: Co
                     <div className="flex items-center justify-between pt-4 border-t border-secondary-100">
                       <span className="text-primary-600 font-medium text-sm group-hover:text-primary-700 transition-colors duration-300 flex items-center">
                         {buttonName}
-                        <svg className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                        </svg>
+                        <IconSvg name="arrowRight" size="sm" color="current" className="ml-2 transition-transform duration-300 group-hover:translate-x-1" />
                       </span>
                       
                       <div className="flex space-x-1">
@@ -139,9 +136,7 @@ export default function ContentBlog({ posts, totalPages, currentPage, lang }: Co
                   className="inline-flex items-center px-6 py-3 bg-primary-600 text-white font-medium rounded-xl hover:bg-primary-700 transition-colors duration-300"
                 >
                   {lang === 'ru' ? 'Связаться с нами' : 'Contact us'}
-                  <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
+                  <IconSvg name="arrowRight" size="sm" color="current" className="ml-2" />
                 </Link>
               </div>
             </div>
@@ -235,16 +230,12 @@ export default function ContentBlog({ posts, totalPages, currentPage, lang }: Co
                     aria-label={lang === 'ru' ? 'Следующая страница' : 'Next page'}
                   >
                     {lang === 'ru' ? 'Вперед' : 'Next'}
-                    <svg className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
+                    <IconSvg name="chevronRight" size="sm" color="current" className="ml-2 transition-transform duration-300 group-hover:translate-x-1" />
                   </Link>
                 ) : (
                   <div className="px-4 py-2 text-sm text-secondary-400 border border-secondary-100 rounded-xl bg-secondary-50">
                     {lang === 'ru' ? 'Вперед' : 'Next'}
-                    <svg className="w-4 h-4 ml-2 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
+                    <IconSvg name="chevronRight" size="sm" color="current" className="ml-2 inline" />
                   </div>
                 )}
               </div>
