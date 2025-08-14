@@ -34,19 +34,7 @@ export type Breadcrumb = {
   secondName?: string;
 };
 
-interface Contact {
-  name: string;
-  link: string;
-  directName?: string;
-}
-
-export interface Contacts {
-  telegram: Contact;
-  whatsapp: Contact;
-  email: Contact;
-  phone: Contact;
-  site: string;
-}
+// (removed unused Contact/Contacts types)
 
 // (removed unused Data, HeaderProps, ContentData types)
 
@@ -56,7 +44,4 @@ export interface ContentLang {
   lang: Lang;
 }
 
-export interface PostContentProps {
-  post: Post; // Теперь принимаем объект поста
-  lang: Lang; // Язык для определения путей и текстов
-}
+// (removed duplicate PostContentProps; local in post/contentPost)
