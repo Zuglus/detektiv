@@ -2,7 +2,7 @@
 
 import SocialIconsFooter from '@/components/ui/socialIconsFooter';
 import footerData from './footer.json';
-import { Lang } from '../../utility/types';
+import { Lang } from '@/components/utility/types';
 
 export default function Footer({ lang }: { lang: Lang }) {
   const { licenseInfo, years, location, companyName, socialIcons } = footerData;
