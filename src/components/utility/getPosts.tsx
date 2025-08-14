@@ -2,19 +2,19 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import { marked } from 'marked';
-import { Post } from './types';
+import { Post, Lang } from './types';
 
 // Получаем путь к папке с постами в зависимости от языка
-function getPostsDirectory(lang: string): string {
-  const directoryMap: Record<string, string> = {
+function getPostsDirectory(lang: Lang): string {
+  const directoryMap: Record<Lang, string> = {
     en: 'src/data/blog',
     ru: 'src/data/stati',
   };
-  return path.resolve(directoryMap[lang] || directoryMap['ru']);
+  return path.resolve(directoryMap[lang]);
 }
 
 // Функция для получения всех постов
-export async function getPosts(lang: string, slug?: string): Promise<Post[]> {
+export async function getPosts(lang: Lang, slug?: string): Promise<Post[]> {
   try {
     const directory = getPostsDirectory(lang);
     const filenames = fs.readdirSync(directory);
