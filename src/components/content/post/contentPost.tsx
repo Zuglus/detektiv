@@ -10,16 +10,13 @@ interface PostContentProps {
 
 export default function PostContent({ post, lang }: PostContentProps) {
   const { title, content, previous: prev, next } = post;
-  
-  // Вычисляем примерное время чтения с улучшенной формулой
+
   const cleanText = content.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
   const wordCount = cleanText.split(' ').length;
-  const readingTime = Math.max(1, Math.ceil(wordCount / 200)); // ~200 слов в минуту
-  
-  // Определяем базовый путь для статей в зависимости от языка
+  const readingTime = Math.max(1, Math.ceil(wordCount / 200));
+
   const articlesPath = lang === 'en' ? '/en/blog' : '/stati';
-  
-  // Тексты для разных языков
+
   const texts = {
     ru: {
       caseType: 'Реальный кейс из практики',
@@ -66,12 +63,9 @@ export default function PostContent({ post, lang }: PostContentProps) {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
-      {/* Основная статья */}
       <article className="max-w-4xl mx-auto">
-        {/* Заголовок и мета-информация */}
         <ScrollReveal className="text-center mb-16 lg:mb-20">
           <div className="relative">
-            {/* Тип контента */}
             <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-primary-100 to-accent-100 text-primary-700 rounded-full text-sm font-medium mb-8">
               <IconSvg name="document" size="sm" color="current" className="mr-2" />
               {t.caseType}
@@ -81,11 +75,9 @@ export default function PostContent({ post, lang }: PostContentProps) {
               {title}
             </h1>
             
-            {/* Декоративные элементы */}
             <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-gradient-to-r from-primary-500 to-accent-500 rounded-full opacity-60"></div>
           </div>
           
-          {/* Расширенная мета-информация */}
           <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-8 text-sm font-medium text-secondary-600 mb-8">
             <div className="flex items-center bg-white/80 backdrop-blur-sm px-4 py-2 rounded-xl border border-secondary-200">
               <IconSvg name="clock" size="sm" color="current" className="mr-2 text-primary-600" />
@@ -97,17 +89,14 @@ export default function PostContent({ post, lang }: PostContentProps) {
             </div>
           </div>
           
-          {/* Декоративная линия с градиентом */}
           <div className="relative">
             <div className="w-32 h-1 bg-gradient-to-r from-primary-500 via-accent-500 to-primary-600 mx-auto rounded-full"></div>
             <div className="absolute -inset-2 bg-gradient-to-r from-primary-500/20 via-accent-500/20 to-primary-600/20 blur-sm rounded-full"></div>
           </div>
         </ScrollReveal>
 
-        {/* Содержание статьи с улучшенной типографикой */}
         <ScrollReveal delay={300}>
           <div className="relative">
-            {/* Основной контент */}
             <div className="bg-white/95 backdrop-blur-md border border-secondary-200/80 rounded-3xl p-8 lg:p-12 shadow-xl shadow-primary-500/5 mb-16">
               <div 
                 className="prose prose-lg lg:prose-xl max-w-none
@@ -133,8 +122,7 @@ export default function PostContent({ post, lang }: PostContentProps) {
                   [&_ul_li]:before:content-['•'] [&_ul_li]:before:absolute [&_ul_li]:before:left-0 [&_ul_li]:before:text-primary-500 [&_ul_li]:before:font-bold"
                 dangerouslySetInnerHTML={{ __html: content }}
               />
-              
-              {/* Декоративные элементы */}
+
               <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-primary-100/50 to-accent-100/50 rounded-full blur-2xl opacity-60"></div>
               <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-gradient-to-tr from-accent-100/50 to-primary-100/50 rounded-full blur-2xl opacity-40"></div>
             </div>
@@ -142,7 +130,6 @@ export default function PostContent({ post, lang }: PostContentProps) {
         </ScrollReveal>
       </article>
 
-      {/* Навигация между статьями */}
       {(prev || next) && (
         <ScrollReveal delay={600} className="max-w-4xl mx-auto">
           <div className="bg-gradient-to-r from-primary-50/80 via-white/90 to-accent-50/80 backdrop-blur-sm border border-secondary-200 rounded-3xl p-8 mb-16">
@@ -168,9 +155,7 @@ export default function PostContent({ post, lang }: PostContentProps) {
                 >
                   <div className="flex items-center text-primary-600 text-sm font-medium mb-3">
                     <div className="w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center mr-3 group-hover:bg-primary-200 transition-colors duration-300">
-                      <svg className="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                      </svg>
+                      <IconSvg name="chevronLeft" size="sm" color="current" className="w-4 h-4 transition-transform duration-300 group-hover:-translate-x-1" />
                     </div>
                     {t.prevArticle}
                   </div>
@@ -195,9 +180,7 @@ export default function PostContent({ post, lang }: PostContentProps) {
                   <div className="flex items-center justify-end text-primary-600 text-sm font-medium mb-3">
                     {t.nextArticle}
                     <div className="w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center ml-3 group-hover:bg-primary-200 transition-colors duration-300">
-                      <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
+                      <IconSvg name="chevronRight" size="sm" color="current" className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
                     </div>
                   </div>
                   <div className="text-lg font-display font-semibold text-secondary-900 group-hover:text-primary-700 transition-colors duration-300 text-right leading-tight">
@@ -223,9 +206,7 @@ export default function PostContent({ post, lang }: PostContentProps) {
           
           <div className="relative z-10">
             <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-6">
-              <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
+              <IconSvg name="info" size="lg" color="white" className="w-8 h-8" />
             </div>
             
             <h3 className="text-2xl lg:text-3xl font-display font-bold text-white mb-4">
@@ -240,44 +221,31 @@ export default function PostContent({ post, lang }: PostContentProps) {
                 href={t.contactsPath}
                 className="group inline-flex items-center px-8 py-4 bg-white text-primary-700 font-semibold rounded-2xl hover:bg-primary-50 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-white/30"
               >
-                <svg className="w-5 h-5 mr-3 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                </svg>
+                <IconSvg name="phone" size="sm" color="current" className="w-5 h-5 mr-3 text-primary-600" />
                 {t.contactUs}
-                <svg className="w-4 h-4 ml-3 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
+                <IconSvg name="arrowRight" size="sm" color="current" className="w-4 h-4 ml-3 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
               <Link
                 href={articlesPath}
                 className="group inline-flex items-center px-8 py-4 bg-white/10 backdrop-blur-sm text-white border border-white/20 font-medium rounded-2xl hover:bg-white/20 hover:border-white/30 transition-all duration-300 hover:-translate-y-1 focus:outline-none focus:ring-4 focus:ring-white/30"
               >
-                <svg className="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-                </svg>
+                <IconSvg name="document" size="sm" color="current" className="w-5 h-5 mr-3" />
                 {t.allArticles}
               </Link>
             </div>
             
-            {/* Дополнительная информация */}
             <div className="mt-8 pt-8 border-t border-white/20">
               <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-8 text-primary-100 text-sm">
                 <div className="flex items-center">
-                  <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                  </svg>
+                  <IconSvg name="lockOutline" size="sm" color="current" className="w-4 h-4 mr-2" />
                   {t.confidentiality}
                 </div>
                 <div className="flex items-center">
-                  <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
+                  <IconSvg name="bolt" size="sm" color="current" className="w-4 h-4 mr-2" />
                   {t.quickResponse}
                 </div>
                 <div className="flex items-center">
-                  <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
+                  <IconSvg name="checkCircle" size="sm" color="current" className="w-4 h-4 mr-2" />
                   {t.experience}
                 </div>
               </div>

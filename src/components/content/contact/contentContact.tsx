@@ -1,4 +1,5 @@
 import { Lang } from '@/components/utility/types';
+import IconSvg from '@/components/ui/IconSvg';
 import content from './contact.json';
 import contacts from '@/data/contacts.json';
 
@@ -46,9 +47,7 @@ export default function ContentContact({
               aria-label={`Позвонить по экстренному номеру ${contacts.phone.name}`}
             >
               <div className="p-3 bg-primary-100 rounded-xl group-hover:bg-primary-200 transition-colors duration-300">
-                <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 24 24" role="img" aria-label="Иконка телефона">
-                  <path d={contacts.phone.icon} />
-                </svg>
+                <IconSvg name="phone" size="xl" color="current" className="w-12 h-12" />
               </div>
               {contacts.phone.name}
             </a>
@@ -86,9 +85,7 @@ export default function ContentContact({
               className="inline-flex items-center gap-2 text-body-md text-primary-600 hover:text-primary-700 transition-colors duration-300 group-hover:underline focus:outline-none focus:ring-2 focus:ring-primary-600 rounded"
               aria-label={`Отправить email на ${contacts.email.directName}`}
             >
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" role="img" aria-label="Иконка email">
-                <path d={contacts.email.icon} />
-              </svg>
+              <IconSvg name="email" size="sm" color="current" className="w-5 h-5" />
               {contacts.email.directName}
             </a>
             <p className="text-body-sm text-secondary-500 mt-2">
@@ -121,15 +118,12 @@ export default function ContentContact({
                 className="flex flex-col items-center p-4 bg-secondary-50 hover:bg-secondary-100 rounded-xl transition-all duration-300 group/messenger focus:outline-none focus:ring-2 focus:ring-primary-600"
                 aria-label="Связаться через Telegram"
               >
-                <svg
+                <IconSvg
+                  name="telegram"
+                  size="lg"
+                  color="current"
                   className="w-10 h-10 mb-3 text-primary-600 group-hover/messenger:text-primary-700 transition-colors duration-300 group-hover/messenger:scale-110 transform"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                  role="img"
-                  aria-label="Иконка Telegram"
-                >
-                  <path d={contacts.telegram.icon} />
-                </svg>
+                />
                 <span className="text-body-sm font-medium text-secondary-800">
                   {content.telegram[lang]}
                 </span>
@@ -141,15 +135,12 @@ export default function ContentContact({
                 className="flex flex-col items-center p-4 bg-secondary-50 hover:bg-secondary-100 rounded-xl transition-all duration-300 group/messenger focus:outline-none focus:ring-2 focus:ring-primary-600"
                 aria-label="Связаться через WhatsApp"
               >
-                <svg
+                <IconSvg
+                  name="whatsapp"
+                  size="lg"
+                  color="current"
                   className="w-10 h-10 mb-3 text-primary-600 group-hover/messenger:text-primary-700 transition-colors duration-300 group-hover/messenger:scale-110 transform"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                  role="img"
-                  aria-label="Иконка WhatsApp"
-                >
-                  <path d={contacts.whatsapp.icon} />
-                </svg>
+                />
                 <span className="text-body-sm font-medium text-secondary-800">
                   {content.whatsapp[lang]}
                 </span>

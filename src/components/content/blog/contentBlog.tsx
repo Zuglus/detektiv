@@ -113,9 +113,7 @@ export default function ContentBlog({ posts, totalPages, currentPage, lang }: Co
             <div className="bg-white/60 backdrop-blur-sm border border-secondary-200 rounded-2xl p-12 lg:p-16 text-center">
               <div className="max-w-md mx-auto">
                 <div className="w-24 h-24 mx-auto mb-6 bg-gradient-to-br from-primary-100 to-accent-100 rounded-full flex items-center justify-center">
-                  <svg className="w-12 h-12 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                  </svg>
+                  <IconSvg name="document" size="xl" color="current" className="w-12 h-12 text-primary-600" />
                 </div>
                 <h3 className="text-2xl font-display font-bold text-secondary-900 mb-3">
                   {lang === 'ru' ? 'Статьи не найдены' : 'No articles found'}
@@ -147,7 +145,6 @@ export default function ContentBlog({ posts, totalPages, currentPage, lang }: Co
               aria-label={lang === 'ru' ? 'Навигация по страницам' : 'Page navigation'}
               role="navigation"
             >
-              {/* Информация о странице */}
               <div className="text-sm text-secondary-600 order-2 sm:order-1">
                 {lang === 'ru' 
                   ? `Страница ${currentPage} из ${totalPages}`
@@ -155,30 +152,23 @@ export default function ContentBlog({ posts, totalPages, currentPage, lang }: Co
                 }
               </div>
 
-              {/* Навигационные кнопки */}
               <div className="flex items-center space-x-2 order-1 sm:order-2">
-                {/* Кнопка "Назад" */}
                 {currentPage > 1 ? (
                   <Link
                     href={currentPage === 2 ? base : `${base}/page/${currentPage - 1}`}
                     className="group inline-flex items-center px-4 py-2 text-sm font-medium text-secondary-700 bg-white/80 border border-secondary-200 rounded-xl hover:bg-primary-50 hover:border-primary-300 hover:text-primary-700 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
                     aria-label={lang === 'ru' ? 'Предыдущая страница' : 'Previous page'}
                   >
-                    <svg className="w-4 h-4 mr-2 transition-transform duration-300 group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                    </svg>
+                    <IconSvg name="chevronLeft" size="sm" color="current" className="mr-2 transition-transform duration-300 group-hover:-translate-x-1" />
                     {lang === 'ru' ? 'Назад' : 'Previous'}
                   </Link>
                 ) : (
                   <div className="px-4 py-2 text-sm text-secondary-400 border border-secondary-100 rounded-xl bg-secondary-50">
-                    <svg className="w-4 h-4 mr-2 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                    </svg>
+                    <IconSvg name="chevronLeft" size="sm" color="current" className="mr-2 inline" />
                     {lang === 'ru' ? 'Назад' : 'Previous'}
                   </div>
                 )}
 
-                {/* Номера страниц с улучшенной логикой */}
                 <div className="flex items-center space-x-1">
                   {Array.from({ length: totalPages }, (_, i) => {
                     const pageNumber = i + 1;
@@ -217,7 +207,6 @@ export default function ContentBlog({ posts, totalPages, currentPage, lang }: Co
                   })}
                 </div>
 
-                {/* Кнопка "Вперед" */}
                 {currentPage < totalPages ? (
                   <Link
                     href={`${base}/page/${currentPage + 1}`}
