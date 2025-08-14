@@ -1,5 +1,3 @@
-'use client';
-
 import { ContentLang } from '@/components/utility/types';
 import ScrollReveal from '@/components/utility/scrollReveal';
 import content from './aboutData.json';
