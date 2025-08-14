@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import ButtonTranslate from '@/components/ui/buttonTranslate';
+import { Z } from '@/components/ui/zLayers';
 import { Route } from '@/components/utility/types';
 
 interface DesktopMenuProps {
@@ -40,7 +41,7 @@ export default function DesktopMenu({ routes, pathname }: DesktopMenuProps) {
   return (
     <nav 
       className={`
-        fixed top-6 left-0 right-0 z-[50] block
+        fixed top-6 left-0 right-0 ${Z.header} block
         transition-all duration-300 ease-in-out
         ${isScrolled ? 'nav-scrolled' : 'nav-transparent'}
       `}
