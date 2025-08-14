@@ -1,12 +1,12 @@
 import routes from './routes.json';
-import { Route } from '../types';
+import { Route, Lang } from '@/components/utility/types';
 
 const routeMap = new Map<string, Route[]>([
   ['en', routes.en],
   ['ru', routes.ru]
 ]);
 
-export default function getRoutes(lang: string, find?: string | number): Route[] {
+export default function getRoutes(lang: Lang, find?: string | number): Route[] {
   const selectedRoutes = routeMap.get(lang);
 
   if (!selectedRoutes) return [];
