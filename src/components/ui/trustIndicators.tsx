@@ -1,4 +1,5 @@
 import { Lang } from "@/components/utility/types";
+import IconSvg from '@/components/ui/IconSvg';
 import type { TrustElements } from "@/components/content/price/types";
 
 interface TrustIndicatorsProps {
@@ -17,19 +18,7 @@ export default function TrustIndicators({ trustElements, lang }: TrustIndicators
         {trustElements.items[lang].map((item: string) => (
           <div key={item} className="trust-indicator">
             <div className="trust-icon">
-              <svg 
-                className="w-7 h-7 text-white" 
-                fill="none" 
-                stroke="currentColor" 
-                viewBox="0 0 24 24"
-                strokeWidth="3"
-              >
-                <path 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round" 
-                  d="M5 13l4 4L19 7"
-                />
-              </svg>
+              <IconSvg name="check" size="lg" color="white" />
             </div>
             <span className="text-body-md font-medium leading-relaxed">{item}</span>
           </div>
