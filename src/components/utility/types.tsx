@@ -16,8 +16,8 @@ export interface Post {
   slug: string;
   shortDescription: string;
   content: string;
-  previous: string | null;  // Указывает на предыдущий пост или null
-  next: string | null;      // Указывает на следующий пост или null
+  previous: string | null;
+  next: string | null;
 }
 
 export interface Slugs {

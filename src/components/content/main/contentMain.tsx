@@ -91,7 +91,6 @@ function ContentMain({ lang }: { lang: Lang }) {
         </section>
       </ScrollReveal>
 
-      {/* Order Process */}
       <ScrollReveal delay={400}>
         <section className="py-16 bg-secondary-50">
           <div className="max-w-4xl mx-auto px-6">
@@ -183,7 +182,6 @@ function ContentMain({ lang }: { lang: Lang }) {
         </section>
       </ScrollReveal>
 
-      {/* Contact Information */}
       <ScrollReveal delay={1200}>
         <section className="py-20">
           <div className="max-w-4xl mx-auto px-6">

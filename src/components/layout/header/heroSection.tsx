@@ -55,11 +55,9 @@ export default function HeroSection({ lang }: HeroSectionProps) {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center text-center px-6 -mt-16">
-      {/* Background with gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary-800 via-primary-700 to-primary-900" />
       <div className="absolute inset-0 bg-gradient-to-t from-secondary-900/20 to-transparent" />
 
-      {/* Content */}
       <div className="relative z-10 max-w-5xl mx-auto pt-16">
         <div className="text-center">
           <h1 className="text-display-xl text-white mb-6 leading-tight font-bold font-display sm:whitespace-nowrap">
