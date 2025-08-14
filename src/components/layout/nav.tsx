@@ -4,7 +4,7 @@
 import { usePathname } from 'next/navigation';
 import { Lang, Route } from '@/components/utility/types';
 import SkipLink from '@/components/ui/skipLink';
-import getRoutes from '../utility/getRoutes/getRoutes';
+import getRoutes from '@/components/utility/getRoutes/getRoutes';
 import DesktopMenu from './DesktopMenu';
 import MobileMenu from './MobileMenu';
 
