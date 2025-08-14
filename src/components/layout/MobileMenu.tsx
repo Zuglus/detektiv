@@ -30,7 +30,6 @@ export default function MobileMenu({ routes, pathname }: MobileMenuProps) {
 
   return (
     <>
-      {/* Mobile/Tablet Menu Button */}
       <button
         ref={menuButtonRef}
         type="button"
@@ -80,7 +79,6 @@ export default function MobileMenu({ routes, pathname }: MobileMenuProps) {
         </div>
       </button>
 
-      {/* Mobile/Tablet Menu Overlay */}
       {isOpen && (
         <div 
           className={`menu-overlay fixed inset-0 bg-secondary-900/50 ${Z.overlay} lg:hidden`}
@@ -89,7 +87,6 @@ export default function MobileMenu({ routes, pathname }: MobileMenuProps) {
         />
       )}
 
-      {/* Mobile/Tablet Menu */}
       <div
         id="mobile-menu"
         className={`
