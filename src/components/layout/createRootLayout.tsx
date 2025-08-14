@@ -1,10 +1,8 @@
 import '@/app/globals.css';
 import { inter, playfairDisplay } from '@/app/fonts';
 import Body from '@/components/layout/body';
-import { Props } from '@/components/utility/types';
+import { Props, Lang } from '@/components/utility/types';
 import metadataConfig from '@/data/metadata.json';
-
-type Lang = keyof typeof metadataConfig;
 
 export const createMetadata = (lang: Lang) => {
   const config = (metadataConfig as Record<Lang, { title: string; description: string; keywords: string }>)[lang];
