@@ -39,7 +39,6 @@ export default function DesktopMenu({ routes, pathname }: DesktopMenuProps) {
 
   return (
     <nav 
-      id="navigation"
       className={`
         fixed top-6 left-0 right-0 z-[50] block
         transition-all duration-300 ease-in-out
