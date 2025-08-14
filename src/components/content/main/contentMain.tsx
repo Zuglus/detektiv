@@ -1,17 +1,13 @@
-import { useMemo, memo } from 'react';
+import React from 'react';
 import UnifiedCard from '@/components/ui/UnifiedCard';
 import UnifiedButton from '@/components/ui/UnifiedButton';
 import ScrollReveal from '@/components/utility/scrollReveal';
 import IconSvg from '@/components/ui/IconSvg';
-import rawContent from './main.json';
-import rawContacts from '@/data/contacts.json';
+import content from './main.json';
+import contacts from '@/data/contacts.json';
 import { Lang } from '../../utility/types';
 
 function ContentMain({ lang }: { lang: Lang }) {
-  // Memoize static content to prevent unnecessary re-parsing
-  const content = useMemo(() => rawContent, []);
-  const contacts = useMemo(() => rawContacts, []);
-  
   return (
     <main className="relative">
 
@@ -259,5 +255,4 @@ function ContentMain({ lang }: { lang: Lang }) {
   );
 }
 
-// Memoize the component to prevent unnecessary re-renders
-export default memo(ContentMain);
+export default ContentMain;
