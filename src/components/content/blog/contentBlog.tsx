@@ -13,7 +13,6 @@ export default function ContentBlog({ posts, totalPages, currentPage, lang }: Co
   const base = lang === 'ru' ? '/stati' : '/en/blog';
   const buttonName = lang === 'ru' ? 'Читать далее' : 'Read more';
   
-  // Функция для обрезки описания с улучшенной логикой
   const truncateDescription = (description: string, maxLength: number = 150) => {
     if (description.length <= maxLength) return description;
     const truncated = description.substring(0, maxLength);
@@ -21,7 +20,6 @@ export default function ContentBlog({ posts, totalPages, currentPage, lang }: Co
     return (lastSpace > 0 ? truncated.substring(0, lastSpace) : truncated) + '…';
   };
 
-  // Функция для расчета времени чтения
   const calculateReadingTime = (content: string) => {
     const wordsPerMinute = 200;
     const wordCount = content.replace(/<[^>]*>/g, '').split(/\s+/).length;
@@ -30,7 +28,6 @@ export default function ContentBlog({ posts, totalPages, currentPage, lang }: Co
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
-      {/* Заголовок секции с улучшенной типографикой */}
       <ScrollReveal className="text-center mb-16 lg:mb-20">
         <div className="relative">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-secondary-900 mb-6 leading-tight">
@@ -45,7 +42,6 @@ export default function ContentBlog({ posts, totalPages, currentPage, lang }: Co
           }
         </p>
         
-        {/* Статистика */}
         <div className="flex items-center justify-center space-x-8 mt-8 text-sm font-medium">
           <div className="flex items-center text-secondary-500">
             <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -63,7 +59,6 @@ export default function ContentBlog({ posts, totalPages, currentPage, lang }: Co
         </div>
       </ScrollReveal>
 
-      {/* Сетка постов с улучшенным design system */}
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8 mb-16 lg:mb-20">
         {posts?.length > 0 ? (
           posts.map((post: Post, index: number) => {
@@ -76,7 +71,6 @@ export default function ContentBlog({ posts, totalPages, currentPage, lang }: Co
                     role="article"
                     aria-labelledby={`post-title-${post.slug}`}
                   >
-                    {/* Мета-информация */}
                     <div className="flex items-center justify-between mb-4">
                       <div className="flex items-center space-x-4 text-xs font-medium">
                         <span className="px-3 py-1 bg-primary-100 text-primary-700 rounded-full">
@@ -92,7 +86,6 @@ export default function ContentBlog({ posts, totalPages, currentPage, lang }: Co
                       <div className="w-2 h-2 rounded-full bg-primary-500 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:scale-150"></div>
                     </div>
 
-                    {/* Заголовок */}
                     <h3 
                       id={`post-title-${post.slug}`}
                       className="text-xl lg:text-2xl font-display font-bold text-secondary-900 mb-4 leading-tight group-hover:text-primary-700 transition-colors duration-300 line-clamp-2"
@@ -100,12 +93,10 @@ export default function ContentBlog({ posts, totalPages, currentPage, lang }: Co
                       {post.title}
                     </h3>
 
-                    {/* Описание */}
                     <p className="text-secondary-600 leading-relaxed mb-6 flex-1 line-clamp-3">
                       {truncateDescription(post.shortDescription.replace(/<[^>]*>/g, ''), 140)}
                     </p>
 
-                    {/* CTA */}
                     <div className="flex items-center justify-between pt-4 border-t border-secondary-100">
                       <span className="text-primary-600 font-medium text-sm group-hover:text-primary-700 transition-colors duration-300 flex items-center">
                         {buttonName}
@@ -114,7 +105,6 @@ export default function ContentBlog({ posts, totalPages, currentPage, lang }: Co
                         </svg>
                       </span>
                       
-                      {/* Визуальный индикатор */}
                       <div className="flex space-x-1">
                         <div className="w-1 h-1 bg-primary-400 rounded-full opacity-60"></div>
                         <div className="w-1 h-1 bg-primary-500 rounded-full opacity-80"></div>
@@ -159,7 +149,6 @@ export default function ContentBlog({ posts, totalPages, currentPage, lang }: Co
         )}
       </div>
 
-      {/* Современная пагинация */}
       {totalPages > 1 && (
         <ScrollReveal delay={200}>
           <div className="bg-white/80 backdrop-blur-sm border border-secondary-200 rounded-2xl p-6 lg:p-8">
@@ -260,7 +249,6 @@ export default function ContentBlog({ posts, totalPages, currentPage, lang }: Co
                 )}
               </div>
 
-              {/* Прогресс индикатор */}
               <div className="order-3 w-full sm:w-auto">
                 <div className="w-full sm:w-32 h-2 bg-secondary-200 rounded-full overflow-hidden">
                   <div 

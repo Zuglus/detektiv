@@ -10,8 +10,6 @@ import { Lang } from '@/components/utility/types';
 function ContentMain({ lang }: { lang: Lang }) {
   return (
     <main className="relative">
-
-      {/* Quick Contact Section */}
       <ScrollReveal>
         <section className="bg-primary-50 py-12 md:py-16 transform-gpu lazy-section">
           <div className="max-w-6xl mx-auto px-4 md:px-6 text-center">
@@ -36,7 +34,6 @@ function ContentMain({ lang }: { lang: Lang }) {
         </section>
       </ScrollReveal>
 
-      {/* Intro Section */}
       <ScrollReveal delay={100}>
         <section className="py-16">
           <div className="max-w-4xl mx-auto px-6">
@@ -50,7 +47,6 @@ function ContentMain({ lang }: { lang: Lang }) {
         </section>
       </ScrollReveal>
 
-      {/* Proposal Section */}
       <ScrollReveal delay={200}>
         <section className="py-16 gradient-primary">
           <div className="max-w-4xl mx-auto px-6 text-center">
@@ -66,7 +62,6 @@ function ContentMain({ lang }: { lang: Lang }) {
         </section>
       </ScrollReveal>
 
-      {/* Service Cards */}
       <ScrollReveal delay={300}>
         <section className="py-16">
           <div className="max-w-7xl mx-auto px-6">

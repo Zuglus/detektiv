@@ -1,7 +1,5 @@
 import { lazy } from 'react';
-import LazyComponent from '../ui/LazyComponent';
-
-// Lazy load heavy content components
+import LazyComponent from '@/components/ui/LazyComponent';
 const LazyContentAbout = lazy(() => import('./about/contentAbout'));
 const LazyContentBlog = lazy(() => import('./blog/contentBlog'));
 const LazyContentContact = lazy(() => import('./contact/contentContact'));
@@ -9,10 +7,6 @@ const LazyContentGuarantee = lazy(() => import('./guarantee/contentGuarantee'));
 const LazyContentJob = lazy(() => import('./job/contentJob'));
 const LazyContentPrice = lazy(() => import('./price/contentPrice'));
 
-/**
- * Lazy loaded wrapper for content components
- * Provides better performance by code splitting
- */
 export function LazyAbout(
   props: React.ComponentProps<typeof LazyContentAbout>,
 ) {

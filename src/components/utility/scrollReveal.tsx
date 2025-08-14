@@ -21,11 +21,9 @@ export default function ScrollReveal({
     const element = elementRef.current;
     if (!element) return;
 
-    // Check for reduced motion preference
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
     
     if (prefersReducedMotion.matches) {
-      // If reduced motion is preferred, show immediately
       element.classList.add('revealed');
       return;
     }
@@ -33,7 +31,6 @@ export default function ScrollReveal({
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          // Use requestAnimationFrame for better performance
           if (delay > 0) {
             setTimeout(() => {
               requestAnimationFrame(() => {
