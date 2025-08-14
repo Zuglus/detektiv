@@ -115,8 +115,11 @@ export async function clickNavLink(
   if (!changedQuickly && hrefCandidate && /^\//.test(hrefCandidate)) {
     await page.goto(hrefCandidate);
     await expect(page).toHaveURL(opts.url);
+    await page.waitForSelector('main#main-content', { state: 'attached', timeout: 5000 });
     return;
   }
 
   await expect(page).toHaveURL(opts.url);
+  // Ensure main content is attached after client-side navigation
+  await page.waitForSelector('main#main-content', { state: 'attached', timeout: 5000 });
 }

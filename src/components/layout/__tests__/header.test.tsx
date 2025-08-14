@@ -28,35 +28,15 @@ describe('Header', () => {
     expect(screen.getByTestId('nav')).toHaveAttribute('data-lang', 'ru')
   })
 
-  it('renders hero section when showHero is true', () => {
-    render(<Header {...defaultProps} showHero={true} />)
+  it('renders hero section by default (always)', () => {
+    render(<Header {...defaultProps} />)
     
     expect(screen.getByTestId('hero')).toBeInTheDocument()
     expect(screen.getByTestId('hero')).toHaveAttribute('data-lang', 'ru')
   })
 
-  it('does not render hero section when showHero is false', () => {
-    render(<Header {...defaultProps} showHero={false} />)
-    
-    expect(screen.queryByTestId('hero')).not.toBeInTheDocument()
-  })
-
-  it('renders spacing div when hero is not shown', () => {
-    render(<Header {...defaultProps} showHero={false} />)
-    
-    const spacingDiv = screen.getByRole('banner').querySelector('.h-16')
-    expect(spacingDiv).toBeInTheDocument()
-  })
-
-  it('does not render spacing div when hero is shown', () => {
-    render(<Header {...defaultProps} showHero={true} />)
-    
-    const spacingDiv = screen.getByRole('banner').querySelector('.h-16')
-    expect(spacingDiv).not.toBeInTheDocument()
-  })
-
   it('passes correct lang prop to child components', () => {
-    render(<Header lang="en" showHero={true} />)
+    render(<Header lang="en" />)
     
     expect(screen.getByTestId('nav')).toHaveAttribute('data-lang', 'en')
     expect(screen.getByTestId('hero')).toHaveAttribute('data-lang', 'en')
