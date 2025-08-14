@@ -12,10 +12,6 @@ interface OptimizedImageProps {
   blurDataURL?: string;
 }
 
-/**
- * Optimized image component using Next.js Image
- * Provides automatic optimization, lazy loading, and modern formats
- */
 export default function OptimizedImage({
   src,
   alt,

@@ -1,15 +1,10 @@
-import React, { Suspense } from 'react';
+import { Suspense, type ReactNode } from 'react';
 
 interface LazyComponentProps {
-  children: React.ReactNode;
-  fallback?: React.ReactNode;
+  children: ReactNode;
+  fallback?: ReactNode;
   className?: string;
 }
-
-/**
- * Component for lazy loading with loading state
- * Provides skeleton loading UI and error boundary
- */
 export default function LazyComponent({ 
   children, 
   fallback = (
