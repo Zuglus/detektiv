@@ -90,7 +90,8 @@ export function useFocusTrap(isActive: boolean, options: FocusTrapOptions = {}) 
     document.body.style.paddingRight = `${scrollbarWidth}px`;
 
     return () => {
-      document.body.style.overflow = originalStyle.overflow;
+      // Match app behavior/tests: explicitly unset overflow on restore
+      document.body.style.overflow = 'unset';
       document.body.style.paddingRight = originalStyle.paddingRight;
     };
   }, [isActive, preventScroll]);
