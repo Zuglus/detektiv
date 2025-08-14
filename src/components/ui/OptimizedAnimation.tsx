@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, type ReactNode } from 'react';
 
 interface OptimizedAnimationProps {
-  children: React.ReactNode;
+  children: ReactNode;
   animation: 'fadeIn' | 'slideUp' | 'slideInLeft' | 'slideInRight' | 'scale';
   duration?: number;
   delay?: number;
