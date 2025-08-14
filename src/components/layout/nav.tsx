@@ -16,10 +16,6 @@ export default function Nav({ lang }: NavProps) {
   const pathname = usePathname();
   const routes: Route[] = getRoutes(lang);
 
-  if (!routes) {
-    return <div>Routes not available for this language</div>;
-  }
-
   return (
     <div className="relative">
       <SkipLink />
