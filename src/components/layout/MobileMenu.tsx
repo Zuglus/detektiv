@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import Link from 'next/link';
 import ButtonTranslate from '@/components/ui/buttonTranslate';
 import { useFocusTrap } from '@/components/utility/useFocusTrap';
