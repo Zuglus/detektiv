@@ -1,4 +1,3 @@
-import React from 'react';
 import { Lang } from '@/components/utility/types';
 import headerData from '@/components/layout/header/headerData.json';
 

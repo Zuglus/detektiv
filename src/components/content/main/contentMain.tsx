@@ -1,4 +1,3 @@
-import React from 'react';
 import UnifiedCard from '@/components/ui/UnifiedCard';
 import UnifiedButton from '@/components/ui/UnifiedButton';
 import ScrollReveal from '@/components/utility/scrollReveal';

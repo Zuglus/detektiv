@@ -50,7 +50,7 @@ export default function DesktopMenu({ routes, pathname }: DesktopMenuProps) {
     >
       <div className="max-w-7xl mx-auto px-6 hidden lg:block">
         <div className="flex items-center justify-between h-16">
-          <div className="hidden lg:flex items-center space-x-8">
+          <div className="flex items-center space-x-8">
             {routes.map((route) => (
               <Link
                 key={route.name}
@@ -75,7 +75,7 @@ export default function DesktopMenu({ routes, pathname }: DesktopMenuProps) {
               </Link>
             ))}
           </div>
-          <div className="hidden lg:flex items-center">
+          <div className="flex items-center">
             <ButtonTranslate url={pathname} />
           </div>
         </div>
