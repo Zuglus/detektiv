@@ -11,36 +11,16 @@ interface MobileMenuProps {
 
 export default function MobileMenu({ routes, pathname }: MobileMenuProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const menuRef = useRef<HTMLDivElement>(null);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
 
   useFocusTrap(isOpen, {
     containerId: 'mobile-menu',
     restoreFocusRef: menuButtonRef as React.RefObject<HTMLElement>,
     hideBackground: true,
+    preventScroll: true,
     onEscape: () => setIsOpen(false),
     onDeactivate: () => setIsOpen(false),
   });
-
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-        closeMenu();
-      }
-    };
-
-    if (isOpen) {
-      document.addEventListener('click', handleClickOutside);
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.removeEventListener('click', handleClickOutside);
-      document.body.style.overflow = 'unset';
-    }
-    return () => {
-      document.removeEventListener('click', handleClickOutside);
-      document.body.style.overflow = 'unset';
-    };
-  }, [isOpen]);
 
   const closeMenu = () => {
     setIsOpen(false);
@@ -56,7 +36,7 @@ export default function MobileMenu({ routes, pathname }: MobileMenuProps) {
         onClick={() => setIsOpen(!isOpen)}
         className="
           hamburger-btn
-          fixed top-6 right-6 z-[100] lg:hidden
+          fixed top-6 right-6 z-[10000] lg:hidden
           w-14 h-14 rounded-full
           bg-white/90 backdrop-blur-sm shadow-lg border border-white/20
           flex items-center justify-center shrink-0
@@ -102,7 +82,7 @@ export default function MobileMenu({ routes, pathname }: MobileMenuProps) {
       {/* Mobile/Tablet Menu Overlay */}
       {isOpen && (
         <div 
-          className="menu-overlay fixed inset-0 bg-secondary-900/50 z-[9999] lg:hidden"
+          className="menu-overlay fixed inset-0 bg-secondary-900/50 z-[9998] lg:hidden"
           onClick={closeMenu}
           aria-hidden="true"
         />
@@ -110,7 +90,6 @@ export default function MobileMenu({ routes, pathname }: MobileMenuProps) {
 
       {/* Mobile/Tablet Menu */}
       <div
-        ref={menuRef}
         id="mobile-menu"
         className={`
           fixed top-0 right-0 h-full w-72 max-w-[calc(100vw-2rem)] z-[9999] lg:hidden
@@ -159,4 +138,3 @@ export default function MobileMenu({ routes, pathname }: MobileMenuProps) {
     </>
   );
 }
-
