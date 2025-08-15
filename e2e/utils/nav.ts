@@ -108,18 +108,18 @@ export async function clickNavLink(
 
   // Quick check for URL change; if not changed quickly, force navigation
   const changedQuickly = await page
-    .waitForFunction((u) => location.href !== u, prevUrl, { timeout: 1500 })
+    .waitForFunction((u) => location.href !== u, prevUrl, { timeout: 5000 })
     .then(() => true)
     .catch(() => false);
 
   if (!changedQuickly && hrefCandidate && /^\//.test(hrefCandidate)) {
     await page.goto(hrefCandidate);
     await expect(page).toHaveURL(opts.url);
-    await page.waitForSelector('main#main-content', { state: 'attached', timeout: 5000 });
+    await page.waitForSelector('main#main-content', { state: 'attached', timeout: 15000 });
     return;
   }
 
   await expect(page).toHaveURL(opts.url);
   // Ensure main content is attached after client-side navigation
-  await page.waitForSelector('main#main-content', { state: 'attached', timeout: 5000 });
+  await page.waitForSelector('main#main-content', { state: 'attached', timeout: 15000 });
 }

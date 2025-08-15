@@ -9,7 +9,7 @@
     "lint": "eslint . --cache --cache-location .eslintcache",
     "lint:fix": "eslint . --fix --cache --cache-location .eslintcache",
     "test:unit": "jest",
-    "test": "npm run test:unit && npm run test:e2e:run",
+    "test": "npm run build && npm run test:unit && npm run test:e2e:run",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "test:e2e": "npm run build && playwright test",
