@@ -3,4 +3,5 @@ import { createMetadata, createRootLayout, createViewport } from '@/components/l
 export const metadata = createMetadata('en');
 export const viewport = createViewport();
 
-export default createRootLayout('en');
+const RootLayout = createRootLayout('en');
+export default RootLayout;
