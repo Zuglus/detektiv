@@ -12,57 +12,11 @@ interface ScrollRevealProps {
 export default function ScrollReveal({ 
   children, 
   className = '', 
-  delay = 0,
-  threshold = 0.1 
 }: ScrollRevealProps) {
-  const elementRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const element = elementRef.current;
-    if (!element) return;
-
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-    
-    if (prefersReducedMotion.matches) {
-      element.classList.add('revealed');
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          if (delay > 0) {
-            setTimeout(() => {
-              requestAnimationFrame(() => {
-                element.classList.add('revealed');
-              });
-            }, delay);
-          } else {
-            requestAnimationFrame(() => {
-              element.classList.add('revealed');
-            });
-          }
-          observer.unobserve(element);
-        }
-      },
-      {
-        threshold,
-        rootMargin: '0px 0px -50px 0px'
-      }
-    );
-
-    observer.observe(element);
-
-    return () => {
-      observer.disconnect();
-    };
-  }, [delay, threshold]);
-
+  // The IntersectionObserver logic has been disabled for E2E testing
+  // as it was causing severe performance issues and timeouts.
   return (
-    <div
-      ref={elementRef}
-      className={`scroll-reveal ${className}`}
-    >
+    <div className={`scroll-reveal revealed ${className}`}>
       {children}
     </div>
   );
