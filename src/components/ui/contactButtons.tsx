@@ -37,10 +37,10 @@ export default function ContactButtons({ lang, proposeText }: ContactButtonsProp
       </div>
 
       <div className="mt-8 p-6 bg-white rounded-xl border border-primary-200">
-        <p className="text-heading-sm font-semibold text-primary-600 mb-2 flex items-center justify-center gap-2">
+        <div className="text-heading-sm font-semibold text-primary-600 mb-2 flex items-center justify-center gap-2">
           <IconSvg name="phone" size="sm" color="current" className="w-5 h-5" />
           {lang === 'ru' ? 'Бесплатная консультация' : 'Free Consultation'}
-        </p>
+        </div>
         <p className="text-body-md text-secondary-600">
           {lang === 'ru' 
             ? 'Обсудим ваш случай и подберем оптимальное решение' 
