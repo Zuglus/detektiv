@@ -14,7 +14,8 @@ test.describe('Navigation', () => {
     for (const pageInfo of pagesPart1) {
       await clickNavLink(page, { name: pageInfo.name, url: pageInfo.url });
       await expect(page.locator('main#main-content')).toBeVisible();
-      await page.goto('/');
+      // Go back to home via client-side navigation instead of a hard reload
+      await clickNavLink(page, { name: /главная|main/i, url: /(^\/$)|(^\/en$)/ });
     }
   });
 
@@ -30,7 +31,8 @@ test.describe('Navigation', () => {
     for (const pageInfo of pagesPart2) {
       await clickNavLink(page, { name: pageInfo.name, url: pageInfo.url });
       await expect(page.locator('main#main-content')).toBeVisible();
-      await page.goto('/');
+      // Go back to home via client-side navigation instead of a hard reload
+      await clickNavLink(page, { name: /главная|main/i, url: /(^\/$)|(^\/en$)/ });
     }
   });
 
