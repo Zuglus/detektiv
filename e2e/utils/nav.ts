@@ -27,7 +27,7 @@ export async function ensurePrimaryNav(page: Page): Promise<Locator> {
 
 export async function clickNavLink(
   page: Page,
-  opts: { name: RegExp; url: string }
+  opts: { name: string | RegExp; url: string }
 ): Promise<void> {
   const nav = await ensurePrimaryNav(page);
   const link = nav.getByRole('link', { name: opts.name }).first();

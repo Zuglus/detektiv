@@ -6,9 +6,9 @@ test.describe('Navigation', () => {
     await page.goto('/');
 
     const pagesPart1 = [
-      { name: /о нас|about/i, url: '/onas' },
-      { name: /цены|price/i, url: '/price' },
-      { name: /контакты|contact/i, url: '/kontakty' },
+      { name: 'о нас', url: '/onas' },
+      { name: 'прайс', url: '/price' },
+      { name: 'контакты', url: '/kontakty' },
     ];
 
     for (const pageInfo of pagesPart1) {
@@ -16,7 +16,7 @@ test.describe('Navigation', () => {
       await expect(page).toHaveURL(pageInfo.url);
       await expect(page.locator('main#main-content')).toBeVisible();
       // Go back to home via client-side navigation instead of a hard reload
-      await clickNavLink(page, { name: /главная|main/i, url: '/' });
+      await clickNavLink(page, { name: 'главная', url: '/' });
       await expect(page).toHaveURL('/');
     }
   });
@@ -25,9 +25,9 @@ test.describe('Navigation', () => {
     await page.goto('/');
 
     const pagesPart2 = [
-      { name: /статьи|blog/i, url: '/stati' },
-      { name: /вакансии|job/i, url: '/vakansii' },
-      { name: /гарантии|guarantee/i, url: '/garantii' },
+      { name: 'статьи', url: '/stati' },
+      { name: 'вакансии', url: '/vakansii' },
+      { name: 'гарантии', url: '/garantii' },
     ];
 
     for (const pageInfo of pagesPart2) {
@@ -35,7 +35,7 @@ test.describe('Navigation', () => {
       await expect(page).toHaveURL(pageInfo.url);
       await expect(page.locator('main#main-content')).toBeVisible();
       // Go back to home via client-side navigation instead of a hard reload
-      await clickNavLink(page, { name: /главная|main/i, url: '/' });
+      await clickNavLink(page, { name: 'главная', url: '/' });
       await expect(page).toHaveURL('/');
     }
   });
@@ -44,7 +44,7 @@ test.describe('Navigation', () => {
     await page.goto('/');
     
     // Navigate to a subpage
-    const aboutLink = page.getByRole('link', { name: /о нас|about/i });
+    const aboutLink = page.getByRole('link', { name: 'о нас' });
     if (await aboutLink.count() > 0) {
       await aboutLink.click();
       
@@ -55,7 +55,7 @@ test.describe('Navigation', () => {
         await expect(breadcrumbs).toBeVisible();
         
         // Try to navigate back via breadcrumb
-        const homeInBreadcrumb = breadcrumbs.getByRole('link', { name: /главная|home/i });
+        const homeInBreadcrumb = breadcrumbs.getByRole('link', { name: 'главная' });
         if (await homeInBreadcrumb.count() > 0) {
           await homeInBreadcrumb.click();
           await expect(page).toHaveURL(/^\/$|\/$/);
@@ -72,7 +72,7 @@ test.describe('Navigation', () => {
     await expect(page).toHaveURL(/onas/);
     await expect(page.locator('main#main-content')).toBeVisible();
     const primaryNav = page.getByRole('navigation', {
-      name: /основная навигация|main navigation/i,
+      name: 'Основная навигация',
     });
     await expect(primaryNav).toBeVisible();
   });
@@ -84,20 +84,20 @@ test.describe('Navigation', () => {
     // Look for mobile menu button (hamburger menu)
     const nav = await ensurePrimaryNav(page);
     await expect(nav).toBeVisible();
-    await clickNavLink(page, { name: /о нас|about/i, url: /onas|about/ });
+    await clickNavLink(page, { name: 'о нас', url: '/onas' });
   });
 
   test('should handle back and forward browser navigation', async ({ page }) => {
     await page.goto('/');
     
-    await clickNavLink(page, { name: /о нас|about/i, url: /onas|about/ });
-    await clickNavLink(page, { name: /контакты|contact/i, url: /kontakty|contact/ });
+    await clickNavLink(page, { name: 'о нас', url: '/onas' });
+    await clickNavLink(page, { name: 'контакты', url: '/kontakty' });
     
     // Use browser back and forward
     await page.goBack();
-    await expect(page).toHaveURL(/onas|about/);
+    await expect(page).toHaveURL(/onas/);
     await page.goForward();
-    await expect(page).toHaveURL(/kontakty|contact/);
+    await expect(page).toHaveURL(/kontakty/);
   });
 
   test('should handle keyboard navigation', async ({ page }) => {
@@ -138,10 +138,10 @@ test.describe('Navigation', () => {
   test('should show active navigation state', async ({ page }) => {
     await page.goto('/onas');
     await expect(page.getByRole('main')).toBeVisible();
-    // Активный пункт в основной навигации должен указывать на "О нас"
+    // Активный пункт в основной навигации должен указывать на "о нас"
     const primaryNav = await ensurePrimaryNav(page);
     await expect(primaryNav).toBeVisible();
-    const aboutLink = primaryNav.getByRole('link', { name: /о нас|about/i }).first();
+    const aboutLink = primaryNav.getByRole('link', { name: 'о нас' }).first();
     await expect(aboutLink).toHaveAttribute('aria-current', 'page');
   });
 });
