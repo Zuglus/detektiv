@@ -18,10 +18,10 @@ test.describe('Homepage', () => {
     await expect(nav).toBeVisible();
 
     // Check for common navigation items scoped to the primary nav
-    await expect(nav.getByRole('link', { name: /главная|home/i }).first()).toBeVisible();
-    await expect(nav.getByRole('link', { name: /о нас|about/i }).first()).toBeVisible();
-    await expect(nav.getByRole('link', { name: /прайс|цены|price/i }).first()).toBeVisible();
-    await expect(nav.getByRole('link', { name: /контакты|contact/i }).first()).toBeVisible();
+    await expect(nav.getByRole('link', { name: 'главная' }).first()).toBeVisible();
+    await expect(nav.getByRole('link', { name: 'о нас' }).first()).toBeVisible();
+    await expect(nav.getByRole('link', { name: 'прайс' }).first()).toBeVisible();
+    await expect(nav.getByRole('link', { name: 'контакты' }).first()).toBeVisible();
   });
 
   test('should have working contact links', async ({ page }) => {
@@ -99,32 +99,32 @@ test.describe('Homepage', () => {
     await page.goto('/');
     
     // Look for language toggle button
-    const langToggle = page.getByRole('button', { name: /lang|язык|en|ru/i });
+    const langToggle = page.getByRole('button', { name: /en/i });
     
     if (await langToggle.count() > 0) {
       await langToggle.click();
       
       // Verify URL or content changed
       const currentUrl = page.url();
-      expect(currentUrl).toMatch(/\/en|\/ru|\/$|\/onas/);
+      expect(currentUrl).toMatch(/\/en/);
     }
   });
 
   test('should load contact page', async ({ page }) => {
     await page.goto('/');
-    await clickNavLink(page, { name: /контакты|contact/i, url: /kontakty|contact/ });
+    await clickNavLink(page, { name: 'контакты', url: '/kontakty' });
     await expect(page.locator('main#main-content')).toBeVisible();
   });
 
   test('should load about page', async ({ page }) => {
     await page.goto('/');
-    await clickNavLink(page, { name: /о нас|about/i, url: /onas|about/ });
+    await clickNavLink(page, { name: 'о нас', url: '/onas' });
     await expect(page.locator('main#main-content')).toBeVisible();
   });
 
   test('should load pricing page', async ({ page }) => {
     await page.goto('/');
-    await clickNavLink(page, { name: /прайс|цены|price/i, url: /price/ });
+    await clickNavLink(page, { name: 'прайс', url: '/price' });
     await expect(page.locator('main#main-content')).toBeVisible();
   });
 });
