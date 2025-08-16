@@ -6,16 +6,18 @@ test.describe('Navigation', () => {
     await page.goto('/');
 
     const pagesPart1 = [
-      { name: /о нас|about/i, url: /onas|about/ },
-      { name: /цены|price/i, url: /price/ },
-      { name: /контакты|contact/i, url: /kontakty|contact/ },
+      { name: /о нас|about/i, url: '/onas' },
+      { name: /цены|price/i, url: '/price' },
+      { name: /контакты|contact/i, url: '/kontakty' },
     ];
 
     for (const pageInfo of pagesPart1) {
       await clickNavLink(page, { name: pageInfo.name, url: pageInfo.url });
+      await expect(page).toHaveURL(pageInfo.url);
       await expect(page.locator('main#main-content')).toBeVisible();
       // Go back to home via client-side navigation instead of a hard reload
-      await clickNavLink(page, { name: /главная|main/i, url: /(^\/$)|(^\/en$)/ });
+      await clickNavLink(page, { name: /главная|main/i, url: '/' });
+      await expect(page).toHaveURL('/');
     }
   });
 
@@ -23,16 +25,18 @@ test.describe('Navigation', () => {
     await page.goto('/');
 
     const pagesPart2 = [
-      { name: /статьи|blog/i, url: /stati|blog/ },
-      { name: /вакансии|job/i, url: /vakansii|job/ },
-      { name: /гарантии|guarantee/i, url: /garantii|guarantee/ },
+      { name: /статьи|blog/i, url: '/stati' },
+      { name: /вакансии|job/i, url: '/vakansii' },
+      { name: /гарантии|guarantee/i, url: '/garantii' },
     ];
 
     for (const pageInfo of pagesPart2) {
       await clickNavLink(page, { name: pageInfo.name, url: pageInfo.url });
+      await expect(page).toHaveURL(pageInfo.url);
       await expect(page.locator('main#main-content')).toBeVisible();
       // Go back to home via client-side navigation instead of a hard reload
-      await clickNavLink(page, { name: /главная|main/i, url: /(^\/$)|(^\/en$)/ });
+      await clickNavLink(page, { name: /главная|main/i, url: '/' });
+      await expect(page).toHaveURL('/');
     }
   });
 
