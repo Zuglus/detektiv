@@ -1,6 +1,7 @@
 import Footer from '@/components/layout/footer/footer';
 import Header from '@/components/layout/header/header';
 import PerformanceMonitor from '@/components/ui/PerformanceMonitor';
+import YandexCounter from '@/components/ui/YandexCounter';
 import { Props, Lang } from '@/components/utility/types';
 
 export default function Body({
@@ -17,6 +18,7 @@ export default function Body({
       </main>
       <Footer lang={lang} />
       <PerformanceMonitor />
+      <YandexCounter counterId="70102144" />
     </body>
   );
 }
