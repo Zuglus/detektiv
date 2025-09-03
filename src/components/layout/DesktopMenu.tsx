@@ -11,6 +11,15 @@ interface DesktopMenuProps {
 
 export default function DesktopMenu({ routes, pathname }: DesktopMenuProps) {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const handleClick = () => {
+    setLoading(true);
+  };
+
+  useEffect(() => {
+    setLoading(false);
+  }, [pathname]);
 
   useEffect(() => {
     let ticking = false;
@@ -39,11 +48,12 @@ export default function DesktopMenu({ routes, pathname }: DesktopMenuProps) {
   }, []);
 
   return (
-    <nav 
+    <nav
       className={`
         fixed top-6 left-0 right-0 ${Z.header} block
         transition-all duration-300 ease-in-out
         ${isScrolled ? 'nav-scrolled' : 'nav-transparent'}
+        ${loading ? 'loading-cursor' : ''}
       `}
       role="navigation"
       aria-label="Основная навигация"
@@ -55,13 +65,14 @@ export default function DesktopMenu({ routes, pathname }: DesktopMenuProps) {
               <Link
                 key={route.name}
                 href={route.href}
+                onClick={handleClick}
                 className={`
                   nav-link interactive-hint
                   relative px-4 py-3 text-sm font-medium uppercase tracking-wider
                   focus:outline-none focus-not-obscured
                   rounded-lg
-                  ${pathname === route.href 
-                    ? 'text-primary-700 font-semibold bg-primary-50/80' 
+                  ${pathname === route.href
+                    ? 'text-primary-700 font-semibold bg-primary-50/80'
                     : 'text-secondary-800 hover:text-primary-700 hover:bg-primary-50/80'
                   }
                   after:absolute after:bottom-1 after:left-1 after:right-1 after:h-0.5

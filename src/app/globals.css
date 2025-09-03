@@ -1109,3 +1109,10 @@ a:focus-visible {
     transform: none !important;
   }
 }
+
+@layer components {
+  .loading-cursor {
+    cursor: wait;
+    pointer-events: none;
+  }
+}

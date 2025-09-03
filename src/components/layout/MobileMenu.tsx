@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import ButtonTranslate from '@/components/ui/buttonTranslate';
 import { Z } from '@/components/ui/zLayers';
@@ -12,7 +12,12 @@ interface MobileMenuProps {
 
 export default function MobileMenu({ routes, pathname }: MobileMenuProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    setLoading(false);
+  }, [pathname]);
 
   useFocusTrap(isOpen, {
     containerId: 'mobile-menu',
@@ -26,6 +31,11 @@ export default function MobileMenu({ routes, pathname }: MobileMenuProps) {
   const closeMenu = () => {
     setIsOpen(false);
     setTimeout(() => menuButtonRef.current?.focus(), 100);
+  };
+
+  const handleClick = () => {
+    setLoading(true);
+    closeMenu();
   };
 
   return (
@@ -52,7 +62,7 @@ export default function MobileMenu({ routes, pathname }: MobileMenuProps) {
         data-close-on-escape="true"
       >
         <div className="relative w-8 h-8 flex flex-col justify-center items-center">
-          <span 
+          <span
             className={`
               hamburger-line
               block w-7 h-1 bg-secondary-700 rounded-full
@@ -60,7 +70,7 @@ export default function MobileMenu({ routes, pathname }: MobileMenuProps) {
               ${isOpen ? 'rotate-45' : '-translate-y-3'}
             `}
           />
-          <span 
+          <span
             className={`
               hamburger-line
               block w-7 h-1 bg-secondary-700 rounded-full
@@ -68,7 +78,7 @@ export default function MobileMenu({ routes, pathname }: MobileMenuProps) {
               ${isOpen ? 'opacity-0 scale-0' : 'opacity-100 scale-100'}
             `}
           />
-          <span 
+          <span
             className={`
               hamburger-line
               block w-7 h-1 bg-secondary-700 rounded-full
@@ -80,7 +90,7 @@ export default function MobileMenu({ routes, pathname }: MobileMenuProps) {
       </button>
 
       {isOpen && (
-        <div 
+        <div
           className={`menu-overlay fixed inset-0 bg-secondary-900/50 ${Z.overlay} lg:hidden`}
           onClick={closeMenu}
           aria-hidden="true"
@@ -95,6 +105,7 @@ export default function MobileMenu({ routes, pathname }: MobileMenuProps) {
           border-l border-secondary-700/30 shadow-2xl
           transform transition-transform duration-300 ease-in-out overflow-y-auto
           ${isOpen ? 'translate-x-0' : 'translate-x-full'}
+          ${loading ? 'loading-cursor' : ''}
         `}
         role="dialog"
         aria-modal="true"
@@ -113,12 +124,12 @@ export default function MobileMenu({ routes, pathname }: MobileMenuProps) {
                   block px-4 py-3 rounded-xl text-base font-medium uppercase tracking-wider
                   transition-all var(--transition-normal) hover:scale-105 hover:shadow-md
                   focus:outline-none focus-not-obscured
-                  ${pathname === route.href 
-                    ? 'bg-white/20 text-white border-l-4 border-white shadow-sm' 
+                  ${pathname === route.href
+                    ? 'bg-white/20 text-white border-l-4 border-white shadow-sm'
                     : 'text-white/90 hover:bg-white/10 hover:text-white'
                   }
                 `}
-                onClick={closeMenu}
+                onClick={handleClick}
                 aria-current={pathname === route.href ? 'page' : undefined}
               >
                 {route.name}
