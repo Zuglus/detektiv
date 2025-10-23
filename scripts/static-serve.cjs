@@ -59,18 +59,39 @@ const server = http.createServer((req, res) => {
   try {
     const url = decodeURI(req.url || '/')
     let filePath = safeJoin(dir, url)
-    if (fs.existsSync(filePath) && fs.statSync(filePath).isDirectory()) {
-      // directory: try index.html
-      filePath = path.join(filePath, 'index.html')
-    }
-    // try .html fallback for pretty URLs (/route -> /route.html)
-    if (!fs.existsSync(filePath) && !path.extname(filePath)) {
+
+    // Try different resolution strategies in order:
+    // 1. Exact file match
+    // 2. Directory with index.html
+    // 3. Add .html extension for pretty URLs
+    // 4. Try .html even if directory exists (for pages with child routes)
+
+    if (fs.existsSync(filePath) && fs.statSync(filePath).isFile()) {
+      // Exact file match - use it
+    } else if (fs.existsSync(filePath) && fs.statSync(filePath).isDirectory()) {
+      // Directory: try index.html first
+      const indexPath = path.join(filePath, 'index.html')
+      if (fs.existsSync(indexPath)) {
+        filePath = indexPath
+      } else if (!path.extname(url)) {
+        // No index.html in directory, try sibling .html file
+        const htmlFallback = filePath + '.html'
+        if (fs.existsSync(htmlFallback)) {
+          filePath = htmlFallback
+        }
+      }
+    } else if (!path.extname(filePath)) {
+      // No file or directory, try .html fallback for pretty URLs
       const htmlFallback = filePath + '.html'
-      if (fs.existsSync(htmlFallback)) filePath = htmlFallback
+      if (fs.existsSync(htmlFallback)) {
+        filePath = htmlFallback
+      }
     }
-    if (!fs.existsSync(filePath)) {
+
+    if (!fs.existsSync(filePath) || !fs.statSync(filePath).isFile()) {
       return send(res, 404, 'Not Found')
     }
+
     const ext = path.extname(filePath).toLowerCase()
     const mime = MIME[ext] || 'application/octet-stream'
     const stream = fs.createReadStream(filePath)
