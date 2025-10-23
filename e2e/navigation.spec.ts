@@ -89,14 +89,22 @@ test.describe('Navigation', () => {
 
   test('should handle back and forward browser navigation', async ({ page }) => {
     await page.goto('/');
-    
+
     await clickNavLink(page, { name: 'о нас', url: '/onas' });
-    await clickNavLink(page, { name: 'контакты', url: '/kontakty' });
-    
-    // Use browser back and forward
-    await page.goBack();
     await expect(page).toHaveURL(/onas/);
-    await page.goForward();
+    await page.waitForLoadState('networkidle');
+
+    await clickNavLink(page, { name: 'контакты', url: '/kontakty' });
+    await expect(page).toHaveURL(/kontakty/);
+    await page.waitForLoadState('networkidle');
+
+    // Use browser back and forward with proper waits
+    await page.goBack({ waitUntil: 'networkidle' });
+    await page.waitForTimeout(500); // Allow router to settle
+    await expect(page).toHaveURL(/onas/);
+
+    await page.goForward({ waitUntil: 'networkidle' });
+    await page.waitForTimeout(500); // Allow router to settle
     await expect(page).toHaveURL(/kontakty/);
   });
 
