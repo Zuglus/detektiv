@@ -13,8 +13,8 @@ function GuaranteeInfo({ lang }: { lang: Lang }) {
       <div className="bg-white/10 backdrop-blur-sm border border-white/15 rounded-2xl p-8 text-white shadow-lg">
         <ul className="space-y-3">
           {guaranteeInfo[lang].map((line, index) => (
-            <li key={index} className="flex items-center text-body-md">
-              <div className="w-3 h-3 bg-primary-400 rounded-full mr-4 flex-shrink-0" />
+            <li key={index} className="flex items-baseline justify-center text-body-md">
+              <div className="w-3 h-3 bg-primary-400 rounded-full mr-4 flex-shrink-0 -translate-y-1" />
               <span className="leading-relaxed">{line}</span>
             </li>
           ))}
