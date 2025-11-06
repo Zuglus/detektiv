@@ -59,8 +59,9 @@ const lucideIconMap: Record<string, keyof typeof LucideIcons> = {
   'document': 'FileText',
   'chart': 'BarChart3',
   'money': 'DollarSign',
-  'user': 'Users', // Несколько человек для "команда"
+  'user': 'UsersRound', // Команда (круглый стиль, более заполненный)
   'clock': 'Clock',
+  'scales': 'Scale', // Весы для честности и справедливости
 
   // Communication
   'phone': 'Phone',
@@ -72,7 +73,7 @@ const lucideIconMap: Record<string, keyof typeof LucideIcons> = {
   'refresh-ccw': 'RefreshCcw',
 };
 
-// Кастомные иконки (оставлены без изменений)
+// Кастомные иконки (только уникальные, недоступные в lucide)
 const customIcons = {
   refund: (
     <svg
@@ -92,13 +93,6 @@ const customIcons = {
       <path d="M20,34c2.2,0,4,1.8,4,4"/>
       <path d="M40,26c0,2.2,1.8,4,4,4"/>
       <path d="M44,34c-2.2,0-4,1.8-4,4"/>
-    </svg>
-  ),
-  scales: (
-    <svg fill="currentColor" viewBox="0 0 490 490" xmlns="http://www.w3.org/2000/svg">
-      <path d="M245,2.219L186.921,188.05H0l151.225,114.23L93.252,487.781L245,373.133l151.733,114.648l-57.959-185.502L490,188.05
-	H303.079L245,2.219z M320.964,296.572l46.932,150.239L245,353.948l-122.911,92.863l46.947-150.239L45.632,203.35h152.525L245,53.499
-	l46.842,149.851h152.525L320.964,296.572z"/>
     </svg>
   ),
   experience: (
