@@ -474,6 +474,26 @@ export default function DesignSystemPage() {
                 </div>
               </div>
             </div>
+
+            {/* Special Text Styles */}
+            <div>
+              <h3 className="text-xl font-semibold text-secondary-800 mb-6">Special Text Styles</h3>
+              <div className="space-y-6">
+                <div>
+                  <div className="p-6 bg-white rounded-xl border border-secondary-200">
+                    <p className="disclaimer-text text-body-md">
+                      Стоимость услуг в прайсе указана ориентировочно, определить точную сумму заказа зависит от представленной информации, от уровня сложности заказа, определения ресурсов привлекаемых для достижения цели.
+                    </p>
+                  </div>
+                  <code className="text-sm text-secondary-500 mt-2 block">
+                    .disclaimer-text (accent-600, font-medium, italic, text-shadow)
+                  </code>
+                  <p className="text-xs text-secondary-500 mt-1">
+                    Used for important disclaimers and pricing notes
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
