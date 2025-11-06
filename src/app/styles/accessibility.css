@@ -1,0 +1,59 @@
+/* ========================================
+   ACCESSIBILITY
+   ======================================== */
+
+/* Enhanced Focus Styles */
+*:focus-visible {
+  @apply outline outline-primary-600 outline-offset-2 rounded-sm;
+  outline-width: 4px;
+  box-shadow: 0 0 0 2px theme('colors.white'), 0 0 0 6px theme('colors.primary.600');
+  transition: box-shadow var(--duration-fast) var(--ease-standard);
+}
+
+.focus-dark:focus-visible {
+  @apply outline outline-white outline-offset-2 rounded-sm;
+  outline-width: 4px;
+  box-shadow: 0 0 0 2px theme('colors.secondary.900'), 0 0 0 6px theme('colors.white');
+}
+
+.focus-not-obscured:focus-visible {
+  @apply z-[999];
+  outline: 4px solid theme('colors.primary.600');
+  outline-offset: 3px;
+  box-shadow:
+    0 0 0 2px theme('colors.white'),
+    0 0 0 8px theme('colors.primary.600'),
+    0 4px 12px theme('colors.primary.600 / 40%');
+  animation: focusPulse 2s var(--ease-in-out) infinite;
+}
+
+a:focus-visible {
+  transform: scale(1.02);
+  transition: transform var(--duration-fast) var(--ease-standard);
+}
+
+/* Interactive element hover hints */
+.interactive-hint {
+  position: relative;
+}
+
+.interactive-hint::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(51, 153, 85, 0.1), transparent);
+  opacity: 0;
+  transition: opacity var(--duration-normal) var(--ease-standard);
+  z-index: -1;
+}
+
+.interactive-hint:hover::after {
+  opacity: 1;
+}
+
+/* Screen reader only text */
+.sr-only {
+  @apply absolute w-px h-px p-0 -m-px overflow-hidden whitespace-nowrap border-0;
+  clip: rect(0, 0, 0, 0);
+}

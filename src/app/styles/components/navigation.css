@@ -1,0 +1,103 @@
+/* ========================================
+   NAVIGATION COMPONENTS
+   ======================================== */
+
+.nav-transparent, .nav-scrolled {
+    background: rgba(255, 255, 255, 0.97);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    transition: all var(--duration-normal) var(--ease-standard);
+  }
+
+  .nav-scrolled {
+    background: rgba(255, 255, 255, 0.98);
+  }
+
+  .nav-home-transparent {
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  .nav-link {
+    position: relative;
+    overflow: hidden;
+    transition: all var(--duration-normal) var(--ease-standard);
+  }
+
+  .nav-link::before {
+    content: '';
+    @apply absolute inset-0 rounded-xl -z-10 opacity-0;
+    background: linear-gradient(135deg, rgba(51, 153, 85, 0.1), rgba(51, 153, 85, 0.05));
+    transform: scale(0.8);
+    transition: all var(--duration-fast) var(--ease-standard);
+  }
+
+  .nav-link:hover::before, .nav-link:focus::before {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .nav-link:hover {
+    transform: translateY(-1px);
+  }
+
+  .nav-link:active {
+    transform: translateY(0) scale(0.98);
+    transition-duration: var(--duration-fast);
+  }
+
+  /* Fallback for browsers without backdrop-filter support */
+  @supports not (backdrop-filter: blur(1px)) {
+    .nav-transparent {
+      background: rgba(255, 255, 255, 0.99);
+      border-bottom: 1px solid rgba(200, 200, 200, 0.3);
+    }
+
+    .nav-scrolled {
+      background: rgba(255, 255, 255, 1);
+      border-bottom: 1px solid rgba(200, 200, 200, 0.3);
+    }
+
+    .nav-home-transparent {
+      background: rgba(255, 255, 255, 0.95);
+      border-bottom: 1px solid rgba(200, 200, 200, 0.2);
+    }
+  }
+
+/* ========================================
+   HAMBURGER MENU
+   ======================================== */
+
+.hamburger-line {
+    transition: all var(--duration-normal) var(--ease-standard);
+    transform-origin: center;
+  }
+
+  .hamburger-btn:hover .hamburger-line {
+    background-color: theme('colors.primary.600');
+  }
+
+  .hamburger-btn:active {
+    transform: scale(0.95);
+  }
+
+  .menu-overlay {
+    animation: overlayFadeIn 300ms var(--ease-standard) forwards;
+  }
+
+  .menu-item {
+    opacity: 0;
+    transform: translateX(100%) scale(0.8);
+    animation: menuItemSlideIn 400ms cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  }
+
+.menu-item:nth-child(1) { animation-delay: 50ms; }
+.menu-item:nth-child(2) { animation-delay: 100ms; }
+.menu-item:nth-child(3) { animation-delay: 150ms; }
+.menu-item:nth-child(4) { animation-delay: 200ms; }
+.menu-item:nth-child(5) { animation-delay: 250ms; }
