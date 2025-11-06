@@ -61,7 +61,7 @@ const lucideIconMap: Record<string, keyof typeof LucideIcons> = {
   'money': 'DollarSign',
   'user': 'UsersRound', // Команда (круглый стиль, более заполненный)
   'clock': 'Clock',
-  'scales': 'Scale', // Весы для честности и справедливости
+  'handshake': 'Handshake', // Честный подход - доверие и договоренность
 
   // Communication
   'phone': 'Phone',
