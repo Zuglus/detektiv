@@ -62,6 +62,7 @@ const lucideIconMap: Record<string, keyof typeof LucideIcons> = {
   'user': 'UsersRound', // Команда (круглый стиль, более заполненный)
   'clock': 'Clock',
   'handshake': 'Handshake', // Честный подход - доверие и договоренность
+  'file-badge': 'FileBadge', // Официальная лицензия с печатью
 
   // Communication
   'phone': 'Phone',

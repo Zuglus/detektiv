@@ -65,7 +65,7 @@
           "description": "Работаем оперативно и результативно. Приступаем к выполнению задач немедленно, без проволочек"
         },
         {
-          "icon": "document",
+          "icon": "file-badge",
           "title": "Официальная лицензия",
           "description": "Работаем исключительно в правовом поле с полным пакетом документов"
         },
@@ -87,7 +87,7 @@
           "description": "We work promptly and efficiently. We begin task execution immediately, without delays"
         },
         {
-          "icon": "document",
+          "icon": "file-badge",
           "title": "Official License",
           "description": "We work exclusively within the legal framework with full documentation"
         },
