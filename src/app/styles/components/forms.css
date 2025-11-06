@@ -1,0 +1,37 @@
+/* ========================================
+   FORM COMPONENTS
+   ======================================== */
+
+.input-field {
+    transition: all var(--duration-normal) var(--ease-standard);
+    border: 2px solid theme('colors.secondary.200');
+  }
+
+  .input-field:focus {
+    border-color: theme('colors.primary.400');
+    box-shadow: 0 0 0 3px theme('colors.primary.100'), 0 4px 12px rgba(51, 153, 85, 0.15);
+    transform: translateY(-1px);
+  }
+
+  .input-field:focus::placeholder {
+    opacity: 0.7;
+    transform: translateY(-2px);
+  }
+
+  .loading-skeleton {
+    background: linear-gradient(90deg,
+      theme('colors.secondary.200') 0%,
+      theme('colors.secondary.100') 50%,
+      theme('colors.secondary.200') 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s var(--ease-in-out) infinite;
+  }
+
+  .success-state {
+    animation: successPulse 600ms var(--ease-standard);
+  }
+
+.error-state {
+  animation: errorShake 400ms var(--ease-standard);
+}

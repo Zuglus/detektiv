@@ -1,0 +1,97 @@
+/* ========================================
+   DESIGN SYSTEM VARIABLES
+   ======================================== */
+
+:root {
+  /* Typography */
+  --font-primary: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: var(--font-playfair-display), Georgia, 'Times New Roman', serif;
+
+  /* Animation System */
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out: ease-out;
+  --ease-in-out: ease-in-out;
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+  --duration-slower: 700ms;
+
+  /* Shadow System */
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 8px 32px rgba(0, 0, 0, 0.12), 0 4px 16px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.18), 0 12px 30px rgba(0, 0, 0, 0.12);
+  --shadow-xl: 0 25px 50px rgba(0, 0, 0, 0.15), 0 12px 30px rgba(0, 0, 0, 0.1);
+
+  /* Glass morphism effects */
+  --glass-light: rgba(255, 255, 255, 0.1);
+  --glass-medium: rgba(255, 255, 255, 0.15);
+  --glass-strong: rgba(255, 255, 255, 0.25);
+  --glass-border: rgba(255, 255, 255, 0.2);
+
+  /* Transitions */
+  --transition-normal: var(--duration-normal);
+  --transition-smooth: 600ms;
+
+  /* Contact page specific */
+  --contact-emergency-bg: linear-gradient(135deg, rgba(239, 68, 68, 0.03), rgba(251, 146, 60, 0.03));
+  --contact-emergency-hover: linear-gradient(135deg, rgba(239, 68, 68, 0.08), rgba(251, 146, 60, 0.08));
+  --contact-response-time: #f59e0b;
+  --contact-card-shadow: var(--shadow-md);
+  --contact-card-hover-shadow: var(--shadow-lg);
+}
+
+/* ========================================
+   BASE STYLES
+   ======================================== */
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-primary);
+  line-height: 1.6;
+  @apply text-secondary-800 bg-secondary-50 selection:bg-primary-500 selection:text-white antialiased;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ========================================
+   MOBILE OPTIMIZATIONS
+   ======================================== */
+
+@media screen and (max-width: 768px) {
+  html { font-size: 16px; }
+  body { font-display: swap; }
+  * { transition-duration: var(--duration-fast) !important; }
+
+  .transform-gpu {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+
+  .lazy-section {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 500px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      transition-duration: 0ms !important;
+      animation-duration: 0ms !important;
+    }
+  }
+}
