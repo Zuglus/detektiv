@@ -59,7 +59,7 @@ const lucideIconMap: Record<string, keyof typeof LucideIcons> = {
   'document': 'FileText',
   'chart': 'BarChart3',
   'money': 'DollarSign',
-  'user': 'User',
+  'user': 'Users', // Несколько человек для "команда"
   'clock': 'Clock',
 
   // Communication
