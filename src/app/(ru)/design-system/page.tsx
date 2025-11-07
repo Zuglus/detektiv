@@ -145,7 +145,7 @@ export default function DesignSystemPage() {
                 </p>
               </UnifiedCard>
 
-              <UnifiedCard variant="disclaimer">
+              <UnifiedCard variant="disclaimer" interactive>
                 <div className="flex items-start space-x-3">
                   <div className="flex-shrink-0">
                     <IconSvg name="info" size="lg" color="current" className="text-accent-600" />

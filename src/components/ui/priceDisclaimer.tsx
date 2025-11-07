@@ -9,7 +9,7 @@ interface PriceDisclaimerProps {
 
 export default function PriceDisclaimer({ text, lang }: PriceDisclaimerProps) {
   return (
-    <UnifiedCard variant="disclaimer">
+    <UnifiedCard variant="disclaimer" interactive>
       <div className="flex items-start space-x-3">
         <div className="flex-shrink-0">
           <IconSvg name="info" size="lg" color="current" className="text-accent-600" />
