@@ -1,5 +1,5 @@
-import * as LucideIcons from 'lucide-react';
 import type { LucideProps } from 'lucide-react';
+import * as LucideIcons from 'lucide-react';
 
 interface IconSvgProps {
   name: string;
@@ -59,10 +59,10 @@ const lucideIconMap: Record<string, keyof typeof LucideIcons> = {
   'document': 'FileText',
   'chart': 'BarChart3',
   'money': 'DollarSign',
-  'user': 'UsersRound', // Команда (круглый стиль, более заполненный)
+  'user': 'UsersRound',
   'clock': 'Clock',
-  'handshake': 'Handshake', // Честный подход - доверие и договоренность
-  'file-badge': 'FileBadge', // Официальная лицензия с печатью
+  'handshake': 'Handshake',
+  'file-badge': 'FileBadge',
 
   // Communication
   'phone': 'Phone',
@@ -169,7 +169,7 @@ export default function IconSvg({
   const sizeClass = sizeClasses[size];
   const colorClass = colorClasses[color];
 
-  // Проверяем, есть ли это кастомная иконка
+  // Проверяем, если это кастомная иконка
   if (name in customIcons) {
     const iconElement = customIcons[name as keyof typeof customIcons];
     return (
