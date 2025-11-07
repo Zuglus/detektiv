@@ -178,7 +178,7 @@ export default function ContentJob({ lang }: { lang: Lang }) {
       {/* Important Notice */}
       <UnifiedCard
         variant="default"
-        className="bg-accent-50 border-0 border-l-4 border-accent-500"
+        className="!bg-accent-50 !border-0 !border-l-4 !border-l-accent-500"
       >
         <div className="flex items-start space-x-3">
           <div className="flex-shrink-0">
