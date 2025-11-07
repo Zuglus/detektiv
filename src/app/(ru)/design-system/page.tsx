@@ -171,10 +171,7 @@ export default function DesignSystemPage() {
             <div className="space-y-6">
               {/* Disclaimer Card */}
               <div>
-                <UnifiedCard
-                  variant="default"
-                  className="!bg-accent-50 !border-0 !border-l-4 !border-l-accent-500"
-                >
+                <UnifiedCard variant="disclaimer">
                   <div className="flex items-start space-x-3">
                     <div className="flex-shrink-0">
                       <IconSvg name="info" size="lg" color="current" className="text-accent-600" />
@@ -186,7 +183,7 @@ export default function DesignSystemPage() {
                 </UnifiedCard>
                 <div className="mt-3 space-y-1">
                   <code className="text-sm text-secondary-500 block">
-                    UnifiedCard variant="default" + !bg-accent-50 + !border-0 !border-l-4 !border-l-accent-500
+                    UnifiedCard variant=&quot;disclaimer&quot;
                   </code>
                   <p className="text-xs text-secondary-500">
                     Disclaimer card with accent background and left border. Uses UnifiedCard with smooth transitions.
