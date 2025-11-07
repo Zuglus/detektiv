@@ -144,6 +144,20 @@ export default function DesignSystemPage() {
                   Gradient background with white text
                 </p>
               </UnifiedCard>
+
+              <UnifiedCard variant="disclaimer">
+                <div className="flex items-start space-x-3">
+                  <div className="flex-shrink-0">
+                    <IconSvg name="info" size="lg" color="current" className="text-accent-600" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold mb-2 text-accent-900">Disclaimer Card</h4>
+                    <p className="text-sm text-accent-800">
+                      Special notice card with accent background and left border for disclaimers and important information
+                    </p>
+                  </div>
+                </div>
+              </UnifiedCard>
             </div>
           </div>
 
@@ -162,34 +176,6 @@ export default function DesignSystemPage() {
               <UnifiedCard size="large">
                 <p>Large card with generous padding</p>
               </UnifiedCard>
-            </div>
-          </div>
-
-          {/* Special Cards */}
-          <div className="mb-12">
-            <h3 className="text-xl font-semibold text-secondary-800 mb-6">Special Cards</h3>
-            <div className="space-y-6">
-              {/* Disclaimer Card */}
-              <div>
-                <UnifiedCard variant="disclaimer">
-                  <div className="flex items-start space-x-3">
-                    <div className="flex-shrink-0">
-                      <IconSvg name="info" size="lg" color="current" className="text-accent-600" />
-                    </div>
-                    <p className="text-body-md leading-relaxed text-accent-800">
-                      Стоимость услуг в прайсе указана ориентировочно, определить точную сумму заказа зависит от представленной информации, от уровня сложности заказа, определения ресурсов привлекаемых для достижения цели.
-                    </p>
-                  </div>
-                </UnifiedCard>
-                <div className="mt-3 space-y-1">
-                  <code className="text-sm text-secondary-500 block">
-                    UnifiedCard variant=&quot;disclaimer&quot;
-                  </code>
-                  <p className="text-xs text-secondary-500">
-                    Disclaimer card with accent background and left border. Uses UnifiedCard with smooth transitions.
-                  </p>
-                </div>
-              </div>
             </div>
           </div>
         </section>
