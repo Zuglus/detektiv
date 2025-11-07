@@ -1,6 +1,7 @@
 import { Lang } from "@/components/utility/types";
 import content from './job.json';
 import IconSvg from '@/components/ui/IconSvg';
+import UnifiedCard from '@/components/ui/UnifiedCard';
 
 export default function ContentJob({ lang }: { lang: Lang }) {
   if (!content) {
@@ -175,7 +176,10 @@ export default function ContentJob({ lang }: { lang: Lang }) {
       </div>
 
       {/* Important Notice */}
-      <div className="card-colored bg-accent-50 border-l-4 border-accent-500">
+      <UnifiedCard
+        variant="default"
+        className="bg-accent-50 border-l-4 border-accent-500"
+      >
         <div className="flex items-start space-x-3">
           <div className="flex-shrink-0">
             <IconSvg name="info" size="lg" color="current" className="text-accent-600" />
@@ -187,7 +191,7 @@ export default function ContentJob({ lang }: { lang: Lang }) {
             />
           </div>
         </div>
-      </div>
+      </UnifiedCard>
     </div>
   );
 }
