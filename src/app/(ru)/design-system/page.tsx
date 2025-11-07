@@ -164,6 +164,34 @@ export default function DesignSystemPage() {
               </UnifiedCard>
             </div>
           </div>
+
+          {/* Special Cards */}
+          <div className="mb-12">
+            <h3 className="text-xl font-semibold text-secondary-800 mb-6">Special Cards</h3>
+            <div className="space-y-6">
+              {/* Disclaimer Card */}
+              <div>
+                <div className="card-colored bg-accent-50 border-l-4 border-accent-500">
+                  <div className="flex items-start space-x-3">
+                    <div className="flex-shrink-0">
+                      <IconSvg name="info" size="lg" color="current" className="text-accent-600" />
+                    </div>
+                    <p className="text-body-md leading-relaxed text-accent-800">
+                      Стоимость услуг в прайсе указана ориентировочно, определить точную сумму заказа зависит от представленной информации, от уровня сложности заказа, определения ресурсов привлекаемых для достижения цели.
+                    </p>
+                  </div>
+                </div>
+                <div className="mt-3 space-y-1">
+                  <code className="text-sm text-secondary-500 block">
+                    .card-colored + bg-accent-50 + border-l-4 border-accent-500
+                  </code>
+                  <p className="text-xs text-secondary-500">
+                    Used for disclaimers and important pricing notes with info icon
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </section>
 
         {/* Icons Section */}
@@ -471,26 +499,6 @@ export default function DesignSystemPage() {
                     Body Small (14px) - Smaller text for secondary content
                   </p>
                   <code className="text-sm text-secondary-500">text-body-sm</code>
-                </div>
-              </div>
-            </div>
-
-            {/* Special Text Styles */}
-            <div>
-              <h3 className="text-xl font-semibold text-secondary-800 mb-6">Special Text Styles</h3>
-              <div className="space-y-6">
-                <div>
-                  <div className="p-6 bg-white rounded-xl border border-secondary-200">
-                    <p className="disclaimer-text text-body-md">
-                      Стоимость услуг в прайсе указана ориентировочно, определить точную сумму заказа зависит от представленной информации, от уровня сложности заказа, определения ресурсов привлекаемых для достижения цели.
-                    </p>
-                  </div>
-                  <code className="text-sm text-secondary-500 mt-2 block">
-                    .disclaimer-text (accent-600, font-medium, italic, text-shadow)
-                  </code>
-                  <p className="text-xs text-secondary-500 mt-1">
-                    Used for important disclaimers and pricing notes
-                  </p>
                 </div>
               </div>
             </div>
