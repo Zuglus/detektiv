@@ -171,7 +171,10 @@ export default function DesignSystemPage() {
             <div className="space-y-6">
               {/* Disclaimer Card */}
               <div>
-                <div className="card-colored bg-accent-50 border-l-4 border-accent-500">
+                <UnifiedCard
+                  variant="default"
+                  className="bg-accent-50 border-l-4 border-accent-500"
+                >
                   <div className="flex items-start space-x-3">
                     <div className="flex-shrink-0">
                       <IconSvg name="info" size="lg" color="current" className="text-accent-600" />
@@ -180,13 +183,13 @@ export default function DesignSystemPage() {
                       Стоимость услуг в прайсе указана ориентировочно, определить точную сумму заказа зависит от представленной информации, от уровня сложности заказа, определения ресурсов привлекаемых для достижения цели.
                     </p>
                   </div>
-                </div>
+                </UnifiedCard>
                 <div className="mt-3 space-y-1">
                   <code className="text-sm text-secondary-500 block">
-                    .card-colored + bg-accent-50 + border-l-4 border-accent-500
+                    UnifiedCard variant="default" + bg-accent-50 + border-l-4 border-accent-500
                   </code>
                   <p className="text-xs text-secondary-500">
-                    Used for disclaimers and important pricing notes with info icon
+                    Disclaimer card with accent background and left border. Uses UnifiedCard with smooth transitions.
                   </p>
                 </div>
               </div>
