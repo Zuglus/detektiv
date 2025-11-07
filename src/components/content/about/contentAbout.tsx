@@ -90,11 +90,11 @@ export default function ContentAbout({ lang }: ContentLang) {
                 index: number,
               ) => (
               <ScrollReveal key={index} delay={index * 100}>
-                <div className="card text-center p-8 hover:shadow-xl transition-all duration-300">
+                <div className="card text-center p-8 hover:shadow-xl hover:-translate-y-1 hover:scale-[1.015] transition-all duration-300 cursor-pointer">
                   <div className="mb-6 flex justify-center">
-                    <IconSvg 
-                      name={item.icon} 
-                      size="4xl" 
+                    <IconSvg
+                      name={item.icon}
+                      size="4xl"
                       color="primary"
                     />
                   </div>

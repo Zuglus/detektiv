@@ -129,9 +129,10 @@ function ContentMain({ lang }: { lang: Lang }) {
           <div className="max-w-6xl mx-auto px-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {content.benefitsList.map((item, index) => (
-                <UnifiedCard 
-                  key={item.id} 
-                  variant="default" 
+                <UnifiedCard
+                  key={item.id}
+                  variant="default"
+                  interactive
                   className="h-full border-l-4 border-primary-500"
                   style={{ animationDelay: `${index * 150}ms` }}
                 >
