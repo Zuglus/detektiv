@@ -74,7 +74,7 @@ export default function DesignSystemPage() {
             <h3 className="text-xl font-semibold text-secondary-800 mb-6">States</h3>
             <div className="flex flex-wrap gap-4">
               <UnifiedButton variant="primary" disabled>Disabled</UnifiedButton>
-              <UnifiedButton variant="primary" fullWidth className="max-w-md">
+              <UnifiedButton variant="primary" className="w-full max-w-md">
                 Full Width
               </UnifiedButton>
             </div>

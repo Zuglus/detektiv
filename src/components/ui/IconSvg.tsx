@@ -1,5 +1,72 @@
 import type { LucideProps } from 'lucide-react';
-import * as LucideIcons from 'lucide-react';
+import {
+  Home,
+  ArrowLeft,
+  ArrowRight,
+  ChevronLeft,
+  ChevronRight,
+  ChevronUp,
+  Check,
+  CheckCircle,
+  Eye,
+  Zap,
+  Star,
+  Trophy,
+  Target,
+  Shield,
+  Lock,
+  LockKeyhole,
+  AlertTriangle,
+  Info,
+  AlertCircle,
+  FileText,
+  BarChart3,
+  DollarSign,
+  UsersRound,
+  Clock,
+  Handshake,
+  FileBadge,
+  Phone,
+  Mail,
+  Send,
+  MessageCircle,
+  RefreshCcw,
+} from 'lucide-react';
+
+// Объект с импортированными иконками для маппинга
+const LucideIcons = {
+  Home,
+  ArrowLeft,
+  ArrowRight,
+  ChevronLeft,
+  ChevronRight,
+  ChevronUp,
+  Check,
+  CheckCircle,
+  Eye,
+  Zap,
+  Star,
+  Trophy,
+  Target,
+  Shield,
+  Lock,
+  LockKeyhole,
+  AlertTriangle,
+  Info,
+  AlertCircle,
+  FileText,
+  BarChart3,
+  DollarSign,
+  UsersRound,
+  Clock,
+  Handshake,
+  FileBadge,
+  Phone,
+  Mail,
+  Send,
+  MessageCircle,
+  RefreshCcw,
+} as const;
 
 interface IconSvgProps {
   name: string;
@@ -176,6 +243,7 @@ export default function IconSvg({
       <div
         className={`flex items-center justify-center ${sizeClass} ${colorClass} ${className}`}
         aria-hidden="true"
+        data-testid={`icon-${name}`}
       >
         {iconElement}
       </div>
@@ -193,6 +261,7 @@ export default function IconSvg({
         <LucideIcon
           className={`${sizeClass} ${colorClass} ${className}`}
           aria-hidden="true"
+          data-testid={`icon-${name}`}
         />
       );
     }
