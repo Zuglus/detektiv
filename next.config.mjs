@@ -1,9 +1,13 @@
-// Bundle analyzer is optional; removed to avoid build-time dependency errors
 import path from 'path'
 import { fileURLToPath } from 'url'
+import bundleAnalyzer from '@next/bundle-analyzer'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
+
+const withBundleAnalyzer = bundleAnalyzer({
+  enabled: process.env.ANALYZE === 'true',
+})
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -106,10 +110,8 @@ const nextConfig = {
       }
     }
 
-    // Note: bundle analyzer integration removed to keep build self-contained
-
     return config
   },
 }
 
-export default nextConfig
+export default withBundleAnalyzer(nextConfig)
