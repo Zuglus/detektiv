@@ -5,12 +5,17 @@ const config = {
   transform: {
     '^.+\\.(ts|tsx)$': '<rootDir>/jest.tsTransformer.cjs',
   },
+  transformIgnorePatterns: [
+    'node_modules/(?!(marked|gray-matter)/)',
+  ],
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
     '^@/app/globals\\.css$': '<rootDir>/jest.styleMock.js',
     '\\.(css|scss|sass|less)$': '<rootDir>/jest.styleMock.js',
     '^next/image$': '<rootDir>/jest.nextImageMock.js',
     '^next/link$': '<rootDir>/jest.nextLinkMock.js',
+    '^marked$': '<rootDir>/jest.markedMock.js',
+    '^gray-matter$': '<rootDir>/jest.grayMatterMock.js',
   },
   testPathIgnorePatterns: [
     '<rootDir>/.next/',
