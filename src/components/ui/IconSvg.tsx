@@ -166,7 +166,7 @@ const customIcons = {
   experience: (
     <svg fill="currentColor" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
       <circle cx="50" cy="50" r="48" fill="none" stroke="currentColor" strokeWidth="4"/>
-      <text x="50" y="42" fontSize="48" fontWeight="bold" fill="currentColor" textAnchor="middle" dominantBaseline="middle">15</text>
+      <text x="50" y="42" fontSize="48" fontWeight="bold" fill="currentColor" textAnchor="middle" dominantBaseline="middle">16</text>
       <text x="50" y="72" fontSize="24" fontWeight="bold" fill="currentColor" textAnchor="middle" dominantBaseline="middle">ЛЕТ</text>
     </svg>
   ),
