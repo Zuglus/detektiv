@@ -49,27 +49,6 @@ export default function CategorySection({ category, lang }: CategorySectionProps
                   </p>
                 </div>
 
-                <div className="space-y-3 py-4 border-y border-secondary-100">
-                  <div className="flex items-center justify-between">
-                    <span className="text-body-sm font-medium text-secondary-500">
-                      {lang === 'ru' ? 'Стоимость проекта:' : 'Project cost:'}
-                    </span>
-                    <span className="text-primary-600 font-semibold">
-                      {service.price[lang]}
-                    </span>
-                  </div>
-                  {service.title[lang] === (lang === 'ru' ? 'Наружное наблюдение' : 'Outdoor surveillance') && service.hourlyRate && (
-                    <div className="flex items-center justify-between">
-                      <span className="text-body-sm font-medium text-secondary-500">
-                        {lang === 'ru' ? 'Почасовая оплата:' : 'Hourly rate:'}
-                      </span>
-                      <span className="text-body-sm font-semibold text-secondary-700">
-                        {service.hourlyRate[lang]}
-                      </span>
-                    </div>
-                  )}
-                </div>
-
                 <div className="space-y-3">
                   <h4 className="text-body-md font-semibold text-secondary-700">
                     {lang === 'ru' ? 'Что включено:' : 'What\'s included:'}

@@ -76,12 +76,9 @@ function ContentMain({ lang }: { lang: Lang }) {
                       <h4 className="text-heading-sm font-semibold text-secondary-900 mb-8 uppercase tracking-wide hover:text-primary-600 transition-colors w-2/3 mx-auto">
                         {card[lang].title}
                       </h4>
-                      <p className="text-body-sm text-secondary-700 leading-relaxed mb-8">
+                      <p className="text-body-sm text-secondary-700 leading-relaxed">
                         {card[lang].text}
                       </p>
-                      <div className="inline-flex items-center justify-center px-8 py-4 bg-primary-50 text-primary-700 font-bold text-xl rounded-xl border border-primary-200 hover:bg-primary-100 transition-colors">
-                        {card[lang].price}
-                      </div>
                     </div>
                   </UnifiedCard>
                 </div>
