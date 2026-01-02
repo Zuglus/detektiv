@@ -12,9 +12,9 @@ export default function PriceDisclaimer({ text, lang }: PriceDisclaimerProps) {
     <UnifiedCard variant="disclaimer" interactive>
       <div className="flex items-start space-x-3">
         <div className="flex-shrink-0">
-          <IconSvg name="info" size="lg" color="current" className="text-accent-600" />
+          <IconSvg name="info" size="lg" color="current" className="text-primary-600" />
         </div>
-        <p className="text-body-md leading-relaxed text-accent-800">
+        <p className="text-body-md leading-relaxed text-primary-800">
           {text[lang]}
         </p>
       </div>
