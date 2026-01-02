@@ -13,8 +13,8 @@
       ]
     },
     "text": {
-      "ru": "Стоимость услуг в прайсе указана ориентировочно, определить точную сумму заказа зависит от представленной информации, от уровня сложности заказа, определения ресурсов привлекаемых для достижения цели.",
-      "en": "The cost of services in the price list is approximate, the exact amount of the order depends on the information provided, the complexity of the order, and the resources required to achieve the goal."
+      "ru": "Объём услуг определяется индивидуально в зависимости от представленной информации, уровня сложности заказа и необходимых ресурсов для достижения цели.",
+      "en": "The scope of services is determined individually based on the information provided, the complexity of the order, and the resources required to achieve the goal."
     }
   },
   "trustElements": {
