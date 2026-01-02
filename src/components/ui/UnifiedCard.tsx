@@ -3,7 +3,7 @@ import { classNames as cn } from '@/components/utility/classNames';
 
 export interface UnifiedCardProps {
   children: ReactNode;
-  variant?: 'default' | 'dark' | 'emergency' | 'accent' | 'principle' | 'pricing' | 'trust' | 'gradient' | 'disclaimer';
+  variant?: 'default' | 'dark' | 'emergency' | 'accent' | 'principle' | 'pricing' | 'trust' | 'gradient' | 'disclaimer' | 'light-green';
   size?: 'compact' | 'default' | 'large';
   bordered?: boolean;
   gradient?: {
@@ -27,7 +27,8 @@ const cardVariants = {
   pricing: 'bg-white border-2 border-secondary-200',
   trust: 'bg-primary-50 border-primary-200',
   gradient: '', // Will be handled specially
-  disclaimer: 'bg-accent-50 border-0 border-l-4 border-l-accent-500'
+  disclaimer: 'bg-primary-50 border-0 border-l-4 border-l-primary-500',
+  'light-green': 'bg-primary-100 border-primary-300 text-primary-900'
 };
 
 const cardSizes = {
