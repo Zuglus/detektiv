@@ -29,21 +29,13 @@ export default function CategorySection({ category, lang }: CategorySectionProps
             className="group relative"
             style={{ animationDelay: `${serviceIndex * 50}ms` }}
           >
-            <UnifiedCard 
-              variant="pricing" 
+            <UnifiedCard
+              variant="pricing"
               className="h-full"
               interactive
             >
-              {service.popular && (
-                <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-10">
-                  <div className="bg-gradient-to-r from-accent-400 to-accent-500 text-white px-4 py-1 rounded-full text-sm font-semibold shadow-xl ring-2 ring-accent-200 animate-gentle-bounce">
-                    {lang === 'ru' ? 'Популярная услуга' : 'Popular Service'}
-                  </div>
-                </div>
-              )}
-              
               <div className="space-y-6">
-                <div className={`space-y-2 ${service.popular ? 'pt-3' : ''}`}>
+                <div className="space-y-2">
                   <h3 className="text-heading-sm font-semibold leading-tight text-secondary-800 text-center">
                     {service.title[lang]}
                   </h3>
@@ -98,7 +90,7 @@ export default function CategorySection({ category, lang }: CategorySectionProps
                   <UnifiedButton
                     as="link"
                     href={contacts.telegram.link}
-                    variant={service.popular ? "primary" : "secondary"}
+                    variant="primary"
                     className="w-full"
                     aria-label={`${lang === 'ru' ? 'Получить консультацию по услуге' : 'Get consultation for service'}: ${service.title[lang]}`}
                   >
