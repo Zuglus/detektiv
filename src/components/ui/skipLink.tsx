@@ -38,7 +38,7 @@ export default function SkipLink({ lang = 'ru' }: SkipLinkProps) {
             focus:outline-none focus:ring-4 focus:ring-primary-300
             hover:bg-primary-800 active:bg-primary-900
             shadow-lg hover:shadow-xl
-            text-sm font-medium
+            text-sm
             focus:translate-y-0 focus:scale-100
             hover:translate-y-0 hover:scale-105
             min-h-[44px] min-w-[200px] flex items-center justify-center
