@@ -13,7 +13,7 @@ interface NavProps {
 }
 
 export default function Nav({ lang }: NavProps) {
-  const pathname = usePathname();
+  const pathname = usePathname() || '/';
   const routes: Route[] = getRoutes(lang);
 
   return (

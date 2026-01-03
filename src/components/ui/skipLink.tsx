@@ -7,7 +7,7 @@ interface SkipLinkProps {
 }
 
 export default function SkipLink({ lang = 'ru' }: SkipLinkProps) {
-  const pathname = usePathname();
+  const pathname = usePathname() || '/';
   const isEnglish = pathname.startsWith('/en') || lang === 'en';
   
   const skipLinks = [
