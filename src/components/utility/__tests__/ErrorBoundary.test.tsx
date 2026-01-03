@@ -1,4 +1,4 @@
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import ErrorBoundary from '../ErrorBoundary';
 
 // Mock иконок
@@ -25,7 +25,6 @@ jest.mock('@/components/ui/UnifiedButton', () => {
     const props = href ? { href, className } : { onClick, className, type: 'button' as const };
 
     return (
-      // @ts-ignore
       <Element {...props}>
         {children}
       </Element>
