@@ -21,9 +21,9 @@ export interface Post {
 }
 
 export interface Slugs {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export type Breadcrumb = {

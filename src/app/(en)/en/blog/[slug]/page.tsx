@@ -12,7 +12,8 @@ export async function generateStaticParams() {
 }
 
 export default async function Post({ params }: Slugs) {
-  const [post] = await getPosts('en', params.slug);
+  const resolvedParams = await params;
+  const [post] = await getPosts('en', resolvedParams.slug);
 
   const breadcrumb: Breadcrumb = {
     home: '/en',
