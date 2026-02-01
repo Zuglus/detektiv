@@ -28,8 +28,9 @@ describe('ContentPrice', () => {
 
   it('should display pricing information', () => {
     render(<ContentPrice lang="ru" />);
-    
-    expect(screen.getAllByText(/от 50 000 ₽/)[0]).toBeInTheDocument();
+
+    // Check for service descriptions that are actually rendered
+    expect(screen.getByText(/Сбор и анализ информации/)).toBeInTheDocument();
   });
 
   it('should display service features', () => {

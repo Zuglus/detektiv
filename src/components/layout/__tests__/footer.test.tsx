@@ -44,11 +44,11 @@ describe('Footer', () => {
 
   it('renders footer with Russian content', () => {
     render(<Footer lang="ru" />)
-    
+
     expect(screen.getByText('Детективное агентство Грозного Эдуарда Николаевича')).toBeInTheDocument()
     expect(screen.getByText(/г\. Москва/)).toBeInTheDocument()
     expect(screen.getByText(/лицензия МВД РФ/)).toBeInTheDocument()
-    expect(screen.getByText(/2010-2025/)).toBeInTheDocument()
+    expect(screen.getByText(/2010-2026/)).toBeInTheDocument()
   })
 
   it('renders footer with English content', () => {
@@ -57,7 +57,7 @@ describe('Footer', () => {
     expect(screen.getByText(/Grozny Edward Nikolaevich Detective Agency/)).toBeInTheDocument()
     expect(screen.getByText(/Moscow/)).toBeInTheDocument()
     expect(screen.getByText(/Russian Ministry of Internal Affairs License/)).toBeInTheDocument()
-    expect(screen.getByText(/2010-2025/)).toBeInTheDocument()
+    expect(screen.getByText(/2010-2026/)).toBeInTheDocument()
   })
 
   it('renders social icons when enabled', () => {
@@ -153,9 +153,9 @@ describe('Footer', () => {
 
   it('displays year range consistently across languages', () => {
     const { rerender } = render(<Footer lang="ru" />)
-    expect(screen.getByText(/2010-2025/)).toBeInTheDocument()
+    expect(screen.getByText(/2010-2026/)).toBeInTheDocument()
     
     rerender(<Footer lang="en" />)
-    expect(screen.getByText(/2010-2025/)).toBeInTheDocument()
+    expect(screen.getByText(/2010-2026/)).toBeInTheDocument()
   })
 })

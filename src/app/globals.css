@@ -4,12 +4,7 @@
 
 /* Font optimization: Moved to head with preconnect and preload */
 
-/* Tailwind base imports */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-/* Import modular stylesheets */
+/* Import modular stylesheets - must be before @tailwind for Turbopack */
 @import './styles/base.css';
 @import './styles/animations.css';
 @import './styles/components/buttons.css';
@@ -19,3 +14,8 @@
 @import './styles/utilities.css';
 @import './styles/accessibility.css';
 @import './styles/responsive.css';
+
+/* Tailwind base imports */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
