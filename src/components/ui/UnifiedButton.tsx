@@ -64,10 +64,10 @@ const buttonVariants: Record<ButtonVariant, string> = {
 };
 
 const buttonSizes: Record<ButtonSize, string> = {
-  sm: 'px-4 py-2 text-sm rounded-lg min-h-[36px]',
-  md: 'px-6 py-3 text-base rounded-xl min-h-[44px]',
-  lg: 'px-8 py-4 text-lg rounded-xl min-h-[52px]',
-  xl: 'px-10 py-5 text-xl rounded-2xl min-h-[60px]'
+  sm: 'px-4 py-2 text-sm rounded-sm min-h-[36px]',
+  md: 'px-6 py-3 text-base rounded min-h-[44px]',
+  lg: 'px-8 py-4 text-lg rounded-lg min-h-[52px]',
+  xl: 'px-10 py-5 text-xl rounded-xl min-h-[60px]'
 };
 
 const disabledStyles = cn(
