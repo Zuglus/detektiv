@@ -132,9 +132,8 @@ function ContentMain({ lang }: { lang: Lang }) {
           <div className="max-w-4xl mx-auto px-6">
             <div className="text-center mb-12">
               <h3
-                className="text-display-sm text-secondary-900 mb-4 font-display"
+                className="text-display-sm text-secondary-900 mb-4 font-display font-black"
                 style={{
-                  fontWeight: 900,
                   letterSpacing: '-0.02em'
                 }}
               >
@@ -203,9 +202,8 @@ function ContentMain({ lang }: { lang: Lang }) {
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-12">
               <h2
-                className="text-display-sm text-white mb-4 font-display"
+                className="text-display-sm text-white mb-4 font-display font-black"
                 style={{
-                  fontWeight: 900,
                   letterSpacing: '-0.02em',
                   textShadow: '0 4px 16px rgba(0, 0, 0, 0.25)'
                 }}

@@ -94,12 +94,13 @@ module.exports = {
         '64': '8rem',      // 128px
       },
       borderRadius: {
-        'sm': '0.25rem',
-        'md': '0.375rem', 
-        'lg': '0.5rem',
-        'xl': '0.75rem',
-        '2xl': '1rem',
-        'full': '9999px',
+        'xs': '0.25rem',     // 4px  - Tiny (badges, tags)
+        'sm': '0.5rem',      // 8px  - Small UI (sm buttons)
+        'DEFAULT': '0.75rem', // 12px - Standard UI (md buttons, inputs)
+        'lg': '1rem',        // 16px - Cards, large buttons
+        'xl': '1.5rem',      // 24px - Feature cards, containers
+        '2xl': '2rem',       // 32px - Hero elements
+        'full': '9999px',    // Full circle
       },
       boxShadow: {
         'sm': '0 1px 2px 0 rgb(0 0 0 / 0.05)',
@@ -119,6 +120,12 @@ module.exports = {
       transitionTimingFunction: {
         'bounce': 'cubic-bezier(0.68, -0.55, 0.265, 1.55)',
         'smooth': 'cubic-bezier(0.25, 0.1, 0.25, 1)',
+      },
+      backgroundImage: {
+        'gradient-primary': 'linear-gradient(135deg, #339955 0%, #247d44 100%)',
+        'gradient-primary-bold': 'linear-gradient(to bottom right, #1a522f 0%, #247d44 50%, #339955 100%)',
+        'gradient-primary-hero': 'linear-gradient(to bottom right, #1a522f 0%, #247d44 25%, #339955 50%, #1e6638 75%, #1a522f 100%)',
+        'gradient-accent': 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)',
       },
       backdropBlur: {
         'xs': '2px',

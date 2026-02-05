@@ -89,9 +89,8 @@ export default function HeroSection({ lang }: HeroSectionProps) {
           </div>
 
           <h1
-            className="text-display-xl text-white mb-6 leading-tight font-display sm:whitespace-nowrap"
+            className="text-display-xl text-white mb-6 leading-tight font-display font-black sm:whitespace-nowrap"
             style={{
-              fontWeight: 900,
               letterSpacing: '-0.03em',
               textShadow: '0 4px 20px rgba(0, 0, 0, 0.3), 0 2px 8px rgba(0, 0, 0, 0.2)'
             }}
@@ -100,9 +99,8 @@ export default function HeroSection({ lang }: HeroSectionProps) {
           </h1>
 
           <h2
-            className="text-display-lg text-primary-200 mb-4 font-display"
+            className="text-display-lg text-primary-200 mb-4 font-display font-bold"
             style={{
-              fontWeight: 700,
               letterSpacing: '-0.02em',
               textShadow: '0 2px 12px rgba(0, 0, 0, 0.2)'
             }}
@@ -111,9 +109,8 @@ export default function HeroSection({ lang }: HeroSectionProps) {
           </h2>
 
           <div
-            className="text-display-md text-primary-300 mb-12 font-display"
+            className="text-display-md text-primary-300 mb-12 font-display font-semibold"
             style={{
-              fontWeight: 600,
               textShadow: '0 2px 8px rgba(0, 0, 0, 0.15)'
             }}
           >

@@ -59,7 +59,7 @@ export default function UnifiedCard({
   
   const baseClasses = cn(
     // Base card styling
-    'relative overflow-hidden rounded-2xl',
+    'relative overflow-hidden rounded-lg',
     'will-change-transform transform-gpu', // Hardware acceleration
     
     // Size
@@ -119,7 +119,7 @@ export default function UnifiedCard({
       
       {/* Principle card special background */}
       {variant === 'principle' && (
-        <div className="absolute inset-0 rounded-2xl -z-10 bg-gradient-to-br from-secondary-800/10 to-primary-600/10" />
+        <div className="absolute inset-0 rounded-lg -z-10 bg-gradient-to-br from-secondary-800/10 to-primary-600/10" />
       )}
       
       {/* Content wrapper */}
