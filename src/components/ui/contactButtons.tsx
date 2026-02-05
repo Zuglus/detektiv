@@ -1,5 +1,6 @@
 import { Lang } from "@/components/utility/types";
 import UnifiedButton from '@/components/ui/UnifiedButton';
+import UnifiedCard from '@/components/ui/UnifiedCard';
 import IconSvg from '@/components/ui/IconSvg';
 import contacts from '@/data/contacts.json';
 
@@ -10,7 +11,7 @@ interface ContactButtonsProps {
 
 export default function ContactButtons({ lang, proposeText }: ContactButtonsProps) {
   return (
-    <div className="gradient-card-isolated text-center bg-gradient-to-br from-primary-50 to-accent-50 border-primary-200">
+    <UnifiedCard className="text-center bg-gradient-to-br from-primary-50 to-accent-50 border-primary-200" size="large" interactive>
       <h3 className="text-heading-md font-semibold mb-6 text-primary-700">
         {proposeText[lang]}
       </h3>
@@ -48,6 +49,6 @@ export default function ContactButtons({ lang, proposeText }: ContactButtonsProp
           }
         </p>
       </div>
-    </div>
+    </UnifiedCard>
   );
 }

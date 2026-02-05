@@ -1,4 +1,5 @@
 import { Lang } from "@/components/utility/types";
+import UnifiedCard from '@/components/ui/UnifiedCard';
 
 interface PricingHeaderProps {
   lang: Lang;
@@ -8,7 +9,7 @@ interface PricingHeaderProps {
 export default function PricingHeader({ lang, introList }: PricingHeaderProps) {
   return (
     <div className="text-center space-y-8">
-      <div className="gradient-card-isolated bg-gradient-to-br from-primary-600 to-primary-700 text-white border-primary-500">
+      <UnifiedCard className="bg-gradient-to-br from-primary-600 to-primary-700 text-white border-primary-500" size="large" interactive>
         <h1 className="text-display-md font-display font-bold mb-6">
           {lang === 'ru' ? 'Прозрачные цены на детективные услуги' : 'Transparent Detective Service Pricing'}
         </h1>
@@ -23,7 +24,7 @@ export default function PricingHeader({ lang, introList }: PricingHeaderProps) {
             </div>
           ))}
         </div>
-      </div>
+      </UnifiedCard>
     </div>
   );
 }

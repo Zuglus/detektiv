@@ -1,6 +1,7 @@
 'use client';
 
 import SocialIconsFooter from '@/components/ui/socialIconsFooter';
+import UnifiedCard from '@/components/ui/UnifiedCard';
 import footerData from './footer.json';
 import { Lang } from '@/components/utility/types';
 
@@ -26,9 +27,9 @@ export default function Footer({ lang }: { lang: Lang }) {
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="text-center mb-12">
           {socialIcons && (
-            <div className="glass-card inline-flex items-center justify-center px-8 py-6">
+            <UnifiedCard className="inline-flex items-center justify-center" size="default">
               <SocialIconsFooter />
-            </div>
+            </UnifiedCard>
           )}
         </div>
 
@@ -69,12 +70,12 @@ export default function Footer({ lang }: { lang: Lang }) {
           </div>
 
           <div className="text-center text-body-md text-secondary-300 leading-relaxed">
-            <div className="glass-card inline-block px-6 py-4">
+            <UnifiedCard className="inline-block" size="compact">
               © {years[lang]} <span className="font-medium text-primary-200">{companyName[lang]}</span>
               <br className="sm:hidden" />
               <span className="hidden sm:inline">, </span>
               {location[lang]}. {licenseInfo[lang]}
-            </div>
+            </UnifiedCard>
           </div>
         </div>
       </div>

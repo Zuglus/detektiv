@@ -1,5 +1,6 @@
 import { Lang } from "@/components/utility/types";
 import IconSvg from '@/components/ui/IconSvg';
+import UnifiedCard from '@/components/ui/UnifiedCard';
 import type { TrustElements } from "@/components/content/price/types";
 
 interface TrustIndicatorsProps {
@@ -9,7 +10,7 @@ interface TrustIndicatorsProps {
 
 export default function TrustIndicators({ trustElements, lang }: TrustIndicatorsProps) {
   return (
-    <div className="card border-2 border-primary-200">
+    <UnifiedCard variant="trust" bordered={true}>
       <h2 className="text-heading-lg font-display font-semibold text-center mb-8 text-primary-700">
         {trustElements.title[lang]}
       </h2>
@@ -24,6 +25,6 @@ export default function TrustIndicators({ trustElements, lang }: TrustIndicators
           </div>
         ))}
       </div>
-    </div>
+    </UnifiedCard>
   );
 }

@@ -1,5 +1,6 @@
 import { Lang } from '@/components/utility/types';
 import IconSvg from '@/components/ui/IconSvg';
+import UnifiedCard from '@/components/ui/UnifiedCard';
 import content from './contact.json';
 import contacts from '@/data/contacts.json';
 
@@ -25,7 +26,7 @@ export default function ContentContact({
       <div className="grid grid-cols-12 gap-6 mb-12">
         
         {/* Emergency Contact - Hero Block */}
-        <div className="col-span-12 lg:col-span-8 card-emergency group relative overflow-hidden">
+        <UnifiedCard variant="emergency" className="col-span-12 lg:col-span-8 group relative overflow-hidden" size="large">
           <div className="absolute inset-0 bg-gradient-to-br from-red-500/10 to-orange-500/10 group-hover:from-red-500/20 group-hover:to-orange-500/20 transition-all duration-500" />
           <div className="relative z-10 p-8">
             <div className="flex items-start justify-between mb-6">
@@ -52,10 +53,10 @@ export default function ContentContact({
               {contacts.phone.name}
             </a>
           </div>
-        </div>
+        </UnifiedCard>
 
         {/* Office Address */}
-        <div className="col-span-12 lg:col-span-4 card text-center group">
+        <UnifiedCard className="col-span-12 lg:col-span-4 text-center group">
           <div className="p-6">
             <h3 className="text-heading-sm font-semibold text-secondary-900 mb-3">
               {content.addressTitle[lang]}
@@ -67,10 +68,10 @@ export default function ContentContact({
               {content.addressDescription[lang]}
             </p>
           </div>
-        </div>
+        </UnifiedCard>
 
         {/* Email */}
-        <div className="col-span-12 md:col-span-6 lg:col-span-4 card group">
+        <UnifiedCard className="col-span-12 md:col-span-6 lg:col-span-4 group">
           <div className="p-6 text-center">
             <div className="flex justify-between items-center mb-4">
               <h3 className="text-heading-sm font-semibold text-secondary-900">
@@ -92,10 +93,10 @@ export default function ContentContact({
               {content.emailDescription[lang]}
             </p>
           </div>
-        </div>
+        </UnifiedCard>
 
         {/* Messengers Block */}
-        <div className="col-span-12 md:col-span-6 lg:col-span-8 card group">
+        <UnifiedCard className="col-span-12 md:col-span-6 lg:col-span-8 group">
           <div className="p-6">
             <div className="flex justify-between items-center mb-6">
               <div>
@@ -147,12 +148,12 @@ export default function ContentContact({
               </a>
             </div>
           </div>
-        </div>
+        </UnifiedCard>
 
       </div>
 
       {/* Confidentiality Section */}
-      <div className="card-accent relative overflow-hidden">
+      <UnifiedCard variant="accent" className="relative overflow-hidden" size="large">
         <div className="absolute inset-0 bg-gradient-to-r from-primary-500/5 to-accent-500/5" />
         <div className="relative z-10 p-8 text-center">
           <div className="max-w-3xl mx-auto">
@@ -164,7 +165,7 @@ export default function ContentContact({
             </p>
           </div>
         </div>
-      </div>
+      </UnifiedCard>
 
       {/* Schema.org structured data */}
       <script

@@ -36,12 +36,12 @@ function ContentMain({ lang }: { lang: Lang }) {
       <ScrollReveal delay={100}>
         <section className="py-16">
           <div className="max-w-4xl mx-auto px-6">
-            <div className="card text-center">
-              <div 
-                className="text-body-lg text-secondary-700 leading-relaxed" 
-                dangerouslySetInnerHTML={{ __html: content.intro[lang] }} 
+            <UnifiedCard className="text-center">
+              <div
+                className="text-body-lg text-secondary-700 leading-relaxed"
+                dangerouslySetInnerHTML={{ __html: content.intro[lang] }}
               />
-            </div>
+            </UnifiedCard>
           </div>
         </section>
       </ScrollReveal>
