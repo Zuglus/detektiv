@@ -13,9 +13,7 @@
     line-height: 1.2;
   }
 
-  /* Mobile optimizations */
-  .card:hover, .btn-primary:hover, .card-dark:hover,
-  .card-colored:hover, .gradient-card-isolated:hover,
+  /* Mobile optimizations - disable hover effects */
   .trust-indicator:hover, .pricing-card:hover {
     transform: none !important;
   }
@@ -31,13 +29,8 @@
     -webkit-backdrop-filter: blur(3px);
   }
 
-  /* Remove complex pseudo-elements on mobile */
-  .card::before, .card::after {
-    display: none !important;
-  }
-
   /* Faster transitions for better INP */
-  .principle-card, .trust-icon {
+  .trust-icon {
     transition-duration: var(--duration-fast) !important;
   }
 

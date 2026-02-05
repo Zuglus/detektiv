@@ -1,4 +1,3 @@
-import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import PricingHeader from '../pricingHeader';
@@ -69,16 +68,17 @@ describe('PricingHeader', () => {
   });
 
   describe('styling', () => {
-    it('has gradient card styling', () => {
+    it('has gradient card styling with UnifiedCard', () => {
       const { container } = render(<PricingHeader lang="ru" introList={mockIntroList} />);
-      const gradientCard = container.querySelector('.gradient-card-isolated');
+      // UnifiedCard adds these Tailwind classes directly
+      const cardElement = container.querySelector('.bg-gradient-to-br');
 
-      expect(gradientCard).toBeInTheDocument();
-      expect(gradientCard).toHaveClass('bg-gradient-to-br');
-      expect(gradientCard).toHaveClass('from-primary-600');
-      expect(gradientCard).toHaveClass('to-primary-700');
-      expect(gradientCard).toHaveClass('text-white');
-      expect(gradientCard).toHaveClass('border-primary-500');
+      expect(cardElement).toBeInTheDocument();
+      expect(cardElement).toHaveClass('bg-gradient-to-br');
+      expect(cardElement).toHaveClass('from-primary-600');
+      expect(cardElement).toHaveClass('to-primary-700');
+      expect(cardElement).toHaveClass('text-white');
+      expect(cardElement).toHaveClass('border-primary-500');
     });
 
     it('has responsive grid layout', () => {
