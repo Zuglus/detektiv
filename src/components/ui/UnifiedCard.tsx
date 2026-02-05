@@ -23,7 +23,7 @@ const cardVariants = {
   dark: 'bg-secondary-800 border-secondary-700 text-white',
   emergency: 'bg-white/97 border-white/25 backdrop-blur-sm emergency-overlay',
   accent: 'bg-white/97 border-white/25 backdrop-blur-sm accent-overlay',
-  principle: 'bg-secondary-800/92 border-primary-400/80 text-white backdrop-blur-sm',
+  principle: 'bg-secondary-800/30 border-primary-400/80 text-white backdrop-blur-sm',
   pricing: 'bg-white border-2 border-secondary-200',
   trust: 'bg-primary-50 border-primary-200',
   gradient: '', // Will be handled specially
