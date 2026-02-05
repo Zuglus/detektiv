@@ -65,24 +65,63 @@ function ContentMain({ lang }: { lang: Lang }) {
         <section className="py-16">
           <div className="max-w-7xl mx-auto px-6">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {content.serviceList.map((card, index) => (
-                <div key={card[lang].title} className="h-full" style={{ animationDelay: `${index * 100}ms` }}>
-                  <UnifiedCard 
-                    variant="default" 
-                    interactive 
-                    className="h-full"
+              {content.serviceList.map((card, index) => {
+                // Alternating card variants for visual interest
+                const variant = index % 4 === 0 ? 'light-green' : 'default';
+                const isAccent = index % 4 === 0;
+
+                return (
+                  <div
+                    key={card[lang].title}
+                    className="h-full service-card-wrapper"
+                    style={{ animationDelay: `${index * 100}ms` }}
                   >
-                    <div className="text-center">
-                      <h4 className="text-heading-sm font-semibold text-secondary-900 mb-8 uppercase tracking-wide hover:text-primary-600 transition-colors w-2/3 mx-auto">
-                        {card[lang].title}
-                      </h4>
-                      <p className="text-body-sm text-secondary-700 leading-relaxed">
-                        {card[lang].text}
-                      </p>
-                    </div>
-                  </UnifiedCard>
-                </div>
-              ))}
+                    <UnifiedCard
+                      variant={variant}
+                      interactive
+                      className="h-full service-card-enhanced group"
+                    >
+                      <div className="text-center">
+                        {/* Icon placeholder - будет заменен на custom icons */}
+                        <div className="mb-6 flex justify-center">
+                          <div
+                            className={`
+                              w-16 h-16 rounded-2xl flex items-center justify-center
+                              transition-all duration-500 group-hover:scale-110 group-hover:rotate-6
+                              ${isAccent
+                                ? 'bg-primary-600 text-white shadow-lg group-hover:shadow-xl'
+                                : 'bg-primary-100 text-primary-600 group-hover:bg-primary-200'
+                              }
+                            `}
+                          >
+                            <IconSvg
+                              name={index === 0 ? 'document' : index === 1 ? 'eye' : index === 2 ? 'shield' : 'target'}
+                              size="xl"
+                              color="current"
+                            />
+                          </div>
+                        </div>
+
+                        <h4
+                          className={`
+                            text-heading-sm font-semibold mb-6 uppercase tracking-wide
+                            transition-colors duration-300 w-2/3 mx-auto
+                            ${isAccent
+                              ? 'text-primary-900 group-hover:text-primary-700'
+                              : 'text-secondary-900 group-hover:text-primary-600'
+                            }
+                          `}
+                        >
+                          {card[lang].title}
+                        </h4>
+                        <p className={`text-body-sm leading-relaxed ${isAccent ? 'text-primary-800' : 'text-secondary-700'}`}>
+                          {card[lang].text}
+                        </p>
+                      </div>
+                    </UnifiedCard>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </section>
@@ -92,10 +131,22 @@ function ContentMain({ lang }: { lang: Lang }) {
         <section className="py-16 bg-secondary-50">
           <div className="max-w-4xl mx-auto px-6">
             <div className="text-center mb-12">
-              <h3 className="text-display-sm text-secondary-900 mb-4">
+              <h3
+                className="text-display-sm text-secondary-900 mb-4 font-display"
+                style={{
+                  fontWeight: 900,
+                  letterSpacing: '-0.02em'
+                }}
+              >
                 {content.orderListHeader[lang]}
               </h3>
-              <div className="w-24 h-1 gradient-primary mx-auto rounded-full" />
+              <div className="flex justify-center items-center gap-2">
+                <div className="w-8 h-px bg-primary-400/40" />
+                <div className="w-2 h-2 rounded-full bg-primary-500 animate-pulse" />
+                <div className="w-16 h-1 gradient-primary rounded-full" />
+                <div className="w-2 h-2 rounded-full bg-primary-500 animate-pulse" />
+                <div className="w-8 h-px bg-primary-400/40" />
+              </div>
             </div>
             
             <div className="space-y-4">
@@ -151,10 +202,23 @@ function ContentMain({ lang }: { lang: Lang }) {
         <section className="py-16 gradient-primary">
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-12">
-              <h2 className="text-display-sm text-white mb-4">
+              <h2
+                className="text-display-sm text-white mb-4 font-display"
+                style={{
+                  fontWeight: 900,
+                  letterSpacing: '-0.02em',
+                  textShadow: '0 4px 16px rgba(0, 0, 0, 0.25)'
+                }}
+              >
                 {content.detektivePrinciplesHeader[lang]}
               </h2>
-              <div className="w-24 h-1 bg-primary-400 mx-auto rounded-full" />
+              <div className="flex justify-center items-center gap-2">
+                <div className="w-12 h-px bg-primary-300/50" />
+                <div className="w-3 h-3 rounded-full border-2 border-primary-300" />
+                <div className="w-20 h-1 bg-primary-300 rounded-full" />
+                <div className="w-3 h-3 rounded-full border-2 border-primary-300" />
+                <div className="w-12 h-px bg-primary-300/50" />
+              </div>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

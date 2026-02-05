@@ -66,3 +66,35 @@
 .trust-indicator:hover .trust-icon {
   @apply scale-110;
 }
+
+/* ========================================
+   ENHANCED SERVICE CARDS
+   ======================================== */
+
+.service-card-enhanced {
+  transition: all 500ms cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+.service-card-enhanced:hover {
+  transform: translate3d(0, -12px, 0) scale3d(1.03, 1.03, 1) rotate(0.5deg);
+  box-shadow:
+    0 30px 60px rgba(51, 153, 85, 0.15),
+    0 15px 35px rgba(0, 0, 0, 0.12),
+    0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* Light green variant hover enhancement */
+.service-card-enhanced[class*="light-green"]:hover {
+  box-shadow:
+    0 30px 60px rgba(51, 153, 85, 0.25),
+    0 15px 35px rgba(51, 153, 85, 0.15),
+    0 5px 15px rgba(51, 153, 85, 0.1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .service-card-enhanced:hover {
+    transform: translate3d(0, -4px, 0);
+  }
+}

@@ -21,7 +21,7 @@ const interFont = Inter({
 const playfairDisplayFont = Playfair_Display({
   subsets: ['latin', 'cyrillic'],
   variable: '--font-playfair-display',
-  weight: ['400', '600', '700'],
+  weight: ['400', '600', '700', '900'],
   display: 'swap',
   preload: true,
   fallback: ['Georgia', 'Times New Roman', 'serif'],
