@@ -4,6 +4,17 @@ import matter from 'gray-matter';
 import { marked } from 'marked';
 import { Post, Lang } from './types';
 
+marked.use({
+  renderer: {
+    html({ text }: { text: string }) {
+      return text
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+    }
+  }
+});
+
 function getPostsDirectory(lang: Lang): string {
   const directoryMap: Record<Lang, string> = {
     en: 'src/data/blog',

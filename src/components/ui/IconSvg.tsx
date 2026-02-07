@@ -31,6 +31,11 @@ import {
   Send,
   MessageCircle,
   RefreshCcw,
+  MapPin,
+  Building2,
+  Camera,
+  ListChecks,
+  Contact,
 } from 'lucide-react';
 
 // Объект с импортированными иконками для маппинга
@@ -66,6 +71,11 @@ const LucideIcons = {
   Send,
   MessageCircle,
   RefreshCcw,
+  MapPin,
+  Building2,
+  Camera,
+  ListChecks,
+  Contact,
 } as const;
 
 interface IconSvgProps {
@@ -139,6 +149,13 @@ const lucideIconMap: Record<string, keyof typeof LucideIcons> = {
 
   // Actions
   'refresh-ccw': 'RefreshCcw',
+
+  // Places & Objects
+  'mapPin': 'MapPin',
+  'building': 'Building2',
+  'camera': 'Camera',
+  'listChecks': 'ListChecks',
+  'contact': 'Contact',
 };
 
 // Кастомные иконки (только уникальные, недоступные в lucide)

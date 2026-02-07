@@ -43,7 +43,7 @@ export default function Footer({ lang }: { lang: Lang }) {
                 glass-button
                 bg-primary-600/20 hover:bg-primary-600/40 
                 text-white rounded-full 
-                transition-all var(--transition-bounce) 
+                transition-all duration-bounce
                 hover:scale-110 hover:rotate-12
                 focus:outline-none focus:ring-4 focus:ring-primary-500/30
                 focus-not-obscured

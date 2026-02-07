@@ -15,6 +15,7 @@ export interface UnifiedCardProps {
   className?: string;
   onClick?: () => void;
   style?: React.CSSProperties;
+  'aria-label'?: string;
   'data-testid'?: string;
 }
 
@@ -52,6 +53,7 @@ export default function UnifiedCard({
   className = '',
   onClick,
   style,
+  'aria-label': ariaLabel,
   'data-testid': testId,
   ...props
 }: UnifiedCardProps) {
@@ -97,9 +99,16 @@ export default function UnifiedCard({
       className={baseClasses}
       style={{...gradientStyles, ...style}}
       onClick={onClick}
+      onKeyDown={interactive && onClick ? (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          onClick();
+        }
+      } : undefined}
       data-testid={testId}
       role={interactive ? 'button' : undefined}
       tabIndex={interactive ? 0 : undefined}
+      aria-label={interactive ? ariaLabel : undefined}
       {...props}
     >
       {/* Base glass effect pseudo-element for non-gradient cards */}

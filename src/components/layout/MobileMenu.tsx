@@ -111,7 +111,7 @@ export default function MobileMenu({ routes, pathname }: MobileMenuProps) {
                 className={`
                   menu-item interactive-hint focus-dark
                   block px-4 py-3 rounded-xl text-base font-medium uppercase tracking-wider
-                  transition-all var(--transition-normal) hover:scale-105 hover:shadow-md
+                  transition-all duration-normal hover:scale-105 hover:shadow-md
                   focus:outline-none focus-not-obscured
                   ${pathname === route.href 
                     ? 'bg-white/20 text-white border-l-4 border-white shadow-sm' 

@@ -8,7 +8,7 @@ import { Lang } from '@/components/utility/types';
 
 function ContentMain({ lang }: { lang: Lang }) {
   return (
-    <main className="relative">
+    <div className="relative">
       <ScrollReveal>
         <section className="bg-primary-50 py-12 md:py-16 transform-gpu lazy-section">
           <div className="max-w-6xl mx-auto px-4 md:px-6 text-center">
@@ -303,7 +303,7 @@ function ContentMain({ lang }: { lang: Lang }) {
           </div>
         </section>
       </ScrollReveal>
-    </main>
+    </div>
   );
 }
 

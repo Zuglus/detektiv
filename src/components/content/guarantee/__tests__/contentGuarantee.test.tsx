@@ -26,7 +26,7 @@ describe('ContentGuarantee', () => {
   it('should have proper semantic structure', () => {
     const { container } = render(<ContentGuarantee lang="ru" />);
     
-    expect(container.querySelector('main')).toBeInTheDocument();
+    expect(container.firstElementChild).toBeInTheDocument();
     expect(container.querySelector('h1')).toBeInTheDocument();
   });
 

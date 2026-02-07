@@ -208,7 +208,6 @@ describe('ContentMain', () => {
   it('renders main content for Russian language', () => {
     render(<ContentMain lang="ru" />)
     
-    expect(screen.getByRole('main')).toBeInTheDocument()
     expect(screen.getByText('Мы на связи онлайн:')).toBeInTheDocument()
     expect(screen.getByText('предлагаем помощь в решении ваших вопросов')).toBeInTheDocument()
     expect(screen.getByText('процесс заказа выглядит следующим образом:')).toBeInTheDocument()
@@ -277,12 +276,12 @@ describe('ContentMain', () => {
   })
 
   it('has correct semantic structure', () => {
-    render(<ContentMain lang="ru" />)
-    
-    const main = screen.getByRole('main')
-    expect(main).toHaveClass('relative')
-    
-    const sections = main.querySelectorAll('section')
+    const { container } = render(<ContentMain lang="ru" />)
+
+    const wrapper = container.firstElementChild as HTMLElement
+    expect(wrapper).toHaveClass('relative')
+
+    const sections = wrapper.querySelectorAll('section')
     expect(sections.length).toBeGreaterThan(0)
   })
 
