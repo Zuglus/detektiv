@@ -57,7 +57,7 @@ describe('UnifiedButton', () => {
     expect(screen.getByRole('button')).toHaveClass('bg-transparent', 'text-secondary-700')
 
     rerender(<UnifiedButton variant="danger">Danger</UnifiedButton>)
-    expect(screen.getByRole('button')).toHaveClass('bg-gradient-to-br', 'from-red-600', 'to-red-700')
+    expect(screen.getByRole('button')).toHaveClass('bg-gradient-to-br', 'from-error-600', 'to-error-700')
   })
 
   it('applies correct size classes', () => {
@@ -190,7 +190,7 @@ describe('Convenience Components', () => {
   it('DangerButton applies danger variant', () => {
     render(<DangerButton>Danger</DangerButton>)
     
-    expect(screen.getByRole('button')).toHaveClass('bg-gradient-to-br', 'from-red-600', 'to-red-700')
+    expect(screen.getByRole('button')).toHaveClass('bg-gradient-to-br', 'from-error-600', 'to-error-700')
   })
 
   it('convenience components work as links', () => {

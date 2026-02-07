@@ -79,7 +79,7 @@ function ContentMain({ lang }: { lang: Lang }) {
                     <UnifiedCard
                       variant={variant}
                       interactive
-                      className="h-full service-card-enhanced group"
+                      className="h-full group"
                     >
                       <div className="text-center">
                         {/* Icon placeholder - будет заменен на custom icons */}
@@ -256,7 +256,7 @@ function ContentMain({ lang }: { lang: Lang }) {
                   color="error"
                 />
               </div>
-              <h3 className="text-3xl font-bold text-red-700 mb-6 font-display">
+              <h3 className="text-3xl font-bold text-error-700 mb-6 font-display">
                 {content.alertHeader[lang]}
               </h3>
               

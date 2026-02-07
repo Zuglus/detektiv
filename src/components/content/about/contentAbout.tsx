@@ -112,11 +112,11 @@ export default function ContentAbout({ lang }: ContentLang) {
         </div>
       </section>
 
-      <section className="py-20 bg-gradient-to-br from-primary-50 to-secondary-50">
+      <section className="py-20 gradient-primary">
         <div className="max-w-6xl mx-auto px-6">
           <ScrollReveal>
             <div className="text-center mb-16">
-              <h2 className="text-display-lg text-secondary-900 font-bold font-display mb-4">
+              <h2 className="text-display-lg text-white font-bold font-display mb-4">
                 {principles.title[lang]}
               </h2>
             </div>
@@ -154,7 +154,7 @@ export default function ContentAbout({ lang }: ContentLang) {
                   color="error"
                 />
               </div>
-              <h2 className="text-3xl font-bold text-red-700 mb-6 font-display">
+              <h2 className="text-3xl font-bold text-error-700 mb-6 font-display">
                 {warning.title[lang]}
               </h2>
               <p className="text-secondary-700 leading-relaxed text-lg">

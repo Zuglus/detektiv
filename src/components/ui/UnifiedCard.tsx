@@ -118,7 +118,7 @@ export default function UnifiedCard({
       
       {/* Emergency overlay */}
       {variant === 'emergency' && (
-        <div className="absolute inset-0 opacity-50 transition-opacity duration-500 hover:opacity-100 bg-gradient-to-br from-red-50/30 to-orange-50/30" />
+        <div className="absolute inset-0 opacity-50 transition-opacity duration-500 hover:opacity-100 bg-gradient-to-br from-error-50/30 to-accent-50/30" />
       )}
       
       {/* Accent overlay */}

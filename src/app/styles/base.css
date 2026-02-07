@@ -30,6 +30,11 @@
   --glass-strong: rgba(255, 255, 255, 0.25);
   --glass-border: rgba(255, 255, 255, 0.2);
 
+  /* Navigation glass */
+  --glass-nav: rgba(255, 255, 255, 0.97);
+  --glass-nav-scrolled: rgba(255, 255, 255, 0.98);
+  --glass-nav-home: rgba(255, 255, 255, 0.15);
+
 }
 
 /* ========================================
@@ -80,10 +85,4 @@ body {
     contain-intrinsic-size: auto 500px;
   }
 
-  @media (prefers-reduced-motion: reduce) {
-    * {
-      transition-duration: 0ms !important;
-      animation-duration: 0ms !important;
-    }
-  }
 }

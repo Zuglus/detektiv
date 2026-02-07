@@ -142,7 +142,7 @@ describe('UnifiedCard', () => {
     render(<UnifiedCard variant="emergency" data-testid="card">Content</UnifiedCard>)
     
     const card = screen.getByTestId('card')
-    const overlay = card.querySelector('.bg-gradient-to-br.from-red-50\\/30.to-orange-50\\/30')
+    const overlay = card.querySelector('.bg-gradient-to-br.from-error-50\\/30.to-accent-50\\/30')
     expect(overlay).toBeInTheDocument()
   })
 
