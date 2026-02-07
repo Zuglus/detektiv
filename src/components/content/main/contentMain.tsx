@@ -6,6 +6,27 @@ import content from './main.json';
 import contacts from '@/data/contacts.json';
 import { Lang } from '@/components/utility/types';
 
+// Unique icon per service card
+const serviceIcons = [
+  'document',   // досье
+  'eye',        // наблюдение
+  'shield',     // частные расследования
+  'user',       // частный поиск людей
+  'target',     // частный розыск должников
+  'contact',    // проверка персонала
+  'building',   // проверка фирм
+  'bolt',       // IT - интернет
+  'mapPin',     // информация за рубежом
+];
+
+// Icons for benefits section
+const benefitIcons = [
+  'lock',       // конфиденциальность
+  'handshake',  // наработанные связи
+  'trophy',     // проф. развитие
+  'bolt',       // дистанционно
+];
+
 function ContentMain({ lang }: { lang: Lang }) {
   return (
     <div className="relative">
@@ -36,7 +57,7 @@ function ContentMain({ lang }: { lang: Lang }) {
       <ScrollReveal delay={100}>
         <section className="py-16">
           <div className="max-w-4xl mx-auto px-6">
-            <UnifiedCard className="text-center">
+            <UnifiedCard>
               <div
                 className="text-body-lg text-secondary-700 leading-relaxed"
                 dangerouslySetInnerHTML={{ __html: content.intro[lang] }}
@@ -61,7 +82,7 @@ function ContentMain({ lang }: { lang: Lang }) {
         </section>
       </ScrollReveal>
 
-      <ScrollReveal delay={300}>
+      <ScrollReveal delay={100}>
         <section className="py-16">
           <div className="max-w-7xl mx-auto px-6">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -95,7 +116,7 @@ function ContentMain({ lang }: { lang: Lang }) {
                             `}
                           >
                             <IconSvg
-                              name={index === 0 ? 'document' : index === 1 ? 'eye' : index === 2 ? 'shield' : 'target'}
+                              name={serviceIcons[index] || 'target'}
                               size="xl"
                               color="current"
                             />
@@ -127,7 +148,7 @@ function ContentMain({ lang }: { lang: Lang }) {
         </section>
       </ScrollReveal>
 
-      <ScrollReveal delay={400}>
+      <ScrollReveal delay={100}>
         <section className="py-16 bg-secondary-50">
           <div className="max-w-4xl mx-auto px-6">
             <div className="text-center mb-12">
@@ -150,7 +171,7 @@ function ContentMain({ lang }: { lang: Lang }) {
             
             <div className="space-y-4">
               {content.orderList[lang].map((step: string, index: number) => (
-                <ScrollReveal key={index} delay={500 + index * 100}>
+                <ScrollReveal key={index} delay={index * 80}>
                   <div className="flex items-center">
                     <div className="flex-shrink-0 w-10 h-10 gradient-primary text-white rounded-full flex items-center justify-center font-semibold mr-4 text-body-sm">
                       {index + 1}
@@ -171,7 +192,7 @@ function ContentMain({ lang }: { lang: Lang }) {
       </ScrollReveal>
 
       {/* Benefits List */}
-      <ScrollReveal delay={800}>
+      <ScrollReveal delay={100}>
         <section className="py-16">
           <div className="max-w-6xl mx-auto px-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -183,12 +204,23 @@ function ContentMain({ lang }: { lang: Lang }) {
                   className="h-full border-l-4 border-primary-500"
                   style={{ animationDelay: `${index * 150}ms` }}
                 >
-                  <h3 className="text-heading-sm text-secondary-900 mb-3">
-                    {item[lang].title}
-                  </h3>
-                  <p className="text-body-md text-secondary-600">
-                    {item[lang].text}
-                  </p>
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-primary-100 text-primary-600 flex items-center justify-center">
+                      <IconSvg
+                        name={benefitIcons[index] || 'check'}
+                        size="lg"
+                        color="current"
+                      />
+                    </div>
+                    <div>
+                      <h3 className="text-heading-sm text-secondary-900 mb-3">
+                        {item[lang].title}
+                      </h3>
+                      <p className="text-body-md text-secondary-600">
+                        {item[lang].text}
+                      </p>
+                    </div>
+                  </div>
                 </UnifiedCard>
               ))}
             </div>
@@ -197,7 +229,7 @@ function ContentMain({ lang }: { lang: Lang }) {
       </ScrollReveal>
 
       {/* Detective Principles */}
-      <ScrollReveal delay={1000}>
+      <ScrollReveal delay={100}>
         <section className="py-16 gradient-primary">
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-12">
@@ -242,7 +274,7 @@ function ContentMain({ lang }: { lang: Lang }) {
         </section>
       </ScrollReveal>
 
-      <ScrollReveal delay={1200}>
+      <ScrollReveal delay={100}>
         <section className="py-20">
           <div className="max-w-4xl mx-auto px-6">
             <UnifiedCard 
