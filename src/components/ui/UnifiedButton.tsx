@@ -55,9 +55,9 @@ const buttonVariants: Record<ButtonVariant, string> = {
     'focus:bg-primary-700 focus:text-white'
   ),
   danger: cn(
-    'bg-gradient-to-br from-red-600 to-red-700 text-white',
-    'hover:from-red-700 hover:to-red-800',
-    'focus:from-red-700 focus:to-red-800',
+    'bg-gradient-to-br from-error-600 to-error-700 text-white',
+    'hover:from-error-700 hover:to-error-800',
+    'focus:from-error-700 focus:to-error-800',
     'shadow-lg hover:shadow-xl',
     'border-0'
   )

@@ -17,7 +17,7 @@
 }
 
 .focus-not-obscured:focus-visible {
-  @apply z-[999];
+  @apply z-[10002];
   outline: 4px solid theme('colors.primary.600');
   outline-offset: 3px;
   box-shadow:

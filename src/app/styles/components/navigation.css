@@ -3,7 +3,7 @@
    ======================================== */
 
 .nav-transparent, .nav-scrolled {
-    background: rgba(255, 255, 255, 0.97);
+    background: var(--glass-nav);
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(4px);
@@ -12,11 +12,11 @@
   }
 
   .nav-scrolled {
-    background: rgba(255, 255, 255, 0.98);
+    background: var(--glass-nav-scrolled);
   }
 
   .nav-home-transparent {
-    background: rgba(255, 255, 255, 0.15);
+    background: var(--glass-nav-home);
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(8px);
@@ -54,7 +54,7 @@
   /* Fallback for browsers without backdrop-filter support */
   @supports not (backdrop-filter: blur(1px)) {
     .nav-transparent {
-      background: rgba(255, 255, 255, 0.99);
+      background: rgba(255, 255, 255, 0.98);
       border-bottom: 1px solid rgba(200, 200, 200, 0.3);
     }
 
@@ -101,3 +101,5 @@
 .menu-item:nth-child(3) { animation-delay: 150ms; }
 .menu-item:nth-child(4) { animation-delay: 200ms; }
 .menu-item:nth-child(5) { animation-delay: 250ms; }
+.menu-item:nth-child(6) { animation-delay: 300ms; }
+.menu-item:nth-child(7) { animation-delay: 350ms; }

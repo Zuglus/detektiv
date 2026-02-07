@@ -123,8 +123,6 @@ module.exports = {
       },
       backgroundImage: {
         'gradient-primary': 'linear-gradient(135deg, #339955 0%, #247d44 100%)',
-        'gradient-primary-bold': 'linear-gradient(to bottom right, #1a522f 0%, #247d44 50%, #339955 100%)',
-        'gradient-primary-hero': 'linear-gradient(to bottom right, #1a522f 0%, #247d44 25%, #339955 50%, #1e6638 75%, #1a522f 100%)',
         'gradient-accent': 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)',
       },
       backdropBlur: {

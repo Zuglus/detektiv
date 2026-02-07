@@ -73,10 +73,10 @@ export default class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBo
             <div className="bg-white rounded-2xl shadow-lg border border-secondary-200 p-8 md:p-12 text-center">
               {/* Иконка ошибки */}
               <div className="flex justify-center mb-6">
-                <div className="w-20 h-20 rounded-full bg-red-100 flex items-center justify-center">
+                <div className="w-20 h-20 rounded-full bg-error-100 flex items-center justify-center">
                   <IconSvg
                     name="alert-circle"
-                    className="w-12 h-12 text-red-600"
+                    className="w-12 h-12 text-error-600"
                     aria-hidden="true"
                   />
                 </div>
@@ -100,7 +100,7 @@ export default class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBo
                     Показать техническую информацию
                   </summary>
                   <div className="bg-secondary-50 rounded-lg p-4 overflow-auto">
-                    <pre className="text-xs text-red-600 whitespace-pre-wrap break-words">
+                    <pre className="text-xs text-error-600 whitespace-pre-wrap break-words">
                       {this.state.error.toString()}
                       {'\n\n'}
                       {this.state.error.stack}

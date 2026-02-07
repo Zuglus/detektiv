@@ -4,5 +4,6 @@ export const Z = {
   panel: 'z-[9999]',
   hamburger: 'z-[10000]',
   header: 'z-[50]',
-  skipLinks: 'z-[10001]'
+  skipLinks: 'z-[10001]',
+  focusRing: 'z-[10002]'
 } as const;
