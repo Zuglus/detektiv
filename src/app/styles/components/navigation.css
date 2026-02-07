@@ -32,7 +32,7 @@
   .nav-link::before {
     content: '';
     @apply absolute inset-0 rounded-xl -z-10 opacity-0;
-    background: linear-gradient(135deg, rgba(51, 153, 85, 0.1), rgba(51, 153, 85, 0.05));
+    background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.1), rgba(var(--primary-rgb), 0.05));
     transform: scale(0.8);
     transition: all var(--duration-fast) var(--ease-standard);
   }
@@ -93,7 +93,7 @@
   .menu-item {
     opacity: 0;
     transform: translateX(100%) scale(0.8);
-    animation: menuItemSlideIn 400ms cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    animation: menuItemSlideIn var(--duration-bounce) var(--ease-overshoot) forwards;
   }
 
 .menu-item:nth-child(1) { animation-delay: 50ms; }

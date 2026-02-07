@@ -234,7 +234,7 @@ export default function ContentGuarantee({ lang }: { lang: Lang }) {
   ];
 
   return (
-    <main className="max-w-6xl mx-auto px-4 sm:px-6 py-12 lg:py-16">
+    <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12 lg:py-16">
       {/* Header Section */}
       <header className="text-center mb-12 lg:mb-16">
         <h1 className="text-2xl sm:text-3xl lg:text-display-lg text-secondary-900 mb-4 lg:mb-6 font-bold">
@@ -366,6 +366,6 @@ export default function ContentGuarantee({ lang }: { lang: Lang }) {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

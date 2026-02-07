@@ -42,7 +42,7 @@ a:focus-visible {
   position: absolute;
   inset: -4px;
   border-radius: inherit;
-  background: linear-gradient(135deg, rgba(51, 153, 85, 0.1), transparent);
+  background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.1), transparent);
   opacity: 0;
   transition: opacity var(--duration-normal) var(--ease-standard);
   z-index: -1;

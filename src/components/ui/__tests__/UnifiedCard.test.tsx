@@ -42,7 +42,7 @@ describe('UnifiedCard', () => {
           expect(card).toHaveClass('bg-white/97', 'border-white/25', 'backdrop-blur-sm', 'accent-overlay')
           break
         case 'principle':
-          expect(card).toHaveClass('bg-secondary-800/92', 'border-primary-400/80', 'text-white', 'backdrop-blur-sm')
+          expect(card).toHaveClass('bg-secondary-800/30', 'border-primary-400/80', 'text-white', 'backdrop-blur-sm')
           break
         case 'pricing':
           expect(card).toHaveClass('bg-white', 'border-2', 'border-secondary-200')
@@ -230,15 +230,36 @@ describe('UnifiedCard', () => {
         Content
       </UnifiedCard>
     )
-    
+
     const card = screen.getByTestId('card')
     fireEvent.keyDown(card, { key: 'Enter', code: 'Enter' })
+    expect(handleClick).toHaveBeenCalledTimes(1)
+
     fireEvent.keyDown(card, { key: ' ', code: 'Space' })
-    
-    // Note: The component doesn't handle keyboard events by default,
-    // but we verify it's properly set up for accessibility
+    expect(handleClick).toHaveBeenCalledTimes(2)
+
     expect(card).toHaveAttribute('tabIndex', '0')
     expect(card).toHaveAttribute('role', 'button')
+  })
+
+  it('applies aria-label when interactive', () => {
+    render(
+      <UnifiedCard interactive aria-label="Test label" data-testid="card">
+        Content
+      </UnifiedCard>
+    )
+
+    expect(screen.getByTestId('card')).toHaveAttribute('aria-label', 'Test label')
+  })
+
+  it('does not apply aria-label when not interactive', () => {
+    render(
+      <UnifiedCard aria-label="Test label" data-testid="card">
+        Content
+      </UnifiedCard>
+    )
+
+    expect(screen.getByTestId('card')).not.toHaveAttribute('aria-label')
   })
 
   it('renders content wrapper with correct z-index', () => {

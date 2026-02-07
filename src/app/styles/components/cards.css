@@ -19,7 +19,7 @@
 
   .pricing-card:hover {
     transform: translate3d(0, -8px, 0) scale3d(1.02, 1.02, 1);
-    box-shadow: var(--shadow-xl);
+    box-shadow: theme('boxShadow.xl');
     border-color: theme('colors.primary.300');
   }
 
@@ -32,25 +32,11 @@
     animation: none;
     transform: translate3d(0, -12px, 0) scale3d(1.03, 1.03, 1);
     box-shadow:
-      0 30px 60px rgba(51, 153, 85, 0.2),
-      0 15px 35px rgba(51, 153, 85, 0.1);
+      0 30px 60px rgba(var(--primary-rgb), 0.2),
+      0 15px 35px rgba(var(--primary-rgb), 0.1);
   }
 
-  .pricing-badge {
-    @apply absolute -top-3 left-1/2 transform -translate-x-1/2;
-    @apply bg-accent-500 text-white text-sm font-semibold px-4 py-1 rounded-full shadow-md;
-  }
-
-  .pricing-value {
-    @apply text-2xl font-bold tracking-tight;
-    font-variant-numeric: tabular-nums;
-  }
-
-  .pricing-currency {
-    @apply text-lg font-semibold;
-  }
-
-  .trust-indicator {
+.trust-indicator {
     @apply relative flex items-start space-x-3 p-4 rounded-lg bg-primary-50 border border-primary-200;
     @apply transition-all duration-300 ease-out;
     @apply hover:bg-primary-100 hover:border-primary-300 hover:shadow-md hover:-translate-y-0.5;
@@ -80,17 +66,9 @@
 .service-card-enhanced:hover {
   transform: translate3d(0, -12px, 0) scale3d(1.03, 1.03, 1) rotate(0.5deg);
   box-shadow:
-    0 30px 60px rgba(51, 153, 85, 0.15),
+    0 30px 60px rgba(var(--primary-rgb), 0.15),
     0 15px 35px rgba(0, 0, 0, 0.12),
     0 5px 15px rgba(0, 0, 0, 0.08);
-}
-
-/* Light green variant hover enhancement */
-.service-card-enhanced[class*="light-green"]:hover {
-  box-shadow:
-    0 30px 60px rgba(51, 153, 85, 0.25),
-    0 15px 35px rgba(51, 153, 85, 0.15),
-    0 5px 15px rgba(51, 153, 85, 0.1);
 }
 
 @media (prefers-reduced-motion: reduce) {

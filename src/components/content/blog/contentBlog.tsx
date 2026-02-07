@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import ScrollReveal from '@/components/utility/scrollReveal';
 import IconSvg from '@/components/ui/IconSvg';
+import UnifiedButton from '@/components/ui/UnifiedButton';
 import { Lang, Post } from '@/components/utility/types';
 
 interface ContentBlogProps {
@@ -124,13 +125,10 @@ export default function ContentBlog({ posts, totalPages, currentPage, lang }: Co
                     : 'Articles are currently unavailable. Please try again later or contact us directly.'
                   }
                 </p>
-                <Link
-                  href={lang === 'ru' ? '/kontakty' : '/en/contact'}
-                  className="inline-flex items-center px-6 py-3 bg-primary-600 text-white font-medium rounded-xl hover:bg-primary-700 transition-colors duration-300"
-                >
+                <UnifiedButton as="link" href={lang === 'ru' ? '/kontakty' : '/en/contact'} variant="primary">
                   {lang === 'ru' ? 'Связаться с нами' : 'Contact us'}
                   <IconSvg name="arrowRight" size="sm" color="current" className="ml-2" />
-                </Link>
+                </UnifiedButton>
               </div>
             </div>
           </div>
