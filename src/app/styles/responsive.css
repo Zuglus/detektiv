@@ -14,7 +14,7 @@
   }
 
   /* Mobile optimizations - disable hover effects */
-  .trust-indicator:hover, .pricing-card:hover {
+  .pricing-card:hover {
     transform: none !important;
   }
 
@@ -29,11 +29,6 @@
     -webkit-backdrop-filter: blur(3px);
   }
 
-  /* Faster transitions for better INP */
-  .trust-icon {
-    transition-duration: var(--duration-fast) !important;
-  }
-
   /* Disable complex animations */
   .pricing-card.popular {
     animation: none !important;
@@ -42,10 +37,6 @@
   /* Mobile-specific adjustments */
   .pricing-card {
     @apply hover:transform-none hover:shadow-lg;
-  }
-
-  .trust-indicator {
-    @apply p-3;
   }
 
   .pricing-value {
