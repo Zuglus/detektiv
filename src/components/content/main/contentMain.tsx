@@ -87,9 +87,12 @@ function ContentMain({ lang }: { lang: Lang }) {
           <div className="max-w-7xl mx-auto px-6">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {content.serviceList.map((card, index) => {
-                // Alternating card variants for visual interest
-                const variant = index % 4 === 0 ? 'light-green' : 'default';
-                const isAccent = index % 4 === 0;
+                // Adaptive alternating patterns for different breakpoints
+                // Mobile (1 col): every 3rd card (0, 3, 6) for balanced distribution
+                // Tablet (2 cols): every 4th card (0, 4, 8) for symmetry
+                // Desktop (3 cols): every 4th card (0, 4, 8) for diagonal pattern
+                const isMobileAccent = index % 3 === 0;
+                const isTabletDesktopAccent = index % 4 === 0;
 
                 return (
                   <div
@@ -98,20 +101,34 @@ function ContentMain({ lang }: { lang: Lang }) {
                     style={{ animationDelay: `${index * 100}ms` }}
                   >
                     <UnifiedCard
-                      variant={variant}
+                      variant="default"
                       interactive
-                      className="h-full group"
+                      className={`
+                        h-full group
+                        ${isMobileAccent ? 'bg-primary-100 border-primary-300' : ''}
+                        ${isTabletDesktopAccent
+                          ? 'md:bg-primary-100 md:border-primary-300'
+                          : 'md:bg-white md:border-white/25 md:backdrop-blur-sm'
+                        }
+                      `}
                     >
                       <div className="text-center">
-                        {/* Icon placeholder - будет заменен на custom icons */}
+                        {/* Icon with responsive accent colors */}
                         <div className="mb-6 flex justify-center">
                           <div
                             className={`
                               w-16 h-16 rounded-2xl flex items-center justify-center
                               transition-all duration-500 group-hover:scale-110 group-hover:rotate-6
-                              ${isAccent
+                              [&_svg]:stroke-2 [&_svg_path]:fill-none [&_svg_circle]:fill-none [&_svg_rect]:fill-none
+
+                              ${isMobileAccent
                                 ? 'bg-primary-600 text-white shadow-lg group-hover:shadow-xl'
                                 : 'bg-primary-100 text-primary-600 group-hover:bg-primary-200'
+                              }
+
+                              ${isTabletDesktopAccent
+                                ? 'md:bg-primary-600 md:text-white md:shadow-lg md:group-hover:shadow-xl'
+                                : 'md:bg-primary-100 md:text-primary-600 md:group-hover:bg-primary-200'
                               }
                             `}
                           >
@@ -123,19 +140,36 @@ function ContentMain({ lang }: { lang: Lang }) {
                           </div>
                         </div>
 
+                        {/* Title with responsive accent colors */}
                         <h4
                           className={`
                             text-heading-sm font-semibold mb-6 uppercase tracking-wide
                             transition-colors duration-300 w-2/3 mx-auto
-                            ${isAccent
+
+                            ${isMobileAccent
                               ? 'text-primary-900 group-hover:text-primary-700'
                               : 'text-secondary-900 group-hover:text-primary-600'
+                            }
+
+                            ${isTabletDesktopAccent
+                              ? 'md:text-primary-900 md:group-hover:text-primary-700'
+                              : 'md:text-secondary-900 md:group-hover:text-primary-600'
                             }
                           `}
                         >
                           {card[lang].title}
                         </h4>
-                        <p className={`text-body-sm leading-relaxed ${isAccent ? 'text-primary-800' : 'text-secondary-700'}`}>
+
+                        {/* Description with responsive accent colors */}
+                        <p
+                          className={`
+                            text-body-sm leading-relaxed
+
+                            ${isMobileAccent ? 'text-primary-800' : 'text-secondary-700'}
+
+                            ${isTabletDesktopAccent ? 'md:text-primary-800' : 'md:text-secondary-700'}
+                          `}
+                        >
                           {card[lang].text}
                         </p>
                       </div>
