@@ -36,20 +36,3 @@
       0 15px 35px rgba(var(--primary-rgb), 0.1);
   }
 
-.trust-indicator {
-    @apply relative flex items-start space-x-3 p-4 rounded-lg bg-primary-50 border border-primary-200;
-    @apply transition-all duration-300 ease-out;
-    @apply hover:bg-primary-100 hover:border-primary-300 hover:shadow-md hover:-translate-y-0.5;
-  }
-
-  .trust-icon {
-    @apply flex-shrink-0 w-12 h-12 rounded-full text-white shadow-sm;
-    @apply flex items-center justify-center transition-transform duration-300;
-    @apply mt-1;
-    background: linear-gradient(135deg, theme('colors.primary.400'), theme('colors.primary.600'));
-  }
-
-.trust-indicator:hover .trust-icon {
-  @apply scale-110;
-}
-
