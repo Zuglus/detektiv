@@ -13,11 +13,6 @@
     line-height: 1.2;
   }
 
-  /* Mobile optimizations - disable hover effects */
-  .pricing-card:hover {
-    transform: none !important;
-  }
-
   /* Reduce blur effects on mobile */
   .nav-transparent, .nav-scrolled {
     backdrop-filter: blur(2px);
@@ -27,20 +22,6 @@
   .nav-home-transparent {
     backdrop-filter: blur(3px);
     -webkit-backdrop-filter: blur(3px);
-  }
-
-  /* Disable complex animations */
-  .pricing-card.popular {
-    animation: none !important;
-  }
-
-  /* Mobile-specific adjustments */
-  .pricing-card {
-    @apply hover:transform-none hover:shadow-lg;
-  }
-
-  .pricing-value {
-    @apply text-xl;
   }
 
   /* Touch targets */
