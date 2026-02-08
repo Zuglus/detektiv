@@ -112,12 +112,12 @@ export default function ContentJob({ lang }: { lang: Lang }) {
           
           <div className="flex flex-wrap justify-center gap-4">
             <UnifiedButton as="link" href="mailto:detectivegroznyi@gmail.com" variant="primary" size="lg">
-              <IconSvg name="email" size="sm" color="current" className="mr-3" />
+              <IconSvg name="email" size="md" color="current" />
               {lang === 'ru' ? 'Отправить резюме' : 'Send resume'}
             </UnifiedButton>
 
             <UnifiedButton as="link" href="tg://resolve?domain=+79150010025" variant="outline" size="lg">
-              <IconSvg name="telegram" size="sm" color="current" className="mr-3" />
+              <IconSvg name="telegram" size="md" color="current" />
               {lang === 'ru' ? 'Написать в Telegram' : 'Write in Telegram'}
             </UnifiedButton>
           </div>

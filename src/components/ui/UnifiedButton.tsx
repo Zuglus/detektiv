@@ -94,7 +94,7 @@ export default function UnifiedButton(props: UnifiedButtonProps) {
   const baseClasses = cn(
     // Base styling
     'inline-flex items-center justify-center',
-    'font-medium uppercase tracking-wide text-center',
+    'font-medium tracking-wide text-center',
     'transition-all duration-300 ease-out',
     'transform-gpu will-change-transform', // Hardware acceleration
     
@@ -136,7 +136,7 @@ export default function UnifiedButton(props: UnifiedButtonProps) {
         {...buttonProps}
       >
         {loading && <LoadingSpinner />}
-        <span className={loading ? 'opacity-0' : 'opacity-100'}>
+        <span className={cn('inline-flex items-center gap-3', loading ? 'opacity-0' : 'opacity-100')}>
           {children}
         </span>
       </button>
@@ -162,7 +162,7 @@ export default function UnifiedButton(props: UnifiedButtonProps) {
       }
     >
       {loading && <LoadingSpinner />}
-      <span className={loading ? 'opacity-0' : 'opacity-100'}>
+      <span className={cn('inline-flex items-center gap-3', loading ? 'opacity-0' : 'opacity-100')}>
         {children}
         {isExternal && <span className="sr-only"> (откроется в новой вкладке)</span>}
       </span>
