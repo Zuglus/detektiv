@@ -103,3 +103,10 @@
 .menu-item:nth-child(5) { animation-delay: 250ms; }
 .menu-item:nth-child(6) { animation-delay: 300ms; }
 .menu-item:nth-child(7) { animation-delay: 350ms; }
+
+/* Active state for mobile menu items - instant feedback on tap */
+.menu-item:active {
+  transform: translateY(0) scale(0.98);
+  opacity: 0.8;
+  transition-duration: var(--duration-fast);
+}
