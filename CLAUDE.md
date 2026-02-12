@@ -128,7 +128,7 @@ Button: 'sm' | 'md' | 'lg' | 'xl'
 ```bash
 npm run dev          # Разработка
 npm run build        # Сборка production
-npm run start        # Запуск статического сайта
+npm run serve        # Запуск статического сайта
 npm run lint         # ESLint проверка
 npm run test         # Unit тесты
 npm run test:e2e     # E2E тесты (требует npx playwright install)
