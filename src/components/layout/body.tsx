@@ -1,11 +1,10 @@
-import Footer from '@/components/layout/footer/footer';
-import Header from '@/components/layout/header/header';
-import PageContent from '@/components/ui/PageContent';
-import PageTransition from '@/components/ui/PageTransition';
-import PerformanceMonitor from '@/components/ui/PerformanceMonitor';
-import YandexCounter from '@/components/ui/YandexCounter';
-import ErrorBoundary from '@/components/utility/ErrorBoundary';
-import { Props, Lang } from '@/components/utility/types';
+import Footer from "@/components/layout/footer/footer";
+import Header from "@/components/layout/header/header";
+import PageContent from "@/components/ui/PageContent";
+import PageTransition from "@/components/ui/PageTransition";
+import YandexCounter from "@/components/ui/YandexCounter";
+import ErrorBoundary from "@/components/utility/ErrorBoundary";
+import { Props, Lang } from "@/components/utility/types";
 
 export default function Body({
   lang,
@@ -23,7 +22,6 @@ export default function Body({
         </main>
       </ErrorBoundary>
       <Footer lang={lang} />
-      <PerformanceMonitor />
       <YandexCounter counterId="70102144" />
     </body>
   );

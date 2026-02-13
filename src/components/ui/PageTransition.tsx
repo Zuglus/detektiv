@@ -1,7 +1,8 @@
-'use client';
+"use client";
 
-import { usePathname } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
+import { Z } from "@/components/ui/zLayers";
 
 /**
  * Top loading bar indicator that appears during page transitions
@@ -19,8 +20,8 @@ export default function PageTransition() {
 
   // Check reduced motion preference
   const prefersReducedMotion =
-    typeof window !== 'undefined' &&
-    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    typeof window !== "undefined" &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   if (prefersReducedMotion) return null;
 
@@ -29,9 +30,9 @@ export default function PageTransition() {
       className={`
         fixed top-0 left-0 right-0 h-1 bg-primary-600 origin-left
         transform-gpu will-change-transform transition-transform duration-300 ease-out
-        ${isTransitioning ? 'scale-x-100' : 'scale-x-0'}
+        ${Z.panel}
+        ${isTransitioning ? "scale-x-100" : "scale-x-0"}
       `}
-      style={{ zIndex: 9999 }}
       aria-hidden="true"
       role="presentation"
     />

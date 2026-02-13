@@ -1,6 +1,6 @@
 import { Lang } from "@/components/utility/types";
-import IconSvg from "./IconSvg";
-import UnifiedCard from "./UnifiedCard";
+import IconSvg from "@/components/ui/IconSvg";
+import UnifiedCard from "@/components/ui/UnifiedCard";
 
 interface PriceDisclaimerProps {
   text: { [key in Lang]: string };
@@ -12,7 +12,12 @@ export default function PriceDisclaimer({ text, lang }: PriceDisclaimerProps) {
     <UnifiedCard variant="disclaimer" interactive>
       <div className="flex items-start space-x-3">
         <div className="flex-shrink-0">
-          <IconSvg name="info" size="lg" color="current" className="text-primary-600" />
+          <IconSvg
+            name="info"
+            size="lg"
+            color="current"
+            className="text-primary-600"
+          />
         </div>
         <p className="text-body-md leading-relaxed text-primary-800">
           {text[lang]}
