@@ -1,14 +1,13 @@
 import { Lang } from "@/components/utility/types";
-import content from './price.json';
-import ScrollReveal from '@/components/utility/scrollReveal';
-import PricingHeader from '@/components/ui/pricingHeader';
-import TrustIndicators from '@/components/ui/trustIndicators';
-import CategorySection from '@/components/ui/categorySection';
-import ContactButtons from '@/components/ui/contactButtons';
-import PriceDisclaimer from '@/components/ui/priceDisclaimer';
-import ValueProposition from '@/components/ui/valueProposition';
-import type { ContentData } from './types';
-
+import content from "./price.json";
+import ScrollReveal from "@/components/utility/scrollReveal";
+import PricingHeader from "./pricingHeader";
+import TrustIndicators from "./trustIndicators";
+import CategorySection from "./categorySection";
+import ContactButtons from "./contactButtons";
+import PriceDisclaimer from "./priceDisclaimer";
+import ValueProposition from "./valueProposition";
+import type { ContentData } from "./types";
 
 const typedContent = content as ContentData;
 
@@ -20,7 +19,10 @@ export default function ContentPrice({ lang }: { lang: Lang }) {
       </ScrollReveal>
 
       <ScrollReveal delay={100}>
-        <TrustIndicators trustElements={typedContent.trustElements} lang={lang} />
+        <TrustIndicators
+          trustElements={typedContent.trustElements}
+          lang={lang}
+        />
       </ScrollReveal>
 
       <ScrollReveal delay={150}>
@@ -36,7 +38,10 @@ export default function ContentPrice({ lang }: { lang: Lang }) {
       <ScrollReveal delay={400}>
         <div className="space-y-8">
           <ValueProposition text={typedContent.footer.text} lang={lang} />
-          <ContactButtons lang={lang} proposeText={typedContent.footer.propose} />
+          <ContactButtons
+            lang={lang}
+            proposeText={typedContent.footer.propose}
+          />
         </div>
       </ScrollReveal>
     </div>

@@ -1,14 +1,10 @@
-import { Lang } from '@/components/utility/types';
-import IconSvg from '@/components/ui/IconSvg';
-import UnifiedCard from '@/components/ui/UnifiedCard';
-import content from './contact.json';
-import contacts from '@/data/contacts.json';
+import { Lang } from "@/components/utility/types";
+import IconSvg from "@/components/ui/IconSvg";
+import UnifiedCard from "@/components/ui/UnifiedCard";
+import content from "./contact.json";
+import contacts from "@/data/contacts.json";
 
-export default function ContentContact({
-  lang,
-}: {
-  lang: Lang;
-}) {
+export default function ContentContact({ lang }: { lang: Lang }) {
   return (
     <div className="max-w-6xl mx-auto px-6 py-16">
       {/* Header Section */}
@@ -24,9 +20,12 @@ export default function ContentContact({
 
       {/* Bento Grid Layout */}
       <div className="grid grid-cols-12 gap-6 mb-12">
-        
         {/* Emergency Contact - Hero Block */}
-        <UnifiedCard variant="emergency" className="col-span-12 lg:col-span-8 group relative overflow-hidden" size="large">
+        <UnifiedCard
+          variant="emergency"
+          className="col-span-12 lg:col-span-8 group relative overflow-hidden"
+          size="large"
+        >
           <div className="absolute inset-0 bg-gradient-to-br from-red-500/10 to-orange-500/10 group-hover:from-red-500/20 group-hover:to-orange-500/20 transition-all duration-500" />
           <div className="relative z-10 p-8">
             <div className="flex items-start justify-between mb-6">
@@ -48,7 +47,12 @@ export default function ContentContact({
               aria-label={`Позвонить по экстренному номеру ${contacts.phone.name}`}
             >
               <div className="p-3 bg-primary-100 rounded-xl group-hover:bg-primary-200 transition-colors duration-300">
-                <IconSvg name="phone" size="xl" color="current" className="w-12 h-12" />
+                <IconSvg
+                  name="phone"
+                  size="xl"
+                  color="current"
+                  className="w-12 h-12"
+                />
               </div>
               {contacts.phone.name}
             </a>
@@ -86,7 +90,12 @@ export default function ContentContact({
               className="inline-flex items-center gap-2 text-body-md text-primary-600 hover:text-primary-700 transition-colors duration-300 group-hover:underline focus:outline-none focus:ring-2 focus:ring-primary-600 rounded"
               aria-label={`Отправить email на ${contacts.email.directName}`}
             >
-              <IconSvg name="email" size="sm" color="current" className="w-5 h-5" />
+              <IconSvg
+                name="email"
+                size="sm"
+                color="current"
+                className="w-5 h-5"
+              />
               {contacts.email.directName}
             </a>
             <p className="text-body-sm text-secondary-500 mt-2">
@@ -111,7 +120,7 @@ export default function ContentContact({
                 {content.responseTime.messengers[lang]}
               </span>
             </div>
-            
+
             <div className="grid grid-cols-2 gap-4">
               {/* Telegram */}
               <a
@@ -149,11 +158,14 @@ export default function ContentContact({
             </div>
           </div>
         </UnifiedCard>
-
       </div>
 
       {/* Confidentiality Section */}
-      <UnifiedCard variant="accent" className="relative overflow-hidden" size="large">
+      <UnifiedCard
+        variant="accent"
+        className="relative overflow-hidden"
+        size="large"
+      >
         <div className="absolute inset-0 bg-gradient-to-r from-primary-500/5 to-accent-500/5" />
         <div className="relative z-10 p-8 text-center">
           <div className="max-w-3xl mx-auto">
@@ -174,25 +186,25 @@ export default function ContentContact({
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Organization",
-            "name": "Детективное агентство",
-            "url": "https://право18.рф",
-            "contactPoint": [
+            name: "Детективное агентство",
+            url: "https://право18.рф",
+            contactPoint: [
               {
                 "@type": "ContactPoint",
-                "telephone": contacts.phone.name,
-                "contactType": "customer service",
-                "availableLanguage": ["Russian", "English"],
-                "hoursAvailable": "24/7"
-              }
+                telephone: contacts.phone.name,
+                contactType: "customer service",
+                availableLanguage: ["Russian", "English"],
+                hoursAvailable: "24/7",
+              },
             ],
-            "address": {
+            address: {
               "@type": "PostalAddress",
-              "streetAddress": "Проспект Мира, 27",
-              "addressLocality": "Москва",
-              "addressCountry": "RU"
+              streetAddress: contacts.address.streetAddress,
+              addressLocality: contacts.address.addressLocality,
+              addressCountry: contacts.address.addressCountry,
             },
-            "email": contacts.email.directName
-          })
+            email: contacts.email.directName,
+          }),
         }}
       />
     </div>
