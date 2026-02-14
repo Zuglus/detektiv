@@ -4,11 +4,14 @@ import getRoutes from "@/lib/getRoutes/getRoutes";
 type TranslateResult = { link: string; flag: boolean };
 type RouteType = "pagination" | "post" | "standard" | "unknown";
 
+const ruBlogHref = getRoutes("ru", 5)[0]?.href ?? "/stati";
+const enBlogHref = getRoutes("en", 5)[0]?.href ?? "/en/blog";
+
 const ROUTE_PATTERNS = {
-  ruPagination: /^\/stati\/page\/(\d+)$/,
-  enPagination: /^\/en\/blog\/page\/(\d+)$/,
-  ruPost: /^\/stati\/([a-z0-9-]+)$/,
-  enPost: /^\/en\/blog\/([a-z0-9-]+)$/,
+  ruPagination: new RegExp(`^${ruBlogHref}/page/(\\d+)$`),
+  enPagination: new RegExp(`^${enBlogHref}/page/(\\d+)$`),
+  ruPost: new RegExp(`^${ruBlogHref}/([a-z0-9-]+)$`),
+  enPost: new RegExp(`^${enBlogHref}/([a-z0-9-]+)$`),
 };
 
 const translationCache = new Map<string, TranslateResult>();
@@ -68,22 +71,22 @@ function getTranslatedUrl(
       return {
         link:
           targetLang === "en"
-            ? `/en/blog/page/${params.page}`
-            : `/stati/page/${params.page}`,
-        flag: !isCurrentRu,
+            ? `${enBlogHref}/page/${params.page}`
+            : `${ruBlogHref}/page/${params.page}`,
+        flag: isCurrentRu,
       };
 
     case "post":
       if (isCurrentRu) {
         const postMatch = posts.find((post) => post.ru === params.slug);
         return postMatch
-          ? { link: `/en/blog/${postMatch.en}`, flag: true }
-          : { link: "/en/blog", flag: true };
+          ? { link: `${enBlogHref}/${postMatch.en}`, flag: true }
+          : { link: enBlogHref, flag: true };
       } else {
         const postMatch = posts.find((post) => post.en === params.slug);
         return postMatch
-          ? { link: `/stati/${postMatch.ru}`, flag: false }
-          : { link: "/stati", flag: false };
+          ? { link: `${ruBlogHref}/${postMatch.ru}`, flag: false }
+          : { link: ruBlogHref, flag: false };
       }
 
     case "standard": {
@@ -101,7 +104,7 @@ function getTranslatedUrl(
     }
 
     default:
-      return { link: targetLang === "en" ? "/en" : "/", flag: !isCurrentRu };
+      return { link: targetLang === "en" ? "/en" : "/", flag: isCurrentRu };
   }
 }
 

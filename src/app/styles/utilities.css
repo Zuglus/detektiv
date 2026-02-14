@@ -1,47 +1,4 @@
 /* ========================================
-   GLASS MORPHISM UTILITIES (Navigation Only)
-   ======================================== */
-
-.glass-nav {
-  background: var(--glass-light);
-  border-bottom: 1px solid var(--glass-border);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-}
-
-.glass-button {
-  background: var(--glass-light);
-  border: 1px solid var(--glass-border);
-  transition: all var(--duration-normal) var(--ease-in-out);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-}
-
-.glass-button:hover {
-  background: var(--glass-medium);
-  transform: translateY(-0.125rem);
-  box-shadow: theme('boxShadow.sm');
-}
-
-/* Fallback for non-supporting browsers */
-@supports not (backdrop-filter: blur(1px)) {
-  .glass-nav {
-    background: rgba(255, 255, 255, 0.98);
-    border-bottom: 1px solid rgba(200, 200, 200, 0.3);
-  }
-
-  .glass-button {
-    background: rgba(255, 255, 255, 0.9);
-    border: 1px solid rgba(200, 200, 200, 0.4);
-  }
-
-  .glass-button:hover {
-    background: rgba(255, 255, 255, 1);
-  }
-}
-
-/* ========================================
    UTILITY CLASSES
    ======================================== */
 

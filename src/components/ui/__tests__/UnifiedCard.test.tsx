@@ -26,7 +26,7 @@ describe("UnifiedCard", () => {
   });
 
   it("applies correct variant styles", () => {
-    const variants: UnifiedCardProps["variant"][] = [
+    const variants: NonNullable<UnifiedCardProps["variant"]>[] = [
       "default",
       "dark",
       "emergency",
@@ -172,43 +172,6 @@ describe("UnifiedCard", () => {
     expect(screen.getByTestId("card")).toHaveClass("custom-class");
   });
 
-  it("renders gradient variant with custom gradient", () => {
-    const gradient = {
-      from: "#ff0000",
-      to: "#00ff00",
-      direction: "to-r" as const,
-    };
-
-    render(
-      <UnifiedCard variant="gradient" gradient={gradient} data-testid="card">
-        Content
-      </UnifiedCard>,
-    );
-
-    const card = screen.getByTestId("card");
-    expect(card).toHaveStyle({
-      background: "linear-gradient(to-r, #ff0000, #00ff00)",
-    });
-  });
-
-  it("uses default gradient direction when not specified", () => {
-    const gradient = {
-      from: "#ff0000",
-      to: "#00ff00",
-    };
-
-    render(
-      <UnifiedCard variant="gradient" gradient={gradient} data-testid="card">
-        Content
-      </UnifiedCard>,
-    );
-
-    const card = screen.getByTestId("card");
-    expect(card).toHaveStyle({
-      background: "linear-gradient(to-br, #ff0000, #00ff00)",
-    });
-  });
-
   it("renders emergency overlay for emergency variant", () => {
     render(
       <UnifiedCard variant="emergency" data-testid="card">
@@ -251,25 +214,7 @@ describe("UnifiedCard", () => {
     expect(background).toBeInTheDocument();
   });
 
-  it("does not render glass effect for gradient variant", () => {
-    render(
-      <UnifiedCard
-        variant="gradient"
-        gradient={{ from: "#ff0000", to: "#00ff00" }}
-        data-testid="card"
-      >
-        Content
-      </UnifiedCard>,
-    );
-
-    const card = screen.getByTestId("card");
-    const glassEffect = card.querySelector(
-      ".bg-gradient-to-r.from-transparent.via-white\\/60.to-transparent",
-    );
-    expect(glassEffect).not.toBeInTheDocument();
-  });
-
-  it("renders glass effect for non-gradient variants", () => {
+  it("renders glass effect for all variants", () => {
     render(
       <UnifiedCard variant="default" data-testid="card">
         Content
@@ -340,21 +285,6 @@ describe("UnifiedCard", () => {
       "will-change-transform",
       "transform-gpu",
     );
-  });
-
-  it("does not apply bordered class for gradient variant", () => {
-    render(
-      <UnifiedCard
-        variant="gradient"
-        gradient={{ from: "#ff0000", to: "#00ff00" }}
-        bordered
-        data-testid="card"
-      >
-        Content
-      </UnifiedCard>,
-    );
-
-    expect(screen.getByTestId("card")).not.toHaveClass("border-2");
   });
 
   it("handles keyboard interactions when interactive", () => {
