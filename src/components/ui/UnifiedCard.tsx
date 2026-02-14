@@ -11,16 +11,10 @@ export interface UnifiedCardProps {
     | "principle"
     | "pricing"
     | "trust"
-    | "gradient"
     | "disclaimer"
     | "light-green";
   size?: "compact" | "default" | "large";
   bordered?: boolean;
-  gradient?: {
-    from: string;
-    to: string;
-    direction?: "to-br" | "to-r" | "to-b" | "to-bl";
-  };
   interactive?: boolean;
   className?: string;
   onClick?: () => void;
@@ -38,7 +32,6 @@ const cardVariants = {
     "bg-secondary-800/30 border-primary-400/80 text-white backdrop-blur-sm",
   pricing: "bg-white border-2 border-secondary-200",
   trust: "bg-primary-50 border-primary-200",
-  gradient: "", // Will be handled specially
   disclaimer: "bg-primary-50 border-0 border-l-4 border-l-primary-500",
   "light-green": "bg-primary-100 border-primary-300 text-primary-900",
 };
@@ -60,7 +53,6 @@ export default function UnifiedCard({
   variant = "default",
   size = "default",
   bordered = false,
-  gradient,
   interactive = false,
   className = "",
   onClick,
@@ -69,8 +61,6 @@ export default function UnifiedCard({
   "data-testid": testId,
   ...props
 }: UnifiedCardProps) {
-  const isGradient = variant === "gradient" && gradient;
-
   const baseClasses = cn(
     // Base card styling
     "relative overflow-hidden rounded-lg",
@@ -80,10 +70,10 @@ export default function UnifiedCard({
     cardSizes[size],
 
     // Variant-specific styles
-    isGradient ? "" : cardVariants[variant],
+    cardVariants[variant],
 
     // Border
-    bordered && !isGradient ? "border-2" : "border",
+    bordered ? "border-2" : "border",
 
     // Interactive states
     interactive ? cardAnimations.interactive : cardAnimations.static,
@@ -104,17 +94,10 @@ export default function UnifiedCard({
     className,
   );
 
-  const gradientStyles =
-    isGradient && gradient
-      ? {
-          background: `linear-gradient(${gradient.direction || "to-br"}, ${gradient.from}, ${gradient.to})`,
-        }
-      : {};
-
   const cardContent = (
     <div
       className={baseClasses}
-      style={{ ...gradientStyles, ...style }}
+      style={style}
       onClick={onClick}
       onKeyDown={
         interactive && onClick
@@ -132,10 +115,8 @@ export default function UnifiedCard({
       aria-label={interactive ? ariaLabel : undefined}
       {...props}
     >
-      {/* Base glass effect pseudo-element for non-gradient cards */}
-      {!isGradient && (
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/60 to-transparent" />
-      )}
+      {/* Base glass effect pseudo-element */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/60 to-transparent" />
 
       {/* Emergency overlay */}
       {variant === "emergency" && (

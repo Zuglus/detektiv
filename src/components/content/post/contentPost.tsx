@@ -97,7 +97,7 @@ export default function PostContent({ post, lang }: PostContentProps) {
 
         <ScrollReveal delay={300}>
           <div className="relative">
-            <div className="bg-white/95 backdrop-blur-md border border-secondary-200/80 rounded-3xl p-8 lg:p-12 shadow-xl shadow-primary-500/5 mb-16">
+            <div className="bg-white/95 backdrop-blur-sm border border-secondary-200/80 rounded-3xl p-8 lg:p-12 shadow-xl shadow-primary-500/5 mb-16">
               <div 
                 className="prose prose-lg lg:prose-xl max-w-none
                   prose-headings:font-display prose-headings:text-secondary-900 prose-headings:scroll-mt-24

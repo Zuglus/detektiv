@@ -11,12 +11,14 @@ jest.mock('../getRoutes/getRoutes', () => {
     ru: [
       { id: 1, href: '/', title: 'Главная' },
       { id: 2, href: '/onas', title: 'О нас' },
-      { id: 3, href: '/price', title: 'Цены' }
+      { id: 3, href: '/price', title: 'Цены' },
+      { id: 5, href: '/stati', title: 'Статьи' }
     ],
     en: [
       { id: 1, href: '/en', title: 'Home' },
       { id: 2, href: '/en/about', title: 'About' },
-      { id: 3, href: '/en/price', title: 'Price' }
+      { id: 3, href: '/en/price', title: 'Price' },
+      { id: 5, href: '/en/blog', title: 'Blog' }
     ]
   }
   
@@ -62,12 +64,12 @@ describe('translateUrl', () => {
   describe('Pagination routes', () => {
     it('translates Russian pagination to English', () => {
       const result = translateUrl('/stati/page/2')
-      expect(result).toEqual({ link: '/en/blog/page/2', flag: false })
+      expect(result).toEqual({ link: '/en/blog/page/2', flag: true })
     })
 
     it('translates English pagination to Russian', () => {
       const result = translateUrl('/en/blog/page/3')
-      expect(result).toEqual({ link: '/stati/page/3', flag: true })
+      expect(result).toEqual({ link: '/stati/page/3', flag: false })
     })
   })
 
