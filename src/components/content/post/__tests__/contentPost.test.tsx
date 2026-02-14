@@ -17,7 +17,7 @@ jest.mock('next/navigation', () => ({
 }));
 
 // Mock getPosts
-jest.mock('@/components/utility/getPosts', () => ({
+jest.mock('@/lib/getPosts', () => ({
   getPosts: jest.fn(() => Promise.resolve([
     {
       slug: 'test-post',

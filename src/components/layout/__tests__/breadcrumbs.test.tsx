@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import { Breadcrumbs } from '../breadcrumbs'
-import { Breadcrumb } from '@/components/utility/types'
+import { Breadcrumb } from '@/lib/types'
 
 describe('Breadcrumbs', () => {
   const defaultBreadcrumb: Breadcrumb = {

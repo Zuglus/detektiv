@@ -1,6 +1,6 @@
-import { Lang } from "@/components/utility/types";
+import { Lang } from "@/lib/types";
 import content from "./price.json";
-import ScrollReveal from "@/components/utility/scrollReveal";
+import ScrollReveal from "@/components/ui/ScrollReveal";
 import PricingHeader from "./pricingHeader";
 import TrustIndicators from "./trustIndicators";
 import CategorySection from "./categorySection";

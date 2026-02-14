@@ -1,7 +1,7 @@
 import '@/app/globals.css';
 import { inter, playfairDisplay } from '@/app/fonts';
 import Body from '@/components/layout/body';
-import { Props, Lang } from '@/components/utility/types';
+import { Props, Lang } from '@/lib/types';
 import metadataConfig from '@/data/metadata.json';
 
 export const createMetadata = (lang: Lang) => {

@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import ButtonTranslate from '@/components/ui/buttonTranslate';
-import { Z } from '@/components/ui/zLayers';
-import { Route } from '@/components/utility/types';
+import { Z } from '@/lib/zLayers';
+import { Route } from '@/lib/types';
 
 interface DesktopMenuProps {
   routes: Route[];

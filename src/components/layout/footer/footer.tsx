@@ -3,7 +3,7 @@
 import SocialIconsFooter from '@/components/ui/socialIconsFooter';
 import UnifiedCard from '@/components/ui/UnifiedCard';
 import footerData from './footer.json';
-import { Lang } from '@/components/utility/types';
+import { Lang } from '@/lib/types';
 
 export default function Footer({ lang }: { lang: Lang }) {
   const { licenseInfo, years, location, companyName, socialIcons } = footerData;

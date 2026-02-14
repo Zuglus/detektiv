@@ -3,8 +3,8 @@ import Header from "@/components/layout/header/header";
 import PageContent from "@/components/ui/PageContent";
 import PageTransition from "@/components/ui/PageTransition";
 import YandexCounter from "@/components/ui/YandexCounter";
-import ErrorBoundary from "@/components/utility/ErrorBoundary";
-import { Props, Lang } from "@/components/utility/types";
+import ErrorBoundary from "@/components/ui/ErrorBoundary";
+import { Props, Lang } from "@/lib/types";
 
 export default function Body({
   lang,

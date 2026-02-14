@@ -1,9 +1,9 @@
 import { useRef, useState } from 'react';
 import Link from 'next/link';
 import ButtonTranslate from '@/components/ui/buttonTranslate';
-import { Z } from '@/components/ui/zLayers';
-import { useFocusTrap } from '@/components/utility/useFocusTrap';
-import { Route } from '@/components/utility/types';
+import { Z } from '@/lib/zLayers';
+import { useFocusTrap } from '@/hooks/useFocusTrap';
+import { Route } from '@/lib/types';
 
 interface MobileMenuProps {
   routes: Route[];

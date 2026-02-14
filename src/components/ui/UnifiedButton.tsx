@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { ReactNode, ButtonHTMLAttributes, MouseEventHandler } from 'react';
-import { classNames as cn } from '@/components/utility/classNames';
+import { classNames as cn } from '@/lib/classNames';
 
 type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'outline' | 'danger';
 type ButtonSize = 'sm' | 'md' | 'lg' | 'xl';

@@ -1,6 +1,6 @@
 import { Breadcrumbs } from '@/components/layout/breadcrumbs';
 import ContentPrice from '@/components/content/price/contentPrice';
-import { Breadcrumb } from '@/components/utility/types';
+import { Breadcrumb } from '@/lib/types';
 
 export const metadata = {
   title: 'Детективное агентство Грозного Эдуарда Николаевича | Прайс',

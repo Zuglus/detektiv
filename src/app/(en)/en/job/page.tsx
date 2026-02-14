@@ -1,6 +1,6 @@
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import ContentJob from "@/components/content/job/contentJob";
-import { Breadcrumb } from "@/components/utility/types";
+import { Breadcrumb } from "@/lib/types";
 
 export const metadata = {
   title: "Grozny Eduard Nikolayevich's Detective Agency | Job",

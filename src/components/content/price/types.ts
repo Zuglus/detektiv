@@ -1,4 +1,4 @@
-import { Lang } from "@/components/utility/types";
+import { Lang } from "@/lib/types";
 
 export interface ServiceFeature {
   title: { [key in Lang]: string };

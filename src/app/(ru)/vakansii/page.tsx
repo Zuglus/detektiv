@@ -1,6 +1,6 @@
 import { Breadcrumbs } from '@/components/layout/breadcrumbs';
 import ContentJob from '@/components/content/job/contentJob';
-import { Breadcrumb } from '@/components/utility/types';
+import { Breadcrumb } from '@/lib/types';
 
 export const metadata = {
   title: 'Детективное агентство Грозного Эдуарда Николаевича | Вакансии',

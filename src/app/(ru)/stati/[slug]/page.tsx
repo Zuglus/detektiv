@@ -1,6 +1,6 @@
 import { Breadcrumbs } from '@/components/layout/breadcrumbs';
-import { getPosts } from '@/components/utility/getPosts';
-import { Breadcrumb, Slugs } from '@/components/utility/types';
+import { getPosts } from '@/lib/getPosts';
+import { Breadcrumb, Slugs } from '@/lib/types';
 import PostContent from '@/components/content/post/contentPost';
 
 export async function generateStaticParams() {

@@ -1,6 +1,6 @@
 import { Breadcrumbs } from "@/components/layout/breadcrumbs";
 import ContentGuarantee from "@/components/content/guarantee/contentGuarantee";
-import { Breadcrumb } from "@/components/utility/types";
+import { Breadcrumb } from "@/lib/types";
 
 export const metadata = {
   title: "Grozny Eduard Nikolayevich's Detective Agency | Guarantee",

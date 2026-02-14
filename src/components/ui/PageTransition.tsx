@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { Z } from "@/components/ui/zLayers";
+import { Z } from "@/lib/zLayers";
 
 /**
  * Top loading bar indicator that appears during page transitions

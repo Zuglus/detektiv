@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { Lang } from "@/components/utility/types";
+import { Lang } from "@/lib/types";
 import content from './guarantee.json';
 import contacts from '@/data/contacts.json';
 import IconSvg from '@/components/ui/IconSvg';

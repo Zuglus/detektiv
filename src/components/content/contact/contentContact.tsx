@@ -1,4 +1,4 @@
-import { Lang } from "@/components/utility/types";
+import { Lang } from "@/lib/types";
 import IconSvg from "@/components/ui/IconSvg";
 import UnifiedCard from "@/components/ui/UnifiedCard";
 import content from "./contact.json";

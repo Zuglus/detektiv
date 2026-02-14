@@ -1,4 +1,4 @@
-import { Lang } from '@/components/utility/types';
+import { Lang } from '@/lib/types';
 import headerData from '@/components/layout/header/headerData.json';
 
 interface HeroSectionProps {

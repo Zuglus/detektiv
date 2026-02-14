@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "node scripts/generate-translations.js && next build && node scripts/generate-sitemap.mjs",
+    "build": "node scripts/generate-translations.js && next build && cp out/_not-found.html out/404.html && node scripts/generate-sitemap.mjs",
     "analyze": "ANALYZE=true npm run build",
     "serve": "npx serve@latest out",
     "lint": "eslint . --cache --cache-location .eslintcache",

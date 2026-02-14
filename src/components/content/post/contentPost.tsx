@@ -1,7 +1,7 @@
 import Link from 'next/link';
-import ScrollReveal from '@/components/utility/scrollReveal';
+import ScrollReveal from '@/components/ui/ScrollReveal';
 import IconSvg from '@/components/ui/IconSvg';
-import { Post, Lang } from '@/components/utility/types';
+import { Post, Lang } from '@/lib/types';
 
 interface PostContentProps {
   post: Post;

@@ -1,4 +1,4 @@
-import { Lang } from "@/components/utility/types";
+import { Lang } from "@/lib/types";
 import content from './job.json';
 import IconSvg from '@/components/ui/IconSvg';
 import UnifiedButton from '@/components/ui/UnifiedButton';
