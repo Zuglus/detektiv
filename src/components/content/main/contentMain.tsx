@@ -336,45 +336,21 @@ function ContentMain({ lang }: { lang: Lang }) {
                   <div className="w-2 h-2 gradient-primary rounded-full mt-2 mr-3 flex-shrink-0" />
                   <div className="text-body-md">
                     {content.alertSubstring1[lang]}{" "}
-                    <UnifiedButton
-                      as="link"
-                      href={contacts.email.link}
-                      variant="ghost"
-                      size="sm"
-                      className="inline font-semibold p-0 h-auto text-primary-600 hover:text-primary-700"
-                    >
+                    <a className="font-semibold text-primary-600 hover:text-primary-700 transition-colors" href={contacts.email.link}>
                       {contacts.email.directName}
-                    </UnifiedButton>
+                    </a>
                     ,{" "}
-                    <UnifiedButton
-                      as="link"
-                      href={contacts.telegram.link}
-                      variant="ghost"
-                      size="sm"
-                      className="inline font-semibold p-0 h-auto text-primary-600 hover:text-primary-700"
-                    >
+                    <a className="font-semibold text-primary-600 hover:text-primary-700 transition-colors" href={contacts.telegram.link}>
                       {contacts.telegram.name}
-                    </UnifiedButton>
+                    </a>
                     ,{" "}
-                    <UnifiedButton
-                      as="link"
-                      href={contacts.whatsapp.link}
-                      variant="ghost"
-                      size="sm"
-                      className="inline font-semibold p-0 h-auto text-primary-600 hover:text-primary-700"
-                    >
+                    <a className="font-semibold text-primary-600 hover:text-primary-700 transition-colors" href={contacts.whatsapp.link}>
                       {contacts.whatsapp.name}
-                    </UnifiedButton>
+                    </a>
                     , {content.alertSubstring2[lang]}{" "}
-                    <UnifiedButton
-                      as="link"
-                      href={contacts.phone.link}
-                      variant="ghost"
-                      size="sm"
-                      className="inline font-semibold p-0 h-auto text-primary-600 hover:text-primary-700"
-                    >
+                    <a className="font-semibold text-primary-600 hover:text-primary-700 transition-colors" href={contacts.phone.link}>
                       {contacts.phone.name}
-                    </UnifiedButton>
+                    </a>
                     .
                   </div>
                 </div>
@@ -382,15 +358,9 @@ function ContentMain({ lang }: { lang: Lang }) {
                   <div className="w-2 h-2 gradient-primary rounded-full mt-2 mr-3 flex-shrink-0" />
                   <div className="text-body-md">
                     {content.alertSubstring3[lang]}{" "}
-                    <UnifiedButton
-                      as="link"
-                      href={contacts.site}
-                      variant="ghost"
-                      size="sm"
-                      className="inline font-semibold p-0 h-auto text-primary-600 hover:text-primary-700"
-                    >
+                    <a className="font-semibold text-primary-600 hover:text-primary-700 transition-colors" href={contacts.site}>
                       {contacts.site}
-                    </UnifiedButton>
+                    </a>
                     .
                   </div>
                 </div>
