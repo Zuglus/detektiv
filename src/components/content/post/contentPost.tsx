@@ -109,7 +109,7 @@ export default function PostContent({ post, lang }: PostContentProps) {
                   prose-p:first-of-type:text-xl prose-p:first-of-type:text-secondary-800 prose-p:first-of-type:font-medium prose-p:first-of-type:leading-relaxed prose-p:first-of-type:mb-8
                   prose-strong:text-secondary-900 prose-strong:font-semibold prose-strong:bg-primary-50 prose-strong:px-1 prose-strong:rounded
                   prose-em:text-secondary-600 prose-em:not-italic prose-em:bg-accent-50 prose-em:px-1 prose-em:rounded
-                  prose-ul:mb-6 prose-ul:space-y-2 prose-li:text-lg prose-li:text-secondary-700 prose-li:relative prose-li:pl-6 prose-li:marker:text-primary-500
+                  prose-ul:mb-6 prose-ul:space-y-2 prose-li:text-lg prose-li:text-secondary-700 prose-li:marker:text-primary-500
                   prose-ol:mb-6 prose-ol:space-y-2 prose-ol:marker:text-primary-600 prose-ol:marker:font-semibold
                   prose-a:text-primary-600 prose-a:font-medium prose-a:no-underline prose-a:border-b prose-a:border-primary-300 hover:prose-a:text-primary-700 hover:prose-a:border-primary-500 prose-a:transition-colors prose-a:duration-300
                   prose-blockquote:border-l-4 prose-blockquote:border-primary-500 prose-blockquote:bg-gradient-to-r prose-blockquote:from-primary-50 prose-blockquote:to-transparent prose-blockquote:py-6 prose-blockquote:px-8 prose-blockquote:rounded-r-2xl prose-blockquote:my-8 prose-blockquote:shadow-lg prose-blockquote:shadow-primary-100
@@ -118,8 +118,7 @@ export default function PostContent({ post, lang }: PostContentProps) {
                   prose-pre:bg-secondary-900 prose-pre:text-secondary-100 prose-pre:rounded-2xl prose-pre:border prose-pre:border-secondary-700 prose-pre:shadow-2xl
                   prose-hr:border-t-2 prose-hr:border-gradient-to-r prose-hr:from-primary-200 prose-hr:via-accent-200 prose-hr:to-primary-200 prose-hr:my-12
                   [&>*:first-child]:mt-0 [&>*:last-child]:mb-0
-                  [&_p+p]:mt-4 [&_p+h2]:mt-12 [&_p+h3]:mt-8 [&_p+h4]:mt-6
-                  [&_ul_li]:before:content-['•'] [&_ul_li]:before:absolute [&_ul_li]:before:left-0 [&_ul_li]:before:text-primary-500 [&_ul_li]:before:font-bold"
+                  [&_p+p]:mt-4 [&_p+h2]:mt-12 [&_p+h3]:mt-8 [&_p+h4]:mt-6"
                 dangerouslySetInnerHTML={{ __html: content }}
               />
 
