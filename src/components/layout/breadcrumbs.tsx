@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import IconSvg from '@/components/ui/IconSvg';
-import { Breadcrumb } from '@/components/utility/types';
+import { Breadcrumb } from '@/lib/types';
 
 export const Breadcrumbs = ({ breadcrumb }: { breadcrumb: Breadcrumb }) => {
   const { home, name, link, secondName } = breadcrumb;

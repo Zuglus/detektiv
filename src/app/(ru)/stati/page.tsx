@@ -1,6 +1,6 @@
-import { getPosts } from '@/components/utility/getPosts';
+import { getPosts } from '@/lib/getPosts';
 import ContentBlog from '@/components/content/blog/contentBlog';
-import { Breadcrumb, Post } from '@/components/utility/types';
+import { Breadcrumb, Post } from '@/lib/types';
 import { Breadcrumbs } from '@/components/layout/breadcrumbs';
 
 export default async function BlogPage() {

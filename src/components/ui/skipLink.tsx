@@ -1,6 +1,6 @@
 import { usePathname } from 'next/navigation';
-import { Lang } from '@/components/utility/types';
-import { Z } from '@/components/ui/zLayers';
+import { Lang } from '@/lib/types';
+import { Z } from '@/lib/zLayers';
 
 interface SkipLinkProps {
   lang?: Lang;

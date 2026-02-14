@@ -1,5 +1,5 @@
 // Mock translateUrl utility before imports so the mock is applied
-jest.mock('@/components/utility/translateUrl', () => ({
+jest.mock('@/lib/translateUrl', () => ({
   __esModule: true,
   default: jest.fn()
 }))
@@ -29,7 +29,7 @@ jest.mock('next/link', () => {
   }
 })
 import { render, screen } from '@testing-library/react'
-import translateUrl from '@/components/utility/translateUrl'
+import translateUrl from '@/lib/translateUrl'
 import ButtonTranslate from '../buttonTranslate'
 const mockTranslateUrl = translateUrl as unknown as jest.MockedFunction<typeof translateUrl>
 

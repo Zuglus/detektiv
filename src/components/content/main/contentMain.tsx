@@ -1,10 +1,10 @@
 import UnifiedCard from "@/components/ui/UnifiedCard";
 import UnifiedButton from "@/components/ui/UnifiedButton";
-import ScrollReveal from "@/components/utility/scrollReveal";
+import ScrollReveal from "@/components/ui/ScrollReveal";
 import IconSvg from "@/components/ui/IconSvg";
 import content from "./main.json";
 import contacts from "@/data/contacts.json";
-import { Lang } from "@/components/utility/types";
+import { Lang } from "@/lib/types";
 
 // Unique icon per service card
 const serviceIcons = [

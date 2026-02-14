@@ -1,8 +1,8 @@
-import { ContentLang } from '@/components/utility/types';
-import ScrollReveal from '@/components/utility/scrollReveal';
-import UnifiedCard from '@/components/ui/UnifiedCard';
-import content from './aboutData.json';
-import IconSvg from '@/components/ui/IconSvg';
+import { ContentLang } from "@/lib/types";
+import ScrollReveal from "@/components/ui/ScrollReveal";
+import UnifiedCard from "@/components/ui/UnifiedCard";
+import content from "./about.json";
+import IconSvg from "@/components/ui/IconSvg";
 
 export default function ContentAbout({ lang }: ContentLang) {
   const { hero, timeline, expertise, principles, warning } = content;
@@ -34,42 +34,46 @@ export default function ContentAbout({ lang }: ContentLang) {
               </h2>
             </div>
           </ScrollReveal>
-          
+
           <div className="grid lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {timeline.items[lang].map(
               (
-                item: { icon?: string; year: string; title: string; description: string },
+                item: {
+                  icon?: string;
+                  year: string;
+                  title: string;
+                  description: string;
+                },
                 index: number,
               ) => (
-                  <ScrollReveal key={index} delay={index * 150}>
-                <UnifiedCard size="large">
-                  <div className="flex items-center mb-4">
-                    <div className="w-16 h-16 bg-gradient-to-br from-primary-500 to-primary-600 rounded-2xl flex items-center justify-center mr-6">
-                      {item.icon ? (
-                        <IconSvg
-                          name={item.icon}
-                          size="xl"
-                          color="white"
-                        />
-                      ) : (
-                        <span className="text-white text-xs font-bold">
-                          {item.year.slice(0, 4)}
-                        </span>
-                      )}
+                <ScrollReveal key={index} delay={index * 150}>
+                  <UnifiedCard size="large">
+                    <div className="flex items-center mb-4">
+                      <div className="w-16 h-16 bg-gradient-to-br from-primary-500 to-primary-600 rounded-2xl flex items-center justify-center mr-6">
+                        {item.icon ? (
+                          <IconSvg name={item.icon} size="xl" color="white" />
+                        ) : (
+                          <span className="text-white text-xs font-bold">
+                            {item.year.slice(0, 4)}
+                          </span>
+                        )}
+                      </div>
+                      <div>
+                        <h3 className="text-2xl font-bold text-secondary-900 mb-2 font-display">
+                          {item.title}
+                        </h3>
+                        <p className="text-primary-600 font-medium">
+                          {item.year}
+                        </p>
+                      </div>
                     </div>
-                    <div>
-                      <h3 className="text-2xl font-bold text-secondary-900 mb-2 font-display">
-                        {item.title}
-                      </h3>
-                      <p className="text-primary-600 font-medium">{item.year}</p>
-                    </div>
-                  </div>
-                  <p className="text-secondary-700 leading-relaxed text-lg">
-                    {item.description}
-                  </p>
-                </UnifiedCard>
-              </ScrollReveal>
-            ))}
+                    <p className="text-secondary-700 leading-relaxed text-lg">
+                      {item.description}
+                    </p>
+                  </UnifiedCard>
+                </ScrollReveal>
+              ),
+            )}
           </div>
         </div>
       </section>
@@ -83,31 +87,28 @@ export default function ContentAbout({ lang }: ContentLang) {
               </h2>
             </div>
           </ScrollReveal>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {expertise.items[lang].map(
               (
                 item: { icon: string; title: string; description: string },
                 index: number,
               ) => (
-              <ScrollReveal key={index} delay={index * 100}>
-                <UnifiedCard className="text-center" size="large" interactive>
-                  <div className="mb-6 flex justify-center">
-                    <IconSvg
-                      name={item.icon}
-                      size="4xl"
-                      color="primary"
-                    />
-                  </div>
-                  <h3 className="text-xl font-bold text-secondary-900 mb-4 font-display">
-                    {item.title}
-                  </h3>
-                  <p className="text-secondary-700 leading-relaxed">
-                    {item.description}
-                  </p>
-                </UnifiedCard>
-              </ScrollReveal>
-            ))}
+                <ScrollReveal key={index} delay={index * 100}>
+                  <UnifiedCard className="text-center" size="large" interactive>
+                    <div className="mb-6 flex justify-center">
+                      <IconSvg name={item.icon} size="4xl" color="primary" />
+                    </div>
+                    <h3 className="text-xl font-bold text-secondary-900 mb-4 font-display">
+                      {item.title}
+                    </h3>
+                    <p className="text-secondary-700 leading-relaxed">
+                      {item.description}
+                    </p>
+                  </UnifiedCard>
+                </ScrollReveal>
+              ),
+            )}
           </div>
         </div>
       </section>
@@ -121,24 +122,22 @@ export default function ContentAbout({ lang }: ContentLang) {
               </h2>
             </div>
           </ScrollReveal>
-          
+
           <div className="grid lg:grid-cols-3 gap-8">
             {principles.items[lang].map(
-              (
-                item: { title: string; description: string },
-                index: number,
-              ) => (
-              <ScrollReveal key={index} delay={index * 120}>
-                <UnifiedCard variant="principle" interactive>
-                  <h4 className="text-2xl font-bold mb-4 font-display text-center">
-                    {item.title}
-                  </h4>
-                  <div className="text-secondary-100 leading-relaxed text-lg max-w-[80%] mx-auto text-left">
-                    {item.description}
-                  </div>
-                </UnifiedCard>
-              </ScrollReveal>
-            ))}
+              (item: { title: string; description: string }, index: number) => (
+                <ScrollReveal key={index} delay={index * 120}>
+                  <UnifiedCard variant="principle" interactive>
+                    <h4 className="text-2xl font-bold mb-4 font-display text-center">
+                      {item.title}
+                    </h4>
+                    <div className="text-secondary-100 leading-relaxed text-lg max-w-[80%] mx-auto text-left">
+                      {item.description}
+                    </div>
+                  </UnifiedCard>
+                </ScrollReveal>
+              ),
+            )}
           </div>
         </div>
       </section>
@@ -146,13 +145,13 @@ export default function ContentAbout({ lang }: ContentLang) {
       <section className="py-20">
         <div className="max-w-4xl mx-auto px-6">
           <ScrollReveal>
-            <UnifiedCard variant="emergency" className="text-center" size="large">
+            <UnifiedCard
+              variant="emergency"
+              className="text-center"
+              size="large"
+            >
               <div className="mb-8 flex justify-center">
-                <IconSvg
-                  name="warning"
-                  size="4xl"
-                  color="error"
-                />
+                <IconSvg name="warning" size="4xl" color="error" />
               </div>
               <h2 className="text-3xl font-bold text-error-700 mb-6 font-display">
                 {warning.title[lang]}

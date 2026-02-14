@@ -1,4 +1,4 @@
-import { Lang } from "@/components/utility/types";
+import { Lang } from "@/lib/types";
 import UnifiedCard from '@/components/ui/UnifiedCard';
 
 interface PricingHeaderProps {

@@ -2,9 +2,9 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
-import { Lang, Route } from '@/components/utility/types';
+import { Lang, Route } from '@/lib/types';
 import SkipLink from '@/components/ui/skipLink';
-import getRoutes from '@/components/utility/getRoutes/getRoutes';
+import getRoutes from '@/lib/getRoutes/getRoutes';
 import DesktopMenu from '@/components/layout/DesktopMenu';
 import MobileMenu from '@/components/layout/MobileMenu';
 

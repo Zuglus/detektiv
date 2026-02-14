@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { classNames as cn } from "@/components/utility/classNames";
+import { classNames as cn } from "@/lib/classNames";
 
 export interface UnifiedCardProps {
   children: ReactNode;

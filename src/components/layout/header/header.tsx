@@ -1,6 +1,6 @@
 import Nav from '@/components/layout/nav';
 import HeroSection from '@/components/layout/header/heroSection';
-import { Lang } from '@/components/utility/types';
+import { Lang } from '@/lib/types';
 
 interface HeaderProps {
   lang: Lang;

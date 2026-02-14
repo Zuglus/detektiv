@@ -1,8 +1,8 @@
 import Link from 'next/link';
-import ScrollReveal from '@/components/utility/scrollReveal';
+import ScrollReveal from '@/components/ui/ScrollReveal';
 import IconSvg from '@/components/ui/IconSvg';
 import UnifiedButton from '@/components/ui/UnifiedButton';
-import { Lang, Post } from '@/components/utility/types';
+import { Lang, Post } from '@/lib/types';
 
 interface ContentBlogProps {
   posts: Post[];
