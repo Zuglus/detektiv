@@ -121,7 +121,7 @@ export default function ContentContact({ lang }: { lang: Lang }) {
               </span>
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {/* Telegram */}
               <a
                 href={contacts.telegram.link}
@@ -153,6 +153,44 @@ export default function ContentContact({ lang }: { lang: Lang }) {
                 />
                 <span className="text-body-sm font-medium text-secondary-800">
                   {content.whatsapp[lang]}
+                </span>
+              </a>
+
+              {/* imo */}
+              <a
+                href={contacts.imo.link}
+                className="flex flex-col items-center p-4 bg-secondary-50 hover:bg-secondary-100 rounded-xl transition-all duration-300 group/messenger focus:outline-none focus:ring-2 focus:ring-primary-600"
+                aria-label="Связаться через imo"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <IconSvg
+                  name="imo"
+                  size="lg"
+                  color="current"
+                  className="w-10 h-10 mb-3 text-primary-600 group-hover/messenger:text-primary-700 transition-colors duration-300 group-hover/messenger:scale-110 transform"
+                />
+                <span className="text-body-sm font-medium text-secondary-800">
+                  {content.imo[lang]}
+                </span>
+              </a>
+
+              {/* Signal */}
+              <a
+                href={contacts.signal.link}
+                className="flex flex-col items-center p-4 bg-secondary-50 hover:bg-secondary-100 rounded-xl transition-all duration-300 group/messenger focus:outline-none focus:ring-2 focus:ring-primary-600"
+                aria-label="Связаться через Signal"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <IconSvg
+                  name="signal"
+                  size="lg"
+                  color="current"
+                  className="w-10 h-10 mb-3 text-primary-600 group-hover/messenger:text-primary-700 transition-colors duration-300 group-hover/messenger:scale-110 transform"
+                />
+                <span className="text-body-sm font-medium text-secondary-800">
+                  {content.signal[lang]}
                 </span>
               </a>
             </div>
