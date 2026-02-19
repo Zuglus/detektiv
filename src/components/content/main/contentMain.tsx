@@ -38,7 +38,7 @@ function ContentMain({ lang }: { lang: Lang }) {
             </h2>
 
             <div className="flex flex-wrap justify-center gap-4 mt-8">
-              {[contacts.telegram, contacts.whatsapp, contacts.email].map(
+              {[contacts.telegram, contacts.whatsapp, contacts.imo, contacts.signal, contacts.email].map(
                 (item) => (
                   <UnifiedButton
                     key={item.name}
@@ -346,6 +346,14 @@ function ContentMain({ lang }: { lang: Lang }) {
                     ,{" "}
                     <a className="font-semibold text-primary-600 hover:text-primary-700 transition-colors" href={contacts.whatsapp.link}>
                       {contacts.whatsapp.name}
+                    </a>
+                    ,{" "}
+                    <a className="font-semibold text-primary-600 hover:text-primary-700 transition-colors" href={contacts.imo.link} target="_blank" rel="noopener noreferrer">
+                      {contacts.imo.name}
+                    </a>
+                    ,{" "}
+                    <a className="font-semibold text-primary-600 hover:text-primary-700 transition-colors" href={contacts.signal.link} target="_blank" rel="noopener noreferrer">
+                      {contacts.signal.name}
                     </a>
                     , {content.alertSubstring2[lang]}{" "}
                     <a className="font-semibold text-primary-600 hover:text-primary-700 transition-colors" href={contacts.phone.link}>

@@ -63,6 +63,14 @@
     "ru": "WhatsApp",
     "en": "WhatsApp"
   },
+  "imo": {
+    "ru": "Imo",
+    "en": "Imo"
+  },
+  "signal": {
+    "ru": "Signal",
+    "en": "Signal"
+  },
   "confidentiality": {
     "title": {
       "ru": "Гарантия конфиденциальности",
