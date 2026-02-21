@@ -126,7 +126,6 @@ describe('Footer', () => {
     expect(backToTopButton).toHaveClass(
       'w-14',
       'h-14',
-      'glass-button',
       'bg-primary-600/20',
       'rounded-full'
     )

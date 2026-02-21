@@ -24,13 +24,7 @@
   --duration-smooth: 600ms;
   --duration-slower: 700ms;
 
-/* Glass morphism effects */
-  --glass-light: rgba(255, 255, 255, 0.1);
-  --glass-medium: rgba(255, 255, 255, 0.15);
-  --glass-strong: rgba(255, 255, 255, 0.25);
-  --glass-border: rgba(255, 255, 255, 0.2);
-
-  /* Navigation glass */
+/* Navigation glass */
   --glass-nav: rgba(255, 255, 255, 0.97);
   --glass-nav-scrolled: rgba(255, 255, 255, 0.98);
   --glass-nav-home: rgba(255, 255, 255, 0.15);

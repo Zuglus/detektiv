@@ -38,10 +38,9 @@ export default function Footer({ lang }: { lang: Lang }) {
             <button
               onClick={scrollToTop}
               className="
-                inline-flex items-center justify-center 
-                w-14 h-14 
-                glass-button
-                bg-primary-600/20 hover:bg-primary-600/40 
+                inline-flex items-center justify-center
+                w-14 h-14
+                bg-primary-600/20 hover:bg-primary-600/40
                 text-white rounded-full 
                 transition-all duration-bounce
                 hover:scale-110 hover:rotate-12
