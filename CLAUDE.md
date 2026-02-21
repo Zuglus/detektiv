@@ -15,15 +15,15 @@
 - **Консолидированная дизайн-система** с единым подходом к компонентам
 - **UnifiedCard система** заменила 11+ фрагментированных вариантов карточек
 - **UnifiedButton система** с полной типизацией и 5 вариантами
-- **Glass morphism эффекты** с правильными fallback для старых браузеров
+- **Backdrop blur в навигации** с @supports fallback для старых браузеров
 - **8pt grid система** для consistent spacing
 
 ### ✅ Код последовательный и понятный
 - **TypeScript excellence**: Полная типизация, score 9/10
 - **Компонентная архитектура**: Четкое разделение content/layout/ui + lib/ + hooks/
 - **Исправлены конфликты именования**: IconSvg vs iconSvg
-- **Производительность**: React.memo, useMemo, hardware acceleration
-- **Тестирование**: 12+ test файлов с comprehensive coverage  
+- **Производительность**: useCallback для мемоизации, hardware acceleration через will-change/transform-gpu
+- **Тестирование**: 30+ test файлов с comprehensive coverage
 - **Новые компоненты**: IconSvg с полной типизацией и тестированием  
 - **Улучшенный UX**: Оптимизированная навигация, выравнивание элементов и социальные иконки
 - **Оптимизация CSS**: Удаление избыточных стилей, встроенная стилизация компонентов
@@ -163,7 +163,7 @@ lighthouse http://localhost:3001 --only-categories=accessibility
 - **Тесты about и main** перенесены в `about/__tests__/` и `main/__tests__/` — единообразно с остальными
 - **`aboutData.json` → `about.json`** — консистентно с именованием других секций
 - **Исправлены инлайн-ссылки** в блоке "Остерегайтесь мошенников": `UnifiedButton` предназначен для самостоятельных кнопок/CTA, а не для ссылок внутри текста. `cn()` не разрешает конфликты Tailwind, поэтому `text-primary-600` в className перебивался `text-secondary-700` из варианта `ghost`. Возвращены семантические `<a>` теги
-- **Верификация**: `npm run build` — 80 страниц, `npm run test:unit` — 32 suites / 272 теста, `npm run lint` — 0 ошибок
+- **Верификация**: `npm run build` — 81 страниц, `npm run test:unit` — 32 suites / 272 теста, `npm run lint` — 0 ошибок
 
 ### 2026-02-13: Реорганизация jest-файлов
 - **Jest конфигурация вынесена**: 7 mock/setup файлов перемещены из корня в `config/jest/`
@@ -202,7 +202,6 @@ lighthouse http://localhost:3001 --only-categories=accessibility
 **Созданные тестовые файлы**:
 ```
 src/__tests__/fonts.test.ts
-src/app/(ru)/__tests__/not-found.test.tsx
 src/components/content/__tests__/LazyContent.test.tsx
 src/components/content/blog/__tests__/contentBlog.test.tsx
 src/components/content/contact/__tests__/contentContact.test.tsx
@@ -272,9 +271,9 @@ src/components/content/price/__tests__/contentPrice.test.tsx
 4. Проверяй контрастность цветов
 
 ### При оптимизации
-1. Hardware acceleration для анимаций
-2. React.memo для дорогих компонентов
-3. Lazy loading для изображений
+1. Hardware acceleration для анимаций (will-change, transform-gpu)
+2. useCallback для мемоизации обработчиков в хуках
+3. SVG иконки через IconSvg (растровых изображений в контенте нет)
 4. Code splitting для больших dependencies
 
 ---
