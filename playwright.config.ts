@@ -1,5 +1,7 @@
 import { defineConfig, devices } from '@playwright/test';
 
+const E2E_PORT = 9247;
+
 export default defineConfig({
   testDir: './e2e',
   // Some navigation specs purposely traverse many routes; give them more time
@@ -14,8 +16,10 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   reporter: 'html',
   use: {
-    baseURL: 'http://localhost:3000',
-    reducedMotion: 'reduce',
+    baseURL: `http://localhost:${E2E_PORT}`,
+    contextOptions: {
+      reducedMotion: 'reduce',
+    },
     trace: 'retain-on-failure',
     video: 'retain-on-failure',
     screenshot: 'only-on-failure',
@@ -46,9 +50,9 @@ export default defineConfig({
 
   // Serve the statically exported site for stable, production-like E2E
   webServer: {
-    command: 'node scripts/static-serve.cjs -d out -p 3000',
-    url: 'http://localhost:3000',
-    reuseExistingServer: false,
+    command: `node scripts/static-serve.cjs -d out -p ${E2E_PORT}`,
+    url: `http://localhost:${E2E_PORT}`,
+    reuseExistingServer: !process.env.CI,
     timeout: 30_000,
   },
 });

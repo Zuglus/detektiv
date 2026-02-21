@@ -9,7 +9,8 @@ export default function SocialIconsFooter() {
       | "telegram"
       | "whatsapp"
       | "imo"
-      | "signal";
+      | "signal"
+      | "instagram";
   } = {
     [contacts.phone.name]: "phone",
     [contacts.email.name]: "email",
@@ -17,6 +18,7 @@ export default function SocialIconsFooter() {
     [contacts.whatsapp.name]: "whatsapp",
     [contacts.imo.name]: "imo",
     [contacts.signal.name]: "signal",
+    [contacts.instagram.name]: "instagram",
   };
 
   return (
@@ -32,6 +34,7 @@ export default function SocialIconsFooter() {
         contacts.whatsapp,
         contacts.imo,
         contacts.signal,
+        contacts.instagram,
       ].map((icon) => {
         const isExternal =
           icon.link.startsWith("http") ||

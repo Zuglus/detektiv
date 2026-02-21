@@ -121,7 +121,7 @@ export default function ContentContact({ lang }: { lang: Lang }) {
               </span>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
               {/* Telegram */}
               <a
                 href={contacts.telegram.link}
@@ -193,6 +193,25 @@ export default function ContentContact({ lang }: { lang: Lang }) {
                   {content.signal[lang]}
                 </span>
               </a>
+
+              {/* Instagram */}
+              <a
+                href={contacts.instagram.link}
+                className="flex flex-col items-center p-4 bg-secondary-50 hover:bg-secondary-100 rounded-xl transition-all duration-300 group/messenger focus:outline-none focus:ring-2 focus:ring-primary-600"
+                aria-label="Связаться через Instagram"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <IconSvg
+                  name="instagram"
+                  size="lg"
+                  color="current"
+                  className="w-10 h-10 mb-3 text-primary-600 group-hover/messenger:text-primary-700 transition-colors duration-300 group-hover/messenger:scale-110 transform"
+                />
+                <span className="text-body-sm font-medium text-secondary-800">
+                  {content.instagram[lang]}
+                </span>
+              </a>
             </div>
           </div>
         </UnifiedCard>
@@ -225,7 +244,7 @@ export default function ContentContact({ lang }: { lang: Lang }) {
             "@context": "https://schema.org",
             "@type": "Organization",
             name: "Детективное агентство",
-            url: "https://право18.рф",
+            url: contacts.site,
             contactPoint: [
               {
                 "@type": "ContactPoint",
