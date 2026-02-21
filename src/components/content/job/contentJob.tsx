@@ -1,5 +1,6 @@
 import { Lang } from "@/lib/types";
 import content from './job.json';
+import contacts from '@/data/contacts.json';
 import IconSvg from '@/components/ui/IconSvg';
 import UnifiedButton from '@/components/ui/UnifiedButton';
 import UnifiedCard from '@/components/ui/UnifiedCard';
@@ -40,7 +41,7 @@ export default function ContentJob({ lang }: { lang: Lang }) {
           <div className="flex flex-wrap justify-center gap-4 text-sm">
             <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-lg px-3 py-2">
               <IconSvg name="mapPin" size="sm" color="current" />
-              {lang === 'ru' ? 'Москва' : 'Moscow'}
+              {contacts.address.addressLocality}
             </div>
             <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-lg px-3 py-2">
               <IconSvg name="building" size="sm" color="current" />

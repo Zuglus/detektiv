@@ -6,6 +6,7 @@ jest.mock("@/data/contacts.json", () => ({
   whatsapp: { name: "WhatsApp", link: "https://wa.me/79161234567" },
   imo: { name: "Imo", link: "https://s.imoim.net/fDJ0Lh" },
   signal: { name: "Signal", link: "https://signal.me/#p/+79150010025" },
+  instagram: { name: "Instagram", link: "https://www.instagram.com/detective_eduardgroznyi" },
 }));
 
 import { render, screen } from "@testing-library/react";

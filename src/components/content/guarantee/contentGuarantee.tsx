@@ -351,6 +351,9 @@ export default function ContentGuarantee({ lang }: { lang: Lang }) {
             {[
               contacts.telegram,
               contacts.whatsapp,
+              contacts.imo,
+              contacts.signal,
+              contacts.instagram,
               contacts.email,
               contacts.phone,
             ].map((item) => (

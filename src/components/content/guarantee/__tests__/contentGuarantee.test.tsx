@@ -32,8 +32,19 @@ describe('ContentGuarantee', () => {
 
   it('should display contact information', () => {
     render(<ContentGuarantee lang="ru" />);
-    
+
     expect(screen.getByText('Связаться с нами')).toBeInTheDocument();
+  });
+
+  it('should display all contact channels including messengers', () => {
+    render(<ContentGuarantee lang="ru" />);
+
+    expect(screen.getByText('Telegram')).toBeInTheDocument();
+    expect(screen.getByText('Whatsapp')).toBeInTheDocument();
+    expect(screen.getByText('Imo')).toBeInTheDocument();
+    expect(screen.getByText('Signal')).toBeInTheDocument();
+    expect(screen.getByText('Instagram')).toBeInTheDocument();
+    expect(screen.getByText('E-mail')).toBeInTheDocument();
   });
 
   it('should render in english', () => {

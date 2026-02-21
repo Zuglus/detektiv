@@ -272,6 +272,7 @@ jest.mock(
     whatsapp: { name: "Whatsapp", link: "whatsapp://send?phone=79150010025" },
     imo: { name: "Imo", link: "https://s.imoim.net/fDJ0Lh" },
     signal: { name: "Signal", link: "https://signal.me/#p/+79150010025" },
+    instagram: { name: "Instagram", link: "https://www.instagram.com/detective_eduardgroznyi" },
     email: {
       name: "E-mail",
       link: "mailto:detectivegroznyi@gmail.com",
@@ -316,13 +317,14 @@ describe("ContentMain", () => {
     render(<ContentMain lang="ru" />);
 
     // Check for UnifiedButton contact buttons in the quick contact section
-    const contactButtons = screen.getAllByTestId("unified-button").slice(0, 5);
-    expect(contactButtons).toHaveLength(5);
+    const contactButtons = screen.getAllByTestId("unified-button").slice(0, 6);
+    expect(contactButtons).toHaveLength(6);
     expect(contactButtons[0]).toHaveTextContent("Telegram");
     expect(contactButtons[1]).toHaveTextContent("Whatsapp");
     expect(contactButtons[2]).toHaveTextContent("Imo");
     expect(contactButtons[3]).toHaveTextContent("Signal");
-    expect(contactButtons[4]).toHaveTextContent("E-mail");
+    expect(contactButtons[4]).toHaveTextContent("Instagram");
+    expect(contactButtons[5]).toHaveTextContent("E-mail");
   });
 
   it("renders service cards", () => {

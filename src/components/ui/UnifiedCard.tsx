@@ -44,7 +44,7 @@ const cardSizes = {
 
 const cardAnimations = {
   interactive:
-    "transition-all duration-300 hover:-translate-y-2 hover:scale-[1.025] cursor-pointer",
+    "transition-all duration-300 cursor-pointer hover:border-primary-400",
   static: "transition-all duration-300",
 };
 

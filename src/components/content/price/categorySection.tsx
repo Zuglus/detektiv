@@ -1,7 +1,6 @@
 import { Lang } from "@/lib/types";
 import UnifiedCard from '@/components/ui/UnifiedCard';
 import IconSvg from '@/components/ui/IconSvg';
-import UnifiedButton from '@/components/ui/UnifiedButton';
 import contacts from '@/data/contacts.json';
 import type { ServiceFeature, ServiceCategory } from "@/components/content/price/types";
 
@@ -31,10 +30,10 @@ export default function CategorySection({ category, lang }: CategorySectionProps
           >
             <UnifiedCard
               variant="pricing"
-              className="h-full"
+              className="h-full [&>div]:h-full [&>div]:flex [&>div]:flex-col"
               interactive
             >
-              <div className="space-y-6">
+              <div className="flex flex-col h-full">
                 <div className="space-y-2">
                   <h3 className="text-heading-sm font-semibold leading-tight text-secondary-800 text-center">
                     {service.title[lang]}
@@ -49,7 +48,7 @@ export default function CategorySection({ category, lang }: CategorySectionProps
                   </p>
                 </div>
 
-                <div className="space-y-3">
+                <div className="space-y-3 mt-6 flex-grow">
                   <h4 className="text-body-md font-semibold text-secondary-700">
                     {lang === 'ru' ? 'Что включено:' : 'What\'s included:'}
                   </h4>
@@ -65,16 +64,14 @@ export default function CategorySection({ category, lang }: CategorySectionProps
                   </ul>
                 </div>
 
-                <div className="pt-4">
-                  <UnifiedButton
-                    as="link"
+                <div className="pt-6 text-center">
+                  <a
                     href={contacts.telegram.link}
-                    variant="primary"
-                    className="w-full"
+                    className="inline-flex items-center justify-center px-4 py-2 text-sm rounded-sm min-h-[36px] font-medium tracking-wide text-white bg-primary-600 border border-primary-600 hover:bg-primary-700 hover:border-primary-700 hover:shadow-md transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-primary-600/40 focus:ring-offset-2"
                     aria-label={`${lang === 'ru' ? 'Получить консультацию по услуге' : 'Get consultation for service'}: ${service.title[lang]}`}
                   >
                     {lang === 'ru' ? 'Получить консультацию' : 'Get Consultation'}
-                  </UnifiedButton>
+                  </a>
                 </div>
               </div>
             </UnifiedCard>
