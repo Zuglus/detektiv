@@ -2,7 +2,7 @@
 
 ## ✅ Текущий статус: PRODUCTION READY
 
-**Дата последнего обновления**: 2026-02-14
+**Дата последнего обновления**: 2026-02-21
 **Финальная оценка проекта**: 9.8/10
 **Статус сборки**: ✅ УСПЕШНО
 **Миграция UnifiedCard**: ✅ ЗАВЕРШЕНА  
@@ -80,8 +80,8 @@ src/
 ```
 /src/components/
 ├── ui/IconSvg.tsx                    # Оптимизированная система иконок
-├── ui/valueProposition.tsx           # Унифицирован: использует UnifiedCard
-├── ui/priceDisclaimer.tsx            # Использует UnifiedCard с variant="disclaimer"
+├── content/price/valueProposition.tsx # Унифицирован: использует UnifiedCard
+├── content/price/priceDisclaimer.tsx # Использует UnifiedCard с variant="disclaimer"
 ├── ui/socialIconsFooter.tsx          # Улучшенные социальные иконки
 ├── content/about/contentAbout.tsx    # Очищенный контент About
 ├── layout/footer/footer.tsx          # Улучшенный footer
@@ -101,7 +101,7 @@ src/
 
 ### Card Variants
 ```typescript
-'default' | 'dark' | 'emergency' | 'accent' | 'principle' | 'pricing' | 'trust' | 'gradient' | 'disclaimer'
+'default' | 'dark' | 'emergency' | 'accent' | 'principle' | 'pricing' | 'trust' | 'disclaimer' | 'light-green'
 ```
 
 ### Button Variants  
@@ -140,7 +140,8 @@ npm run dev          # Разработка
 npm run build        # Сборка production
 npm run serve        # Запуск статического сайта
 npm run lint         # ESLint проверка
-npm run test         # Unit тесты
+npm run test:unit    # Unit тесты
+npm run test         # Полный пайплайн (build + unit + e2e)
 npm run test:e2e     # E2E тесты (требует npx playwright install)
 ```
 
@@ -163,7 +164,7 @@ lighthouse http://localhost:3001 --only-categories=accessibility
 - **Тесты about и main** перенесены в `about/__tests__/` и `main/__tests__/` — единообразно с остальными
 - **`aboutData.json` → `about.json`** — консистентно с именованием других секций
 - **Исправлены инлайн-ссылки** в блоке "Остерегайтесь мошенников": `UnifiedButton` предназначен для самостоятельных кнопок/CTA, а не для ссылок внутри текста. `cn()` не разрешает конфликты Tailwind, поэтому `text-primary-600` в className перебивался `text-secondary-700` из варианта `ghost`. Возвращены семантические `<a>` теги
-- **Верификация**: `npm run build` — 81 страниц, `npm run test:unit` — 32 suites / 272 теста, `npm run lint` — 0 ошибок
+- **Верификация**: `npm run build` — 80 страниц, `npm run test:unit` — 32 suites / 269 тестов, `npm run lint` — 0 ошибок
 
 ### 2026-02-13: Реорганизация jest-файлов
 - **Jest конфигурация вынесена**: 7 mock/setup файлов перемещены из корня в `config/jest/`
@@ -182,7 +183,7 @@ lighthouse http://localhost:3001 --only-categories=accessibility
   - `contentContact.tsx` → 5 использований (emergency, accent, default)
 - **Удалены старые CSS классы**: card, card-dark, card-colored, principle-card, card-emergency, card-accent, gradient-card-isolated, pricing-card
 - **Очищен cards.css**: С ~240 строк до 8 строк (удалено 232 строки legacy кода)
-- **Проверено**: Сборка успешна, TypeScript без ошибок, 81 статическая страница (79 контентных + 2 служебные)
+- **Проверено**: Сборка успешна, TypeScript без ошибок, 80 статических страниц
 
 ### 2025-11-07: Унификация дизайна страницы с ценами
 - **ValueProposition компонент**: Переведен на UnifiedCard с variant="dark"
@@ -218,7 +219,7 @@ src/components/content/price/__tests__/contentPrice.test.tsx
 ### 🚀 Build оптимизации
 - **Удалены warnings**: "Invalid Options" от ESLint
 - **Удалены warnings**: "headers will not automatically work with output: export"
-- **Статическая сборка**: 81 страница (79 в sitemap + 2 служебные: 404, _not-found)
+- **Статическая сборка**: 80 страниц
 - **Генерация переводов**: 27 статей на русском и английском
 
 ### 📈 Качество кода
