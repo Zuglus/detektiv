@@ -12,7 +12,7 @@ export const createMetadata = (lang: Lang) => {
     keywords: config.keywords,
     icons: {
       icon: '/favicon.ico',
-      apple: '/favicon.ico',
+      apple: '/apple-touch-icon.png',
     },
   };
 };
