@@ -1,6 +1,7 @@
 // Mock modules before importing the module under test
 jest.mock("next/navigation", () => ({
   usePathname: jest.fn(),
+  useRouter: jest.fn(() => ({ push: jest.fn() })),
 }));
 jest.mock("@/components/ui/buttonTranslate", () => {
   return function MockButtonTranslate({ url }: { url: string }) {

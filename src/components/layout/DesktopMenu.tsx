@@ -1,8 +1,10 @@
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import ButtonTranslate from '@/components/ui/buttonTranslate';
 import { Z } from '@/lib/zLayers';
 import { Route } from '@/lib/types';
+import { navState } from '@/lib/navState';
 
 interface DesktopMenuProps {
   routes: Route[];
@@ -10,7 +12,35 @@ interface DesktopMenuProps {
 }
 
 export default function DesktopMenu({ routes, pathname }: DesktopMenuProps) {
+  const router = useRouter();
   const [isScrolled, setIsScrolled] = useState(false);
+
+  const handleNavClick = useCallback((
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+  ) => {
+    if (href === pathname) return;
+
+    const header = document.getElementById('navigation');
+    const headerHeight = header?.offsetHeight ?? 0;
+
+    if (window.scrollY >= headerHeight) return;
+
+    e.preventDefault();
+    navState.headerNavAnimating = true;
+
+    window.scrollTo({ top: headerHeight, behavior: 'smooth' });
+
+    const navigate = () => {
+      clearTimeout(fallback);
+      router.push(href);
+    };
+    window.addEventListener('scrollend', navigate, { once: true });
+    const fallback = setTimeout(() => {
+      window.removeEventListener('scrollend', navigate);
+      router.push(href);
+    }, 600);
+  }, [pathname, router]);
 
   useEffect(() => {
     let ticking = false;
@@ -55,6 +85,7 @@ export default function DesktopMenu({ routes, pathname }: DesktopMenuProps) {
               <Link
                 key={route.name}
                 href={route.href}
+                onClick={(e) => handleNavClick(e, route.href)}
                 className={`
                   nav-link interactive-hint
                   relative px-4 py-3 text-sm font-medium uppercase tracking-wider
