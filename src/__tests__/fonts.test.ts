@@ -3,9 +3,9 @@
  */
 // Mock next/font/google before importing
 jest.mock('next/font/google', () => ({
-  Inter: jest.fn(() => ({
-    className: 'mock-inter-class',
-    variable: '--font-inter',
+  IBM_Plex_Sans: jest.fn(() => ({
+    className: 'mock-ibm-plex-sans-class',
+    variable: '--font-ibm-plex-sans',
   })),
   Playfair_Display: jest.fn(() => ({
     className: 'mock-playfair-class',
@@ -13,12 +13,12 @@ jest.mock('next/font/google', () => ({
   })),
 }));
 
-import { Inter, Playfair_Display } from 'next/font/google';
+import { IBM_Plex_Sans, Playfair_Display } from 'next/font/google';
 
 describe('Font Configuration', () => {
-  it('should export Inter font', () => {
-    expect(Inter).toBeDefined();
-    expect(typeof Inter).toBe('function');
+  it('should export IBM Plex Sans font', () => {
+    expect(IBM_Plex_Sans).toBeDefined();
+    expect(typeof IBM_Plex_Sans).toBe('function');
   });
 
   it('should export Playfair Display font', () => {

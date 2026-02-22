@@ -67,6 +67,21 @@ export default function HeroSection({ lang }: HeroSectionProps) {
       {/* Secondary overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-secondary-900/20 to-transparent" />
 
+      {/* Film grain texture — cinematic atmosphere */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{ opacity: 0.04 }}
+        aria-hidden="true"
+      >
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+          <filter id="grain">
+            <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" />
+            <feColorMatrix type="saturate" values="0" />
+          </filter>
+          <rect width="100%" height="100%" filter="url(#grain)" />
+        </svg>
+      </div>
+
       {/* Subtle geometric pattern overlay */}
       <div className="absolute inset-0 opacity-[0.03]">
         <svg width="100%" height="100%">
@@ -134,6 +149,12 @@ export default function HeroSection({ lang }: HeroSectionProps) {
         <div style={{ animation: 'heroFadeIn 0.8s ease-out 0.5s both' }}>
           <LicenseInfo lang={lang} />
         </div>
+      </div>
+      {/* Wave divider — smooth hero-to-content transition */}
+      <div className="absolute bottom-0 left-0 right-0 pointer-events-none" aria-hidden="true">
+        <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-16 md:h-20 block fill-secondary-50">
+          <path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z" />
+        </svg>
       </div>
     </section>
   );
