@@ -74,7 +74,7 @@ module.exports = {
         }
       },
       fontFamily: {
-        'primary': ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        'primary': ['IBM Plex Sans', 'system-ui', '-apple-system', 'sans-serif'],
         'display': ['Playfair Display', 'serif'],
       },
       spacing: {

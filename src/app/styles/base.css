@@ -4,7 +4,7 @@
 
 :root {
   /* Typography */
-  --font-primary: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-primary: var(--font-ibm-plex-sans), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-display: var(--font-playfair-display), Georgia, 'Times New Roman', serif;
 
   /* Primary color RGB for opacity variants */

@@ -1,5 +1,5 @@
 import '@/app/globals.css';
-import { inter, playfairDisplay } from '@/app/fonts';
+import { ibmPlexSans, playfairDisplay } from '@/app/fonts';
 import Body from '@/components/layout/body';
 import { Props, Lang } from '@/lib/types';
 import metadataConfig from '@/data/metadata.json';
@@ -27,7 +27,7 @@ export const createViewport = () => ({
 export const createRootLayout = (lang: Lang) => {
   return function RootLayout({ children }: Props) {
     return (
-      <html lang={lang} className={`${inter.variable} ${playfairDisplay.variable}`}>
+      <html lang={lang} className={`${ibmPlexSans.variable} ${playfairDisplay.variable}`}>
         <Body lang={lang}>
           {children}
         </Body>

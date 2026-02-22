@@ -142,8 +142,7 @@ describe("UnifiedCard", () => {
     expect(card).toHaveClass(
       "transition-all",
       "duration-300",
-      "hover:-translate-y-2",
-      "hover:scale-[1.025]",
+      "hover:border-primary-400",
       "cursor-pointer",
     );
     expect(card).toHaveAttribute("role", "button");

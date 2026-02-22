@@ -1,6 +1,6 @@
 const isOffline = process.env.OFFLINE_BUILD === '1'
 
-import { Inter, Playfair_Display } from 'next/font/google'
+import { IBM_Plex_Sans, Playfair_Display } from 'next/font/google'
 
 type FontResult = { className: string; variable?: string }
 
@@ -9,9 +9,9 @@ function stub(): FontResult {
 }
 
 // Always define fonts at module level for Next.js compatibility
-const interFont = Inter({
+const ibmPlexSansFont = IBM_Plex_Sans({
   subsets: ['latin', 'cyrillic'],
-  variable: '--font-inter',
+  variable: '--font-ibm-plex-sans',
   weight: ['300', '400', '500', '600', '700'],
   display: 'swap',
   preload: true,
@@ -28,7 +28,7 @@ const playfairDisplayFont = Playfair_Display({
 })
 
 // Use stubs when offline, otherwise use real fonts
-const inter = isOffline ? stub() : interFont
+const ibmPlexSans = isOffline ? stub() : ibmPlexSansFont
 const playfairDisplay = isOffline ? stub() : playfairDisplayFont
 
-export { inter, playfairDisplay }
+export { ibmPlexSans, playfairDisplay }
