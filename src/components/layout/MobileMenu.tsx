@@ -1,9 +1,11 @@
-import { useRef, useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import ButtonTranslate from '@/components/ui/buttonTranslate';
 import { Z } from '@/lib/zLayers';
 import { useFocusTrap } from '@/hooks/useFocusTrap';
 import { Route } from '@/lib/types';
+import { navState } from '@/lib/navState';
 
 interface MobileMenuProps {
   routes: Route[];
@@ -11,8 +13,36 @@ interface MobileMenuProps {
 }
 
 export default function MobileMenu({ routes, pathname }: MobileMenuProps) {
+  const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
+
+  const handleNavClick = useCallback((
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+  ) => {
+    if (href === pathname) return;
+
+    const header = document.getElementById('navigation');
+    const headerHeight = header?.offsetHeight ?? 0;
+
+    if (window.scrollY >= headerHeight) return;
+
+    e.preventDefault();
+    navState.headerNavAnimating = true;
+
+    window.scrollTo({ top: headerHeight, behavior: 'smooth' });
+
+    const navigate = () => {
+      clearTimeout(fallback);
+      router.push(href);
+    };
+    window.addEventListener('scrollend', navigate, { once: true });
+    const fallback = setTimeout(() => {
+      window.removeEventListener('scrollend', navigate);
+      router.push(href);
+    }, 600);
+  }, [pathname, router]);
 
   useFocusTrap(isOpen, {
     containerId: 'mobile-menu',
@@ -118,7 +148,10 @@ export default function MobileMenu({ routes, pathname }: MobileMenuProps) {
                     : 'text-white/90 hover:bg-white/10 hover:text-white'
                   }
                 `}
-                onClick={closeMenu}
+                onClick={(e) => {
+                  closeMenu();
+                  handleNavClick(e, route.href);
+                }}
                 aria-current={pathname === route.href ? 'page' : undefined}
               >
                 {route.name}

@@ -2,6 +2,7 @@
 
 import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
+import { navState } from '@/lib/navState';
 
 interface PageContentProps {
   children: React.ReactNode;
@@ -22,6 +23,14 @@ export default function PageContent({ children }: PageContentProps) {
     if (prevPathnameRef.current !== pathname) {
       // Start fade-out
       setIsTransitioning(true);
+
+      // Scroll to top instantly during fade-out (page is invisible, no animation needed)
+      // Skip scroll-to-0 if header-nav animation already scrolled to the right position
+      if (navState.headerNavAnimating) {
+        navState.headerNavAnimating = false;
+      } else {
+        window.scrollTo({ top: 0, behavior: 'instant' });
+      }
 
       // Swap content during fade
       const swapTimer = setTimeout(() => {
@@ -44,7 +53,7 @@ export default function PageContent({ children }: PageContentProps) {
     }
   }, [pathname, children]);
 
-  const prefersReducedMotion =
+  const prefersReducedMotionRender =
     typeof window !== 'undefined' &&
     window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -52,7 +61,7 @@ export default function PageContent({ children }: PageContentProps) {
     <div
       className={`
         transition-opacity duration-300 ease-out
-        ${isTransitioning && !prefersReducedMotion ? 'opacity-0' : 'opacity-100'}
+        ${isTransitioning && !prefersReducedMotionRender ? 'opacity-0' : 'opacity-100'}
       `}
     >
       {displayChildren}

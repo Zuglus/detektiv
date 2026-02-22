@@ -1,6 +1,9 @@
 import { fireEvent, render, screen } from '@testing-library/react'
 import MobileMenu from '../MobileMenu'
 
+jest.mock('next/navigation', () => ({
+  useRouter: jest.fn(() => ({ push: jest.fn() })),
+}))
 jest.mock('@/components/ui/buttonTranslate', () => {
   return function MockButtonTranslate({ url }: { url: string }) {
     return <div data-testid="button-translate">Language Toggle: {url}</div>
