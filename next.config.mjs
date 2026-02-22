@@ -14,19 +14,9 @@ const nextConfig = {
   output: 'export',
   images: {
     unoptimized: true,
-    formats: ['image/webp', 'image/avif'],
-    // Mobile-optimized device sizes
-    deviceSizes: [320, 375, 414, 768, 1024, 1200],
-    imageSizes: [16, 32, 48, 64, 96, 128, 256],
   },
   reactStrictMode: true,
-  compress: true,
   poweredByHeader: false,
-
-  // Performance optimizations
-  experimental: {
-    cpus: 1, // Optimize for mobile builds
-  },
 
   // Compiler optimizations
   compiler: {
@@ -49,25 +39,6 @@ const nextConfig = {
 
     // Production optimizations
     if (!dev && !isServer) {
-      config.optimization.splitChunks = {
-        ...config.optimization.splitChunks,
-        cacheGroups: {
-          ...config.optimization.splitChunks.cacheGroups,
-          vendor: {
-            test: /node_modules/,
-            name: 'vendors',
-            priority: 10,
-            chunks: 'all',
-          },
-          common: {
-            name: 'common',
-            minChunks: 2,
-            chunks: 'all',
-            priority: 5,
-          },
-        },
-      }
-
       // Mobile-optimized performance settings
       config.performance = {
         ...config.performance,
