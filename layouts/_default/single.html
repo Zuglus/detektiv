@@ -1,0 +1,50 @@
+{{ define "main" }}
+{{- $lang := .Lang -}}
+
+{{/* ── HEADER ── */}}
+<section class="bg-gradient-to-br from-secondary-900 to-primary-900 text-white pt-32 pb-12 md:pt-40">
+  <div class="max-w-3xl mx-auto px-6">
+    {{/* Back link */}}
+    <a
+      href="{{ if eq $lang "ru" }}/stati{{ else }}/en/blog{{ end }}"
+      class="inline-flex items-center gap-2 text-secondary-400 hover:text-white text-sm mb-6 transition-colors"
+    >
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+      {{ if eq $lang "ru" }}Все статьи{{ else }}All articles{{ end }}
+    </a>
+    <h1 class="font-display text-display-sm font-bold text-white">{{ .Title }}</h1>
+  </div>
+</section>
+
+{{/* ── CONTENT ── */}}
+<section class="py-12">
+  <div class="max-w-3xl mx-auto px-6">
+    {{/* Short preview */}}
+    {{ with .Params.short }}
+    <div class="bg-primary-50 border-l-4 border-primary-500 rounded-r-xl p-5 mb-8">
+      <p class="text-secondary-700 text-body-md italic">{{ . }}</p>
+    </div>
+    {{ end }}
+
+    {{/* Article body */}}
+    <article class="prose prose-secondary prose-lg max-w-none
+      prose-headings:font-display prose-headings:text-secondary-900
+      prose-p:text-secondary-700 prose-p:leading-relaxed
+      prose-a:text-primary-600 prose-a:no-underline hover:prose-a:underline
+    ">
+      {{ .Content }}
+    </article>
+
+    {{/* Translation link */}}
+    {{ range .Translations }}
+    <div class="mt-12 pt-6 border-t border-secondary-100">
+      <a href="{{ .Permalink }}" class="inline-flex items-center gap-2 text-primary-600 hover:text-primary-700 font-medium text-sm">
+        {{ if eq $lang "ru" }}Read in English{{ else }}Читать на русском{{ end }}
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+    {{ end }}
+  </div>
+</section>
+
+{{ end }}

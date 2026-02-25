@@ -1,0 +1,15 @@
+baseURL = "https://xn--18-6kca2bmbedxg.xn--p1ai/"
+defaultContentLanguage = "ru"
+defaultContentLanguageInSubdir = false
+
+[languages]
+[languages.ru]
+  languageName = "Русский"
+  weight = 1
+
+[languages.en]
+  languageName = "English"
+  weight = 2
+
+[build]
+  writeStats = true

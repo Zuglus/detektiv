@@ -1,0 +1,110 @@
+{{- $lang := .Lang -}}
+{{- $currentPage := . -}}
+{{- $currentPath := strings.TrimRight "/" $currentPage.RelPermalink -}}
+
+<a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary-600 focus:text-white focus:rounded-lg">
+  {{ if eq $lang "ru" }}Перейти к содержимому{{ else }}Skip to content{{ end }}
+</a>
+
+<header id="navigation" class="block min-h-[1px]">
+  {{/* Desktop nav */}}
+  <nav
+    class="fixed top-6 left-0 right-0 z-40 hidden md:block transition-all duration-300 ease-in-out"
+    role="navigation"
+    aria-label="{{ if eq $lang "ru" }}Основная навигация{{ else }}Main navigation{{ end }}"
+    data-nav="desktop"
+  >
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center justify-between px-6 py-3 rounded-2xl bg-white/97 shadow-glass backdrop-blur-sm border border-white/50">
+        <a href="{{ if eq $lang "en" }}/en{{ else }}/{{ end }}" class="flex items-center gap-2 font-display text-secondary-900 font-semibold">
+          {{ partial "icons/detective.html" "w-7 h-7 text-primary-600" }}
+          <span class="text-sm">{{ index .Site.Data.company.name $lang }}</span>
+        </a>
+
+        <div class="flex items-center gap-1">
+          {{ range index .Site.Data.nav $lang }}
+          <a
+            href="{{ .href }}"
+            class="px-3 py-2 text-sm font-medium rounded-lg text-secondary-700 hover:text-primary-600 hover:bg-primary-50 transition-colors duration-150"
+            {{ if eq .href $currentPath }}aria-current="page"{{ end }}
+          >{{ .name }}</a>
+          {{ end }}
+        </div>
+
+        {{/* Language switcher */}}
+        <div class="flex items-center gap-2">
+          {{ if eq $lang "ru" }}
+            {{ with .Page.GetPage (printf "/en%s" .RelPermalink) }}
+              <a href="{{ .Permalink }}" class="px-3 py-1.5 text-xs font-medium rounded-lg border border-secondary-200 text-secondary-600 hover:border-primary-300 hover:text-primary-600 transition-colors">EN</a>
+            {{ else }}
+              <a href="/en/" class="px-3 py-1.5 text-xs font-medium rounded-lg border border-secondary-200 text-secondary-600 hover:border-primary-300 hover:text-primary-600 transition-colors">EN</a>
+            {{ end }}
+          {{ else }}
+            {{ with .Page.GetPage (printf "/%s" (strings.TrimPrefix "/en/" .RelPermalink)) }}
+              <a href="{{ .Permalink }}" class="px-3 py-1.5 text-xs font-medium rounded-lg border border-secondary-200 text-secondary-600 hover:border-primary-300 hover:text-primary-600 transition-colors">RU</a>
+            {{ else }}
+              <a href="/" class="px-3 py-1.5 text-xs font-medium rounded-lg border border-secondary-200 text-secondary-600 hover:border-primary-300 hover:text-primary-600 transition-colors">RU</a>
+            {{ end }}
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  {{/* Mobile nav */}}
+  <nav
+    class="fixed top-0 left-0 right-0 z-40 md:hidden"
+    role="navigation"
+    aria-label="{{ if eq $lang "ru" }}Основная навигация{{ else }}Main navigation{{ end }}"
+    data-nav="mobile"
+  >
+    <div class="flex items-center justify-between px-4 py-3 bg-white/97 shadow-glass backdrop-blur-sm border-b border-secondary-100">
+      <a href="{{ if eq $lang "en" }}/en{{ else }}/{{ end }}" class="flex items-center gap-2 font-display text-secondary-900 font-semibold">
+        {{ partial "icons/detective.html" "w-6 h-6 text-primary-600" }}
+        <span class="text-sm">{{ index .Site.Data.company.name $lang }}</span>
+      </a>
+
+      <button
+        id="mobile-menu-btn"
+        class="hamburger-btn p-2 rounded-lg text-secondary-700 hover:bg-secondary-100 transition-colors"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        aria-label="{{ if eq $lang "ru" }}Открыть меню{{ else }}Open menu{{ end }}"
+      >
+        <span class="block w-5 h-0.5 bg-current mb-1 transition-transform" data-line="1"></span>
+        <span class="block w-5 h-0.5 bg-current mb-1 transition-opacity" data-line="2"></span>
+        <span class="block w-5 h-0.5 bg-current transition-transform" data-line="3"></span>
+      </button>
+    </div>
+
+    {{/* Mobile menu dropdown */}}
+    <div
+      id="mobile-menu"
+      class="hidden absolute top-full left-0 right-0 bg-white shadow-lg border-b border-secondary-100"
+      role="dialog"
+      aria-modal="true"
+    >
+      <nav
+        aria-label="{{ if eq $lang "ru" }}Мобильная навигация{{ else }}Mobile navigation{{ end }}"
+      >
+      <div class="px-4 py-4 flex flex-col gap-1">
+        {{ range index .Site.Data.nav $lang }}
+        <a
+          href="{{ .href }}"
+          class="px-4 py-3 text-sm font-medium rounded-lg text-secondary-700 hover:text-primary-600 hover:bg-primary-50 transition-colors"
+          {{ if eq .href $currentPath }}aria-current="page"{{ end }}
+        >{{ .name }}</a>
+        {{ end }}
+
+        <div class="mt-2 pt-2 border-t border-secondary-100">
+          {{ if eq $lang "ru" }}
+            <a href="/en/" class="px-4 py-2 text-xs font-medium text-secondary-500 hover:text-primary-600 transition-colors block">English version</a>
+          {{ else }}
+            <a href="/" class="px-4 py-2 text-xs font-medium text-secondary-500 hover:text-primary-600 transition-colors block">Русская версия</a>
+          {{ end }}
+        </div>
+      </div>
+      </nav>
+    </div>
+  </nav>
+</header>

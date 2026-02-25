@@ -1,0 +1,15 @@
+{
+  "phone":    { "display": "+7 (915) 001-00-25",          "href": "tel:+79150010025" },
+  "email":    { "display": "detectivegroznyi@gmail.com",  "href": "mailto:detectivegroznyi@gmail.com" },
+  "telegram": { "display": "Telegram",                    "href": "tg://resolve?domain=+79150010025" },
+  "whatsapp": { "display": "Whatsapp",                    "href": "https://wa.me/79150010025" },
+  "signal":   { "display": "Signal",                      "href": "https://signal.me/#p/+79150010025" },
+  "imo":      { "display": "Imo",                         "href": "https://s.imoim.net/fDJ0Lh" },
+  "instagram":{ "display": "Instagram",                   "href": "https://www.instagram.com/detective_eduardgroznyi" },
+  "site":     { "display": "право18.рф",                  "href": "https://право18.рф" },
+  "address": {
+    "street": "Проспект Мира, 27",
+    "city":   "Москва",
+    "country":"RU"
+  }
+}
