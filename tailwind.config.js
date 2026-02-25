@@ -1,8 +1,9 @@
 /* eslint-disable @typescript-eslint/no-require-imports */
 module.exports = {
   content: [
+    './layouts/**/*.html',
+    './content/**/*.md',
     './src/**/*.{js,jsx,ts,tsx}',
-    './public/index.html',
   ],
   theme: {
     extend: {

@@ -1,0 +1,15 @@
+/* Fonts — must come first */
+@import "./styles/fonts.css";
+
+/* Tailwind base */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Design system */
+@import "./styles/base.css";
+@import "./styles/animations.css";
+@import "./styles/components/navigation.css";
+@import "./styles/utilities.css";
+@import "./styles/accessibility.css";
+@import "./styles/responsive.css";

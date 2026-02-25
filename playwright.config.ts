@@ -50,7 +50,7 @@ export default defineConfig({
 
   // Serve the statically exported site for stable, production-like E2E
   webServer: {
-    command: `node scripts/static-serve.cjs -d out -p ${E2E_PORT}`,
+    command: `node scripts/static-serve.cjs -d public -p ${E2E_PORT}`,
     url: `http://localhost:${E2E_PORT}`,
     reuseExistingServer: !process.env.CI,
     timeout: 30_000,
