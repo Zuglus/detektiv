@@ -82,7 +82,7 @@
             </li>
             {{ end }}
           </ul>
-          <a href="{{ $c.telegram.href }}" class="mt-auto inline-flex items-center justify-center px-4 py-2.5 bg-primary-600 hover:bg-primary-700 text-white rounded-xl text-sm font-medium transition-colors">
+          <a href="{{ $c.telegram.href | safeURL }}" class="mt-auto inline-flex items-center justify-center px-4 py-2.5 bg-primary-600 hover:bg-primary-700 text-white rounded-xl text-sm font-medium transition-colors">
             {{ if eq $lang "ru" }}Получить консультацию{{ else }}Get consultation{{ end }}
           </a>
         </div>
@@ -102,7 +102,7 @@
       </div>
       <div class="mt-8 flex flex-wrap gap-3">
         <span class="text-secondary-600 text-sm">{{ index $p.footer.propose $lang }}</span>
-        <a href="{{ $c.telegram.href }}" class="inline-flex items-center gap-1.5 text-primary-600 font-medium text-sm hover:underline">
+        <a href="{{ $c.telegram.href | safeURL }}" class="inline-flex items-center gap-1.5 text-primary-600 font-medium text-sm hover:underline">
           {{ partial "icons/send.html" "w-4 h-4" }}
           Telegram
         </a>

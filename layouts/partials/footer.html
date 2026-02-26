@@ -11,7 +11,7 @@
     {{/* Social icons */}}
     <div class="text-center mb-12">
       <div class="inline-flex items-center justify-center gap-4 bg-white/10 backdrop-blur-sm rounded-2xl px-8 py-5 border border-white/10">
-        <a href="{{ $c.telegram.href }}" class="text-white/80 hover:text-white transition-colors" aria-label="Telegram">
+        <a href="{{ $c.telegram.href | safeURL }}" class="text-white/80 hover:text-white transition-colors" aria-label="Telegram">
           {{ partial "icons/send.html" "w-5 h-5" }}
         </a>
         <a href="{{ $c.whatsapp.href }}" class="text-white/80 hover:text-white transition-colors" aria-label="WhatsApp">
@@ -29,7 +29,7 @@
         <a href="{{ $c.email.href }}" class="text-white/80 hover:text-white transition-colors" aria-label="Email">
           {{ partial "icons/mail.html" "w-5 h-5" }}
         </a>
-        <a href="{{ $c.phone.href }}" class="text-white/80 hover:text-white transition-colors" aria-label="{{ if eq $lang "ru" }}Позвонить{{ else }}Call{{ end }}">
+        <a href="{{ $c.phone.href | safeURL }}" class="text-white/80 hover:text-white transition-colors" aria-label="{{ if eq $lang "ru" }}Позвонить{{ else }}Call{{ end }}">
           {{ partial "icons/phone.html" "w-5 h-5" }}
         </a>
       </div>

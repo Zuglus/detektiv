@@ -5,6 +5,10 @@ module.exports = {
     './content/**/*.md',
     './src/**/*.{js,jsx,ts,tsx}',
   ],
+  safelist: [
+    // Mobile menu — JS-only classes (not in HTML templates)
+    'rotate-45', '-rotate-45', 'opacity-0', 'scale-0', 'translate-x-0',
+  ],
   theme: {
     extend: {
       colors: {

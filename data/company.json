@@ -1,10 +1,28 @@
 {
   "name": { "ru": "Детективное агентство", "en": "Detective Agency" },
+  "founderLastName": { "ru": "Грозного", "en": "Grozny" },
+  "founderFullName": { "ru": "Эдуарда Николаевича", "en": "Eduard Nikolaevich" },
   "founder": { "ru": "Грозного Эдуарда Николаевича", "en": "Grozny Eduard Nikolaevich" },
   "license": { "ru": "лицензия МВД РФ 50ЧД2021000323", "en": "MIA RF license 50ЧД2021000323" },
   "founded": "2010",
   "location": { "ru": "г. Москва", "en": "Moscow" },
   "address": { "street": "Проспект Мира, 27", "city": "Москва", "country": "RU" },
+  "guaranteeInfo": {
+    "ru": [
+      "гарантией является наша репутация",
+      "оперативно и профессионально",
+      "работаем с 2010 года",
+      "по РФ и за рубежом",
+      "Ваш Секрет - Тайна"
+    ],
+    "en": [
+      "our reputation is our guarantee",
+      "efficiently and professionally",
+      "in business since 2010",
+      "across Russia and abroad",
+      "Your Secret - Mystery"
+    ]
+  },
   "copyright": {
     "ru": "Копировать, использовать, ссылаться на информацию с сайта запрещено",
     "en": "Copying, using, or referencing information from this site is prohibited"
