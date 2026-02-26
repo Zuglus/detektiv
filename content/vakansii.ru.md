@@ -1,4 +1,5 @@
 ---
+translationKey: "job"
 title: "Вакансии"
 description: "Помощник детектива. Подработка на разовые задания."
 layout: "job"

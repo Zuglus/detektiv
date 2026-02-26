@@ -1,9 +1,10 @@
-// Mobile menu toggle with focus trap
+// Mobile menu — slide-in panel with focus trap
 (function () {
   'use strict';
 
   var btn = document.getElementById('mobile-menu-btn');
   var menu = document.getElementById('mobile-menu');
+  var overlay = document.getElementById('mobile-overlay');
 
   if (!btn || !menu) return;
 
@@ -16,26 +17,45 @@
 
   function open() {
     isOpen = true;
-    menu.classList.remove('hidden');
+    // Slide panel in
+    menu.classList.remove('translate-x-full');
+    menu.classList.add('translate-x-0');
+    menu.setAttribute('aria-hidden', 'false');
+    // Show overlay
+    if (overlay) {
+      overlay.classList.remove('hidden');
+    }
     btn.setAttribute('aria-expanded', 'true');
-    // Animate hamburger lines
+    // Animate hamburger → X
     var lines = btn.querySelectorAll('[data-line]');
-    if (lines[0]) lines[0].style.transform = 'translateY(6px) rotate(45deg)';
-    if (lines[1]) lines[1].style.opacity = '0';
-    if (lines[2]) lines[2].style.transform = 'translateY(-6px) rotate(-45deg)';
+    if (lines[0]) { lines[0].classList.remove('-translate-y-3'); lines[0].classList.add('rotate-45'); }
+    if (lines[1]) { lines[1].classList.add('opacity-0', 'scale-0'); }
+    if (lines[2]) { lines[2].classList.remove('translate-y-3'); lines[2].classList.add('-rotate-45'); }
+    // Prevent body scroll
+    document.body.style.overflow = 'hidden';
     // Focus first item
     var focusable = getFocusable();
-    if (focusable.length) focusable[0].focus();
+    if (focusable.length) setTimeout(function() { focusable[0].focus(); }, 50);
   }
 
   function close() {
     isOpen = false;
-    menu.classList.add('hidden');
+    // Slide panel out
+    menu.classList.add('translate-x-full');
+    menu.classList.remove('translate-x-0');
+    menu.setAttribute('aria-hidden', 'true');
+    // Hide overlay
+    if (overlay) {
+      overlay.classList.add('hidden');
+    }
     btn.setAttribute('aria-expanded', 'false');
+    // Restore hamburger
     var lines = btn.querySelectorAll('[data-line]');
-    if (lines[0]) lines[0].style.transform = '';
-    if (lines[1]) lines[1].style.opacity = '';
-    if (lines[2]) lines[2].style.transform = '';
+    if (lines[0]) { lines[0].classList.add('-translate-y-3'); lines[0].classList.remove('rotate-45'); }
+    if (lines[1]) { lines[1].classList.remove('opacity-0', 'scale-0'); }
+    if (lines[2]) { lines[2].classList.add('translate-y-3'); lines[2].classList.remove('-rotate-45'); }
+    // Restore body scroll
+    document.body.style.overflow = '';
     btn.focus();
   }
 
@@ -43,12 +63,17 @@
     isOpen ? close() : open();
   });
 
+  // Close on overlay click
+  if (overlay) {
+    overlay.addEventListener('click', close);
+  }
+
   // Close on Escape
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape' && isOpen) close();
   });
 
-  // Focus trap inside menu
+  // Focus trap inside panel
   menu.addEventListener('keydown', function (e) {
     if (!isOpen || e.key !== 'Tab') return;
     var focusable = getFocusable();
@@ -62,26 +87,17 @@
     }
   });
 
-  // Close on outside click
-  document.addEventListener('click', function (e) {
-    if (isOpen && !menu.contains(e.target) && !btn.contains(e.target)) close();
-  });
-
-  // Scroll-based nav style (desktop)
-  var desktopNav = document.querySelector('[data-nav="desktop"]');
-  if (desktopNav) {
-    var lastY = 0;
+  // Scroll-based nav style (transparent → scrolled)
+  var navEls = document.querySelectorAll('[data-nav]');
+  if (navEls.length) {
     var ticking = false;
 
     function updateNav() {
       var scrolled = window.scrollY > 20;
-      if (scrolled) {
-        desktopNav.style.top = '0';
-        desktopNav.querySelector('.rounded-2xl').style.borderRadius = '0';
-      } else {
-        desktopNav.style.top = '1.5rem';
-        desktopNav.querySelector('.rounded-2xl').style.borderRadius = '';
-      }
+      navEls.forEach(function (nav) {
+        nav.classList.toggle('nav-scrolled', scrolled);
+        nav.classList.toggle('nav-transparent', !scrolled);
+      });
       ticking = false;
     }
 

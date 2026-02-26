@@ -4,54 +4,129 @@
 {{- $c := .Site.Data.contacts -}}
 
 {{/* ── HERO ── */}}
-<section class="relative min-h-screen bg-gradient-to-br from-secondary-900 via-secondary-800 to-primary-900 text-white overflow-hidden flex flex-col justify-center">
+{{- $co := .Site.Data.company -}}
+<section class="relative min-h-screen flex items-center justify-center text-center px-6 -mt-16 overflow-hidden">
 
-  {{/* Film grain effect */}}
-  <div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image:url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22n%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.9%22 numOctaves=%224%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23n)%22/%3E%3C/svg%3E');background-size:200px 200px"></div>
+  {{/* Animated green gradient background */}}
+  <div class="absolute inset-0" style="background: linear-gradient(135deg, var(--tw-gradient-from, #1a5c33) 0%, #339955 50%, #1a3d4a 100%); background-size: 400% 400%; animation: gradientShift 15s ease infinite;"></div>
 
-  <div class="relative max-w-6xl mx-auto px-6 pt-32 pb-20 md:pt-40 text-center">
-    {{/* Detective icon */}}
+  {{/* Secondary overlay */}}
+  <div class="absolute inset-0 bg-gradient-to-t from-secondary-900/20 to-transparent pointer-events-none"></div>
+
+  {{/* Film grain — cinematic atmosphere */}}
+  <div class="absolute inset-0 pointer-events-none" style="opacity:0.04;" aria-hidden="true">
+    <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+      <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter>
+      <rect width="100%" height="100%" filter="url(#grain)"/>
+    </svg>
+  </div>
+
+  {{/* Geometric dot grid overlay */}}
+  <div class="absolute inset-0 opacity-[0.03] pointer-events-none" aria-hidden="true">
+    <svg width="100%" height="100%">
+      <defs>
+        <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+          <circle cx="30" cy="30" r="1.5" fill="white"/>
+          <line x1="0" y1="30" x2="60" y2="30" stroke="white" stroke-width="0.5" opacity="0.3"/>
+          <line x1="30" y1="0" x2="30" y2="60" stroke="white" stroke-width="0.5" opacity="0.3"/>
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#grid)"/>
+    </svg>
+  </div>
+
+  <div class="relative z-10 max-w-5xl mx-auto pt-20 pb-24">
+
+    {{/* Decorative line above title */}}
     <div class="flex justify-center mb-8">
-      {{ partial "icons/detective.html" "w-20 h-20 text-primary-400" }}
+      <div class="w-16 h-1 rounded-full" style="background: linear-gradient(90deg, transparent, rgba(134,239,172,0.6), transparent);"></div>
     </div>
 
-    <h1 class="font-display text-display-xl font-bold tracking-tight mb-6 text-white">
-      {{ if eq $lang "ru" }}детективное агентство{{ else }}detective agency{{ end }}
+    <h1 class="font-display font-black text-white mb-6 leading-tight whitespace-nowrap" style="font-size:clamp(1.6rem,5.5vw,3.5rem); letter-spacing:-0.03em; text-shadow:0 4px 20px rgba(0,0,0,0.3), 0 2px 8px rgba(0,0,0,0.2);">
+      {{ index $co.name $lang }}
     </h1>
 
-    <p class="text-body-lg text-secondary-300 mb-4 max-w-2xl mx-auto">{{ index $p.subheader $lang }}</p>
+    <h2 class="font-display text-display-lg font-bold mb-4" style="color:rgb(187 247 208); letter-spacing:-0.02em; text-shadow:0 2px 12px rgba(0,0,0,0.2);">
+      {{ index $co.founderLastName $lang }}
+    </h2>
 
-    {{/* Contacts row */}}
-    <nav aria-label="{{ if eq $lang "ru" }}Ссылки для связи{{ else }}Contact links{{ end }}" class="flex flex-wrap justify-center gap-3 mt-10">
-      <a href="{{ $c.telegram.href }}" class="inline-flex items-center gap-2 px-4 py-2.5 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-xl border border-white/20 text-white text-sm font-medium transition-all duration-150">
+    <div class="font-display text-display-md font-semibold mb-12" style="color:rgb(134 239 172); text-shadow:0 2px 8px rgba(0,0,0,0.15);">
+      {{ index $co.founderFullName $lang }}
+    </div>
+
+    {{/* Decorative divider */}}
+    <div class="flex justify-center mb-12">
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-px bg-primary-400/50"></div>
+        <div class="w-2 h-2 rounded-full bg-primary-400"></div>
+        <div class="w-8 h-px bg-primary-400/50"></div>
+      </div>
+    </div>
+
+    {{/* Guarantee info block */}}
+    <div class="mx-auto w-fit">
+      <div class="bg-white/10 backdrop-blur-sm border border-white/15 rounded-2xl p-8 text-white shadow-lg">
+        <ul class="space-y-3">
+          {{ range index $co.guaranteeInfo $lang }}
+          <li class="flex items-baseline justify-center text-body-md">
+            <div class="w-3 h-3 rounded-full mr-4 flex-shrink-0 -translate-y-1" style="background-color:rgb(134 239 172);"></div>
+            <span class="leading-relaxed">{{ . }}</span>
+          </li>
+          {{ end }}
+        </ul>
+      </div>
+    </div>
+
+    {{/* License info */}}
+    <div class="mt-12 max-w-3xl mx-auto">
+      <div class="border border-white/30 rounded-2xl p-6 text-center">
+        <div class="text-white/90 leading-relaxed space-y-2">
+          <div class="font-semibold text-body-lg" style="color:rgb(187 247 208);">{{ index $co.location $lang }}</div>
+          <div class="text-white/70 text-body-md">{{ index $co.license $lang }}</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  {{/* Wave divider */}}
+  <div class="absolute bottom-0 left-0 right-0 pointer-events-none" aria-hidden="true">
+    <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" class="w-full h-16 md:h-20 block" style="fill: rgb(248 250 252);">
+      <path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z"/>
+    </svg>
+  </div>
+</section>
+
+{{/* ── SUBHEADER (contacts online) ── */}}
+<section class="bg-primary-50 py-12 md:py-16" data-reveal>
+  <div class="max-w-6xl mx-auto px-6 text-center">
+    <h2 class="font-display text-display-sm text-secondary-900 mb-6 md:mb-8">{{ index $p.subheader $lang }}</h2>
+    <div class="flex flex-wrap justify-center gap-4">
+      <a href="{{ $c.telegram.href | safeURL }}" class="inline-flex items-center gap-2 px-5 py-2.5 bg-primary-600 hover:bg-primary-700 text-white rounded-xl text-sm font-medium transition-colors">
         {{ partial "icons/send.html" "w-4 h-4" }}
-        <span>{{ $c.telegram.display }}</span>
+        {{ $c.telegram.display }}
       </a>
-      <a href="{{ $c.whatsapp.href }}" class="inline-flex items-center gap-2 px-4 py-2.5 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-xl border border-white/20 text-white text-sm font-medium transition-all duration-150">
+      <a href="{{ $c.whatsapp.href }}" class="inline-flex items-center gap-2 px-5 py-2.5 bg-primary-600 hover:bg-primary-700 text-white rounded-xl text-sm font-medium transition-colors">
         {{ partial "icons/message-circle.html" "w-4 h-4" }}
-        <span>{{ $c.whatsapp.display }}</span>
+        {{ $c.whatsapp.display }}
       </a>
-      <a href="{{ $c.imo.href }}" class="inline-flex items-center gap-2 px-4 py-2.5 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-xl border border-white/20 text-white text-sm font-medium transition-all duration-150">
+      <a href="{{ $c.imo.href }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2.5 bg-primary-600 hover:bg-primary-700 text-white rounded-xl text-sm font-medium transition-colors">
         {{ partial "icons/imo.html" "w-4 h-4" }}
-        <span>{{ $c.imo.display }}</span>
+        {{ $c.imo.display }}
       </a>
-      <a href="{{ $c.signal.href }}" class="inline-flex items-center gap-2 px-4 py-2.5 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-xl border border-white/20 text-white text-sm font-medium transition-all duration-150">
+      <a href="{{ $c.signal.href }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2.5 bg-primary-600 hover:bg-primary-700 text-white rounded-xl text-sm font-medium transition-colors">
         {{ partial "icons/signal.html" "w-4 h-4" }}
-        <span>{{ $c.signal.display }}</span>
+        {{ $c.signal.display }}
       </a>
-      <a href="{{ $c.instagram.href }}" class="inline-flex items-center gap-2 px-4 py-2.5 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-xl border border-white/20 text-white text-sm font-medium transition-all duration-150">
+      <a href="{{ $c.instagram.href }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2.5 bg-primary-600 hover:bg-primary-700 text-white rounded-xl text-sm font-medium transition-colors">
         {{ partial "icons/instagram.html" "w-4 h-4" }}
-        <span>{{ $c.instagram.display }}</span>
+        {{ $c.instagram.display }}
       </a>
-      <a href="{{ $c.email.href }}" class="inline-flex items-center gap-2 px-4 py-2.5 bg-white/10 hover:bg-white/20 backdrop-blur-sm rounded-xl border border-white/20 text-white text-sm font-medium transition-all duration-150">
+      <a href="{{ $c.email.href }}" class="inline-flex items-center gap-2 px-5 py-2.5 bg-primary-600 hover:bg-primary-700 text-white rounded-xl text-sm font-medium transition-colors">
         {{ partial "icons/mail.html" "w-4 h-4" }}
-        <span>{{ $c.email.display }}</span>
+        {{ $c.email.display }}
       </a>
-      <a href="{{ $c.phone.href }}" class="inline-flex items-center gap-2 px-5 py-2.5 bg-primary-600 hover:bg-primary-500 rounded-xl text-white text-sm font-semibold transition-all duration-150 shadow-lg">
-        {{ partial "icons/phone.html" "w-4 h-4" }}
-        <span>{{ $c.phone.display }}</span>
-      </a>
-    </nav>
+    </div>
   </div>
 </section>
 
@@ -69,8 +144,10 @@
 {{/* ── PROPOSE ── */}}
 <section class="py-16 bg-gradient-to-br from-primary-600 to-primary-700 text-white" data-reveal>
   <div class="max-w-4xl mx-auto px-6 text-center">
-    <h2 class="font-display text-heading-lg font-bold mb-4">{{ index $p.proposeHeader $lang }}</h2>
-    <p class="text-body-lg text-primary-100 max-w-2xl mx-auto">{{ index $p.proposeText $lang }}</p>
+    <div class="bg-white/15 backdrop-blur-sm border border-white/25 rounded-2xl p-8">
+      <h2 class="font-display text-display-sm font-bold mb-6">{{ index $p.proposeHeader $lang }}</h2>
+      <p class="text-body-lg text-white/90 leading-relaxed max-w-2xl mx-auto">{{ index $p.proposeText $lang }}</p>
+    </div>
   </div>
 </section>
 
@@ -78,24 +155,35 @@
 <section class="py-16" data-reveal>
   <div class="max-w-6xl mx-auto px-6">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {{ $icons := slice "eye" "users-round" "dollar-sign" "camera" "alert-triangle" "shield" "building-2" "file-text" "bar-chart-3" }}
+      {{ $icons := slice "file-text" "eye" "shield" "user" "target" "contact" "building-2" "zap" "map-pin" }}
       {{ range $i, $service := $p.serviceList }}
       {{- $iconName := index $icons (mod $i (len $icons)) -}}
-      <div class="card group bg-white rounded-2xl p-6 border border-secondary-100 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col gap-4">
-        <div class="flex items-start gap-3">
-          <div class="flex-shrink-0 w-10 h-10 rounded-xl bg-primary-50 flex items-center justify-center text-primary-600">
-            {{ partial (printf "icons/%s.html" $iconName) "w-5 h-5" }}
-          </div>
-          <div class="flex-1">
-            <h3 class="font-semibold text-secondary-900 text-heading-sm capitalize">{{ index (index $service $lang) "title" }}</h3>
-            <p class="text-primary-600 font-medium text-sm mt-0.5">{{ index (index $service $lang) "price" }}</p>
+      {{- $isAccentMobile := eq (mod $i 3) 0 -}}
+      {{- $isAccentDesktop := eq (mod $i 4) 0 -}}
+      {{- $mobileCardClass := "bg-white border-secondary-100" -}}
+      {{- if $isAccentMobile -}}{{- $mobileCardClass = "bg-primary-100 border-primary-300" -}}{{- end -}}
+      {{- $desktopCardClass := "md:bg-white md:border-secondary-100" -}}
+      {{- if $isAccentDesktop -}}{{- $desktopCardClass = "md:bg-primary-100 md:border-primary-300" -}}{{- end -}}
+      {{- $mobileIconClass := "bg-primary-100 text-primary-600" -}}
+      {{- if $isAccentMobile -}}{{- $mobileIconClass = "bg-primary-600 text-white shadow-lg" -}}{{- end -}}
+      {{- $desktopIconClass := "md:bg-primary-100 md:text-primary-600" -}}
+      {{- if $isAccentDesktop -}}{{- $desktopIconClass = "md:bg-primary-600 md:text-white md:shadow-lg" -}}{{- end -}}
+      {{- $mobileTitleClass := "text-secondary-900" -}}
+      {{- if $isAccentMobile -}}{{- $mobileTitleClass = "text-primary-900" -}}{{- end -}}
+      {{- $desktopTitleClass := "md:text-secondary-900" -}}
+      {{- if $isAccentDesktop -}}{{- $desktopTitleClass = "md:text-primary-900" -}}{{- end -}}
+      {{- $mobileTextClass := "text-secondary-700" -}}
+      {{- if $isAccentMobile -}}{{- $mobileTextClass = "text-primary-800" -}}{{- end -}}
+      {{- $desktopTextClass := "md:text-secondary-700" -}}
+      {{- if $isAccentDesktop -}}{{- $desktopTextClass = "md:text-primary-800" -}}{{- end -}}
+      <div class="group rounded-2xl p-6 border shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col h-full text-center {{ $mobileCardClass }} {{ $desktopCardClass }}">
+        <div class="mb-6 flex justify-center">
+          <div class="w-16 h-16 rounded-2xl flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:rotate-6 {{ $mobileIconClass }} {{ $desktopIconClass }}">
+            {{ partial (printf "icons/%s.html" $iconName) "w-7 h-7" }}
           </div>
         </div>
-        <p class="text-secondary-600 text-body-sm flex-1">{{ index (index $service $lang) "text" }}</p>
-        <a href="{{ if eq $lang "ru" }}/price{{ else }}/en/price{{ end }}" class="text-primary-600 hover:text-primary-700 text-sm font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
-          {{ if eq $lang "ru" }}Подробнее{{ else }}Learn more{{ end }}
-          {{ partial "icons/arrow-right.html" "w-4 h-4" }}
-        </a>
+        <h3 class="font-semibold text-heading-sm uppercase tracking-wide capitalize mb-6 w-2/3 mx-auto {{ $mobileTitleClass }} {{ $desktopTitleClass }}">{{ index (index $service $lang) "title" }}</h3>
+        <p class="text-body-sm flex-1 {{ $mobileTextClass }} {{ $desktopTextClass }}">{{ index (index $service $lang) "text" }}</p>
       </div>
       {{ end }}
     </div>
@@ -105,12 +193,23 @@
 {{/* ── ORDER STEPS ── */}}
 <section class="py-16 bg-secondary-50" data-reveal>
   <div class="max-w-4xl mx-auto px-6">
-    <h2 class="font-display text-heading-lg font-bold text-secondary-900 text-center mb-12">{{ index $p.orderListHeader $lang }}</h2>
-    <div class="flex flex-col gap-4">
+    <div class="text-center mb-12">
+      <h2 class="font-display text-display-sm font-black text-secondary-900 mb-4" style="letter-spacing:-0.02em;">{{ index $p.orderListHeader $lang }}</h2>
+      <div class="flex justify-center items-center gap-2">
+        <div class="w-8 h-px bg-primary-400/40"></div>
+        <div class="w-2 h-2 rounded-full bg-primary-500 animate-pulse"></div>
+        <div class="w-16 h-1 rounded-full bg-primary-500"></div>
+        <div class="w-2 h-2 rounded-full bg-primary-500 animate-pulse"></div>
+        <div class="w-8 h-px bg-primary-400/40"></div>
+      </div>
+    </div>
+    <div class="space-y-4">
       {{ range $i, $step := index $p.orderList $lang }}
-      <div class="flex items-start gap-4 bg-white rounded-2xl p-6 border border-secondary-100">
-        <div class="flex-shrink-0 w-8 h-8 rounded-full bg-primary-600 text-white flex items-center justify-center text-sm font-bold">{{ add $i 1 }}</div>
-        <p class="text-secondary-700 text-body-md pt-0.5">{{ $step }}</p>
+      <div class="flex items-center gap-4">
+        <div class="flex-shrink-0 w-10 h-10 text-white rounded-full flex items-center justify-center font-semibold text-body-sm" style="background: linear-gradient(135deg, #339955 0%, #247d44 100%);">{{ add $i 1 }}</div>
+        <div class="flex-1 bg-white rounded-2xl p-4 border border-secondary-100 shadow-sm">
+          <p class="text-body-md text-secondary-700">{{ $step }}</p>
+        </div>
       </div>
       {{ end }}
     </div>
@@ -120,17 +219,17 @@
 {{/* ── BENEFITS ── */}}
 <section class="py-16" data-reveal>
   <div class="max-w-6xl mx-auto px-6">
-    {{ $benefitIcons := slice "lock" "clock" "check-circle" "handshake" }}
+    {{ $benefitIcons := slice "lock" "handshake" "trophy" "zap" }}
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
       {{ range $i, $benefit := $p.benefitsList }}
       {{- $iconName := index $benefitIcons (mod $i (len $benefitIcons)) -}}
       <div class="bg-white rounded-2xl p-6 border-l-4 border-primary-500 border border-secondary-100 shadow-sm hover:shadow-md transition-shadow">
         <div class="flex items-start gap-4">
-          <div class="flex-shrink-0 w-10 h-10 rounded-xl bg-primary-50 flex items-center justify-center text-primary-600">
-            {{ partial (printf "icons/%s.html" $iconName) "w-5 h-5" }}
+          <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-primary-100 flex items-center justify-center text-primary-600">
+            {{ partial (printf "icons/%s.html" $iconName) "w-6 h-6" }}
           </div>
           <div>
-            <h3 class="font-semibold text-secondary-900 mb-2 capitalize">{{ index (index $benefit $lang) "title" }}</h3>
+            <h3 class="font-semibold text-secondary-900 mb-2 capitalize text-heading-sm">{{ index (index $benefit $lang) "title" }}</h3>
             <p class="text-secondary-600 text-body-sm">{{ index (index $benefit $lang) "text" }}</p>
           </div>
         </div>
@@ -143,13 +242,22 @@
 {{/* ── PRINCIPLES ── */}}
 <section class="py-16 bg-gradient-to-br from-primary-600 to-primary-800 text-white" data-reveal>
   <div class="max-w-6xl mx-auto px-6">
-    <h2 class="font-display text-heading-lg font-bold text-center mb-12">{{ index $p.detektivePrinciplesHeader $lang }}</h2>
+    <div class="text-center mb-12">
+      <h2 class="font-display text-display-sm font-black text-white mb-4" style="letter-spacing:-0.02em; text-shadow:0 4px 16px rgba(0,0,0,0.25);">{{ index $p.detektivePrinciplesHeader $lang }}</h2>
+      <div class="flex justify-center items-center gap-2">
+        <div class="w-12 h-px bg-primary-300/50"></div>
+        <div class="w-3 h-3 rounded-full border-2 border-primary-300"></div>
+        <div class="w-20 h-1 bg-primary-300 rounded-full"></div>
+        <div class="w-3 h-3 rounded-full border-2 border-primary-300"></div>
+        <div class="w-12 h-px bg-primary-300/50"></div>
+      </div>
+    </div>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {{ range $p.detektivePrinciplesList }}
       {{- $item := index . $lang -}}
-      <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-colors">
-        <h3 class="font-semibold text-white mb-2 capitalize">{{ $item.title }}</h3>
-        <p class="text-primary-100 text-sm">{{ $item.text }}</p>
+      <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-colors text-center">
+        <h3 class="font-semibold text-white mb-3 uppercase tracking-wider text-heading-sm capitalize">{{ $item.title }}</h3>
+        <p class="text-primary-100 text-body-sm">{{ $item.text }}</p>
       </div>
       {{ end }}
     </div>
@@ -159,41 +267,37 @@
 {{/* ── ALERT ── */}}
 <section class="py-20" data-reveal>
   <div class="max-w-4xl mx-auto px-6">
-    <div class="bg-accent-50 border-2 border-accent-200 rounded-2xl p-8 md:p-12">
-      <div class="flex items-start gap-4 mb-6">
-        <div class="flex-shrink-0 text-accent-600">
-          {{ partial "icons/alert-triangle.html" "w-8 h-8" }}
+    <div class="bg-accent-50 border-2 border-accent-200 rounded-2xl p-8 md:p-12 text-center">
+      <div class="mb-8 flex justify-center">
+        <div class="text-error-600">
+          {{ partial "icons/alert-triangle.html" "w-16 h-16" }}
         </div>
-        <h2 class="font-display text-heading-md font-bold text-secondary-900">{{ index $p.alertHeader $lang }}</h2>
       </div>
-      <div class="text-secondary-700 text-body-md space-y-4">
-        {{ index $p.alertText $lang | safeHTML }}
-      </div>
-      <div class="mt-6 flex flex-col gap-2 text-secondary-600 text-sm">
-        <p>{{ index $p.alertSubstring1 $lang }}
-          <a href="{{ $c.email.href }}" class="text-primary-600 font-semibold hover:underline">{{ $c.email.display }}</a>
-        </p>
-        <p>{{ index $p.alertSubstring2 $lang }}
-          <a href="{{ $c.telegram.href }}" class="text-primary-600 font-semibold hover:underline">Telegram</a>
-          {{ if eq $lang "ru" }}или{{ else }}or{{ end }}
-          <a href="{{ $c.whatsapp.href }}" class="text-primary-600 font-semibold hover:underline">WhatsApp</a>
-        </p>
-        {{ with index $p.alertSubstring3 $lang }}<p>{{ . }}</p>{{ end }}
-      </div>
-      {{/* Contact links */}}
-      <div class="mt-8 flex flex-wrap gap-3">
-        <a href="{{ $c.telegram.href }}" class="inline-flex items-center gap-2 px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white rounded-xl text-sm font-medium transition-colors">
-          {{ partial "icons/send.html" "w-4 h-4" }}
-          Telegram
-        </a>
-        <a href="{{ $c.whatsapp.href }}" class="inline-flex items-center gap-2 px-4 py-2 bg-secondary-100 hover:bg-secondary-200 text-secondary-800 rounded-xl text-sm font-medium transition-colors">
-          {{ partial "icons/message-circle.html" "w-4 h-4" }}
-          WhatsApp
-        </a>
-        <a href="{{ $c.phone.href }}" class="inline-flex items-center gap-2 px-4 py-2 bg-secondary-100 hover:bg-secondary-200 text-secondary-800 rounded-xl text-sm font-medium transition-colors">
-          {{ partial "icons/phone.html" "w-4 h-4" }}
-          {{ $c.phone.display }}
-        </a>
+      <h2 class="font-display text-3xl font-bold text-error-700 mb-6">{{ index $p.alertHeader $lang }}</h2>
+      <p class="text-body-lg text-secondary-700 mb-8 leading-relaxed">{{ index $p.alertText $lang }}</p>
+
+      <div class="space-y-4 text-secondary-700 text-left">
+        <div class="flex items-start gap-3">
+          <div class="w-2 h-2 rounded-full bg-primary-500 mt-2.5 flex-shrink-0"></div>
+          <p class="text-body-md">
+            {{ index $p.alertSubstring1 $lang }}
+            <a href="{{ $c.email.href }}" class="font-semibold text-primary-600 hover:text-primary-700 transition-colors">{{ $c.email.display }}</a>,
+            <a href="{{ $c.telegram.href | safeURL }}" class="font-semibold text-primary-600 hover:text-primary-700 transition-colors">{{ $c.telegram.display }}</a>,
+            <a href="{{ $c.whatsapp.href }}" class="font-semibold text-primary-600 hover:text-primary-700 transition-colors">{{ $c.whatsapp.display }}</a>,
+            <a href="{{ $c.imo.href }}" target="_blank" rel="noopener noreferrer" class="font-semibold text-primary-600 hover:text-primary-700 transition-colors">{{ $c.imo.display }}</a>,
+            <a href="{{ $c.signal.href }}" target="_blank" rel="noopener noreferrer" class="font-semibold text-primary-600 hover:text-primary-700 transition-colors">{{ $c.signal.display }}</a>,
+            <a href="{{ $c.instagram.href }}" target="_blank" rel="noopener noreferrer" class="font-semibold text-primary-600 hover:text-primary-700 transition-colors">{{ $c.instagram.display }}</a>
+            {{ index $p.alertSubstring2 $lang }}
+            <a href="{{ $c.phone.href | safeURL }}" class="font-semibold text-primary-600 hover:text-primary-700 transition-colors">{{ $c.phone.display }}</a>.
+          </p>
+        </div>
+        <div class="flex items-start gap-3">
+          <div class="w-2 h-2 rounded-full bg-primary-500 mt-2.5 flex-shrink-0"></div>
+          <p class="text-body-md">
+            {{ index $p.alertSubstring3 $lang }}
+            <a href="{{ $c.site.href }}" class="font-semibold text-primary-600 hover:text-primary-700 transition-colors">{{ $c.site.display }}</a>.
+          </p>
+        </div>
       </div>
     </div>
   </div>
