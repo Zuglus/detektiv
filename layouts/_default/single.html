@@ -47,13 +47,6 @@
 <section class="py-12">
   <div class="max-w-3xl mx-auto px-6">
 
-    {{/* Short preview */}}
-    {{ with .Params.short }}
-    <div class="bg-primary-50 border-l-4 border-primary-500 rounded-r-xl p-5 mb-8">
-      <p class="text-secondary-700 text-body-md italic">{{ . }}</p>
-    </div>
-    {{ end }}
-
     {{/* Article body */}}
     <div class="relative">
       <div class="bg-white/95 backdrop-blur-sm border border-secondary-200/80 rounded-3xl p-8 lg:p-12 shadow-xl shadow-primary-500/5 mb-12">
@@ -74,16 +67,6 @@
         </article>
       </div>
     </div>
-
-    {{/* Language switch */}}
-    {{ range .Translations }}
-    <div class="mb-8 pt-4 border-t border-secondary-100">
-      <a href="{{ .Permalink }}" class="inline-flex items-center gap-2 text-primary-600 hover:text-primary-700 font-medium text-sm transition-colors">
-        {{ if eq $lang "ru" }}Read in English{{ else }}Читать на русском{{ end }}
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-      </a>
-    </div>
-    {{ end }}
 
   </div>
 </section>
