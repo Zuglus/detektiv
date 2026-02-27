@@ -121,11 +121,11 @@
     {
       "id": 1,
       "ru": {
-        "title": "всегда придерживаемся строгой конфиденциальности",
+        "title": "придерживаемся строгой конфиденциальности",
         "text": "После передачи информации заказчику, все сведения, хранящиеся у нас, в обязательном порядке уничтожаются."
       },
       "en": {
-        "title": "we always adhere to strict confidentiality",
+        "title": "we adhere to strict confidentiality",
         "text": "After the information is passed to the client, all data stored with us is obligatorily destroyed."
       }
     },
@@ -143,11 +143,11 @@
     {
       "id": 3,
       "ru": {
-        "title": "постоянно повышаем уровень профессионального развития",
+        "title": "повышаем уровень профессионального развития",
         "text": "Идем в ногу со временем, внедряем новейшие технологии."
       },
       "en": {
-        "title": "we constantly raise our level of professional development",
+        "title": "we raise our level of professional development",
         "text": "We keep up with the times and implement the latest technologies."
       }
     },
