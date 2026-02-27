@@ -12,6 +12,8 @@
   </div>
 </section>
 
+{{ partial "breadcrumbs.html" (dict "home" (cond (eq $lang "ru") "/" "/en/") "name" (cond (eq $lang "ru") "О нас" "About") "link" "" "secondName" "") }}
+
 {{/* ── TIMELINE ── */}}
 <section class="py-16 bg-white" data-reveal>
   <div class="max-w-4xl mx-auto px-6">

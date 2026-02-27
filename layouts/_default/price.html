@@ -19,6 +19,8 @@
   </div>
 </section>
 
+{{ partial "breadcrumbs.html" (dict "home" (cond (eq $lang "ru") "/" "/en/") "name" (cond (eq $lang "ru") "Прайс" "Price") "link" "" "secondName" "") }}
+
 {{/* ── TRUST INDICATORS ── */}}
 <section class="py-12 bg-white" data-reveal>
   <div class="max-w-6xl mx-auto px-6">
