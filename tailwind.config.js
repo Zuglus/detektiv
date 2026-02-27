@@ -3,7 +3,6 @@ module.exports = {
   content: [
     './layouts/**/*.html',
     './content/**/*.md',
-    './src/**/*.{js,jsx,ts,tsx}',
   ],
   safelist: [
     // Mobile menu — JS-only classes (not in HTML templates)
