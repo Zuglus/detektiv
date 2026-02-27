@@ -1,0 +1,170 @@
+{{ define "main" }}
+{{- $lang := .Lang -}}
+{{- $p := .Site.Data.pages.contact -}}
+{{- $c := .Site.Data.contacts -}}
+{{- $co := .Site.Data.company -}}
+
+{{/* ── HEADER ── */}}
+<section class="relative overflow-hidden bg-gradient-to-br from-primary-600 to-primary-700 text-white pt-32 pb-16 md:pt-40">
+  {{ partial "hero-atmosphere.html" . }}
+  <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
+    <h1 class="font-display text-display-md font-bold mb-4">{{ index $p.header $lang }}</h1>
+    <p class="text-white/70 text-body-lg">{{ index $p.subtitle $lang }}</p>
+    <div class="w-32 h-1 mx-auto rounded-full mt-6" style="background: linear-gradient(90deg, rgba(255,255,255,0.5), rgba(255,255,255,0.2));"></div>
+  </div>
+</section>
+
+{{ partial "breadcrumbs.html" (dict "home" (cond (eq $lang "ru") "/" "/en/") "name" (cond (eq $lang "ru") "Контакты" "Contacts") "link" "" "secondName" "") }}
+
+{{/* ── BENTO GRID ── */}}
+<section class="py-16" data-reveal>
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid grid-cols-12 gap-6 mb-12">
+
+      {{/* Priority Contact — Hero Block */}}
+      <div class="col-span-12 lg:col-span-8 group relative overflow-hidden bg-secondary-800 rounded-2xl border border-secondary-700 shadow-lg p-8">
+        <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
+        <div class="relative z-10">
+          <div class="flex items-start justify-between mb-6">
+            <div>
+              <h2 class="text-heading-lg font-bold text-white mb-2">{{ index $p.emergency.title $lang }}</h2>
+              <p class="text-body-lg text-secondary-300">{{ index $p.emergency.description $lang }}</p>
+            </div>
+            <span class="flex-shrink-0 text-body-xs text-primary-300 bg-white/10 px-3 py-1 rounded-full font-semibold ml-4">
+              {{ index $p.responseTime.phone $lang }}
+            </span>
+          </div>
+          <a
+            href="{{ $c.phone.href | safeURL }}"
+            class="inline-flex items-center gap-3 text-heading-md font-bold text-primary-300 hover:text-white transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-white/30 rounded-lg"
+            aria-label="{{ if eq $lang "ru" }}Позвонить{{ else }}Call{{ end }} {{ $c.phone.display }}"
+          >
+            <div class="p-3 bg-white/10 rounded-xl group-hover:bg-white/20 transition-colors duration-300">
+              {{ partial "icons/phone.html" "w-8 h-8" }}
+            </div>
+            {{ $c.phone.display }}
+          </a>
+        </div>
+      </div>
+
+      {{/* Office Address */}}
+      <div class="col-span-12 lg:col-span-4 text-center bg-white rounded-2xl border border-secondary-100 shadow-sm p-6">
+        <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-primary-50 flex items-center justify-center text-primary-600 mx-auto mb-4">
+          {{ partial "icons/map-pin.html" "w-6 h-6" }}
+        </div>
+        <h3 class="font-semibold text-secondary-900 mb-2">{{ index $p.addressTitle $lang }}</h3>
+        <p class="text-body-md text-secondary-700 mb-2">{{ index $p.address $lang }}</p>
+        <p class="text-body-sm text-secondary-500">{{ index $p.addressDescription $lang }}</p>
+      </div>
+
+      {{/* Email */}}
+      <div class="col-span-12 md:col-span-6 lg:col-span-4 bg-white rounded-2xl border border-secondary-100 shadow-sm p-6">
+        <div class="flex justify-between items-center mb-4">
+          <h3 class="font-semibold text-secondary-900">{{ index $p.email $lang }}</h3>
+          <span class="text-body-xs text-secondary-500 bg-secondary-100 px-2 py-1 rounded-full">
+            {{ index $p.responseTime.email $lang }}
+          </span>
+        </div>
+        <a
+          href="{{ $c.email.href }}"
+          class="inline-flex items-center gap-2 text-body-md text-primary-600 hover:text-primary-700 transition-colors duration-300 hover:underline focus:outline-none focus:ring-2 focus:ring-primary-600 rounded"
+          aria-label="{{ if eq $lang "ru" }}Отправить email на{{ else }}Send email to{{ end }} {{ $c.email.display }}"
+        >
+          {{ partial "icons/mail.html" "w-5 h-5" }}
+          {{ $c.email.display }}
+        </a>
+        <p class="text-body-sm text-secondary-500 mt-2">{{ index $p.emailDescription $lang }}</p>
+      </div>
+
+      {{/* Messengers Block */}}
+      <div class="col-span-12 md:col-span-6 lg:col-span-8 bg-white rounded-2xl border border-secondary-100 shadow-sm p-6">
+        <div class="flex justify-between items-center mb-6">
+          <div>
+            <h3 class="font-semibold text-secondary-900 mb-1">{{ index $p.messengers.title $lang }}</h3>
+            <p class="text-body-sm text-secondary-600">{{ index $p.messengers.description $lang }}</p>
+          </div>
+          <span class="flex-shrink-0 text-body-xs text-accent-600 bg-accent-50 px-2 py-1 rounded-full ml-4">
+            {{ index $p.responseTime.messengers $lang }}
+          </span>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+          <a href="{{ $c.telegram.href | safeURL }}"
+            class="flex flex-col items-center p-4 bg-secondary-50 hover:bg-secondary-100 rounded-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary-600"
+            aria-label="{{ if eq $lang "ru" }}Связаться через Telegram{{ else }}Contact via Telegram{{ end }}">
+            <div class="text-primary-600 hover:text-primary-700 mb-3 transition-colors duration-300 hover:scale-110 transform">
+              {{ partial "icons/send.html" "w-10 h-10" }}
+            </div>
+            <span class="text-body-sm font-medium text-secondary-800">{{ index $p.telegram $lang }}</span>
+          </a>
+          <a href="{{ $c.whatsapp.href }}"
+            class="flex flex-col items-center p-4 bg-secondary-50 hover:bg-secondary-100 rounded-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary-600"
+            aria-label="{{ if eq $lang "ru" }}Связаться через WhatsApp{{ else }}Contact via WhatsApp{{ end }}">
+            <div class="text-primary-600 hover:text-primary-700 mb-3 transition-colors duration-300 hover:scale-110 transform">
+              {{ partial "icons/whatsapp.html" "w-10 h-10" }}
+            </div>
+            <span class="text-body-sm font-medium text-secondary-800">{{ index $p.whatsapp $lang }}</span>
+          </a>
+          <a href="{{ $c.imo.href }}" target="_blank" rel="noopener noreferrer"
+            class="flex flex-col items-center p-4 bg-secondary-50 hover:bg-secondary-100 rounded-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary-600"
+            aria-label="{{ if eq $lang "ru" }}Связаться через Imo{{ else }}Contact via Imo{{ end }}">
+            <div class="text-primary-600 hover:text-primary-700 mb-3 transition-colors duration-300 hover:scale-110 transform">
+              {{ partial "icons/imo.html" "w-10 h-10" }}
+            </div>
+            <span class="text-body-sm font-medium text-secondary-800">{{ index $p.imo $lang }}</span>
+          </a>
+          <a href="{{ $c.signal.href }}" target="_blank" rel="noopener noreferrer"
+            class="flex flex-col items-center p-4 bg-secondary-50 hover:bg-secondary-100 rounded-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary-600"
+            aria-label="{{ if eq $lang "ru" }}Связаться через Signal{{ else }}Contact via Signal{{ end }}">
+            <div class="text-primary-600 hover:text-primary-700 mb-3 transition-colors duration-300 hover:scale-110 transform">
+              {{ partial "icons/signal.html" "w-10 h-10" }}
+            </div>
+            <span class="text-body-sm font-medium text-secondary-800">{{ index $p.signal $lang }}</span>
+          </a>
+          <a href="{{ $c.instagram.href }}" target="_blank" rel="noopener noreferrer"
+            class="flex flex-col items-center p-4 bg-secondary-50 hover:bg-secondary-100 rounded-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary-600"
+            aria-label="{{ if eq $lang "ru" }}Связаться через Instagram{{ else }}Contact via Instagram{{ end }}">
+            <div class="text-primary-600 hover:text-primary-700 mb-3 transition-colors duration-300 hover:scale-110 transform">
+              {{ partial "icons/instagram.html" "w-10 h-10" }}
+            </div>
+            <span class="text-body-sm font-medium text-secondary-800">{{ index $p.instagram $lang }}</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    {{/* Confidentiality Section */}}
+    <div class="relative overflow-hidden bg-primary-50 rounded-2xl border border-primary-200 shadow-lg p-8 md:p-12" data-reveal>
+      <div class="relative z-10 text-center max-w-3xl mx-auto">
+        <h3 class="text-heading-md font-bold text-secondary-900 mb-4">{{ index $p.confidentiality.title $lang }}</h3>
+        <p class="text-body-lg text-secondary-700 leading-relaxed">{{ index $p.confidentiality.description $lang }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{/* Schema.org structured data */}}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "{{ index $co.name "ru" }}",
+  "url": "{{ $c.site.href }}",
+  "contactPoint": [{
+    "@type": "ContactPoint",
+    "telephone": "{{ $c.phone.display }}",
+    "contactType": "customer service",
+    "availableLanguage": ["Russian", "English"],
+    "hoursAvailable": "24/7"
+  }],
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "{{ $c.address.street }}",
+    "addressLocality": "{{ $c.address.city }}",
+    "addressCountry": "{{ $c.address.country }}"
+  },
+  "email": "{{ $c.email.display }}"
+}
+</script>
+
+{{ end }}

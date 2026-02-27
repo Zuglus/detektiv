@@ -1,0 +1,156 @@
+{{ define "main" }}
+{{- $lang := .Lang -}}
+{{- $p := .Site.Data.pages.guarantee -}}
+{{- $c := .Site.Data.contacts -}}
+
+{{/* ── HEADER ── */}}
+<section class="relative overflow-hidden bg-gradient-to-br from-primary-600 to-primary-700 text-white pt-32 pb-16 md:pt-40">
+  {{ partial "hero-atmosphere.html" . }}
+  <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
+    <h1 class="font-display text-display-md font-bold">{{ index $p.header $lang }}</h1>
+  </div>
+</section>
+
+{{ partial "breadcrumbs.html" (dict "home" (cond (eq $lang "ru") "/" "/en/") "name" (cond (eq $lang "ru") "Гарантии" "Guarantee") "link" "" "secondName" "") }}
+
+{{/* ── TRUST BADGES ── */}}
+<section class="py-12 bg-white" data-reveal>
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {{/* License */}}
+      <div class="text-center bg-primary-50 rounded-2xl p-6 border border-primary-100">
+        {{ partial "icons/file-badge.html" "w-10 h-10 text-primary-600 mx-auto mb-3" }}
+        <h3 class="font-bold text-secondary-900 mb-1">{{ (index $p.trustBadges.license $lang).title }}</h3>
+        <p class="text-primary-600 font-mono text-sm font-semibold">{{ (index $p.trustBadges.license $lang).number }}</p>
+        <p class="text-secondary-500 text-xs mt-1">{{ (index $p.trustBadges.license $lang).description }}</p>
+      </div>
+      {{/* Experience */}}
+      <div class="text-center bg-primary-50 rounded-2xl p-6 border border-primary-100">
+        {{ partial "icons/experience.html" "w-10 h-10 text-primary-600 mx-auto mb-3" }}
+        <h3 class="font-bold text-secondary-900 mb-1">{{ (index $p.trustBadges.experience $lang).title }}</h3>
+        <p class="text-primary-600 font-semibold">{{ (index $p.trustBadges.experience $lang).years }}</p>
+        <p class="text-secondary-500 text-xs mt-1">{{ (index $p.trustBadges.experience $lang).description }}</p>
+      </div>
+      {{/* Reputation */}}
+      <div class="text-center bg-primary-50 rounded-2xl p-6 border border-primary-100">
+        {{ partial "icons/star.html" "w-10 h-10 text-primary-600 mx-auto mb-3" }}
+        <h3 class="font-bold text-secondary-900 mb-1">{{ (index $p.trustBadges.reputation $lang).title }}</h3>
+        <p class="text-primary-600 font-bold text-xl">{{ (index $p.trustBadges.reputation $lang).rating }}</p>
+        <p class="text-secondary-500 text-xs mt-1">{{ (index $p.trustBadges.reputation $lang).description }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{/* ── GUARANTEES ── */}}
+<section class="py-12 bg-secondary-50" data-reveal>
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {{ $guaranteeIcons := slice "check-circle" "lock" "info" }}
+      {{ $guaranteeKeys := slice "quality" "confidentiality" "transparency" }}
+      {{ range $i, $key := $guaranteeKeys }}
+      {{- $g := index (index $.Site.Data.pages.guarantee.guarantees $key) $lang -}}
+      {{- $iconName := index $guaranteeIcons $i -}}
+      <div class="bg-white rounded-2xl p-6 border border-secondary-100 shadow-sm">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 rounded-xl bg-primary-50 flex items-center justify-center text-primary-600">
+            {{ partial (printf "icons/%s.html" $iconName) "w-5 h-5" }}
+          </div>
+          <h3 class="font-semibold text-secondary-900">{{ $g.title }}</h3>
+        </div>
+        <p class="text-secondary-600 text-sm mb-4">{{ $g.description }}</p>
+        <ul class="space-y-1.5">
+          {{ range $g.features }}
+          <li class="flex items-center gap-2 text-secondary-600 text-xs">
+            {{ partial "icons/check.html" "w-3.5 h-3.5 text-primary-600" }}
+            {{ . }}
+          </li>
+          {{ end }}
+        </ul>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+{{/* ── REFUND POLICY ── */}}
+<section class="py-12" data-reveal>
+  <div class="max-w-4xl mx-auto px-6">
+    <div class="bg-gradient-to-r from-primary-50 to-primary-100 rounded-xl border border-primary-200 p-6 md:p-8">
+      <div class="flex flex-col sm:flex-row items-start">
+        <div class="mb-4 sm:mb-0 sm:mr-6 sm:mt-1 flex-shrink-0 text-primary-600">
+          {{ partial "icons/refund.html" "w-10 h-10" }}
+        </div>
+        <div class="flex-1">
+          <h2 class="font-display font-bold text-secondary-900 text-heading-sm mb-3">{{ (index $p.refundPolicy $lang).title }}</h2>
+          <p class="text-secondary-700 text-body-sm mb-4 leading-relaxed">{{ (index $p.refundPolicy $lang).description }}</p>
+          <ul class="space-y-2">
+            {{ range (index $p.refundPolicy $lang).conditions }}
+            <li class="flex items-center gap-2 text-secondary-700 text-sm">
+              <div class="w-2 h-2 bg-primary-500 rounded-full flex-shrink-0" aria-hidden="true"></div>
+              {{ . }}
+            </li>
+            {{ end }}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{/* ── PRINCIPLES ── */}}
+<section class="py-12 bg-secondary-50" data-reveal>
+  <div class="max-w-6xl mx-auto px-6">
+    <h2 class="font-display text-heading-lg font-bold text-secondary-900 text-center mb-8">{{ (index $p.principles $lang).title }}</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+      {{ range (index $p.principles $lang).list }}
+      <div class="bg-white rounded-2xl p-5 border border-secondary-100 shadow-sm text-center">
+        <h3 class="font-semibold text-primary-600 mb-2">{{ .name }}</h3>
+        <p class="text-secondary-600 text-xs">{{ .description }}</p>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+{{/* ── CONTACT CTA ── */}}
+<section class="py-12 bg-white" data-reveal>
+  <div class="max-w-4xl mx-auto px-6">
+    <div class="bg-white rounded-xl shadow-lg border border-secondary-100 p-8 md:p-12 text-center">
+      <h2 class="font-display text-heading-md font-bold text-secondary-900 mb-4">{{ (index $p.contact $lang).title }}</h2>
+      <p class="text-body-lg text-secondary-700 mb-8 leading-relaxed">{{ (index $p.contact $lang).description }}</p>
+      <div class="flex flex-wrap justify-center gap-3">
+        <a href="{{ $c.telegram.href | safeURL }}" class="inline-flex items-center gap-2 px-6 py-3 bg-primary-600 text-white rounded-lg font-semibold text-sm hover:bg-primary-700 hover:scale-105 transition-all duration-300 shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-primary-500">
+          {{ partial "icons/send.html" "w-4 h-4" }}
+          Telegram
+        </a>
+        <a href="{{ $c.whatsapp.href }}" class="inline-flex items-center gap-2 px-6 py-3 bg-primary-600 text-white rounded-lg font-semibold text-sm hover:bg-primary-700 hover:scale-105 transition-all duration-300 shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-primary-500">
+          {{ partial "icons/whatsapp.html" "w-4 h-4" }}
+          WhatsApp
+        </a>
+        <a href="{{ $c.imo.href }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 bg-primary-600 text-white rounded-lg font-semibold text-sm hover:bg-primary-700 hover:scale-105 transition-all duration-300 shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-primary-500">
+          {{ partial "icons/imo.html" "w-4 h-4" }}
+          Imo
+        </a>
+        <a href="{{ $c.signal.href }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 bg-primary-600 text-white rounded-lg font-semibold text-sm hover:bg-primary-700 hover:scale-105 transition-all duration-300 shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-primary-500">
+          {{ partial "icons/signal.html" "w-4 h-4" }}
+          Signal
+        </a>
+        <a href="{{ $c.instagram.href }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 bg-primary-600 text-white rounded-lg font-semibold text-sm hover:bg-primary-700 hover:scale-105 transition-all duration-300 shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-primary-500">
+          {{ partial "icons/instagram.html" "w-4 h-4" }}
+          Instagram
+        </a>
+        <a href="{{ $c.email.href }}" class="inline-flex items-center gap-2 px-6 py-3 bg-primary-600 text-white rounded-lg font-semibold text-sm hover:bg-primary-700 hover:scale-105 transition-all duration-300 shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-primary-500">
+          {{ partial "icons/mail.html" "w-4 h-4" }}
+          {{ $c.email.display }}
+        </a>
+        <a href="{{ $c.phone.href | safeURL }}" class="inline-flex items-center gap-2 px-6 py-3 bg-primary-600 text-white rounded-lg font-semibold text-sm hover:bg-primary-700 hover:scale-105 transition-all duration-300 shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-primary-500">
+          {{ partial "icons/phone.html" "w-4 h-4" }}
+          {{ $c.phone.display }}
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{ end }}

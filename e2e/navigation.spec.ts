@@ -44,7 +44,7 @@ test.describe('Navigation', () => {
     await page.goto('/');
     
     // Navigate to a subpage
-    const aboutLink = page.getByRole('link', { name: 'о нас' });
+    const aboutLink = page.getByRole('link', { name: 'о нас' }).first();
     if (await aboutLink.count() > 0) {
       await aboutLink.click();
       
@@ -108,7 +108,9 @@ test.describe('Navigation', () => {
     await expect(page).toHaveURL(/kontakty/);
   });
 
-  test('should handle keyboard navigation', async ({ page }) => {
+  test('should handle keyboard navigation', async ({ page, browserName }) => {
+    // Safari does not support Tab-based keyboard focus by default
+    test.skip(browserName === 'webkit', 'Safari requires special accessibility settings for Tab navigation');
     await page.goto('/');
     
     // Use Tab to navigate through links
