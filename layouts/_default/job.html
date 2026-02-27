@@ -4,14 +4,14 @@
 {{- $c := .Site.Data.contacts -}}
 
 {{/* ── CARD ── */}}
-<section class="relative overflow-hidden pt-32 pb-16 md:pt-40 bg-gradient-to-br from-secondary-900 to-primary-900 text-white">
+<section class="relative overflow-hidden pt-32 pb-16 md:pt-40 bg-gradient-to-br from-primary-600 to-primary-700 text-white">
   {{ partial "hero-atmosphere.html" . }}
   <div class="relative z-10 max-w-2xl mx-auto px-6 text-center">
     <div class="mb-6">
-      {{ partial "icons/users-round.html" "w-16 h-16 text-primary-400 mx-auto" }}
+      {{ partial "icons/users-round.html" "w-16 h-16 text-white/70 mx-auto" }}
     </div>
     <h1 class="font-display text-display-sm font-bold mb-3">{{ index $p.cardTitle $lang }}</h1>
-    <p class="text-secondary-300 text-body-lg">{{ index $p.cardText $lang }}</p>
+    <p class="text-white/70 text-body-lg">{{ index $p.cardText $lang }}</p>
   </div>
 </section>
 
