@@ -3,23 +3,23 @@
 {{- $paginator := .Paginate .Pages 9 -}}
 
 {{/* ── HEADER ── */}}
-<section class="relative overflow-hidden bg-gradient-to-br from-secondary-900 to-primary-900 text-white pt-32 pb-16 md:pt-40">
+<section class="relative overflow-hidden bg-gradient-to-br from-primary-600 to-primary-700 text-white pt-32 pb-16 md:pt-40">
   {{ partial "hero-atmosphere.html" . }}
   <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
     <div class="relative">
       <h1 class="font-display text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">{{ .Title }}</h1>
-      <div class="absolute -top-4 left-1/2 -translate-x-1/2 w-20 h-1 rounded-full opacity-60" style="background: linear-gradient(90deg, #339955, #f59e0b);"></div>
+      <div class="absolute -top-4 left-1/2 -translate-x-1/2 w-20 h-1 rounded-full opacity-60" style="background: linear-gradient(90deg, rgba(255,255,255,0.5), #f59e0b);"></div>
     </div>
     {{ with .Description }}
-    <p class="text-secondary-300 text-body-lg max-w-3xl mx-auto leading-relaxed">{{ . }}</p>
+    <p class="text-white/70 text-body-lg max-w-3xl mx-auto leading-relaxed">{{ . }}</p>
     {{ end }}
 
     <div class="flex items-center justify-center gap-8 mt-8 text-sm font-medium">
-      <div class="flex items-center text-secondary-400">
+      <div class="flex items-center text-white/60">
         <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
         {{ len .Pages }} {{ if eq $lang "ru" }}статей{{ else }}articles{{ end }}
       </div>
-      <div class="flex items-center text-secondary-400">
+      <div class="flex items-center text-white/60">
         <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
         {{ if eq $lang "ru" }}Практические кейсы{{ else }}Practical cases{{ end }}
       </div>
@@ -178,7 +178,7 @@
           <div class="w-full h-2 bg-secondary-200 rounded-full overflow-hidden">
             <div
               class="h-full rounded-full transition-all duration-500 ease-out"
-              style="width: {{ div (mul $paginator.PageNumber 100) $paginator.TotalPages }}%; background: linear-gradient(90deg, #339955, #f59e0b);"
+              style="width: {{ div (mul $paginator.PageNumber 100) $paginator.TotalPages }}%; background: linear-gradient(90deg, rgba(255,255,255,0.5), #f59e0b);"
             ></div>
           </div>
         </div>
