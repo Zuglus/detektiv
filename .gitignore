@@ -19,6 +19,11 @@
 # production
 /build
 
+# hugo build output
+/public/
+/resources/_gen/
+hugo_stats.json
+
 # misc
 .DS_Store
 *.pem

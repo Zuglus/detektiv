@@ -1,0 +1,6 @@
+---
+translationKey: "guarantee"
+title: "Гарантии"
+description: "Гарантии детективного агентства. Конфиденциальность, качество, возврат средств."
+layout: "guarantee"
+---

@@ -1,0 +1,20 @@
+{
+  "ru": [
+    { "name": "главная",  "href": "/" },
+    { "name": "прайс",    "href": "/price" },
+    { "name": "контакты", "href": "/kontakty" },
+    { "name": "гарантии", "href": "/garantii" },
+    { "name": "статьи",   "href": "/stati" },
+    { "name": "вакансии", "href": "/vakansii" },
+    { "name": "о нас",    "href": "/onas" }
+  ],
+  "en": [
+    { "name": "main",      "href": "/en" },
+    { "name": "price",     "href": "/en/price" },
+    { "name": "contacts",  "href": "/en/contact" },
+    { "name": "guarantee", "href": "/en/guarantee" },
+    { "name": "blog",      "href": "/en/blog" },
+    { "name": "jobs",      "href": "/en/job" },
+    { "name": "about",     "href": "/en/about" }
+  ]
+}
