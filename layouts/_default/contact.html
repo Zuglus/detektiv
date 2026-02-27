@@ -21,25 +21,25 @@
   <div class="max-w-6xl mx-auto px-6">
     <div class="grid grid-cols-12 gap-6 mb-12">
 
-      {{/* Emergency Contact — Hero Block */}}
-      <div class="col-span-12 lg:col-span-8 group relative overflow-hidden bg-white rounded-2xl border border-secondary-100 shadow-lg p-8">
-        <div class="absolute inset-0 bg-gradient-to-br from-red-500/10 to-orange-500/10 group-hover:from-red-500/20 group-hover:to-orange-500/20 transition-all duration-500 rounded-2xl"></div>
+      {{/* Priority Contact — Hero Block */}}
+      <div class="col-span-12 lg:col-span-8 group relative overflow-hidden bg-secondary-800 rounded-2xl border border-secondary-700 shadow-lg p-8">
+        <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
         <div class="relative z-10">
           <div class="flex items-start justify-between mb-6">
             <div>
-              <h2 class="text-heading-lg font-bold text-secondary-900 mb-2">{{ index $p.emergency.title $lang }}</h2>
-              <p class="text-body-lg text-secondary-700">{{ index $p.emergency.description $lang }}</p>
+              <h2 class="text-heading-lg font-bold text-white mb-2">{{ index $p.emergency.title $lang }}</h2>
+              <p class="text-body-lg text-secondary-300">{{ index $p.emergency.description $lang }}</p>
             </div>
-            <span class="flex-shrink-0 text-body-xs text-accent-600 bg-accent-50 px-3 py-1 rounded-full font-semibold ml-4">
+            <span class="flex-shrink-0 text-body-xs text-primary-300 bg-white/10 px-3 py-1 rounded-full font-semibold ml-4">
               {{ index $p.responseTime.phone $lang }}
             </span>
           </div>
           <a
             href="{{ $c.phone.href | safeURL }}"
-            class="inline-flex items-center gap-3 text-heading-md font-bold text-primary-600 hover:text-primary-700 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-primary-600/40 rounded-lg"
+            class="inline-flex items-center gap-3 text-heading-md font-bold text-primary-300 hover:text-white transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-white/30 rounded-lg"
             aria-label="{{ if eq $lang "ru" }}Позвонить{{ else }}Call{{ end }} {{ $c.phone.display }}"
           >
-            <div class="p-3 bg-primary-100 rounded-xl group-hover:bg-primary-200 transition-colors duration-300">
+            <div class="p-3 bg-white/10 rounded-xl group-hover:bg-white/20 transition-colors duration-300">
               {{ partial "icons/phone.html" "w-8 h-8" }}
             </div>
             {{ $c.phone.display }}
@@ -61,7 +61,7 @@
       <div class="col-span-12 md:col-span-6 lg:col-span-4 bg-white rounded-2xl border border-secondary-100 shadow-sm p-6">
         <div class="flex justify-between items-center mb-4">
           <h3 class="font-semibold text-secondary-900">{{ index $p.email $lang }}</h3>
-          <span class="text-body-xs text-accent-600 bg-accent-50 px-2 py-1 rounded-full">
+          <span class="text-body-xs text-secondary-500 bg-secondary-100 px-2 py-1 rounded-full">
             {{ index $p.responseTime.email $lang }}
           </span>
         </div>
@@ -134,8 +134,7 @@
     </div>
 
     {{/* Confidentiality Section */}}
-    <div class="relative overflow-hidden bg-white rounded-2xl border border-secondary-100 shadow-lg p-8 md:p-12" data-reveal>
-      <div class="absolute inset-0 bg-gradient-to-r from-primary-500/5 to-accent-500/5 rounded-2xl"></div>
+    <div class="relative overflow-hidden bg-primary-50 rounded-2xl border border-primary-200 shadow-lg p-8 md:p-12" data-reveal>
       <div class="relative z-10 text-center max-w-3xl mx-auto">
         <h3 class="text-heading-md font-bold text-secondary-900 mb-4">{{ index $p.confidentiality.title $lang }}</h3>
         <p class="text-body-lg text-secondary-700 leading-relaxed">{{ index $p.confidentiality.description $lang }}</p>

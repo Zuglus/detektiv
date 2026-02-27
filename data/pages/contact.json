@@ -47,8 +47,8 @@
   },
   "messengers": {
     "title": {
-      "ru": "Мессенджеры",
-      "en": "Messengers"
+      "ru": "Каналы связи",
+      "en": "Contact Channels"
     },
     "description": {
       "ru": "Быстрая связь в любое время",
