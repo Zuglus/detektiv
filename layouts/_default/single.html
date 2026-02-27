@@ -7,8 +7,9 @@
 {{- if lt $readingTime 1 -}}{{- $readingTime = 1 -}}{{- end -}}
 
 {{/* ── HEADER ── */}}
-<section class="bg-gradient-to-br from-secondary-900 to-primary-900 text-white pt-32 pb-12 md:pt-40">
-  <div class="max-w-3xl mx-auto px-6">
+<section class="relative overflow-hidden bg-gradient-to-br from-secondary-900 to-primary-900 text-white pt-32 pb-12 md:pt-40">
+  {{ partial "hero-atmosphere.html" . }}
+  <div class="relative z-10 max-w-3xl mx-auto px-6">
     {{/* Back link */}}
     <a
       href="{{ $articlesPath }}"
