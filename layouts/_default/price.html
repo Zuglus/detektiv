@@ -4,8 +4,9 @@
 {{- $c := .Site.Data.contacts -}}
 
 {{/* ── HEADER ── */}}
-<section class="bg-gradient-to-br from-primary-600 to-primary-700 text-white pt-32 pb-16 md:pt-40">
-  <div class="max-w-6xl mx-auto px-6">
+<section class="relative overflow-hidden bg-gradient-to-br from-primary-600 to-primary-700 text-white pt-32 pb-16 md:pt-40">
+  {{ partial "hero-atmosphere.html" . }}
+  <div class="relative z-10 max-w-6xl mx-auto px-6">
     <div class="rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 p-8 md:p-12">
       <ul class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-0">
         {{ range $i, $item := index $p.intro.list $lang }}
