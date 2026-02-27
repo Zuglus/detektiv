@@ -4,7 +4,7 @@
 {{- $c := .Site.Data.contacts -}}
 
 {{/* ── HEADER ── */}}
-<section class="relative overflow-hidden bg-gradient-to-br from-primary-600 to-primary-700 text-white pt-32 pb-16 md:pt-40">
+<section class="relative overflow-hidden text-white pt-32 pb-16 md:pt-40 flex items-center justify-center" style="min-height:60vh">
   {{ partial "hero-atmosphere.html" . }}
   <div class="relative z-10 max-w-5xl mx-auto px-6 text-center">
     <h1 class="font-display text-display-md font-bold mb-12">{{ index $p.header $lang }}</h1>
