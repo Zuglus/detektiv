@@ -27,7 +27,7 @@ describe('ContentContact', () => {
   it('should have contact links', () => {
     render(<ContentContact lang="ru" />);
     
-    expect(screen.getByLabelText('Позвонить по экстренному номеру +7 (915) 001-00-25')).toBeInTheDocument();
+    expect(screen.getByLabelText('Позвонить: +7 (915) 001-00-25')).toBeInTheDocument();
     expect(screen.getByLabelText('Отправить email на detectivegroznyi@gmail.com')).toBeInTheDocument();
     expect(screen.getByLabelText('Связаться через Telegram')).toBeInTheDocument();
     expect(screen.getByLabelText('Связаться через WhatsApp')).toBeInTheDocument();

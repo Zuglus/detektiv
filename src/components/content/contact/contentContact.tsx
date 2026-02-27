@@ -20,33 +20,32 @@ export default function ContentContact({ lang }: { lang: Lang }) {
 
       {/* Bento Grid Layout */}
       <div className="grid grid-cols-12 gap-6 mb-12">
-        {/* Emergency Contact - Hero Block */}
+        {/* Priority Contact - Hero Block */}
         <UnifiedCard
-          variant="emergency"
-          className="col-span-12 lg:col-span-8 group relative overflow-hidden"
+          variant="dark"
+          className="col-span-12 lg:col-span-8 group"
           size="large"
         >
-          <div className="absolute inset-0 bg-gradient-to-br from-red-500/10 to-orange-500/10 group-hover:from-red-500/20 group-hover:to-orange-500/20 transition-all duration-500" />
           <div className="relative z-10 p-8">
             <div className="flex items-start justify-between mb-6">
               <div>
-                <h2 className="text-heading-lg font-bold text-secondary-900 mb-2">
+                <h2 className="text-heading-lg font-bold text-white mb-2">
                   {content.emergency.title[lang]}
                 </h2>
-                <p className="text-body-lg text-secondary-700">
+                <p className="text-body-lg text-secondary-300">
                   {content.emergency.description[lang]}
                 </p>
               </div>
-              <div className="text-accent-600 text-body-sm font-semibold bg-accent-50 px-3 py-1 rounded-full">
+              <div className="text-primary-300 text-body-sm font-semibold bg-white/10 px-3 py-1 rounded-full shrink-0">
                 {content.responseTime.phone[lang]}
               </div>
             </div>
             <a
               href={contacts.phone.link}
-              className="inline-flex items-center gap-3 text-heading-md font-bold text-primary-600 hover:text-primary-700 transition-all duration-300 group focus:outline-none focus:ring-4 focus:ring-primary-600/40 rounded-lg"
-              aria-label={`Позвонить по экстренному номеру ${contacts.phone.name}`}
+              className="inline-flex items-center gap-3 text-heading-md font-bold text-primary-300 hover:text-white transition-all duration-300 group focus:outline-none focus:ring-4 focus:ring-white/30 rounded-lg"
+              aria-label={`Позвонить: ${contacts.phone.name}`}
             >
-              <div className="p-3 bg-primary-100 rounded-xl group-hover:bg-primary-200 transition-colors duration-300">
+              <div className="p-3 bg-white/10 rounded-xl group-hover:bg-white/20 transition-colors duration-300">
                 <IconSvg
                   name="phone"
                   size="xl"
@@ -62,12 +61,21 @@ export default function ContentContact({ lang }: { lang: Lang }) {
         {/* Office Address */}
         <UnifiedCard className="col-span-12 lg:col-span-4 text-center group">
           <div className="p-6">
+            <div className="flex justify-center mb-3">
+              <IconSvg name="mapPin" size="md" color="current" className="w-6 h-6 text-primary-600" />
+            </div>
             <h3 className="text-heading-sm font-semibold text-secondary-900 mb-3">
               {content.addressTitle[lang]}
             </h3>
-            <p className="text-body-md text-secondary-700 mb-4">
+            <a
+              href="https://yandex.ru/maps/?text=Проспект+Мира+27+Москва"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-body-md text-primary-600 hover:text-primary-700 hover:underline transition-colors duration-300 mb-4 block focus:outline-none focus:ring-2 focus:ring-primary-600 rounded"
+              aria-label="Открыть адрес на карте"
+            >
               {content.address[lang]}
-            </p>
+            </a>
             <p className="text-body-sm text-secondary-500">
               {content.addressDescription[lang]}
             </p>
@@ -81,7 +89,7 @@ export default function ContentContact({ lang }: { lang: Lang }) {
               <h3 className="text-heading-sm font-semibold text-secondary-900">
                 {content.email[lang]}
               </h3>
-              <span className="text-body-xs text-accent-600 bg-accent-50 px-2 py-1 rounded-full">
+              <span className="text-body-xs text-secondary-500 bg-secondary-100 px-2 py-1 rounded-full">
                 {content.responseTime.email[lang]}
               </span>
             </div>
@@ -104,7 +112,7 @@ export default function ContentContact({ lang }: { lang: Lang }) {
           </div>
         </UnifiedCard>
 
-        {/* Messengers Block */}
+        {/* Contact Channels Block */}
         <UnifiedCard className="col-span-12 md:col-span-6 lg:col-span-8 group">
           <div className="p-6">
             <div className="flex justify-between items-center mb-6">
@@ -116,7 +124,7 @@ export default function ContentContact({ lang }: { lang: Lang }) {
                   {content.messengers.description[lang]}
                 </p>
               </div>
-              <span className="text-body-xs text-accent-600 bg-accent-50 px-2 py-1 rounded-full">
+              <span className="text-body-xs text-accent-600 bg-accent-50 px-2 py-1 rounded-full shrink-0">
                 {content.responseTime.messengers[lang]}
               </span>
             </div>
@@ -198,7 +206,7 @@ export default function ContentContact({ lang }: { lang: Lang }) {
               <a
                 href={contacts.instagram.link}
                 className="flex flex-col items-center p-4 bg-secondary-50 hover:bg-secondary-100 rounded-xl transition-all duration-300 group/messenger focus:outline-none focus:ring-2 focus:ring-primary-600"
-                aria-label="Связаться через Instagram"
+                aria-label="Написать в Instagram"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -219,11 +227,9 @@ export default function ContentContact({ lang }: { lang: Lang }) {
 
       {/* Confidentiality Section */}
       <UnifiedCard
-        variant="accent"
-        className="relative overflow-hidden"
+        variant="trust"
         size="large"
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-primary-500/5 to-accent-500/5" />
         <div className="relative z-10 p-8 text-center">
           <div className="max-w-3xl mx-auto">
             <h3 className="text-heading-md font-bold text-secondary-900 mb-4">
