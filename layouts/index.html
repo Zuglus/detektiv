@@ -4,16 +4,26 @@
 {{- $c := .Site.Data.contacts -}}
 
 {{/* ── HERO ── */}}
-{{- $co := .Site.Data.company -}}
 <section class="relative min-h-screen flex items-center justify-center text-center px-6 -mt-16 overflow-hidden">
 
-  {{/* Animated green gradient background */}}
-  <div class="absolute inset-0" style="background: linear-gradient(135deg, var(--tw-gradient-from, #1a5c33) 0%, #339955 50%, #1a3d4a 100%); background-size: 400% 400%; animation: gradientShift 15s ease infinite;"></div>
+  {{/* Base gradient: тёмно-зелёный сверху → чуть светлее снизу */}}
+  <div class="absolute inset-0" style="background: linear-gradient(180deg, #1a3d2b 0%, #2d5a3d 100%);"></div>
 
-  {{/* Secondary overlay */}}
-  <div class="absolute inset-0 bg-gradient-to-t from-secondary-900/20 to-transparent pointer-events-none"></div>
+  {{/* Туман — три размытых радиальных пятна */}}
+  <div class="absolute pointer-events-none" aria-hidden="true"
+    style="width:75%; height:75%; top:-15%; left:-20%;
+           background: radial-gradient(circle, #3d7a52 0%, transparent 65%);
+           opacity:0.18; filter:blur(72px);"></div>
+  <div class="absolute pointer-events-none" aria-hidden="true"
+    style="width:65%; height:65%; bottom:-10%; right:-15%;
+           background: radial-gradient(circle, #3d7a52 0%, transparent 65%);
+           opacity:0.16; filter:blur(88px);"></div>
+  <div class="absolute pointer-events-none" aria-hidden="true"
+    style="width:45%; height:55%; top:25%; left:50%; transform:translateX(-50%);
+           background: radial-gradient(circle, #3d7a52 0%, transparent 60%);
+           opacity:0.13; filter:blur(56px);"></div>
 
-  {{/* Film grain — cinematic atmosphere */}}
+  {{/* Film grain */}}
   <div class="absolute inset-0 pointer-events-none" style="opacity:0.04;" aria-hidden="true">
     <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
       <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter>
@@ -21,70 +31,28 @@
     </svg>
   </div>
 
-  {{/* Geometric dot grid overlay */}}
-  <div class="absolute inset-0 opacity-[0.03] pointer-events-none" aria-hidden="true">
-    <svg width="100%" height="100%">
-      <defs>
-        <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
-          <circle cx="30" cy="30" r="1.5" fill="white"/>
-          <line x1="0" y1="30" x2="60" y2="30" stroke="white" stroke-width="0.5" opacity="0.3"/>
-          <line x1="30" y1="0" x2="30" y2="60" stroke="white" stroke-width="0.5" opacity="0.3"/>
-        </pattern>
-      </defs>
-      <rect width="100%" height="100%" fill="url(#grid)"/>
-    </svg>
-  </div>
+  <div class="relative z-10 max-w-3xl mx-auto pt-20 pb-32">
 
-  <div class="relative z-10 max-w-5xl mx-auto pt-20 pb-24">
-
-    {{/* Decorative line above title */}}
-    <div class="flex justify-center mb-8">
-      <div class="w-16 h-1 rounded-full" style="background: linear-gradient(90deg, transparent, rgba(134,239,172,0.6), transparent);"></div>
-    </div>
-
-    <h1 class="font-display font-black text-white mb-6 leading-tight whitespace-nowrap" style="font-size:clamp(1.6rem,5.5vw,3.5rem); letter-spacing:-0.03em; text-shadow:0 4px 20px rgba(0,0,0,0.3), 0 2px 8px rgba(0,0,0,0.2);">
-      {{ index $co.name $lang }}
+    <h1 class="font-display font-bold text-white mb-5 leading-tight"
+      style="font-size:clamp(2rem,5.5vw,3.75rem); letter-spacing:-0.02em; text-shadow:0 4px 24px rgba(0,0,0,0.35);">
+      {{ if eq $lang "ru" }}Узнайте правду. Конфиденциально.{{ else }}Find the truth. Confidentially.{{ end }}
     </h1>
 
-    <h2 class="font-display text-display-lg font-bold mb-4" style="color:rgb(187 247 208); letter-spacing:-0.02em; text-shadow:0 2px 12px rgba(0,0,0,0.2);">
-      {{ index $co.founderLastName $lang }}
-    </h2>
+    <p class="text-body-lg mb-10" style="color:rgba(255,255,255,0.7); letter-spacing:0.01em;">
+      {{ if eq $lang "ru" }}Лицензированное детективное агентство. Москва. С&nbsp;2010&nbsp;года.{{ else }}Licensed detective agency. Moscow. Since&nbsp;2010.{{ end }}
+    </p>
 
-    <div class="font-display text-display-md font-semibold mb-12" style="color:rgb(134 239 172); text-shadow:0 2px 8px rgba(0,0,0,0.15);">
-      {{ index $co.founderFullName $lang }}
-    </div>
-
-    {{/* Decorative divider */}}
-    <div class="flex justify-center mb-12">
-      <div class="flex items-center gap-2">
-        <div class="w-8 h-px bg-primary-400/50"></div>
-        <div class="w-2 h-2 rounded-full bg-primary-400"></div>
-        <div class="w-8 h-px bg-primary-400/50"></div>
-      </div>
-    </div>
-
-    {{/* Guarantee info block */}}
-    <div class="mx-auto w-fit">
-      <div class="bg-white/10 backdrop-blur-sm border border-white/15 rounded-2xl p-8 text-white shadow-lg">
-        <ul class="space-y-3">
-          {{ range index $co.guaranteeInfo $lang }}
-          <li class="flex items-baseline justify-center text-body-md">
-            <div class="w-3 h-3 rounded-full mr-4 flex-shrink-0 -translate-y-1" style="background-color:rgb(134 239 172);"></div>
-            <span class="leading-relaxed">{{ . }}</span>
-          </li>
-          {{ end }}
-        </ul>
-      </div>
-    </div>
-
-    {{/* License info */}}
-    <div class="mt-12 max-w-3xl mx-auto">
-      <div class="border border-white/30 rounded-2xl p-6 text-center">
-        <div class="text-white/90 leading-relaxed space-y-2">
-          <div class="font-semibold text-body-lg" style="color:rgb(187 247 208);">{{ index $co.location $lang }}</div>
-          <div class="text-white/70 text-body-md">{{ index $co.license $lang }}</div>
-        </div>
-      </div>
+    <div class="flex flex-col items-center gap-3">
+      <a href="{{ if eq $lang "ru" }}/kontakty/{{ else }}/en/contact/{{ end }}"
+        class="inline-flex items-center px-8 py-4 font-semibold rounded-xl text-body-lg transition-all duration-300 hover:-translate-y-0.5 focus:outline-none focus:ring-4 focus:ring-white/30"
+        style="background:#339955; color:#fff; box-shadow:0 4px 20px rgba(51,153,85,0.4);"
+        onmouseover="this.style.background='#247d44'"
+        onmouseout="this.style.background='#339955'">
+        {{ if eq $lang "ru" }}Получить консультацию{{ else }}Get a consultation{{ end }}
+      </a>
+      <span class="text-body-sm" style="color:rgba(255,255,255,0.45);">
+        {{ if eq $lang "ru" }}Бесплатно и анонимно{{ else }}Free and anonymous{{ end }}
+      </span>
     </div>
 
   </div>
