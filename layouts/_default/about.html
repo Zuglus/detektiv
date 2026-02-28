@@ -3,25 +3,86 @@
 {{- $p := .Site.Data.pages.about -}}
 {{- $c := .Site.Data.contacts -}}
 
-{{/* ── HERO ── */}}
-<section class="relative overflow-hidden text-white pt-32 pb-16 md:pt-40 flex items-center justify-center" style="min-height:60vh">
-  {{ partial "hero-atmosphere.html" . }}
+{{/* ── HERO: compact version (48px padding) ── */}}
+<section class="relative overflow-hidden text-white py-12" style="background: linear-gradient(135deg, #1a2e1f 0%, #2d6a4f 100%);">
   <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
-    <h1 class="font-display text-display-md font-bold mb-4">{{ index $p.hero.title $lang }}</h1>
-    <p class="text-white/70 text-body-lg font-medium mb-2">{{ index $p.hero.subtitle $lang }}</p>
-    <p class="text-white/60 text-body-md">{{ index $p.hero.description $lang }}</p>
+    <h1 class="font-display text-4xl md:text-5xl font-bold mb-3">{{ index $p.hero.title $lang }}</h1>
+    <p class="text-white/80 text-base md:text-lg">{{ index $p.hero.subtitle $lang }}</p>
+  </div>
+</section>
+
+{{/* ── FOUNDER SECTION with photo ── */}}
+<section class="py-16 bg-white" data-reveal>
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      {{/* Founder photo */}}
+      <div class="order-2 md:order-1">
+        <div class="relative">
+          <div class="absolute inset-0 bg-gradient-to-br from-primary-600/20 to-transparent rounded-2xl transform rotate-3"></div>
+          <img 
+            src="/images/founder.png" 
+            alt="{{ if eq $lang "ru" }}Руководитель агентства{{ else }}Agency Head{{ end }}" 
+            class="relative rounded-2xl shadow-2xl w-full max-w-md mx-auto"
+            loading="lazy"
+          >
+        </div>
+      </div>
+      {{/* Founder info */}}
+      <div class="order-1 md:order-2 space-y-6">
+        <h2 class="font-display text-3xl font-bold text-secondary-900">
+          {{ if eq $lang "ru" }}Грозный Эдуард Николаевич{{ else }}Grozny Eduard Nikolaevich{{ end }}
+        </h2>
+        <div class="space-y-4 text-secondary-700">
+          <p>{{ if eq $lang "ru" }}Основатель и руководитель детективного агентства. Офицер в отставке — старший оперуполномоченный по особо важным делам. Ветеран боевых действий, награждён государственными наградами.{{ else }}Founder and head of the detective agency. Retired officer — senior operative for especially important cases. Combat veteran decorated with state awards.{{ end }}</p>
+          <ul class="space-y-2 text-sm">
+            <li class="flex items-center gap-2">
+              {{ partial "icons/check-circle.html" "w-5 h-5 text-primary-600 flex-shrink-0" }}
+              <span>{{ if eq $lang "ru" }}16 лет детективной деятельности{{ else }}16 years of detective work{{ end }}</span>
+            </li>
+            <li class="flex items-center gap-2">
+              {{ partial "icons/check-circle.html" "w-5 h-5 text-primary-600 flex-shrink-0" }}
+              <span>{{ if eq $lang "ru" }}Лицензия МВД РФ с 2021 года{{ else }}MIA RF license since 2021{{ end }}</span>
+            </li>
+            <li class="flex items-center gap-2">
+              {{ partial "icons/check-circle.html" "w-5 h-5 text-primary-600 flex-shrink-0" }}
+              <span>{{ if eq $lang "ru" }}Опыт работы в правоохранительных органах{{ else }}Law enforcement experience{{ end }}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{/* ── TRUST FACTS: counters instead of principles ── */}}
+<section class="py-16 bg-gradient-to-br from-primary-600 to-primary-700 text-white" data-reveal>
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+      <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+        <div class="text-5xl font-bold mb-2">16</div>
+        <div class="text-primary-100">{{ if eq $lang "ru" }}лет работы{{ else }}years in business{{ end }}</div>
+      </div>
+      <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+        <div class="text-5xl font-bold mb-2">27+</div>
+        <div class="text-primary-100">{{ if eq $lang "ru" }}кейсов в статьях{{ else }}cases in articles{{ end }}</div>
+      </div>
+      <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+        <div class="text-5xl font-bold mb-2">2021</div>
+        <div class="text-primary-100">{{ if eq $lang "ru" }}лицензия МВД{{ else }}MIA license{{ end }}</div>
+      </div>
+    </div>
   </div>
 </section>
 
 {{/* ── TIMELINE ── */}}
-<section class="py-16 bg-white" data-reveal>
+<section class="py-16 bg-secondary-50" data-reveal>
   <div class="max-w-4xl mx-auto px-6">
     <h2 class="font-display text-heading-lg font-bold text-secondary-900 text-center mb-12">{{ index $p.timeline.title $lang }}</h2>
     <div class="relative flex flex-col gap-8 pl-8 before:absolute before:left-3 before:top-2 before:bottom-2 before:w-0.5 before:bg-primary-200">
       {{ range index $p.timeline.items $lang }}
       <div class="relative flex items-start gap-6">
         <div class="absolute -left-8 w-6 h-6 rounded-full bg-primary-600 border-4 border-white shadow flex-shrink-0 mt-1"></div>
-        <div class="flex-1 bg-secondary-50 rounded-2xl p-6 border border-secondary-100">
+        <div class="flex-1 bg-white rounded-2xl p-6 border border-secondary-100">
           <p class="text-primary-600 font-mono font-bold text-sm mb-1">{{ .year }}</p>
           <h3 class="font-semibold text-secondary-900 mb-2">{{ .title }}</h3>
           <p class="text-secondary-600 text-body-sm">{{ .description }}</p>
@@ -33,12 +94,12 @@
 </section>
 
 {{/* ── EXPERTISE ── */}}
-<section class="py-16 bg-secondary-50" data-reveal>
+<section class="py-16 bg-white" data-reveal>
   <div class="max-w-6xl mx-auto px-6">
     <h2 class="font-display text-heading-lg font-bold text-secondary-900 text-center mb-12">{{ index $p.expertise.title $lang }}</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
       {{ range index $p.expertise.items $lang }}
-      <div class="bg-white rounded-2xl p-6 border border-secondary-100 shadow-sm flex items-start gap-4">
+      <div class="bg-secondary-50 rounded-2xl p-6 border border-secondary-100 flex items-start gap-4">
         <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-primary-50 flex items-center justify-center text-primary-600">
           {{ partial (printf "icons/%s.html" .icon) "w-6 h-6" }}
         </div>
@@ -52,23 +113,8 @@
   </div>
 </section>
 
-{{/* ── PRINCIPLES ── */}}
-<section class="py-16 bg-gradient-to-br from-primary-600 to-primary-700 text-white" data-reveal>
-  <div class="max-w-6xl mx-auto px-6">
-    <h2 class="font-display text-heading-lg font-bold text-center mb-12">{{ index $p.principles.title $lang }}</h2>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      {{ range index $p.principles.items $lang }}
-      <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
-        <h3 class="font-semibold text-white mb-2">{{ .title }}</h3>
-        <p class="text-primary-100 text-sm">{{ .description }}</p>
-      </div>
-      {{ end }}
-    </div>
-  </div>
-</section>
-
 {{/* ── WARNING ── */}}
-<section class="py-16" data-reveal>
+<section class="py-16 bg-secondary-50" data-reveal>
   <div class="max-w-4xl mx-auto px-6">
     <div class="bg-accent-50 border-2 border-accent-200 rounded-2xl p-8">
       <div class="flex items-start gap-4 mb-4">

@@ -1,20 +1,18 @@
 {
   "ru": [
-    { "name": "главная",  "href": "/" },
-    { "name": "прайс",    "href": "/price" },
-    { "name": "контакты", "href": "/kontakty" },
-    { "name": "гарантии", "href": "/garantii" },
-    { "name": "статьи",   "href": "/stati" },
-    { "name": "вакансии", "href": "/vakansii" },
-    { "name": "о нас",    "href": "/onas" }
+    { "name": "главная",      "href": "/" },
+    { "name": "услуги",       "href": "/price" },
+    { "name": "о нас",        "href": "/onas" },
+    { "name": "гарантии",     "href": "/garantii" },
+    { "name": "статьи",       "href": "/stati" },
+    { "name": "контакты",     "href": "/kontakty" }
   ],
   "en": [
     { "name": "main",      "href": "/en" },
-    { "name": "price",     "href": "/en/price" },
-    { "name": "contacts",  "href": "/en/contact" },
+    { "name": "services",  "href": "/en/price" },
+    { "name": "about",     "href": "/en/about" },
     { "name": "guarantee", "href": "/en/guarantee" },
     { "name": "blog",      "href": "/en/blog" },
-    { "name": "jobs",      "href": "/en/job" },
-    { "name": "about",     "href": "/en/about" }
+    { "name": "contacts",  "href": "/en/contact" }
   ]
 }

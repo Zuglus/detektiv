@@ -4,13 +4,11 @@
 {{- $c := .Site.Data.contacts -}}
 {{- $co := .Site.Data.company -}}
 
-{{/* ── HEADER ── */}}
-<section class="relative overflow-hidden text-white pt-32 pb-16 md:pt-40 flex items-center justify-center" style="min-height:60vh">
-  {{ partial "hero-atmosphere.html" . }}
+{{/* ── HEADER: compact version (48px padding) ── */}}
+<section class="relative overflow-hidden text-white py-12" style="background: linear-gradient(135deg, #1a2e1f 0%, #2d6a4f 100%);">
   <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
-    <h1 class="font-display text-display-md font-bold mb-4">{{ index $p.header $lang }}</h1>
-    <p class="text-white/70 text-body-lg">{{ index $p.subtitle $lang }}</p>
-    <div class="w-32 h-1 mx-auto rounded-full mt-6" style="background: linear-gradient(90deg, rgba(255,255,255,0.5), rgba(255,255,255,0.2));"></div>
+    <h1 class="font-display text-4xl md:text-5xl font-bold mb-3">{{ index $p.header $lang }}</h1>
+    <p class="text-white/80 text-base md:text-lg">{{ index $p.subtitle $lang }}</p>
   </div>
 </section>
 
