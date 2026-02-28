@@ -126,8 +126,8 @@
       {{ $icons := slice "file-text" "eye" "shield" "user" "target" "contact" "building-2" "zap" "map-pin" }}
       {{ range $i, $service := $p.serviceList }}
       {{- $iconName := index $icons (mod $i (len $icons)) -}}
-      {{- $isAccentMobile := eq (mod $i 3) 0 -}}
-      {{- $isAccentDesktop := eq (mod $i 4) 0 -}}
+      {{- $isAccentMobile := $service.featured -}}
+      {{- $isAccentDesktop := $service.featured -}}
       {{- $mobileCardClass := "bg-white border-secondary-100" -}}
       {{- if $isAccentMobile -}}{{- $mobileCardClass = "bg-primary-100 border-primary-300" -}}{{- end -}}
       {{- $desktopCardClass := "md:bg-white md:border-secondary-100" -}}
