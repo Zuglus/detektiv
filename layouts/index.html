@@ -141,7 +141,7 @@
       </div>
       <div class="text-center">
         <div class="text-5xl font-bold mb-2">27+</div>
-        <div class="text-primary-100">{{ if eq $lang "ru" }}кейсов в статьях{{ else }}cases in articles{{ end }}</div>
+        <div class="text-primary-100">{{ if eq $lang "ru" }}дел в статьях{{ else }}cases in articles{{ end }}</div>
       </div>
       <div class="text-center">
         <div class="text-5xl font-bold mb-2">{{ if eq $lang "ru" }}МВД{{ else }}MIA{{ end }}</div>
@@ -156,7 +156,7 @@
   <div class="max-w-6xl mx-auto px-6">
     <div class="text-center mb-12">
       <h2 class="font-display text-3xl font-bold text-secondary-900 mb-4">
-        {{ if eq $lang "ru" }}Свежие кейсы{{ else }}Latest Cases{{ end }}
+        {{ if eq $lang "ru" }}Свежие дела{{ else }}Latest Cases{{ end }}
       </h2>
       <p class="text-secondary-600 max-w-2xl mx-auto">
         {{ if eq $lang "ru" }}Реальные истории из нашей практики{{ else }}Real stories from our practice{{ end }}
@@ -173,7 +173,7 @@
         <a href="{{ .RelPermalink }}" class="block">
           <div class="flex items-center gap-2 mb-3">
             <span class="px-2.5 py-1 bg-primary-100 text-primary-700 rounded-full text-xs font-medium">
-              {{ if eq $lang "ru" }}Кейс{{ else }}Case{{ end }}
+              {{ if eq $lang "ru" }}Дело{{ else }}Case{{ end }}
             </span>
             <span class="text-secondary-400 text-xs">{{ .Date.Format "02.01.2006" }}</span>
           </div>
