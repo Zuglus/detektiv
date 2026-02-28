@@ -44,13 +44,6 @@
   </div>
 </section>
 
-{{ partial "breadcrumbs.html" (dict
-  "home" (cond (eq $lang "ru") "/" "/en/")
-  "name" (cond (eq $lang "ru") "Статьи" "Blog")
-  "link" (cond (eq $lang "ru") "/stati/" "/en/blog/")
-  "secondName" .Title
-) }}
-
 {{/* ── CONTENT ── */}}
 <section class="py-12">
   <div class="max-w-3xl mx-auto px-6">
