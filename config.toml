@@ -14,5 +14,7 @@ paginate = 9
 
 disableKinds = ["taxonomy", "term"]
 
+[taxonomies]
+
 [build]
   writeStats = true
