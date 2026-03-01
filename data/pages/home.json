@@ -1,7 +1,7 @@
 {
   "hero": {
     "title": { "ru": "Узнайте правду. Конфиденциально.", "en": "Find the truth. Confidentially." },
-    "subtitle": { "ru": "Частный детектив в Москве с 2010 года. Лицензия МВД 50ЧД2021000323", "en": "Private detective in Moscow since 2010. MIA license 50ЧД2021000323" },
+    "subtitle": { "ru": "Детективное агентство в Москве с 2010 года. Лицензия МВД 50ЧД2021000323", "en": "Detective agency in Moscow since 2010. MIA license 50ЧД2021000323" },
     "cta": { "ru": "Получить консультацию", "en": "Get a consultation" },
     "badges": [
       { "ru": "16 лет", "en": "16 years" },
