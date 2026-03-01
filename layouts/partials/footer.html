@@ -9,10 +9,10 @@
   <div class="max-w-7xl mx-auto px-6 py-16">
 
     {{/* Three columns layout */}}
-    <div class="grid grid-cols-1 md:grid-cols-3 mb-12">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
       
       {{/* Column 1: Company info */}}
-      <div class="space-y-4 md:pr-12">
+      <div class="space-y-4">
         <h3 class="text-lg font-semibold text-white mb-4">{{ index .Site.Data.company.name $lang }}</h3>
         <p class="text-secondary-300 text-sm">{{ index .Site.Data.company.license $lang }}</p>
         <p class="text-secondary-300 text-sm">{{ index .Site.Data.company.location $lang }}</p>
@@ -20,7 +20,7 @@
       </div>
 
       {{/* Column 2: Navigation */}}
-      <div class="space-y-4 md:px-12 md:border-l md:border-secondary-700/50">
+      <div class="space-y-4">
         <h3 class="text-lg font-semibold text-white mb-4">{{ if eq $lang "ru" }}Навигация{{ else }}Navigation{{ end }}</h3>
         <nav class="grid grid-cols-2 gap-x-6 gap-y-2">
           {{ range index .Site.Data.nav $lang }}
@@ -32,7 +32,7 @@
       </div>
 
       {{/* Column 3: Contact */}}
-      <div class="space-y-4 md:pl-12 md:border-l md:border-secondary-700/50">
+      <div class="space-y-4">
         <h3 class="text-lg font-semibold text-white mb-4">{{ if eq $lang "ru" }}Связаться{{ else }}Contact{{ end }}</h3>
         <a href="{{ $c.phone.href | safeURL }}" class="block text-2xl font-bold text-primary-400 hover:text-primary-300 transition-colors mb-4">{{ $c.phone.display }}</a>
         
