@@ -8,51 +8,72 @@
 >
   <div class="max-w-7xl mx-auto px-6 py-16">
 
-    {{/* Social icons */}}
-    <div class="text-center mb-12">
-      <div class="inline-flex items-center justify-center gap-4 bg-white/10 backdrop-blur-sm rounded-2xl px-8 py-5 border border-white/10">
-        <a href="{{ $c.telegram.href | safeURL }}" class="text-primary-500 hover:text-primary-400 transition-colors" aria-label="Telegram">
-          {{ partial "icons/send.html" "w-5 h-5" }}
-        </a>
-        <a href="{{ $c.whatsapp.href }}" class="text-primary-500 hover:text-primary-400 transition-colors" aria-label="WhatsApp">
-          {{ partial "icons/whatsapp.html" "w-5 h-5" }}
-        </a>
-        <a href="{{ $c.imo.href }}" class="text-primary-500 hover:text-primary-400 transition-colors" aria-label="IMO">
-          {{ partial "icons/imo.html" "w-5 h-5" }}
-        </a>
-        <a href="{{ $c.signal.href }}" class="text-primary-500 hover:text-primary-400 transition-colors" aria-label="Signal">
-          {{ partial "icons/signal.html" "w-5 h-5" }}
-        </a>
-        <a href="{{ $c.instagram.href }}" class="text-primary-500 hover:text-primary-400 transition-colors" aria-label="Instagram">
-          {{ partial "icons/instagram.html" "w-5 h-5" }}
-        </a>
-        <a href="{{ $c.email.href }}" class="text-primary-500 hover:text-primary-400 transition-colors" aria-label="Email">
-          {{ partial "icons/mail.html" "w-5 h-5" }}
-        </a>
-        <a href="{{ $c.phone.href | safeURL }}" class="text-primary-500 hover:text-primary-400 transition-colors" aria-label="{{ if eq $lang "ru" }}Позвонить{{ else }}Call{{ end }}">
-          {{ partial "icons/phone.html" "w-5 h-5" }}
-        </a>
+    {{/* Three columns layout */}}
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+      
+      {{/* Column 1: Company info */}}
+      <div class="space-y-4">
+        <h3 class="text-lg font-semibold text-white pb-3 border-b border-secondary-600/60">{{ index .Site.Data.company.name $lang }}</h3>
+        <p class="text-secondary-300 text-sm">{{ index .Site.Data.company.license $lang }}</p>
+        <p class="text-secondary-300 text-sm">{{ index .Site.Data.company.location $lang }}</p>
+        <p class="text-secondary-300 text-sm">{{ $c.address.street }}</p>
+      </div>
+
+      {{/* Column 2: Navigation */}}
+      <div class="space-y-4">
+        <h3 class="text-lg font-semibold text-white pb-3 border-b border-secondary-600/60">{{ if eq $lang "ru" }}Навигация{{ else }}Navigation{{ end }}</h3>
+        <nav class="grid grid-cols-2 gap-x-6 gap-y-2">
+          {{ range index .Site.Data.nav $lang }}
+          <a href="{{ .href }}" class="text-secondary-300 hover:text-primary-400 transition-colors text-sm">{{ .name }}</a>
+          {{ end }}
+          {{/* Vacancies link - only in footer */}}
+          <a href="{{ if eq $lang "ru" }}/vakansii{{ else }}/en/job{{ end }}" class="text-secondary-300 hover:text-primary-400 transition-colors text-sm">{{ if eq $lang "ru" }}вакансии{{ else }}jobs{{ end }}</a>
+        </nav>
+      </div>
+
+      {{/* Column 3: Contact */}}
+      <div class="space-y-4">
+        <h3 class="text-lg font-semibold text-white pb-3 border-b border-secondary-600/60">{{ if eq $lang "ru" }}Связаться{{ else }}Contact{{ end }}</h3>
+        <a href="{{ $c.phone.href | safeURL }}" class="block text-2xl font-bold text-primary-400 hover:text-primary-300 transition-colors mb-4">{{ $c.phone.display }}</a>
+        
+        {{/* Messenger icons with labels */}}
+        <div class="grid grid-cols-5 gap-2 bg-white/5 rounded-xl p-3">
+          <a href="{{ $c.telegram.href | safeURL }}" class="flex flex-col items-center gap-1 p-2 rounded-lg hover:bg-white/10 transition-colors" aria-label="Telegram">
+            {{ partial "icons/send.html" "w-6 h-6 text-primary-400" }}
+            <span class="text-xs text-secondary-300">Telegram</span>
+          </a>
+          <a href="{{ $c.whatsapp.href }}" class="flex flex-col items-center gap-1 p-2 rounded-lg hover:bg-white/10 transition-colors" aria-label="WhatsApp">
+            {{ partial "icons/whatsapp.html" "w-6 h-6 text-primary-400" }}
+            <span class="text-xs text-secondary-300">WhatsApp</span>
+          </a>
+          <a href="{{ $c.signal.href }}" class="flex flex-col items-center gap-1 p-2 rounded-lg hover:bg-white/10 transition-colors" aria-label="Signal">
+            {{ partial "icons/signal.html" "w-6 h-6 text-primary-400" }}
+            <span class="text-xs text-secondary-300">Signal</span>
+          </a>
+          <a href="{{ $c.imo.href }}" class="flex flex-col items-center gap-1 p-2 rounded-lg hover:bg-white/10 transition-colors" aria-label="IMO">
+            {{ partial "icons/imo.html" "w-6 h-6 text-primary-400" }}
+            <span class="text-xs text-secondary-300">Imo</span>
+          </a>
+          <a href="{{ $c.email.href }}" class="flex flex-col items-center gap-1 p-2 rounded-lg hover:bg-white/10 transition-colors" aria-label="Email">
+            {{ partial "icons/mail.html" "w-6 h-6 text-primary-400" }}
+            <span class="text-xs text-secondary-300">Email</span>
+          </a>
+        </div>
       </div>
     </div>
 
-    <div class="border-t border-secondary-700/50 pt-12">
-      {{/* Scroll to top */}}
-      <div class="text-center mb-8">
-        <button
-          id="scroll-to-top"
-          class="inline-flex items-center justify-center w-14 h-14 bg-primary-600/20 hover:bg-primary-600/40 text-white rounded-full transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-4 focus:ring-primary-500/30 shadow-lg"
+    <div class="border-t border-secondary-700/50 pt-8">
+      {{/* Bottom bar */}}
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-secondary-400">
+        <p>© {{ .Site.Data.company.founded }}–{{ now.Format "2006" }} · {{ index .Site.Data.company.name $lang }} {{ index .Site.Data.company.founder $lang }}. {{ if eq $lang "ru" }}Копировать, использовать, ссылаться на информацию с сайта запрещено.{{ else }}Copying, using, or referencing information from this site is prohibited.{{ end }}</p>
+        <a
+          href="#"
+          class="inline-flex items-center gap-2 px-4 py-2 bg-primary-600/20 hover:bg-primary-600/40 text-white rounded-lg transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary-500/30"
           aria-label="{{ if eq $lang "ru" }}Прокрутить вверх{{ else }}Scroll to top{{ end }}"
         >
-          {{ partial "icons/chevron-up.html" "w-9 h-9" }}
-        </button>
-      </div>
-
-      {{/* Company info */}}
-      <div class="text-center text-secondary-400 text-xs space-y-2">
-        <p class="font-medium text-secondary-300">{{ index .Site.Data.company.name $lang }}</p>
-        <p>{{ index .Site.Data.company.license $lang }}</p>
-        <p>{{ index .Site.Data.company.location $lang }}, {{ index .Site.Data.company.copyright $lang }}</p>
-        <p>© {{ .Site.Data.company.founded }}–{{ now.Format "2006" }}</p>
+          {{ partial "icons/chevron-up.html" "w-4 h-4" }}
+          <span>{{ if eq $lang "ru" }}Наверх{{ else }}Top{{ end }}</span>
+        </a>
       </div>
     </div>
   </div>

@@ -3,15 +3,13 @@
 {{- $p := .Site.Data.pages.guarantee -}}
 {{- $c := .Site.Data.contacts -}}
 
-{{/* ── HEADER ── */}}
-<section class="relative overflow-hidden bg-gradient-to-br from-primary-600 to-primary-700 text-white pt-32 pb-16 md:pt-40">
-  {{ partial "hero-atmosphere.html" . }}
+{{/* ── HEADER: compact version (48px padding) ── */}}
+<section class="relative overflow-hidden text-white pt-40 pb-12 bg-gradient-header">
   <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
-    <h1 class="font-display text-display-md font-bold">{{ index $p.header $lang }}</h1>
+    <h1 class="font-display text-display-sm md:text-display-md font-bold mb-3">{{ index $p.header $lang }}</h1>
+    <p class="text-white/80 text-base md:text-lg">{{ index $p.subtitle $lang }}</p>
   </div>
 </section>
-
-{{ partial "breadcrumbs.html" (dict "home" (cond (eq $lang "ru") "/" "/en/") "name" (cond (eq $lang "ru") "Гарантии" "Guarantee") "link" "" "secondName" "") }}
 
 {{/* ── TRUST BADGES ── */}}
 <section class="py-12 bg-white" data-reveal>
@@ -76,7 +74,7 @@
 {{/* ── REFUND POLICY ── */}}
 <section class="py-12" data-reveal>
   <div class="max-w-4xl mx-auto px-6">
-    <div class="bg-gradient-to-r from-primary-50 to-primary-100 rounded-xl border border-primary-200 p-6 md:p-8">
+    <div class="bg-gradient-to-r from-primary-50 to-primary-100 rounded-2xl border border-primary-100 p-6">
       <div class="flex flex-col sm:flex-row items-start">
         <div class="mb-4 sm:mb-0 sm:mr-6 sm:mt-1 flex-shrink-0 text-primary-600">
           {{ partial "icons/refund.html" "w-10 h-10" }}
@@ -104,7 +102,7 @@
     <h2 class="font-display text-heading-lg font-bold text-secondary-900 text-center mb-8">{{ (index $p.principles $lang).title }}</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
       {{ range (index $p.principles $lang).list }}
-      <div class="bg-white rounded-2xl p-5 border border-secondary-100 shadow-sm text-center">
+      <div class="bg-white rounded-2xl p-6 border border-secondary-100 shadow-sm text-center">
         <h3 class="font-semibold text-primary-600 mb-2">{{ .name }}</h3>
         <p class="text-secondary-600 text-xs">{{ .description }}</p>
       </div>
@@ -116,35 +114,31 @@
 {{/* ── CONTACT CTA ── */}}
 <section class="py-12 bg-white" data-reveal>
   <div class="max-w-4xl mx-auto px-6">
-    <div class="bg-white rounded-xl shadow-lg border border-secondary-100 p-8 md:p-12 text-center">
+    <div class="bg-white rounded-2xl shadow-lg border border-secondary-100 p-6 md:p-12 text-center">
       <h2 class="font-display text-heading-md font-bold text-secondary-900 mb-4">{{ (index $p.contact $lang).title }}</h2>
       <p class="text-body-lg text-secondary-700 mb-8 leading-relaxed">{{ (index $p.contact $lang).description }}</p>
       <div class="flex flex-wrap justify-center gap-3">
-        <a href="{{ $c.telegram.href | safeURL }}" class="inline-flex items-center gap-2 px-6 py-3 bg-primary-600 text-white rounded-lg font-semibold text-sm hover:bg-primary-700 hover:scale-105 transition-all duration-300 shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-primary-500">
+        <a href="{{ $c.telegram.href | safeURL }}" aria-label="{{ if eq $lang "ru" }}Связаться через Telegram{{ else }}Contact via Telegram{{ end }}" class="inline-flex items-center gap-2 px-6 py-3 bg-primary-600 text-white rounded-xl font-semibold text-base hover:bg-primary-700 transition-colors">
           {{ partial "icons/send.html" "w-4 h-4" }}
           Telegram
         </a>
-        <a href="{{ $c.whatsapp.href }}" class="inline-flex items-center gap-2 px-6 py-3 bg-primary-600 text-white rounded-lg font-semibold text-sm hover:bg-primary-700 hover:scale-105 transition-all duration-300 shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-primary-500">
+        <a href="{{ $c.whatsapp.href }}" aria-label="{{ if eq $lang "ru" }}Связаться через WhatsApp{{ else }}Contact via WhatsApp{{ end }}" class="inline-flex items-center gap-2 px-6 py-3 bg-primary-600 text-white rounded-xl font-semibold text-base hover:bg-primary-700 transition-colors">
           {{ partial "icons/whatsapp.html" "w-4 h-4" }}
           WhatsApp
         </a>
-        <a href="{{ $c.imo.href }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 bg-primary-600 text-white rounded-lg font-semibold text-sm hover:bg-primary-700 hover:scale-105 transition-all duration-300 shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-primary-500">
+        <a href="{{ $c.imo.href }}" target="_blank" rel="noopener noreferrer" aria-label="{{ if eq $lang "ru" }}Связаться через IMO{{ else }}Contact via IMO{{ end }}" class="inline-flex items-center gap-2 px-6 py-3 bg-primary-600 text-white rounded-xl font-semibold text-base hover:bg-primary-700 transition-colors">
           {{ partial "icons/imo.html" "w-4 h-4" }}
           Imo
         </a>
-        <a href="{{ $c.signal.href }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 bg-primary-600 text-white rounded-lg font-semibold text-sm hover:bg-primary-700 hover:scale-105 transition-all duration-300 shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-primary-500">
+        <a href="{{ $c.signal.href }}" target="_blank" rel="noopener noreferrer" aria-label="{{ if eq $lang "ru" }}Связаться через Signal{{ else }}Contact via Signal{{ end }}" class="inline-flex items-center gap-2 px-6 py-3 bg-primary-600 text-white rounded-xl font-semibold text-base hover:bg-primary-700 transition-colors">
           {{ partial "icons/signal.html" "w-4 h-4" }}
           Signal
         </a>
-        <a href="{{ $c.instagram.href }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 bg-primary-600 text-white rounded-lg font-semibold text-sm hover:bg-primary-700 hover:scale-105 transition-all duration-300 shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-primary-500">
-          {{ partial "icons/instagram.html" "w-4 h-4" }}
-          Instagram
-        </a>
-        <a href="{{ $c.email.href }}" class="inline-flex items-center gap-2 px-6 py-3 bg-primary-600 text-white rounded-lg font-semibold text-sm hover:bg-primary-700 hover:scale-105 transition-all duration-300 shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-primary-500">
+        <a href="{{ $c.email.href }}" class="inline-flex items-center gap-2 px-6 py-3 bg-primary-600 text-white rounded-xl font-semibold text-base hover:bg-primary-700 transition-colors">
           {{ partial "icons/mail.html" "w-4 h-4" }}
           {{ $c.email.display }}
         </a>
-        <a href="{{ $c.phone.href | safeURL }}" class="inline-flex items-center gap-2 px-6 py-3 bg-primary-600 text-white rounded-lg font-semibold text-sm hover:bg-primary-700 hover:scale-105 transition-all duration-300 shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-primary-500">
+        <a href="{{ $c.phone.href | safeURL }}" class="inline-flex items-center gap-2 px-6 py-3 bg-primary-600 text-white rounded-xl font-semibold text-base hover:bg-primary-700 transition-colors">
           {{ partial "icons/phone.html" "w-4 h-4" }}
           {{ $c.phone.display }}
         </a>

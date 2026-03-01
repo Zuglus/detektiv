@@ -3,6 +3,50 @@
 <title>{{ if .Title }}{{ .Title }} — {{ end }}{{ index .Site.Data.company.name .Lang }}</title>
 <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ index .Site.Data.company.name .Lang }}{{ end }}">
 
+{{/* Canonical URL */}}
+<link rel="canonical" href="{{ .Permalink }}">
+
+{{/* Hreflang alternates */}}
+{{ if .IsTranslated }}
+{{ range .Translations }}
+<link rel="alternate" hreflang="{{ .Lang }}" href="{{ .Permalink }}">
+{{ end }}
+<link rel="alternate" hreflang="{{ .Lang }}" href="{{ .Permalink }}">
+{{ end }}
+
+{{/* Open Graph */}}
+<meta property="og:title" content="{{ if .Title }}{{ .Title }} — {{ end }}{{ index .Site.Data.company.name .Lang }}">
+<meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ index .Site.Data.company.name .Lang }}{{ end }}">
+<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:site_name" content="{{ index .Site.Data.company.name .Lang }}">
+{{ if .Params.image }}
+<meta property="og:image" content="{{ .Params.image | absURL }}">
+{{ else }}
+<meta property="og:image" content="{{ "/images/og-default.jpg" | absURL }}">
+{{ end }}
+
+{{/* Schema.org LocalBusiness for homepage */}}
+{{ if .IsHome }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "{{ index .Site.Data.company.name .Lang }}",
+  "description": "Лицензированное частное детективное агентство. Москва, с 2010 года.",
+  "telephone": "{{ .Site.Data.contacts.phone.display }}",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "{{ .Site.Data.contacts.address.street }}",
+    "addressLocality": "{{ .Site.Data.contacts.address.city }}",
+    "addressCountry": "{{ .Site.Data.contacts.address.country }}"
+  },
+  "foundingDate": "2010",
+  "license": "{{ .Site.Data.company.license.ru }}"
+}
+</script>
+{{ end }}
+
 <!-- Preload critical fonts (cyrillic + latin only) -->
 <link rel="preload" href="/fonts/ibm-plex-sans-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/ibm-plex-sans-latin.woff2" as="font" type="font/woff2" crossorigin>

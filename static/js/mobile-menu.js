@@ -109,11 +109,4 @@
     }, { passive: true });
   }
 
-  // Scroll to top button
-  var scrollBtn = document.getElementById('scroll-to-top');
-  if (scrollBtn) {
-    scrollBtn.addEventListener('click', function () {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  }
 })();

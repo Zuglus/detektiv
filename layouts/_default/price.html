@@ -3,35 +3,15 @@
 {{- $p := .Site.Data.pages.price -}}
 {{- $c := .Site.Data.contacts -}}
 
-{{/* ── HEADER ── */}}
-<section class="relative overflow-hidden bg-gradient-to-br from-primary-600 to-primary-700 text-white pt-32 pb-16 md:pt-40">
-  {{ partial "hero-atmosphere.html" . }}
+{{/* ── HEADER: compact version (48px padding) ── */}}
+<section class="relative overflow-hidden text-white pt-40 pb-12 bg-gradient-header">
   <div class="relative z-10 max-w-5xl mx-auto px-6 text-center">
-    <h1 class="font-display text-display-md font-bold mb-12">{{ index $p.header $lang }}</h1>
-    <div class="grid grid-cols-1 md:grid-cols-3">
+    <h1 class="font-display text-display-sm md:text-display-md font-bold mb-6">{{ if eq $lang "ru" }}Услуги{{ else }}Services{{ end }}</h1>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
       {{ range $i, $item := index $p.intro.list $lang }}
-      <div class="flex flex-col items-center text-center px-8 py-4 {{ if gt $i 0 }}border-t md:border-t-0 md:border-l border-white/20{{ end }}">
-        <span class="w-10 h-10 rounded-full bg-white/20 text-white flex items-center justify-center text-base font-bold mb-3 flex-shrink-0">{{ add $i 1 }}</span>
-        <span class="text-primary-100 text-sm leading-relaxed">{{ $item }}</span>
-      </div>
-      {{ end }}
-    </div>
-  </div>
-</section>
-
-{{ partial "breadcrumbs.html" (dict "home" (cond (eq $lang "ru") "/" "/en/") "name" (cond (eq $lang "ru") "Прайс" "Price") "link" "" "secondName" "") }}
-
-{{/* ── TRUST INDICATORS ── */}}
-<section class="py-12 bg-white" data-reveal>
-  <div class="max-w-6xl mx-auto px-6">
-    <h2 class="font-display text-heading-md font-bold text-secondary-900 text-center mb-8">{{ index $p.trustElements.title $lang }}</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-      {{ range index $p.trustElements.items $lang }}
-      <div class="flex items-center gap-3 bg-primary-50 rounded-xl p-4 hover:bg-primary-100 transition-colors">
-        <div class="flex-shrink-0 w-6 h-6 rounded-full bg-primary-600 text-white flex items-center justify-center">
-          {{ partial "icons/check.html" "w-3.5 h-3.5" }}
-        </div>
-        <span class="text-secondary-800 text-sm font-medium">{{ . }}</span>
+      <div class="flex items-start justify-center gap-2 px-4 py-2 {{ if gt $i 0 }}md:border-l border-white/20{{ end }}">
+        <span class="mt-2 w-6 h-6 rounded-full bg-white/20 text-white flex items-center justify-center text-xs font-bold flex-shrink-0">{{ add $i 1 }}</span>
+        <span class="text-white/90">{{ $item }}</span>
       </div>
       {{ end }}
     </div>
@@ -39,11 +19,11 @@
 </section>
 
 {{/* ── DISCLAIMER ── */}}
-<section class="py-8 bg-secondary-50">
+<section class="py-6 bg-secondary-50">
   <div class="max-w-4xl mx-auto px-6">
-    <div class="border-l-4 border-primary-400 pl-5 py-1 flex gap-3 items-start">
+    <div class="flex gap-3 items-start text-sm text-secondary-600">
       {{ partial "icons/info.html" "w-4 h-4 flex-shrink-0 text-primary-500 mt-0.5" }}
-      <p class="text-secondary-600 text-body-sm">{{ index $p.intro.text $lang }}</p>
+      <p>{{ index $p.intro.text $lang }}</p>
     </div>
   </div>
 </section>
@@ -60,13 +40,11 @@
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {{ range $cat.services }}
       {{- $svc := . -}}
-      <div class="group flex flex-col bg-white rounded-2xl border border-secondary-100 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 overflow-hidden">
+      <div class="group flex flex-col bg-white rounded-2xl border border-secondary-100 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 overflow-hidden">
         <div class="p-6 flex flex-col flex-1 gap-4">
-          <div>
-            <h3 class="font-semibold text-secondary-900 text-heading-sm">{{ index $svc.title $lang }}</h3>
-          </div>
-          <p class="text-secondary-600 text-sm flex-1">{{ index $svc.description $lang }}</p>
-          <p class="text-secondary-700 text-xs font-semibold">{{ if eq $lang "ru" }}Что включено:{{ else }}What's included:{{ end }}</p>
+          <h3 class="font-semibold text-secondary-900 text-heading-sm text-center">{{ index $svc.title $lang }}</h3>
+          <p class="text-secondary-600 text-sm flex-1">{{ index $svc.description $lang }}{{ with index $svc.note $lang }} <span class="text-secondary-400 text-xs italic">({{ . }})</span>{{ end }}</p>
+          
           <ul class="space-y-1.5">
             {{ range index $svc.features $lang }}
             <li class="flex items-center gap-2 text-secondary-600 text-xs">
@@ -77,7 +55,8 @@
             </li>
             {{ end }}
           </ul>
-          <a href="{{ $c.telegram.href | safeURL }}" class="mt-auto inline-flex items-center justify-center px-4 py-2.5 bg-primary-600 hover:bg-primary-700 text-white rounded-xl text-sm font-medium transition-colors">
+          {{/* Secondary button instead of Primary */}}
+          <a href="{{ if eq $lang "ru" }}/kontakty{{ else }}/en/contact{{ end }}" class="self-center inline-flex items-center px-5 py-2.5 border border-primary-600 text-primary-600 hover:bg-primary-50 rounded-xl text-sm font-medium transition-colors">
             {{ if eq $lang "ru" }}Получить консультацию{{ else }}Get consultation{{ end }}
           </a>
         </div>
@@ -88,26 +67,63 @@
 </section>
 {{ end }}
 
-{{/* ── FOOTER TEXT ── */}}
+{{/* ── CTA SECTION: replaced abstract text with concrete info ── */}}
 <section class="py-16 bg-secondary-50" data-reveal>
   <div class="max-w-4xl mx-auto px-6">
-    <div class="bg-primary-50 border border-primary-100 rounded-2xl p-8 md:p-12">
-      <div class="prose prose-secondary max-w-none text-secondary-700 text-body-md">
-        {{ index $p.footer.text $lang | safeHTML }}
+    <div class="bg-primary-50 border border-primary-100 rounded-2xl p-6 md:p-12 text-center">
+      <h2 class="font-display text-heading-lg font-bold text-primary-700 mb-6">
+        {{ if eq $lang "ru" }}Как формируется стоимость{{ else }}How pricing works{{ end }}
+      </h2>
+      <div class="prose prose-secondary max-w-none text-secondary-700 text-left">
+        {{ if eq $lang "ru" }}
+        <p>Стоимость каждого заказа рассчитывается индивидуально и зависит от нескольких факторов:</p>
+        <ul class="space-y-2 mt-4">
+          <li class="flex items-start gap-2">
+            <span class="text-primary-600 font-bold">1.</span>
+            <span><strong>Сложность задачи</strong> — объём необходимой работы и уровень сложности</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-primary-600 font-bold">2.</span>
+            <span><strong>География</strong> — Москва, регионы РФ или зарубежные направления</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-primary-600 font-bold">3.</span>
+            <span><strong>Срочность</strong> — стандартные сроки или срочное выполнение</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-primary-600 font-bold">4.</span>
+            <span><strong>Ресурсы</strong> — необходимость привлечения дополнительных специалистов или оборудования</span>
+          </li>
+        </ul>
+        <p class="mt-6">Консультация бесплатна. Окончательная стоимость фиксируется в договоре до начала работ.</p>
+        {{ else }}
+        <p>The cost of each order is calculated individually and depends on several factors:</p>
+        <ul class="space-y-2 mt-4">
+          <li class="flex items-start gap-2">
+            <span class="text-primary-600 font-bold">1.</span>
+            <span><strong>Task complexity</strong> — volume of work required and difficulty level</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-primary-600 font-bold">2.</span>
+            <span><strong>Geography</strong> — Moscow, Russian regions, or international</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-primary-600 font-bold">3.</span>
+            <span><strong>Urgency</strong> — standard or expedited timelines</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-primary-600 font-bold">4.</span>
+            <span><strong>Resources</strong> — need for additional specialists or equipment</span>
+          </li>
+        </ul>
+        <p class="mt-6">Consultation is free. Final cost is fixed in the contract before work begins.</p>
+        {{ end }}
       </div>
-      <div class="mt-8 flex flex-wrap gap-3">
-        <span class="text-secondary-600 text-sm">{{ index $p.footer.propose $lang }}</span>
-        <a href="{{ $c.telegram.href | safeURL }}" class="inline-flex items-center gap-1.5 text-primary-600 font-medium text-sm hover:underline">
-          {{ partial "icons/send.html" "w-4 h-4" }}
-          Telegram
-        </a>
-        <a href="{{ $c.whatsapp.href }}" class="inline-flex items-center gap-1.5 text-primary-600 font-medium text-sm hover:underline">
-          {{ partial "icons/whatsapp.html" "w-4 h-4" }}
-          WhatsApp
-        </a>
-        <a href="{{ $c.email.href }}" class="inline-flex items-center gap-1.5 text-primary-600 font-medium text-sm hover:underline">
-          {{ partial "icons/mail.html" "w-4 h-4" }}
-          {{ $c.email.display }}
+      
+      {{/* Single Primary CTA at the bottom */}}
+      <div class="mt-8">
+        <a href="{{ if eq $lang "ru" }}/kontakty{{ else }}/en/contact{{ end }}" class="inline-flex items-center px-8 py-4 bg-primary-600 hover:bg-primary-700 text-white rounded-xl text-lg font-semibold transition-colors">
+          {{ if eq $lang "ru" }}Получить консультацию{{ else }}Get consultation{{ end }}
         </a>
       </div>
     </div>

@@ -1,286 +1,177 @@
-# Сайт детективного агентства - Статус проекта
+# Сайт детективного агентства — Hugo SSG
 
-## ✅ Текущий статус: PRODUCTION READY
+## Текущий стек
 
-**Дата последнего обновления**: 2026-02-21
-**Финальная оценка проекта**: 9.8/10
-**Статус сборки**: ✅ УСПЕШНО
-**Миграция UnifiedCard**: ✅ ЗАВЕРШЕНА  
-
----
-
-## 🎯 Выполненные задачи
-
-### ✅ Дизайн согласованный и простой
-- **Консолидированная дизайн-система** с единым подходом к компонентам
-- **UnifiedCard система** заменила 11+ фрагментированных вариантов карточек
-- **UnifiedButton система** с полной типизацией и 5 вариантами
-- **Backdrop blur в навигации** с @supports fallback для старых браузеров
-- **8pt grid система** для consistent spacing
-
-### ✅ Код последовательный и понятный
-- **TypeScript excellence**: Полная типизация, score 9/10
-- **Компонентная архитектура**: Четкое разделение content/layout/ui + lib/ + hooks/
-- **Исправлены конфликты именования**: IconSvg vs iconSvg
-- **Производительность**: useCallback для мемоизации, hardware acceleration через will-change/transform-gpu
-- **Тестирование**: 30+ test файлов с comprehensive coverage
-- **Новые компоненты**: IconSvg с полной типизацией и тестированием  
-- **Улучшенный UX**: Оптимизированная навигация, выравнивание элементов и социальные иконки
-- **Оптимизация CSS**: Удаление избыточных стилей, встроенная стилизация компонентов
-- **Очистка контента**: Удаление устаревших секций, улучшение структуры
-
-### ✅ Технические требования
-- **Статический сайт**: Next.js SSG, оптимизированная сборка
-- **Маршруты сохранены**: Полная совместимость с существующими URL
-- **Минимум JS**: Только необходимые интерактивности
-- **SEO готово**: Semantic HTML, proper meta tags
-- **Базовые заголовки**: минимальные security headers для статики
-- **ESLint 9.x**: Обновленная конфигурация без warnings
-- **Test coverage**: Улучшено с 40.73% до 84.25%
-
-### ✅ Адаптивность и доступность
-- **WCAG 2.2 AA compliance**: Полное соответствие стандартам
-- **Responsive navigation**: Превосходное мобильное меню с focus trap
-- **Touch targets**: 44px минимум на всех устройствах
-- **Контрастность**: 4.5:1+ для всех текстов
-- **Keyboard navigation**: Skip links, focus management, escape handlers
-
-### ✅ Современные практики 2025
-- **Backdrop blur**: ✅ Реализовано с graceful degradation
-- **CSS Custom Properties**: ✅ Систематическое использование
-- **Intersection Observer**: ✅ Для scroll animations с reduced motion support
-- **8pt grid system**: ✅ Последовательная система отступов
-- **Микро-взаимодействия**: ✅ Hardware-accelerated animations
+- **Hugo** — статический генератор сайтов
+- **Tailwind CSS 3.4.17** — стилизация через utility-классы
+- **PostCSS + Autoprefixer** — обработка CSS
+- **Двуязычный**: RU (основной) + EN
+- **Деплой**: SFTP через lftp (`scripts/deploy.sh`)
 
 ---
 
-## 🚀 Созданные компоненты
+## Структура проекта
 
-### Унифицированная система компонентов
 ```
-src/
-├── lib/                     # Чистые функции, серверный код, типы, константы
-│   ├── types.ts             # Общие типы (Lang, Route, Post, Breadcrumb...)
-│   ├── classNames.ts        # Утилита слияния CSS-классов
-│   ├── getPosts.ts          # Серверное чтение Markdown (fs, gray-matter)
-│   ├── translateUrl.ts      # Перевод URL между RU/EN
-│   ├── zLayers.ts           # Константы z-index
-│   └── getRoutes/           # Маршруты + routes.json
-├── hooks/                   # React-хуки
-│   └── useFocusTrap.ts      # Focus trap для мобильного меню
-└── components/ui/
-    ├── UnifiedCard.tsx      # Универсальная карточная система
-    ├── UnifiedButton.tsx    # Полиморфный компонент кнопок (кнопки и CTA)
-    ├── IconSvg.tsx          # Типизированная система иконок
-    ├── ErrorBoundary.tsx    # React error boundary
-    └── ScrollReveal.tsx     # Анимация появления (IntersectionObserver)
-```
-
-### Последние улучшения
-```
-/src/components/
-├── ui/IconSvg.tsx                    # Оптимизированная система иконок
-├── content/price/valueProposition.tsx # Унифицирован: использует UnifiedCard
-├── content/price/priceDisclaimer.tsx # Использует UnifiedCard с variant="disclaimer"
-├── ui/socialIconsFooter.tsx          # Улучшенные социальные иконки
-├── content/about/contentAbout.tsx    # Очищенный контент About
-├── layout/footer/footer.tsx          # Улучшенный footer
-├── __tests__/                        # Расширенное тестирование + новые тесты
-├── content/blog/__tests__/           # Тесты для блога
-├── content/contact/__tests__/        # Тесты для контактов
-├── content/guarantee/__tests__/      # Тесты для гарантий
-├── content/job/__tests__/            # Тесты для вакансий
-├── content/post/__tests__/           # Тесты для постов
-├── content/price/__tests__/          # Тесты для цен
-└── public/                           # Статические ассеты
+detektiv/
+├── layouts/                # HTML шаблоны (Go templates)
+│   ├── _default/
+│   │   ├── baseof.html     # Базовый layout (nav, main, footer, JS)
+│   │   ├── about.html      # Страница "О нас"
+│   │   ├── contact.html    # Контакты
+│   │   ├── guarantee.html  # Гарантии
+│   │   ├── job.html        # Вакансии
+│   │   ├── price.html      # Прайс-лист
+│   │   ├── single.html     # Отдельный пост/статья
+│   │   └── list.html       # Список постов/статей
+│   └── partials/
+│       ├── head.html       # meta, fonts, CSS
+│       ├── nav.html        # Навигация
+│       ├── footer.html     # Подвал
+│       ├── hero-atmosphere.html
+│       ├── mobile-sticky.html
+│       └── icons/          # 48+ SVG иконок
+├── content/                # Markdown контент
+│   ├── blog/               # 28 постов (*.ru.md, *.en.md)
+│   ├── stati/              # 28 статей (*.ru.md, *.en.md)
+│   └── *.ru.md / *.en.md   # Основные страницы
+├── data/                   # JSON данные для layouts
+│   ├── company.json        # Реквизиты компании
+│   ├── contacts.json       # Телефоны, мессенджеры, соцсети
+│   ├── nav.json            # Навигационные ссылки
+│   └── pages/              # Данные каждой страницы
+│       ├── home.json
+│       ├── price.json      # 4 категории услуг с ценами
+│       ├── about.json
+│       ├── contact.json
+│       ├── guarantee.json
+│       └── job.json
+├── assets/css/
+│   ├── main.css            # Точка входа: шрифты, CSS vars, Tailwind
+│   └── styles/             # Дополнительные CSS модули
+│       ├── base.css
+│       ├── animations.css
+│       ├── accessibility.css
+│       ├── responsive.css
+│       ├── fonts.css
+│       ├── utilities.css
+│       └── components/navigation.css
+├── static/
+│   ├── fonts/              # WOFF2: IBM Plex Sans, Playfair Display
+│   ├── images/founder.png
+│   └── js/
+│       ├── mobile-menu.js
+│       ├── scroll-reveal.js
+│       └── yandex.js       # Яндекс.Метрика 70102144
+├── public/                 # Compiled output (git ignored)
+├── config.toml             # Hugo конфигурация
+├── tailwind.config.js      # Дизайн-система
+├── postcss.config.js
+└── package.json
 ```
 
 ---
 
-## 🎨 Унифицированная дизайн-система
+## Команды
 
-### Card Variants
-```typescript
-'default' | 'dark' | 'emergency' | 'accent' | 'principle' | 'pricing' | 'trust' | 'disclaimer' | 'light-green'
-```
-
-### Button Variants  
-```typescript
-'primary' | 'secondary' | 'ghost' | 'outline' | 'danger'
-```
-
-### Размеры
-```typescript
-Card: 'compact' | 'default' | 'large'
-Button: 'sm' | 'md' | 'lg' | 'xl'
-```
-
----
-
-## 📊 Метрики качества
-
-| Категория | Оценка | Статус |
-|-----------|--------|--------|
-| **Дизайн консистентность** | 9.8/10 | ✅ Отлично |
-| **Код качество** | 9.7/10 | ✅ Отлично |
-| **TypeScript** | 9.7/10 | ✅ Отлично |
-| **Доступность** | 9.5/10 | ✅ WCAG 2.2 AA |
-| **Производительность** | 9.0/10 | ✅ Оптимизировано |
-| **Тестирование** | 8.5/10 | ✅ Качественное покрытие 84.25% |
-| **Адаптивность** | 9.0/10 | ✅ All devices |
-| **Security** | 9.0/10 | ✅ Базовые заголовки на статике |
-
----
-
-## 🔧 Команды для разработки
-
-### Основные команды
 ```bash
-npm run dev          # Разработка
-npm run build        # Сборка production
-npm run serve        # Запуск статического сайта
-npm run lint         # ESLint проверка
-npm run test:unit    # Unit тесты
-npm run test         # Полный пайплайн (build + unit + e2e)
-npm run test:e2e     # E2E тесты (требует npx playwright install)
+hugo server              # Разработка (localhost:1313)
+hugo server --buildDrafts  # С черновиками
+hugo                     # Production сборка → public/
+npm run deploy           # Деплой на SFTP (только из ветки main)
 ```
 
-### Аудит качества
-```bash
-npm run test:coverage     # Покрытие тестами
-npm run test:coverage 2>&1 | grep "All files"  # Быстрая проверка общего покрытия
-npm run test:all         # Все тесты
-lighthouse http://localhost:3001 --only-categories=accessibility
-```
+> Деплой заблокирован из экспериментальных веток. Сначала слить в `main`.
 
 ---
 
-## 🆕 Последние обновления
+## Дизайн-система (tailwind.config.js)
 
-### 2026-02-14: Реорганизация архитектуры проекта
-- **Удалён `src/pages/`** (legacy Pages Router): `404.tsx` и `_app.tsx` были дубликатами App Router. Build-скрипт дополнен: `cp out/_not-found.html out/404.html`
-- **`utility/` разделён** на `src/lib/` (функции, типы, серверный код), `src/hooks/` (React-хуки), `src/components/ui/` (React-компоненты ErrorBoundary, ScrollReveal)
-- **Удалены пустые CSS-заглушки**: `cards.css`, `buttons.css`, `forms.css` — артефакты миграции на UnifiedCard
-- **Тесты about и main** перенесены в `about/__tests__/` и `main/__tests__/` — единообразно с остальными
-- **`aboutData.json` → `about.json`** — консистентно с именованием других секций
-- **Исправлены инлайн-ссылки** в блоке "Остерегайтесь мошенников": `UnifiedButton` предназначен для самостоятельных кнопок/CTA, а не для ссылок внутри текста. `cn()` не разрешает конфликты Tailwind, поэтому `text-primary-600` в className перебивался `text-secondary-700` из варианта `ghost`. Возвращены семантические `<a>` теги
-- **Верификация**: `npm run build` — 80 страниц, `npm run test:unit` — 32 suites / 269 тестов, `npm run lint` — 0 ошибок
-
-### 2026-02-13: Реорганизация jest-файлов
-- **Jest конфигурация вынесена**: 7 mock/setup файлов перемещены из корня в `config/jest/`
-- **Структура**: `config/jest/setup.js`, `tsTransformer.cjs`, `styleMock.js`, `nextImageMock.js`, `nextLinkMock.js`, `markedMock.js`, `grayMatterMock.js`
-- **jest.config.mjs обновлён**: все пути указывают на `config/jest/`
-
-### 2026-02-05: ✅ ЗАВЕРШЕНИЕ МИГРАЦИИ на UnifiedCard
-- **Миграция завершена**: Все 7 файлов полностью мигрированы на UnifiedCard
-- **Мигрированные компоненты**:
-  - `trustIndicators.tsx` → UnifiedCard variant="trust"
-  - `pricingHeader.tsx` → UnifiedCard с Tailwind градиентами
-  - `contactButtons.tsx` → UnifiedCard с Tailwind градиентами
-  - `footer.tsx` → 2 использования UnifiedCard
-  - `contentMain.tsx` → UnifiedCard variant="default"
-  - `contentAbout.tsx` → 4 использования (default, principle, emergency)
-  - `contentContact.tsx` → 5 использований (emergency, accent, default)
-- **Удалены старые CSS классы**: card, card-dark, card-colored, principle-card, card-emergency, card-accent, gradient-card-isolated, pricing-card
-- **Очищен cards.css**: С ~240 строк до 8 строк (удалено 232 строки legacy кода)
-- **Проверено**: Сборка успешна, TypeScript без ошибок, 80 статических страниц
-
-### 2025-11-07: Унификация дизайна страницы с ценами
-- **ValueProposition компонент**: Переведен на UnifiedCard с variant="dark"
-- **Устранение фрагментации**: Удален кастомный класс `card-dark`, теперь используется унифицированная система
-- **Консистентность дизайна**: Все карточки на странице цен используют единую систему компонентов
-
-### 2025-08-06: Технические улучшения
-- **ESLint конфигурация**: Обновлена до версии 9.x, устранены warnings
-- **Security headers**: Кастомные заголовки удалены; при необходимости настраиваются на стороне хостинга/CDN
-- **Test coverage**: Созданы comprehensive тесты для всех 0% coverage компонентов
-- **Next.js оптимизация**: Улучшена конфигурация для static export без warnings
-
-### 📊 Покрытие тестами
-**До улучшений**: 40.73% общее покрытие
-**Текущее состояние**: 84.25% общее покрытие (statements)  
-
-**Созданные тестовые файлы**:
+### Цвета
 ```
-src/__tests__/fonts.test.ts
-src/components/content/__tests__/LazyContent.test.tsx
-src/components/content/blog/__tests__/contentBlog.test.tsx
-src/components/content/contact/__tests__/contentContact.test.tsx
-src/components/content/guarantee/__tests__/contentGuarantee.test.tsx
-src/components/content/job/__tests__/contentJob.test.tsx
-src/components/content/post/__tests__/contentPost.test.tsx
-src/components/content/price/__tests__/contentPrice.test.tsx
+primary   — Detective Green (действия, акценты): 50 / 600 / 700 / 800
+secondary — Neutral Gray (фоны, текст): 50 / 600 / 700 / 800
+accent    — Professional Orange (выделение): 50 / 600 / 700 / 800
+success, error — статусные
 ```
 
-### 🛡️ Security
-- Базовые заголовки: X-Content-Type-Options, Referrer-Policy, X-Frame-Options, Permissions-Policy
-- CSP сознательно не используется для упрощения статики
+### Типографика
+```
+font-primary  — IBM Plex Sans (основной текст)
+font-display  — Playfair Display (заголовки)
 
-### 🚀 Build оптимизации
-- **Удалены warnings**: "Invalid Options" от ESLint
-- **Удалены warnings**: "headers will not automatically work with output: export"
-- **Статическая сборка**: 80 страниц
-- **Генерация переводов**: 27 статей на русском и английском
+text-display-xl  — clamp(3rem, 8vw, 6rem)
+text-display-lg  — clamp(2.5rem, 6vw, 4.5rem)
+text-heading-lg  — clamp(1.75rem, 2.5vw, 2.25rem)
+text-body-md     — clamp(1rem, 1vw, 1.125rem)
+```
 
-### 📈 Качество кода
-- **TypeScript**: Все новые тесты полностью типизированы
-- **Accessibility**: Проверки в тестах для семантической структуры
-- **Best practices**: Использование React Testing Library
-- **Mock стратегия**: Правильное мокирование Next.js компонентов
+### Spacing — 8pt grid
+```
+1 = 2px, 4 = 8px, 8 = 16px, 16 = 32px, 32 = 64px
+```
 
----
-
-## 🎯 Принципы разработки
-
-### Компонентный подход
-- Используй `UnifiedCard` для всех карточек
-- Используй `UnifiedButton` для самостоятельных кнопок и CTA-ссылок
-- **НЕ используй `UnifiedButton` для инлайн-ссылок внутри текста** — там семантический `<a>` с Tailwind-классами. Причина: `cn()` — простая конкатенация без разрешения конфликтов Tailwind, поэтому классы варианта (например `text-secondary-700` у `ghost`) перебивают классы из `className`
-- Следуй существующим TypeScript интерфейсам
-
-### CSS Best Practices
-- CSS Custom Properties для переменных
-- Hardware acceleration для анимаций
-- Mobile-first responsive design
-- Graceful degradation для новых CSS features
-
-### Accessibility First
-- Все интерактивные элементы keyboard accessible
-- Focus indicators с высоким контрастом
-- ARIA labels для screen readers
-- Reduced motion support
+### Карточки — inline Tailwind в layouts
+Нет компонентной системы. Каждый layout использует Tailwind-классы напрямую:
+- `bg-white rounded-2xl border border-secondary-100 shadow-sm` — стандарт
+- `bg-primary-800 rounded-2xl border border-primary-700` — акцент/экстренное
+- `bg-secondary-50 rounded-2xl border border-secondary-100` — мягкий фон
 
 ---
 
-## 📝 Практические указания
+## Мультиязычность
 
-### При обновлении метрик в документации
-1. Проверяй фактические значения через команды (`npm run test:coverage`, `npm run build`)
-2. Обновляй дату последнего обновления при изменении метрик
-3. Избегай оптимистичных прогнозов ("в процессе", ">X%") - указывай точные текущие значения
-
-### При добавлении новых компонентов
-1. Используй существующую дизайн-систему
-2. Следуй TypeScript best practices
-3. Добавляй тесты для новой функциональности
-4. Проверяй accessibility с VoiceOver/NVDA
-
-### При изменении стилей
-1. Используй CSS Custom Properties
-2. Сохраняй 8pt grid систему
-3. Тестируй на мобильных устройствах
-4. Проверяй контрастность цветов
-
-### При оптимизации
-1. Hardware acceleration для анимаций (will-change, transform-gpu)
-2. useCallback для мемоизации обработчиков в хуках
-3. SVG иконки через IconSvg (растровых изображений в контенте нет)
-4. Code splitting для больших dependencies
+- `config.toml`: `defaultContentLanguage = "ru"`, языки ru/en
+- Контент: `slug.ru.md` / `slug.en.md` с общим `translationKey`
+- URL: `/slug` (RU), `/en/slug` (EN)
+- Layouts читают язык через `{{ .Lang }}` и `{{ if eq $lang "ru" }}`
+- Данные в JSON: все строки дублированы `{ "ru": "...", "en": "..." }`
 
 ---
 
-## 🚀 Готовность к production
+## Страницы сайта
 
-**Статус**: ✅ ГОТОВ К ЗАПУСКУ
+**Русский:** `/`, `/price`, `/onas`, `/garantii`, `/stati/`, `/stati/[slug]/`, `/kontakty`, `/vakansii`
+**Английский:** `/en/`, `/en/price`, `/en/about`, `/en/guarantee`, `/en/blog/`, `/en/blog/[slug]/`, `/en/contact`, `/en/job`
+**Всего:** ~70 URL (28 блога RU + 28 EN + 14 основных)
 
-Проект соответствует всем современным стандартам веб-разработки 2025 года и готов к production использованию.
+---
+
+## Принципы разработки
+
+### Архитектурные
+- Контент в Markdown (blog/stati), UI-данные в JSON (data/pages/)
+- Логика шаблонизации — Go templates в layouts/
+- JS минимален: только mobile-menu, scroll-reveal, метрика
+- CSS purging через `hugo_stats.json` + Tailwind
+
+### Стили
+- Все стили — Tailwind utility-классы в layouts
+- CSS Custom Properties для переменных (var(--ease-standard) и т.д.)
+- Анимации через keyframes в main.css
+- Нет CSS классов-компонентов (все inline Tailwind)
+
+### Не использовать
+- React, TypeScript, Jest — они в ветке `main` (Next.js)
+- ESLint — нет JS/TS компонентов для проверки
+- `npm run build` — не существует, использовать `hugo`
+
+---
+
+## Деплой
+
+**Конфиг:** `.deployconfig` (не в git, локальный файл)
+**Защита:** деплой разрешён только из ветки `main`
+**Процесс:**
+1. `hugo` — собрать в `public/`
+2. `npm run deploy` — загрузить `public/` через SFTP (lftp)
+
+**Сервер:** `https://xн--18-6kca2bmbedxg.xn--p1ai/` (IDN домен)
+
+---
+
+## История ветки migration/hugo
+
+- 2026-02-25: полная миграция с Next.js на Hugo SSG
+- 2026-02-27: удалён весь Next.js код (src/, package.json Next.js)
+- 2026-03-01: обновлена документация под Hugo

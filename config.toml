@@ -12,5 +12,7 @@ paginate = 9
   languageName = "English"
   weight = 2
 
+disableKinds = ["taxonomy", "term"]
+
 [build]
   writeStats = true

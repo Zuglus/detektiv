@@ -1,9 +1,7 @@
-/* eslint-disable @typescript-eslint/no-require-imports */
 module.exports = {
   content: [
     './layouts/**/*.html',
     './content/**/*.md',
-    './src/**/*.{js,jsx,ts,tsx}',
   ],
   safelist: [
     // Mobile menu — JS-only classes (not in HTML templates)
@@ -41,42 +39,10 @@ module.exports = {
         // Accent - Professional Orange (выделение, предупреждения)
         accent: {
           50: '#fffbeb',
-          100: '#fef3c7',
           200: '#fde68a',
           300: '#fcd34d',
-          400: '#fbbf24',
-          500: '#f59e0b',
           600: '#d97706',
-          700: '#b45309',
-          800: '#92400e',
-          900: '#78350f',
         },
-        // Success - для успешных операций
-        success: {
-          50: '#f0fdf4',
-          100: '#dcfce7',
-          200: '#bbf7d0',
-          300: '#86efac',
-          400: '#4ade80',
-          500: '#22c55e',
-          600: '#16a34a',
-          700: '#15803d',
-          800: '#166534',
-          900: '#14532d',
-        },
-        // Error - для ошибок и предупреждений
-        error: {
-          50: '#fef2f2',
-          100: '#fee2e2',
-          200: '#fecaca',
-          300: '#fca5a5',
-          400: '#f87171',
-          500: '#ef4444',
-          600: '#dc2626',
-          700: '#b91c1c',
-          800: '#991b1b',
-          900: '#7f1d1d',
-        }
       },
       fontFamily: {
         'primary': ['IBM Plex Sans', 'system-ui', '-apple-system', 'sans-serif'],
@@ -115,19 +81,9 @@ module.exports = {
         'glass': '0 8px 32px rgba(0, 0, 0, 0.12), 0 4px 16px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.4)',
         'glass-hover': '0 20px 60px rgba(0, 0, 0, 0.18), 0 12px 30px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.5)',
       },
-      transitionDuration: {
-        'fast': '150ms',
-        'normal': '300ms', 
-        'slow': '500ms',
-        'bounce': '400ms',
-        'smooth': '600ms',
-      },
-      transitionTimingFunction: {
-        'bounce': 'cubic-bezier(0.68, -0.55, 0.265, 1.55)',
-        'smooth': 'cubic-bezier(0.25, 0.1, 0.25, 1)',
-      },
       backgroundImage: {
         'gradient-primary': 'linear-gradient(135deg, #339955 0%, #247d44 100%)',
+        'gradient-header': 'linear-gradient(135deg, #1a2e1f 0%, #2d6a4f 100%)',
         'gradient-accent': 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)',
       },
       backdropBlur: {
@@ -136,15 +92,6 @@ module.exports = {
         'md': '8px',
         'DEFAULT': '20px',
         'xl': '40px',
-      },
-      keyframes: {
-        'gentle-bounce': {
-          '0%, 100%': { transform: 'translateY(0)' },
-          '50%': { transform: 'translateY(-8px)' }
-        }
-      },
-      animation: {
-        'gentle-bounce': 'gentle-bounce 2s ease-in-out infinite'
       },
       fontSize: {
         // Display - For hero headlines
