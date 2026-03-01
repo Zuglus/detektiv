@@ -3,6 +3,17 @@
 <title>{{ if .Title }}{{ .Title }} — {{ end }}{{ index .Site.Data.company.name .Lang }}</title>
 <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ index .Site.Data.company.name .Lang }}{{ end }}">
 
+{{/* Canonical URL */}}
+<link rel="canonical" href="{{ .Permalink }}">
+
+{{/* Hreflang alternates */}}
+{{ if .IsTranslated }}
+{{ range .Translations }}
+<link rel="alternate" hreflang="{{ .Lang }}" href="{{ .Permalink }}">
+{{ end }}
+<link rel="alternate" hreflang="{{ .Lang }}" href="{{ .Permalink }}">
+{{ end }}
+
 {{/* Open Graph */}}
 <meta property="og:title" content="{{ if .Title }}{{ .Title }} — {{ end }}{{ index .Site.Data.company.name .Lang }}">
 <meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ index .Site.Data.company.name .Lang }}{{ end }}">
