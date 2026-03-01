@@ -158,7 +158,7 @@
     "addressLocality": "{{ $c.address.city }}",
     "addressCountry": "{{ $c.address.country }}"
   },
-  "email": "{{ $c.email.display }}"
+  "email": "{{ replace $c.email.href "mailto:" "" }}"
 }
 </script>
 
