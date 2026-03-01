@@ -12,9 +12,7 @@ paginate = 9
   languageName = "English"
   weight = 2
 
-[taxonomies]
-  # пустой блок — отключает дефолтные таксономии Hugo (tags, categories)
-  # category: используется как обычный frontmatter-параметр, не как таксономия
+disableKinds = ["taxonomy", "term"]
 
 [build]
   writeStats = true
