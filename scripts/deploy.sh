@@ -8,9 +8,17 @@ fi
 
 source .deployconfig
 
+# Защита от случайного деплоя из экспериментальных веток
+CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
+if [ "$CURRENT_BRANCH" != "main" ]; then
+  echo "⛔ Деплой заблокирован: текущая ветка '$CURRENT_BRANCH', не 'main'"
+  echo "   Эта ветка экспериментальная. Слей изменения в main перед деплоем."
+  exit 1
+fi
+
 # Проверка что сборка есть
-if [ ! -d "out" ]; then
-  echo "Ошибка: папка 'out' не найдена. Сначала запустите: npm run build"
+if [ ! -d "public" ]; then
+  echo "Ошибка: папка 'public' не найдена. Сначала запустите: hugo"
   exit 1
 fi
 
@@ -30,7 +38,7 @@ lftp -p $SFTP_PORT -u $SFTP_USER,$SFTP_PASS sftp://$SFTP_HOST$SFTP_PATH << LFTP_
 set sftp:auto-confirm yes
 set net:timeout 30
 set net:max-retries 2
-mirror -R --delete out/ .
+mirror -R --delete public/ .
 quit
 LFTP_EOF
 

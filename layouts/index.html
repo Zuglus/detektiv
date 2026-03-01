@@ -21,7 +21,7 @@
 
   {{/* Content */}}
   <div class="relative z-10 max-w-3xl mx-auto">
-    <h1 class="font-display font-bold text-white mb-6 leading-tight" style="font-size:clamp(2.5rem,6vw,4rem); text-shadow:0 4px 24px rgba(0,0,0,0.35);">
+    <h1 class="font-display font-bold text-white mb-6 leading-tight" style="font-size:clamp(1.5rem,8vw,4rem); text-shadow:0 4px 24px rgba(0,0,0,0.35);">
       {{ if eq $lang "ru" }}Узнайте правду. Конфиденциально.{{ else }}Find the truth. Confidentially.{{ end }}
     </h1>
 
@@ -51,7 +51,7 @@
         class="inline-flex items-center px-8 py-4 bg-primary-500 hover:bg-primary-400 text-white font-semibold rounded-xl text-lg transition-all duration-300 hover:-translate-y-0.5 shadow-lg shadow-primary-500/30">
         {{ if eq $lang "ru" }}Получить консультацию{{ else }}Get a consultation{{ end }}
       </a>
-      <a href="{{ $c.phone.href | safeURL }}" class="text-2xl font-bold text-white hover:text-primary-200 transition-colors">
+      <a href="{{ $c.phone.href | safeURL }}" class="text-lg sm:text-2xl font-bold text-white hover:text-primary-200 transition-colors">
         {{ $c.phone.display }}
       </a>
     </div>
@@ -175,7 +175,6 @@
             <span class="px-2.5 py-1 bg-primary-100 text-primary-700 rounded-full text-xs font-medium">
               {{ if eq $lang "ru" }}Дело{{ else }}Case{{ end }}
             </span>
-            <span class="text-secondary-400 text-xs">{{ .Date.Format "02.01.2006" }}</span>
           </div>
           <h3 class="font-display text-lg font-bold text-secondary-900 mb-3 group-hover:text-primary-700 transition-colors line-clamp-2">
             {{ .Title }}
