@@ -13,7 +13,7 @@
       
       {{/* Column 1: Company info */}}
       <div class="space-y-4">
-        <h3 class="text-lg font-semibold text-white mb-4">{{ index .Site.Data.company.name $lang }}</h3>
+        <h3 class="text-lg font-semibold text-white pb-3 border-b border-secondary-700/30">{{ index .Site.Data.company.name $lang }}</h3>
         <p class="text-secondary-300 text-sm">{{ index .Site.Data.company.license $lang }}</p>
         <p class="text-secondary-300 text-sm">{{ index .Site.Data.company.location $lang }}</p>
         <p class="text-secondary-300 text-sm">{{ $c.address.street }}</p>
@@ -21,7 +21,7 @@
 
       {{/* Column 2: Navigation */}}
       <div class="space-y-4">
-        <h3 class="text-lg font-semibold text-white mb-4">{{ if eq $lang "ru" }}Навигация{{ else }}Navigation{{ end }}</h3>
+        <h3 class="text-lg font-semibold text-white pb-3 border-b border-secondary-700/30">{{ if eq $lang "ru" }}Навигация{{ else }}Navigation{{ end }}</h3>
         <nav class="grid grid-cols-2 gap-x-6 gap-y-2">
           {{ range index .Site.Data.nav $lang }}
           <a href="{{ .href }}" class="text-secondary-300 hover:text-primary-400 transition-colors text-sm">{{ .name }}</a>
@@ -33,11 +33,11 @@
 
       {{/* Column 3: Contact */}}
       <div class="space-y-4">
-        <h3 class="text-lg font-semibold text-white mb-4">{{ if eq $lang "ru" }}Связаться{{ else }}Contact{{ end }}</h3>
+        <h3 class="text-lg font-semibold text-white pb-3 border-b border-secondary-700/30">{{ if eq $lang "ru" }}Связаться{{ else }}Contact{{ end }}</h3>
         <a href="{{ $c.phone.href | safeURL }}" class="block text-2xl font-bold text-primary-400 hover:text-primary-300 transition-colors mb-4">{{ $c.phone.display }}</a>
         
         {{/* Messenger icons with labels */}}
-        <div class="grid grid-cols-3 gap-3">
+        <div class="grid grid-cols-3 gap-2 bg-white/5 rounded-xl p-3">
           <a href="{{ $c.telegram.href | safeURL }}" class="flex flex-col items-center gap-1 p-2 rounded-lg hover:bg-white/10 transition-colors" aria-label="Telegram">
             {{ partial "icons/send.html" "w-6 h-6 text-primary-400" }}
             <span class="text-xs text-secondary-300">Telegram</span>
@@ -69,7 +69,7 @@
     <div class="border-t border-secondary-700/50 pt-8">
       {{/* Bottom bar */}}
       <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-secondary-400">
-        <p>© {{ .Site.Data.company.founded }}–{{ now.Format "2006" }} · {{ index .Site.Data.company.name $lang }} · {{ index .Site.Data.company.license $lang }}</p>
+        <p>© {{ .Site.Data.company.founded }}–{{ now.Format "2006" }} · {{ index .Site.Data.company.name $lang }}</p>
         <button
           id="scroll-to-top"
           class="inline-flex items-center gap-2 px-4 py-2 bg-primary-600/20 hover:bg-primary-600/40 text-white rounded-lg transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary-500/30"
