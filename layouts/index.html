@@ -1,12 +1,15 @@
 {{ define "main" }}
 {{- $lang := .Lang -}}
 {{- $c := .Site.Data.contacts -}}
+{{- $p := .Site.Data.pages.home -}}
 {{- $articlesPath := cond (eq $lang "ru") "/stati" "/en/blog" -}}
+{{- $contactPath := cond (eq $lang "ru") "/kontakty/" "/en/contact/" -}}
+{{- $pricePath := cond (eq $lang "ru") "/price" "/en/price" -}}
 
 {{/* ── HERO: 100vh with trust badges ── */}}
 <section class="relative min-h-screen flex flex-col items-center justify-center text-center px-6 overflow-hidden">
   {{/* Background gradient */}}
-  <div class="absolute inset-0" style="background: linear-gradient(180deg, #1a2e1f 0%, #2d6a4f 100%);"></div>
+  <div class="absolute inset-0 bg-gradient-header"></div>
 
   {{/* Atmospheric fog effects */}}
   <div class="absolute pointer-events-none" aria-hidden="true"
@@ -20,35 +23,35 @@
 
   {{/* Content */}}
   <div class="relative z-10 max-w-3xl mx-auto">
-    <h1 class="font-display font-bold text-white mb-6 leading-tight" style="font-size:clamp(1.5rem,8vw,4rem); text-shadow:0 4px 24px rgba(0,0,0,0.35);">
-      {{ if eq $lang "ru" }}Узнайте правду. Конфиденциально.{{ else }}Find the truth. Confidentially.{{ end }}
+    <h1 class="font-display font-bold text-white mb-6 leading-tight text-display-lg" style="text-shadow:0 4px 24px rgba(0,0,0,0.35);">
+      {{ index $p.hero.title $lang }}
     </h1>
 
     <p class="text-lg md:text-xl mb-8 text-white/80">
-      {{ if eq $lang "ru" }}Частный детектив в Москве с 2010 года. Лицензия МВД 50ЧД2021000323{{ else }}Private detective in Moscow since 2010. MIA license 50ЧД2021000323{{ end }}
+      {{ index $p.hero.subtitle $lang }}
     </p>
 
     {{/* Trust badges */}}
     <div class="flex flex-wrap items-center justify-center gap-4 mb-10">
+      {{ range $i, $badge := $p.hero.badges }}
       <div class="flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
+        {{ if eq $i 0 }}
         <svg class="w-4 h-4 text-primary-300" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-        <span class="text-white/90 text-sm">{{ if eq $lang "ru" }}16 лет{{ else }}16 years{{ end }}</span>
-      </div>
-      <div class="flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
+        {{ else if eq $i 1 }}
         <svg class="w-4 h-4 text-primary-300" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-        <span class="text-white/90 text-sm">{{ if eq $lang "ru" }}Лицензия МВД{{ else }}MIA Licensed{{ end }}</span>
-      </div>
-      <div class="flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
+        {{ else }}
         <svg class="w-4 h-4 text-primary-300" fill="currentColor" viewBox="0 0 20 20"><path d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"/></svg>
-        <span class="text-white/90 text-sm">{{ if eq $lang "ru" }}Москва{{ else }}Moscow{{ end }}</span>
+        {{ end }}
+        <span class="text-white/90 text-sm">{{ index . $lang }}</span>
       </div>
+      {{ end }}
     </div>
 
     {{/* CTA buttons */}}
     <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-      <a href="{{ if eq $lang "ru" }}/kontakty/{{ else }}/en/contact/{{ end }}"
-        class="inline-flex items-center px-8 py-4 bg-primary-500 hover:bg-primary-400 text-white font-semibold rounded-xl text-lg transition-all duration-300 hover:-translate-y-0.5 shadow-lg shadow-primary-500/30">
-        {{ if eq $lang "ru" }}Получить консультацию{{ else }}Get a consultation{{ end }}
+      <a href="{{ $contactPath }}"
+        class="inline-flex items-center px-8 py-4 bg-primary-500 hover:bg-primary-400 text-white font-semibold rounded-xl text-lg transition-colors">
+        {{ index $p.hero.cta $lang }}
       </a>
       <a href="{{ $c.phone.href | safeURL }}" class="text-lg sm:text-2xl font-bold text-white hover:text-primary-200 transition-colors">
         {{ $c.phone.display }}
@@ -66,58 +69,33 @@
 <section class="py-20 bg-white" data-reveal>
   <div class="max-w-6xl mx-auto px-6">
     <div class="text-center mb-12">
-      <h2 class="font-display text-3xl font-bold text-secondary-900 mb-4">
-        {{ if eq $lang "ru" }}Ключевые услуги{{ else }}Key Services{{ end }}
+      <h2 class="font-display text-heading-lg font-bold text-secondary-900 mb-4">
+        {{ index $p.services.title $lang }}
       </h2>
       <p class="text-secondary-600 max-w-2xl mx-auto">
-        {{ if eq $lang "ru" }}Профессиональная помощь в решении сложных задач{{ else }}Professional assistance in solving complex tasks{{ end }}
+        {{ index $p.services.subtitle $lang }}
       </p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      {{/* Service 1: Досье */}}
-      <div class="group bg-secondary-50 rounded-2xl p-8 border border-secondary-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+      {{ range $p.services.items }}
+      <div class="group bg-secondary-50 rounded-2xl p-6 border border-secondary-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
         <div class="w-14 h-14 rounded-xl bg-primary-100 flex items-center justify-center text-primary-600 mb-6 group-hover:scale-110 transition-transform">
-          {{ partial "icons/file-text.html" "w-7 h-7" }}
+          {{ partial (printf "icons/%s.html" .icon) "w-7 h-7" }}
         </div>
         <h3 class="font-display text-xl font-bold text-secondary-900 mb-3">
-          {{ if eq $lang "ru" }}Досье{{ else }}Dossier{{ end }}
+          {{ index .title $lang }}
         </h3>
         <p class="text-secondary-600 text-sm leading-relaxed">
-          {{ if eq $lang "ru" }}Сбор и анализ информации о физических лицах, организациях или объектах недвижимости{{ else }}Collection and analysis of information about individuals, organizations or real estate objects{{ end }}
+          {{ index .text $lang }}
         </p>
       </div>
-
-      {{/* Service 2: Наблюдение */}}
-      <div class="group bg-secondary-50 rounded-2xl p-8 border border-secondary-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-        <div class="w-14 h-14 rounded-xl bg-primary-100 flex items-center justify-center text-primary-600 mb-6 group-hover:scale-110 transition-transform">
-          {{ partial "icons/eye.html" "w-7 h-7" }}
-        </div>
-        <h3 class="font-display text-xl font-bold text-secondary-900 mb-3">
-          {{ if eq $lang "ru" }}Наблюдение{{ else }}Surveillance{{ end }}
-        </h3>
-        <p class="text-secondary-600 text-sm leading-relaxed">
-          {{ if eq $lang "ru" }}Профессиональное наблюдение за объектами с фото- и видеофиксацией в рамках закона{{ else }}Professional surveillance of objects with photo and video recording within legal framework{{ end }}
-        </p>
-      </div>
-
-      {{/* Service 3: Поиск людей */}}
-      <div class="group bg-secondary-50 rounded-2xl p-8 border border-secondary-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-        <div class="w-14 h-14 rounded-xl bg-primary-100 flex items-center justify-center text-primary-600 mb-6 group-hover:scale-110 transition-transform">
-          {{ partial "icons/user.html" "w-7 h-7" }}
-        </div>
-        <h3 class="font-display text-xl font-bold text-secondary-900 mb-3">
-          {{ if eq $lang "ru" }}Поиск людей{{ else }}People Search{{ end }}
-        </h3>
-        <p class="text-secondary-600 text-sm leading-relaxed">
-          {{ if eq $lang "ru" }}Поиск родственников, одноклассников, сослуживцев, соседей и других лиц{{ else }}Search for relatives, classmates, co-workers, neighbors and other persons{{ end }}
-        </p>
-      </div>
+      {{ end }}
     </div>
 
     <div class="text-center mt-10">
-      <a href="{{ if eq $lang "ru" }}/price{{ else }}/en/price{{ end }}" class="inline-flex items-center text-primary-600 font-semibold hover:text-primary-700 transition-colors">
-        {{ if eq $lang "ru" }}Все услуги{{ else }}All services{{ end }}
+      <a href="{{ $pricePath }}" class="inline-flex items-center text-primary-600 font-semibold hover:text-primary-700 transition-colors">
+        {{ index $p.services.allLink $lang }}
         <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
       </a>
     </div>
@@ -128,24 +106,18 @@
 <section class="py-20 bg-gradient-to-br from-primary-600 to-primary-700 text-white" data-reveal>
   <div class="max-w-6xl mx-auto px-6">
     <div class="text-center mb-12">
-      <h2 class="font-display text-3xl font-bold mb-4">
-        {{ if eq $lang "ru" }}Почему нам доверяют{{ else }}Why Trust Us{{ end }}
+      <h2 class="font-display text-heading-lg font-bold mb-4">
+        {{ index $p.trust.title $lang }}
       </h2>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {{ range $p.trust.items }}
       <div class="text-center">
-        <div class="text-5xl font-bold mb-2">16</div>
-        <div class="text-primary-100">{{ if eq $lang "ru" }}лет работы{{ else }}years in business{{ end }}</div>
+        <div class="text-display-sm font-bold mb-2">{{ if reflect.IsMap .value }}{{ index .value $lang }}{{ else }}{{ .value }}{{ end }}</div>
+        <div class="text-primary-100">{{ index .label $lang }}</div>
       </div>
-      <div class="text-center">
-        <div class="text-5xl font-bold mb-2">{{ if eq $lang "ru" }}РФ+{{ else }}RU+{{ end }}</div>
-        <div class="text-primary-100">{{ if eq $lang "ru" }}по всей стране и за рубежом{{ else }}across Russia and abroad{{ end }}</div>
-      </div>
-      <div class="text-center">
-        <div class="text-5xl font-bold mb-2">100%</div>
-        <div class="text-primary-100">{{ if eq $lang "ru" }}конфиденциальность{{ else }}confidentiality{{ end }}</div>
-      </div>
+      {{ end }}
     </div>
   </div>
 </section>
@@ -154,11 +126,11 @@
 <section class="py-20 bg-secondary-50" data-reveal>
   <div class="max-w-6xl mx-auto px-6">
     <div class="text-center mb-12">
-      <h2 class="font-display text-3xl font-bold text-secondary-900 mb-4">
-        {{ if eq $lang "ru" }}Свежие дела{{ else }}Latest Cases{{ end }}
+      <h2 class="font-display text-heading-lg font-bold text-secondary-900 mb-4">
+        {{ index $p.cases.title $lang }}
       </h2>
       <p class="text-secondary-600 max-w-2xl mx-auto">
-        {{ if eq $lang "ru" }}Реальные истории из нашей практики{{ else }}Real stories from our practice{{ end }}
+        {{ index $p.cases.subtitle $lang }}
       </p>
     </div>
 
@@ -168,11 +140,11 @@
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
       {{ range $latest }}
-      <article class="group bg-white rounded-2xl p-6 border border-secondary-200 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+      <article class="group bg-white rounded-2xl p-6 border border-secondary-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
         <a href="{{ .RelPermalink }}" class="block">
           <div class="flex items-center gap-2 mb-3">
             <span class="px-2.5 py-1 bg-primary-100 text-primary-700 rounded-full text-xs font-medium">
-              {{ if eq $lang "ru" }}Дело{{ else }}Case{{ end }}
+              {{ index $p.cases.badge $lang }}
             </span>
           </div>
           <h3 class="font-display text-lg font-bold text-secondary-900 mb-3 group-hover:text-primary-700 transition-colors line-clamp-2">
@@ -188,7 +160,7 @@
 
     <div class="text-center mt-10">
       <a href="{{ $articlesPath }}" class="inline-flex items-center text-primary-600 font-semibold hover:text-primary-700 transition-colors">
-        {{ if eq $lang "ru" }}Все статьи{{ else }}All articles{{ end }}
+        {{ index $p.cases.allLink $lang }}
         <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
       </a>
     </div>
@@ -198,40 +170,37 @@
 {{/* ── FINAL CTA ── */}}
 <section class="py-20 bg-white" data-reveal>
   <div class="max-w-4xl mx-auto px-6 text-center">
-    <h2 class="font-display text-3xl font-bold text-secondary-900 mb-4">
-      {{ if eq $lang "ru" }}Каждая ситуация уникальна{{ else }}Every situation is unique{{ end }}
+    <h2 class="font-display text-heading-lg font-bold text-secondary-900 mb-4">
+      {{ index $p.cta.title $lang }}
     </h2>
     <p class="text-secondary-600 text-lg mb-8 max-w-2xl mx-auto">
-      {{ if eq $lang "ru" }}Свяжитесь с нами для конфиденциальной консультации. Мы поможем найти решение.{{ else }}Contact us for a confidential consultation. We'll help find a solution.{{ end }}
+      {{ index $p.cta.text $lang }}
     </p>
 
     {{/* Messengers with labels */}}
+    {{- $ariaPrefix := index $p.cta.messengerAriaPrefix $lang -}}
     <div class="flex flex-wrap justify-center gap-4 mb-8">
-      <a href="{{ $c.telegram.href | safeURL }}" class="flex flex-col items-center p-4 bg-secondary-50 rounded-xl hover:bg-secondary-100 transition-colors min-w-[80px]">
+      <a href="{{ $c.telegram.href | safeURL }}" aria-label="{{ $ariaPrefix }} Telegram" class="flex flex-col items-center p-4 bg-secondary-50 rounded-xl hover:bg-secondary-100 transition-colors min-w-[80px]">
         {{ partial "icons/send.html" "w-8 h-8 text-primary-600 mb-2" }}
         <span class="text-xs text-secondary-700">Telegram</span>
       </a>
-      <a href="{{ $c.whatsapp.href }}" class="flex flex-col items-center p-4 bg-secondary-50 rounded-xl hover:bg-secondary-100 transition-colors min-w-[80px]">
+      <a href="{{ $c.whatsapp.href }}" aria-label="{{ $ariaPrefix }} WhatsApp" class="flex flex-col items-center p-4 bg-secondary-50 rounded-xl hover:bg-secondary-100 transition-colors min-w-[80px]">
         {{ partial "icons/whatsapp.html" "w-8 h-8 text-primary-600 mb-2" }}
         <span class="text-xs text-secondary-700">WhatsApp</span>
       </a>
-      <a href="{{ $c.signal.href }}" class="flex flex-col items-center p-4 bg-secondary-50 rounded-xl hover:bg-secondary-100 transition-colors min-w-[80px]">
+      <a href="{{ $c.signal.href }}" aria-label="{{ $ariaPrefix }} Signal" class="flex flex-col items-center p-4 bg-secondary-50 rounded-xl hover:bg-secondary-100 transition-colors min-w-[80px]">
         {{ partial "icons/signal.html" "w-8 h-8 text-primary-600 mb-2" }}
         <span class="text-xs text-secondary-700">Signal</span>
       </a>
-      <a href="{{ $c.imo.href }}" class="flex flex-col items-center p-4 bg-secondary-50 rounded-xl hover:bg-secondary-100 transition-colors min-w-[80px]">
+      <a href="{{ $c.imo.href }}" aria-label="{{ $ariaPrefix }} IMO" class="flex flex-col items-center p-4 bg-secondary-50 rounded-xl hover:bg-secondary-100 transition-colors min-w-[80px]">
         {{ partial "icons/imo.html" "w-8 h-8 text-primary-600 mb-2" }}
         <span class="text-xs text-secondary-700">Imo</span>
       </a>
-      <a href="{{ $c.instagram.href }}" class="flex flex-col items-center p-4 bg-secondary-50 rounded-xl hover:bg-secondary-100 transition-colors min-w-[80px]">
-        {{ partial "icons/instagram.html" "w-8 h-8 text-primary-600 mb-2" }}
-        <span class="text-xs text-secondary-700">Instagram</span>
-      </a>
     </div>
 
-    <a href="{{ if eq $lang "ru" }}/kontakty/{{ else }}/en/contact/{{ end }}"
+    <a href="{{ $contactPath }}"
       class="inline-flex items-center px-8 py-4 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-xl text-lg transition-colors">
-      {{ if eq $lang "ru" }}Связаться с нами{{ else }}Contact Us{{ end }}
+      {{ index $p.cta.button $lang }}
     </a>
   </div>
 </section>

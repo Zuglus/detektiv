@@ -68,7 +68,6 @@
   --duration-bounce: 400ms;
   --glass-nav: rgba(255, 255, 255, 0.97);
   --glass-nav-scrolled: rgba(255, 255, 255, 0.98);
-  --glass-nav-home: rgba(255, 255, 255, 0.15);
 }
 
 * { box-sizing: border-box; }
@@ -139,18 +138,11 @@ body {
   background: var(--glass-nav);
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
   transition: all var(--duration-normal) var(--ease-standard);
 }
 
 .nav-scrolled {
   background: var(--glass-nav-scrolled);
-}
-
-@supports not (backdrop-filter: blur(1px)) {
-  .nav-transparent { background: rgba(255, 255, 255, 0.98); }
-  .nav-scrolled    { background: rgba(255, 255, 255, 1); }
 }
 
 .nav-link {
@@ -211,13 +203,3 @@ body {
    RESPONSIVE
    ======================================== */
 
-@media (max-width: 768px) {
-  .text-display-xl { font-size: clamp(2.5rem, 10vw, 4rem); line-height: 1.1; }
-  .text-display-lg { font-size: clamp(2rem, 8vw, 3rem);   line-height: 1.2; }
-  .nav-transparent, .nav-scrolled { backdrop-filter: blur(2px); -webkit-backdrop-filter: blur(2px); }
-}
-
-@media (max-width: 480px) {
-  .text-display-xl { font-size: clamp(2rem, 12vw, 3rem); line-height: 1.2; }
-  .text-display-lg { font-size: clamp(1.75rem, 10vw, 2.5rem); line-height: 1.3; }
-}

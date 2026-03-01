@@ -2,17 +2,17 @@
 
 {{- $lang := .Lang | default "ru" -}}
 
-<section class="relative overflow-hidden text-white pt-40 pb-20" style="background: linear-gradient(135deg, #1a2e1f 0%, #2d6a4f 100%);">
+<section class="relative overflow-hidden text-white pt-40 pb-20 bg-gradient-header">
   <div class="max-w-4xl mx-auto px-6 text-center">
     <p class="text-8xl font-display font-bold mb-6 text-white/30">404</p>
-    <h1 class="text-3xl md:text-4xl font-display font-bold mb-4">
+    <h1 class="text-heading-lg md:text-display-sm font-display font-bold mb-4">
       {{ if eq $lang "ru" }}Страница не найдена{{ else }}Page not found{{ end }}
     </h1>
     <p class="text-lg text-white/80 mb-8 max-w-2xl mx-auto">
       {{ if eq $lang "ru" }}Запрашиваемая страница не существует или была перемещена.{{ else }}The requested page does not exist or has been moved.{{ end }}
     </p>
     <a href="{{ if eq $lang "ru" }}/{{ else }}/en/{{ end }}"
-       class="inline-flex items-center gap-2 px-8 py-4 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-xl transition-colors">
+       class="inline-flex items-center gap-2 px-8 py-4 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-xl text-lg transition-colors">
       {{ if eq $lang "ru" }}На главную{{ else }}Go to homepage{{ end }}
     </a>
   </div>

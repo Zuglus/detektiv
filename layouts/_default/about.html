@@ -4,9 +4,9 @@
 {{- $c := .Site.Data.contacts -}}
 
 {{/* ── HERO: compact version (48px padding) ── */}}
-<section class="relative overflow-hidden text-white pt-40 pb-12" style="background: linear-gradient(135deg, #1a2e1f 0%, #2d6a4f 100%);">
+<section class="relative overflow-hidden text-white pt-40 pb-12 bg-gradient-header">
   <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
-    <h1 class="font-display text-4xl md:text-5xl font-bold mb-3">{{ index $p.hero.title $lang }}</h1>
+    <h1 class="font-display text-display-sm md:text-display-md font-bold mb-3">{{ index $p.hero.title $lang }}</h1>
     <p class="text-white/80 text-base md:text-lg">{{ index $p.hero.subtitle $lang }}</p>
   </div>
 </section>
@@ -29,7 +29,7 @@
       </div>
       {{/* Founder info */}}
       <div class="order-1 md:order-2 space-y-6">
-        <h2 class="font-display text-3xl font-bold text-secondary-900">
+        <h2 class="font-display text-heading-lg font-bold text-secondary-900">
           {{ if eq $lang "ru" }}Грозный Эдуард Николаевич{{ else }}Grozny Eduard Nikolaevich{{ end }}
         </h2>
         <div class="space-y-4 text-secondary-700">
@@ -58,16 +58,16 @@
 <section class="py-16 bg-gradient-to-br from-primary-600 to-primary-700 text-white" data-reveal>
   <div class="max-w-6xl mx-auto px-6">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-      <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
-        <div class="text-5xl font-bold mb-2">16</div>
+      <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+        <div class="text-display-sm font-bold mb-2">16</div>
         <div class="text-primary-100">{{ if eq $lang "ru" }}лет работы{{ else }}years in business{{ end }}</div>
       </div>
-      <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
-        <div class="text-5xl font-bold mb-2">{{ if eq $lang "ru" }}РФ+{{ else }}RU+{{ end }}</div>
+      <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+        <div class="text-display-sm font-bold mb-2">{{ if eq $lang "ru" }}РФ+{{ else }}RU+{{ end }}</div>
         <div class="text-primary-100">{{ if eq $lang "ru" }}по всей стране и за рубежом{{ else }}across Russia and abroad{{ end }}</div>
       </div>
-      <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
-        <div class="text-5xl font-bold mb-2">100%</div>
+      <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+        <div class="text-display-sm font-bold mb-2">100%</div>
         <div class="text-primary-100">{{ if eq $lang "ru" }}конфиденциальность{{ else }}confidentiality{{ end }}</div>
       </div>
     </div>
@@ -116,7 +116,7 @@
 {{/* ── WARNING ── */}}
 <section class="py-16 bg-secondary-50" data-reveal>
   <div class="max-w-4xl mx-auto px-6">
-    <div class="bg-accent-50 border-2 border-accent-200 rounded-2xl p-8">
+    <div class="bg-accent-50 border-2 border-accent-200 rounded-2xl p-6">
       <div class="flex items-start gap-4 mb-4">
         {{ partial "icons/alert-triangle.html" "w-8 h-8 text-accent-600" }}
         <h2 class="font-display font-bold text-secondary-900 text-heading-sm">{{ index $p.warning.title $lang }}</h2>

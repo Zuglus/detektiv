@@ -37,7 +37,7 @@
         <a href="{{ $c.phone.href | safeURL }}" class="block text-2xl font-bold text-primary-400 hover:text-primary-300 transition-colors mb-4">{{ $c.phone.display }}</a>
         
         {{/* Messenger icons with labels */}}
-        <div class="grid grid-cols-3 gap-2 bg-white/5 rounded-xl p-3">
+        <div class="grid grid-cols-5 gap-2 bg-white/5 rounded-xl p-3">
           <a href="{{ $c.telegram.href | safeURL }}" class="flex flex-col items-center gap-1 p-2 rounded-lg hover:bg-white/10 transition-colors" aria-label="Telegram">
             {{ partial "icons/send.html" "w-6 h-6 text-primary-400" }}
             <span class="text-xs text-secondary-300">Telegram</span>
@@ -53,10 +53,6 @@
           <a href="{{ $c.imo.href }}" class="flex flex-col items-center gap-1 p-2 rounded-lg hover:bg-white/10 transition-colors" aria-label="IMO">
             {{ partial "icons/imo.html" "w-6 h-6 text-primary-400" }}
             <span class="text-xs text-secondary-300">Imo</span>
-          </a>
-          <a href="{{ $c.instagram.href }}" class="flex flex-col items-center gap-1 p-2 rounded-lg hover:bg-white/10 transition-colors" aria-label="Instagram">
-            {{ partial "icons/instagram.html" "w-6 h-6 text-primary-400" }}
-            <span class="text-xs text-secondary-300">Instagram</span>
           </a>
           <a href="{{ $c.email.href }}" class="flex flex-col items-center gap-1 p-2 rounded-lg hover:bg-white/10 transition-colors" aria-label="Email">
             {{ partial "icons/mail.html" "w-6 h-6 text-primary-400" }}

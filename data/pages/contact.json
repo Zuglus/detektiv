@@ -13,8 +13,8 @@
       "en": "Priority Contact"
     },
     "description": {
-      "ru": "Оперативное реагирование на срочные обращения",
-      "en": "Rapid response for urgent inquiries"
+      "ru": "Прямая линия для связи",
+      "en": "Direct line for contact"
     }
   },
   "addressTitle": {
@@ -34,8 +34,8 @@
     "en": "Email"
   },
   "emailDescription": {
-    "ru": "Ответ в течение 2 часов",
-    "en": "Response within 2 hours"
+    "ru": "Для письменных обращений",
+    "en": "For written inquiries"
   },
   "mobile": {
     "ru": "Телефон",
@@ -71,10 +71,6 @@
     "ru": "Signal",
     "en": "Signal"
   },
-  "instagram": {
-    "ru": "Instagram",
-    "en": "Instagram"
-  },
   "confidentiality": {
     "title": {
       "ru": "Гарантия конфиденциальности",
@@ -87,16 +83,16 @@
   },
   "responseTime": {
     "phone": {
-      "ru": "Оперативно",
-      "en": "Prompt"
+      "ru": "Связь",
+      "en": "Contact"
     },
     "email": {
-      "ru": "В рабочие часы",
-      "en": "Business hours"
+      "ru": "Связь",
+      "en": "Contact"
     },
     "messengers": {
-      "ru": "Быстро",
-      "en": "Quick"
+      "ru": "Связь",
+      "en": "Contact"
     }
   }
 }

@@ -1,6 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /categories/
-Disallow: /tags/
 
 Sitemap: https://xn--18-6kca2bmbedxg.xn--p1ai/sitemap.xml
