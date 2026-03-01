@@ -7,16 +7,18 @@
 {{- if lt $readingTime 1 -}}{{- $readingTime = 1 -}}{{- end -}}
 
 {{/* ── HEADER: compact version (48px padding) ── */}}
-<section class="relative overflow-hidden text-white pt-40 pb-12" style="background: linear-gradient(135deg, #1a2e1f 0%, #2d6a4f 100%);">
+<section class="relative overflow-hidden text-white" style="background: linear-gradient(135deg, #1a2e1f 0%, #2d6a4f 100%); padding-top: 77px; padding-bottom: 32px;">
   <div class="relative z-10 max-w-3xl mx-auto px-6 text-center">
     {{/* Back link */}}
-    <a
-      href="{{ $articlesPath }}"
-      class="inline-flex items-center gap-2 text-white/60 hover:text-white text-sm mb-4 transition-colors"
-    >
-      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-      {{ if eq $lang "ru" }}Все статьи{{ else }}All articles{{ end }}
-    </a>
+    <div class="mb-4">
+      <a
+        href="{{ $articlesPath }}"
+        class="inline-flex items-center gap-2 text-white/60 hover:text-white text-sm transition-colors"
+      >
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+        {{ if eq $lang "ru" }}Все статьи{{ else }}All articles{{ end }}
+      </a>
+    </div>
 
     {{/* Badge */}}
     <div class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium mb-4 bg-primary-500/30 border border-primary-400/40">
