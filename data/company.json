@@ -3,7 +3,7 @@
   "founderLastName": { "ru": "Грозного", "en": "Grozny" },
   "founderFullName": { "ru": "Эдуарда Николаевича", "en": "Eduard Nikolaevich" },
   "founder": { "ru": "Грозного Эдуарда Николаевича", "en": "Grozny Eduard Nikolaevich" },
-  "license": { "ru": "лицензия МВД РФ 50ЧД2021000323", "en": "MIA RF license 50ЧД2021000323" },
+  "license": { "ru": "Лицензия МВД РФ №50ЧД2021000323", "en": "MIA RF License №50ЧД2021000323" },
   "founded": "2010",
   "location": { "ru": "г. Москва", "en": "Moscow" },
   "address": { "street": "Проспект Мира, 27", "city": "Москва", "country": "RU" },
