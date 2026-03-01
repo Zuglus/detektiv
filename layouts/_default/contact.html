@@ -46,7 +46,7 @@
       {{/* Office Address */}}
       <div class="col-span-12 lg:col-span-4 text-center bg-white rounded-2xl border border-secondary-100 shadow-sm p-6">
         <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-primary-50 flex items-center justify-center text-primary-600 mx-auto mb-4">
-          {{ partial "icons/map-pin.html" "w-6 h-6" }}
+          {{ partial "icons/map-pin.html" "w-8 h-8" }}
         </div>
         <h3 class="font-semibold text-secondary-900 mb-2">{{ index $p.addressTitle $lang }}</h3>
         <p class="text-body-md text-secondary-700 mb-2">{{ index $p.address $lang }}</p>
@@ -54,7 +54,7 @@
       </div>
 
       {{/* Email */}}
-      <div class="col-span-12 md:col-span-6 lg:col-span-4 bg-white rounded-2xl border border-secondary-100 shadow-sm p-6">
+      <div class="col-span-12 md:col-span-6 lg:col-span-4 text-center bg-white rounded-2xl border border-secondary-100 shadow-sm p-6">
         <div class="flex justify-between items-center mb-4">
           <h3 class="font-semibold text-secondary-900">{{ index $p.email $lang }}</h3>
           <span class="text-body-xs text-secondary-500 bg-secondary-100 px-2 py-1 rounded-full">
@@ -85,42 +85,42 @@
         </div>
         <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
           <a href="{{ $c.telegram.href | safeURL }}"
-            class="flex flex-col items-center p-4 bg-secondary-50 hover:bg-secondary-100 rounded-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary-600"
+            class="flex flex-col items-center p-3 bg-secondary-50 hover:bg-secondary-100 rounded-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary-600"
             aria-label="{{ if eq $lang "ru" }}Связаться через Telegram{{ else }}Contact via Telegram{{ end }}">
-            <div class="text-primary-600 hover:text-primary-700 mb-3 transition-colors duration-300 hover:scale-110 transform">
-              {{ partial "icons/send.html" "w-10 h-10" }}
+            <div class="text-primary-600 hover:text-primary-700 mb-2 transition-colors duration-300 hover:scale-110 transform">
+              {{ partial "icons/send.html" "w-8 h-8" }}
             </div>
             <span class="text-body-sm font-medium text-secondary-800">{{ index $p.telegram $lang }}</span>
           </a>
           <a href="{{ $c.whatsapp.href }}"
-            class="flex flex-col items-center p-4 bg-secondary-50 hover:bg-secondary-100 rounded-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary-600"
+            class="flex flex-col items-center p-3 bg-secondary-50 hover:bg-secondary-100 rounded-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary-600"
             aria-label="{{ if eq $lang "ru" }}Связаться через WhatsApp{{ else }}Contact via WhatsApp{{ end }}">
-            <div class="text-primary-600 hover:text-primary-700 mb-3 transition-colors duration-300 hover:scale-110 transform">
-              {{ partial "icons/whatsapp.html" "w-10 h-10" }}
+            <div class="text-primary-600 hover:text-primary-700 mb-2 transition-colors duration-300 hover:scale-110 transform">
+              {{ partial "icons/whatsapp.html" "w-8 h-8" }}
             </div>
             <span class="text-body-sm font-medium text-secondary-800">{{ index $p.whatsapp $lang }}</span>
           </a>
           <a href="{{ $c.imo.href }}" target="_blank" rel="noopener noreferrer"
-            class="flex flex-col items-center p-4 bg-secondary-50 hover:bg-secondary-100 rounded-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary-600"
+            class="flex flex-col items-center p-3 bg-secondary-50 hover:bg-secondary-100 rounded-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary-600"
             aria-label="{{ if eq $lang "ru" }}Связаться через Imo{{ else }}Contact via Imo{{ end }}">
-            <div class="text-primary-600 hover:text-primary-700 mb-3 transition-colors duration-300 hover:scale-110 transform">
-              {{ partial "icons/imo.html" "w-10 h-10" }}
+            <div class="text-primary-600 hover:text-primary-700 mb-2 transition-colors duration-300 hover:scale-110 transform">
+              {{ partial "icons/imo.html" "w-8 h-8" }}
             </div>
             <span class="text-body-sm font-medium text-secondary-800">{{ index $p.imo $lang }}</span>
           </a>
           <a href="{{ $c.signal.href }}" target="_blank" rel="noopener noreferrer"
-            class="flex flex-col items-center p-4 bg-secondary-50 hover:bg-secondary-100 rounded-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary-600"
+            class="flex flex-col items-center p-3 bg-secondary-50 hover:bg-secondary-100 rounded-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary-600"
             aria-label="{{ if eq $lang "ru" }}Связаться через Signal{{ else }}Contact via Signal{{ end }}">
-            <div class="text-primary-600 hover:text-primary-700 mb-3 transition-colors duration-300 hover:scale-110 transform">
-              {{ partial "icons/signal.html" "w-10 h-10" }}
+            <div class="text-primary-600 hover:text-primary-700 mb-2 transition-colors duration-300 hover:scale-110 transform">
+              {{ partial "icons/signal.html" "w-8 h-8" }}
             </div>
             <span class="text-body-sm font-medium text-secondary-800">{{ index $p.signal $lang }}</span>
           </a>
           <a href="{{ $c.instagram.href }}" target="_blank" rel="noopener noreferrer"
-            class="flex flex-col items-center p-4 bg-secondary-50 hover:bg-secondary-100 rounded-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary-600"
+            class="flex flex-col items-center p-3 bg-secondary-50 hover:bg-secondary-100 rounded-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary-600"
             aria-label="{{ if eq $lang "ru" }}Связаться через Instagram{{ else }}Contact via Instagram{{ end }}">
-            <div class="text-primary-600 hover:text-primary-700 mb-3 transition-colors duration-300 hover:scale-110 transform">
-              {{ partial "icons/instagram.html" "w-10 h-10" }}
+            <div class="text-primary-600 hover:text-primary-700 mb-2 transition-colors duration-300 hover:scale-110 transform">
+              {{ partial "icons/instagram.html" "w-8 h-8" }}
             </div>
             <span class="text-body-sm font-medium text-secondary-800">{{ index $p.instagram $lang }}</span>
           </a>
@@ -130,12 +130,11 @@
     </div>
 
     {{/* Confidentiality Section */}}
-    <div class="relative overflow-hidden bg-primary-50 rounded-2xl border border-primary-200 shadow-lg p-8 md:p-12" data-reveal>
-      <div class="relative z-10 text-center max-w-3xl mx-auto">
-        <h3 class="text-heading-md font-bold text-secondary-900 mb-4">{{ index $p.confidentiality.title $lang }}</h3>
-        <p class="text-body-lg text-secondary-700 leading-relaxed">{{ index $p.confidentiality.description $lang }}</p>
-      </div>
+    <div class="bg-white rounded-2xl border border-secondary-100 shadow-sm p-8 text-center" data-reveal>
+      <h3 class="font-semibold text-secondary-900 mb-4">{{ index $p.confidentiality.title $lang }}</h3>
+      <p class="text-body-md text-secondary-600 leading-relaxed max-w-3xl mx-auto">{{ index $p.confidentiality.description $lang }}</p>
     </div>
+
   </div>
 </section>
 
