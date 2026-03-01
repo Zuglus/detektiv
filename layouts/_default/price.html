@@ -53,11 +53,6 @@
           </div>
           <p class="text-secondary-600 text-sm flex-1">{{ index $svc.description $lang }}{{ with index $svc.note $lang }} <span class="text-secondary-400 text-xs italic">({{ . }})</span>{{ end }}</p>
           
-          {{/* Hourly rate */}}
-          <div class="text-xs text-secondary-500 text-center">
-            {{ if eq $lang "ru" }}почасово:{{ else }}hourly:{{ end }} {{ index $svc.hourlyRate $lang }}
-          </div>
-          
           <ul class="space-y-1.5">
             {{ range index $svc.features $lang }}
             <li class="flex items-center gap-2 text-secondary-600 text-xs">
