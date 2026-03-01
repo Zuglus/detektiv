@@ -13,7 +13,7 @@
       
       {{/* Column 1: Company info */}}
       <div class="space-y-4">
-        <h3 class="text-lg font-semibold text-white pb-3 border-b border-secondary-700/30">{{ index .Site.Data.company.name $lang }}</h3>
+        <h3 class="text-lg font-semibold text-white pb-3 border-b border-secondary-600/60">{{ index .Site.Data.company.name $lang }}</h3>
         <p class="text-secondary-300 text-sm">{{ index .Site.Data.company.license $lang }}</p>
         <p class="text-secondary-300 text-sm">{{ index .Site.Data.company.location $lang }}</p>
         <p class="text-secondary-300 text-sm">{{ $c.address.street }}</p>
@@ -21,7 +21,7 @@
 
       {{/* Column 2: Navigation */}}
       <div class="space-y-4">
-        <h3 class="text-lg font-semibold text-white pb-3 border-b border-secondary-700/30">{{ if eq $lang "ru" }}Навигация{{ else }}Navigation{{ end }}</h3>
+        <h3 class="text-lg font-semibold text-white pb-3 border-b border-secondary-600/60">{{ if eq $lang "ru" }}Навигация{{ else }}Navigation{{ end }}</h3>
         <nav class="grid grid-cols-2 gap-x-6 gap-y-2">
           {{ range index .Site.Data.nav $lang }}
           <a href="{{ .href }}" class="text-secondary-300 hover:text-primary-400 transition-colors text-sm">{{ .name }}</a>
@@ -33,7 +33,7 @@
 
       {{/* Column 3: Contact */}}
       <div class="space-y-4">
-        <h3 class="text-lg font-semibold text-white pb-3 border-b border-secondary-700/30">{{ if eq $lang "ru" }}Связаться{{ else }}Contact{{ end }}</h3>
+        <h3 class="text-lg font-semibold text-white pb-3 border-b border-secondary-600/60">{{ if eq $lang "ru" }}Связаться{{ else }}Contact{{ end }}</h3>
         <a href="{{ $c.phone.href | safeURL }}" class="block text-2xl font-bold text-primary-400 hover:text-primary-300 transition-colors mb-4">{{ $c.phone.display }}</a>
         
         {{/* Messenger icons with labels */}}
