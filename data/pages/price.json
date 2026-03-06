@@ -1,8 +1,4 @@
 {
-  "header": {
-    "ru": "Прозрачные цены на детективные услуги",
-    "en": "Transparent Detective Service Pricing"
-  },
   "intro": {
     "list": {
       "ru": [
@@ -19,26 +15,6 @@
     "text": {
       "ru": "Объём услуг определяется индивидуально в зависимости от представленной информации, уровня сложности заказа и необходимых ресурсов для достижения цели.",
       "en": "The scope of services is determined individually based on the information provided, the complexity of the order, and the resources required to achieve the goal."
-    }
-  },
-  "trustElements": {
-    "title": {
-      "ru": "Почему выбирают нас",
-      "en": "Why Choose Us"
-    },
-    "items": {
-      "ru": [
-        "Более 15 лет опыта в детективной деятельности",
-        "Гарантия конфиденциальности и законности",
-        "Профессиональное оборудование и методики",
-        "Работаем по официальному договору"
-      ],
-      "en": [
-        "More than 15 years of experience in detective work",
-        "Guarantee of confidentiality and legality",
-        "Professional equipment and methods",
-        "We work under an official contract"
-      ]
     }
   },
   "serviceCategories": [
@@ -373,19 +349,5 @@
         }
       ]
     }
-  ],
-  "footer": {
-    "title": {
-      "ru": "Профессиональный результат требует инвестиций",
-      "en": "Professional Results Require Investment"
-    },
-    "text": {
-      "ru": "Для достижения профессионального результата необходимы определённые инвестиции. Наше агентство работает по принципу полной предоплаты заказа, что позволяет нам сразу приступить к его выполнению.<br><br>Мы уверены, что наши услуги предлагают оптимальное соотношение цены и качества. Да, профессиональный результат требует затрат, но это инвестиция в ваше спокойствие и стабильность. Не стоит доверять мошенникам, которые обещают решить ваш вопрос за «копейки» с гарантированным результатом в 100%.<br><br>Помните, что каждый труд должен быть оплачен достойно. Если вы покупаете товар по заниженной цене, то и качество, скорее всего, будет соответствующим. Как говорится, «скупой платит дважды».<br><br>Если для вас важно качество услуги и вы готовы инвестировать в результат, мы будем рады помочь вам. Мы стремимся к тому, чтобы наши заказчики оставались довольны и получали именно то, чего ожидают.",
-      "en": "Achieving professional results requires specific investments. Our agency operates on a full prepayment basis, which allows us to begin execution immediately.<br><br>We are confident that our services offer the optimal price-to-quality ratio. Yes, professional results require investment, but this is an investment in your peace of mind and stability. Don't trust scammers who promise to solve your issue for 'pennies' with a guaranteed 100% result.<br><br>Remember that every job should be paid fairly. If you buy a product at a reduced price, the quality will likely correspond accordingly. As they say, 'the miser pays twice.'<br><br>If service quality is important to you and you're ready to invest in results, we'll be happy to help you. We strive to ensure our clients remain satisfied and receive exactly what they expect."
-    },
-    "propose": {
-      "ru": "Мы на связи онлайн: ",
-      "en": "We are available online: "
-    }
-  }
+  ]
 }

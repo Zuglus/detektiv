@@ -135,7 +135,7 @@
     </div>
 
     {{/* Get latest 3 articles */}}
-    {{ $articles := where .Site.RegularPages "Section" (cond (eq $lang "ru") "stati" "en/blog") }}
+    {{ $articles := where .Site.RegularPages "Section" (cond (eq $lang "ru") "stati" "blog") }}
     {{ $latest := first 3 $articles }}
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">

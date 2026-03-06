@@ -7,10 +7,6 @@
     "subtitle": {
       "ru": "Профессиональные детективные услуги с 2010 года",
       "en": "Professional detective services since 2010"
-    },
-    "description": {
-      "ru": "Опыт, конфиденциальность и результат — основа нашей работы",
-      "en": "Experience, reliability and results — the foundation of our work"
     }
   },
   "timeline": {
@@ -95,42 +91,6 @@
           "icon": "handshake",
           "title": "Honest Approach",
           "description": "We consider and discuss all risks with the client in advance"
-        }
-      ]
-    }
-  },
-  "principles": {
-    "title": {
-      "ru": "Наши принципы",
-      "en": "Our Principles"
-    },
-    "items": {
-      "ru": [
-        {
-          "title": "Профессионализм",
-          "description": "Настоящий профессионал всегда учитывает риски и форс-мажоры, обговаривая их с заказчиком"
-        },
-        {
-          "title": "Качество услуг",
-          "description": "Стоимость наших услуг может показаться высокой, но качество и результат всегда оправдывают вложения"
-        },
-        {
-          "title": "Честность",
-          "description": "Мы не обещаем 100% результат, как мошенники — мы работаем профессионально и честно"
-        }
-      ],
-      "en": [
-        {
-          "title": "Professionalism",
-          "description": "A true professional always considers risks and force majeure, discussing them with the client"
-        },
-        {
-          "title": "Service Quality",
-          "description": "Our services may seem expensive, but quality and results always justify the investment"
-        },
-        {
-          "title": "Honesty",
-          "description": "We don't promise 100% results like fraudsters — we work professionally and honestly"
         }
       ]
     }

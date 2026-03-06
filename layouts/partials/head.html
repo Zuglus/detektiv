@@ -30,7 +30,7 @@
 {{ if .Params.image }}
 <meta property="og:image" content="{{ .Params.image | absURL }}">
 {{ else }}
-<meta property="og:image" content="{{ "/images/og-default.jpg" | absURL }}">
+<meta property="og:image" content="{{ "/images/founder.png" | absURL }}">
 {{ end }}
 
 {{/* Schema.org LocalBusiness for homepage */}}
@@ -40,7 +40,7 @@
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": "{{ index .Site.Data.company.name .Lang }}",
-  "description": "Лицензированное частное детективное агентство. Москва, с 2010 года.",
+  "description": "{{ if eq .Lang "ru" }}Лицензированное частное детективное агентство. Москва, с 2010 года.{{ else }}Licensed private detective agency. Moscow, since 2010.{{ end }}",
   "telephone": "{{ .Site.Data.contacts.phone.display }}",
   "address": {
     "@type": "PostalAddress",
@@ -49,7 +49,7 @@
     "addressCountry": "{{ .Site.Data.contacts.address.country }}"
   },
   "foundingDate": "2010",
-  "license": "{{ .Site.Data.company.license.ru }}"
+  "license": "{{ index .Site.Data.company.license .Lang }}"
 }
 </script>
 {{ end }}

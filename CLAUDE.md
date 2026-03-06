@@ -28,12 +28,11 @@ detektiv/
 │       ├── head.html       # meta, fonts, CSS
 │       ├── nav.html        # Навигация
 │       ├── footer.html     # Подвал
-│       ├── hero-atmosphere.html
 │       ├── mobile-sticky.html
-│       └── icons/          # 48+ SVG иконок
+│       └── icons/          # 45 SVG иконок
 ├── content/                # Markdown контент
-│   ├── blog/               # 28 постов (*.ru.md, *.en.md)
-│   ├── stati/              # 28 статей (*.ru.md, *.en.md)
+│   ├── blog/               # 28 статей (*.en.md — только EN)
+│   ├── stati/              # 28 статей (*.ru.md — только RU)
 │   └── *.ru.md / *.en.md   # Основные страницы
 ├── data/                   # JSON данные для layouts
 │   ├── company.json        # Реквизиты компании
@@ -47,15 +46,7 @@ detektiv/
 │       ├── guarantee.json
 │       └── job.json
 ├── assets/css/
-│   ├── main.css            # Точка входа: шрифты, CSS vars, Tailwind
-│   └── styles/             # Дополнительные CSS модули
-│       ├── base.css
-│       ├── animations.css
-│       ├── accessibility.css
-│       ├── responsive.css
-│       ├── fonts.css
-│       ├── utilities.css
-│       └── components/navigation.css
+│   └── main.css            # Точка входа: шрифты, CSS vars, Tailwind
 ├── static/
 │   ├── fonts/              # WOFF2: IBM Plex Sans, Playfair Display
 │   ├── images/founder.png
@@ -92,7 +83,6 @@ npm run deploy           # Деплой на SFTP (только из ветки 
 primary   — Detective Green (действия, акценты): 50 / 600 / 700 / 800
 secondary — Neutral Gray (фоны, текст): 50 / 600 / 700 / 800
 accent    — Professional Orange (выделение): 50 / 600 / 700 / 800
-success, error — статусные
 ```
 
 ### Типографика
@@ -122,10 +112,24 @@ text-body-md     — clamp(1rem, 1vw, 1.125rem)
 ## Мультиязычность
 
 - `config.toml`: `defaultContentLanguage = "ru"`, языки ru/en
+- URL: русские пути без приставки (`/slug`), английские с `/en/` (`/en/slug`)
 - Контент: `slug.ru.md` / `slug.en.md` с общим `translationKey`
-- URL: `/slug` (RU), `/en/slug` (EN)
 - Layouts читают язык через `{{ .Lang }}` и `{{ if eq $lang "ru" }}`
 - Данные в JSON: все строки дублированы `{ "ru": "...", "en": "..." }`
+
+### Блог: две директории, перекрёстные ключи
+- RU статьи в `content/stati/` (*.ru.md), EN статьи в `content/blog/` (*.en.md)
+- `stati/_index.ru.md` и `blog/_index.en.md` связаны через `translationKey: "blog"`
+- Мосты (`blog/_index.ru.md`, `stati/_index.en.md`) удалены — создавали дубли URL
+
+### Стаж агентства
+- В разных местах указан как "15+" и "16 лет" — это не противоречие, 15+ включает 16
+
+### Год в футере
+- "© 2010–2031" — требование ТЗ, не трогаем
+
+### Домен
+- `config.toml` baseURL и `contacts.json` site.href — один домен `право18.рф`, в punycode `xn--18-6kca2bmbedxg.xn--p1ai`
 
 ---
 
@@ -133,7 +137,7 @@ text-body-md     — clamp(1rem, 1vw, 1.125rem)
 
 **Русский:** `/`, `/price`, `/onas`, `/garantii`, `/stati/`, `/stati/[slug]/`, `/kontakty`, `/vakansii`
 **Английский:** `/en/`, `/en/price`, `/en/about`, `/en/guarantee`, `/en/blog/`, `/en/blog/[slug]/`, `/en/contact`, `/en/job`
-**Всего:** ~70 URL (28 блога RU + 28 EN + 14 основных)
+**Всего:** ~70 URL (28 статей RU + 28 EN + 14 основных)
 
 ---
 
@@ -152,7 +156,7 @@ text-body-md     — clamp(1rem, 1vw, 1.125rem)
 - Нет CSS классов-компонентов (все inline Tailwind)
 
 ### Не использовать
-- React, TypeScript, Jest — они в ветке `main` (Next.js)
+- React, TypeScript, Jest — проект мигрирован с Next.js, они не нужны
 - ESLint — нет JS/TS компонентов для проверки
 - `npm run build` — не существует, использовать `hugo`
 

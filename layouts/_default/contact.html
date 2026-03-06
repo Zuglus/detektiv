@@ -135,7 +135,7 @@
 {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "name": "{{ index $co.name "ru" }}",
+  "name": "{{ index $co.name $lang }}",
   "url": "{{ $c.site.href }}",
   "contactPoint": [{
     "@type": "ContactPoint",
