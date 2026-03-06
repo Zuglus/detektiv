@@ -159,6 +159,20 @@ text-body-md     — clamp(1rem, 1vw, 1.125rem)
 - React, TypeScript, Jest — проект мигрирован с Next.js, они не нужны
 - ESLint — нет JS/TS компонентов для проверки
 - `npm run build` — не существует, использовать `hugo`
+### Schema.org
+- Единый блок JSON-LD `@type: LocalBusiness` в `head.html` (только homepage)
+- Все данные из `contacts.json` и `company.json`, язык через `{{ .Lang }}`
+
+### SEO meta description
+- Каскад: `.Description` → `.Params.short` → company name
+- Статьи покрыты через `short` в front matter
+
+### Ссылки мессенджеров
+- Все внешние ссылки: `| safeURL` + `target="_blank" rel="noopener noreferrer"`
+- Нет единого partial — каждый layout свой набор (5 layouts)
+
+### Имя основателя EN
+- Каноническая форма: "Eduard Nikolaevich" (из `company.json`)
 
 ---
 
@@ -179,3 +193,4 @@ text-body-md     — clamp(1rem, 1vw, 1.125rem)
 - 2026-02-25: полная миграция с Next.js на Hugo SSG
 - 2026-02-27: удалён весь Next.js код (src/, package.json Next.js)
 - 2026-03-01: обновлена документация под Hugo
+- 2026-03-06: аудит роем агентов — Schema.org, транслитерация, мёртвые данные, SEO, мессенджеры
