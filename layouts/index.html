@@ -180,19 +180,19 @@
     {{/* Messengers with labels */}}
     {{- $ariaPrefix := index $p.cta.messengerAriaPrefix $lang -}}
     <div class="flex flex-wrap justify-center gap-4 mb-8">
-      <a href="{{ $c.telegram.href | safeURL }}" aria-label="{{ $ariaPrefix }} Telegram" class="flex flex-col items-center p-4 bg-secondary-50 rounded-xl hover:bg-secondary-100 transition-colors min-w-[80px]">
+      <a href="{{ $c.telegram.href | safeURL }}" target="_blank" rel="noopener noreferrer" aria-label="{{ $ariaPrefix }} Telegram" class="flex flex-col items-center p-4 bg-secondary-50 rounded-xl hover:bg-secondary-100 transition-colors min-w-[80px]">
         {{ partial "icons/send.html" "w-8 h-8 text-primary-600 mb-2" }}
         <span class="text-xs text-secondary-700">Telegram</span>
       </a>
-      <a href="{{ $c.whatsapp.href }}" aria-label="{{ $ariaPrefix }} WhatsApp" class="flex flex-col items-center p-4 bg-secondary-50 rounded-xl hover:bg-secondary-100 transition-colors min-w-[80px]">
+      <a href="{{ $c.whatsapp.href | safeURL }}" target="_blank" rel="noopener noreferrer" aria-label="{{ $ariaPrefix }} WhatsApp" class="flex flex-col items-center p-4 bg-secondary-50 rounded-xl hover:bg-secondary-100 transition-colors min-w-[80px]">
         {{ partial "icons/whatsapp.html" "w-8 h-8 text-primary-600 mb-2" }}
         <span class="text-xs text-secondary-700">WhatsApp</span>
       </a>
-      <a href="{{ $c.signal.href }}" aria-label="{{ $ariaPrefix }} Signal" class="flex flex-col items-center p-4 bg-secondary-50 rounded-xl hover:bg-secondary-100 transition-colors min-w-[80px]">
+      <a href="{{ $c.signal.href | safeURL }}" target="_blank" rel="noopener noreferrer" aria-label="{{ $ariaPrefix }} Signal" class="flex flex-col items-center p-4 bg-secondary-50 rounded-xl hover:bg-secondary-100 transition-colors min-w-[80px]">
         {{ partial "icons/signal.html" "w-8 h-8 text-primary-600 mb-2" }}
         <span class="text-xs text-secondary-700">Signal</span>
       </a>
-      <a href="{{ $c.imo.href }}" aria-label="{{ $ariaPrefix }} IMO" class="flex flex-col items-center p-4 bg-secondary-50 rounded-xl hover:bg-secondary-100 transition-colors min-w-[80px]">
+      <a href="{{ $c.imo.href | safeURL }}" target="_blank" rel="noopener noreferrer" aria-label="{{ $ariaPrefix }} IMO" class="flex flex-col items-center p-4 bg-secondary-50 rounded-xl hover:bg-secondary-100 transition-colors min-w-[80px]">
         {{ partial "icons/imo.html" "w-8 h-8 text-primary-600 mb-2" }}
         <span class="text-xs text-secondary-700">Imo</span>
       </a>

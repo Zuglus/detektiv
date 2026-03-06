@@ -12,7 +12,7 @@
     </a>
     
     {{/* Message button */}}
-    <a href="{{ $c.telegram.href | safeURL }}" 
+    <a href="{{ $c.telegram.href | safeURL }}" target="_blank" rel="noopener noreferrer"
       class="flex items-center justify-center gap-2 bg-white text-primary-600 font-semibold border-l border-secondary-200 hover:bg-secondary-50 transition-colors">
       <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
       <span>{{ if eq $lang "ru" }}Написать{{ else }}Message{{ end }}</span>

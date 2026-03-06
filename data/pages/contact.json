@@ -37,14 +37,6 @@
     "ru": "Для письменных обращений",
     "en": "For written inquiries"
   },
-  "mobile": {
-    "ru": "Телефон",
-    "en": "Phone"
-  },
-  "mobileDescription": {
-    "ru": "Прямая линия для консультаций",
-    "en": "Direct line for consultations"
-  },
   "messengers": {
     "title": {
       "ru": "Каналы связи",

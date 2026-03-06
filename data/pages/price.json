@@ -19,7 +19,6 @@
   },
   "serviceCategories": [
     {
-      "id": "basic",
       "title": {
         "ru": "Базовые услуги",
         "en": "Basic Services"
@@ -51,8 +50,7 @@
               "Information of client interest",
               "Professional consultation"
             ]
-          },
-          "popular": false
+          }
         },
         {
           "title": {
@@ -76,8 +74,7 @@
               "Conducting interviews",
               "Professional approach"
             ]
-          },
-          "popular": true
+          }
         },
         {
           "title": {
@@ -101,13 +98,11 @@
               "Financial analysis",
               "Expert support"
             ]
-          },
-          "popular": false
+          }
         }
       ]
     },
     {
-      "id": "surveillance",
       "title": {
         "ru": "Наблюдение и безопасность",
         "en": "Surveillance and Security"
@@ -139,8 +134,7 @@
               "Photo and video evidence",
               "Detailed report"
             ]
-          },
-          "popular": true
+          }
         },
         {
           "title": {
@@ -164,13 +158,11 @@
               "Suspicious behavior analysis",
               "Security recommendations"
             ]
-          },
-          "popular": false
+          }
         }
       ]
     },
     {
-      "id": "business",
       "title": {
         "ru": "Корпоративные расследования",
         "en": "Corporate Investigations"
@@ -202,8 +194,7 @@
               "Document verification",
               "Reference checking"
             ]
-          },
-          "popular": true
+          }
         },
         {
           "title": {
@@ -227,13 +218,11 @@
               "Founders verification",
               "Cooperation risk assessment"
             ]
-          },
-          "popular": false
+          }
         }
       ]
     },
     {
-      "id": "complex",
       "title": {
         "ru": "Сложные расследования",
         "en": "Complex Investigations"
@@ -265,8 +254,7 @@
               "Special equipment usage",
               "Legal documentation"
             ]
-          },
-          "popular": false
+          }
         },
         {
           "title": {
@@ -290,8 +278,7 @@
               "Lost information recovery",
               "Digital traces expertise"
             ]
-          },
-          "popular": true
+          }
         },
         {
           "title": {
@@ -315,8 +302,7 @@
               "Cross-border verifications",
               "International cooperation"
             ]
-          },
-          "popular": false
+          }
         },
         {
           "title": {
@@ -344,8 +330,7 @@
               "Financial data analysis",
               "Documentation and requests"
             ]
-          },
-          "popular": false
+          }
         }
       ]
     }

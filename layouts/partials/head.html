@@ -8,7 +8,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <title>{{ if .Title }}{{ .Title }} — {{ end }}{{ index .Site.Data.company.name .Lang }}</title>
-<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ index .Site.Data.company.name .Lang }}{{ end }}">
+<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Params.short }}{{ . }}{{ else }}{{ index .Site.Data.company.name .Lang }}{{ end }}{{ end }}">
 
 {{/* Canonical URL */}}
 <link rel="canonical" href="{{ .Permalink }}">
@@ -23,7 +23,7 @@
 
 {{/* Open Graph */}}
 <meta property="og:title" content="{{ if .Title }}{{ .Title }} — {{ end }}{{ index .Site.Data.company.name .Lang }}">
-<meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ index .Site.Data.company.name .Lang }}{{ end }}">
+<meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Params.short }}{{ . }}{{ else }}{{ index .Site.Data.company.name .Lang }}{{ end }}{{ end }}">
 <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
 <meta property="og:url" content="{{ .Permalink }}">
 <meta property="og:site_name" content="{{ index .Site.Data.company.name .Lang }}">
@@ -41,13 +41,21 @@
   "@type": "LocalBusiness",
   "name": "{{ index .Site.Data.company.name .Lang }}",
   "description": "{{ if eq .Lang "ru" }}Лицензированное частное детективное агентство. Москва, с 2010 года.{{ else }}Licensed private detective agency. Moscow, since 2010.{{ end }}",
+  "url": "{{ .Site.Data.contacts.site.href }}",
   "telephone": "{{ .Site.Data.contacts.phone.display }}",
+  "email": "{{ replace .Site.Data.contacts.email.href "mailto:" "" }}",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "{{ .Site.Data.contacts.address.street }}",
     "addressLocality": "{{ .Site.Data.contacts.address.city }}",
     "addressCountry": "{{ .Site.Data.contacts.address.country }}"
   },
+  "contactPoint": [{
+    "@type": "ContactPoint",
+    "telephone": "{{ .Site.Data.contacts.phone.display }}",
+    "contactType": "customer service",
+    "availableLanguage": ["Russian", "English"]
+  }],
   "foundingDate": "2010",
   "license": "{{ index .Site.Data.company.license .Lang }}"
 }

@@ -84,7 +84,7 @@
           </span>
         </div>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <a href="{{ $c.telegram.href | safeURL }}"
+          <a href="{{ $c.telegram.href | safeURL }}" target="_blank" rel="noopener noreferrer"
             class="flex flex-col items-center p-3 bg-secondary-50 hover:bg-secondary-100 rounded-xl transition-all duration-300"
             aria-label="{{ if eq $lang "ru" }}Связаться через Telegram{{ else }}Contact via Telegram{{ end }}">
             <div class="text-primary-600 hover:text-primary-700 mb-2 transition-colors duration-300 hover:scale-110 transform">
@@ -92,7 +92,7 @@
             </div>
             <span class="text-body-sm font-medium text-secondary-800">{{ index $p.telegram $lang }}</span>
           </a>
-          <a href="{{ $c.whatsapp.href }}"
+          <a href="{{ $c.whatsapp.href | safeURL }}" target="_blank" rel="noopener noreferrer"
             class="flex flex-col items-center p-3 bg-secondary-50 hover:bg-secondary-100 rounded-xl transition-all duration-300"
             aria-label="{{ if eq $lang "ru" }}Связаться через WhatsApp{{ else }}Contact via WhatsApp{{ end }}">
             <div class="text-primary-600 hover:text-primary-700 mb-2 transition-colors duration-300 hover:scale-110 transform">
@@ -100,7 +100,7 @@
             </div>
             <span class="text-body-sm font-medium text-secondary-800">{{ index $p.whatsapp $lang }}</span>
           </a>
-          <a href="{{ $c.imo.href }}" target="_blank" rel="noopener noreferrer"
+          <a href="{{ $c.imo.href | safeURL }}" target="_blank" rel="noopener noreferrer"
             class="flex flex-col items-center p-3 bg-secondary-50 hover:bg-secondary-100 rounded-xl transition-all duration-300"
             aria-label="{{ if eq $lang "ru" }}Связаться через Imo{{ else }}Contact via Imo{{ end }}">
             <div class="text-primary-600 hover:text-primary-700 mb-2 transition-colors duration-300 hover:scale-110 transform">
@@ -108,7 +108,7 @@
             </div>
             <span class="text-body-sm font-medium text-secondary-800">{{ index $p.imo $lang }}</span>
           </a>
-          <a href="{{ $c.signal.href }}" target="_blank" rel="noopener noreferrer"
+          <a href="{{ $c.signal.href | safeURL }}" target="_blank" rel="noopener noreferrer"
             class="flex flex-col items-center p-3 bg-secondary-50 hover:bg-secondary-100 rounded-xl transition-all duration-300"
             aria-label="{{ if eq $lang "ru" }}Связаться через Signal{{ else }}Contact via Signal{{ end }}">
             <div class="text-primary-600 hover:text-primary-700 mb-2 transition-colors duration-300 hover:scale-110 transform">
@@ -129,29 +129,5 @@
 
   </div>
 </section>
-
-{{/* Schema.org structured data */}}
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "{{ index $co.name $lang }}",
-  "url": "{{ $c.site.href }}",
-  "contactPoint": [{
-    "@type": "ContactPoint",
-    "telephone": "{{ $c.phone.display }}",
-    "contactType": "customer service",
-    "availableLanguage": ["Russian", "English"],
-    "hoursAvailable": "24/7"
-  }],
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "{{ $c.address.street }}",
-    "addressLocality": "{{ $c.address.city }}",
-    "addressCountry": "{{ $c.address.country }}"
-  },
-  "email": "{{ replace $c.email.href "mailto:" "" }}"
-}
-</script>
 
 {{ end }}

@@ -38,19 +38,19 @@
         
         {{/* Messenger icons with labels */}}
         <div class="grid grid-cols-5 gap-2 bg-white/5 rounded-xl p-3">
-          <a href="{{ $c.telegram.href | safeURL }}" class="flex flex-col items-center gap-1 p-2 rounded-lg hover:bg-white/10 transition-colors" aria-label="Telegram">
+          <a href="{{ $c.telegram.href | safeURL }}" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center gap-1 p-2 rounded-lg hover:bg-white/10 transition-colors" aria-label="Telegram">
             {{ partial "icons/send.html" "w-6 h-6 text-primary-400" }}
             <span class="text-xs text-secondary-300">Telegram</span>
           </a>
-          <a href="{{ $c.whatsapp.href }}" class="flex flex-col items-center gap-1 p-2 rounded-lg hover:bg-white/10 transition-colors" aria-label="WhatsApp">
+          <a href="{{ $c.whatsapp.href | safeURL }}" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center gap-1 p-2 rounded-lg hover:bg-white/10 transition-colors" aria-label="WhatsApp">
             {{ partial "icons/whatsapp.html" "w-6 h-6 text-primary-400" }}
             <span class="text-xs text-secondary-300">WhatsApp</span>
           </a>
-          <a href="{{ $c.signal.href }}" class="flex flex-col items-center gap-1 p-2 rounded-lg hover:bg-white/10 transition-colors" aria-label="Signal">
+          <a href="{{ $c.signal.href | safeURL }}" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center gap-1 p-2 rounded-lg hover:bg-white/10 transition-colors" aria-label="Signal">
             {{ partial "icons/signal.html" "w-6 h-6 text-primary-400" }}
             <span class="text-xs text-secondary-300">Signal</span>
           </a>
-          <a href="{{ $c.imo.href }}" class="flex flex-col items-center gap-1 p-2 rounded-lg hover:bg-white/10 transition-colors" aria-label="IMO">
+          <a href="{{ $c.imo.href | safeURL }}" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center gap-1 p-2 rounded-lg hover:bg-white/10 transition-colors" aria-label="IMO">
             {{ partial "icons/imo.html" "w-6 h-6 text-primary-400" }}
             <span class="text-xs text-secondary-300">Imo</span>
           </a>
