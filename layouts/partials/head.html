@@ -7,7 +7,7 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-<title>{{ if .Title }}{{ .Title }} — {{ end }}{{ index .Site.Data.company.name .Lang }}</title>
+<title>{{ if .IsHome }}{{ .Title }}{{ else if .Title }}{{ .Title }} — {{ index .Site.Data.company.name .Lang }}{{ else }}{{ index .Site.Data.company.name .Lang }}{{ end }}</title>
 <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Params.short }}{{ . }}{{ else }}{{ index .Site.Data.company.name .Lang }}{{ end }}{{ end }}">
 
 {{/* Canonical URL */}}
@@ -22,7 +22,7 @@
 {{ end }}
 
 {{/* Open Graph */}}
-<meta property="og:title" content="{{ if .Title }}{{ .Title }} — {{ end }}{{ index .Site.Data.company.name .Lang }}">
+<meta property="og:title" content="{{ if .IsHome }}{{ .Title }}{{ else if .Title }}{{ .Title }} — {{ index .Site.Data.company.name .Lang }}{{ else }}{{ index .Site.Data.company.name .Lang }}{{ end }}">
 <meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Params.short }}{{ . }}{{ else }}{{ index .Site.Data.company.name .Lang }}{{ end }}{{ end }}">
 <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
 <meta property="og:url" content="{{ .Permalink }}">
@@ -41,13 +41,13 @@
   "@type": "LocalBusiness",
   "name": "{{ index .Site.Data.company.name .Lang }}",
   "description": "{{ if eq .Lang "ru" }}Лицензированное частное детективное агентство. Москва, с 2010 года.{{ else }}Licensed private detective agency. Moscow, since 2010.{{ end }}",
-  "url": "{{ .Site.Data.contacts.site.href }}",
+  "url": "{{ .Site.BaseURL }}",
   "telephone": "{{ .Site.Data.contacts.phone.display }}",
   "email": "{{ replace .Site.Data.contacts.email.href "mailto:" "" }}",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "{{ .Site.Data.contacts.address.street }}",
-    "addressLocality": "{{ .Site.Data.contacts.address.city }}",
+    "streetAddress": "{{ index .Site.Data.contacts.address.street .Lang }}",
+    "addressLocality": "{{ index .Site.Data.contacts.address.city .Lang }}",
     "addressCountry": "{{ .Site.Data.contacts.address.country }}"
   },
   "contactPoint": [{

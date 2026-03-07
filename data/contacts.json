@@ -13,8 +13,8 @@
   "imo": { "display": "Imo", "href": "https://s.imoim.net/fDJ0Lh" },
   "site": { "display": "право18.рф", "href": "https://право18.рф" },
   "address": {
-    "street": "Проспект Мира, 27",
-    "city": "Москва",
+    "street": { "ru": "Проспект Мира, 27", "en": "Prospekt Mira, 27" },
+    "city": { "ru": "Москва", "en": "Moscow" },
     "country": "RU"
   }
 }

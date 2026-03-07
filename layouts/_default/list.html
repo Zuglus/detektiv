@@ -64,7 +64,7 @@
     {{- $pages := where $allPages ".Params.category" $slug -}}
 
     {{ if $pages }}
-    <section id="{{ $slug }}" class="mb-16 scroll-mt-14">
+    <section id="{{ $slug }}" class="mb-16 scroll-mt-28">
 
       {{/* Category heading */}}
       <div class="flex items-center gap-4 mb-6">
@@ -155,7 +155,7 @@
           {{ if eq $lang "ru" }}В данный момент статьи недоступны. Пожалуйста, попробуйте позже или обратитесь к нам напрямую.{{ else }}Articles are currently unavailable. Please try again later or contact us directly.{{ end }}
         </p>
         <a href="{{ if eq $lang "ru" }}/kontakty{{ else }}/en/contact{{ end }}"
-          class="inline-flex items-center gap-2 px-5 py-2.5 bg-primary-600 hover:bg-primary-700 text-white rounded-xl font-medium text-sm transition-colors">
+          class="inline-flex items-center gap-2 px-10 py-2.5 bg-primary-600 hover:bg-primary-700 text-white rounded-xl font-medium text-sm transition-colors">
           {{ if eq $lang "ru" }}Связаться с нами{{ else }}Contact us{{ end }}
         </a>
       </div>

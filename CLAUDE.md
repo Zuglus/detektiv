@@ -171,6 +171,10 @@ text-body-md     — clamp(1rem, 1vw, 1.125rem)
 - Все внешние ссылки: `| safeURL` + `target="_blank" rel="noopener noreferrer"`
 - Нет единого partial — каждый layout свой набор (5 layouts)
 
+### Страница price: title "Прайс" vs h1 "Услуги"
+- Это НЕ баг. "Услуги" — требование закона, `/price` в URL — уже проиндексирован, не менять
+- Расхождение осознанное, дезинформации нет
+
 ### Имя основателя EN
 - Каноническая форма EN: "Eduard Nikolaevich Grozny" (западный порядок, из `company.json`)
 
