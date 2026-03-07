@@ -172,7 +172,7 @@ text-body-md     — clamp(1rem, 1vw, 1.125rem)
 - Нет единого partial — каждый layout свой набор (5 layouts)
 
 ### Имя основателя EN
-- Каноническая форма: "Eduard Nikolaevich" (из `company.json`)
+- Каноническая форма EN: "Eduard Nikolaevich Grozny" (западный порядок, из `company.json`)
 
 ---
 

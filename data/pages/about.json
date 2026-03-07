@@ -2,7 +2,7 @@
   "hero": {
     "title": {
       "ru": "О нас",
-      "en": "about us"
+      "en": "About Us"
     },
     "subtitle": {
       "ru": "Профессиональные детективные услуги с 2010 года",
@@ -32,7 +32,7 @@
         {
           "year": "2010",
           "title": "Agency Founded",
-          "description": "The detective agency was founded by Grozny Eduard Nikolaevich, a retired officer — senior operative for especially important cases. Combat veteran decorated with state awards."
+          "description": "The detective agency was founded by Eduard Nikolaevich Grozny, a retired officer — senior operative for especially important cases. Combat veteran decorated with state awards."
         },
         {
           "year": "2010-2026",
