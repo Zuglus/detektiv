@@ -131,10 +131,10 @@
 
       {{/* Back to top */}}
       <div class="mt-6 text-right">
-        <a href="#" class="inline-flex items-center gap-1.5 text-sm text-secondary-400 hover:text-primary-600 transition-colors">
+        <button onclick="window.scrollTo({top:0,behavior:'smooth'})" class="inline-flex items-center gap-1.5 text-sm text-secondary-400 hover:text-primary-600 transition-colors cursor-pointer">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/></svg>
           {{ if eq $lang "ru" }}Наверх{{ else }}Back to top{{ end }}
-        </a>
+        </button>
       </div>
 
     </section>
