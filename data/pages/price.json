@@ -47,7 +47,7 @@
             "en": [
               "Biographical data verification",
               "Business reputation analysis",
-              "Information of client interest",
+              "Client-requested information",
               "Professional consultation"
             ]
           }
@@ -276,7 +276,7 @@
               "Digital profile investigation",
               "Online presence monitoring",
               "Lost information recovery",
-              "Digital traces expertise"
+              "Digital traces analysis"
             ]
           }
         },
@@ -307,7 +307,7 @@
         {
           "title": {
             "ru": "Розыск должников, алиментщиков",
-            "en": "Search for debtors, alimony"
+            "en": "Search for debtors and alimony defaulters"
           },
           "description": {
             "ru": "Профессиональный поиск лиц, уклоняющихся от исполнения обязательств",
