@@ -28,7 +28,13 @@
     </h1>
 
     <p class="text-lg md:text-xl mb-8 text-white/80">
-      {{ index $p.hero.subtitle $lang }}
+      {{ $subtitle := index $p.hero.subtitle $lang }}
+      {{ $parts := split $subtitle "Грозного Э.Н." }}
+      {{ if eq (len $parts) 2 }}
+        {{ index $parts 0 }}<span class="font-bold text-2xl md:text-3xl text-white">Грозного Э.Н.</span>{{ index $parts 1 }}
+      {{ else }}
+        {{ $subtitle }}
+      {{ end }}
     </p>
 
     {{/* Trust badges */}}
