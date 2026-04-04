@@ -31,7 +31,7 @@
       {{ $subtitle := index $p.hero.subtitle $lang }}
       {{ $parts := split $subtitle "Грозного Э.Н." }}
       {{ if eq (len $parts) 2 }}
-        {{ index $parts 0 }}<span class="font-bold text-2xl md:text-3xl text-white">Грозного Э.Н.</span>{{ index $parts 1 }}
+        {{ index $parts 0 }}<span class="text-xl md:text-2xl text-white">Грозного Э.Н.</span>{{ index $parts 1 }}
       {{ else }}
         {{ $subtitle }}
       {{ end }}
