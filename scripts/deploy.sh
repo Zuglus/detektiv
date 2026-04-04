@@ -34,11 +34,12 @@ if ! command -v lftp &> /dev/null; then
 fi
 
 # SFTP команды через lftp
-lftp -p $SFTP_PORT -u $SFTP_USER,$SFTP_PASS sftp://$SFTP_HOST$SFTP_PATH << LFTP_EOF
+lftp -p $SFTP_PORT -u $SFTP_USER,$SFTP_PASS sftp://$SFTP_HOST << LFTP_EOF
 set sftp:auto-confirm yes
-set sftp:verify-host no
+set sftp:connect-program "ssh -a -x -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null"
 set net:timeout 30
 set net:max-retries 2
+cd $SFTP_PATH
 mirror -R --delete public/ .
 quit
 LFTP_EOF
