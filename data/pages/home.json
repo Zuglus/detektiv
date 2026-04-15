@@ -4,7 +4,7 @@
     "subtitle": { "ru": "Детективное агентство Грозного Э.Н. в Москве с 2010 года. Лицензия МВД 50ЧД2021000323", "en": "Grozny E.N. Detective agency in Moscow since 2010. MIA license 50ЧД2021000323" },
     "cta": { "ru": "Получить консультацию", "en": "Get a consultation" },
     "badges": [
-      { "ru": "16 лет", "en": "16 years" },
+      { "ru": "{years} лет", "en": "{years} years" },
       { "ru": "Лицензия МВД", "en": "MIA Licensed" },
       { "ru": "Москва", "en": "Moscow" }
     ]
@@ -34,7 +34,7 @@
   "trust": {
     "title": { "ru": "Почему нам доверяют", "en": "Why Trust Us" },
     "items": [
-      { "value": "16", "label": { "ru": "лет работы", "en": "years in business" } },
+      { "value": "{years}", "label": { "ru": "лет работы", "en": "years in business" } },
       { "value": { "ru": "РФ+", "en": "RU+" }, "label": { "ru": "по всей стране и за рубежом", "en": "across Russia and abroad" } },
       { "value": "100%", "label": { "ru": "конфиденциальность", "en": "confidentiality" } }
     ]

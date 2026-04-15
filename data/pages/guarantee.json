@@ -24,12 +24,12 @@
       "ru": {
         "title": "Опыт работы",
         "years": "с 2010 года",
-        "description": "15+ лет успешной детективной деятельности"
+        "description": "{years} лет успешной детективной деятельности"
       },
       "en": {
         "title": "Experience",
         "years": "since 2010",
-        "description": "15+ years of successful detective work"
+        "description": "{years} years of successful detective work"
       }
     },
     "reputation": {

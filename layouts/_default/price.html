@@ -1,6 +1,6 @@
 {{ define "main" }}
 {{- $lang := .Lang -}}
-{{- $p := .Site.Data.pages.price -}}
+{{- $p := hugo.Data.pages.price -}}
 
 {{/* ── HEADER: compact version (48px padding) ── */}}
 <section class="relative overflow-hidden text-white pt-40 pb-12 bg-gradient-header">

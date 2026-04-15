@@ -22,8 +22,8 @@
           "description": "Детективное агентство создано Грозным Эдуардом Николаевичем, офицером в отставке — старшим оперуполномоченным по особо важным делам. Ветераном боевых действий, награжденным государственными наградами."
         },
         {
-          "year": "2010-2026",
-          "title": "16 лет детективной деятельности",
+          "year": "2010–{now}",
+          "title": "{years} лет детективной деятельности",
           "description": "Более полутора десятков лет успешной детективной работы, решения сложных семейных и бизнес задач, не считая огромный опыт работы в органах."
         }
       ],
@@ -34,8 +34,8 @@
           "description": "The detective agency was founded by Eduard Nikolaevich Grozny, a retired officer — senior operative for especially important cases. Combat veteran decorated with state awards."
         },
         {
-          "year": "2010-2026",
-          "title": "16 Years Detective Work",
+          "year": "2010–{now}",
+          "title": "{years} Years Detective Work",
           "description": "Over fifteen years of successful detective work, solving complex family and business tasks, not counting extensive law enforcement experience."
         }
       ]

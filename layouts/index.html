@@ -1,7 +1,8 @@
 {{ define "main" }}
 {{- $lang := .Lang -}}
-{{- $c := .Site.Data.contacts -}}
-{{- $p := .Site.Data.pages.home -}}
+{{- $c := hugo.Data.contacts -}}
+{{- $p := hugo.Data.pages.home -}}
+{{- $years := sub now.Year (int hugo.Data.company.founded) -}}
 {{- $articlesPath := cond (eq $lang "ru") "/stati" "/en/blog" -}}
 {{- $contactPath := cond (eq $lang "ru") "/kontakty/" "/en/contact/" -}}
 {{- $pricePath := cond (eq $lang "ru") "/price" "/en/price" -}}
@@ -29,9 +30,10 @@
 
     <p class="text-lg md:text-xl mb-8 text-white/80">
       {{ $subtitle := index $p.hero.subtitle $lang }}
-      {{ $parts := split $subtitle "Грозного Э.Н." }}
+      {{ $name := cond (eq $lang "ru") "Грозного Э.Н." "Grozny E.N." }}
+      {{ $parts := split $subtitle $name }}
       {{ if eq (len $parts) 2 }}
-        {{ index $parts 0 }}<span class="text-xl md:text-2xl text-white">Грозного Э.Н.</span>{{ index $parts 1 }}
+        {{ index $parts 0 }}<span class="text-xl md:text-2xl text-white">{{ $name }}</span>{{ index $parts 1 }}
       {{ else }}
         {{ $subtitle }}
       {{ end }}
@@ -48,7 +50,7 @@
         {{ else }}
         <svg class="w-4 h-4 text-primary-300" fill="currentColor" viewBox="0 0 20 20"><path d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"/></svg>
         {{ end }}
-        <span class="text-white/90 text-sm">{{ index . $lang }}</span>
+        <span class="text-white/90 text-sm">{{ replace (index . $lang) "{years}" (string $years) }}</span>
       </div>
       {{ end }}
     </div>
@@ -120,7 +122,7 @@
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       {{ range $p.trust.items }}
       <div class="text-center">
-        <div class="text-display-sm font-bold mb-2">{{ if reflect.IsMap .value }}{{ index .value $lang }}{{ else }}{{ .value }}{{ end }}</div>
+        <div class="text-display-sm font-bold mb-2">{{ if reflect.IsMap .value }}{{ index .value $lang }}{{ else }}{{ replace (string .value) "{years}" (string $years) }}{{ end }}</div>
         <div class="text-primary-100">{{ index .label $lang }}</div>
       </div>
       {{ end }}

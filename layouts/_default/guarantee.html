@@ -1,7 +1,8 @@
 {{ define "main" }}
 {{- $lang := .Lang -}}
-{{- $p := .Site.Data.pages.guarantee -}}
-{{- $c := .Site.Data.contacts -}}
+{{- $p := hugo.Data.pages.guarantee -}}
+{{- $c := hugo.Data.contacts -}}
+{{- $years := sub now.Year (int hugo.Data.company.founded) -}}
 
 {{/* ── HEADER: compact version (48px padding) ── */}}
 <section class="relative overflow-hidden text-white pt-40 pb-12 bg-gradient-header">
@@ -27,7 +28,7 @@
         {{ partial "icons/experience.html" "w-20 h-20 text-primary-600 mx-auto mb-3" }}
         <h3 class="font-bold text-secondary-900 mb-1">{{ (index $p.trustBadges.experience $lang).title }}</h3>
         <p class="text-primary-600 font-semibold">{{ (index $p.trustBadges.experience $lang).years }}</p>
-        <p class="text-secondary-500 text-xs mt-1">{{ (index $p.trustBadges.experience $lang).description }}</p>
+        <p class="text-secondary-500 text-xs mt-1">{{ replace (index $p.trustBadges.experience $lang).description "{years}" (string $years) }}</p>
       </div>
       {{/* Reputation */}}
       <div class="text-center bg-primary-50 rounded-2xl p-6 border border-primary-100">
@@ -47,7 +48,7 @@
       {{ $guaranteeIcons := slice "check-circle" "lock" "info" }}
       {{ $guaranteeKeys := slice "quality" "confidentiality" "transparency" }}
       {{ range $i, $key := $guaranteeKeys }}
-      {{- $g := index (index $.Site.Data.pages.guarantee.guarantees $key) $lang -}}
+      {{- $g := index (index hugo.Data.pages.guarantee.guarantees $key) $lang -}}
       {{- $iconName := index $guaranteeIcons $i -}}
       <div class="bg-white rounded-2xl p-6 border border-secondary-100 shadow-sm">
         <div class="flex items-center gap-3 mb-4">
