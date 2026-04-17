@@ -10,13 +10,11 @@
   "trustBadges": {
     "license": {
       "ru": {
-        "title": "Лицензия МВД",
         "number": "50ЧД2021000323",
         "description": "Официальная лицензия Министерства внутренних дел РФ"
       },
       "en": {
-        "title": "MIA License",
-        "number": "50ЧД2021000323", 
+        "number": "50ЧД2021000323",
         "description": "Official license from the Ministry of Internal Affairs of the Russian Federation"
       }
     },
@@ -24,12 +22,12 @@
       "ru": {
         "title": "Опыт работы",
         "years": "с 2010 года",
-        "description": "{years} лет успешной детективной деятельности"
+        "description": "{years} {years_word} успешной детективной деятельности"
       },
       "en": {
         "title": "Experience",
         "years": "since 2010",
-        "description": "{years} years of successful detective work"
+        "description": "{years} {years_word} of successful detective work"
       }
     },
     "reputation": {

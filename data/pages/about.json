@@ -23,8 +23,8 @@
         },
         {
           "year": "2010–{now}",
-          "title": "{years} лет детективной деятельности",
-          "description": "Более полутора десятков лет успешной детективной работы, решения сложных семейных и бизнес задач, не считая огромный опыт работы в органах."
+          "title": "{years} {years_word} детективной деятельности",
+          "description": "{years} {years_word} успешной детективной работы, решения сложных семейных и бизнес задач, не считая огромный опыт работы в органах."
         }
       ],
       "en": [
@@ -35,8 +35,8 @@
         },
         {
           "year": "2010–{now}",
-          "title": "{years} Years Detective Work",
-          "description": "Over fifteen years of successful detective work, solving complex family and business tasks, not counting extensive law enforcement experience."
+          "title": "{years} {years_word} Detective Work",
+          "description": "{years} {years_word} of successful detective work, solving complex family and business tasks, not counting extensive law enforcement experience."
         }
       ]
     }

@@ -3,8 +3,9 @@
 {{- $c := hugo.Data.contacts -}}
 {{- $p := hugo.Data.pages.home -}}
 {{- $years := sub now.Year (int hugo.Data.company.founded) -}}
+{{- $yearsLabel := partial "years-label.html" (dict "n" $years "lang" $lang) -}}
 {{- $articlesPath := cond (eq $lang "ru") "/stati" "/en/blog" -}}
-{{- $contactPath := cond (eq $lang "ru") "/kontakty/" "/en/contact/" -}}
+{{- $contactPath := cond (eq $lang "ru") "/kontakty" "/en/contact" -}}
 {{- $pricePath := cond (eq $lang "ru") "/price" "/en/price" -}}
 
 {{/* ── HERO: 100vh with trust badges ── */}}
@@ -50,7 +51,7 @@
         {{ else }}
         <svg class="w-4 h-4 text-primary-300" fill="currentColor" viewBox="0 0 20 20"><path d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"/></svg>
         {{ end }}
-        <span class="text-white/90 text-sm">{{ replace (index . $lang) "{years}" (string $years) }}</span>
+        <span class="text-white/90 text-sm">{{ replace (replace (index . $lang) "{years}" (string $years)) "{years_word}" $yearsLabel }}</span>
       </div>
       {{ end }}
     </div>
@@ -123,7 +124,7 @@
       {{ range $p.trust.items }}
       <div class="text-center">
         <div class="text-display-sm font-bold mb-2">{{ if reflect.IsMap .value }}{{ index .value $lang }}{{ else }}{{ replace (string .value) "{years}" (string $years) }}{{ end }}</div>
-        <div class="text-primary-100">{{ index .label $lang }}</div>
+        <div class="text-primary-100">{{ replace (index .label $lang) "{years_word}" $yearsLabel }}</div>
       </div>
       {{ end }}
     </div>

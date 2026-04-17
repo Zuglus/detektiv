@@ -54,9 +54,9 @@
             {{ partial "icons/imo.html" "w-6 h-6 text-primary-400" }}
             <span class="text-xs text-secondary-300">Imo</span>
           </a>
-          <a href="{{ $c.email.href | safeURL }}" class="flex flex-col items-center gap-1 p-2 rounded-lg hover:bg-white/10 transition-colors" aria-label="Email">
+          <a href="{{ $c.email.href | safeURL }}" class="flex flex-col items-center gap-1 p-2 rounded-lg hover:bg-white/10 transition-colors" aria-label="{{ $c.email.display }}">
             {{ partial "icons/mail.html" "w-6 h-6 text-primary-400" }}
-            <span class="text-xs text-secondary-300">Email</span>
+            <span class="text-xs text-secondary-300">{{ $c.email.display }}</span>
           </a>
         </div>
       </div>

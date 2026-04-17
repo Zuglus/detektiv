@@ -1,7 +1,6 @@
 baseURL = "https://xn--18-6kca2bmbedxg.xn--p1ai/"
 defaultContentLanguage = "ru"
 defaultContentLanguageInSubdir = false
-paginate = 9
 
 [languages]
 [languages.ru]

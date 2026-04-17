@@ -123,7 +123,11 @@ text-body-md     — clamp(1rem, 1vw, 1.125rem)
 - Мосты (`blog/_index.ru.md`, `stati/_index.en.md`) удалены — создавали дубли URL
 
 ### Стаж агентства
-- В разных местах указан как "15+" и "16 лет" — это не противоречие, 15+ включает 16
+- Везде динамический через плейсхолдеры `{years}` и `{years_word}` в JSON
+- В layout: `$years := sub now.Year (int hugo.Data.company.founded)` + `$yearsLabel := partial "years-label.html" (dict "n" $years "lang" $lang)`
+- `partials/years-label.html` — склонение RU (год/года/лет по правилам 1/2-4/5-20, с исключением 11-14) и EN (year/years)
+- Двойной replace: `replace (replace .text "{years}" (string $years)) "{years_word}" $yearsLabel`
+- Никакой статики — «полтора десятка», «fifteen years» и т.п. устаревают при сборке следующего года
 
 ### Год в футере
 - "© 2010–2031" — требование ТЗ, не трогаем
@@ -177,6 +181,16 @@ text-body-md     — clamp(1rem, 1vw, 1.125rem)
 
 ### Имя основателя EN
 - Каноническая форма EN: "Eduard Nikolaevich Grozny" (западный порядок, из `company.json`)
+
+### Имя основателя RU — склонения
+- `company.json.founder.ru` = "Грозного Эдуарда Николаевича" (родительный, для footer: "агентство Грозного…")
+- В `about.html` именительный "Грозный Эдуард Николаевич" (заголовок) и творительный "Грозным Эдуардом Николаевичем" (в тексте) — хардкод осознанный, русский язык не выражается одним полем
+- При замене имени править в `company.json` + `about.html` (2 падежа)
+
+### Лицензия
+- Полная форма с номером — `company.json.license` (для footer, Schema.org, refund policy)
+- Короткая — `company.json.licenseShort` ("Лицензия МВД" / "MIA License"), используется в бейджах/заголовках
+- В `home.json` subtitle — расшифровка оставлена в тексте, т.к. часть маркетингового предложения
 
 ---
 

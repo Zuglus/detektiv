@@ -1,0 +1,13 @@
+{{- $n := .n -}}
+{{- $lang := .lang -}}
+{{- if eq $lang "ru" -}}
+{{- $lastTwo := mod $n 100 -}}
+{{- $lastOne := mod $n 10 -}}
+{{- if and (ge $lastTwo 11) (le $lastTwo 14) -}}лет
+{{- else if eq $lastOne 1 -}}год
+{{- else if and (ge $lastOne 2) (le $lastOne 4) -}}года
+{{- else -}}лет
+{{- end -}}
+{{- else -}}
+{{- if eq $n 1 -}}year{{- else -}}years{{- end -}}
+{{- end -}}

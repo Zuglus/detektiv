@@ -2,6 +2,7 @@
 {{- $lang := .Lang -}}
 {{- $p := hugo.Data.pages.about -}}
 {{- $years := sub now.Year (int hugo.Data.company.founded) -}}
+{{- $yearsLabel := partial "years-label.html" (dict "n" $years "lang" $lang) -}}
 
 {{/* ── HERO: compact version (48px padding) ── */}}
 <section class="relative overflow-hidden text-white pt-40 pb-12 bg-gradient-header">
@@ -37,7 +38,7 @@
           <ul class="space-y-2 text-sm">
             <li class="flex items-center gap-2">
               {{ partial "icons/check-circle.html" "w-10 h-10 text-primary-600 flex-shrink-0" }}
-              <span>{{ if eq $lang "ru" }}{{ $years }} лет детективной деятельности{{ else }}{{ $years }} years of detective work{{ end }}</span>
+              <span>{{ if eq $lang "ru" }}{{ $years }} {{ $yearsLabel }} детективной деятельности{{ else }}{{ $years }} {{ $yearsLabel }} of detective work{{ end }}</span>
             </li>
             <li class="flex items-center gap-2">
               {{ partial "icons/check-circle.html" "w-10 h-10 text-primary-600 flex-shrink-0" }}
@@ -60,7 +61,7 @@
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
       <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
         <div class="text-display-sm font-bold mb-2">{{ $years }}</div>
-        <div class="text-primary-100">{{ if eq $lang "ru" }}лет работы{{ else }}years in business{{ end }}</div>
+        <div class="text-primary-100">{{ if eq $lang "ru" }}{{ $yearsLabel }} работы{{ else }}{{ $yearsLabel }} in business{{ end }}</div>
       </div>
       <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
         <div class="text-display-sm font-bold mb-2">{{ if eq $lang "ru" }}РФ+{{ else }}RU+{{ end }}</div>
@@ -84,8 +85,8 @@
         <div class="absolute -left-8 w-6 h-6 rounded-full bg-primary-600 border-4 border-white shadow flex-shrink-0 mt-1"></div>
         <div class="flex-1 bg-white rounded-2xl p-6 border border-secondary-100">
           <p class="text-primary-600 font-mono font-bold text-sm mb-1">{{ replace (replace .year "{years}" (string $years)) "{now}" (string now.Year) }}</p>
-          <h3 class="font-semibold text-secondary-900 mb-2">{{ replace .title "{years}" (string $years) }}</h3>
-          <p class="text-secondary-600 text-body-sm">{{ .description }}</p>
+          <h3 class="font-semibold text-secondary-900 mb-2">{{ replace (replace .title "{years}" (string $years)) "{years_word}" $yearsLabel }}</h3>
+          <p class="text-secondary-600 text-body-sm">{{ replace (replace .description "{years}" (string $years)) "{years_word}" $yearsLabel }}</p>
         </div>
       </div>
       {{ end }}
