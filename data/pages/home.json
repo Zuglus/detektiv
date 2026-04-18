@@ -1,7 +1,7 @@
 {
   "hero": {
     "title": { "ru": "Узнайте правду. Конфиденциально.", "en": "Find the truth. Confidentially." },
-    "subtitle": { "ru": "Детективное агентство Грозного Э.Н. в Москве с 2010 года. Лицензия МВД 50ЧД2021000323", "en": "Grozny E.N. Detective agency in Moscow since 2010. MIA License 50ЧД2021000323" },
+    "subtitle": { "ru": "{name} {founder} в {cityLocative} с {founded} года. {licenseShort} {licenseNumber}", "en": "{founder} {name} in {cityLocative} since {founded}. {licenseShort} {licenseNumber}" },
     "cta": { "ru": "Получить консультацию", "en": "Get a consultation" },
     "badges": [
       { "ru": "{years} {years_word}", "en": "{years} {years_word}" },

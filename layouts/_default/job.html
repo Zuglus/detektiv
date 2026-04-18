@@ -1,6 +1,9 @@
 {{ define "main" }}
 {{- $lang := .Lang -}}
 {{- $p := hugo.Data.pages.job -}}
+{{- $c := hugo.Data.contacts -}}
+{{- $email := replace $c.email.href "mailto:" "" -}}
+{{- $emailLink := printf "<strong><a href=\"%s\" class=\"text-primary-600 hover:text-primary-700 hover:underline\">%s</a></strong>" $c.email.href $email -}}
 
 {{/* ── HERO: compact version (48px padding) ── */}}
 <section class="relative overflow-hidden text-white pt-40 pb-12 bg-gradient-header">
@@ -39,7 +42,7 @@
       </ul>
 
       <div class="bg-secondary-50 rounded-xl p-10 border border-secondary-100">
-        <p class="text-secondary-700 text-sm mb-4">{{ index $p.portfolioLink $lang | safeHTML }}</p>
+        <p class="text-secondary-700 text-sm mb-4">{{ replace (index $p.portfolioLink $lang) "{email}" $emailLink | safeHTML }}</p>
         <div class="bg-accent-50 border border-accent-200 rounded-lg p-4">
           <p class="text-secondary-700 text-sm">{{ index $p.portfolioAlert $lang | safeHTML }}</p>
         </div>

@@ -5,7 +5,7 @@
     "display": "Telegram",
     "href": "https://t.me/+79150010025"
   },
-  "whatsapp": { "display": "Whatsapp", "href": "https://wa.me/79150010025" },
+  "whatsapp": { "display": "WhatsApp", "href": "https://wa.me/79150010025" },
   "signal": {
     "display": "Signal",
     "href": "https://signal.me/#p/+79150010025"
@@ -15,6 +15,7 @@
   "address": {
     "street": { "ru": "Проспект Мира, 27", "en": "Prospekt Mira, 27" },
     "city": { "ru": "Москва", "en": "Moscow" },
+    "cityLocative": { "ru": "Москве", "en": "Moscow" },
     "country": "RU"
   }
 }

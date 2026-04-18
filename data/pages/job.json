@@ -28,8 +28,8 @@
     ]
   },
   "portfolioLink": {
-    "ru": "Резюме отправляйте на e-mail: <strong>detectivegroznyi@gmail.com</strong> или сообщением в мессенджер.",
-    "en": "Send your resume to e-mail: <strong>detectivegroznyi@gmail.com</strong> or via messengers."
+    "ru": "Резюме направляйте на электронную почту {email} или через мессенджер.",
+    "en": "Please send your resume to {email} or via messenger."
   },
   "portfolioAlert": {
     "ru": "<strong>Важно!</strong> Звонить не надо, при заинтересованности в вашей кандидатуре мы сами с вами свяжемся.",

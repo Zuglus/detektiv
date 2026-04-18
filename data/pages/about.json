@@ -9,6 +9,12 @@
       "en": "Professional detective services since 2010"
     }
   },
+  "founder": {
+    "imageAlt": {
+      "ru": "Силуэт руководителя агентства",
+      "en": "Silhouette of the agency head"
+    }
+  },
   "timeline": {
     "title": {
       "ru": "Наша история",

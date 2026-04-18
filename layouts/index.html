@@ -1,8 +1,9 @@
 {{ define "main" }}
 {{- $lang := .Lang -}}
 {{- $c := hugo.Data.contacts -}}
+{{- $co := hugo.Data.company -}}
 {{- $p := hugo.Data.pages.home -}}
-{{- $years := sub now.Year (int hugo.Data.company.founded) -}}
+{{- $years := sub now.Year (int $co.founded) -}}
 {{- $yearsLabel := partial "years-label.html" (dict "n" $years "lang" $lang) -}}
 {{- $articlesPath := cond (eq $lang "ru") "/stati" "/en/blog" -}}
 {{- $contactPath := cond (eq $lang "ru") "/kontakty" "/en/contact" -}}
@@ -30,11 +31,17 @@
     </h1>
 
     <p class="text-lg md:text-xl mb-8 text-white/80">
+      {{ $founder := index $co.founderShort $lang }}
       {{ $subtitle := index $p.hero.subtitle $lang }}
-      {{ $name := cond (eq $lang "ru") "Грозного Э.Н." "Grozny E.N." }}
-      {{ $parts := split $subtitle $name }}
+      {{ $subtitle = replace $subtitle "{name}" (index $co.name $lang) }}
+      {{ $subtitle = replace $subtitle "{founder}" $founder }}
+      {{ $subtitle = replace $subtitle "{cityLocative}" (index $c.address.cityLocative $lang) }}
+      {{ $subtitle = replace $subtitle "{founded}" $co.founded }}
+      {{ $subtitle = replace $subtitle "{licenseShort}" (index $co.licenseShort $lang) }}
+      {{ $subtitle = replace $subtitle "{licenseNumber}" $co.licenseNumber }}
+      {{ $parts := split $subtitle $founder }}
       {{ if eq (len $parts) 2 }}
-        {{ index $parts 0 }}<span class="text-xl md:text-2xl text-white">{{ $name }}</span>{{ index $parts 1 }}
+        {{ index $parts 0 }}<span class="text-xl md:text-2xl text-white">{{ $founder }}</span>{{ index $parts 1 }}
       {{ else }}
         {{ $subtitle }}
       {{ end }}
@@ -189,21 +196,21 @@
     {{/* Messengers with labels */}}
     {{- $ariaPrefix := index $p.cta.messengerAriaPrefix $lang -}}
     <div class="flex flex-wrap justify-center gap-4 mb-8">
-      <a href="{{ $c.telegram.href | safeURL }}" target="_blank" rel="noopener noreferrer" aria-label="{{ $ariaPrefix }} Telegram" class="flex flex-col items-center p-4 bg-secondary-50 rounded-xl hover:bg-secondary-100 transition-colors min-w-[80px]">
+      <a href="{{ $c.telegram.href | safeURL }}" target="_blank" rel="noopener noreferrer" aria-label="{{ $ariaPrefix }} {{ $c.telegram.display }}" class="flex flex-col items-center p-4 bg-secondary-50 rounded-xl hover:bg-secondary-100 transition-colors min-w-[80px]">
         {{ partial "icons/send.html" "w-8 h-8 text-primary-600 mb-2" }}
-        <span class="text-xs text-secondary-700">Telegram</span>
+        <span class="text-xs text-secondary-700">{{ $c.telegram.display }}</span>
       </a>
-      <a href="{{ $c.whatsapp.href | safeURL }}" target="_blank" rel="noopener noreferrer" aria-label="{{ $ariaPrefix }} WhatsApp" class="flex flex-col items-center p-4 bg-secondary-50 rounded-xl hover:bg-secondary-100 transition-colors min-w-[80px]">
+      <a href="{{ $c.whatsapp.href | safeURL }}" target="_blank" rel="noopener noreferrer" aria-label="{{ $ariaPrefix }} {{ $c.whatsapp.display }}" class="flex flex-col items-center p-4 bg-secondary-50 rounded-xl hover:bg-secondary-100 transition-colors min-w-[80px]">
         {{ partial "icons/whatsapp.html" "w-8 h-8 text-primary-600 mb-2" }}
-        <span class="text-xs text-secondary-700">WhatsApp</span>
+        <span class="text-xs text-secondary-700">{{ $c.whatsapp.display }}</span>
       </a>
-      <a href="{{ $c.signal.href | safeURL }}" target="_blank" rel="noopener noreferrer" aria-label="{{ $ariaPrefix }} Signal" class="flex flex-col items-center p-4 bg-secondary-50 rounded-xl hover:bg-secondary-100 transition-colors min-w-[80px]">
+      <a href="{{ $c.signal.href | safeURL }}" target="_blank" rel="noopener noreferrer" aria-label="{{ $ariaPrefix }} {{ $c.signal.display }}" class="flex flex-col items-center p-4 bg-secondary-50 rounded-xl hover:bg-secondary-100 transition-colors min-w-[80px]">
         {{ partial "icons/signal.html" "w-8 h-8 text-primary-600 mb-2" }}
-        <span class="text-xs text-secondary-700">Signal</span>
+        <span class="text-xs text-secondary-700">{{ $c.signal.display }}</span>
       </a>
-      <a href="{{ $c.imo.href | safeURL }}" target="_blank" rel="noopener noreferrer" aria-label="{{ $ariaPrefix }} IMO" class="flex flex-col items-center p-4 bg-secondary-50 rounded-xl hover:bg-secondary-100 transition-colors min-w-[80px]">
+      <a href="{{ $c.imo.href | safeURL }}" target="_blank" rel="noopener noreferrer" aria-label="{{ $ariaPrefix }} {{ $c.imo.display }}" class="flex flex-col items-center p-4 bg-secondary-50 rounded-xl hover:bg-secondary-100 transition-colors min-w-[80px]">
         {{ partial "icons/imo.html" "w-8 h-8 text-primary-600 mb-2" }}
-        <span class="text-xs text-secondary-700">Imo</span>
+        <span class="text-xs text-secondary-700">{{ $c.imo.display }}</span>
       </a>
     </div>
 
