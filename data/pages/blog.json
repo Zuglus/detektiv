@@ -1,0 +1,48 @@
+{
+  "header": {
+    "subtitle": { "ru": "Практические дела", "en": "Practical cases" },
+    "articleCount": {
+      "ru": { "one": "статья", "few": "статьи", "many": "статей" },
+      "en": { "one": "article", "many": "articles" }
+    }
+  },
+  "card": {
+    "badge": { "ru": "Дело", "en": "Case" },
+    "read": { "ru": "Читать", "en": "Read" },
+    "minutes": { "ru": "мин", "en": "min" }
+  },
+  "back": { "ru": "Наверх", "en": "Back to top" },
+  "categoryNavAria": {
+    "ru": "Навигация по рубрикам",
+    "en": "Category navigation"
+  },
+  "empty": {
+    "title": { "ru": "Статьи не найдены", "en": "No articles found" },
+    "text": {
+      "ru": "В данный момент статьи недоступны. Пожалуйста, попробуйте позже или обратитесь к нам напрямую.",
+      "en": "Articles are currently unavailable. Please try again later or contact us directly."
+    },
+    "cta": { "ru": "Связаться с нами", "en": "Contact us" }
+  },
+  "single": {
+    "badge": { "ru": "Реальное дело из практики", "en": "Real case from practice" },
+    "minutes": { "ru": "мин", "en": "min" },
+    "words": { "ru": "слов", "en": "words" },
+    "prevNext": {
+      "title": { "ru": "Продолжить чтение", "en": "Continue Reading" },
+      "prev": { "ru": "Предыдущая", "en": "Previous" },
+      "next": { "ru": "Следующая", "en": "Next" },
+      "navAria": { "ru": "Навигация между статьями", "en": "Article navigation" },
+      "prevAria": { "ru": "Перейти к предыдущей статье", "en": "Go to previous article" },
+      "nextAria": { "ru": "Перейти к следующей статье", "en": "Go to next article" }
+    },
+    "cta": {
+      "title": { "ru": "Нужна помощь детектива?", "en": "Need Detective Help?" },
+      "text": {
+        "ru": "Каждая ситуация уникальна. Получите конфиденциальную консультацию от профессионалов.",
+        "en": "Every situation is unique. Get a confidential consultation from professionals."
+      },
+      "button": { "ru": "Связаться с нами", "en": "Contact Us" }
+    }
+  }
+}

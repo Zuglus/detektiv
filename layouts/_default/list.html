@@ -2,6 +2,8 @@
 {{- $lang := .Lang -}}
 {{- $allPages := .Pages -}}
 {{- $contactPath := cond (eq $lang "ru") "/kontakty" "/en/contact" -}}
+{{- $b := hugo.Data.pages.blog -}}
+{{- $articleForms := index $b.header.articleCount $lang -}}
 
 {{/* ── Category definitions (slug + bilingual labels) come from data/categories.json ── */}}
 {{- $cats := hugo.Data.categories -}}
@@ -17,18 +19,18 @@
     <div class="flex items-center justify-center gap-6 mt-6 text-sm">
       <div class="flex items-center text-white/60">
         {{ partial "icons/document.html" "w-4 h-4 mr-1.5" }}
-        {{ len .Pages }} {{ if eq $lang "ru" }}статей{{ else }}articles{{ end }}
+        {{ len .Pages }} {{ partial "word-form.html" (dict "n" (len .Pages) "one" $articleForms.one "few" $articleForms.few "many" $articleForms.many "lang" $lang) }}
       </div>
       <div class="flex items-center text-white/60">
         {{ partial "icons/eye.html" "w-4 h-4 mr-1.5" }}
-        {{ if eq $lang "ru" }}Практические дела{{ else }}Practical cases{{ end }}
+        {{ index $b.header.subtitle $lang }}
       </div>
     </div>
   </div>
 </section>
 
 {{/* ── CATEGORY ANCHOR NAV ── */}}
-<nav class="sticky top-0 z-10 bg-white border-b border-secondary-200 shadow-sm" aria-label="{{ if eq $lang "ru" }}Навигация по рубрикам{{ else }}Category navigation{{ end }}">
+<nav class="sticky top-0 z-10 bg-white border-b border-secondary-200 shadow-sm" aria-label="{{ index $b.categoryNavAria $lang }}">
   <div class="max-w-7xl mx-auto px-6">
     <ul class="flex flex-wrap gap-1 py-3" role="list">
       {{ range $cats }}
@@ -66,7 +68,7 @@
         <h2 class="font-display text-2xl font-bold text-secondary-900">{{ $label }}</h2>
         <span class="text-sm text-secondary-400 font-medium">
           {{ len $pages }}
-          {{ if eq $lang "ru" }}{{ if eq (len $pages) 1 }}статья{{ else if le (len $pages) 4 }}статьи{{ else }}статей{{ end }}{{ else }}{{ if eq (len $pages) 1 }}article{{ else }}articles{{ end }}{{ end }}
+          {{ partial "word-form.html" (dict "n" (len $pages) "one" $articleForms.one "few" $articleForms.few "many" $articleForms.many "lang" $lang) }}
         </span>
         <div class="flex-1 h-px bg-secondary-200"></div>
       </div>
@@ -89,12 +91,12 @@
             <div class="flex items-center justify-between mb-4 flex-wrap gap-2">
               <div class="flex items-center gap-2 text-xs">
                 <span class="px-2.5 py-1 bg-primary-100 text-primary-700 rounded-full font-medium">
-                  {{ if eq $lang "ru" }}Дело{{ else }}Case{{ end }}
+                  {{ index $b.card.badge $lang }}
                 </span>
               </div>
               <div class="flex items-center text-secondary-400 text-xs">
                 {{ partial "icons/clock.html" "w-3 h-3 mr-1" }}
-                {{ $readingTime }} {{ if eq $lang "ru" }}мин{{ else }}min{{ end }}
+                {{ $readingTime }} {{ index $b.card.minutes $lang }}
               </div>
             </div>
 
@@ -114,7 +116,7 @@
             {{/* Footer */}}
             <div class="flex items-center justify-between pt-4 border-t border-secondary-100 mt-auto">
               <span class="text-primary-600 font-medium text-sm group-hover:text-primary-700 transition-colors flex items-center">
-                {{ if eq $lang "ru" }}Читать{{ else }}Read{{ end }}
+                {{ index $b.card.read $lang }}
                 {{ partial "icons/chevron-right.html" "w-4 h-4 ml-1.5 transition-transform duration-300 group-hover:translate-x-1" }}
               </span>
             </div>
@@ -128,7 +130,7 @@
       <div class="mt-6 text-right">
         <button onclick="window.scrollTo({top:0,behavior:'smooth'})" class="inline-flex items-center gap-1.5 text-sm text-secondary-400 hover:text-primary-600 transition-colors cursor-pointer">
           {{ partial "icons/chevron-up.html" "w-4 h-4" }}
-          {{ if eq $lang "ru" }}Наверх{{ else }}Back to top{{ end }}
+          {{ index $b.back $lang }}
         </button>
       </div>
 
@@ -144,14 +146,14 @@
           {{ partial "icons/document.html" "w-8 h-8 text-primary-600" }}
         </div>
         <h3 class="text-xl font-display font-bold text-secondary-900 mb-2">
-          {{ if eq $lang "ru" }}Статьи не найдены{{ else }}No articles found{{ end }}
+          {{ index $b.empty.title $lang }}
         </h3>
         <p class="text-secondary-600 mb-4 text-sm">
-          {{ if eq $lang "ru" }}В данный момент статьи недоступны. Пожалуйста, попробуйте позже или обратитесь к нам напрямую.{{ else }}Articles are currently unavailable. Please try again later or contact us directly.{{ end }}
+          {{ index $b.empty.text $lang }}
         </p>
         <a href="{{ $contactPath }}"
           class="inline-flex items-center gap-2 px-10 py-2.5 bg-primary-600 hover:bg-primary-700 text-white rounded-xl font-medium text-sm transition-colors">
-          {{ if eq $lang "ru" }}Связаться с нами{{ else }}Contact us{{ end }}
+          {{ index $b.empty.cta $lang }}
         </a>
       </div>
     </div>

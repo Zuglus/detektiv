@@ -10,11 +10,45 @@
     }
   },
   "founder": {
+    "name": {
+      "ru": "Грозный Эдуард Николаевич",
+      "en": "Eduard Nikolaevich Grozny"
+    },
+    "bio": {
+      "ru": "Основатель и руководитель детективного агентства. Офицер в отставке — старший оперуполномоченный по особо важным делам. Ветеран боевых действий, награждён государственными наградами.",
+      "en": "Founder and head of the detective agency. Retired officer — senior operative for especially important cases. Combat veteran decorated with state awards."
+    },
+    "credentials": {
+      "ru": [
+        "{years} {years_word} детективной деятельности",
+        "Лицензия МВД РФ",
+        "Всесторонняя компетентность"
+      ],
+      "en": [
+        "{years} {years_word} of detective work",
+        "MIA RF license",
+        "Comprehensive competence"
+      ]
+    },
     "imageAlt": {
       "ru": "Силуэт руководителя агентства",
       "en": "Silhouette of the agency head"
     }
   },
+  "trustFacts": [
+    {
+      "value": "{years}",
+      "label": { "ru": "{years_word} работы", "en": "{years_word} in business" }
+    },
+    {
+      "value": { "ru": "РФ+", "en": "RU+" },
+      "label": { "ru": "по всей стране и за рубежом", "en": "across Russia and abroad" }
+    },
+    {
+      "value": "100%",
+      "label": { "ru": "конфиденциальность", "en": "confidentiality" }
+    }
+  ],
   "timeline": {
     "title": {
       "ru": "Наша история",

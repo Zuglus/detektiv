@@ -1,0 +1,26 @@
+{{- /*
+  Возвращает грамматически верную форму слова для числа.
+  Параметры (через dict):
+    n      — число
+    one    — форма для 1 (RU/EN)
+    few    — форма для 2-4 (RU; для EN не нужна)
+    many   — форма для 5-20 / EN множественное
+    lang   — "ru" | "en"
+
+  Пример:
+    {{ partial "word-form.html" (dict "n" 23 "one" "статья" "few" "статьи" "many" "статей" "lang" "ru") }}
+    → "статьи"
+*/ -}}
+{{- $n := .n -}}
+{{- $lang := .lang -}}
+{{- if eq $lang "ru" -}}
+  {{- $lastTwo := mod $n 100 -}}
+  {{- $lastOne := mod $n 10 -}}
+  {{- if and (ge $lastTwo 11) (le $lastTwo 14) -}}{{ .many }}
+  {{- else if eq $lastOne 1 -}}{{ .one }}
+  {{- else if and (ge $lastOne 2) (le $lastOne 4) -}}{{ .few }}
+  {{- else -}}{{ .many }}
+  {{- end -}}
+{{- else -}}
+  {{- if eq $n 1 -}}{{ .one }}{{- else -}}{{ .many }}{{- end -}}
+{{- end -}}
