@@ -1,5 +1,6 @@
 {{- $lang := .Lang -}}
 {{- $c := hugo.Data.contacts -}}
+{{- $cityPrefix := cond (eq $lang "ru") "г. " "" -}}
 
 <footer
   id="footer"
@@ -15,7 +16,7 @@
       <div class="space-y-4">
         <h3 class="text-lg font-semibold text-white pb-3 border-b border-secondary-600/60">{{ index hugo.Data.company.name $lang }}</h3>
         <p class="text-secondary-300 text-sm">{{ index hugo.Data.company.license $lang }}</p>
-        <p class="text-secondary-300 text-sm">{{ index hugo.Data.company.location $lang }}</p>
+        <p class="text-secondary-300 text-sm">{{ $cityPrefix }}{{ index $c.address.city $lang }}</p>
         <p class="text-secondary-300 text-sm">{{ index $c.address.street $lang }}</p>
       </div>
 

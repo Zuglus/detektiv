@@ -1,4 +1,39 @@
 {
+  "header": {
+    "title": { "ru": "Услуги", "en": "Services" }
+  },
+  "cta": {
+    "button": { "ru": "Получить консультацию", "en": "Get consultation" }
+  },
+  "pricing": {
+    "title": { "ru": "Как формируется стоимость", "en": "How pricing works" },
+    "intro": {
+      "ru": "Стоимость каждого заказа рассчитывается индивидуально и зависит от нескольких факторов:",
+      "en": "The cost of each order is calculated individually and depends on several factors:"
+    },
+    "factors": [
+      {
+        "label": { "ru": "Сложность задачи", "en": "Task complexity" },
+        "text":  { "ru": "объём необходимой работы и уровень сложности", "en": "volume of work required and difficulty level" }
+      },
+      {
+        "label": { "ru": "География", "en": "Geography" },
+        "text":  { "ru": "Москва, регионы РФ или зарубежные направления", "en": "Moscow, Russian regions, or international" }
+      },
+      {
+        "label": { "ru": "Срочность", "en": "Urgency" },
+        "text":  { "ru": "стандартные сроки или срочное выполнение", "en": "standard or expedited timelines" }
+      },
+      {
+        "label": { "ru": "Ресурсы", "en": "Resources" },
+        "text":  { "ru": "необходимость привлечения дополнительных специалистов или оборудования", "en": "need for additional specialists or equipment" }
+      }
+    ],
+    "footer": {
+      "ru": "Консультация бесплатна. Окончательная стоимость фиксируется в договоре до начала работ.",
+      "en": "Consultation is free. Final cost is fixed in the contract before work begins."
+    }
+  },
   "intro": {
     "list": {
       "ru": [

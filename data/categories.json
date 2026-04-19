@@ -1,0 +1,7 @@
+[
+  { "slug": "family",     "name": { "ru": "Семейные дела",         "en": "Family cases" } },
+  { "slug": "search",     "name": { "ru": "Поиск людей",            "en": "Finding people" } },
+  { "slug": "staff",      "name": { "ru": "Проверка персонала",     "en": "Background checks" } },
+  { "slug": "business",   "name": { "ru": "Бизнес и мошенничество", "en": "Business & fraud" } },
+  { "slug": "profession", "name": { "ru": "О профессии",            "en": "About the profession" } }
+]

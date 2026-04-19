@@ -21,12 +21,12 @@
     "experience": {
       "ru": {
         "title": "Опыт работы",
-        "years": "с 2010 года",
+        "years": "с {founded} года",
         "description": "{years} {years_word} успешной детективной деятельности"
       },
       "en": {
         "title": "Experience",
-        "years": "since 2010",
+        "years": "since {founded}",
         "description": "{years} {years_word} of successful detective work"
       }
     },

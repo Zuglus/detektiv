@@ -6,5 +6,8 @@
   "licenseShort": { "ru": "Лицензия МВД", "en": "MIA License" },
   "licenseNumber": "50ЧД2021000323",
   "founded": "2010",
-  "location": { "ru": "г. Москва", "en": "Moscow" }
+  "description": {
+    "ru": "Лицензированное частное детективное агентство. Москва, с {founded} года.",
+    "en": "Licensed private detective agency. Moscow, since {founded}."
+  }
 }
