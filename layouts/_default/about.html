@@ -20,12 +20,15 @@
       <div class="order-2 md:order-1">
         <div class="relative">
           <div class="absolute inset-0 bg-gradient-to-br from-primary-600/20 to-transparent rounded-2xl transform rotate-3"></div>
-          <img
-            src="/images/founder.png"
-            alt="{{ index $p.founder.imageAlt $lang }}"
-            class="relative rounded-2xl shadow-2xl w-full max-w-md mx-auto"
-            loading="lazy"
-          >
+          <picture>
+            <source srcset="/images/founder.webp" type="image/webp">
+            <img
+              src="/images/founder.png"
+              alt="{{ index $p.founder.imageAlt $lang }}"
+              class="relative rounded-2xl shadow-2xl w-full max-w-md mx-auto"
+              loading="lazy"
+            >
+          </picture>
         </div>
       </div>
       {{/* Founder info */}}

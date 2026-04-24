@@ -19,6 +19,12 @@
 <link rel="alternate" hreflang="{{ .Lang }}" href="{{ .Permalink }}">
 {{ end }}
 <link rel="alternate" hreflang="{{ .Lang }}" href="{{ .Permalink }}">
+{{/* x-default → RU version (defaultContentLanguage = "ru") */}}
+{{ if eq .Lang "ru" }}
+<link rel="alternate" hreflang="x-default" href="{{ .Permalink }}">
+{{ else }}
+{{ range .Translations }}{{ if eq .Lang "ru" }}<link rel="alternate" hreflang="x-default" href="{{ .Permalink }}">{{ end }}{{ end }}
+{{ end }}
 {{ end }}
 
 {{/* Open Graph */}}

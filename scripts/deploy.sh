@@ -16,9 +16,16 @@ if [ "$CURRENT_BRANCH" != "main" ]; then
   exit 1
 fi
 
-# Проверка что сборка есть
+# Чистая сборка: удаляем старые fingerprint-файлы, чтобы не накапливать мусор
+echo "🧹 Очистка public/ и пересборка..."
+rm -rf public
+if ! command -v hugo &> /dev/null; then
+  echo "❌ hugo не установлен"
+  exit 1
+fi
+hugo --quiet
 if [ ! -d "public" ]; then
-  echo "Ошибка: папка 'public' не найдена. Сначала запустите: hugo"
+  echo "❌ Сборка не удалась: папка 'public' не создана"
   exit 1
 fi
 
