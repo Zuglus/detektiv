@@ -9,9 +9,10 @@
   a.parentNode.insertBefore(k, a);
 })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js', 'ym');
 
+// webvisor отключён — пишет мышь/клики/скролл, требует явного opt-in согласия (152-ФЗ/GDPR).
+// clickmap и trackLinks остаются: тепловая карта кликов и трекинг внешних ссылок.
 ym(70102144, 'init', {
   clickmap: true,
   trackLinks: true,
-  accurateTrackBounce: true,
-  webvisor: true
+  accurateTrackBounce: true
 });

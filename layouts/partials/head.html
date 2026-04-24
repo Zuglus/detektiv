@@ -7,6 +7,11 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
+{{- if eq .Kind "404" -}}
+<title>{{ if eq .Lang "ru" }}Страница не найдена{{ else }}Page not found{{ end }} — {{ index hugo.Data.company.name .Lang }}</title>
+<meta name="description" content="{{ if eq .Lang "ru" }}Запрашиваемая страница не существует или была перемещена.{{ else }}The requested page does not exist or has been moved.{{ end }}">
+<meta name="robots" content="noindex">
+{{- else -}}
 <title>{{ if .IsHome }}{{ .Title }}{{ else if .Title }}{{ .Title }} — {{ index hugo.Data.company.name .Lang }}{{ else }}{{ index hugo.Data.company.name .Lang }}{{ end }}</title>
 <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Params.short }}{{ . }}{{ else }}{{ index hugo.Data.company.name .Lang }}{{ end }}{{ end }}">
 
@@ -26,17 +31,57 @@
 {{ range .Translations }}{{ if eq .Lang "ru" }}<link rel="alternate" hreflang="x-default" href="{{ .Permalink }}">{{ end }}{{ end }}
 {{ end }}
 {{ end }}
+{{- end -}}
 
 {{/* Open Graph */}}
+{{- if eq .Kind "404" -}}
+<meta property="og:title" content="{{ if eq .Lang "ru" }}Страница не найдена{{ else }}Page not found{{ end }} — {{ index hugo.Data.company.name .Lang }}">
+<meta property="og:description" content="{{ if eq .Lang "ru" }}Запрашиваемая страница не существует или была перемещена.{{ else }}The requested page does not exist or has been moved.{{ end }}">
+<meta property="og:type" content="website">
+{{- else -}}
 <meta property="og:title" content="{{ if .IsHome }}{{ .Title }}{{ else if .Title }}{{ .Title }} — {{ index hugo.Data.company.name .Lang }}{{ else }}{{ index hugo.Data.company.name .Lang }}{{ end }}">
 <meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Params.short }}{{ . }}{{ else }}{{ index hugo.Data.company.name .Lang }}{{ end }}{{ end }}">
 <meta property="og:type" content="{{ if or (eq .Section "stati") (eq .Section "blog") }}article{{ else }}website{{ end }}">
 <meta property="og:url" content="{{ .Permalink }}">
+{{- end }}
 <meta property="og:site_name" content="{{ index hugo.Data.company.name .Lang }}">
 {{ if .Params.image }}
 <meta property="og:image" content="{{ .Params.image | absURL }}">
 {{ else }}
 <meta property="og:image" content="{{ "/images/founder.png" | absURL }}">
+{{ end }}
+
+{{/* Schema.org Article for blog posts */}}
+{{ if or (eq .Section "stati") (eq .Section "blog") }}
+{{ if .IsPage }}
+{{- $co := hugo.Data.company -}}
+{{- $description := .Description | default .Params.short | default (index $co.name .Lang) -}}
+{{- $orgName := index $co.name .Lang -}}
+{{- $articleData := dict
+  "@context" "https://schema.org"
+  "@type" "Article"
+  "headline" .Title
+  "description" $description
+  "image" (absURL "/images/founder.png")
+  "author" (dict
+    "@type" "Organization"
+    "name" $orgName
+    "url" .Site.BaseURL)
+  "publisher" (dict
+    "@type" "Organization"
+    "name" $orgName
+    "logo" (dict
+      "@type" "ImageObject"
+      "url" (absURL "/android-chrome-512x512.png")))
+  "mainEntityOfPage" (dict
+    "@type" "WebPage"
+    "@id" .Permalink)
+  "inLanguage" .Lang
+-}}
+<script type="application/ld+json">
+{{ $articleData | jsonify (dict "indent" "  ") | safeJS }}
+</script>
+{{ end }}
 {{ end }}
 
 {{/* Schema.org LocalBusiness for homepage */}}
