@@ -3,9 +3,12 @@
 <head>
   {{ partial "head.html" . }}
 </head>
-<body class="bg-secondary-50 text-secondary-800 antialiased">
+{{/* flex-col + min-height + flex-1 на main: на коротких страницах футер прижат
+     к низу экрана, мобильная панель ложится на него, а не висит в пустоте.
+     100vh — fallback для браузеров без svh. */}}
+<body class="bg-secondary-50 text-secondary-800 antialiased flex flex-col" style="min-height:100vh;min-height:100svh;">
   {{ partial "nav.html" . }}
-  <main id="main-content">
+  <main id="main-content" class="flex-1">
     {{ block "main" . }}{{ end }}
   </main>
   {{ partial "footer.html" . }}
