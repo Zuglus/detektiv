@@ -76,7 +76,8 @@
   </div>
 
   {{/* Scroll indicator */}}
-  <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+  {{/* На мобильном снизу панель «Позвонить/Написать» (56px, lg:hidden) — стрелку поднимаем над ней */}}
+  <div class="absolute bottom-40 lg:bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
     {{ partial "icons/arrow-down.html" "w-6 h-6 text-white/50" }}
   </div>
 </section>
