@@ -133,7 +133,7 @@ text-body-md     — clamp(1rem, 1vw, 1.125rem)
 - "© 2010–2031" — требование ТЗ, не трогаем
 
 ### Домен
-- `config.toml` baseURL и `contacts.json` site.href — один домен `право18.рф`, в punycode `xn--18-6kca2bmbedxg.xn--p1ai`
+- `config.toml` baseURL и `contacts.json` site.href — один домен `право18.рф`, в punycode `xn--18-6kci4ddh.xn--p1ai`
 
 ---
 
