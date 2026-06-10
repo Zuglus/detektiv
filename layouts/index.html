@@ -10,7 +10,11 @@
 {{- $pricePath := cond (eq $lang "ru") "/price" "/en/price" -}}
 
 {{/* ── HERO: 100vh with trust badges ── */}}
-<section class="relative min-h-screen flex flex-col items-center justify-center text-center px-6 overflow-hidden">
+{{/* min-height: 100svh — видимая высота С панелями браузера (адресная строка и т.п.);
+     100vh на мобильных выше видимой области, и низ секции прятался под интерфейс браузера.
+     Первая строка — fallback для браузеров без svh. pb на мобильном — место под стрелку
+     (bottom-40 = 80px + иконка 24px), чтобы контент на коротких экранах на неё не наезжал. */}}
+<section class="relative flex flex-col items-center justify-center text-center px-6 pb-64 lg:pb-0 overflow-hidden" style="min-height:100vh;min-height:100svh;">
   {{/* Background gradient */}}
   <div class="absolute inset-0 bg-gradient-header"></div>
 
