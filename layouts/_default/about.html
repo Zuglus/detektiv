@@ -8,7 +8,7 @@
 <section class="relative overflow-hidden text-white pt-40 pb-12 bg-gradient-header">
   <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
     <h1 class="font-display text-display-sm md:text-display-md font-bold mb-3">{{ index $p.hero.title $lang }}</h1>
-    <p class="text-white/80 text-base md:text-lg">{{ index $p.hero.subtitle $lang }}</p>
+    <p class="text-white/80 text-base md:text-lg">{{ replace (index $p.hero.subtitle $lang) "{founded}" hugo.Data.company.founded }}</p>
   </div>
 </section>
 
@@ -56,7 +56,7 @@
 <section class="py-16 bg-gradient-to-br from-primary-600 to-primary-700 text-white" data-reveal>
   <div class="max-w-6xl mx-auto px-6">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-      {{ range $p.trustFacts }}
+      {{ range hugo.Data.trust.items }}
       <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
         <div class="text-display-sm font-bold mb-2">{{ if reflect.IsMap .value }}{{ index .value $lang }}{{ else }}{{ replace (string .value) "{years}" (string $years) }}{{ end }}</div>
         <div class="text-primary-100">{{ replace (index .label $lang) "{years_word}" $yearsLabel }}</div>

@@ -29,10 +29,11 @@ detektiv/
 │       ├── nav.html        # Навигация
 │       ├── footer.html     # Подвал
 │       ├── mobile-sticky.html
-│       └── icons/          # 45 SVG иконок
+│       ├── messengers.html # Ссылки на мессенджеры (единый список)
+│       └── icons/          # 28 SVG иконок
 ├── content/                # Markdown контент
-│   ├── blog/               # 28 статей (*.en.md — только EN)
-│   ├── stati/              # 28 статей (*.ru.md — только RU)
+│   ├── blog/               # 27 статей (*.en.md — только EN)
+│   ├── stati/              # 27 статей (*.ru.md — только RU)
 │   └── *.ru.md / *.en.md   # Основные страницы
 ├── data/                   # JSON данные для layouts
 │   ├── company.json        # Реквизиты компании
@@ -80,9 +81,9 @@ npm run deploy           # Деплой на SFTP (только из ветки 
 
 ### Цвета
 ```
-primary   — Detective Green (действия, акценты): 50 / 600 / 700 / 800
-secondary — Neutral Gray (фоны, текст): 50 / 600 / 700 / 800
-accent    — Professional Orange (выделение): 50 / 600 / 700 / 800
+primary   — Detective Green (действия, акценты): 50–900 (полная шкала)
+secondary — Neutral Gray (фоны, текст): 50–900 (полная шкала)
+accent    — Professional Orange (выделение): 50 / 200 / 300 / 600
 ```
 
 ### Типографика
@@ -133,7 +134,8 @@ text-body-md     — clamp(1rem, 1vw, 1.125rem)
 - "© 2010–2031" — требование ТЗ, не трогаем
 
 ### Домен
-- `config.toml` baseURL и `contacts.json` site.href — один домен `право18.рф`, в punycode `xn--18-6kci4ddh.xn--p1ai`
+- Один домен `право18.рф`, в punycode `xn--18-6kci4ddh.xn--p1ai`
+- Источник правды — `config.toml` baseURL. Schema.org/canonical берут URL из `.Site.BaseURL` (отдельного поля в `contacts.json` нет)
 
 ---
 
@@ -141,7 +143,7 @@ text-body-md     — clamp(1rem, 1vw, 1.125rem)
 
 **Русский:** `/`, `/price`, `/onas`, `/garantii`, `/stati/`, `/stati/[slug]/`, `/kontakty`, `/vakansii`
 **Английский:** `/en/`, `/en/price`, `/en/about`, `/en/guarantee`, `/en/blog/`, `/en/blog/[slug]/`, `/en/contact`, `/en/job`
-**Всего:** ~70 URL (28 статей RU + 28 EN + 14 основных)
+**Всего:** ~68 URL (27 статей RU + 27 EN + 14 основных)
 
 ---
 
@@ -172,8 +174,11 @@ text-body-md     — clamp(1rem, 1vw, 1.125rem)
 - Статьи покрыты через `short` в front matter
 
 ### Ссылки мессенджеров
-- Все внешние ссылки: `| safeURL` + `target="_blank" rel="noopener noreferrer"`
-- Нет единого partial — каждый layout свой набор (5 layouts)
+- Единый partial `partials/messengers.html` рендерит список telegram/whatsapp/signal/imo
+- Параметры (dict): `c` (contacts), `linkClass`, `iconClass`, `spanClass` (необяз.), `iconWrap` (необяз.), `aria` (необяз. префикс)
+- Иконка telegram — `send.html`, остальные совпадают с ключом (маппинг внутри partial)
+- Все ссылки: `| safeURL` + `target="_blank" rel="noopener noreferrer"`
+- Используют partial: index, contact, guarantee, footer. Email/phone остаются в каждом layout своими (partial только мессенджеры)
 
 ### Страница price: title "Прайс" vs h1 "Услуги"
 - Это НЕ баг. "Услуги" — требование закона, `/price` в URL — уже проиндексирован, не менять
@@ -208,7 +213,7 @@ text-body-md     — clamp(1rem, 1vw, 1.125rem)
 1. `hugo` — собрать в `public/`
 2. `npm run deploy` — загрузить `public/` через SFTP (lftp)
 
-**Сервер:** `https://xн--18-6kca2bmbedxg.xn--p1ai/` (IDN домен)
+**Сервер:** `https://xn--18-6kci4ddh.xn--p1ai/` (IDN домен `право18.рф`)
 
 ---
 

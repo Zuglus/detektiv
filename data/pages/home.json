@@ -1,12 +1,12 @@
 {
   "hero": {
     "title": { "ru": "Узнайте правду. Конфиденциально.", "en": "Find the truth. Confidentially." },
-    "subtitle": { "ru": "{name} {founder} в {cityLocative} с {founded} года. {licenseShort} {licenseNumber}", "en": "{founder} {name} in {cityLocative} since {founded}. {licenseShort} {licenseNumber}" },
+    "subtitle": { "ru": "{name} {founderShort} в {cityLocative} с {founded} года. {licenseShort} {licenseNumber}", "en": "{founderShort} {name} in {cityLocative} since {founded}. {licenseShort} {licenseNumber}" },
     "cta": { "ru": "Получить консультацию", "en": "Get a consultation" },
     "badges": [
       { "ru": "{years} {years_word}", "en": "{years} {years_word}" },
-      { "ru": "Лицензия МВД", "en": "MIA License" },
-      { "ru": "Москва", "en": "Moscow" }
+      { "ru": "{licenseShort}", "en": "{licenseShort}" },
+      { "ru": "{city}", "en": "{city}" }
     ]
   },
   "services": {
@@ -32,15 +32,10 @@
     ]
   },
   "trust": {
-    "title": { "ru": "Почему нам доверяют", "en": "Why Trust Us" },
-    "items": [
-      { "value": "{years}", "label": { "ru": "{years_word} работы", "en": "{years_word} in business" } },
-      { "value": { "ru": "РФ+", "en": "RU+" }, "label": { "ru": "по всей стране и за рубежом", "en": "across Russia and abroad" } },
-      { "value": "100%", "label": { "ru": "конфиденциальность", "en": "confidentiality" } }
-    ]
+    "title": { "ru": "Почему нам доверяют", "en": "Why Trust Us" }
   },
   "cases": {
-    "title": { "ru": "Свежие дела", "en": "Latest Cases" },
+    "title": { "ru": "Дела из практики", "en": "Cases from Our Practice" },
     "subtitle": { "ru": "Реальные истории из нашей практики", "en": "Real stories from our practice" },
     "badge": { "ru": "Дело", "en": "Case" },
     "allLink": { "ru": "Все статьи", "en": "All articles" }

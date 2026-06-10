@@ -90,7 +90,7 @@
       {{/* Single Primary CTA at the bottom */}}
       <div class="mt-8">
         <a href="{{ $contactPath }}" class="inline-flex items-center px-8 py-4 bg-primary-600 hover:bg-primary-700 text-white rounded-xl text-lg font-semibold transition-colors">
-          {{ if eq $lang "ru" }}Получить консультацию{{ else }}Get consultation{{ end }}
+          {{ index $p.cta.button $lang }}
         </a>
       </div>
     </div>

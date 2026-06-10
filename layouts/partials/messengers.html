@@ -1,0 +1,20 @@
+{{- /*
+  Список ссылок на мессенджеры (telegram/whatsapp/signal/imo) единым набором.
+  Параметры (dict):
+    c          — hugo.Data.contacts
+    linkClass  — классы тега <a>
+    iconClass  — классы иконки
+    iconWrap   — классы обёртки иконки <div> (необязательно)
+    spanClass  — классы подписи <span> (необязательно; без неё — текст без обёртки)
+    aria       — префикс aria-label, например «Связаться через» (необязательно)
+  Иконка telegram — send.html, остальные совпадают с ключом.
+*/ -}}
+{{- $icons := dict "telegram" "send" "whatsapp" "whatsapp" "signal" "signal" "imo" "imo" -}}
+{{- range $key := slice "telegram" "whatsapp" "signal" "imo" }}
+{{- $m := index $.c $key }}
+<a href="{{ $m.href | safeURL }}" target="_blank" rel="noopener noreferrer" class="{{ $.linkClass }}" aria-label="{{ with $.aria }}{{ . }} {{ end }}{{ $m.display }}">
+{{- $icon := partial (printf "icons/%s.html" (index $icons $key)) $.iconClass -}}
+{{ with $.iconWrap }}<div class="{{ . }}">{{ $icon }}</div>{{ else }}{{ $icon }}{{ end }}
+{{ with $.spanClass }}<span class="{{ . }}">{{ $m.display }}</span>{{ else }}{{ $m.display }}{{ end }}
+</a>
+{{- end -}}

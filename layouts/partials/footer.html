@@ -40,22 +40,11 @@
         
         {{/* Messenger icons with labels */}}
         <div class="grid grid-cols-5 gap-2 bg-white/5 rounded-xl p-3">
-          <a href="{{ $c.telegram.href | safeURL }}" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center gap-1 p-2 rounded-lg hover:bg-white/10 transition-colors" aria-label="{{ $c.telegram.display }}">
-            {{ partial "icons/send.html" "w-6 h-6 text-primary-400" }}
-            <span class="text-xs text-secondary-300">{{ $c.telegram.display }}</span>
-          </a>
-          <a href="{{ $c.whatsapp.href | safeURL }}" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center gap-1 p-2 rounded-lg hover:bg-white/10 transition-colors" aria-label="{{ $c.whatsapp.display }}">
-            {{ partial "icons/whatsapp.html" "w-6 h-6 text-primary-400" }}
-            <span class="text-xs text-secondary-300">{{ $c.whatsapp.display }}</span>
-          </a>
-          <a href="{{ $c.signal.href | safeURL }}" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center gap-1 p-2 rounded-lg hover:bg-white/10 transition-colors" aria-label="{{ $c.signal.display }}">
-            {{ partial "icons/signal.html" "w-6 h-6 text-primary-400" }}
-            <span class="text-xs text-secondary-300">{{ $c.signal.display }}</span>
-          </a>
-          <a href="{{ $c.imo.href | safeURL }}" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center gap-1 p-2 rounded-lg hover:bg-white/10 transition-colors" aria-label="{{ $c.imo.display }}">
-            {{ partial "icons/imo.html" "w-6 h-6 text-primary-400" }}
-            <span class="text-xs text-secondary-300">{{ $c.imo.display }}</span>
-          </a>
+          {{ partial "messengers.html" (dict
+            "c" $c
+            "linkClass" "flex flex-col items-center gap-1 p-2 rounded-lg hover:bg-white/10 transition-colors"
+            "iconClass" "w-6 h-6 text-primary-400"
+            "spanClass" "text-xs text-secondary-300") }}
           <a href="{{ $c.email.href | safeURL }}" class="flex flex-col items-center gap-1 p-2 rounded-lg hover:bg-white/10 transition-colors" aria-label="{{ $c.email.display }}">
             {{ partial "icons/mail.html" "w-6 h-6 text-primary-400" }}
             <span class="text-xs text-secondary-300">{{ $c.email.display }}</span>

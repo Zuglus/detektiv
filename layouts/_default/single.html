@@ -1,6 +1,5 @@
 {{ define "main" }}
 {{- $lang := .Lang -}}
-{{- $articlesPath := cond (eq $lang "ru") "/stati" "/en/blog" -}}
 {{- $contactsPath := cond (eq $lang "ru") "/kontakty" "/en/contact" -}}
 {{- $b := hugo.Data.pages.blog -}}
 {{- $s := $b.single -}}

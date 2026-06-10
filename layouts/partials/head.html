@@ -95,6 +95,7 @@
   "name": "{{ index $co.name .Lang }}",
   "description": "{{ $description }}",
   "url": "{{ .Site.BaseURL }}",
+  "image": "{{ "images/founder.png" | absURL }}",
   "telephone": "{{ hugo.Data.contacts.phone.display }}",
   "email": "{{ replace hugo.Data.contacts.email.href "mailto:" "" }}",
   "address": {
@@ -110,7 +111,11 @@
     "availableLanguage": ["Russian", "English"]
   }],
   "foundingDate": "{{ $co.founded }}",
-  "license": "{{ index $co.license .Lang }}"
+  "hasCredential": {
+    "@type": "EducationalOccupationalCredential",
+    "credentialCategory": "license",
+    "name": "{{ index $co.license .Lang }}"
+  }
 }
 </script>
 {{ end }}

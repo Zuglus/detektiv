@@ -12,7 +12,9 @@
   {{ partial "mobile-sticky.html" . }}
   <script defer src="/js/mobile-menu.js"></script>
   <script defer src="/js/scroll-reveal.js"></script>
+  {{ if hugo.IsProduction }}
   <script defer src="/js/yandex.js"></script>
   <noscript><div><img src="https://mc.yandex.ru/watch/70102144" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
+  {{ end }}
 </body>
 </html>

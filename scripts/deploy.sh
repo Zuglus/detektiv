@@ -36,16 +36,21 @@ echo ""
 
 # Проверка lftp
 if ! command -v lftp &> /dev/null; then
-  echo "⚠️  lftp не установлен. Устанавливаю..."
-  brew install lftp
+  echo "❌ lftp не установлен. Установи: macOS — brew install lftp; Debian/Ubuntu — sudo apt install lftp"
+  exit 1
 fi
 
-# SFTP команды через lftp
-lftp -p $SFTP_PORT -u $SFTP_USER,$SFTP_PASS sftp://$SFTP_HOST << LFTP_EOF
+# SFTP команды через lftp.
+# Логин и пароль передаём командой `user` внутри heredoc, а не аргументами:
+# так пароль не виден в `ps`/истории процессов.
+# StrictHostKeyChecking=accept-new — ключ сервера запоминается при первом
+# подключении, дальше подмена сервера (MITM) будет замечена.
+lftp -p "$SFTP_PORT" sftp://"$SFTP_HOST" << LFTP_EOF
 set sftp:auto-confirm yes
-set sftp:connect-program "ssh -a -x -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null"
+set sftp:connect-program "ssh -a -x -o StrictHostKeyChecking=accept-new"
 set net:timeout 30
 set net:max-retries 2
+user "$SFTP_USER" "$SFTP_PASS"
 cd $SFTP_PATH
 mirror -R --delete public/ .
 quit

@@ -34,7 +34,7 @@
       {{ $founder := index $co.founderShort $lang }}
       {{ $subtitle := index $p.hero.subtitle $lang }}
       {{ $subtitle = replace $subtitle "{name}" (index $co.name $lang) }}
-      {{ $subtitle = replace $subtitle "{founder}" $founder }}
+      {{ $subtitle = replace $subtitle "{founderShort}" $founder }}
       {{ $subtitle = replace $subtitle "{cityLocative}" (index $c.address.cityLocative $lang) }}
       {{ $subtitle = replace $subtitle "{founded}" $co.founded }}
       {{ $subtitle = replace $subtitle "{licenseShort}" (index $co.licenseShort $lang) }}
@@ -58,7 +58,7 @@
         {{ else }}
         <svg class="w-4 h-4 text-primary-300" fill="currentColor" viewBox="0 0 20 20"><path d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"/></svg>
         {{ end }}
-        <span class="text-white/90 text-sm">{{ replace (replace (index . $lang) "{years}" (string $years)) "{years_word}" $yearsLabel }}</span>
+        <span class="text-white/90 text-sm">{{ $badgeText := replace (replace (index . $lang) "{years}" (string $years)) "{years_word}" $yearsLabel }}{{ $badgeText = replace $badgeText "{licenseShort}" (index $co.licenseShort $lang) }}{{ $badgeText = replace $badgeText "{city}" (index $c.address.city $lang) }}{{ $badgeText }}</span>
       </div>
       {{ end }}
     </div>
@@ -128,7 +128,7 @@
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      {{ range $p.trust.items }}
+      {{ range hugo.Data.trust.items }}
       <div class="text-center">
         <div class="text-display-sm font-bold mb-2">{{ if reflect.IsMap .value }}{{ index .value $lang }}{{ else }}{{ replace (string .value) "{years}" (string $years) }}{{ end }}</div>
         <div class="text-primary-100">{{ replace (index .label $lang) "{years_word}" $yearsLabel }}</div>
@@ -150,7 +150,7 @@
       </p>
     </div>
 
-    {{/* Get latest 3 articles */}}
+    {{/* 3 articles (no dates in front matter — order is by title) */}}
     {{ $articles := where .Site.RegularPages "Section" (cond (eq $lang "ru") "stati" "blog") }}
     {{ $latest := first 3 $articles }}
 
@@ -194,24 +194,13 @@
     </p>
 
     {{/* Messengers with labels */}}
-    {{- $ariaPrefix := index $p.cta.messengerAriaPrefix $lang -}}
     <div class="flex flex-wrap justify-center gap-4 mb-8">
-      <a href="{{ $c.telegram.href | safeURL }}" target="_blank" rel="noopener noreferrer" aria-label="{{ $ariaPrefix }} {{ $c.telegram.display }}" class="flex flex-col items-center p-4 bg-secondary-50 rounded-xl hover:bg-secondary-100 transition-colors min-w-[80px]">
-        {{ partial "icons/send.html" "w-8 h-8 text-primary-600 mb-2" }}
-        <span class="text-xs text-secondary-700">{{ $c.telegram.display }}</span>
-      </a>
-      <a href="{{ $c.whatsapp.href | safeURL }}" target="_blank" rel="noopener noreferrer" aria-label="{{ $ariaPrefix }} {{ $c.whatsapp.display }}" class="flex flex-col items-center p-4 bg-secondary-50 rounded-xl hover:bg-secondary-100 transition-colors min-w-[80px]">
-        {{ partial "icons/whatsapp.html" "w-8 h-8 text-primary-600 mb-2" }}
-        <span class="text-xs text-secondary-700">{{ $c.whatsapp.display }}</span>
-      </a>
-      <a href="{{ $c.signal.href | safeURL }}" target="_blank" rel="noopener noreferrer" aria-label="{{ $ariaPrefix }} {{ $c.signal.display }}" class="flex flex-col items-center p-4 bg-secondary-50 rounded-xl hover:bg-secondary-100 transition-colors min-w-[80px]">
-        {{ partial "icons/signal.html" "w-8 h-8 text-primary-600 mb-2" }}
-        <span class="text-xs text-secondary-700">{{ $c.signal.display }}</span>
-      </a>
-      <a href="{{ $c.imo.href | safeURL }}" target="_blank" rel="noopener noreferrer" aria-label="{{ $ariaPrefix }} {{ $c.imo.display }}" class="flex flex-col items-center p-4 bg-secondary-50 rounded-xl hover:bg-secondary-100 transition-colors min-w-[80px]">
-        {{ partial "icons/imo.html" "w-8 h-8 text-primary-600 mb-2" }}
-        <span class="text-xs text-secondary-700">{{ $c.imo.display }}</span>
-      </a>
+      {{ partial "messengers.html" (dict
+        "c" $c
+        "aria" (index $p.cta.messengerAriaPrefix $lang)
+        "linkClass" "flex flex-col items-center p-4 bg-secondary-50 rounded-xl hover:bg-secondary-100 transition-colors min-w-[80px]"
+        "iconClass" "w-8 h-8 text-primary-600 mb-2"
+        "spanClass" "text-xs text-secondary-700") }}
     </div>
 
     <a href="{{ $contactPath }}"

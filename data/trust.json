@@ -1,0 +1,28 @@
+{
+  "items": [
+    {
+      "value": "{years}",
+      "label": {
+        "ru": "{years_word} работы",
+        "en": "{years_word} in business"
+      }
+    },
+    {
+      "value": {
+        "ru": "РФ+",
+        "en": "RU+"
+      },
+      "label": {
+        "ru": "по всей стране и за рубежом",
+        "en": "across Russia and abroad"
+      }
+    },
+    {
+      "value": "100%",
+      "label": {
+        "ru": "конфиденциальность",
+        "en": "confidentiality"
+      }
+    }
+  ]
+}

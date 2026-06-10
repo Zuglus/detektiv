@@ -4,17 +4,15 @@
     "en": "Our Guarantees and Commitments"
   },
   "subtitle": {
-    "ru": "Лицензированное агентство. Работаем с 2010 года.",
-    "en": "Licensed agency. Operating since 2010."
+    "ru": "Лицензированное агентство. Работаем с {founded} года.",
+    "en": "Licensed agency. Operating since {founded}."
   },
   "trustBadges": {
     "license": {
       "ru": {
-        "number": "50ЧД2021000323",
         "description": "Официальная лицензия Министерства внутренних дел РФ"
       },
       "en": {
-        "number": "50ЧД2021000323",
         "description": "Official license from the Ministry of Internal Affairs of the Russian Federation"
       }
     },
@@ -149,7 +147,7 @@
         },
         {
           "name": "Профессионализм",
-          "description": "Профессионализм и высокое качество предоставляемых услуг"
+          "description": "Высокий уровень компетенции и качества предоставляемых услуг"
         }
       ]
     },
