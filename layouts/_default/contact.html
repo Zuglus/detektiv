@@ -27,7 +27,7 @@
           <a
             href="{{ $c.phone.href | safeURL }}"
             class="inline-flex items-center gap-3 text-heading-md font-bold text-primary-300 hover:text-white transition-all duration-300 rounded-lg"
-            aria-label="{{ if eq $lang "ru" }}Позвонить{{ else }}Call{{ end }} {{ $c.phone.display }}"
+            aria-label="{{ i18n "callTo" }} {{ $c.phone.display }}"
           >
             <div class="p-3 bg-white/10 rounded-xl group-hover:bg-white/20 transition-colors duration-300">
               {{ partial "icons/phone.html" "w-8 h-8" }}
@@ -57,7 +57,7 @@
         <a
           href="{{ $c.email.href | safeURL }}"
           class="text-body-md text-primary-600 hover:text-primary-700 transition-colors duration-300 hover:underline break-all"
-          aria-label="{{ if eq $lang "ru" }}Отправить email на{{ else }}Send email to{{ end }} {{ $emailAddress }}"
+          aria-label="{{ i18n "emailTo" }} {{ $emailAddress }}"
         >
           {{ $emailAddress }}
         </a>
@@ -73,7 +73,7 @@
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
           {{ partial "messengers.html" (dict
             "c" $c
-            "aria" (cond (eq $lang "ru") "Связаться через" "Contact via")
+            "aria" (i18n "contactVia")
             "linkClass" "flex flex-col items-center p-3 bg-secondary-50 hover:bg-secondary-100 rounded-xl transition-all duration-300"
             "iconWrap" "text-primary-600 hover:text-primary-700 mb-2 transition-colors duration-300 hover:scale-110 transform"
             "iconClass" "w-8 h-8"

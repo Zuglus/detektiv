@@ -8,14 +8,14 @@
     <a href="{{ $c.phone.href | safeURL }}"
       class="flex items-center justify-center gap-2 bg-primary-600 text-white font-semibold hover:bg-primary-700 transition-colors">
       {{ partial "icons/phone.html" "w-10 h-10" }}
-      <span>{{ if eq $lang "ru" }}Позвонить{{ else }}Call{{ end }}</span>
+      <span>{{ i18n "callTo" }}</span>
     </a>
 
     {{/* Message button */}}
     <a href="{{ $c.telegram.href | safeURL }}" target="_blank" rel="noopener noreferrer"
       class="flex items-center justify-center gap-2 bg-white text-primary-600 font-semibold border-l border-secondary-200 hover:bg-secondary-50 transition-colors">
       {{ partial "icons/send.html" "w-10 h-10" }}
-      <span>{{ if eq $lang "ru" }}Написать{{ else }}Message{{ end }}</span>
+      <span>{{ i18n "messageShort" }}</span>
     </a>
   </div>
 </div>

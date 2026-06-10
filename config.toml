@@ -2,18 +2,20 @@ baseURL = "https://xn--18-6kci4ddh.xn--p1ai/"
 defaultContentLanguage = "ru"
 defaultContentLanguageInSubdir = false
 
+# RSS отключён: фиды генерировались, но нигде не были слинкованы.
+# Строка должна стоять ДО [languages]: ниже она попала бы в таблицу языка.
+disableKinds = ["taxonomy", "term", "rss"]
+
 [languages]
 [languages.ru]
-  languageName = "Русский"
+  label = "Русский"
+  locale = "ru-RU"
   weight = 1
 
 [languages.en]
-  languageName = "English"
+  label = "English"
+  locale = "en-US"
   weight = 2
-
-disableKinds = ["taxonomy", "term"]
-
-[taxonomies]
 
 [build]
   writeStats = true

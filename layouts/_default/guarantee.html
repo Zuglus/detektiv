@@ -123,7 +123,7 @@
       <div class="flex flex-wrap justify-center gap-3">
         {{ partial "messengers.html" (dict
           "c" $c
-          "aria" (cond (eq $lang "ru") "Связаться через" "Contact via")
+          "aria" (i18n "contactVia")
           "linkClass" "inline-flex items-center gap-2 px-6 py-3 bg-primary-600 text-white rounded-xl font-semibold text-base hover:bg-primary-700 transition-colors"
           "iconClass" "w-4 h-4") }}
         <a href="{{ $c.email.href | safeURL }}" class="inline-flex items-center gap-2 px-6 py-3 bg-primary-600 text-white rounded-xl font-semibold text-base hover:bg-primary-700 transition-colors">

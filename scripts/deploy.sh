@@ -23,7 +23,7 @@ if ! command -v hugo &> /dev/null; then
   echo "❌ hugo не установлен"
   exit 1
 fi
-hugo --quiet
+hugo --quiet --minify
 if [ ! -d "public" ]; then
   echo "❌ Сборка не удалась: папка 'public' не создана"
   exit 1

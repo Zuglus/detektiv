@@ -39,6 +39,7 @@ detektiv/
 │   ├── company.json        # Реквизиты компании
 │   ├── contacts.json       # Телефоны, мессенджеры, соцсети
 │   ├── nav.json            # Навигационные ссылки
+│   ├── trust.json          # Trust-факты (общие для главной и about)
 │   └── pages/              # Данные каждой страницы
 │       ├── home.json
 │       ├── price.json      # 4 категории услуг с ценами
@@ -46,15 +47,16 @@ detektiv/
 │       ├── contact.json
 │       ├── guarantee.json
 │       └── job.json
-├── assets/css/
-│   └── main.css            # Точка входа: шрифты, CSS vars, Tailwind
-├── static/
-│   ├── fonts/              # WOFF2: IBM Plex Sans, Playfair Display
-│   ├── images/founder.png
-│   └── js/
+├── i18n/                   # UI-строки интерфейса (ru.toml, en.toml)
+├── assets/
+│   ├── css/main.css        # Точка входа: шрифты, CSS vars, Tailwind
+│   └── js/                 # JS через pipeline: minify + fingerprint
 │       ├── mobile-menu.js
 │       ├── scroll-reveal.js
-│       └── yandex.js       # Яндекс.Метрика 70102144
+│       └── yandex.js       # Яндекс.Метрика 70102144 (только production)
+├── static/
+│   ├── fonts/              # WOFF2: IBM Plex Sans, Playfair Display
+│   └── images/             # founder.png (страница) + founder-og.jpg (og:image)
 ├── public/                 # Compiled output (git ignored)
 ├── config.toml             # Hugo конфигурация
 ├── tailwind.config.js      # Дизайн-система
@@ -69,7 +71,7 @@ detektiv/
 ```bash
 hugo server              # Разработка (localhost:1313)
 hugo server --buildDrafts  # С черновиками
-hugo                     # Production сборка → public/
+hugo --minify            # Production сборка → public/ (deploy.sh собирает так же)
 npm run deploy           # Деплой на SFTP (только из ветки main)
 ```
 
@@ -117,6 +119,11 @@ text-body-md     — clamp(1rem, 1vw, 1.125rem)
 - Контент: `slug.ru.md` / `slug.en.md` с общим `translationKey`
 - Layouts читают язык через `{{ .Lang }}` и `{{ if eq $lang "ru" }}`
 - Данные в JSON: все строки дублированы `{ "ru": "...", "en": "..." }`
+
+### UI-строки vs контент
+- Строки интерфейса (aria-label, «Наверх», 404, skip-link и т.п.) — в `i18n/ru.toml` + `i18n/en.toml`, в шаблонах `{{ i18n "key" }}`
+- Контент страниц — в `data/pages/*.json` парами `{ "ru": ..., "en": ... }` и в `content/`
+- Ветвления `eq $lang "ru"` в layouts остались только для путей (намеренно, см. CONTRADICTIONS.md), переключателей языка и морфологии (`years-label`, `word-form`)
 
 ### Блог: две директории, перекрёстные ключи
 - RU статьи в `content/stati/` (*.ru.md), EN статьи в `content/blog/` (*.en.md)

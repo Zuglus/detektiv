@@ -1,0 +1,52 @@
+# UI strings (EN). Page content lives in data/pages/*.json and content/.
+
+[pageNotFound]
+other = "Page not found"
+
+[pageNotFoundText]
+other = "The requested page does not exist or has been moved."
+
+[goHome]
+other = "Go to homepage"
+
+[contactVia]
+other = "Contact via"
+
+[callTo]
+other = "Call"
+
+[messageShort]
+other = "Message"
+
+[emailTo]
+other = "Send email to"
+
+[skipToContent]
+other = "Skip to content"
+
+[mainNav]
+other = "Main navigation"
+
+[openMenu]
+other = "Open menu"
+
+[navMenu]
+other = "Navigation menu"
+
+[mobileNav]
+other = "Mobile navigation"
+
+[navigation]
+other = "Navigation"
+
+[contact]
+other = "Contact"
+
+[copyrightNotice]
+other = "Copying, using, or referencing information from this site is prohibited."
+
+[scrollToTop]
+other = "Scroll to top"
+
+[top]
+other = "Top"

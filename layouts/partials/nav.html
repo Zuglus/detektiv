@@ -4,7 +4,7 @@
 {{- if ne $currentPath "/" -}}{{- $currentPath = strings.TrimRight "/" $currentPath -}}{{- end -}}
 
 <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary-600 focus:text-white focus:rounded-lg">
-  {{ if eq $lang "ru" }}Перейти к содержимому{{ else }}Skip to content{{ end }}
+  {{ i18n "skipToContent" }}
 </a>
 
 <header id="navigation" class="block min-h-[1px]">
@@ -13,7 +13,7 @@
   <nav
     class="fixed top-6 left-0 right-0 z-[50] block transition-all duration-300 ease-in-out backdrop-blur-sm nav-transparent"
     role="navigation"
-    aria-label="{{ if eq $lang "ru" }}Основная навигация{{ else }}Main navigation{{ end }}"
+    aria-label="{{ i18n "mainNav" }}"
     data-nav="desktop"
   >
     <div class="max-w-7xl mx-auto px-6 hidden lg:block">
@@ -67,7 +67,7 @@
       focus:outline-none focus:ring-4 focus:ring-primary-600 focus:ring-offset-2"
     aria-expanded="false"
     aria-controls="mobile-menu"
-    aria-label="{{ if eq $lang "ru" }}Открыть меню навигации{{ else }}Open menu{{ end }}"
+    aria-label="{{ i18n "openMenu" }}"
   >
     <div class="relative w-8 h-8 flex flex-col justify-center items-center">
       <span class="hamburger-line block w-14 h-1 bg-secondary-700 rounded-full ease-in-out transform origin-center absolute -translate-y-3" data-line="1"></span>
@@ -96,8 +96,8 @@
     aria-hidden="true"
   >
     <div class="p-6 pt-40 min-h-full">
-      <h2 class="sr-only">{{ if eq $lang "ru" }}Меню навигации{{ else }}Navigation menu{{ end }}</h2>
-      <nav class="space-y-4" role="navigation" aria-label="{{ if eq $lang "ru" }}Мобильная навигация{{ else }}Mobile navigation{{ end }}">
+      <h2 class="sr-only">{{ i18n "navMenu" }}</h2>
+      <nav class="space-y-4" role="navigation" aria-label="{{ i18n "mobileNav" }}">
         {{ range index hugo.Data.nav $lang }}
         <a
           href="{{ .href }}"

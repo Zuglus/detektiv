@@ -1,0 +1,52 @@
+# UI-строки интерфейса (RU). Контент страниц — в data/pages/*.json и content/.
+
+[pageNotFound]
+other = "Страница не найдена"
+
+[pageNotFoundText]
+other = "Запрашиваемая страница не существует или была перемещена."
+
+[goHome]
+other = "На главную"
+
+[contactVia]
+other = "Связаться через"
+
+[callTo]
+other = "Позвонить"
+
+[messageShort]
+other = "Написать"
+
+[emailTo]
+other = "Отправить email на"
+
+[skipToContent]
+other = "Перейти к содержимому"
+
+[mainNav]
+other = "Основная навигация"
+
+[openMenu]
+other = "Открыть меню навигации"
+
+[navMenu]
+other = "Меню навигации"
+
+[mobileNav]
+other = "Мобильная навигация"
+
+[navigation]
+other = "Навигация"
+
+[contact]
+other = "Связаться"
+
+[copyrightNotice]
+other = "Копировать, использовать, ссылаться на информацию с сайта запрещено."
+
+[scrollToTop]
+other = "Прокрутить вверх"
+
+[top]
+other = "Наверх"

@@ -21,13 +21,7 @@
   <div class="max-w-2xl mx-auto px-6">
     {{/* Explanation for relatives info requirement */}}
     <div class="bg-primary-50 border border-primary-200 rounded-xl p-6 mb-8">
-      <p class="text-secondary-700 text-sm leading-relaxed">
-        {{ if eq $lang "ru" }}
-        В связи со спецификой детективной деятельности и требованиями безопасности, при рассмотрении кандидатур мы проводим стандартную проверку. Вся предоставленная информация строго конфиденциальна и используется только в целях проверки кандидата.
-        {{ else }}
-        Due to the specifics of detective work and security requirements, we conduct standard background checks when considering candidates. All provided information is strictly confidential and used solely for the purpose of candidate verification.
-        {{ end }}
-      </p>
+      <p class="text-secondary-700 text-sm leading-relaxed">{{ index $p.backgroundCheckNote $lang }}</p>
     </div>
 
     <div class="bg-white rounded-2xl p-8 border border-secondary-100 shadow-sm">

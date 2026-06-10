@@ -197,7 +197,7 @@
     <div class="flex flex-wrap justify-center gap-4 mb-8">
       {{ partial "messengers.html" (dict
         "c" $c
-        "aria" (index $p.cta.messengerAriaPrefix $lang)
+        "aria" (i18n "contactVia")
         "linkClass" "flex flex-col items-center p-4 bg-secondary-50 rounded-xl hover:bg-secondary-100 transition-colors min-w-[80px]"
         "iconClass" "w-8 h-8 text-primary-600 mb-2"
         "spanClass" "text-xs text-secondary-700") }}

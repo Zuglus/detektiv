@@ -7,6 +7,10 @@
     "ru": "Подработка на разовые задания",
     "en": "Freelance work for one-time assignments"
   },
+  "backgroundCheckNote": {
+    "ru": "В связи со спецификой детективной деятельности и требованиями безопасности, при рассмотрении кандидатур мы проводим стандартную проверку. Вся предоставленная информация строго конфиденциальна и используется только в целях проверки кандидата.",
+    "en": "Due to the specifics of detective work and security requirements, we conduct standard background checks when considering candidates. All provided information is strictly confidential and used solely for the purpose of candidate verification."
+  },
   "portfolioTitle": {
     "ru": "В резюме укажите следующие данные:",
     "en": "In your resume, include the following information:"

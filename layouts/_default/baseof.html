@@ -10,10 +10,13 @@
   </main>
   {{ partial "footer.html" . }}
   {{ partial "mobile-sticky.html" . }}
-  <script defer src="/js/mobile-menu.js"></script>
-  <script defer src="/js/scroll-reveal.js"></script>
+  {{- $menuJS := resources.Get "js/mobile-menu.js" | minify | fingerprint }}
+  <script defer src="{{ $menuJS.RelPermalink }}" integrity="{{ $menuJS.Data.Integrity }}"></script>
+  {{- $revealJS := resources.Get "js/scroll-reveal.js" | minify | fingerprint }}
+  <script defer src="{{ $revealJS.RelPermalink }}" integrity="{{ $revealJS.Data.Integrity }}"></script>
   {{ if hugo.IsProduction }}
-  <script defer src="/js/yandex.js"></script>
+  {{- $yandexJS := resources.Get "js/yandex.js" | minify | fingerprint }}
+  <script defer src="{{ $yandexJS.RelPermalink }}" integrity="{{ $yandexJS.Data.Integrity }}"></script>
   <noscript><div><img src="https://mc.yandex.ru/watch/70102144" style="position:absolute;left:-9999px;" alt="" /></div></noscript>
   {{ end }}
 </body>

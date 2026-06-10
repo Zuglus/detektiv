@@ -43,7 +43,6 @@
   "cta": {
     "title": { "ru": "Каждая ситуация уникальна", "en": "Every situation is unique" },
     "text": { "ru": "Свяжитесь с нами для конфиденциальной консультации. Мы поможем найти решение.", "en": "Contact us for a confidential consultation. We'll help find a solution." },
-    "button": { "ru": "Связаться с нами", "en": "Contact Us" },
-    "messengerAriaPrefix": { "ru": "Связаться через", "en": "Contact via" }
+    "button": { "ru": "Связаться с нами", "en": "Contact Us" }
   }
 }

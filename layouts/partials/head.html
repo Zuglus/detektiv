@@ -45,10 +45,15 @@
 <meta property="og:url" content="{{ .Permalink }}">
 {{- end }}
 <meta property="og:site_name" content="{{ index hugo.Data.company.name .Lang }}">
+<meta property="og:locale" content="{{ if eq .Lang "ru" }}ru_RU{{ else }}en_US{{ end }}">
+<meta property="og:locale:alternate" content="{{ if eq .Lang "ru" }}en_US{{ else }}ru_RU{{ end }}">
 {{ if .Params.image }}
 <meta property="og:image" content="{{ .Params.image | absURL }}">
 {{ else }}
-<meta property="og:image" content="{{ "/images/founder.png" | absURL }}">
+<meta property="og:image" content="{{ "/images/founder-og.jpg" | absURL }}">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="800">
+<meta property="og:image:height" content="800">
 {{ end }}
 
 {{/* Schema.org Article for blog posts */}}
@@ -62,7 +67,7 @@
   "@type" "Article"
   "headline" .Title
   "description" $description
-  "image" (absURL "/images/founder.png")
+  "image" (absURL "/images/founder-og.jpg")
   "author" (dict
     "@type" "Organization"
     "name" $orgName
@@ -95,7 +100,7 @@
   "name": "{{ index $co.name .Lang }}",
   "description": "{{ $description }}",
   "url": "{{ .Site.BaseURL }}",
-  "image": "{{ "images/founder.png" | absURL }}",
+  "image": "{{ "images/founder-og.jpg" | absURL }}",
   "telephone": "{{ hugo.Data.contacts.phone.display }}",
   "email": "{{ replace hugo.Data.contacts.email.href "mailto:" "" }}",
   "address": {

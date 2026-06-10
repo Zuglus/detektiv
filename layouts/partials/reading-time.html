@@ -1,0 +1,5 @@
+{{- /* Время чтения страницы в минутах: 200 слов/мин, минимум 1. Контекст — Page. */ -}}
+{{- $wordCount := len (split (plainify .Content) " ") -}}
+{{- $readingTime := div $wordCount 200 -}}
+{{- if lt $readingTime 1 -}}{{- $readingTime = 1 -}}{{- end -}}
+{{- return $readingTime -}}

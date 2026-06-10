@@ -4,8 +4,7 @@
 {{- $b := hugo.Data.pages.blog -}}
 {{- $s := $b.single -}}
 {{- $wordCount := len (split (plainify .Content) " ") -}}
-{{- $readingTime := div $wordCount 200 -}}
-{{- if lt $readingTime 1 -}}{{- $readingTime = 1 -}}{{- end -}}
+{{- $readingTime := partial "reading-time.html" . -}}
 
 {{/* ── HEADER ── */}}
 <section class="relative overflow-hidden text-white pt-40 pb-12 bg-gradient-header">

@@ -76,9 +76,7 @@
       {{/* Article cards */}}
       <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6" data-reveal>
         {{ range $pages }}
-        {{- $wordCount := len (split (plainify .Content) " ") -}}
-        {{- $readingTime := div $wordCount 200 -}}
-        {{- if lt $readingTime 1 -}}{{- $readingTime = 1 -}}{{- end -}}
+        {{- $readingTime := partial "reading-time.html" . -}}
 
         <article
           class="group bg-white border border-secondary-100 rounded-2xl p-6
