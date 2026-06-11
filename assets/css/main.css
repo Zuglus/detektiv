@@ -133,6 +133,16 @@ body {
   background-color: theme('colors.primary.600');
 }
 
+/* Скрытие при скролле вниз — класс ставит mobile-menu.js.
+   transition уже на кнопке (transition-all); pointer-events и visibility
+   выключают и тап, и фокус по Tab, пока кнопка спрятана. */
+.hamburger-btn.hamburger-hidden {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-0.5rem);
+  pointer-events: none;
+}
+
 .menu-overlay {
   animation: overlayFadeIn 300ms var(--ease-standard) forwards;
 }

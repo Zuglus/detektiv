@@ -28,10 +28,29 @@
   </div>
 </section>
 
+{{/* ── CATEGORY ANCHOR NAV (паттерн со страницы статей) ── */}}
+{{/* top-28 на десктопе — глобальная лента (top-6 + h-16 = 56px) иначе перекрывает полосу */}}
+<nav class="sticky top-0 lg:top-28 z-10 bg-white border-b border-secondary-200 shadow-sm" aria-label="{{ i18n "serviceCategoriesNav" }}">
+  <div class="max-w-6xl mx-auto px-6">
+    <ul class="flex flex-wrap gap-1 py-3" role="list">
+      {{ range $p.serviceCategories }}
+      <li>
+        <a href="#{{ .slug }}"
+          class="inline-block px-4 py-1.5 rounded-full text-sm font-medium
+            text-secondary-700 hover:bg-primary-50 hover:text-primary-700
+            transition-colors whitespace-nowrap">
+          {{ index .title $lang }}
+        </a>
+      </li>
+      {{ end }}
+    </ul>
+  </div>
+</nav>
+
 {{/* ── SERVICE CATEGORIES ── */}}
 {{ range $p.serviceCategories }}
 {{- $cat := . -}}
-<section class="py-12" data-reveal>
+<section id="{{ $cat.slug }}" class="py-12 scroll-mt-40 lg:scroll-mt-48" data-reveal>
   <div class="max-w-6xl mx-auto px-6">
     <div class="mb-8">
       <h2 class="font-display text-heading-lg font-bold text-primary-700">{{ index $cat.title $lang }}</h2>
@@ -55,13 +74,16 @@
             </li>
             {{ end }}
           </ul>
-          {{/* Secondary button instead of Primary */}}
-          <a href="{{ $contactPath }}" class="self-center inline-flex items-center px-10 py-2.5 border border-primary-600 text-primary-600 hover:bg-primary-50 rounded-xl text-sm font-medium transition-colors">
-            {{ index $p.cta.button $lang }}
-          </a>
         </div>
       </div>
       {{ end }}
+    </div>
+
+    {{/* Одна CTA на категорию вместо кнопки в каждой карточке */}}
+    <div class="mt-8 text-center">
+      <a href="{{ $contactPath }}" class="inline-flex items-center px-10 py-4 border border-primary-600 text-primary-600 hover:bg-primary-50 rounded-xl text-sm font-medium transition-colors">
+        {{ index $p.cta.button $lang }}
+      </a>
     </div>
   </div>
 </section>

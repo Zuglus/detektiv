@@ -42,7 +42,7 @@ detektiv/
 │   ├── trust.json          # Trust-факты (общие для главной и about)
 │   └── pages/              # Данные каждой страницы
 │       ├── home.json
-│       ├── price.json      # 4 категории услуг с ценами
+│       ├── price.json      # 4 категории услуг (цен нет — стоимость в договоре)
 │       ├── about.json
 │       ├── contact.json
 │       ├── guarantee.json

@@ -7,7 +7,6 @@
     }
   },
   "card": {
-    "badge": { "ru": "Дело", "en": "Case" },
     "read": { "ru": "Читать", "en": "Read" },
     "minutes": { "ru": "мин", "en": "min" }
   },

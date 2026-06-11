@@ -54,6 +54,7 @@
   },
   "serviceCategories": [
     {
+      "slug": "basic",
       "title": {
         "ru": "Базовые услуги",
         "en": "Basic Services"
@@ -138,6 +139,7 @@
       ]
     },
     {
+      "slug": "surveillance",
       "title": {
         "ru": "Наблюдение и безопасность",
         "en": "Surveillance and Security"
@@ -198,6 +200,7 @@
       ]
     },
     {
+      "slug": "corporate",
       "title": {
         "ru": "Корпоративные расследования",
         "en": "Corporate Investigations"
@@ -258,6 +261,7 @@
       ]
     },
     {
+      "slug": "complex",
       "title": {
         "ru": "Сложные расследования",
         "en": "Complex Investigations"

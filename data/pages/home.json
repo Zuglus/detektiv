@@ -1,7 +1,7 @@
 {
   "hero": {
     "title": { "ru": "Узнайте правду. Конфиденциально.", "en": "Find the truth. Confidentially." },
-    "subtitle": { "ru": "{name} {founderShort} в {cityLocative} с {founded} года. {licenseShort} {licenseNumber}", "en": "{founderShort} {name} in {cityLocative} since {founded}. {licenseShort} {licenseNumber}" },
+    "subtitle": { "ru": "{name} {founderShort} в {cityLocative} с {founded} года.", "en": "{founderShort} {name} in {cityLocative} since {founded}." },
     "cta": { "ru": "Получить консультацию", "en": "Get a consultation" },
     "badges": [
       { "ru": "{years} {years_word}", "en": "{years} {years_word}" },
@@ -37,7 +37,6 @@
   "cases": {
     "title": { "ru": "Дела из практики", "en": "Cases from Our Practice" },
     "subtitle": { "ru": "Реальные истории из нашей практики", "en": "Real stories from our practice" },
-    "badge": { "ru": "Дело", "en": "Case" },
     "allLink": { "ru": "Все статьи", "en": "All articles" }
   },
   "cta": {

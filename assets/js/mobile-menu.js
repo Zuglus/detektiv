@@ -88,16 +88,24 @@
   });
 
   // Scroll-based nav style (transparent → scrolled)
+  // + гамбургер: прятать при скролле вниз, показывать при скролле вверх
   var navEls = document.querySelectorAll('[data-nav]');
   if (navEls.length) {
     var ticking = false;
+    var lastY = window.scrollY;
 
     function updateNav() {
-      var scrolled = window.scrollY > 20;
+      var y = window.scrollY;
+      var scrolled = y > 20;
       navEls.forEach(function (nav) {
         nav.classList.toggle('nav-scrolled', scrolled);
         nav.classList.toggle('nav-transparent', !scrolled);
       });
+      if (!isOpen) {
+        var goingDown = y > lastY;
+        btn.classList.toggle('hamburger-hidden', goingDown && y > 200);
+      }
+      lastY = y;
       ticking = false;
     }
 

@@ -41,8 +41,6 @@
       {{ $subtitle = replace $subtitle "{founderShort}" $founder }}
       {{ $subtitle = replace $subtitle "{cityLocative}" (index $c.address.cityLocative $lang) }}
       {{ $subtitle = replace $subtitle "{founded}" $co.founded }}
-      {{ $subtitle = replace $subtitle "{licenseShort}" (index $co.licenseShort $lang) }}
-      {{ $subtitle = replace $subtitle "{licenseNumber}" $co.licenseNumber }}
       {{ $parts := split $subtitle $founder }}
       {{ if eq (len $parts) 2 }}
         {{ index $parts 0 }}<span class="text-xl md:text-2xl text-white">{{ $founder }}</span>{{ index $parts 1 }}
@@ -73,7 +71,7 @@
         class="inline-flex items-center px-8 py-4 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-xl text-lg transition-colors">
         {{ index $p.hero.cta $lang }}
       </a>
-      <a href="{{ $c.phone.href | safeURL }}" class="text-lg sm:text-2xl font-bold text-white hover:text-primary-200 transition-colors">
+      <a href="{{ $c.phone.href | safeURL }}" class="px-4 py-3 text-lg sm:text-2xl font-bold text-white hover:text-primary-200 transition-colors">
         {{ $c.phone.display }}
       </a>
     </div>
@@ -82,7 +80,7 @@
   {{/* Scroll indicator */}}
   {{/* На мобильном снизу панель «Позвонить/Написать» (56px, lg:hidden) — стрелку поднимаем над ней */}}
   <div class="absolute bottom-40 lg:bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-    {{ partial "icons/arrow-down.html" "w-6 h-6 text-white/50" }}
+    {{ partial "icons/arrow-down.html" "w-8 h-8 text-white/80" }}
   </div>
 </section>
 
@@ -161,12 +159,13 @@
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
       {{ range $latest }}
+      {{- $readingTime := partial "reading-time.html" . -}}
       <article class="group bg-white rounded-2xl p-6 border border-secondary-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
         <a href="{{ .RelPermalink }}" class="block">
-          <div class="flex items-center gap-2 mb-3">
-            <span class="px-2.5 py-1 bg-primary-100 text-primary-700 rounded-full text-xs font-medium">
-              {{ index $p.cases.badge $lang }}
-            </span>
+          {{/* Время чтения — как на карточках списка статей */}}
+          <div class="flex items-center text-secondary-400 text-xs mb-3">
+            {{ partial "icons/clock.html" "w-3 h-3 mr-1" }}
+            {{ $readingTime }} {{ index hugo.Data.pages.blog.card.minutes $lang }}
           </div>
           <h3 class="font-display text-lg font-bold text-secondary-900 mb-3 group-hover:text-primary-700 transition-colors line-clamp-2">
             {{ .Title }}
