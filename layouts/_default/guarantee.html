@@ -27,7 +27,7 @@
       </div>
       {{/* Experience */}}
       <div class="text-center bg-primary-50 rounded-2xl p-6 border border-primary-100">
-        {{ partial "icons/experience.html" "w-20 h-20 text-primary-600 mx-auto mb-3" }}
+        {{ partial "icons/experience.html" (dict "class" "w-20 h-20 text-primary-600 mx-auto mb-3" "years" $years "label" $yearsLabel) }}
         <h3 class="font-bold text-secondary-900 mb-1">{{ (index $p.trustBadges.experience $lang).title }}</h3>
         <p class="text-primary-600 font-semibold">{{ replace (index $p.trustBadges.experience $lang).years "{founded}" $co.founded }}</p>
         <p class="text-secondary-500 text-xs mt-1">{{ replace (replace (index $p.trustBadges.experience $lang).description "{years}" (string $years)) "{years_word}" $yearsLabel }}</p>
@@ -125,13 +125,13 @@
           "c" $c
           "aria" (i18n "contactVia")
           "linkClass" "inline-flex items-center gap-2 px-6 py-3 bg-primary-600 text-white rounded-xl font-semibold text-base hover:bg-primary-700 transition-colors"
-          "iconClass" "w-4 h-4") }}
+          "iconClass" "w-7 h-7") }}
         <a href="{{ $c.email.href | safeURL }}" class="inline-flex items-center gap-2 px-6 py-3 bg-primary-600 text-white rounded-xl font-semibold text-base hover:bg-primary-700 transition-colors">
-          {{ partial "icons/mail.html" "w-4 h-4" }}
+          {{ partial "icons/mail.html" "w-7 h-7" }}
           {{ $c.email.display }}
         </a>
         <a href="{{ $c.phone.href | safeURL }}" class="inline-flex items-center gap-2 px-6 py-3 bg-primary-600 text-white rounded-xl font-semibold text-base hover:bg-primary-700 transition-colors">
-          {{ partial "icons/phone.html" "w-4 h-4" }}
+          {{ partial "icons/phone.html" "w-7 h-7" }}
           {{ $c.phone.display }}
         </a>
       </div>

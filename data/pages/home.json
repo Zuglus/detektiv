@@ -15,7 +15,7 @@
     "allLink": { "ru": "Все услуги", "en": "All services" },
     "items": [
       {
-        "icon": "file-text",
+        "icon": "document",
         "title": { "ru": "Досье", "en": "Dossier" },
         "text": { "ru": "Сбор и анализ информации о физических лицах, организациях или объектах недвижимости", "en": "Collection and analysis of information about individuals, organizations or real estate objects" }
       },
@@ -25,7 +25,7 @@
         "text": { "ru": "Профессиональное наблюдение за объектами с фото- и видеофиксацией в рамках закона", "en": "Professional surveillance of objects with photo and video recording within legal framework" }
       },
       {
-        "icon": "user",
+        "icon": "user-search",
         "title": { "ru": "Поиск людей", "en": "People Search" },
         "text": { "ru": "Поиск родственников, одноклассников, сослуживцев, соседей и других лиц", "en": "Search for relatives, classmates, co-workers, neighbors and other persons" }
       }

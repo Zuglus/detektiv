@@ -1,5 +1,10 @@
-<svg class="{{ . }}" aria-hidden="true" fill="currentColor" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+{{- /*
+  Бейдж стажа: круг с числом лет и подписью.
+  Параметры (dict): class — классы размера/цвета; years — число лет;
+  label — форма слова из years-label.html («лет/года/год», «years/year»).
+*/ -}}
+<svg class="{{ .class }}" aria-hidden="true" fill="currentColor" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
   <circle cx="50" cy="50" r="48" fill="none" stroke="currentColor" stroke-width="4"/>
-  <text x="50" y="42" font-size="48" font-weight="bold" fill="currentColor" text-anchor="middle" dominant-baseline="middle">16</text>
-  <text x="50" y="72" font-size="24" font-weight="bold" fill="currentColor" text-anchor="middle" dominant-baseline="middle">ЛЕТ</text>
+  <text x="50" y="42" font-size="44" font-weight="bold" fill="currentColor" text-anchor="middle" dominant-baseline="middle">{{ .years }}</text>
+  <text x="50" y="72" font-size="20" font-weight="bold" fill="currentColor" text-anchor="middle" dominant-baseline="middle">{{ upper .label }}</text>
 </svg>
