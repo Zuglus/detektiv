@@ -59,7 +59,7 @@
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {{ range $cat.services }}
       {{- $svc := . -}}
-      <div class="group flex flex-col bg-white rounded-2xl border border-secondary-100 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 overflow-hidden">
+      <div class="group flex flex-col bg-white rounded-2xl border border-secondary-100 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 overflow-hidden">
         <div class="p-6 flex flex-col flex-1 gap-4">
           <h3 class="font-semibold text-secondary-900 text-heading-sm text-center">{{ index $svc.title $lang }}</h3>
           <p class="text-secondary-600 text-sm flex-1">{{ index $svc.description $lang }}{{ with index $svc.note $lang }} <span class="text-secondary-400 text-xs italic">({{ . }})</span>{{ end }}</p>
