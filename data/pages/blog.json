@@ -27,7 +27,10 @@
   "single": {
     "badge": { "ru": "Реальное дело из практики", "en": "Real case from practice" },
     "minutes": { "ru": "мин", "en": "min" },
-    "words": { "ru": "слов", "en": "words" },
+    "words": {
+      "ru": { "one": "слово", "few": "слова", "many": "слов" },
+      "en": { "one": "word", "many": "words" }
+    },
     "prevNext": {
       "title": { "ru": "Продолжить чтение", "en": "Continue Reading" },
       "prev": { "ru": "Предыдущая", "en": "Previous" },

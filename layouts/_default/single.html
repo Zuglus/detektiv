@@ -29,7 +29,8 @@
         </div>
         <div class="flex items-center bg-white/10 backdrop-blur-sm px-3 py-1.5 rounded-lg border border-white/10">
           {{ partial "icons/document.html" "w-3 h-3 mr-1.5 text-accent-300" }}
-          {{ $wordCount }} {{ index $s.words $lang }}
+          {{- $wordForms := index $s.words $lang }}
+          {{ $wordCount }} {{ partial "word-form.html" (dict "n" $wordCount "one" $wordForms.one "few" $wordForms.few "many" $wordForms.many "lang" $lang) }}
         </div>
       </div>
     </div>
