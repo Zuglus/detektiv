@@ -150,9 +150,14 @@ body {
 /* Каскад пунктов запускается классом is-open при каждом открытии панели
    (mobile-menu.js). Базовых opacity/transform у .menu-item нет — при
    закрытии панель уезжает с видимыми пунктами. fill-mode both держит
-   пункт невидимым, пока не истёк его animation-delay. */
+   пункт невидимым, пока не истёк его animation-delay.
+   Лонгхэнды вместо шортхэнда animation: шортхэнд сбрасывает animation-delay
+   в 0, а специфичность #id-селектора перебила бы nth-child-задержки ниже. */
 #mobile-menu.is-open .menu-item {
-  animation: menuItemSlideIn var(--duration-bounce) var(--ease-overshoot) both;
+  animation-name: menuItemSlideIn;
+  animation-duration: var(--duration-bounce);
+  animation-timing-function: var(--ease-overshoot);
+  animation-fill-mode: both;
 }
 .menu-item:nth-child(1) { animation-delay: 50ms; }
 .menu-item:nth-child(2) { animation-delay: 100ms; }
