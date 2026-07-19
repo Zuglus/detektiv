@@ -3,13 +3,22 @@
 {{- $contactsPath := cond (eq $lang "ru") "/kontakty" "/en/contact" -}}
 {{- $b := hugo.Data.pages.blog -}}
 {{- $s := $b.single -}}
-{{- $wordCount := len (split (plainify .Content) " ") -}}
 {{- $readingTime := partial "reading-time.html" . -}}
+{{- $sectionURL := .CurrentSection.RelPermalink -}}
+{{- $cat := index (where hugo.Data.categories "slug" .Params.category) 0 -}}
 
 {{/* ── HEADER ── */}}
 <section class="relative overflow-hidden text-white pt-40 pb-12 bg-gradient-header">
 
   <div class="relative z-10 max-w-3xl mx-auto px-6">
+
+    {{/* Breadcrumb back to the article list */}}
+    <a href="{{ $sectionURL }}"
+      class="inline-flex items-center gap-1 mb-6 text-sm font-medium text-white/60 hover:text-white transition-colors
+        focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 rounded-lg">
+      {{ partial "icons/chevron-left.html" "w-7 h-7" }}
+      {{ index $s.backToList $lang }}
+    </a>
 
     {{/* Centered content */}}
     <div class="text-center">
@@ -19,19 +28,27 @@
         <span class="text-white/80">{{ index $s.badge $lang }}</span>
       </div>
 
-      <h1 class="font-display text-heading-lg md:text-display-sm font-bold text-white mb-8 leading-tight">{{ .Title }}</h1>
+      <h1 class="font-display text-heading-lg md:text-display-sm font-bold text-white mb-4 leading-tight">{{ .Title }}</h1>
 
-      {{/* Meta: reading time + words */}}
+      {{/* Short: front-matter аннотация как подводка */}}
+      {{ with .Params.short }}
+      <p class="text-white/70 text-base md:text-lg leading-relaxed max-w-2xl mx-auto mb-8">{{ . }}</p>
+      {{ end }}
+
+      {{/* Meta: reading time + category (links to its section in the list) */}}
       <div class="flex flex-wrap items-center justify-center gap-2 text-xs font-medium text-white/60">
         <div class="flex items-center bg-white/10 backdrop-blur-sm px-3 py-1.5 rounded-lg border border-white/10">
           {{ partial "icons/clock.html" "w-6 h-6 mr-1.5 text-primary-300" }}
           {{ $readingTime }} {{ index $s.minutes $lang }}
         </div>
-        <div class="flex items-center bg-white/10 backdrop-blur-sm px-3 py-1.5 rounded-lg border border-white/10">
-          {{ partial "icons/document.html" "w-6 h-6 mr-1.5 text-accent-300" }}
-          {{- $wordForms := index $s.words $lang }}
-          {{ $wordCount }} {{ partial "word-form.html" (dict "n" $wordCount "one" $wordForms.one "few" $wordForms.few "many" $wordForms.many "lang" $lang) }}
-        </div>
+        {{ with $cat }}
+        <a href="{{ $sectionURL }}#{{ .slug }}"
+          class="flex items-center bg-white/10 backdrop-blur-sm px-3 py-1.5 rounded-lg border border-white/10
+            hover:bg-white/20 hover:text-white transition-colors">
+          {{ partial "icons/file-badge.html" "w-6 h-6 mr-1.5 text-accent-300" }}
+          {{ index .name $lang }}
+        </a>
+        {{ end }}
       </div>
     </div>
 
@@ -87,7 +104,7 @@
           </div>
           <div class="min-w-0">
             <div class="text-xs text-secondary-500 mb-0.5">{{ index $s.prevNext.prev $lang }}</div>
-            <div class="font-medium text-secondary-900 text-sm truncate group-hover:text-primary-700 transition-colors">{{ .Title }}</div>
+            <div class="font-medium text-secondary-900 text-sm line-clamp-2 group-hover:text-primary-700 transition-colors">{{ .Title }}</div>
           </div>
         </a>
         {{ end }}
@@ -100,7 +117,7 @@
         >
           <div class="min-w-0 text-right">
             <div class="text-xs text-secondary-500 mb-0.5">{{ index $s.prevNext.next $lang }}</div>
-            <div class="font-medium text-secondary-900 text-sm truncate group-hover:text-primary-700 transition-colors">{{ .Title }}</div>
+            <div class="font-medium text-secondary-900 text-sm line-clamp-2 group-hover:text-primary-700 transition-colors">{{ .Title }}</div>
           </div>
           <div class="w-8 h-8 bg-primary-50 rounded-full flex items-center justify-center flex-shrink-0 group-hover:bg-primary-100 transition-colors">
             {{ partial "icons/chevron-right.html" "w-7 h-7 text-primary-600" }}
