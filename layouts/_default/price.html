@@ -29,10 +29,11 @@
 </section>
 
 {{/* ── CATEGORY ANCHOR NAV (паттерн со страницы статей) ── */}}
-{{/* top-28 на десктопе — глобальная лента (top-6 + h-16 = 56px) иначе перекрывает полосу */}}
+{{/* top-28 на десктопе — глобальная лента (top-0 + h-28 = 56px), якоря встают вплотную под неё */}}
+{{/* pr-28 на мобиле — справа вверху плавает гамбургер (right-6 + w-28 = 68px от края), пилюли не заезжают под него */}}
 <nav class="sticky top-0 lg:top-28 z-10 bg-white border-b border-secondary-200 shadow-sm" aria-label="{{ i18n "serviceCategoriesNav" }}">
   <div class="max-w-6xl mx-auto px-6">
-    <ul class="flex flex-wrap gap-1 py-3" role="list">
+    <ul class="flex flex-wrap gap-1 py-3 pr-28 lg:pr-0" role="list">
       {{ range $p.serviceCategories }}
       <li>
         <a href="#{{ .slug }}"

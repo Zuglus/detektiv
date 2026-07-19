@@ -17,20 +17,22 @@
 
   function open() {
     isOpen = true;
-    // Slide panel in
+    // Panel: unlock for focus/clicks, slide in, restart item cascade
+    menu.removeAttribute('inert');
     menu.classList.remove('translate-x-full');
-    menu.classList.add('translate-x-0');
+    menu.classList.add('translate-x-0', 'is-open');
     menu.setAttribute('aria-hidden', 'false');
-    // Show overlay
+    // Fade overlay in
     if (overlay) {
-      overlay.classList.remove('hidden');
+      overlay.classList.remove('opacity-0', 'pointer-events-none');
     }
     btn.setAttribute('aria-expanded', 'true');
+    if (btn.dataset.labelClose) btn.setAttribute('aria-label', btn.dataset.labelClose);
     // Animate hamburger → X
     var lines = btn.querySelectorAll('[data-line]');
-    if (lines[0]) { lines[0].classList.remove('-translate-y-3'); lines[0].classList.add('rotate-45'); }
+    if (lines[0]) { lines[0].classList.remove('-translate-y-4'); lines[0].classList.add('rotate-45'); }
     if (lines[1]) { lines[1].classList.add('opacity-0', 'scale-0'); }
-    if (lines[2]) { lines[2].classList.remove('translate-y-3'); lines[2].classList.add('-rotate-45'); }
+    if (lines[2]) { lines[2].classList.remove('translate-y-4'); lines[2].classList.add('-rotate-45'); }
     // Prevent body scroll
     document.body.style.overflow = 'hidden';
     // Focus first item
@@ -40,20 +42,22 @@
 
   function close() {
     isOpen = false;
-    // Slide panel out
+    // Panel: slide out and lock away from focus/clicks
     menu.classList.add('translate-x-full');
-    menu.classList.remove('translate-x-0');
+    menu.classList.remove('translate-x-0', 'is-open');
     menu.setAttribute('aria-hidden', 'true');
-    // Hide overlay
+    menu.setAttribute('inert', '');
+    // Fade overlay out
     if (overlay) {
-      overlay.classList.add('hidden');
+      overlay.classList.add('opacity-0', 'pointer-events-none');
     }
     btn.setAttribute('aria-expanded', 'false');
+    if (btn.dataset.labelOpen) btn.setAttribute('aria-label', btn.dataset.labelOpen);
     // Restore hamburger
     var lines = btn.querySelectorAll('[data-line]');
-    if (lines[0]) { lines[0].classList.add('-translate-y-3'); lines[0].classList.remove('rotate-45'); }
+    if (lines[0]) { lines[0].classList.add('-translate-y-4'); lines[0].classList.remove('rotate-45'); }
     if (lines[1]) { lines[1].classList.remove('opacity-0', 'scale-0'); }
-    if (lines[2]) { lines[2].classList.add('translate-y-3'); lines[2].classList.remove('-rotate-45'); }
+    if (lines[2]) { lines[2].classList.add('translate-y-4'); lines[2].classList.remove('-rotate-45'); }
     // Restore body scroll
     document.body.style.overflow = '';
     btn.focus();

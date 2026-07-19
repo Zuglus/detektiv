@@ -86,12 +86,8 @@ body {
    ANIMATIONS
    ======================================== */
 
-@keyframes overlayFadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
 @keyframes menuItemSlideIn {
+  from { opacity: 0; transform: translateX(100%) scale(0.8); }
   to { opacity: 1; transform: translateX(0) scale(1); }
 }
 
@@ -103,7 +99,6 @@ body {
 .nav-scrolled {
   background: var(--glass-nav);
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   transition: all var(--duration-normal) var(--ease-standard);
 }
 
@@ -129,8 +124,17 @@ body {
   transform-origin: center;
 }
 
-.hamburger-btn:hover .hamburger-line {
-  background-color: theme('colors.primary.600');
+/* Ховеры кнопки только там, где ховер существует — на таче стили
+   не липнут после тапа (кнопка не остаётся увеличенной/зелёной). */
+@media (hover: hover) {
+  .hamburger-btn:hover {
+    transform: scale(1.1);
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: theme('boxShadow.xl');
+  }
+  .hamburger-btn:hover .hamburger-line {
+    background-color: theme('colors.primary.600');
+  }
 }
 
 /* Скрытие при скролле вниз — класс ставит mobile-menu.js.
@@ -143,14 +147,12 @@ body {
   pointer-events: none;
 }
 
-.menu-overlay {
-  animation: overlayFadeIn 300ms var(--ease-standard) forwards;
-}
-
-.menu-item {
-  opacity: 0;
-  transform: translateX(100%) scale(0.8);
-  animation: menuItemSlideIn var(--duration-bounce) var(--ease-overshoot) forwards;
+/* Каскад пунктов запускается классом is-open при каждом открытии панели
+   (mobile-menu.js). Базовых opacity/transform у .menu-item нет — при
+   закрытии панель уезжает с видимыми пунктами. fill-mode both держит
+   пункт невидимым, пока не истёк его animation-delay. */
+#mobile-menu.is-open .menu-item {
+  animation: menuItemSlideIn var(--duration-bounce) var(--ease-overshoot) both;
 }
 .menu-item:nth-child(1) { animation-delay: 50ms; }
 .menu-item:nth-child(2) { animation-delay: 100ms; }

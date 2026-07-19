@@ -11,27 +11,32 @@
 
   {{/* ── Desktop nav ── */}}
   <nav
-    class="fixed top-6 left-0 right-0 z-[50] block transition-all duration-300 ease-in-out backdrop-blur-sm nav-transparent"
+    class="fixed top-0 left-0 right-0 z-[50] hidden lg:block transition-all duration-300 ease-in-out backdrop-blur-sm nav-transparent"
     role="navigation"
     aria-label="{{ i18n "mainNav" }}"
     data-nav="desktop"
   >
-    <div class="max-w-7xl mx-auto px-6 hidden lg:block">
-      <div class="flex items-center justify-between h-16">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex items-center justify-between h-28">
         <div class="flex items-center gap-1">
           {{ range index hugo.Data.nav $lang }}
+          {{- $exact := eq .href $currentPath -}}
+          {{- $isActive := $exact -}}
+          {{- if and (not $isActive) (ne .href "/") (ne .href "/en") -}}
+            {{- $isActive = hasPrefix $currentPath (printf "%s/" .href) -}}
+          {{- end -}}
           <a
             href="{{ .href }}"
             class="nav-link relative px-4 py-3 text-sm font-medium uppercase tracking-wider rounded-lg
               focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2
               after:absolute after:bottom-1 after:left-1 after:right-1 after:h-0.5
               after:bg-primary-500 after:transform after:transition-transform after:duration-300
-              {{ if eq .href $currentPath }}
+              {{ if $isActive }}
                 text-primary-700 font-semibold bg-primary-50/80 after:scale-x-100
               {{ else }}
                 text-secondary-800 hover:text-primary-700 hover:bg-primary-50/80 after:scale-x-0 hover:after:scale-x-100
               {{ end }}"
-            {{ if eq .href $currentPath }}aria-current="page"{{ end }}
+            {{ if $exact }}aria-current="page"{{ end }}
           >{{ .name }}</a>
           {{ end }}
         </div>
@@ -63,23 +68,25 @@
       w-28 h-28 rounded-full
       bg-white/90 backdrop-blur-sm shadow-lg border border-white/20
       flex items-center justify-center
-      transition-all duration-300 hover:scale-110 hover:shadow-xl hover:bg-white/95
+      transition-all duration-300
       focus:outline-none focus:ring-4 focus:ring-primary-600 focus:ring-offset-2"
     aria-expanded="false"
     aria-controls="mobile-menu"
     aria-label="{{ i18n "openMenu" }}"
+    data-label-open="{{ i18n "openMenu" }}"
+    data-label-close="{{ i18n "closeMenu" }}"
   >
-    <div class="relative w-8 h-8 flex flex-col justify-center items-center">
-      <span class="hamburger-line block w-14 h-1 bg-secondary-700 rounded-full ease-in-out transform origin-center absolute -translate-y-3" data-line="1"></span>
+    <div class="relative w-14 h-10 flex flex-col justify-center items-center">
+      <span class="hamburger-line block w-14 h-1 bg-secondary-700 rounded-full ease-in-out transform origin-center absolute -translate-y-4" data-line="1"></span>
       <span class="hamburger-line block w-14 h-1 bg-secondary-700 rounded-full ease-in-out absolute" data-line="2"></span>
-      <span class="hamburger-line block w-14 h-1 bg-secondary-700 rounded-full ease-in-out transform origin-center absolute translate-y-3" data-line="3"></span>
+      <span class="hamburger-line block w-14 h-1 bg-secondary-700 rounded-full ease-in-out transform origin-center absolute translate-y-4" data-line="3"></span>
     </div>
   </button>
 
   {{/* ── Mobile overlay ── */}}
   <div
     id="mobile-overlay"
-    class="hidden fixed inset-0 bg-secondary-900/50 z-[9998] lg:hidden"
+    class="fixed inset-0 bg-secondary-900/50 z-[9998] lg:hidden opacity-0 pointer-events-none transition-opacity duration-300"
     aria-hidden="true"
   ></div>
 
@@ -94,22 +101,28 @@
     role="dialog"
     aria-modal="true"
     aria-hidden="true"
+    inert
     aria-label="{{ i18n "navMenu" }}"
   >
     <div class="p-6 pt-40 min-h-full">
       <nav class="space-y-4" role="navigation" aria-label="{{ i18n "mobileNav" }}">
         {{ range index hugo.Data.nav $lang }}
+        {{- $exact := eq .href $currentPath -}}
+        {{- $isActive := $exact -}}
+        {{- if and (not $isActive) (ne .href "/") (ne .href "/en") -}}
+          {{- $isActive = hasPrefix $currentPath (printf "%s/" .href) -}}
+        {{- end -}}
         <a
           href="{{ .href }}"
           class="menu-item block px-4 py-3 rounded-xl text-base font-medium uppercase tracking-wider
             transition-all duration-300
             focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-secondary-900
-            {{ if eq .href $currentPath }}
-              bg-white/20 text-white border-l-4 border-white shadow-sm
+            {{ if $isActive }}
+              bg-white/20 text-white font-semibold shadow-sm
             {{ else }}
               text-white/90 hover:bg-white/10 hover:text-white
             {{ end }}"
-          {{ if eq .href $currentPath }}aria-current="page"{{ end }}
+          {{ if $exact }}aria-current="page"{{ end }}
         >{{ .name }}</a>
         {{ end }}
 

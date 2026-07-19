@@ -30,6 +30,9 @@ other = "Main navigation"
 [openMenu]
 other = "Open menu"
 
+[closeMenu]
+other = "Close menu"
+
 [navMenu]
 other = "Navigation menu"
 
