@@ -2,8 +2,8 @@
   "name": { "ru": "Детективное агентство", "en": "Detective Agency" },
   "founder": { "ru": "Грозного Эдуарда Николаевича", "en": "Eduard Nikolaevich Grozny" },
   "founderShort": { "ru": "Грозного Э.Н.", "en": "Grozny E.N." },
-  "license": { "ru": "лицензия МВД РФ 50ЧД2021000323", "en": "MIA RF license 50ЧД2021000323" },
-  "licenseShort": { "ru": "Лицензия МВД", "en": "MIA License" },
+  "license": { "ru": "лицензия ЦЛРР ГУ Росгвардии РФ 50ЧД2021000323", "en": "Rosgvardia (Russian National Guard) license 50ЧД2021000323" },
+  "licenseShort": { "ru": "Лицензия Росгвардии", "en": "Rosgvardia License" },
   "licenseNumber": "50ЧД2021000323",
   "founded": "2010",
   "description": {

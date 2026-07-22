@@ -10,10 +10,10 @@
   "trustBadges": {
     "license": {
       "ru": {
-        "description": "Официальная лицензия Министерства внутренних дел РФ"
+        "description": "Официальная лицензия ЦЛРР ГУ Росгвардии РФ"
       },
       "en": {
-        "description": "Official license from the Ministry of Internal Affairs of the Russian Federation"
+        "description": "Official license from the Licensing Center of the Russian National Guard (Rosgvardia)"
       }
     },
     "experience": {

@@ -21,12 +21,12 @@
     "credentials": {
       "ru": [
         "{years} {years_word} детективной деятельности",
-        "Лицензия МВД РФ",
+        "Лицензия ЦЛРР ГУ Росгвардии РФ",
         "Всесторонняя компетентность"
       ],
       "en": [
         "{years} {years_word} of detective work",
-        "MIA RF license",
+        "Rosgvardia license",
         "Comprehensive competence"
       ]
     },
