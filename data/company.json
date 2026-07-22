@@ -5,6 +5,7 @@
   "license": { "ru": "лицензия ЦЛРР ГУ Росгвардии РФ 50ЧД2021000323", "en": "Rosgvardia (Russian National Guard) license 50ЧД2021000323" },
   "licenseShort": { "ru": "Лицензия Росгвардии", "en": "Rosgvardia License" },
   "licenseNumber": "50ЧД2021000323",
+  "licenseValid": { "ru": "действует до 2031 года", "en": "valid until 2031" },
   "founded": "2010",
   "description": {
     "ru": "Лицензированное частное детективное агентство. Москва, с {founded} года.",

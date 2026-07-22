@@ -210,6 +210,7 @@ w-8 = 16px, w-16 = 32px.
 - Полная форма с номером — `company.json.license` (для footer, Schema.org, refund policy)
 - Короткая — `company.json.licenseShort` ("Лицензия Росгвардии" / "Rosgvardia License"), используется в бейджах/заголовках
 - Только номер — `company.json.licenseNumber` (для подстановки в hero subtitle и где номер нужен отдельно)
+- Срок — `company.json.licenseValid` («действует до 2031 года» / "valid until 2031"), в футере под строкой лицензии с иконкой check-circle
 
 ---
 

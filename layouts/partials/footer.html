@@ -15,7 +15,10 @@
       {{/* Column 1: Company info */}}
       <div class="space-y-4">
         <h3 class="text-lg font-semibold text-white pb-3 border-b border-secondary-600/60">{{ index hugo.Data.company.name $lang }}</h3>
-        <p class="text-secondary-300 text-sm">{{ index hugo.Data.company.license $lang }}</p>
+        <p class="text-secondary-300 text-sm">
+          {{ index hugo.Data.company.license $lang }}
+          <span class="mt-2 flex items-center gap-2 text-xs text-secondary-400">{{ partial "icons/check-circle.html" "w-6 h-6 text-primary-400" }}{{ index hugo.Data.company.licenseValid $lang }}</span>
+        </p>
         <p class="text-secondary-300 text-sm">{{ $cityPrefix }}{{ index $c.address.city $lang }}</p>
         <p class="text-secondary-300 text-sm">{{ index $c.address.street $lang }}</p>
       </div>
