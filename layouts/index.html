@@ -30,22 +30,25 @@
 
   {{/* Content */}}
   <div class="relative z-10 max-w-3xl mx-auto">
-    {{/* h1 страницы — строка про агентство: единственный заголовок первого уровня на главной */}}
-    <h1 class="text-lg md:text-xl font-normal mb-6 text-white/80">
-      {{ $founder := index $co.founderShort $lang }}
-      {{ $subtitle := index $p.hero.subtitle $lang }}
-      {{ $subtitle = replace $subtitle "{name}" (index $co.name $lang) }}
-      {{ $subtitle = replace $subtitle "{founderShort}" $founder }}
-      {{ $parts := split $subtitle $founder }}
-      <span class="block">
-        {{- if eq (len $parts) 2 -}}
-          {{ index $parts 0 }}<span class="text-xl md:text-2xl text-white">{{ $founder }}</span>{{ index $parts 1 }}
-        {{- else -}}
-          {{ $subtitle }}
-        {{- end -}}
-      </span>
-      <span class="block">{{ replace (index $p.hero.city $lang) "{city}" (index $c.address.city $lang) }}</span>
+    {{/* h1 страницы — эмблема: название агентства написано на ней самой, текстом оно живёт в alt */}}
+    {{/* картинка первого экрана (LCP): свой размер 600×600, без lazy, с fetchpriority */}}
+    {{- $founder := index $co.founderShort $lang -}}
+    {{- $agency := replace (replace (index $p.hero.subtitle $lang) "{name}" (index $co.name $lang)) "{founderShort}" $founder -}}
+    <h1 class="mb-6">
+      <picture>
+        <source srcset="/images/emblem-hero.webp" type="image/webp">
+        <img
+          src="/images/emblem-hero.png"
+          alt="{{ $agency }}"
+          width="600" height="600"
+          fetchpriority="high"
+          decoding="async"
+          class="w-full max-w-[220px] md:max-w-[300px] mx-auto rounded-full"
+        >
+      </picture>
     </h1>
+
+    <p class="text-lg md:text-xl mb-6 text-white/80">{{ replace (index $p.hero.city $lang) "{city}" (index $c.address.city $lang) }}</p>
 
     {{/* Девиз с эмблемы — обрамление чёрточками повторяет надписи на самой эмблеме */}}
     {{/* половины держу целыми: на узком экране перенос идёт по тире, а не внутри фразы */}}
