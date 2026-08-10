@@ -1,35 +1,21 @@
 {
   "hero": {
-    "title": {
-      "ru": "Узнайте правду. Конфиденциально.",
-      "en": "Find the truth. Confidentially."
-    },
     "subtitle": {
-      "ru": "{name} {founderShort} в {cityLocative} с {founded} года.",
-      "en": "{founderShort} {name} in {cityLocative} since {founded}."
+      "ru": "{name} {founderShort}",
+      "en": "{founderShort} {name}"
+    },
+    "city": {
+      "ru": "г. {city}",
+      "en": "{city}"
     },
     "motto": {
       "ru": "Время детектива — стоит дорого",
       "en": "A detective's time is expensive"
     },
     "cta": {
-      "ru": "Получить консультацию",
-      "en": "Get a consultation"
-    },
-    "badges": [
-      {
-        "ru": "{years} {years_word}",
-        "en": "{years} {years_word}"
-      },
-      {
-        "ru": "{licenseShort}",
-        "en": "{licenseShort}"
-      },
-      {
-        "ru": "{city}",
-        "en": "{city}"
-      }
-    ]
+      "ru": "Связаться",
+      "en": "Get in touch"
+    }
   },
   "services": {
     "title": {

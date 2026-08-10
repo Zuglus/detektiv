@@ -30,30 +30,28 @@
 
   {{/* Content */}}
   <div class="relative z-10 max-w-3xl mx-auto">
-    <h1 class="font-display font-bold text-white mb-6 leading-tight text-display-md md:text-display-lg" style="text-shadow:0 4px 24px rgba(0,0,0,0.35);">
-      {{ index $p.hero.title $lang }}
-    </h1>
-
-    <p class="text-lg md:text-xl mb-6 text-white/80">
+    {{/* h1 страницы — строка про агентство: единственный заголовок первого уровня на главной */}}
+    <h1 class="text-lg md:text-xl font-normal mb-6 text-white/80">
       {{ $founder := index $co.founderShort $lang }}
       {{ $subtitle := index $p.hero.subtitle $lang }}
       {{ $subtitle = replace $subtitle "{name}" (index $co.name $lang) }}
       {{ $subtitle = replace $subtitle "{founderShort}" $founder }}
-      {{ $subtitle = replace $subtitle "{cityLocative}" (index $c.address.cityLocative $lang) }}
-      {{ $subtitle = replace $subtitle "{founded}" $co.founded }}
       {{ $parts := split $subtitle $founder }}
-      {{ if eq (len $parts) 2 }}
-        {{ index $parts 0 }}<span class="text-xl md:text-2xl text-white">{{ $founder }}</span>{{ index $parts 1 }}
-      {{ else }}
-        {{ $subtitle }}
-      {{ end }}
-    </p>
+      <span class="block">
+        {{- if eq (len $parts) 2 -}}
+          {{ index $parts 0 }}<span class="text-xl md:text-2xl text-white">{{ $founder }}</span>{{ index $parts 1 }}
+        {{- else -}}
+          {{ $subtitle }}
+        {{- end -}}
+      </span>
+      <span class="block">{{ replace (index $p.hero.city $lang) "{city}" (index $c.address.city $lang) }}</span>
+    </h1>
 
     {{/* Девиз с эмблемы — обрамление чёрточками повторяет надписи на самой эмблеме */}}
     {{/* половины держу целыми: на узком экране перенос идёт по тире, а не внутри фразы */}}
     {{- $motto := index $p.hero.motto $lang -}}
     {{- $mottoParts := split $motto " — " -}}
-    <div class="flex items-center justify-center gap-4 mb-12">
+    <div class="flex items-center justify-center gap-4 mb-16">
       <span class="hidden sm:block flex-shrink-0 h-px w-16 md:w-24 bg-accent-300/40" aria-hidden="true"></span>
       <p class="font-display text-lg md:text-2xl text-accent-300 text-center">
         {{- if eq (len $mottoParts) 2 -}}
@@ -63,22 +61,6 @@
         {{- end -}}
       </p>
       <span class="hidden sm:block flex-shrink-0 h-px w-16 md:w-24 bg-accent-300/40" aria-hidden="true"></span>
-    </div>
-
-    {{/* Trust badges */}}
-    <div class="flex flex-wrap items-center justify-center gap-4 mb-20">
-      {{ range $i, $badge := $p.hero.badges }}
-      <div class="flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
-        {{ if eq $i 0 }}
-        {{ partial "icons/check-circle.html" "w-7 h-7 text-primary-300 flex-shrink-0" }}
-        {{ else if eq $i 1 }}
-        {{ partial "icons/file-badge.html" "w-7 h-7 text-primary-300 flex-shrink-0" }}
-        {{ else }}
-        {{ partial "icons/map-pin.html" "w-7 h-7 text-primary-300 flex-shrink-0" }}
-        {{ end }}
-        <span class="text-white/90 text-sm">{{ $badgeText := replace (replace (index . $lang) "{years}" (string $years)) "{years_word}" $yearsLabel }}{{ $badgeText = replace $badgeText "{licenseShort}" (index $co.licenseShort $lang) }}{{ $badgeText = replace $badgeText "{city}" (index $c.address.city $lang) }}{{ $badgeText }}</span>
-      </div>
-      {{ end }}
     </div>
 
     {{/* CTA buttons */}}
