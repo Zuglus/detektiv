@@ -17,9 +17,9 @@
     "ru": "Офис в Москве",
     "en": "Moscow Office"
   },
-  "addressDescription": {
-    "ru": "Личные встречи по предварительной записи — 10 000 ₽",
-    "en": "In-person meetings by appointment — RUB 10,000"
+  "meetingNote": {
+    "ru": "Личная встреча по предварительной записи — 10 000 ₽",
+    "en": "In-person meeting by appointment — RUB 10,000"
   },
   "email": {
     "ru": "Электронная почта",

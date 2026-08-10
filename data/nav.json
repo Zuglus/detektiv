@@ -14,13 +14,5 @@
     { "name": "guarantee", "href": "/en/guarantee" },
     { "name": "blog",      "href": "/en/blog" },
     { "name": "contacts",  "href": "/en/contact" }
-  ],
-  "footerExtra": {
-    "ru": [
-      { "name": "вакансии", "href": "/vakansii" }
-    ],
-    "en": [
-      { "name": "jobs",     "href": "/en/job" }
-    ]
-  }
+  ]
 }

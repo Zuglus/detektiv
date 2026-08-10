@@ -30,9 +30,6 @@
           {{ range index hugo.Data.nav $lang }}
           <a href="{{ .href }}" class="py-3 text-secondary-300 hover:text-primary-400 transition-colors text-sm">{{ .name }}</a>
           {{ end }}
-          {{ range index hugo.Data.nav.footerExtra $lang }}
-          <a href="{{ .href }}" class="py-3 text-secondary-300 hover:text-primary-400 transition-colors text-sm">{{ .name }}</a>
-          {{ end }}
         </nav>
       </div>
 
