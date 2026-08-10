@@ -29,7 +29,8 @@
            opacity:0.12; filter:blur(90px);"></div>
 
   {{/* Content */}}
-  <div class="relative z-10 w-full max-w-6xl mx-auto">
+  {{/* предел 1280px = нативная ширина кадра: выше него картинка только мылится */}}
+  <div class="relative z-10 w-full max-w-[1280px] mx-auto">
     {{/* h1 страницы — баннер: название, город, год, лицензия и девиз написаны на нём самом,
          текстом они живут в alt, поэтому дубля под картинкой нет */}}
     {{/* картинка первого экрана (LCP): без lazy, с fetchpriority; srcset по ширине экрана */}}
@@ -42,12 +43,12 @@
     {{- $alt = replace $alt "{founded}" $co.founded -}}
     {{- $alt = replace $alt "{licenseNumber}" $co.licenseNumber -}}
     {{- $alt = replace $alt "{motto}" $motto -}}
-    <h1 class="mb-10">
+    <h1 class="relative">
       <picture>
         <source
           type="image/webp"
           srcset="/images/hero-banner-768.webp 768w, /images/hero-banner-1024.webp 1024w, /images/hero-banner-1280.webp 1280w"
-          sizes="(min-width: 1152px) 1152px, 100vw">
+          sizes="(min-width: 1280px) 1280px, 100vw">
         <img
           src="/images/hero-banner.jpg"
           alt="{{ $alt }}"
@@ -57,18 +58,16 @@
           class="w-full h-auto mx-auto shadow-2xl"
         >
       </picture>
-    </h1>
 
-    {{/* CTA buttons */}}
-    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-      <a href="{{ $contactPath }}"
-        class="inline-flex items-center px-8 py-4 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-xl text-lg transition-colors">
-        {{ index $p.hero.cta $lang }}
-      </a>
-      <a href="{{ $c.phone.href | safeURL }}" class="px-4 py-3 text-lg sm:text-2xl font-bold text-white hover:text-primary-200 transition-colors">
-        {{ $c.phone.display }}
-      </a>
-    </div>
+      {{/* Нарисованный на баннере номер сам по себе не нажимается — кладу поверх него
+           прозрачную ссылку. Координаты в процентах от картинки: при замене кадра
+           проверить, что область по-прежнему накрывает номер (правый нижний блок рамки).
+           min-height — чтобы на телефоне область не оказалась меньше пальца. */}}
+      <a href="{{ $c.phone.href | safeURL }}"
+        class="absolute block rounded-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-300"
+        style="left:71%; top:78.5%; width:26%; height:9.5%; min-height:44px;"
+        aria-label="{{ i18n "callTo" }} {{ $c.phone.display }}"></a>
+    </h1>
   </div>
 
   {{/* Scroll indicator */}}
