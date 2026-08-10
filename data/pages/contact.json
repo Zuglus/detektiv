@@ -9,12 +9,8 @@
   },
   "emergency": {
     "title": {
-      "ru": "Быстрая связь",
-      "en": "Quick Contact"
-    },
-    "description": {
-      "ru": "Прямая линия для связи",
-      "en": "Direct line for contact"
+      "ru": "Мобильная связь",
+      "en": "Mobile phone"
     }
   },
   "addressTitle": {
@@ -29,18 +25,10 @@
     "ru": "Электронная почта",
     "en": "Email"
   },
-  "emailDescription": {
-    "ru": "Для письменных обращений",
-    "en": "For written inquiries"
-  },
   "messengers": {
     "title": {
       "ru": "Каналы связи",
       "en": "Contact Channels"
-    },
-    "description": {
-      "ru": "На связи в любое время",
-      "en": "Available anytime"
     }
   },
   "confidentiality": {

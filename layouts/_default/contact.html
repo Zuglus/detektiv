@@ -21,8 +21,7 @@
         <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
         <div class="relative z-10 text-center">
           <div class="mb-6">
-            <h2 class="text-heading-lg font-bold text-white mb-2">{{ index $p.emergency.title $lang }}</h2>
-            <p class="text-body-lg text-secondary-300">{{ index $p.emergency.description $lang }}</p>
+            <h2 class="text-heading-lg font-bold text-white">{{ index $p.emergency.title $lang }}</h2>
           </div>
           <a
             href="{{ $c.phone.href | safeURL }}"
@@ -61,14 +60,12 @@
         >
           {{ $emailAddress }}
         </a>
-        <p class="text-body-sm text-secondary-500 mt-2">{{ index $p.emailDescription $lang }}</p>
       </div>
 
       {{/* Messengers Block */}}
       <div class="col-span-12 md:col-span-6 lg:col-span-8 bg-white rounded-2xl border border-secondary-100 shadow-sm p-6 text-center flex flex-col justify-center">
         <div class="mb-6">
-          <h3 class="font-semibold text-secondary-900 mb-1">{{ index $p.messengers.title $lang }}</h3>
-          <p class="text-body-sm text-secondary-600">{{ index $p.messengers.description $lang }}</p>
+          <h3 class="font-semibold text-secondary-900">{{ index $p.messengers.title $lang }}</h3>
         </div>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
           {{ partial "messengers.html" (dict
