@@ -1,6 +1,6 @@
 ---
 translationKey: "price"
 title: "Price"
-description: "Detective agency service rates. Free consultation."
+description: "Services of a licensed detective agency in Moscow: dossiers, locating people and assets, surveillance, partner and personnel checks, IT investigations."
 layout: "price"
 ---

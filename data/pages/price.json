@@ -28,21 +28,17 @@
         "label": { "ru": "Ресурсы", "en": "Resources" },
         "text":  { "ru": "необходимость привлечения дополнительных специалистов или оборудования", "en": "need for additional specialists or equipment" }
       }
-    ],
-    "footer": {
-      "ru": "Консультация бесплатна. Окончательная стоимость фиксируется в договоре до начала работ.",
-      "en": "Consultation is free. Final cost is fixed in the contract before work begins."
-    }
+    ]
   },
   "intro": {
     "list": {
       "ru": [
-        "Консультация для Вас бесплатная",
+        "Предварительная консультация по Вашей задаче",
         "К выполнению заказа приступаем только после полной оплаты",
         "Услуги предоставляем на всей территории России, СНГ и за рубежом"
       ],
       "en": [
-        "The consultation is free for you",
+        "Preliminary consultation on your case",
         "We proceed to the execution of the order only after full payment",
         "We provide services throughout Russia, CIS, and abroad"
       ]
