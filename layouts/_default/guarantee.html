@@ -124,13 +124,13 @@
         {{ partial "messengers.html" (dict
           "c" $c
           "aria" (i18n "contactVia")
-          "linkClass" "inline-flex items-center gap-2 px-6 py-3 bg-primary-600 text-white rounded-xl font-semibold text-base hover:bg-primary-700 transition-colors"
+          "linkClass" "inline-flex items-center gap-2 px-6 py-3 bg-primary-800 text-white rounded-xl font-semibold text-base hover:bg-primary-900 transition-colors"
           "iconClass" "w-7 h-7") }}
-        <a href="{{ $c.email.href | safeURL }}" class="inline-flex items-center gap-2 px-6 py-3 bg-primary-600 text-white rounded-xl font-semibold text-base hover:bg-primary-700 transition-colors">
+        <a href="{{ $c.email.href | safeURL }}" class="inline-flex items-center gap-2 px-6 py-3 bg-primary-800 text-white rounded-xl font-semibold text-base hover:bg-primary-900 transition-colors">
           {{ partial "icons/mail.html" "w-7 h-7" }}
           {{ $c.email.display }}
         </a>
-        <a href="{{ $c.phone.href | safeURL }}" class="inline-flex items-center gap-2 px-6 py-3 bg-primary-600 text-white rounded-xl font-semibold text-base hover:bg-primary-700 transition-colors">
+        <a href="{{ $c.phone.href | safeURL }}" class="inline-flex items-center gap-2 px-6 py-3 bg-primary-800 text-white rounded-xl font-semibold text-base hover:bg-primary-900 transition-colors">
           {{ partial "icons/phone.html" "w-7 h-7" }}
           {{ $c.phone.display }}
         </a>

@@ -45,16 +45,22 @@
     {{- $alt = replace $alt "{founded}" $co.founded -}}
     {{- $alt = replace $alt "{licenseNumber}" $co.licenseNumber -}}
     {{- $alt = replace $alt "{motto}" $motto -}}
+    {{/* через конвейер с отпечатком: у файлов постоянные имена, и при замене кадра
+         браузеры отдавали бы старую картинку из кеша — отпечаток меняет адрес сам */}}
+    {{- $banner768 := resources.Get "images/hero-banner-768.webp" | fingerprint -}}
+    {{- $banner1024 := resources.Get "images/hero-banner-1024.webp" | fingerprint -}}
+    {{- $banner1280 := resources.Get "images/hero-banner-1280.webp" | fingerprint -}}
+    {{- $bannerJpg := resources.Get "images/hero-banner.jpg" | fingerprint -}}
     <h1 class="relative">
       <picture>
         <source
           type="image/webp"
-          srcset="/images/hero-banner-768.webp 768w, /images/hero-banner-1024.webp 1024w, /images/hero-banner-1280.webp 1280w"
+          srcset="{{ $banner768.RelPermalink }} 768w, {{ $banner1024.RelPermalink }} 1024w, {{ $banner1280.RelPermalink }} 1280w"
           sizes="(min-width: 1280px) 1280px, 100vw">
         <img
-          src="/images/hero-banner.jpg"
+          src="{{ $bannerJpg.RelPermalink }}"
           alt="{{ $alt }}"
-          width="1280" height="853"
+          width="1280" height="852"
           fetchpriority="high"
           decoding="async"
           class="w-auto max-w-full h-auto mx-auto shadow-2xl"
@@ -121,7 +127,7 @@
 </section>
 
 {{/* ── TRUST FACTS ── */}}
-<section class="py-20 bg-gradient-to-br from-primary-600 to-primary-700 text-white" data-reveal>
+<section class="py-20 bg-gradient-header text-white" data-reveal>
   <div class="max-w-6xl mx-auto px-6">
     <div class="text-center mb-12">
       <h2 class="font-display text-heading-lg font-bold mb-4">
@@ -207,7 +213,7 @@
     </div>
 
     <a href="{{ $contactPath }}"
-      class="inline-flex items-center px-8 py-4 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-xl text-lg transition-colors">
+      class="inline-flex items-center px-8 py-4 bg-primary-800 hover:bg-primary-900 text-white font-semibold rounded-xl text-lg transition-colors">
       {{ index $p.cta.button $lang }}
     </a>
   </div>
