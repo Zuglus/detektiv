@@ -4,9 +4,9 @@
       "ru": "{name} {founderShort}",
       "en": "{founderShort} {name}"
     },
-    "city": {
-      "ru": "г. {city}",
-      "en": "{city}"
+    "imageAlt": {
+      "ru": "{name} {founderShort}, г. {city}, с {founded} года, лицензия {licenseNumber}. {motto}",
+      "en": "{founderShort} {name}, {city}, since {founded}, license {licenseNumber}. {motto}"
     },
     "motto": {
       "ru": "Время детектива — стоит дорого",

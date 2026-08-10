@@ -29,42 +29,35 @@
            opacity:0.12; filter:blur(90px);"></div>
 
   {{/* Content */}}
-  <div class="relative z-10 max-w-3xl mx-auto">
-    {{/* h1 страницы — эмблема: название агентства написано на ней самой, текстом оно живёт в alt */}}
-    {{/* картинка первого экрана (LCP): свой размер 600×600, без lazy, с fetchpriority */}}
+  <div class="relative z-10 w-full max-w-6xl mx-auto">
+    {{/* h1 страницы — баннер: название, город, год, лицензия и девиз написаны на нём самом,
+         текстом они живут в alt, поэтому дубля под картинкой нет */}}
+    {{/* картинка первого экрана (LCP): без lazy, с fetchpriority; srcset по ширине экрана */}}
     {{- $founder := index $co.founderShort $lang -}}
-    {{- $agency := replace (replace (index $p.hero.subtitle $lang) "{name}" (index $co.name $lang)) "{founderShort}" $founder -}}
-    <h1 class="mb-6">
+    {{- $motto := index $p.hero.motto $lang -}}
+    {{- $alt := index $p.hero.imageAlt $lang -}}
+    {{- $alt = replace $alt "{name}" (index $co.name $lang) -}}
+    {{- $alt = replace $alt "{founderShort}" $founder -}}
+    {{- $alt = replace $alt "{city}" (index $c.address.city $lang) -}}
+    {{- $alt = replace $alt "{founded}" $co.founded -}}
+    {{- $alt = replace $alt "{licenseNumber}" $co.licenseNumber -}}
+    {{- $alt = replace $alt "{motto}" $motto -}}
+    <h1 class="mb-10">
       <picture>
-        <source srcset="/images/emblem-hero.webp" type="image/webp">
+        <source
+          type="image/webp"
+          srcset="/images/hero-banner-768.webp 768w, /images/hero-banner-1024.webp 1024w, /images/hero-banner-1280.webp 1280w"
+          sizes="(min-width: 1152px) 1152px, 100vw">
         <img
-          src="/images/emblem-hero.png"
-          alt="{{ $agency }}"
-          width="600" height="600"
+          src="/images/hero-banner.jpg"
+          alt="{{ $alt }}"
+          width="1280" height="853"
           fetchpriority="high"
           decoding="async"
-          class="w-full max-w-[220px] md:max-w-[300px] mx-auto rounded-full"
+          class="w-full h-auto mx-auto shadow-2xl"
         >
       </picture>
     </h1>
-
-    <p class="text-lg md:text-xl mb-6 text-white/80">{{ replace (index $p.hero.city $lang) "{city}" (index $c.address.city $lang) }}</p>
-
-    {{/* Девиз с эмблемы — обрамление чёрточками повторяет надписи на самой эмблеме */}}
-    {{/* половины держу целыми: на узком экране перенос идёт по тире, а не внутри фразы */}}
-    {{- $motto := index $p.hero.motto $lang -}}
-    {{- $mottoParts := split $motto " — " -}}
-    <div class="flex items-center justify-center gap-4 mb-16">
-      <span class="hidden sm:block flex-shrink-0 h-px w-16 md:w-24 bg-accent-300/40" aria-hidden="true"></span>
-      <p class="font-display text-lg md:text-2xl text-accent-300 text-center">
-        {{- if eq (len $mottoParts) 2 -}}
-          <span class="whitespace-nowrap">{{ index $mottoParts 0 }} —</span> <span class="whitespace-nowrap">{{ index $mottoParts 1 }}</span>
-        {{- else -}}
-          {{ $motto }}
-        {{- end -}}
-      </p>
-      <span class="hidden sm:block flex-shrink-0 h-px w-16 md:w-24 bg-accent-300/40" aria-hidden="true"></span>
-    </div>
 
     {{/* CTA buttons */}}
     <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
