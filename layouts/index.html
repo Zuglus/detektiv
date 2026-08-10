@@ -14,7 +14,9 @@
      100vh на мобильных выше видимой области, и низ секции прятался под интерфейс браузера.
      Первая строка — fallback для браузеров без svh. pb на мобильном — место под стрелку
      (bottom-40 = 80px + иконка 24px), чтобы контент на коротких экранах на неё не наезжал. */}}
-<section class="relative flex flex-col items-center justify-center text-center px-6 pb-64 lg:pb-0 overflow-hidden" style="min-height:100vh;min-height:100svh;">
+{{/* lg:pt-28 — под фиксированную ленту навигации (h-28 = 56px), lg:pb-24 — место стрелке,
+     иначе на ноутбуках (высота 800–900px) баннер упирается в края и стрелку не видно */}}
+<section class="relative flex flex-col items-center justify-center text-center px-6 pb-64 lg:pt-28 lg:pb-24 overflow-hidden" style="min-height:100vh;min-height:100svh;">
   {{/* Background gradient */}}
   <div class="absolute inset-0 bg-gradient-header"></div>
 
@@ -55,7 +57,8 @@
           width="1280" height="853"
           fetchpriority="high"
           decoding="async"
-          class="w-full h-auto mx-auto shadow-2xl"
+          class="w-auto max-w-full h-auto mx-auto shadow-2xl"
+          style="max-height:calc(100svh - 9rem);"
         >
       </picture>
 
