@@ -17,11 +17,14 @@
 {{/* lg:pt-28 — под фиксированную ленту навигации (h-28 = 56px), lg:pb-24 — место стрелке,
      иначе на ноутбуках (высота 800–900px) баннер упирается в края и стрелку не видно */}}
 {{/* На телефоне в портрете кадр разворачивается во весь экран: боковые поля и отступы
-     сняты (max-md:portrait:px-0/pt-0), снизу оставлены 56px — ровно высота панели
-     «Позвонить/Написать», чтобы она не накрыла нарисованный номер. Мелкий текст на
+     сняты (max-md:portrait:px-0/pt-0/pb-0), а секция обрезана по самому кадру
+     (!min-h-0 перебивает inline min-height) — иначе под кадром оставалась зелёная
+     полоса высотой 56px: на первом экране её закрывала панель «Позвонить/Написать»,
+     а при прокрутке она выходила из-под панели. Высота кадра при этом уже учитывает
+     панель — max-h calc(100svh - 3.5rem), номер под неё не уходит. Мелкий текст на
      кадре (лицензия) читается только на таком масштабе. В ландшафте кадр
      горизонтальный — там прежние отступы */}}
-<section class="relative flex flex-col items-center justify-center text-center px-6 pb-64 max-md:portrait:px-0 max-md:portrait:pt-0 max-md:portrait:pb-28 lg:pt-28 lg:pb-24 overflow-hidden" style="min-height:100vh;min-height:100svh;">
+<section class="relative flex flex-col items-center justify-center text-center px-6 pb-64 max-md:portrait:px-0 max-md:portrait:pt-0 max-md:portrait:pb-0 max-md:portrait:!min-h-0 lg:pt-28 lg:pb-24 overflow-hidden" style="min-height:100vh;min-height:100svh;">
   {{/* Background gradient */}}
   <div class="absolute inset-0 bg-gradient-header"></div>
 
