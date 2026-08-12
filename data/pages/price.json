@@ -110,25 +110,29 @@
         },
         {
           "title": {
-            "ru": "Поиск имущества и активов",
-            "en": "Property and asset search"
+            "ru": "Розыск должников, алиментщиков",
+            "en": "Search for debtors and alimony defaulters"
           },
           "description": {
-            "ru": "Выявление движимого и недвижимого имущества, банковских счетов и других активов",
-            "en": "Detection of movable and immovable property, bank accounts and other assets"
+            "ru": "Профессиональный поиск лиц, уклоняющихся от исполнения обязательств",
+            "en": "Professional search for persons evading obligations"
+          },
+          "note": {
+            "ru": "взысканием долгов не занимаемся",
+            "en": "we do not engage in debt collection"
           },
           "features": {
             "ru": [
-              "Поиск скрытых активов",
-              "Проверка регистрации имущества",
-              "Финансовый анализ",
-              "Экспертная поддержка"
+              "Поиск по всей территории РФ и за рубежом",
+              "Взаимодействие с госорганами",
+              "Анализ финансовых данных",
+              "Документооборот и запросы"
             ],
             "en": [
-              "Hidden assets search",
-              "Property registration check",
-              "Financial analysis",
-              "Expert support"
+              "Search throughout Russia and abroad",
+              "Government agencies cooperation",
+              "Financial data analysis",
+              "Documentation and requests"
             ]
           }
         }
@@ -253,6 +257,30 @@
               "Cooperation risk assessment"
             ]
           }
+        },
+        {
+          "title": {
+            "ru": "Поиск имущества и активов",
+            "en": "Property and asset search"
+          },
+          "description": {
+            "ru": "Выявление движимого и недвижимого имущества, банковских счетов и других активов",
+            "en": "Detection of movable and immovable property, bank accounts and other assets"
+          },
+          "features": {
+            "ru": [
+              "Поиск скрытых активов",
+              "Проверка регистрации имущества",
+              "Финансовый анализ",
+              "Экспертная поддержка"
+            ],
+            "en": [
+              "Hidden assets search",
+              "Property registration check",
+              "Financial analysis",
+              "Expert support"
+            ]
+          }
         }
       ]
     },
@@ -336,34 +364,6 @@
               "Foreign investigations",
               "Cross-border verifications",
               "International cooperation"
-            ]
-          }
-        },
-        {
-          "title": {
-            "ru": "Розыск должников, алиментщиков",
-            "en": "Search for debtors and alimony defaulters"
-          },
-          "description": {
-            "ru": "Профессиональный поиск лиц, уклоняющихся от исполнения обязательств",
-            "en": "Professional search for persons evading obligations"
-          },
-          "note": {
-            "ru": "взысканием долгов не занимаемся",
-            "en": "we do not engage in debt collection"
-          },
-          "features": {
-            "ru": [
-              "Поиск по всей территории РФ и за рубежом",
-              "Взаимодействие с госорганами",
-              "Анализ финансовых данных",
-              "Документооборот и запросы"
-            ],
-            "en": [
-              "Search throughout Russia and abroad",
-              "Government agencies cooperation",
-              "Financial data analysis",
-              "Documentation and requests"
             ]
           }
         }
