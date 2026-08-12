@@ -16,10 +16,12 @@
      (bottom-40 = 80px + иконка 24px), чтобы контент на коротких экранах на неё не наезжал. */}}
 {{/* lg:pt-28 — под фиксированную ленту навигации (h-28 = 56px), lg:pb-24 — место стрелке,
      иначе на ноутбуках (высота 800–900px) баннер упирается в края и стрелку не видно */}}
-{{/* max-md:portrait:pt-40 — на телефоне в портрете стоит вертикальный кадр во всю высоту,
-     и его верх заезжал под круглую кнопку меню (fixed top-6 = 12px, h-28 = 56px → до 68px);
-     80px отступа убирают наложение. В ландшафте кадр горизонтальный — там отступ не нужен */}}
-<section class="relative flex flex-col items-center justify-center text-center px-6 pb-64 max-md:portrait:pt-40 lg:pt-28 lg:pb-24 overflow-hidden" style="min-height:100vh;min-height:100svh;">
+{{/* На телефоне в портрете кадр разворачивается во весь экран: боковые поля и отступы
+     сняты (max-md:portrait:px-0/pt-0), снизу оставлены 56px — ровно высота панели
+     «Позвонить/Написать», чтобы она не накрыла нарисованный номер. Мелкий текст на
+     кадре (лицензия) читается только на таком масштабе. В ландшафте кадр
+     горизонтальный — там прежние отступы */}}
+<section class="relative flex flex-col items-center justify-center text-center px-6 pb-64 max-md:portrait:px-0 max-md:portrait:pt-0 max-md:portrait:pb-28 lg:pt-28 lg:pb-24 overflow-hidden" style="min-height:100vh;min-height:100svh;">
   {{/* Background gradient */}}
   <div class="absolute inset-0 bg-gradient-header"></div>
 
@@ -83,7 +85,7 @@
           width="1280" height="852"
           fetchpriority="high"
           decoding="async"
-          class="w-auto max-w-full h-auto mx-auto shadow-2xl max-h-[calc(100svh_-_9rem)] max-md:portrait:max-h-[calc(100svh_-_13rem)]"
+          class="w-auto max-w-full h-auto mx-auto shadow-2xl max-h-[calc(100svh_-_9rem)] max-md:portrait:max-h-[calc(100svh_-_3.5rem)]"
         >
       </picture>
 
@@ -107,7 +109,10 @@
 
   {{/* Scroll indicator */}}
   {{/* На мобильном снизу панель «Позвонить/Написать» (56px, lg:hidden) — стрелку поднимаем над ней */}}
-  <div class="absolute bottom-40 lg:bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+  {{/* z-20 — контейнер картинки лежит в z-10, без своего слоя стрелка уходит под него.
+       max-md:portrait:hidden — на телефоне кадр занимает экран целиком, и стрелка легла
+       бы прямо на нарисованную лупу; свободного поля под кадром там больше нет */}}
+  <div class="absolute bottom-40 lg:bottom-8 left-1/2 transform -translate-x-1/2 z-20 animate-bounce max-md:portrait:hidden">
     {{ partial "icons/arrow-down.html" "w-16 h-16 text-white/80" }}
   </div>
 </section>
