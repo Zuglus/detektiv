@@ -16,7 +16,10 @@
      (bottom-40 = 80px + иконка 24px), чтобы контент на коротких экранах на неё не наезжал. */}}
 {{/* lg:pt-28 — под фиксированную ленту навигации (h-28 = 56px), lg:pb-24 — место стрелке,
      иначе на ноутбуках (высота 800–900px) баннер упирается в края и стрелку не видно */}}
-<section class="relative flex flex-col items-center justify-center text-center px-6 pb-64 lg:pt-28 lg:pb-24 overflow-hidden" style="min-height:100vh;min-height:100svh;">
+{{/* max-md:portrait:pt-40 — на телефоне в портрете стоит вертикальный кадр во всю высоту,
+     и его верх заезжал под круглую кнопку меню (fixed top-6 = 12px, h-28 = 56px → до 68px);
+     80px отступа убирают наложение. В ландшафте кадр горизонтальный — там отступ не нужен */}}
+<section class="relative flex flex-col items-center justify-center text-center px-6 pb-64 max-md:portrait:pt-40 lg:pt-28 lg:pb-24 overflow-hidden" style="min-height:100vh;min-height:100svh;">
   {{/* Background gradient */}}
   <div class="absolute inset-0 bg-gradient-header"></div>
 
@@ -51,30 +54,53 @@
     {{- $banner1024 := resources.Get "images/hero-banner-1024.webp" | fingerprint -}}
     {{- $banner1280 := resources.Get "images/hero-banner-1280.webp" | fingerprint -}}
     {{- $bannerJpg := resources.Get "images/hero-banner.jpg" | fingerprint -}}
+    {{/* тот же баннер, перекомпонованный по вертикали (877×1793): на телефоне горизонтальный
+         кадр вписывается по ширине и становится полоской в четверть экрана. Условие с
+         orientation: в ландшафте узкого экрана вертикальный кадр наоборот сжался бы по высоте */}}
+    {{- $bannerM640 := resources.Get "images/hero-banner-mobile-640.webp" | fingerprint -}}
+    {{- $bannerM877 := resources.Get "images/hero-banner-mobile-877.webp" | fingerprint -}}
+    {{- $bannerMJpg := resources.Get "images/hero-banner-mobile.jpg" | fingerprint -}}
     <h1 class="relative">
       <picture>
         <source
+          media="(max-width: 767px) and (orientation: portrait)"
+          type="image/webp"
+          srcset="{{ $bannerM640.RelPermalink }} 640w, {{ $bannerM877.RelPermalink }} 877w"
+          sizes="100vw"
+          width="877" height="1793">
+        <source
+          media="(max-width: 767px) and (orientation: portrait)"
+          srcset="{{ $bannerMJpg.RelPermalink }}"
+          width="877" height="1793">
+        <source
           type="image/webp"
           srcset="{{ $banner768.RelPermalink }} 768w, {{ $banner1024.RelPermalink }} 1024w, {{ $banner1280.RelPermalink }} 1280w"
-          sizes="(min-width: 1280px) 1280px, 100vw">
+          sizes="(min-width: 1280px) 1280px, 100vw"
+          width="1280" height="852">
         <img
           src="{{ $bannerJpg.RelPermalink }}"
           alt="{{ $alt }}"
           width="1280" height="852"
           fetchpriority="high"
           decoding="async"
-          class="w-auto max-w-full h-auto mx-auto shadow-2xl"
-          style="max-height:calc(100svh - 9rem);"
+          class="w-auto max-w-full h-auto mx-auto shadow-2xl max-h-[calc(100svh_-_9rem)] max-md:portrait:max-h-[calc(100svh_-_13rem)]"
         >
       </picture>
 
       {{/* Нарисованный на баннере номер сам по себе не нажимается — кладу поверх него
            прозрачную ссылку. Координаты в процентах от картинки: при замене кадра
-           проверить, что область по-прежнему накрывает номер (правый нижний блок рамки).
-           min-height — чтобы на телефоне область не оказалась меньше пальца. */}}
+           проверить, что область по-прежнему накрывает номер. Кадра два, номер на них
+           в разных местах, поэтому и областей две — переключаются тем же условием, что
+           и сами кадры в <picture>. min-height — чтобы область не оказалась меньше пальца. */}}
+      {{/* горизонтальный кадр: номер в правом нижнем блоке рамки */}}
       <a href="{{ $c.phone.href | safeURL }}"
-        class="absolute block rounded-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-300"
+        class="absolute block rounded-lg max-md:portrait:hidden focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-300"
         style="left:71%; top:78.5%; width:26%; height:9.5%; min-height:44px;"
+        aria-label="{{ i18n "callTo" }} {{ $c.phone.display }}"></a>
+      {{/* вертикальный кадр: номер — нижняя строка таблицы реквизитов, во всю её ширину */}}
+      <a href="{{ $c.phone.href | safeURL }}"
+        class="absolute hidden rounded-lg max-md:portrait:block focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-300"
+        style="left:9.5%; top:86%; width:81%; height:6%; min-height:44px;"
         aria-label="{{ i18n "callTo" }} {{ $c.phone.display }}"></a>
     </h1>
   </div>
