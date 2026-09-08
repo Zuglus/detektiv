@@ -95,15 +95,50 @@ body {
    NAVIGATION
    ======================================== */
 
+/* Первый экран тёмный на всех страницах (кадр на главной, зелёный градиент на
+   остальных), и белая полоса ленты резала его поперёк. Над ним лента прозрачная,
+   при прокрутке — плотная. Классы переключает mobile-menu.js; до этого оба
+   состояния красились одинаково (0.97 и 0.98 белого), и работа скрипта не была видна. */
 .nav-transparent,
 .nav-scrolled {
-  background: var(--glass-nav);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
-  transition: all var(--duration-normal) var(--ease-standard);
+  transition: background-color var(--duration-normal) var(--ease-standard),
+              box-shadow var(--duration-normal) var(--ease-standard);
+}
+
+.nav-transparent {
+  background: transparent;
+  box-shadow: none;
 }
 
 .nav-scrolled {
   background: var(--glass-nav-scrolled);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
+}
+
+/* Ссылки на прозрачной ленте читаются по тёмному кадру. Селекторы из двух классов
+   перебивают utility-классы разметки (у тех специфичность ниже). */
+.nav-transparent .nav-link {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.nav-transparent .nav-link:hover {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+.nav-transparent .nav-link-active {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.16);
+}
+
+.nav-transparent .lang-switch {
+  color: rgba(255, 255, 255, 0.85);
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.nav-transparent .lang-switch:hover {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.6);
 }
 
 .nav-link {
