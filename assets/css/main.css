@@ -157,11 +157,15 @@ body {
 /* Номер телефона нарисован на баннере, поверх него лежит прозрачная ссылка —
    по ней ничего не видно, что тут можно нажать. Раз в шесть секунд по области
    проходит блик, как по стеклу: короткий, без пульсации и мигания. */
-@media (prefers-reduced-motion: no-preference) {
-  .phone-hotspot {
-    overflow: hidden;
-  }
+/* Мягкая маска по краям: и блик, и подсветка иначе обрезаются прямоугольником
+   области — на кадре такой геометрии нет, и край читается как наклейка поверх. */
+.phone-hotspot {
+  overflow: hidden;
+  -webkit-mask-image: radial-gradient(ellipse at center, #000 45%, transparent 100%);
+  mask-image: radial-gradient(ellipse at center, #000 45%, transparent 100%);
+}
 
+@media (prefers-reduced-motion: no-preference) {
   .phone-hotspot::after {
     content: '';
     position: absolute;
@@ -179,11 +183,23 @@ body {
   }
 }
 
-/* Ховер только там, где он есть: на таче подсветка залипала бы после тапа */
+/* Ховер только там, где он есть: на таче подсветка залипала бы после тапа.
+   Свечение вместо рамки: прямоугольная граница вводила бы геометрию, которой
+   на кадре нет, и читалась как чужая наклейка. Тёплый accent-300 — тот же цвет,
+   что у этих ссылок на фокусе с клавиатуры, и он же перекликается с золотом кадра. */
 @media (hover: hover) {
   .phone-hotspot:hover {
-    background-color: rgba(255, 255, 255, 0.08);
-    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.4);
+    background: radial-gradient(ellipse at center,
+      rgba(252, 211, 77, 0.18) 0%,
+      rgba(252, 211, 77, 0.1) 45%,
+      rgba(252, 211, 77, 0) 72%);
+  }
+
+  /* Под курсором блик гаснет: подсветка уже сказала, что здесь ссылка,
+     а вместе они спорят — полоса едет поверх ровного свечения */
+  .phone-hotspot:hover::after {
+    animation: none;
+    opacity: 0;
   }
 }
 
