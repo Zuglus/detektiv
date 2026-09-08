@@ -151,6 +151,50 @@ body {
 .nav-link:active { transform: translateY(0) scale(0.98); transition-duration: var(--duration-fast); }
 
 /* ========================================
+   НОМЕР НА КАДРЕ
+   ======================================== */
+
+/* Номер телефона нарисован на баннере, поверх него лежит прозрачная ссылка —
+   по ней ничего не видно, что тут можно нажать. Раз в шесть секунд по области
+   проходит блик, как по стеклу: короткий, без пульсации и мигания. */
+@media (prefers-reduced-motion: no-preference) {
+  .phone-hotspot {
+    overflow: hidden;
+  }
+
+  .phone-hotspot::after {
+    content: '';
+    position: absolute;
+    top: -25%;
+    bottom: -25%;
+    left: -60%;
+    width: 40%;
+    background: linear-gradient(100deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.38) 50%,
+      rgba(255, 255, 255, 0) 100%);
+    transform: skewX(-18deg);
+    pointer-events: none;
+    animation: phoneGlare 6s var(--ease-standard) infinite;
+  }
+}
+
+/* Ховер только там, где он есть: на таче подсветка залипала бы после тапа */
+@media (hover: hover) {
+  .phone-hotspot:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.4);
+  }
+}
+
+@keyframes phoneGlare {
+  0%   { left: -60%; opacity: 0; }
+  6%   { opacity: 1; }
+  20%  { left: 120%; opacity: 0; }
+  100% { left: 120%; opacity: 0; }
+}
+
+/* ========================================
    HAMBURGER
    ======================================== */
 

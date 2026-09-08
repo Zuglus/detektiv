@@ -36,7 +36,8 @@
         "text": {
           "ru": "Сбор и анализ информации о физических лицах, организациях или объектах недвижимости",
           "en": "Collection and analysis of information about individuals, organizations or real estate objects"
-        }
+        },
+        "anchor": "basic"
       },
       {
         "icon": "eye",
@@ -47,7 +48,8 @@
         "text": {
           "ru": "Профессиональное наблюдение за объектами с фото- и видеофиксацией в рамках закона",
           "en": "Professional surveillance of objects with photo and video recording within legal framework"
-        }
+        },
+        "anchor": "surveillance"
       },
       {
         "icon": "user-search",
@@ -58,7 +60,8 @@
         "text": {
           "ru": "Поиск родственников, одноклассников, сослуживцев, соседей и других лиц",
           "en": "Search for relatives, classmates, co-workers, neighbors and other persons"
-        }
+        },
+        "anchor": "basic"
       }
     ]
   },

@@ -103,12 +103,12 @@
            и сами кадры в <picture>. min-height — чтобы область не оказалась меньше пальца. */}}
       {{/* горизонтальный кадр: номер в правом нижнем блоке рамки */}}
       <a href="{{ $c.phone.href | safeURL }}"
-        class="absolute block rounded-lg max-md:portrait:hidden focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-300"
+        class="phone-hotspot absolute block rounded-lg max-md:portrait:hidden focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-300"
         style="left:71%; top:78.5%; width:26%; height:9.5%; min-height:44px;"
         aria-label="{{ i18n "callTo" }} {{ $c.phone.display }}"></a>
       {{/* вертикальный кадр: номер — нижняя строка таблицы реквизитов, во всю её ширину */}}
       <a href="{{ $c.phone.href | safeURL }}"
-        class="absolute hidden rounded-lg max-md:portrait:block focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-300"
+        class="phone-hotspot absolute hidden rounded-lg max-md:portrait:block focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-300"
         style="left:9.5%; top:86%; width:81%; height:6%; min-height:44px;"
         aria-label="{{ i18n "callTo" }} {{ $c.phone.display }}"></a>
     </h1>
@@ -125,7 +125,7 @@
 </section>
 
 {{/* ── 3 KEY SERVICES ── */}}
-<section class="py-20 bg-white" data-reveal>
+<section class="py-20 lg:py-32 bg-white" data-reveal>
   <div class="max-w-6xl mx-auto px-6">
     <div class="text-center mb-12">
       <h2 class="font-display text-heading-lg font-bold text-secondary-900 mb-4">
@@ -138,34 +138,41 @@
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
       {{ range $p.services.items }}
-      <div class="group bg-secondary-50 rounded-2xl p-6 border border-secondary-100 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+      {{/* Карточка нажимается целиком и ведёт в свой раздел прайса: раньше она
+           поднималась при наведении, но ссылки в ней не было — тык в карточку
+           ничего не давал. Якорь раздела берётся из данных (services.items[].anchor) */}}
+      <a href="{{ $pricePath }}#{{ .anchor }}"
+        class="group block bg-secondary-50 rounded-2xl p-6 border border-secondary-100 hover:shadow-md hover:-translate-y-1 hover:border-primary-300 transition-all duration-300
+          focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2">
         {{/* Иконка в строке с заголовком: плашка 48px, иконка 24px */}}
         <div class="flex items-center gap-7 mb-6">
           <div class="flex-shrink-0 w-24 h-24 rounded-xl bg-primary-100 flex items-center justify-center text-primary-600 group-hover:scale-105 transition-transform">
             {{ partial (printf "icons/%s.html" .icon) "w-12 h-12" }}
           </div>
-          <h3 class="font-display text-xl font-bold text-secondary-900">
+          <h3 class="font-display text-xl font-bold text-secondary-900 group-hover:text-primary-700 transition-colors">
             {{ index .title $lang }}
           </h3>
         </div>
         <p class="text-secondary-600 text-sm leading-relaxed">
           {{ index .text $lang }}
         </p>
-      </div>
+      </a>
       {{ end }}
     </div>
 
     <div class="text-center mt-20">
-      <a href="{{ $pricePath }}" class="inline-flex items-center text-primary-600 font-semibold hover:text-primary-700 transition-colors">
+      <a href="{{ $pricePath }}"
+        class="inline-flex items-center gap-2 px-12 py-6 border border-primary-600 text-primary-600 hover:bg-primary-50 rounded-xl font-semibold transition-colors
+          focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2">
         {{ index $p.services.allLink $lang }}
-        {{ partial "icons/chevron-right.html" "w-7 h-7 ml-2" }}
+        {{ partial "icons/chevron-right.html" "w-7 h-7" }}
       </a>
     </div>
   </div>
 </section>
 
 {{/* ── TRUST FACTS ── */}}
-<section class="py-20 bg-gradient-header text-white" data-reveal>
+<section class="py-20 lg:py-32 bg-gradient-header text-white" data-reveal>
   <div class="max-w-6xl mx-auto px-6">
     <div class="text-center mb-12">
       <h2 class="font-display text-heading-lg font-bold mb-4">
@@ -185,7 +192,7 @@
 </section>
 
 {{/* ── LATEST CASES ── */}}
-<section class="py-20 bg-secondary-50" data-reveal>
+<section class="py-20 lg:py-32 bg-secondary-50" data-reveal>
   <div class="max-w-6xl mx-auto px-6">
     <div class="text-center mb-12">
       <h2 class="font-display text-heading-lg font-bold text-secondary-900 mb-4">
@@ -205,10 +212,20 @@
       {{- $readingTime := partial "reading-time.html" . -}}
       <article class="group bg-white rounded-2xl p-6 border border-secondary-100 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
         <a href="{{ .RelPermalink }}" class="block">
-          {{/* Время чтения — как на карточках списка статей */}}
-          <div class="flex items-center text-secondary-400 text-xs mb-3">
-            {{ partial "icons/clock.html" "w-6 h-6 mr-2" }}
-            {{ $readingTime }} {{ index hugo.Data.pages.blog.card.minutes $lang }}
+          {{/* Категория и время чтения в одной строке: карточки идут одинаковыми
+               белыми плитками, и по заголовку не всегда видно, о чём дело */}}
+          {{- $cat := "" -}}
+          {{- with where hugo.Data.categories "slug" .Params.category }}{{ $cat = index . 0 }}{{ end -}}
+          <div class="flex items-center justify-between gap-2 mb-3">
+            {{ with $cat }}
+            <span class="inline-flex items-center px-4 py-1 rounded-full bg-primary-50 text-primary-700 text-xs font-medium">
+              {{ index .name $lang }}
+            </span>
+            {{ end }}
+            <span class="flex items-center text-secondary-400 text-xs whitespace-nowrap">
+              {{ partial "icons/clock.html" "w-6 h-6 mr-1.5" }}
+              {{ $readingTime }} {{ index hugo.Data.pages.blog.card.minutes $lang }}
+            </span>
           </div>
           <h3 class="font-display text-lg font-bold text-secondary-900 mb-3 group-hover:text-primary-700 transition-colors line-clamp-2">
             {{ .Title }}
@@ -222,16 +239,18 @@
     </div>
 
     <div class="text-center mt-20">
-      <a href="{{ $articlesPath }}" class="inline-flex items-center text-primary-600 font-semibold hover:text-primary-700 transition-colors">
+      <a href="{{ $articlesPath }}"
+        class="inline-flex items-center gap-2 px-12 py-6 border border-primary-600 text-primary-600 hover:bg-primary-50 rounded-xl font-semibold transition-colors
+          focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2">
         {{ index $p.cases.allLink $lang }}
-        {{ partial "icons/chevron-right.html" "w-7 h-7 ml-2" }}
+        {{ partial "icons/chevron-right.html" "w-7 h-7" }}
       </a>
     </div>
   </div>
 </section>
 
 {{/* ── FINAL CTA ── */}}
-<section class="py-20 bg-white" data-reveal>
+<section class="py-20 lg:py-32 bg-white" data-reveal>
   <div class="max-w-4xl mx-auto px-6 text-center">
     <h2 class="font-display text-heading-lg font-bold text-secondary-900 mb-4">
       {{ index $p.cta.title $lang }}
