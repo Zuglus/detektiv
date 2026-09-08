@@ -65,7 +65,11 @@
     {{- $bannerM640 := resources.Get "images/hero-banner-mobile-640.webp" | fingerprint -}}
     {{- $bannerM877 := resources.Get "images/hero-banner-mobile-877.webp" | fingerprint -}}
     {{- $bannerMJpg := resources.Get "images/hero-banner-mobile.jpg" | fingerprint -}}
-    <h1 class="relative">
+    {{/* inline-block: координаты ссылок поверх номера считаются в процентах от этого
+         блока, а он должен совпадать с кадром. Блочный h1 занимал всю ширину колонки —
+         кадр вписан по высоте и уже её, поэтому область номера уезжала за края кадра
+         (на телефоне на 89px левее и на 176px шире самой карточки) */}}
+    <h1 class="relative inline-block max-w-full">
       <picture>
         <source
           media="(max-width: 767px) and (orientation: portrait)"
