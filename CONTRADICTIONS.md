@@ -26,20 +26,20 @@
 ## Намеренно оставлено
 
 ### Год 2031 в футере
-- **Место:** `layouts/partials/footer.html` — `© {{ hugo.Data.company.founded }}–2031`
+- **Место:** `layouts/_partials/footer.html` — `© {{ hugo.Data.company.founded }}–2031`
 - **Почему:** требование ТЗ заказчика, не трогать. Зафиксировано в CLAUDE.md → «Год в футере».
 
 ### Title «Прайс» vs h1 «Услуги» на странице /price
-- **Место:** `layouts/_default/price.html` (h1) и meta-title
+- **Место:** `layouts/price.html` (h1) и meta-title
 - **Почему:** «Услуги» — требование закона о рекламе, `/price` в URL уже проиндексирован поисковиками. Зафиксировано в CLAUDE.md → «Страница price».
 
 ### Префикс «г.» перед городом только в RU
-- **Место:** `layouts/_default/contact.html`, `layouts/partials/footer.html` — `{{ $cityPrefix }}{{ index $c.address.city $lang }}` (для RU `"г. "`, для EN пусто)
+- **Место:** `layouts/contact.html`, `layouts/_partials/footer.html` — `{{ $cityPrefix }}{{ index $c.address.city $lang }}` (для RU `"г. "`, для EN пусто)
 - **Почему:** в EN-вариантах адресов префикс «City of» не используется, в RU «г. Москва» — деловой стандарт. Условный префикс по языку — нормальная локализация, не хардкод данных.
 
 ### Inline SVG в hero badges на главной
-- **Место:** `layouts/index.html:55-59` — три SVG бейджей под заголовком (галочка-в-круге, печать, метка-точки)
-- **Почему:** filled-стиль (`fill="currentColor"`), несовместим с outlined `partials/icons/*.html` (lucide-style). Замена на partial поломала бы визуал. Если когда-то добавим filled-варианты иконок в partials — можно унифицировать.
+- **Место:** `layouts/home.html:55-59` — три SVG бейджей под заголовком (галочка-в-круге, печать, метка-точки)
+- **Почему:** filled-стиль (`fill="currentColor"`), несовместим с outlined `_partials/icons/*.html` (lucide-style). Замена на partial поломала бы визуал. Если когда-то добавим filled-варианты иконок в partials — можно унифицировать.
 
 ### Творительный падеж «Грозным Эдуардом Николаевичем» в timeline
 - **Место:** `data/pages/about.json` → `timeline.items.ru[0].description`
@@ -54,5 +54,5 @@
 - **Почему:** это год конкретного события (основание), а не подстановка «работаем с {founded}». Год события — часть исторической записи, литерал уместен. `{founded}` используется только там, где смысл «с года основания по сейчас».
 
 ### Хардкод языковых путей `cond (eq $lang "ru") "/kontakty" "/en/contact"`
-- **Место:** `index.html`, `price.html`, `list.html`, `single.html` (пути контактов и статей)
+- **Место:** `home.html`, `price.html`, `section.html`, `page.html` (пути контактов и статей)
 - **Почему:** URL зафиксированы (`/price` проиндексирован, RU без префикса / EN с `/en/`), меняться не планируют. `relLangURL`/`.GetPage` добавили бы зависимость от структуры контента ради умозрительной гибкости. При реальном переименовании URL — грепнуть `cond (eq $lang` по layouts.

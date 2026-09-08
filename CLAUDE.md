@@ -14,16 +14,17 @@
 
 ```
 detektiv/
-├── layouts/                # HTML шаблоны (Go templates)
-│   ├── _default/
-│   │   ├── baseof.html     # Базовый layout (nav, main, footer, JS)
-│   │   ├── about.html      # Страница "О нас"
-│   │   ├── contact.html    # Контакты
-│   │   ├── guarantee.html  # Гарантии
-│   │   ├── price.html      # Прайс-лист
-│   │   ├── single.html     # Отдельный пост/статья
-│   │   └── list.html       # Список постов/статей
-│   └── partials/
+├── layouts/                # HTML шаблоны (Go templates), раскладка Hugo 0.146+
+│   ├── baseof.html         # Базовый layout (nav, main, footer, JS)
+│   ├── home.html           # Главная (kind home)
+│   ├── section.html        # Список статей (kind section)
+│   ├── page.html           # Отдельная статья (kind page)
+│   ├── 404.html
+│   ├── about.html          # Страница "О нас"     ┐ выбираются через
+│   ├── contact.html        # Контакты             │ layout: во front
+│   ├── guarantee.html      # Гарантии             │ matter страницы
+│   ├── price.html          # Прайс-лист           ┘
+│   └── _partials/
 │       ├── head.html       # meta, fonts, CSS
 │       ├── nav.html        # Навигация
 │       ├── footer.html     # Подвал
@@ -145,7 +146,7 @@ w-8 = 16px, w-16 = 32px.
 ### Стаж агентства
 - Везде динамический через плейсхолдеры `{years}` и `{years_word}` в JSON
 - В layout: `$years := sub now.Year (int hugo.Data.company.founded)` + `$yearsLabel := partial "years-label.html" (dict "n" $years "lang" $lang)`
-- `partials/years-label.html` — склонение RU (год/года/лет по правилам 1/2-4/5-20, с исключением 11-14) и EN (year/years)
+- `_partials/years-label.html` — склонение RU (год/года/лет по правилам 1/2-4/5-20, с исключением 11-14) и EN (year/years)
 - Двойной replace: `replace (replace .text "{years}" (string $years)) "{years_word}" $yearsLabel`
 - Никакой статики — «полтора десятка», «fifteen years» и т.п. устаревают при сборке следующего года
 
@@ -180,6 +181,12 @@ w-8 = 16px, w-16 = 32px.
 ### Архитектурные
 - Контент в Markdown (blog/stati), UI-данные в JSON (data/pages/)
 - Логика шаблонизации — Go templates в layouts/
+- Раскладка шаблонов — новая система Hugo 0.146+: шаблоны видов страниц лежат в корне
+  `layouts/` (`baseof`, `home`, `section`, `page`, `404`), страницы с `layout:` во front
+  matter — там же по имени (`about`, `contact`, `guarantee`, `price`), общие блоки —
+  в `_partials/`. Каталог без подчёркивания в `layouts/` теперь означает путь страницы,
+  поэтому partials кладутся только под `_partials/`; вызовы вида
+  `partial "icons/phone.html"` каталог не называют и при переезде не менялись
 - JS минимален: только mobile-menu, scroll-reveal, метрика
 - CSS purging через `hugo_stats.json` (`[build.buildStats]` в config.toml) + Tailwind
 - Картинки страниц — в `assets/images/`, через `resources.Get | fingerprint`: имена файлов
@@ -209,7 +216,7 @@ w-8 = 16px, w-16 = 32px.
 - Статьи покрыты через `short` в front matter
 
 ### Ссылки мессенджеров
-- Единый partial `partials/messengers.html` рендерит список telegram/whatsapp/signal/imo
+- Единый partial `_partials/messengers.html` рендерит список telegram/whatsapp/signal/imo
 - Параметры (dict): `c` (contacts), `linkClass`, `iconClass`, `spanClass` (необяз.), `iconWrap` (необяз.), `aria` (необяз. префикс)
 - Иконка telegram — `send.html`, остальные совпадают с ключом (маппинг внутри partial)
 - Все ссылки: `| safeURL` + `target="_blank" rel="noopener noreferrer"`

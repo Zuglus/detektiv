@@ -21,9 +21,10 @@ npm run deploy           # Деплой на сервер (только из mai
 ## Структура
 
 ```
-layouts/           Шаблоны (Go templates)
-  _default/        Страницы: about, contact, guarantee, job, price, single, list
-  partials/        Переиспользуемые блоки: head, nav, footer, icons/
+layouts/           Шаблоны (Go templates), раскладка Hugo 0.146+
+  baseof, home, section, page, 404   По видам страниц
+  about, contact, guarantee, price   По layout: во front matter
+  _partials/       Переиспользуемые блоки: head, nav, footer, icons/
 content/
   stati/           Статьи (RU, *.ru.md)
   blog/            Articles (EN, *.en.md)
