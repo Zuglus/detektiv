@@ -18,4 +18,5 @@ disableKinds = ["taxonomy", "term", "rss"]
   weight = 2
 
 [build]
-  writeStats = true
+  [build.buildStats]
+    enable = true

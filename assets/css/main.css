@@ -168,6 +168,26 @@ body {
 .menu-item:nth-child(7) { animation-delay: 350ms; }
 
 /* ========================================
+   SCROLL REVEAL
+   ======================================== */
+
+/* Секции с data-reveal прячутся до появления в поле зрения; класс reveal-js на <html>
+   ставит инлайн в head — до первой отрисовки, иначе секции успевали показаться и мигали,
+   когда их прятал отложенный scroll-reveal.js. Без JS класса нет и контент виден сразу.
+   При reduce скрытия нет вовсе: движение и так отключено. */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal-js [data-reveal] {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .reveal-js [data-reveal].is-revealed {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ========================================
    ACCESSIBILITY
    ======================================== */
 

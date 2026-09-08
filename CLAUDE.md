@@ -48,13 +48,14 @@ detektiv/
 ├── i18n/                   # UI-строки интерфейса (ru.toml, en.toml)
 ├── assets/
 │   ├── css/main.css        # Точка входа: шрифты, CSS vars, Tailwind
+│   ├── images/             # Через pipeline с fingerprint: баннеры hero + founder.png/webp
 │   └── js/                 # JS через pipeline: minify + fingerprint
 │       ├── mobile-menu.js
 │       ├── scroll-reveal.js
 │       └── yandex.js       # Яндекс.Метрика 70102144 (только production)
 ├── static/
 │   ├── fonts/              # WOFF2: IBM Plex Sans, Playfair Display
-│   └── images/             # founder.png (страница) + founder-og.jpg (og:image)
+│   └── images/             # founder-og.jpg (og:image — адрес постоянный, соцсети его кешируют)
 ├── public/                 # Compiled output (git ignored)
 ├── config.toml             # Hugo конфигурация
 ├── tailwind.config.js      # Дизайн-система
@@ -180,7 +181,14 @@ w-8 = 16px, w-16 = 32px.
 - Контент в Markdown (blog/stati), UI-данные в JSON (data/pages/)
 - Логика шаблонизации — Go templates в layouts/
 - JS минимален: только mobile-menu, scroll-reveal, метрика
-- CSS purging через `hugo_stats.json` + Tailwind
+- CSS purging через `hugo_stats.json` (`[build.buildStats]` в config.toml) + Tailwind
+- Картинки страниц — в `assets/images/`, через `resources.Get | fingerprint`: имена файлов
+  постоянные, и без отпечатка браузер после замены кадра отдавал бы старую версию из кеша.
+  В `static/` остаётся только `founder-og.jpg`: адрес og:image должен быть неизменным
+- Скрытие секций `data-reveal` живёт в CSS (`.reveal-js [data-reveal]`), класс на `<html>`
+  ставит инлайн в `head.html` — до первой отрисовки. Иначе секции успевали показаться
+  и мигали, пока их прятал отложенный `scroll-reveal.js`. Без JS класса нет — контент виден;
+  страховка на `load` снимает класс, если скрипт не загрузился
 
 ### Стили
 - Все стили — Tailwind utility-классы в layouts
