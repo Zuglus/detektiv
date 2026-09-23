@@ -16,6 +16,25 @@
     {{- errorf "%s: не задана рубрика (category) — статья выпала бы из списка статей" .File.Path -}}
   {{- end -}}
 {{- end -}}
+{{/* Соседи для «Предыдущая / Следующая» — в том же порядке, что на странице списка:
+     рубрики по data/categories.json, внутри рубрики — порядок раздела (по заголовку).
+     .PrevInSection/.NextInSection идут по разделу без учёта рубрик, и «следующей»
+     у них считается статья выше по списку, а не ниже */}}
+{{- $ordered := slice -}}
+{{- $sectionPages := .CurrentSection.RegularPages -}}
+{{- range hugo.Data.categories -}}
+  {{- range where $sectionPages ".Params.category" .slug -}}
+    {{- $ordered = $ordered | append . -}}
+  {{- end -}}
+{{- end -}}
+{{- $prev := false -}}
+{{- $next := false -}}
+{{- range $i, $pg := $ordered -}}
+  {{- if eq $pg.RelPermalink $.RelPermalink -}}
+    {{- if gt $i 0 -}}{{- $prev = index $ordered (sub $i 1) -}}{{- end -}}
+    {{- if lt (add $i 1) (len $ordered) -}}{{- $next = index $ordered (add $i 1) -}}{{- end -}}
+  {{- end -}}
+{{- end -}}
 
 {{/* ── HEADER ── */}}
 <section class="relative overflow-hidden text-white pt-40 pb-12 bg-gradient-header">
@@ -90,7 +109,7 @@
 </section>
 
 {{/* ── PREV / NEXT NAVIGATION ── */}}
-{{ if or .PrevInSection .NextInSection }}
+{{ if or $prev $next }}
 <section class="pb-12">
   <div class="max-w-3xl mx-auto px-6">
     <div class="bg-secondary-50 border border-secondary-200 rounded-2xl p-6">
@@ -104,7 +123,7 @@
         aria-label="{{ i18n "articleNav" }}"
       >
         {{/* Previous */}}
-        {{ with .PrevInSection }}
+        {{ with $prev }}
         <a href="{{ .RelPermalink }}"
           class="group flex items-center gap-3 p-4 bg-white border border-secondary-200 rounded-xl hover:border-primary-300 hover:shadow-sm transition-all"
           aria-label="{{ i18n "prevArticle" }}"
@@ -120,9 +139,9 @@
         {{ end }}
 
         {{/* Next */}}
-        {{ with .NextInSection }}
+        {{ with $next }}
         <a href="{{ .RelPermalink }}"
-          class="group flex items-center justify-end gap-3 p-4 bg-white border border-secondary-200 rounded-xl hover:border-primary-300 hover:shadow-sm transition-all {{ if not $.PrevInSection }}md:col-start-2{{ end }}"
+          class="group flex items-center justify-end gap-3 p-4 bg-white border border-secondary-200 rounded-xl hover:border-primary-300 hover:shadow-sm transition-all {{ if not $prev }}md:col-start-2{{ end }}"
           aria-label="{{ i18n "nextArticle" }}"
         >
           <div class="min-w-0 text-right">
