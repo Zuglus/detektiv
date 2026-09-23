@@ -30,15 +30,17 @@
 
 {{/* ── CATEGORY ANCHOR NAV ── */}}
 {{/* top-28 на десктопе — глобальная лента (top-0 + h-28 = 56px), якоря встают вплотную под неё */}}
-{{/* pr-28 на мобиле — справа вверху плавает гамбургер (right-6 + w-28 = 68px от края), пилюли не заезжают под него */}}
+{{/* На телефоне пилюли — одна строка с прокруткой вбок: переносом они вставали в 3–4 строки
+     (до 147px липкой панели), и заголовок раздела после перехода по якорю уходил под неё.
+     mr-28 — справа плавает гамбургер (right-6 + w-28 = 68px от края), строка кончается до него */}}
 <nav class="sticky top-0 lg:top-28 z-10 bg-white border-b border-secondary-200 shadow-sm" aria-label="{{ i18n "categoryNav" }}">
   <div class="max-w-7xl mx-auto px-6">
-    <ul class="flex flex-wrap gap-1 py-3 pr-28 lg:pr-0" role="list">
+    <ul class="flex flex-nowrap lg:flex-wrap gap-1 py-3 mr-28 lg:mr-0 overflow-x-auto lg:overflow-visible [scrollbar-width:none] [&::-webkit-scrollbar]:hidden" role="list">
       {{ range $cats }}
       {{- $label := index .name $lang -}}
       {{- $pages := where $allPages ".Params.category" .slug -}}
       {{ if $pages }}
-      <li>
+      <li class="shrink-0">
         <a href="#{{ .slug }}"
           class="inline-block px-4 py-1.5 rounded-full text-sm font-medium
             text-secondary-700 hover:bg-primary-50 hover:text-primary-700
