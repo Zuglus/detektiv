@@ -77,6 +77,13 @@
     if (e.key === 'Escape' && isOpen) close();
   });
 
+  // Панель, оверлей и кнопка есть только ниже lg (1024px). Если повернуть
+  // планшет с открытым меню, они прячутся, а запрет прокрутки на body
+  // остался бы — страница не листается, закрыть нечем. Закрываем меню
+  window.matchMedia('(min-width: 1024px)').addEventListener('change', function (e) {
+    if (e.matches && isOpen) close();
+  });
+
   // Focus trap inside panel
   menu.addEventListener('keydown', function (e) {
     if (!isOpen || e.key !== 'Tab') return;
