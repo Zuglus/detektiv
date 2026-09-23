@@ -1,14 +1,12 @@
 {{ define "main" }}
 {{- $lang := .Lang -}}
 {{- $p := hugo.Data.pages.about -}}
-{{- $years := sub now.Year (int hugo.Data.company.founded) -}}
-{{- $yearsLabel := i18n "yearsWord" $years -}}
 
 {{/* ── HERO: compact version (48px padding) ── */}}
 <section class="relative overflow-hidden text-white pt-40 pb-12 bg-gradient-header">
   <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
     <h1 class="font-display text-display-sm md:text-display-md font-bold mb-3">{{ index $p.hero.title $lang }}</h1>
-    <p class="text-white/80 text-base md:text-lg">{{ replace (index $p.hero.subtitle $lang) "{founded}" hugo.Data.company.founded }}</p>
+    <p class="text-white/80 text-base md:text-lg">{{ partial "fill.html" (dict "s" (index $p.hero.subtitle $lang) "lang" $lang) }}</p>
   </div>
 </section>
 
@@ -45,7 +43,7 @@
             {{ range index $p.founder.credentials $lang }}
             <li class="flex items-center gap-2">
               {{ partial "icons/check-circle.html" "w-10 h-10 text-primary-600 flex-shrink-0" }}
-              <span>{{ replace (replace . "{years}" (string $years)) "{years_word}" $yearsLabel }}</span>
+              <span>{{ partial "fill.html" (dict "s" . "lang" $lang) }}</span>
             </li>
             {{ end }}
           </ul>
@@ -58,14 +56,7 @@
 {{/* ── TRUST FACTS: counters instead of principles ── */}}
 <section class="py-16 bg-gradient-header text-white" data-reveal>
   <div class="max-w-6xl mx-auto px-6">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-      {{ range hugo.Data.trust.items }}
-      <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
-        <div class="text-display-sm font-bold mb-2">{{ if reflect.IsMap .value }}{{ index .value $lang }}{{ else }}{{ replace (string .value) "{years}" (string $years) }}{{ end }}</div>
-        <div class="text-primary-100">{{ replace (index .label $lang) "{years_word}" $yearsLabel }}</div>
-      </div>
-      {{ end }}
-    </div>
+    {{ partial "trust-facts.html" (dict "lang" $lang "gridClass" "grid grid-cols-1 md:grid-cols-3 gap-8 text-center" "itemClass" "bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20") }}
   </div>
 </section>
 
@@ -78,9 +69,9 @@
       <div class="relative flex items-start gap-6">
         <div class="absolute -left-8 w-6 h-6 rounded-full bg-primary-600 border-4 border-white shadow flex-shrink-0 mt-1"></div>
         <div class="flex-1 bg-white rounded-2xl p-6 border border-secondary-100">
-          <p class="text-primary-600 font-mono font-bold text-sm mb-1">{{ replace (replace .year "{years}" (string $years)) "{now}" (string now.Year) }}</p>
-          <h3 class="font-semibold text-secondary-900 mb-2">{{ replace (replace .title "{years}" (string $years)) "{years_word}" $yearsLabel }}</h3>
-          <p class="text-secondary-600 text-body-sm">{{ replace (replace .description "{years}" (string $years)) "{years_word}" $yearsLabel }}</p>
+          <p class="text-primary-600 font-mono font-bold text-sm mb-1">{{ partial "fill.html" (dict "s" .year "lang" $lang) }}</p>
+          <h3 class="font-semibold text-secondary-900 mb-2">{{ partial "fill.html" (dict "s" .title "lang" $lang) }}</h3>
+          <p class="text-secondary-600 text-body-sm">{{ partial "fill.html" (dict "s" .description "lang" $lang) }}</p>
         </div>
       </div>
       {{ end }}

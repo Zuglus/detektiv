@@ -1,0 +1,23 @@
+{{- /*
+  Подставляет в строку общие плейсхолдеры сайта и возвращает её. Параметры (dict):
+    s    — строка из JSON
+    lang — "ru" | "en"
+  Плейсхолдеры:
+    {years}, {years_word} — стаж от company.founded до года сборки, слово из i18n yearsWord
+    {founded}, {now}      — год основания и год сборки
+    {name}, {founderShort}, {licenseNumber} — из company.json
+    {city}                — из contacts.json
+  Плейсхолдеры одной страницы (например, {motto} на главной) подставляет сам шаблон.
+*/ -}}
+{{- $co := hugo.Data.company -}}
+{{- $years := sub now.Year (int $co.founded) -}}
+{{- $s := string .s -}}
+{{- $s = replace $s "{years}" (string $years) -}}
+{{- $s = replace $s "{years_word}" (i18n "yearsWord" $years) -}}
+{{- $s = replace $s "{founded}" (string $co.founded) -}}
+{{- $s = replace $s "{now}" (string now.Year) -}}
+{{- $s = replace $s "{name}" (index $co.name .lang) -}}
+{{- $s = replace $s "{founderShort}" (index $co.founderShort .lang) -}}
+{{- $s = replace $s "{licenseNumber}" $co.licenseNumber -}}
+{{- $s = replace $s "{city}" (index hugo.Data.contacts.address.city .lang) -}}
+{{- return $s -}}

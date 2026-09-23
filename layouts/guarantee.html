@@ -10,7 +10,7 @@
 <section class="relative overflow-hidden text-white pt-40 pb-12 bg-gradient-header">
   <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
     <h1 class="font-display text-display-sm md:text-display-md font-bold mb-3">{{ index $p.header $lang }}</h1>
-    <p class="text-white/80 text-base md:text-lg">{{ replace (index $p.subtitle $lang) "{founded}" $co.founded }}</p>
+    <p class="text-white/80 text-base md:text-lg">{{ partial "fill.html" (dict "s" (index $p.subtitle $lang) "lang" $lang) }}</p>
   </div>
 </section>
 
@@ -29,8 +29,8 @@
       <div class="text-center bg-primary-50 rounded-2xl p-6 border border-primary-100">
         {{ partial "icons/experience.html" (dict "class" "w-20 h-20 text-primary-600 mx-auto mb-3" "years" $years "label" $yearsLabel) }}
         <h3 class="font-bold text-secondary-900 mb-1">{{ (index $p.trustBadges.experience $lang).title }}</h3>
-        <p class="text-primary-600 font-semibold">{{ replace (index $p.trustBadges.experience $lang).years "{founded}" $co.founded }}</p>
-        <p class="text-secondary-500 text-xs mt-1">{{ replace (replace (index $p.trustBadges.experience $lang).description "{years}" (string $years)) "{years_word}" $yearsLabel }}</p>
+        <p class="text-primary-600 font-semibold">{{ partial "fill.html" (dict "s" (index $p.trustBadges.experience $lang).years "lang" $lang) }}</p>
+        <p class="text-secondary-500 text-xs mt-1">{{ partial "fill.html" (dict "s" (index $p.trustBadges.experience $lang).description "lang" $lang) }}</p>
       </div>
       {{/* Reputation */}}
       <div class="text-center bg-primary-50 rounded-2xl p-6 border border-primary-100">

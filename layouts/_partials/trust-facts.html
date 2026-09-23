@@ -1,0 +1,15 @@
+{{- /*
+  Факты доверия из data/trust.json — на главной и на «О нас». Параметры (dict):
+    lang      — "ru" | "en"
+    gridClass — классы сетки
+    itemClass — классы плитки
+  value — строка с плейсхолдерами (см. fill.html) или пара ru/en; label — пара ru/en.
+*/ -}}
+<div class="{{ .gridClass }}">
+  {{ range hugo.Data.trust.items }}
+  <div class="{{ $.itemClass }}">
+    <div class="text-display-sm font-bold mb-2">{{ if reflect.IsMap .value }}{{ index .value $.lang }}{{ else }}{{ partial "fill.html" (dict "s" .value "lang" $.lang) }}{{ end }}</div>
+    <div class="text-primary-100">{{ partial "fill.html" (dict "s" (index .label $.lang) "lang" $.lang) }}</div>
+  </div>
+  {{ end }}
+</div>

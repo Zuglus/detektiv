@@ -147,10 +147,10 @@ w-8 = 16px, w-16 = 32px.
 - Мосты (`blog/_index.ru.md`, `stati/_index.en.md`) удалены — создавали дубли URL
 
 ### Стаж агентства
-- Везде динамический через плейсхолдеры `{years}` и `{years_word}` в JSON
-- В layout: `$years := sub now.Year (int hugo.Data.company.founded)` + `$yearsLabel := i18n "yearsWord" $years`
+- Везде динамический через плейсхолдеры `{years}` и `{years_word}` в JSON; стаж = `sub now.Year (int hugo.Data.company.founded)`
+- Подстановку делает один partial: `partial "fill.html" (dict "s" строка "lang" $lang)` возвращает строку с заменёнными `{years}`, `{years_word}`, `{founded}`, `{now}`, `{name}`, `{founderShort}`, `{licenseNumber}`, `{city}`. Плейсхолдеры одной страницы (`{motto}` на главной) шаблон подставляет сам
 - Склонения — таблицы i18n с формами `one/few/many/other` (правила CLDR: год/года/лет с исключением 11–14; EN year/years): `yearsWord` для стажа, `articlesWord` для числа статей. Hugo выбирает форму сам по числу: `i18n "yearsWord" $years`
-- Двойной replace: `replace (replace .text "{years}" (string $years)) "{years_word}" $yearsLabel`
+- Факты доверия (`data/trust.json`) выводит `_partials/trust-facts.html` — на главной и на «О нас»
 - Никакой статики — «полтора десятка», «fifteen years» и т.п. устаревают при сборке следующего года
 
 ### Тексты: чего не писать (решение заказчика 2026-08-10)
