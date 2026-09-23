@@ -30,7 +30,7 @@ detektiv/
 │       ├── footer.html     # Подвал
 │       ├── mobile-sticky.html
 │       ├── messengers.html # Ссылки на мессенджеры (единый список)
-│       └── icons/          # 28 SVG иконок (experience.html принимает dict: class/years/label)
+│       └── icons/          # 27 SVG иконок (experience.html принимает dict: class/years/label)
 ├── content/                # Markdown контент
 │   ├── blog/               # 27 статей (*.en.md — только EN)
 │   ├── stati/              # 27 статей (*.ru.md — только RU)
