@@ -84,13 +84,16 @@
     if (e.matches && isOpen) close();
   });
 
-  // Focus trap inside panel
-  menu.addEventListener('keydown', function (e) {
+  // Tab ходит по кругу: кнопка меню (при открытом меню это крестик) → пункты →
+  // снова крестик. Раньше круг был только по пунктам, и с клавиатуры до крестика
+  // было не добраться — закрыть меню можно было лишь неочевидным Escape.
+  // Кнопка стоит вне панели намеренно: панель сдвигается transform, и fixed-кнопка
+  // внутри неё встала бы относительно панели, а не экрана
+  document.addEventListener('keydown', function (e) {
     if (!isOpen || e.key !== 'Tab') return;
-    var focusable = getFocusable();
-    if (!focusable.length) return;
-    var first = focusable[0];
-    var last = focusable[focusable.length - 1];
+    var cycle = [btn].concat(getFocusable());
+    var first = cycle[0];
+    var last = cycle[cycle.length - 1];
     if (e.shiftKey) {
       if (document.activeElement === first) { e.preventDefault(); last.focus(); }
     } else {
