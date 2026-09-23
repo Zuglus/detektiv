@@ -1,6 +1,11 @@
 {{- $lang := .Lang -}}
 {{- $currentPage := . -}}
 {{- $currentPath := $currentPage.RelPermalink -}}
+{{- /* Куда ведёт переключатель языка: перевод этой страницы, а без него — главная
+       другого языка. Подписи — код языка (EN/RU) и название из config.toml (label) */ -}}
+{{- $switchTo := "" -}}
+{{- range hugo.Sites }}{{ if ne .Language.Name $lang }}{{ $switchTo = .Home }}{{ end }}{{ end -}}
+{{- with .Translations }}{{ $switchTo = index . 0 }}{{ end -}}
 
 <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary-600 focus:text-white focus:rounded-lg">
   {{ i18n "skipToContent" }}
@@ -40,21 +45,9 @@
           {{ end }}
         </div>
 
-        {{/* Language switcher — uses translationKey to find the exact translated page */}}
+        {{/* Переключатель языка — адрес считается в начале файла ($switchTo) */}}
         <div class="flex items-center">
-          {{ if eq $lang "ru" }}
-            {{ with (index .Page.Translations 0) }}
-              <a href="{{ .RelPermalink }}" class="lang-switch px-3 py-1.5 text-xs font-medium rounded-lg border border-secondary-200 text-secondary-600 hover:border-primary-300 hover:text-primary-600 transition-colors">EN</a>
-            {{ else }}
-              <a href="/en/" class="lang-switch px-3 py-1.5 text-xs font-medium rounded-lg border border-secondary-200 text-secondary-600 hover:border-primary-300 hover:text-primary-600 transition-colors">EN</a>
-            {{ end }}
-          {{ else }}
-            {{ with (index .Page.Translations 0) }}
-              <a href="{{ .RelPermalink }}" class="lang-switch px-3 py-1.5 text-xs font-medium rounded-lg border border-secondary-200 text-secondary-600 hover:border-primary-300 hover:text-primary-600 transition-colors">RU</a>
-            {{ else }}
-              <a href="/" class="lang-switch px-3 py-1.5 text-xs font-medium rounded-lg border border-secondary-200 text-secondary-600 hover:border-primary-300 hover:text-primary-600 transition-colors">RU</a>
-            {{ end }}
-          {{ end }}
+          <a href="{{ $switchTo.RelPermalink }}" class="lang-switch px-3 py-1.5 text-xs font-medium rounded-lg border border-secondary-200 text-secondary-600 hover:border-primary-300 hover:text-primary-600 transition-colors">{{ upper $switchTo.Lang }}</a>
         </div>
       </div>
     </div>
@@ -126,19 +119,7 @@
         {{ end }}
 
         <div class="pt-6 border-t border-secondary-700/50 flex justify-center">
-          {{ if eq $lang "ru" }}
-            {{ with (index .Page.Translations 0) }}
-              <a href="{{ .RelPermalink }}" class="px-4 py-3 text-sm font-medium text-white/70 hover:text-white transition-colors uppercase tracking-wider">English</a>
-            {{ else }}
-              <a href="/en/" class="px-4 py-3 text-sm font-medium text-white/70 hover:text-white transition-colors uppercase tracking-wider">English</a>
-            {{ end }}
-          {{ else }}
-            {{ with (index .Page.Translations 0) }}
-              <a href="{{ .RelPermalink }}" class="px-4 py-3 text-sm font-medium text-white/70 hover:text-white transition-colors uppercase tracking-wider">Русский</a>
-            {{ else }}
-              <a href="/" class="px-4 py-3 text-sm font-medium text-white/70 hover:text-white transition-colors uppercase tracking-wider">Русский</a>
-            {{ end }}
-          {{ end }}
+          <a href="{{ $switchTo.RelPermalink }}" class="px-4 py-3 text-sm font-medium text-white/70 hover:text-white transition-colors uppercase tracking-wider">{{ $switchTo.Language.Label }}</a>
         </div>
       </nav>
     </div>
