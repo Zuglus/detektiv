@@ -8,6 +8,14 @@ fi
 
 source .deployconfig
 
+# Пустой SFTP_PATH опаснее всего: lftp остался бы в папке входа и зеркалил туда
+for var in SFTP_HOST SFTP_PORT SFTP_USER SFTP_PASS SFTP_PATH; do
+  if [ -z "${!var}" ]; then
+    echo "❌ В .deployconfig не задан $var"
+    exit 1
+  fi
+done
+
 # Защита от случайного деплоя из экспериментальных веток
 CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
 if [ "$CURRENT_BRANCH" != "main" ]; then
@@ -61,13 +69,17 @@ fi
 # так пароль не виден в `ps`/истории процессов.
 # StrictHostKeyChecking=accept-new — ключ сервера запоминается при первом
 # подключении, дальше подмена сервера (MITM) будет замечена.
+# cmd:fail-exit — выйти на первой же ошибке. По умолчанию lftp идёт дальше:
+# после неудачного cd mirror --delete выполнился бы в папке входа и стёр там
+# всё чужое, а lftp вернул бы 0 и скрипт сообщил бы об успехе.
 lftp -p "$SFTP_PORT" sftp://"$SFTP_HOST" << LFTP_EOF
+set cmd:fail-exit yes
 set sftp:auto-confirm yes
 set sftp:connect-program "ssh -a -x -o StrictHostKeyChecking=accept-new"
 set net:timeout 30
 set net:max-retries 2
 user "$SFTP_USER" "$SFTP_PASS"
-cd $SFTP_PATH
+cd "$SFTP_PATH"
 mirror -R --delete public/ .
 quit
 LFTP_EOF
