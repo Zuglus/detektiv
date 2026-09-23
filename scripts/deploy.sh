@@ -16,6 +16,13 @@ if [ "$CURRENT_BRANCH" != "main" ]; then
   exit 1
 fi
 
+# hugo server и сборка делят кеш resources/_gen: при параллельной работе
+# в index.html попадает отпечаток CSS, а сам файл не записывается
+if pgrep -f 'hugo serve' > /dev/null; then
+  echo "⛔ Запущен hugo server — останови его перед деплоем"
+  exit 1
+fi
+
 # Чистая сборка: удаляем старые fingerprint-файлы, чтобы не накапливать мусор
 echo "🧹 Очистка public/ и пересборка..."
 rm -rf public
@@ -23,9 +30,18 @@ if ! command -v hugo &> /dev/null; then
   echo "❌ hugo не установлен"
   exit 1
 fi
-hugo --quiet --minify
-if [ ! -d "public" ]; then
-  echo "❌ Сборка не удалась: папка 'public' не создана"
+# Упавшая сборка всё равно оставляет public/ с частью страниц, поэтому судим
+# по коду выхода: иначе mirror --delete зальёт полсайта и сотрёт остальное
+if ! hugo --quiet --minify; then
+  echo "❌ Сборка упала — деплой остановлен"
+  exit 1
+fi
+# Без стилей сборка выходит молча (гонка выше) — проверяем, что CSS,
+# на который ссылается главная, лежит в public/
+CSS=$(grep -o '/css/main[^" >]*\.css' public/index.html 2>/dev/null | head -1)
+if [ -z "$CSS" ] || [ ! -f "public$CSS" ]; then
+  echo "❌ В public/ нет CSS, на который ссылается index.html — деплой остановлен"
+  echo "   Собери заново: rm -rf public resources/_gen"
   exit 1
 fi
 
