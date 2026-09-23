@@ -4,7 +4,7 @@
 {{- $c := hugo.Data.contacts -}}
 {{- $co := hugo.Data.company -}}
 {{- $years := sub now.Year (int $co.founded) -}}
-{{- $yearsLabel := partial "years-label.html" (dict "n" $years "lang" $lang) -}}
+{{- $yearsLabel := i18n "yearsWord" $years -}}
 
 {{/* ── HEADER: compact version (48px padding) ── */}}
 <section class="relative overflow-hidden text-white pt-40 pb-12 bg-gradient-header">

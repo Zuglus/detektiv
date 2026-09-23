@@ -2,7 +2,7 @@
 {{- $lang := .Lang -}}
 {{- $p := hugo.Data.pages.about -}}
 {{- $years := sub now.Year (int hugo.Data.company.founded) -}}
-{{- $yearsLabel := partial "years-label.html" (dict "n" $years "lang" $lang) -}}
+{{- $yearsLabel := i18n "yearsWord" $years -}}
 
 {{/* ── HERO: compact version (48px padding) ── */}}
 <section class="relative overflow-hidden text-white pt-40 pb-12 bg-gradient-header">

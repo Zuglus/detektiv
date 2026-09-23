@@ -71,3 +71,15 @@ other = "Перейти к предыдущей статье"
 
 [nextArticle]
 other = "Перейти к следующей статье"
+
+[yearsWord]
+one = "год"
+few = "года"
+many = "лет"
+other = "лет"
+
+[articlesWord]
+one = "статья"
+few = "статьи"
+many = "статей"
+other = "статей"

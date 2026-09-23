@@ -3,17 +3,6 @@
     "subtitle": {
       "ru": "Практические дела",
       "en": "Practical cases"
-    },
-    "articleCount": {
-      "ru": {
-        "one": "статья",
-        "few": "статьи",
-        "many": "статей"
-      },
-      "en": {
-        "one": "article",
-        "many": "articles"
-      }
     }
   },
   "card": {

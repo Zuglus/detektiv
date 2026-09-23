@@ -3,7 +3,6 @@
 {{- $allPages := .Pages -}}
 {{- $contactPath := cond (eq $lang "ru") "/kontakty/" "/en/contact/" -}}
 {{- $b := hugo.Data.pages.blog -}}
-{{- $articleForms := index $b.header.articleCount $lang -}}
 
 {{/* ── Category definitions (slug + bilingual labels) come from data/categories.json ── */}}
 {{- $cats := hugo.Data.categories -}}
@@ -19,7 +18,7 @@
     <div class="flex items-center justify-center gap-6 mt-6 text-sm">
       <div class="flex items-center text-white/60">
         {{ partial "icons/document.html" "w-7 h-7 mr-1.5" }}
-        {{ len .Pages }} {{ partial "word-form.html" (dict "n" (len .Pages) "one" $articleForms.one "few" $articleForms.few "many" $articleForms.many "lang" $lang) }}
+        {{ len .Pages }} {{ i18n "articlesWord" (len .Pages) }}
       </div>
       <div class="flex items-center text-white/60">
         {{ partial "icons/eye.html" "w-7 h-7 mr-1.5" }}
@@ -70,7 +69,7 @@
         <h2 class="font-display text-2xl font-bold text-secondary-900">{{ $label }}</h2>
         <span class="text-sm text-secondary-400 font-medium">
           {{ len $pages }}
-          {{ partial "word-form.html" (dict "n" (len $pages) "one" $articleForms.one "few" $articleForms.few "many" $articleForms.many "lang" $lang) }}
+          {{ i18n "articlesWord" (len $pages) }}
         </span>
         <div class="flex-1 h-px bg-secondary-200"></div>
       </div>

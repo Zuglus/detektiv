@@ -71,3 +71,11 @@ other = "Go to previous article"
 
 [nextArticle]
 other = "Go to next article"
+
+[yearsWord]
+one = "year"
+other = "years"
+
+[articlesWord]
+one = "article"
+other = "articles"

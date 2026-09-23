@@ -4,7 +4,7 @@
 {{- $co := hugo.Data.company -}}
 {{- $p := hugo.Data.pages.home -}}
 {{- $years := sub now.Year (int $co.founded) -}}
-{{- $yearsLabel := partial "years-label.html" (dict "n" $years "lang" $lang) -}}
+{{- $yearsLabel := i18n "yearsWord" $years -}}
 {{- $articlesPath := cond (eq $lang "ru") "/stati/" "/en/blog/" -}}
 {{- $contactPath := cond (eq $lang "ru") "/kontakty/" "/en/contact/" -}}
 {{- $pricePath := cond (eq $lang "ru") "/price/" "/en/price/" -}}

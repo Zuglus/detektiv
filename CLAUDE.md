@@ -148,8 +148,8 @@ w-8 = 16px, w-16 = 32px.
 
 ### Стаж агентства
 - Везде динамический через плейсхолдеры `{years}` и `{years_word}` в JSON
-- В layout: `$years := sub now.Year (int hugo.Data.company.founded)` + `$yearsLabel := partial "years-label.html" (dict "n" $years "lang" $lang)`
-- `_partials/years-label.html` — склонение RU (год/года/лет по правилам 1/2-4/5-20, с исключением 11-14) и EN (year/years)
+- В layout: `$years := sub now.Year (int hugo.Data.company.founded)` + `$yearsLabel := i18n "yearsWord" $years`
+- Склонения — таблицы i18n с формами `one/few/many/other` (правила CLDR: год/года/лет с исключением 11–14; EN year/years): `yearsWord` для стажа, `articlesWord` для числа статей. Hugo выбирает форму сам по числу: `i18n "yearsWord" $years`
 - Двойной replace: `replace (replace .text "{years}" (string $years)) "{years_word}" $yearsLabel`
 - Никакой статики — «полтора десятка», «fifteen years» и т.п. устаревают при сборке следующего года
 
