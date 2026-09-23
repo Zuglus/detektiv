@@ -286,8 +286,11 @@ body {
    ACCESSIBILITY
    ======================================== */
 
+/* Без border-radius: правило стоит после utilities с той же специфичностью
+   и перебило бы скругление самого элемента — при фокусе rounded-xl и
+   rounded-full превращались в rounded-sm. Рамка и так идёт по его углам. */
 *:focus-visible {
-  @apply outline outline-primary-600 outline-offset-2 rounded-sm;
+  @apply outline outline-primary-600 outline-offset-2;
   outline-width: 4px;
   box-shadow: 0 0 0 2px theme('colors.white'), 0 0 0 6px theme('colors.primary.600');
 }
