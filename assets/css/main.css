@@ -105,38 +105,43 @@ body {
               box-shadow var(--duration-normal) var(--ease-standard);
 }
 
-.nav-transparent {
-  background: transparent;
-  box-shadow: none;
-}
-
+/* По умолчанию лента плотная: без JS её состояние некому переключать, и
+   прозрачная лента с белыми ссылками висела бы над светлым контентом.
+   Прозрачность включает класс nav-js на <html> — его ставит инлайн в
+   head.html и снимает на load, если mobile-menu.js не дошёл. */
+.nav-transparent,
 .nav-scrolled {
   background: var(--glass-nav-scrolled);
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
 }
 
-/* Ссылки на прозрачной ленте читаются по тёмному кадру. Селекторы из двух классов
+.nav-js .nav-transparent {
+  background: transparent;
+  box-shadow: none;
+}
+
+/* Ссылки на прозрачной ленте читаются по тёмному кадру. Селекторы из трёх классов
    перебивают utility-классы разметки (у тех специфичность ниже). */
-.nav-transparent .nav-link {
+.nav-js .nav-transparent .nav-link {
   color: rgba(255, 255, 255, 0.9);
 }
 
-.nav-transparent .nav-link:hover {
+.nav-js .nav-transparent .nav-link:hover {
   color: #fff;
   background-color: rgba(255, 255, 255, 0.12);
 }
 
-.nav-transparent .nav-link-active {
+.nav-js .nav-transparent .nav-link-active {
   color: #fff;
   background-color: rgba(255, 255, 255, 0.16);
 }
 
-.nav-transparent .lang-switch {
+.nav-js .nav-transparent .lang-switch {
   color: rgba(255, 255, 255, 0.85);
   border-color: rgba(255, 255, 255, 0.35);
 }
 
-.nav-transparent .lang-switch:hover {
+.nav-js .nav-transparent .lang-switch:hover {
   color: #fff;
   border-color: rgba(255, 255, 255, 0.6);
 }
