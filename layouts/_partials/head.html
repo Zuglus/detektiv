@@ -7,13 +7,26 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
+{{- /* Заголовок и описание — одни на <title>, meta description, Open Graph и JSON-LD
+       статьи. Описание: .Description → .Params.short → название агентства */ -}}
+{{- $siteName := index hugo.Data.company.name .Lang -}}
+{{- $title := $siteName -}}
+{{- $desc := .Description | default .Params.short | default $siteName -}}
 {{- if eq .Kind "404" -}}
-<title>{{ i18n "pageNotFound" }} — {{ index hugo.Data.company.name .Lang }}</title>
-<meta name="description" content="{{ i18n "pageNotFoundText" }}">
+  {{- $title = printf "%s — %s" (i18n "pageNotFound") $siteName -}}
+  {{- $desc = i18n "pageNotFoundText" -}}
+{{- else if .IsHome -}}
+  {{- $title = .Title -}}
+{{- else if .Title -}}
+  {{- $title = printf "%s — %s" .Title $siteName -}}
+{{- end -}}
+{{- if eq .Kind "404" -}}
+<title>{{ $title }}</title>
+<meta name="description" content="{{ $desc }}">
 <meta name="robots" content="noindex">
 {{- else -}}
-<title>{{ if .IsHome }}{{ .Title }}{{ else if .Title }}{{ .Title }} — {{ index hugo.Data.company.name .Lang }}{{ else }}{{ index hugo.Data.company.name .Lang }}{{ end }}</title>
-<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Params.short }}{{ . }}{{ else }}{{ index hugo.Data.company.name .Lang }}{{ end }}{{ end }}">
+<title>{{ $title }}</title>
+<meta name="description" content="{{ $desc }}">
 
 {{/* Canonical URL */}}
 <link rel="canonical" href="{{ .Permalink }}">
@@ -35,12 +48,12 @@
 
 {{/* Open Graph */}}
 {{- if eq .Kind "404" -}}
-<meta property="og:title" content="{{ i18n "pageNotFound" }} — {{ index hugo.Data.company.name .Lang }}">
-<meta property="og:description" content="{{ i18n "pageNotFoundText" }}">
+<meta property="og:title" content="{{ $title }}">
+<meta property="og:description" content="{{ $desc }}">
 <meta property="og:type" content="website">
 {{- else -}}
-<meta property="og:title" content="{{ if .IsHome }}{{ .Title }}{{ else if .Title }}{{ .Title }} — {{ index hugo.Data.company.name .Lang }}{{ else }}{{ index hugo.Data.company.name .Lang }}{{ end }}">
-<meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Params.short }}{{ . }}{{ else }}{{ index hugo.Data.company.name .Lang }}{{ end }}{{ end }}">
+<meta property="og:title" content="{{ $title }}">
+<meta property="og:description" content="{{ $desc }}">
 <meta property="og:type" content="{{ if and .IsPage (or (eq .Section "stati") (eq .Section "blog")) }}article{{ else }}website{{ end }}">
 <meta property="og:url" content="{{ .Permalink }}">
 {{- end }}
@@ -59,22 +72,19 @@
 {{/* Schema.org Article for blog posts */}}
 {{ if or (eq .Section "stati") (eq .Section "blog") }}
 {{ if .IsPage }}
-{{- $co := hugo.Data.company -}}
-{{- $description := .Description | default .Params.short | default (index $co.name .Lang) -}}
-{{- $orgName := index $co.name .Lang -}}
 {{- $articleData := dict
   "@context" "https://schema.org"
   "@type" "Article"
   "headline" .Title
-  "description" $description
+  "description" $desc
   "image" (absURL "/images/founder-og.jpg")
   "author" (dict
     "@type" "Organization"
-    "name" $orgName
+    "name" $siteName
     "url" .Site.BaseURL)
   "publisher" (dict
     "@type" "Organization"
-    "name" $orgName
+    "name" $siteName
     "logo" (dict
       "@type" "ImageObject"
       "url" (absURL "/android-chrome-512x512.png")))
