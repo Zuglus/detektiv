@@ -6,6 +6,16 @@
 {{- $readingTime := partial "reading-time.html" . -}}
 {{- $sectionURL := .CurrentSection.RelPermalink -}}
 {{- $cat := index (where hugo.Data.categories "slug" .Params.category) 0 -}}
+{{/* Список статей выводит их по рубрикам из data/categories.json: статья с рубрикой
+     вне этого списка молча выпала бы из него, а счётчик в шапке её бы считал.
+     Роняем сборку — deploy.sh такую не выложит */}}
+{{- if not $cat -}}
+  {{- with .Params.category -}}
+    {{- errorf "%s: рубрики %q нет в data/categories.json — статья выпала бы из списка статей" $.File.Path . -}}
+  {{- else -}}
+    {{- errorf "%s: не задана рубрика (category) — статья выпала бы из списка статей" .File.Path -}}
+  {{- end -}}
+{{- end -}}
 
 {{/* ── HEADER ── */}}
 <section class="relative overflow-hidden text-white pt-40 pb-12 bg-gradient-header">
