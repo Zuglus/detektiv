@@ -54,4 +54,11 @@ ErrorDocument 404 /404.html
   <FilesMatch "\.(html)$">
     Header set Cache-Control "no-cache"
   </FilesMatch>
+
+  # HSTS на полгода: браузер, хоть раз открывший сайт, дальше ходит только по
+  # https — даже по старой ссылке с http:// или адресу, набранному без протокола.
+  # Цена: если сломается сертификат, такие посетители не откроют сайт, пока его
+  # не починят (сейчас Let's Encrypt, хостинг продлевает сам). Без поддоменов.
+  # always — заголовок уходит и с ответами 404 и редиректами
+  Header always set Strict-Transport-Security "max-age=15768000"
 </IfModule>
