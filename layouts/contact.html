@@ -3,13 +3,7 @@
 {{- $p := hugo.Data.pages.contact -}}
 {{- $c := hugo.Data.contacts -}}
 
-{{/* ── HEADER: compact version (48px padding) ── */}}
-<section class="relative overflow-hidden text-white pt-40 pb-12 bg-gradient-header">
-  <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
-    <h1 class="font-display text-display-sm md:text-display-md font-bold mb-3">{{ index $p.header $lang }}</h1>
-    <p class="text-white/80 text-base md:text-lg">{{ index $p.subtitle $lang }}</p>
-  </div>
-</section>
+{{ partial "page-header.html" (dict "title" (index $p.header $lang) "subtitle" (index $p.subtitle $lang) "lang" $lang) }}
 
 {{/* ── MEETING NOTE: условие относится ко всей странице, не к карточке адреса ── */}}
 {{/* сумму выделяю разбивкой по тире — приём как в index.html с именем основателя */}}

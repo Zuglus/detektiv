@@ -2,13 +2,7 @@
 {{- $lang := .Lang -}}
 {{- $p := hugo.Data.pages.about -}}
 
-{{/* ── HERO: compact version (48px padding) ── */}}
-<section class="relative overflow-hidden text-white pt-40 pb-12 bg-gradient-header">
-  <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
-    <h1 class="font-display text-display-sm md:text-display-md font-bold mb-3">{{ index $p.hero.title $lang }}</h1>
-    <p class="text-white/80 text-base md:text-lg">{{ partial "fill.html" (dict "s" (index $p.hero.subtitle $lang) "lang" $lang) }}</p>
-  </div>
-</section>
+{{ partial "page-header.html" (dict "title" (index $p.hero.title $lang) "subtitle" (index $p.hero.subtitle $lang) "lang" $lang) }}
 
 {{/* ── FOUNDER SECTION with photo ── */}}
 <section class="py-16 bg-white" data-reveal>

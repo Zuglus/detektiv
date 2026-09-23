@@ -1,0 +1,13 @@
+{{- /*
+  Компактная шапка страницы: зелёный градиент, заголовок и подзаголовок по центру.
+  Параметры (dict): title, subtitle — строки; lang — "ru" | "en" (подзаголовок идёт
+  через fill.html, плейсхолдеры вроде {founded} в нём работают).
+  Общая для «О нас», контактов и гарантий; у прайса и списка статей свои шапки
+  (сетка пунктов, счётчики).
+*/ -}}
+<section class="relative overflow-hidden text-white pt-40 pb-12 bg-gradient-header">
+  <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
+    <h1 class="font-display text-display-sm md:text-display-md font-bold mb-3">{{ .title }}</h1>
+    <p class="text-white/80 text-base md:text-lg">{{ partial "fill.html" (dict "s" .subtitle "lang" .lang) }}</p>
+  </div>
+</section>
