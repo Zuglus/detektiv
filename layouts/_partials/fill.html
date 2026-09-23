@@ -5,7 +5,7 @@
   Плейсхолдеры:
     {years}, {years_word} — стаж от company.founded до года сборки, слово из i18n yearsWord
     {founded}, {now}      — год основания и год сборки
-    {name}, {founderShort}, {licenseNumber} — из company.json
+    {name}, {founderShort}, {licenseIssuer}, {licenseNumber} — из company.json
     {city}                — из contacts.json
   Плейсхолдеры одной страницы (например, {motto} на главной) подставляет сам шаблон.
 */ -}}
@@ -18,6 +18,7 @@
 {{- $s = replace $s "{now}" (string now.Year) -}}
 {{- $s = replace $s "{name}" (index $co.name .lang) -}}
 {{- $s = replace $s "{founderShort}" (index $co.founderShort .lang) -}}
+{{- $s = replace $s "{licenseIssuer}" (index $co.licenseIssuer .lang) -}}
 {{- $s = replace $s "{licenseNumber}" $co.licenseNumber -}}
 {{- $s = replace $s "{city}" (index hugo.Data.contacts.address.city .lang) -}}
 {{- return $s -}}

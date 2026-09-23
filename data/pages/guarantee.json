@@ -10,7 +10,7 @@
   "trustBadges": {
     "license": {
       "ru": {
-        "description": "Официальная лицензия ЦЛРР ГУ Росгвардии РФ"
+        "description": "Официальная лицензия {licenseIssuer}"
       },
       "en": {
         "description": "Official license from the Licensing Center of the Russian National Guard (Rosgvardia)"

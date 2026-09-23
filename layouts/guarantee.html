@@ -23,7 +23,7 @@
         {{ partial "icons/file-badge.html" "w-20 h-20 text-primary-600 mx-auto mb-3" }}
         <h3 class="font-bold text-secondary-900 mb-1">{{ index hugo.Data.company.licenseShort $lang }}</h3>
         <p class="text-primary-600 font-mono text-sm font-semibold">{{ $co.licenseNumber }}</p>
-        <p class="text-secondary-500 text-xs mt-1">{{ (index $p.trustBadges.license $lang).description }}</p>
+        <p class="text-secondary-500 text-xs mt-1">{{ partial "fill.html" (dict "s" (index $p.trustBadges.license $lang).description "lang" $lang) }}</p>
       </div>
       {{/* Experience */}}
       <div class="text-center bg-primary-50 rounded-2xl p-6 border border-primary-100">

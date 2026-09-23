@@ -119,7 +119,7 @@
   "hasCredential": {
     "@type": "EducationalOccupationalCredential",
     "credentialCategory": "license",
-    "name": "{{ index $co.license .Lang }}"
+    "name": "{{ partial "fill.html" (dict "s" (index $co.license .Lang) "lang" .Lang) }}"
   }
 }
 </script>

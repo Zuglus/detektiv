@@ -239,9 +239,10 @@ w-8 = 16px, w-16 = 32px.
 
 ### Лицензия
 - Выдана ЦЛРР ГУ Росгвардии РФ (не МВД — лицензирование ЧДД у Росгвардии с 2016). Реестр: № 50ЧД2021000323, ЕРУЛ Л055-00106-50/00012228, выдана 14.04.2021, действует до 14.04.2031
-- Полная форма с номером — `company.json.license` (для footer, Schema.org, refund policy)
+- Орган — `company.json.licenseIssuer`, номер — `company.json.licenseNumber`: в русских текстах это единственные места, где они записаны, остальное подставляет `fill.html` (`{licenseIssuer}`, `{licenseNumber}`). Английские формулировки в `about.json` и `guarantee.json` называют орган по-своему и держат его текстом
+- Полная форма с номером — `company.json.license`, шаблон «лицензия {licenseIssuer} {licenseNumber}» (footer, Schema.org)
 - Короткая — `company.json.licenseShort` ("Лицензия Росгвардии" / "Rosgvardia License"), используется в бейджах/заголовках
-- Только номер — `company.json.licenseNumber` (для подстановки в hero subtitle и где номер нужен отдельно)
+- Только номер — `company.json.licenseNumber` (alt баннера на главной, бейдж на гарантиях)
 - Срок — `company.json.licenseValid` («действует до 2031 года» / "valid until 2031"), в футере под строкой лицензии с иконкой check-circle
 
 ---
