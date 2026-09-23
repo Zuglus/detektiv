@@ -1,7 +1,7 @@
 {{ define "main" }}
 {{- $lang := .Lang -}}
 {{- $p := hugo.Data.pages.price -}}
-{{- $contactPath := cond (eq $lang "ru") "/kontakty" "/en/contact" -}}
+{{- $contactPath := cond (eq $lang "ru") "/kontakty/" "/en/contact/" -}}
 
 {{/* ── HEADER: compact version (48px padding) ── */}}
 <section class="relative overflow-hidden text-white pt-40 pb-12 bg-gradient-header">

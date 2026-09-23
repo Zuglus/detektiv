@@ -5,9 +5,9 @@
 {{- $p := hugo.Data.pages.home -}}
 {{- $years := sub now.Year (int $co.founded) -}}
 {{- $yearsLabel := partial "years-label.html" (dict "n" $years "lang" $lang) -}}
-{{- $articlesPath := cond (eq $lang "ru") "/stati" "/en/blog" -}}
-{{- $contactPath := cond (eq $lang "ru") "/kontakty" "/en/contact" -}}
-{{- $pricePath := cond (eq $lang "ru") "/price" "/en/price" -}}
+{{- $articlesPath := cond (eq $lang "ru") "/stati/" "/en/blog/" -}}
+{{- $contactPath := cond (eq $lang "ru") "/kontakty/" "/en/contact/" -}}
+{{- $pricePath := cond (eq $lang "ru") "/price/" "/en/price/" -}}
 
 {{/* ── HERO: 100vh with trust badges ── */}}
 {{/* min-height: 100svh — видимая высота С панелями браузера (адресная строка и т.п.);

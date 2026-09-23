@@ -170,8 +170,8 @@ w-8 = 16px, w-16 = 32px.
 
 ## Страницы сайта
 
-**Русский:** `/`, `/price`, `/onas`, `/garantii`, `/stati/`, `/stati/[slug]/`, `/kontakty`
-**Английский:** `/en/`, `/en/price`, `/en/about`, `/en/guarantee`, `/en/blog/`, `/en/blog/[slug]/`, `/en/contact`
+**Русский:** `/`, `/price/`, `/onas/`, `/garantii/`, `/stati/`, `/stati/[slug]/`, `/kontakty/`
+**Английский:** `/en/`, `/en/price/`, `/en/about/`, `/en/guarantee/`, `/en/blog/`, `/en/blog/[slug]/`, `/en/contact/`
 **Всего:** ~66 URL (27 статей RU + 27 EN + 12 основных)
 
 > Страница вакансий удалена 2026-08-10 (шаблон, контент, данные, ссылки в футере).

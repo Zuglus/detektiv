@@ -1,7 +1,7 @@
 {{ define "main" }}
 {{- $lang := .Lang -}}
 {{- $allPages := .Pages -}}
-{{- $contactPath := cond (eq $lang "ru") "/kontakty" "/en/contact" -}}
+{{- $contactPath := cond (eq $lang "ru") "/kontakty/" "/en/contact/" -}}
 {{- $b := hugo.Data.pages.blog -}}
 {{- $articleForms := index $b.header.articleCount $lang -}}
 
