@@ -68,7 +68,9 @@
           <ul class="space-y-1.5">
             {{ range index $svc.features $lang }}
             <li class="flex items-center gap-2 text-secondary-600 text-xs">
-              <span class="flex-shrink-0 w-4 h-4 rounded-full bg-primary-100 flex items-center justify-center text-primary-600">
+              {{/* кружок 16px (w-8 по здешней шкале) с галочкой 10px (w-2.5 — дробный ключ,
+                   он дефолтный): при w-4 кружок был 8px и галочка вылезала за него */}}
+              <span class="flex-shrink-0 w-8 h-8 rounded-full bg-primary-100 flex items-center justify-center text-primary-600">
                 {{ partial "icons/check.html" "w-2.5 h-2.5" }}
               </span>
               {{ . }}
