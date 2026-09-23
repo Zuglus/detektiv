@@ -30,12 +30,18 @@ content/
   blog/            Articles (EN, *.en.md)
   *.ru.md / *.en.md  Основные страницы
 data/
-  company.json     Реквизиты
-  contacts.json    Телефоны, мессенджеры
+  company.json     Реквизиты, лицензия
+  contacts.json    Телефоны, мессенджеры, адрес
   nav.json         Навигация
-  pages/           Данные страниц (home, price, about, contact, guarantee, job)
-assets/css/        Tailwind + CSS variables
-static/            Шрифты, изображения, JS (mobile-menu, scroll-reveal, метрика)
+  trust.json       Факты доверия (главная и «О нас»)
+  categories.json  Рубрики статей
+  pages/           Данные страниц (home, price, about, contact, guarantee, blog)
+i18n/              Строки интерфейса (ru.toml, en.toml)
+assets/
+  css/             Tailwind + CSS variables
+  js/              mobile-menu, scroll-reveal, метрика (с отпечатком и SRI)
+  images/          Баннеры главной, фото основателя (с отпечатком)
+static/            Шрифты, иконки сайта, founder-og.jpg, .htaccess, robots.txt
 ```
 
 ## Мультиязычность
@@ -43,4 +49,4 @@ static/            Шрифты, изображения, JS (mobile-menu, scroll
 - RU — основной язык, пути без приставки (`/price`, `/stati/`)
 - EN — пути с `/en/` (`/en/price`, `/en/blog/`)
 - Данные в JSON: `{ "ru": "...", "en": "..." }`
-- Шаблоны: `{{ if eq $lang "ru" }}...{{ else }}...{{ end }}`
+- Строки интерфейса — в `i18n/`, в шаблонах `{{ i18n "key" }}`; ветвления по языку в шаблонах — только для путей, переключателя языка и склонений
