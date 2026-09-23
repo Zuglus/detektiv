@@ -209,10 +209,14 @@ w-8 = 16px, w-16 = 32px.
   страховка на `load` снимает класс, если скрипт не загрузился
 
 ### Стили
-- Все стили — Tailwind utility-классы в layouts
+- Вёрстка компонентов (карточки, кнопки, секции, сетки) — Tailwind utility-классы прямо в layouts; классов-компонентов вида `.card` / `.btn` нет
+- Свои классы в `assets/css/main.css` — только там, где utility-классов не хватает:
+  - состояния, которые переключает JS: `.nav-transparent` / `.nav-scrolled` (прозрачность — при `.nav-js` на `<html>`), `.hamburger-hidden`, `#mobile-menu.is-open .menu-item`, `.reveal-js [data-reveal]` / `.is-revealed`
+  - эффекты на псевдоэлементах, keyframes и `@media (hover: hover)`: маска и блик `.phone-hotspot`, `.nav-link`, `.hamburger-btn` / `.hamburger-line`
+  - база: шрифты, `body`, `*:focus-visible`, reduced motion, `.sr-only`
+- Эти классы перебивают utility-классы специфичностью (селекторы из 2–3 классов): например, цвет ссылок ленты в `nav.html` не действует, пока лента прозрачная, — его правят в main.css
 - CSS Custom Properties для переменных (var(--ease-standard) и т.д.)
 - Анимации через keyframes в main.css
-- Нет CSS классов-компонентов (все inline Tailwind)
 
 ### Не использовать
 - React, TypeScript, Jest — проект мигрирован с Next.js, они не нужны
