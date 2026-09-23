@@ -211,8 +211,8 @@ w-8 = 16px, w-16 = 32px.
 - ESLint — нет JS/TS компонентов для проверки
 - `npm run build` — не существует, использовать `hugo`
 ### Schema.org
-- Единый блок JSON-LD `@type: LocalBusiness` в `head.html` (только homepage)
-- Все данные из `contacts.json` и `company.json`, язык через `{{ .Lang }}`
+- JSON-LD `@type: LocalBusiness` в `head.html` — только на главной; данные из `contacts.json` и `company.json`, язык через `{{ .Lang }}`
+- JSON-LD `@type: Article` в `head.html` — на каждой статье (`stati`/`blog`, только `.IsPage`): заголовок и описание страницы, организация из `company.json`, картинка `founder-og.jpg`. `datePublished` нет — у статей нет дат (см. CONTRADICTIONS.md)
 
 ### SEO meta description
 - Каскад: `.Description` → `.Params.short` → company name
@@ -223,7 +223,7 @@ w-8 = 16px, w-16 = 32px.
 - Параметры (dict): `c` (contacts), `linkClass`, `iconClass`, `spanClass` (необяз.), `iconWrap` (необяз.), `aria` (необяз. префикс)
 - Иконка telegram — `send.html`, остальные совпадают с ключом (маппинг внутри partial)
 - Все ссылки: `| safeURL` + `target="_blank" rel="noopener noreferrer"`
-- Используют partial: index, contact, guarantee, footer. Email/phone остаются в каждом layout своими (partial только мессенджеры)
+- Используют partial: home, contact, guarantee, footer. Email/phone остаются в каждом layout своими (partial только мессенджеры)
 
 ### Страница price: title "Прайс" vs h1 "Услуги"
 - Это НЕ баг. "Услуги" — требование закона, `/price` в URL — уже проиндексирован, не менять
@@ -233,9 +233,9 @@ w-8 = 16px, w-16 = 32px.
 - Каноническая форма EN: "Eduard Nikolaevich Grozny" (западный порядок, из `company.json`)
 
 ### Имя основателя RU — склонения
-- `company.json.founder.ru` = "Грозного Эдуарда Николаевича" (родительный, для footer: "агентство Грозного…")
-- В `about.html` именительный "Грозный Эдуард Николаевич" (заголовок) и творительный "Грозным Эдуардом Николаевичем" (в тексте) — хардкод осознанный, русский язык не выражается одним полем
-- При замене имени править в `company.json` + `about.html` (2 падежа)
+- `company.json.founder.ru` = "Грозного Эдуарда Николаевича" (родительный, для footer: "агентство Грозного…"); `founderShort` = «Грозного Э.Н.» (alt баннера на главной)
+- В `data/pages/about.json` именительный "Грозный Эдуард Николаевич" (`founder.name`, заголовок) и творительный "Грозным Эдуардом Николаевичем" (`timeline`, в тексте) — русский язык не выражается одним полем. `about.html` имени не содержит, берёт из JSON
+- При замене имени править: `company.json` (`founder`, `founderShort`), `about.json` (`founder.name`, `founder.imageAlt`, `timeline` RU и EN), front matter (`title` в `content/_index.*.md`, `description` в `onas.ru.md` и `about.en.md`), `static/site.webmanifest`
 
 ### Лицензия
 - Выдана ЦЛРР ГУ Росгвардии РФ (не МВД — лицензирование ЧДД у Росгвардии с 2016). Реестр: № 50ЧД2021000323, ЕРУЛ Л055-00106-50/00012228, выдана 14.04.2021, действует до 14.04.2031
