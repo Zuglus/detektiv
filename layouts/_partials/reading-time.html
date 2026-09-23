@@ -1,6 +1,8 @@
 {{- /* Время чтения страницы в минутах: 200 слов/мин, округление к ближайшему
-       (+100 перед делением), минимум 1. Контекст — Page. */ -}}
-{{- $wordCount := len (split (plainify .Content) " ") -}}
+       (+100 перед делением), минимум 1. Контекст — Page.
+       Слова — .WordCount: разбивка plainify по пробелу склеивала слова
+       на стыке абзацев (там перевод строки) и недосчитывала до 20 слов. */ -}}
+{{- $wordCount := .WordCount -}}
 {{- $readingTime := div (add $wordCount 100) 200 -}}
 {{- if lt $readingTime 1 -}}{{- $readingTime = 1 -}}{{- end -}}
 {{- return $readingTime -}}
