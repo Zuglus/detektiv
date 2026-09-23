@@ -2,10 +2,12 @@
 {{- $currentPage := . -}}
 {{- $currentPath := $currentPage.RelPermalink -}}
 {{- /* Куда ведёт переключатель языка: перевод этой страницы, а без него — главная
-       другого языка. Подписи — код языка (EN/RU) и название из config.toml (label) */ -}}
+       другого языка. У 404 перевод — чужая 404, туда вести незачем: сервер показывает
+       её на любом битом адресе, а /en/404.html сам по себе отвечает 200.
+       Подписи — код языка (EN/RU) и название из config.toml (label) */ -}}
 {{- $switchTo := "" -}}
 {{- range hugo.Sites }}{{ if ne .Language.Name $lang }}{{ $switchTo = .Home }}{{ end }}{{ end -}}
-{{- with .Translations }}{{ $switchTo = index . 0 }}{{ end -}}
+{{- if ne .Kind "404" }}{{ with .Translations }}{{ $switchTo = index . 0 }}{{ end }}{{ end -}}
 
 <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary-600 focus:text-white focus:rounded-lg">
   {{ i18n "skipToContent" }}
