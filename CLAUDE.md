@@ -199,7 +199,7 @@ w-8 = 16px, w-16 = 32px.
   поэтому partials кладутся только под `_partials/`; вызовы вида
   `partial "icons/phone.html"` каталог не называют и при переезде не менялись
 - JS минимален: только mobile-menu, scroll-reveal, метрика
-- CSS purging через `hugo_stats.json` (`[build.buildStats]` в config.toml) + Tailwind
+- CSS purging через `hugo_stats.json` (`[build.buildStats]` в config.toml) + Tailwind. Там же `build.cachebusters` и монтирование `hugo_stats.json` в `assets/watching/`: без них `hugo server` не пересобирает CSS, когда в шаблоне появляется новый класс, и страница в превью разваливается (класса нет в CSS) до перезапуска сервера. Вариант из документации с `disableWatch = true` для PostCSS не срабатывает — проверено
 - Картинки страниц — в `assets/images/`, через `resources.Get | fingerprint`: имена файлов
   постоянные, и без отпечатка браузер после замены кадра отдавал бы старую версию из кеша.
   В `static/` остаётся только `founder-og.jpg`: адрес og:image должен быть неизменным

@@ -20,3 +20,22 @@ disableKinds = ["taxonomy", "term", "rss"]
 [build]
   [build.buildStats]
     enable = true
+  # Без этого hugo server не пересобирает CSS, когда в шаблоне появляется новый
+  # класс: Tailwind запускается только при смене main.css, и новые классы в CSS
+  # не попадают до перезапуска сервера. Настройка — по документации Hugo для Tailwind
+  [[build.cachebusters]]
+    source = 'assets/watching/hugo_stats\.json'
+    target = 'css'
+  [[build.cachebusters]]
+    source = '(postcss|tailwind)\.config\.js'
+    target = 'css'
+
+# hugo_stats.json подключён к assets, чтобы его изменение сбрасывало кеш CSS.
+# Своё монтирование assets отменяет стандартное — поэтому оно здесь явно
+[module]
+  [[module.mounts]]
+    source = 'assets'
+    target = 'assets'
+  [[module.mounts]]
+    source = 'hugo_stats.json'
+    target = 'assets/watching/hugo_stats.json'
