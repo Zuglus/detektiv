@@ -165,6 +165,13 @@ body {
   mask-image: radial-gradient(ellipse at center, #000 45%, transparent 100%);
 }
 
+/* Маска гасит всё за краем области, в том числе рамку фокуса — с клавиатуры
+   ссылку было не найти. На фокусе маску снимаю: рамка важнее мягкого края. */
+.phone-hotspot:focus-visible {
+  -webkit-mask-image: none;
+  mask-image: none;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .phone-hotspot::after {
     content: '';
