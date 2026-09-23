@@ -8,8 +8,8 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 {{- if eq .Kind "404" -}}
-<title>{{ if eq .Lang "ru" }}Страница не найдена{{ else }}Page not found{{ end }} — {{ index hugo.Data.company.name .Lang }}</title>
-<meta name="description" content="{{ if eq .Lang "ru" }}Запрашиваемая страница не существует или была перемещена.{{ else }}The requested page does not exist or has been moved.{{ end }}">
+<title>{{ i18n "pageNotFound" }} — {{ index hugo.Data.company.name .Lang }}</title>
+<meta name="description" content="{{ i18n "pageNotFoundText" }}">
 <meta name="robots" content="noindex">
 {{- else -}}
 <title>{{ if .IsHome }}{{ .Title }}{{ else if .Title }}{{ .Title }} — {{ index hugo.Data.company.name .Lang }}{{ else }}{{ index hugo.Data.company.name .Lang }}{{ end }}</title>
@@ -35,8 +35,8 @@
 
 {{/* Open Graph */}}
 {{- if eq .Kind "404" -}}
-<meta property="og:title" content="{{ if eq .Lang "ru" }}Страница не найдена{{ else }}Page not found{{ end }} — {{ index hugo.Data.company.name .Lang }}">
-<meta property="og:description" content="{{ if eq .Lang "ru" }}Запрашиваемая страница не существует или была перемещена.{{ else }}The requested page does not exist or has been moved.{{ end }}">
+<meta property="og:title" content="{{ i18n "pageNotFound" }} — {{ index hugo.Data.company.name .Lang }}">
+<meta property="og:description" content="{{ i18n "pageNotFoundText" }}">
 <meta property="og:type" content="website">
 {{- else -}}
 <meta property="og:title" content="{{ if .IsHome }}{{ .Title }}{{ else if .Title }}{{ .Title }} — {{ index hugo.Data.company.name .Lang }}{{ else }}{{ index hugo.Data.company.name .Lang }}{{ end }}">
