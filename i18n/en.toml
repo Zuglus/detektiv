@@ -56,3 +56,18 @@ other = "Top"
 
 [serviceCategoriesNav]
 other = "Service categories"
+
+[backToTop]
+other = "Back to top"
+
+[categoryNav]
+other = "Category navigation"
+
+[articleNav]
+other = "Article navigation"
+
+[prevArticle]
+other = "Go to previous article"
+
+[nextArticle]
+other = "Go to next article"

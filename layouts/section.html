@@ -32,7 +32,7 @@
 {{/* ── CATEGORY ANCHOR NAV ── */}}
 {{/* top-28 на десктопе — глобальная лента (top-0 + h-28 = 56px), якоря встают вплотную под неё */}}
 {{/* pr-28 на мобиле — справа вверху плавает гамбургер (right-6 + w-28 = 68px от края), пилюли не заезжают под него */}}
-<nav class="sticky top-0 lg:top-28 z-10 bg-white border-b border-secondary-200 shadow-sm" aria-label="{{ index $b.categoryNavAria $lang }}">
+<nav class="sticky top-0 lg:top-28 z-10 bg-white border-b border-secondary-200 shadow-sm" aria-label="{{ i18n "categoryNav" }}">
   <div class="max-w-7xl mx-auto px-6">
     <ul class="flex flex-wrap gap-1 py-3 pr-28 lg:pr-0" role="list">
       {{ range $cats }}
@@ -122,7 +122,7 @@
       <div class="mt-6 text-right">
         <button onclick="window.scrollTo({top:0})" class="inline-flex items-center gap-1.5 text-sm text-secondary-400 hover:text-primary-600 transition-colors cursor-pointer">
           {{ partial "icons/chevron-up.html" "w-7 h-7" }}
-          {{ index $b.back $lang }}
+          {{ i18n "backToTop" }}
         </button>
       </div>
 

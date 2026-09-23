@@ -56,3 +56,18 @@ other = "Наверх"
 
 [serviceCategoriesNav]
 other = "Категории услуг"
+
+[backToTop]
+other = "Наверх"
+
+[categoryNav]
+other = "Навигация по рубрикам"
+
+[articleNav]
+other = "Навигация между статьями"
+
+[prevArticle]
+other = "Перейти к предыдущей статье"
+
+[nextArticle]
+other = "Перейти к следующей статье"

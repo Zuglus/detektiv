@@ -26,14 +26,6 @@
       "en": "min"
     }
   },
-  "back": {
-    "ru": "Наверх",
-    "en": "Back to top"
-  },
-  "categoryNavAria": {
-    "ru": "Навигация по рубрикам",
-    "en": "Category navigation"
-  },
   "empty": {
     "title": {
       "ru": "Статьи не найдены",
@@ -73,18 +65,6 @@
       "next": {
         "ru": "Следующая",
         "en": "Next"
-      },
-      "navAria": {
-        "ru": "Навигация между статьями",
-        "en": "Article navigation"
-      },
-      "prevAria": {
-        "ru": "Перейти к предыдущей статье",
-        "en": "Go to previous article"
-      },
-      "nextAria": {
-        "ru": "Перейти к следующей статье",
-        "en": "Go to next article"
       }
     },
     "cta": {
