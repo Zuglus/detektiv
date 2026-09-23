@@ -30,6 +30,9 @@ detektiv/
 │       ├── footer.html     # Подвал
 │       ├── mobile-sticky.html
 │       ├── messengers.html # Ссылки на мессенджеры (единый список)
+│       ├── fill.html       # Подстановка плейсхолдеров {years}, {founded}… (возвращает строку)
+│       ├── trust-facts.html # Факты доверия (главная и «О нас»)
+│       ├── reading-time.html # Время чтения статьи (возвращает число)
 │       └── icons/          # 27 SVG иконок (experience.html принимает dict: class/years/label)
 ├── content/                # Markdown контент
 │   ├── blog/               # 27 статей (*.en.md — только EN)
@@ -40,21 +43,25 @@ detektiv/
 │   ├── contacts.json       # Телефоны, мессенджеры, соцсети
 │   ├── nav.json            # Навигационные ссылки
 │   ├── trust.json          # Trust-факты (общие для главной и about)
+│   ├── categories.json     # Рубрики статей (статья вне списка роняет сборку)
 │   └── pages/              # Данные каждой страницы
 │       ├── home.json
 │       ├── price.json      # 4 категории услуг (цен нет, см. «Тексты: чего не писать»)
 │       ├── about.json
 │       ├── contact.json
-│       └── guarantee.json
-├── i18n/                   # UI-строки интерфейса (ru.toml, en.toml)
+│       ├── guarantee.json
+│       └── blog.json       # Тексты списка статей и страницы статьи
+├── i18n/                   # UI-строки интерфейса и склонения (ru.toml, en.toml)
 ├── assets/
 │   ├── css/main.css        # Точка входа: шрифты, CSS vars, Tailwind
 │   ├── images/             # Через pipeline с fingerprint: баннеры hero + founder.png/webp
 │   └── js/                 # JS через pipeline: minify + fingerprint
 │       ├── mobile-menu.js
 │       ├── scroll-reveal.js
-│       └── yandex.js       # Яндекс.Метрика 70102144 (только production)
+│       └── yandex.js       # Яндекс.Метрика 70102144 (production-сборка, только на боевом домене)
 ├── static/
+│   ├── .htaccess           # Кеш (файлам с отпечатком — год), русская 404
+│   ├── en/.htaccess        # Английская 404 для /en/…
 │   ├── fonts/              # WOFF2: IBM Plex Sans, Playfair Display
 │   └── images/             # founder-og.jpg (og:image — адрес постоянный, соцсети его кешируют)
 ├── public/                 # Compiled output (git ignored)
