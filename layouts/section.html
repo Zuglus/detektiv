@@ -37,7 +37,8 @@
      телефоне наведения нет, и без формы рубрики читались одной строкой текста. Видимая
      пилюля 32px; на телефоне прозрачная рамка 6px сверху и снизу (заливка под неё не заходит,
      bg-clip-padding) добирает нажатие до 44px, а -my-3 прячет рамку в поля панели — высота
-     панели не растёт. Зазор 8px (gap-4): с заливкой при 2px пилюли слипались.
+     панели не растёт. Зазор 4px (gap-2): при 2px пилюли с заливкой слипались, при 8px край
+     ряда чаще падал в зазор между ними.
      Фокус — внутренним кольцом: наружное срезала бы прокрутка.
      На телефоне последние 32px ряда гаснут (mask-image) — видно, что ряд продолжается, даже
      когда край пришёлся между пилюлями; у последней пилюли поле 32px (max-lg:last:pr-16), чтобы
@@ -47,7 +48,7 @@
      она залита primary-700 с белым текстом */}}
 <nav class="sticky top-0 lg:top-28 z-10 bg-white border-b border-secondary-200 shadow-sm" aria-label="{{ i18n "categoryNav" }}">
   <div class="max-w-7xl mx-auto px-6">
-    <ul data-scroll-row class="flex flex-nowrap lg:flex-wrap gap-4 py-3 mr-28 lg:mr-0 overflow-x-auto lg:overflow-visible [scrollbar-width:none] [&::-webkit-scrollbar]:hidden
+    <ul data-scroll-row class="flex flex-nowrap lg:flex-wrap gap-2 py-3 mr-28 lg:mr-0 overflow-x-auto lg:overflow-visible [scrollbar-width:none] [&::-webkit-scrollbar]:hidden
       max-lg:[mask-image:linear-gradient(to_right,#000_calc(100%_-_32px),transparent)] max-lg:scroll-pr-16" role="list">
       {{ range $cats }}
       {{- $label := index .name $lang -}}
