@@ -12,15 +12,15 @@
   <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
     <h1 class="font-display text-display-sm md:text-display-md font-bold text-white mb-4 leading-tight">{{ .Title }}</h1>
     {{ with .Description }}
-    <p class="text-white/70 text-base md:text-lg max-w-3xl mx-auto leading-relaxed">{{ . }}</p>
+    <p class="text-white/80 text-base md:text-lg max-w-3xl mx-auto leading-relaxed">{{ . }}</p>
     {{ end }}
 
     <div class="flex items-center justify-center gap-6 mt-6 text-sm">
-      <div class="flex items-center text-white/60">
+      <div class="flex items-center text-white/80">
         {{ partial "icons/document.html" "w-7 h-7 mr-1.5" }}
         {{ len .Pages }} {{ i18n "articlesWord" (len .Pages) }}
       </div>
-      <div class="flex items-center text-white/60">
+      <div class="flex items-center text-white/80">
         {{ partial "icons/eye.html" "w-7 h-7 mr-1.5" }}
         {{ index $b.header.subtitle $lang }}
       </div>

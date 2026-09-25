@@ -43,7 +43,7 @@
 
     {{/* Breadcrumb back to the article list */}}
     <a href="{{ $sectionURL }}"
-      class="inline-flex items-center gap-1 mb-6 text-sm font-medium text-white/60 hover:text-white transition-colors
+      class="inline-flex items-center gap-1 mb-6 text-sm font-medium text-white/80 hover:text-white transition-colors
         focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 rounded-lg">
       {{ partial "icons/chevron-left.html" "w-7 h-7" }}
       {{ index $s.backToList $lang }}
@@ -61,11 +61,11 @@
 
       {{/* Short: front-matter аннотация как подводка */}}
       {{ with .Params.short }}
-      <p class="text-white/70 text-base md:text-lg leading-relaxed max-w-2xl mx-auto mb-8">{{ . }}</p>
+      <p class="text-white/80 text-base md:text-lg leading-relaxed max-w-2xl mx-auto mb-8">{{ . }}</p>
       {{ end }}
 
       {{/* Meta: reading time + category (links to its section in the list) */}}
-      <div class="flex flex-wrap items-center justify-center gap-2 text-xs font-medium text-white/60">
+      <div class="flex flex-wrap items-center justify-center gap-2 text-xs font-medium text-white/80">
         <div class="flex items-center bg-white/10 backdrop-blur-sm px-3 py-1.5 rounded-lg border border-white/10">
           {{ partial "icons/clock.html" "w-6 h-6 mr-1.5 text-primary-300" }}
           {{ $readingTime }} {{ index $s.minutes $lang }}
