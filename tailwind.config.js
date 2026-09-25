@@ -12,8 +12,9 @@ module.exports = {
     extend: {
       // Ключ, перекрывающий дефолт Tailwind с тем же именем, не удалять, даже если
       // в разметке его нет (spacing 9 и 11, rounded-sm, rounded, backdrop-blur-md,
-      // backdrop-blur, shadow-xl): класс не исчезнет, а молча получит дефолтный
-      // размер другой шкалы — w-9 станет 36px вместо 18px
+      // backdrop-blur): класс не исчезнет, а молча получит дефолтный размер другой
+      // шкалы — w-9 станет 36px вместо 18px. Употребление искать и в main.css
+      // (theme(), @apply): shadow-xl в разметке нет, его берёт кнопка меню
       colors: {
         // Primary - Detective Green (основные действия)
         primary: {
