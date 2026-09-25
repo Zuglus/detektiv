@@ -36,16 +36,16 @@
       {{/* Column 3: Contact */}}
       <div class="space-y-4">
         <h3 class="text-lg font-semibold text-white pb-3 border-b border-secondary-600/60">{{ i18n "contact" }}</h3>
-        <a href="{{ $c.phone.href | safeURL }}" class="block text-2xl font-bold text-primary-400 hover:text-primary-300 transition-colors mb-4">{{ $c.phone.display }}</a>
+        <a href="{{ $c.phone.href | safeURL }}" class="block py-3 text-2xl font-bold text-primary-400 hover:text-primary-300 transition-colors mb-4">{{ $c.phone.display }}</a>
         
         {{/* Messenger icons with labels */}}
         <div class="grid grid-cols-5 gap-2 bg-white/5 rounded-xl p-3">
           {{ partial "messengers.html" (dict
             "c" $c
-            "linkClass" "flex flex-col items-center gap-1 p-2 rounded-lg hover:bg-white/10 transition-colors"
+            "linkClass" "flex flex-col items-center justify-center gap-1 min-h-[44px] p-2 rounded-lg hover:bg-white/10 transition-colors"
             "iconClass" "w-6 h-6 text-primary-400"
             "spanClass" "text-xs text-secondary-300") }}
-          <a href="{{ $c.email.href | safeURL }}" class="flex flex-col items-center gap-1 p-2 rounded-lg hover:bg-white/10 transition-colors" aria-label="{{ $c.email.display }}">
+          <a href="{{ $c.email.href | safeURL }}" class="flex flex-col items-center justify-center gap-1 min-h-[44px] p-2 rounded-lg hover:bg-white/10 transition-colors" aria-label="{{ $c.email.display }}">
             {{ partial "icons/mail.html" "w-6 h-6 text-primary-400" }}
             <span class="text-xs text-secondary-300">{{ $c.email.display }}</span>
           </a>

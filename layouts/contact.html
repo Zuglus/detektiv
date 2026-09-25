@@ -35,7 +35,7 @@
           </div>
           <a
             href="{{ $c.phone.href | safeURL }}"
-            class="inline-flex items-center gap-3 text-heading-md font-bold text-primary-300 hover:text-white transition-all duration-300 rounded-lg"
+            class="inline-flex items-center gap-3 min-h-[44px] text-heading-md font-bold text-primary-300 hover:text-white transition-all duration-300 rounded-lg"
             aria-label="{{ i18n "callTo" }} {{ $c.phone.display }}"
           >
             <div class="p-3 bg-white/10 rounded-xl group-hover:bg-white/20 transition-colors duration-300">
@@ -64,7 +64,7 @@
         <h3 class="font-semibold text-secondary-900 mb-2">{{ index $p.email $lang }}</h3>
         <a
           href="{{ $c.email.href | safeURL }}"
-          class="inline-block py-3 text-body-md text-primary-600 hover:text-primary-700 transition-colors duration-300 hover:underline break-all"
+          class="inline-block py-5 text-body-md text-primary-600 hover:text-primary-700 transition-colors duration-300 hover:underline break-all"
           aria-label="{{ i18n "emailTo" }} {{ $emailAddress }}"
         >
           {{ $emailAddress }}
@@ -80,7 +80,7 @@
           {{ partial "messengers.html" (dict
             "c" $c
             "aria" (i18n "contactVia")
-            "linkClass" "flex items-center justify-center gap-2 p-3 bg-secondary-50 hover:bg-secondary-100 border border-secondary-100 rounded-xl transition-all duration-300"
+            "linkClass" "flex items-center justify-center gap-2 min-h-[44px] p-3 bg-secondary-50 hover:bg-secondary-100 border border-secondary-100 rounded-xl transition-all duration-300"
             "iconWrap" "text-primary-600 transition-colors duration-300"
             "iconClass" "w-8 h-8"
             "spanClass" "text-body-sm font-medium text-secondary-800") }}
