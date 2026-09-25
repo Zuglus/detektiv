@@ -111,8 +111,8 @@ accent    — Professional Orange (выделение): 50 / 200 / 300 / 600
 font-primary  — IBM Plex Sans (основной текст)
 font-display  — Playfair Display (заголовки)
 
-text-display-xl  — clamp(3rem, 8vw, 6rem)
-text-display-lg  — clamp(2.5rem, 6vw, 4.5rem)
+text-display-md  — clamp(2rem, 4vw, 3rem)          h1 шапки страницы от md
+text-display-sm  — clamp(1.5rem, 3vw, 2.25rem)     h1 шапки на телефоне, h1 статьи от md
 text-heading-lg  — clamp(1.75rem, 2.5vw, 2.25rem)
 text-body-md     — clamp(1rem, 1vw, 1.125rem)
 ```
@@ -133,6 +133,30 @@ w-8 = 16px, w-16 = 32px.
 - `bg-white rounded-2xl border border-secondary-100 shadow-sm` — стандарт
 - `bg-primary-800 rounded-2xl border border-primary-700` — акцент/экстренное
 - `bg-secondary-50 rounded-2xl border border-secondary-100` — мягкий фон
+
+### Контраст текста
+Порог — 4,5:1 (WCAG AA). Замеры 2026-09-25:
+- На светлом (`white`, `secondary-50`) текст не светлее `secondary-500` (4,76 и 4,55:1).
+  `secondary-400` — только в тёмном футере (5,7–7:1); на белом он 2,56:1
+- На зелёной шапке (`bg-gradient-header`) — не бледнее `white/80` (4,76:1 на светлом
+  краю градиента). `white/70` там 4,06:1, `white/60` — 3,43:1: годится только для
+  иконки (порог 3:1), как у значка рубрики в шапке статьи
+
+### Кнопки
+- Главное действие — заливка `primary-800`, наведение `primary-900`, текст белый
+- Второстепенное — контур и текст `primary-600`, наведение — фон `primary-50`
+- На тёмном фоне (404, блок-призыв в конце статьи) — `bg-white text-primary-700`,
+  наведение `primary-50`: зелёная заливка на зелёном сливается
+
+### Фокус и размер для пальца
+- Фокус с клавиатуры — общий outline 4px `primary-600` из main.css. Своё кольцо
+  (`focus-visible:outline-none focus-visible:ring-2`) берёт цвет по фону:
+  `primary-500` на светлом, `white` на тёмном
+- В контейнере с прокруткой наружное кольцо срезается краем — там `ring-inset`
+  (пилюли рубрик)
+- Элемент для пальца — от 44px в высоту (WCAG 2.5.5). Если панель не должна расти,
+  прибавку прячут в её поля: `py-6 -my-3` (пилюли рубрик — 44px, панель 45px).
+  Большинство остальных пока ниже — открытый пункт в CONTRADICTIONS.md
 
 ---
 
