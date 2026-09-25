@@ -10,6 +10,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      // Ключ, перекрывающий дефолт Tailwind с тем же именем, не удалять, даже если
+      // в разметке его нет (spacing 9 и 11, rounded-sm, rounded, backdrop-blur-md,
+      // backdrop-blur, shadow-xl): класс не исчезнет, а молча получит дефолтный
+      // размер другой шкалы — w-9 станет 36px вместо 18px
       colors: {
         // Primary - Detective Green (основные действия)
         primary: {
@@ -73,29 +77,23 @@ module.exports = {
         '64': '8rem',      // 128px
       },
       borderRadius: {
-        'xs': '0.25rem',     // 4px  - Tiny (badges, tags)
-        'sm': '0.5rem',      // 8px  - Small UI (sm buttons)
-        'DEFAULT': '0.75rem', // 12px - Standard UI (md buttons, inputs)
-        'lg': '1rem',        // 16px - Cards, large buttons
-        'xl': '1.5rem',      // 24px - Feature cards, containers
-        '2xl': '2rem',       // 32px - Hero elements
-        'full': '9999px',    // Full circle
+        'sm': '0.5rem',      // 8px
+        'DEFAULT': '0.75rem', // 12px
+        'lg': '1rem',        // 16px — пункты меню, переключатель языка, бейджи шапки
+        'xl': '1.5rem',      // 24px — кнопки, плашки иконок, плитки мессенджеров
+        '2xl': '2rem',       // 32px — карточки
+        'full': '9999px',    // пилюли, чипы, кружки
       },
       boxShadow: {
         'sm': '0 4px 12px rgba(0, 0, 0, 0.08)',
         'md': '0 8px 32px rgba(0, 0, 0, 0.12), 0 4px 16px rgba(0, 0, 0, 0.08)',
         'lg': '0 20px 60px rgba(0, 0, 0, 0.18), 0 12px 30px rgba(0, 0, 0, 0.12)',
         'xl': '0 25px 50px rgba(0, 0, 0, 0.15), 0 12px 30px rgba(0, 0, 0, 0.1)',
-        'glass': '0 8px 32px rgba(0, 0, 0, 0.12), 0 4px 16px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.4)',
-        'glass-hover': '0 20px 60px rgba(0, 0, 0, 0.18), 0 12px 30px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.5)',
       },
       backgroundImage: {
-        'gradient-primary': 'linear-gradient(135deg, #339955 0%, #247d44 100%)',
         'gradient-header': 'linear-gradient(135deg, #1a2e1f 0%, #2d6a4f 100%)',
-        'gradient-accent': 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)',
       },
       backdropBlur: {
-        'xs': '2px',
         'sm': '4px',
         'md': '8px',
         'DEFAULT': '20px',
@@ -103,8 +101,6 @@ module.exports = {
       },
       fontSize: {
         // Display - For hero headlines
-        'display-xl': ['clamp(3rem, 8vw, 6rem)', { lineHeight: '0.9', letterSpacing: '-0.02em' }],
-        'display-lg': ['clamp(2.5rem, 6vw, 4.5rem)', { lineHeight: '1.1', letterSpacing: '-0.015em' }],
         'display-md': ['clamp(2rem, 4vw, 3rem)', { lineHeight: '1.2', letterSpacing: '-0.01em' }],
         'display-sm': ['clamp(1.5rem, 3vw, 2.25rem)', { lineHeight: '1.3' }],
         // Headings - For section titles
@@ -115,7 +111,6 @@ module.exports = {
         'body-lg': ['clamp(1.125rem, 1.2vw, 1.25rem)', { lineHeight: '1.6' }],
         'body-md': ['clamp(1rem, 1vw, 1.125rem)', { lineHeight: '1.6' }],
         'body-sm': ['clamp(0.875rem, 0.9vw, 1rem)', { lineHeight: '1.5' }],
-        'body-xs': ['clamp(0.75rem, 0.8vw, 0.875rem)', { lineHeight: '1.4' }],
       }
     },
   },
