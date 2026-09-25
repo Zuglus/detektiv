@@ -109,7 +109,7 @@
         {{- end -}}
         <a
           href="{{ .href }}"
-          class="menu-item block px-4 py-3 rounded-xl text-base font-medium uppercase tracking-wider
+          class="menu-item block px-4 py-5 rounded-xl text-base font-medium uppercase tracking-wider
             transition-all duration-300
             focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-secondary-900
             {{ if $isActive }}
@@ -122,7 +122,7 @@
         {{ end }}
 
         <div class="pt-6 border-t border-secondary-700/50 flex justify-center">
-          <a href="{{ $switchTo.RelPermalink }}" class="px-4 py-3 text-sm font-medium text-white/70 hover:text-white transition-colors uppercase tracking-wider">{{ $switchTo.Language.Label }}</a>
+          <a href="{{ $switchTo.RelPermalink }}" class="px-4 py-6 text-sm font-medium text-white/70 hover:text-white transition-colors uppercase tracking-wider">{{ $switchTo.Language.Label }}</a>
         </div>
       </nav>
     </div>
