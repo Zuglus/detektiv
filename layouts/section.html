@@ -69,7 +69,7 @@
       {{/* Category heading */}}
       <div class="flex items-center gap-4 mb-6">
         <h2 class="font-display text-2xl font-bold text-secondary-900">{{ $label }}</h2>
-        <span class="text-sm text-secondary-400 font-medium">
+        <span class="text-sm text-secondary-500 font-medium">
           {{ len $pages }}
           {{ i18n "articlesWord" (len $pages) }}
         </span>
@@ -88,7 +88,7 @@
           <a href="{{ .RelPermalink }}" class="flex h-full flex-col">
 
             {{/* Reading time */}}
-            <div class="flex items-center text-secondary-400 text-xs mb-4">
+            <div class="flex items-center text-secondary-500 text-xs mb-4">
               {{ partial "icons/clock.html" "w-6 h-6 mr-2" }}
               {{ $readingTime }} {{ index $b.card.minutes $lang }}
             </div>
@@ -121,7 +121,7 @@
 
       {{/* Back to top */}}
       <div class="mt-6 text-right">
-        <button onclick="window.scrollTo({top:0})" class="inline-flex items-center gap-1.5 text-sm text-secondary-400 hover:text-primary-600 transition-colors cursor-pointer">
+        <button onclick="window.scrollTo({top:0})" class="inline-flex items-center gap-1.5 text-sm text-secondary-500 hover:text-primary-600 transition-colors cursor-pointer">
           {{ partial "icons/chevron-up.html" "w-7 h-7" }}
           {{ i18n "backToTop" }}
         </button>
