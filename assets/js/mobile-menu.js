@@ -150,4 +150,45 @@
     });
   });
 
+  // Подсветка рубрики раздела, который сейчас на экране. Текущий — последний раздел,
+  // чей верх дошёл до линии чуть ниже отступа якоря (scroll-margin-top): так после
+  // перехода по пилюле подсвечена именно она. У самого конца страницы текущим
+  // считается последний раздел — короткий до линии может не дойти
+  document.querySelectorAll('[data-scroll-row]').forEach(function (row) {
+    var links = Array.prototype.slice.call(row.querySelectorAll('a[href^="#"]'));
+    var targets = links.map(function (a) {
+      return document.getElementById(a.getAttribute('href').slice(1));
+    });
+    if (!links.length || targets.indexOf(null) !== -1) return;
+
+    var current = -1;
+    var ticking = false;
+
+    function update() {
+      ticking = false;
+      var line = (parseFloat(getComputedStyle(targets[0]).scrollMarginTop) || 0) + 8;
+      var idx = -1;
+      for (var i = 0; i < targets.length; i++) {
+        if (targets[i].getBoundingClientRect().top <= line) idx = i;
+      }
+      var atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+      if (atBottom && idx !== -1) idx = targets.length - 1;
+      if (idx === current) return;
+      if (current !== -1) links[current].removeAttribute('aria-current');
+      if (idx !== -1) links[idx].setAttribute('aria-current', 'location');
+      current = idx;
+    }
+
+    function schedule() {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(update);
+      }
+    }
+
+    window.addEventListener('scroll', schedule, { passive: true });
+    window.addEventListener('resize', schedule);
+    update();
+  });
+
 })();
