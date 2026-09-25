@@ -140,4 +140,14 @@
     window.navReady = true;
   }
 
+  // Панель рубрик (прайс, статьи) на узком экране листается вбок. Рубрику,
+  // наполовину видную у края, Chrome по Tab не докручивает — считает видимой,
+  // и она остаётся обрезанной. Докручиваем сами до полной видимости: nearest
+  // сдвигает ряд ровно настолько, насколько нужно, и не трогает страницу
+  document.querySelectorAll('[data-scroll-row]').forEach(function (row) {
+    row.addEventListener('focusin', function (e) {
+      e.target.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+    });
+  });
+
 })();
