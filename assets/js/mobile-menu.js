@@ -163,6 +163,23 @@
 
     var current = -1;
     var ticking = false;
+    var smooth = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Ряд сдвигается вбок к подсвеченной рубрике — ровно до её полной видимости, с
+    // учётом scroll-padding ряда. Двигаем только сам ряд: scrollIntoView потянул бы
+    // и страницу, когда панель уже ушла из виду над футером
+    function reveal(a) {
+      if (row.scrollWidth <= row.clientWidth) return;
+      var cs = getComputedStyle(row);
+      var padL = parseFloat(cs.scrollPaddingLeft) || 0;
+      var padR = parseFloat(cs.scrollPaddingRight) || 0;
+      var r = a.getBoundingClientRect();
+      var box = row.getBoundingClientRect();
+      var dx = 0;
+      if (r.left < box.left + padL) dx = r.left - box.left - padL;
+      else if (r.right > box.right - padR) dx = r.right - box.right + padR;
+      if (dx) row.scrollBy({ left: dx, behavior: smooth ? 'smooth' : 'auto' });
+    }
 
     function update() {
       ticking = false;
@@ -175,7 +192,10 @@
       if (atBottom && idx !== -1) idx = targets.length - 1;
       if (idx === current) return;
       if (current !== -1) links[current].removeAttribute('aria-current');
-      if (idx !== -1) links[idx].setAttribute('aria-current', 'location');
+      if (idx !== -1) {
+        links[idx].setAttribute('aria-current', 'location');
+        reveal(links[idx]);
+      }
       current = idx;
     }
 
