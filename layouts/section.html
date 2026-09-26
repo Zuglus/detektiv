@@ -45,7 +45,8 @@
      в конце ряда она вышла из затухания, а max-lg:scroll-pr-16 ставит туда же рубрику при Tab и
      подсветке.
      Рубрику раздела, который сейчас на экране, mobile-menu.js отмечает aria-current="location" —
-     она залита primary-700 с белым текстом */}}
+     заливка primary-200 и текст primary-800, на тон гуще остальных. Тёмная заливка
+     перетягивала внимание: панель прилипает к верху и всё время в поле зрения */}}
 <nav class="sticky top-0 lg:top-28 z-10 bg-white border-b border-secondary-200 shadow-sm" aria-label="{{ i18n "categoryNav" }}">
   <div class="max-w-7xl mx-auto px-6">
     <ul data-scroll-row class="flex flex-nowrap lg:flex-wrap gap-2 py-3 mr-28 lg:mr-0 overflow-x-auto lg:overflow-visible [scrollbar-width:none] [&::-webkit-scrollbar]:hidden
@@ -59,8 +60,8 @@
           class="inline-block px-4 py-1.5 -my-3 lg:my-0 border-y-[6px] lg:border-y-0 border-transparent bg-clip-padding
             rounded-full text-sm font-medium bg-primary-50 text-primary-700 hover:bg-primary-100
             focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary-500
-            aria-[current=location]:bg-primary-700 aria-[current=location]:text-white
-            aria-[current=location]:hover:bg-primary-800 aria-[current=location]:focus-visible:ring-white
+            aria-[current=location]:bg-primary-200 aria-[current=location]:text-primary-800
+            aria-[current=location]:focus-visible:ring-primary-700
             transition-colors whitespace-nowrap">
           {{ $label }}
         </a>
