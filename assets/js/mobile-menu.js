@@ -206,6 +206,14 @@
       }
     }
 
+    // Ряд отступает от края, когда возвращается кнопка меню (margin-right по
+    // .hamburger-hidden в шаблоне), — подсвеченная рубрика может уйти за край
+    row.addEventListener('transitionend', function (e) {
+      if (e.target === row && e.propertyName === 'margin-right' && current !== -1) {
+        reveal(links[current]);
+      }
+    });
+
     window.addEventListener('scroll', schedule, { passive: true });
     window.addEventListener('resize', schedule);
     update();

@@ -33,6 +33,9 @@
 {{/* На телефоне пилюли — одна строка с прокруткой вбок: переносом они вставали в 3–4 строки
      (до 147px липкой панели), и заголовок раздела после перехода по якорю уходил под неё.
      mr-28 — справа плавает гамбургер (right-6 + w-28 = 68px от края), строка кончается до него.
+     Пока он спрятан (читаешь вниз), ряд доходит до края: [html:has(.hamburger-hidden)_&]:mr-0,
+     отступ меняется за 300ms, в такт с кнопкой; после отступа mobile-menu.js докручивает
+     подсвеченную рубрику.
      Пилюля видна и без наведения — заливка primary-50, как у рубрики на карточке статьи: на
      телефоне наведения нет, и без формы рубрики читались одной строкой текста. Видимая
      пилюля 32px; на телефоне прозрачная рамка 6px сверху и снизу (заливка под неё не заходит,
@@ -49,7 +52,7 @@
      перетягивала внимание: панель прилипает к верху и всё время в поле зрения */}}
 <nav class="sticky top-0 lg:top-28 z-10 bg-white border-b border-secondary-200 shadow-sm" aria-label="{{ i18n "serviceCategoriesNav" }}">
   <div class="max-w-6xl mx-auto px-6">
-    <ul data-scroll-row class="flex flex-nowrap lg:flex-wrap gap-2 py-3 mr-28 lg:mr-0 overflow-x-auto lg:overflow-visible [scrollbar-width:none] [&::-webkit-scrollbar]:hidden
+    <ul data-scroll-row class="flex flex-nowrap lg:flex-wrap gap-2 py-3 mr-28 lg:mr-0 [html:has(.hamburger-hidden)_&]:mr-0 transition-[margin] duration-300 overflow-x-auto lg:overflow-visible [scrollbar-width:none] [&::-webkit-scrollbar]:hidden
       max-lg:[mask-image:linear-gradient(to_right,#000_calc(100%_-_32px),transparent)] max-lg:scroll-pr-16" role="list">
       {{ range $p.serviceCategories }}
       <li class="shrink-0 max-lg:last:pr-16">
