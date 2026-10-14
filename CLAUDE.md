@@ -3,7 +3,7 @@
 ## Текущий стек
 
 - **Hugo** — статический генератор сайтов
-- **Tailwind CSS 3.4.17** — стилизация через utility-классы
+- **Tailwind CSS 3.4.19** — стилизация через utility-классы
 - **PostCSS + Autoprefixer** — обработка CSS
 - **Двуязычный**: RU (основной) + EN
 - **Деплой**: SFTP через lftp (`scripts/deploy.sh`)
