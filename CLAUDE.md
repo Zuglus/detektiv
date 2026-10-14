@@ -274,6 +274,7 @@ w-8 = 16px, w-16 = 32px.
   - состояния, которые переключает JS: `.nav-transparent` / `.nav-scrolled` (прозрачность — при `.nav-js` на `<html>`), `.hamburger-hidden`, `#mobile-menu.is-open .menu-item`, `.reveal-js [data-reveal]` / `.is-revealed`
   - эффекты на псевдоэлементах, keyframes и `@media (hover: hover)`: маска и блик `.phone-hotspot`, `.nav-link`, `.hamburger-btn` / `.hamburger-line`
   - база: шрифты, `body`, `*:focus-visible`, reduced motion, `.sr-only`
+  - язык страницы: кавычки цитат в статьях — `:lang(ru) .prose blockquote` ставит «…» вместо “…” плагина typography
 - Tailwind читает и комментарии в шаблонах: класс, названный в комментарии, попадает в CSS.
   Писать там полное имя (`max-lg:last:pr-16`, не `last:pr-16`) — иначе в CSS ляжет правило,
   которого на странице нет
