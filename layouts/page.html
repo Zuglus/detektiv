@@ -51,11 +51,14 @@
 
     {{/* Centered content */}}
     <div class="text-center">
-      {{/* Badge */}}
+      {{/* Плашка «Реальное дело из практики» — у всех статей, кроме тех, где дела нет:
+           badge: false во front matter (описания услуг 21, 22, 24–27) */}}
+      {{ if ne .Params.badge false }}
       <div class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium mb-4 bg-primary-500/30 border border-primary-400/40">
         {{ partial "icons/document.html" "w-6 h-6 mr-2 text-white/60" }}
         <span class="text-white/80">{{ index $s.badge $lang }}</span>
       </div>
+      {{ end }}
 
       <h1 class="font-display text-heading-lg md:text-display-sm font-bold text-white mb-4 leading-tight">{{ .Title }}</h1>
 
