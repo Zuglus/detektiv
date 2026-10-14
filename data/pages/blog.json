@@ -9,10 +9,6 @@
     "read": {
       "ru": "Читать",
       "en": "Read"
-    },
-    "minutes": {
-      "ru": "мин",
-      "en": "min"
     }
   },
   "empty": {
@@ -37,10 +33,6 @@
     "backToList": {
       "ru": "Все статьи",
       "en": "All articles"
-    },
-    "minutes": {
-      "ru": "мин",
-      "en": "min"
     },
     "prevNext": {
       "title": {

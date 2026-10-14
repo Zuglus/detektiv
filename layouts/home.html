@@ -188,30 +188,26 @@
       </p>
     </div>
 
-    {{/* 3 articles (no dates in front matter — order is by title) */}}
+    {{/* 3 articles (no dates in front matter — section order: weight first, then title) */}}
     {{ $articles := where .Site.RegularPages "Section" (cond (eq $lang "ru") "stati" "blog") }}
     {{ $latest := first 3 $articles }}
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
       {{ range $latest }}
-      {{- $readingTime := partial "reading-time.html" . -}}
       <article class="group bg-white rounded-2xl p-6 border border-secondary-100 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
         <a href="{{ .RelPermalink }}" class="block">
-          {{/* Категория и время чтения в одной строке: карточки идут одинаковыми
-               белыми плитками, и по заголовку не всегда видно, о чём дело */}}
+          {{/* Категория над заголовком: карточки идут одинаковыми белыми плитками,
+               и по заголовку не всегда видно, о чём дело. Время чтения сняли 2026-10-14:
+               статьи выровнены по длине, у всех выходило одно и то же «2 мин» */}}
           {{- $cat := "" -}}
           {{- with where hugo.Data.categories "slug" .Params.category }}{{ $cat = index . 0 }}{{ end -}}
-          <div class="flex items-center justify-between gap-2 mb-3">
-            {{ with $cat }}
+          {{ with $cat }}
+          <div class="flex items-center mb-3">
             <span class="inline-flex items-center px-4 py-1 rounded-full bg-primary-50 text-primary-700 text-xs font-medium">
               {{ index .name $lang }}
             </span>
-            {{ end }}
-            <span class="flex items-center text-secondary-500 text-xs whitespace-nowrap">
-              {{ partial "icons/clock.html" "w-6 h-6 mr-1.5" }}
-              {{ $readingTime }} {{ index hugo.Data.pages.blog.card.minutes $lang }}
-            </span>
           </div>
+          {{ end }}
           <h3 class="font-display text-lg font-bold text-secondary-900 mb-3 group-hover:text-primary-700 transition-colors line-clamp-2">
             {{ .Title }}
           </h3>

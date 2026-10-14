@@ -3,7 +3,6 @@
 {{- $contactsPath := cond (eq $lang "ru") "/kontakty/" "/en/contact/" -}}
 {{- $b := hugo.Data.pages.blog -}}
 {{- $s := $b.single -}}
-{{- $readingTime := partial "reading-time.html" . -}}
 {{- $sectionURL := .CurrentSection.RelPermalink -}}
 {{- $cat := index (where hugo.Data.categories "slug" .Params.category) 0 -}}
 {{/* Список статей выводит их по рубрикам из data/categories.json: статья с рубрикой
@@ -65,12 +64,9 @@
       <p class="text-white/80 text-base md:text-lg leading-relaxed max-w-2xl mx-auto mb-8">{{ . }}</p>
       {{ end }}
 
-      {{/* Meta: reading time + category (links to its section in the list) */}}
+      {{/* Meta: category (links to its section in the list). Время чтения сняли
+           2026-10-14 — у выровненных по длине статей оно одно и то же */}}
       <div class="flex flex-wrap items-center justify-center gap-2 text-xs font-medium text-white/80">
-        <div class="flex items-center bg-white/10 backdrop-blur-sm px-3 py-1.5 rounded-lg border border-white/10">
-          {{ partial "icons/clock.html" "w-6 h-6 mr-1.5 text-primary-300" }}
-          {{ $readingTime }} {{ index $s.minutes $lang }}
-        </div>
         {{ with $cat }}
         <a href="{{ $sectionURL }}#{{ .slug }}"
           class="relative flex items-center bg-white/10 backdrop-blur-sm px-3 py-1.5 rounded-lg border border-white/10

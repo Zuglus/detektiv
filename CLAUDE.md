@@ -33,8 +33,7 @@ detektiv/
 │       ├── fill.html       # Подстановка плейсхолдеров {years}, {founded}… (возвращает строку)
 │       ├── trust-facts.html # Факты доверия (главная и «О нас»)
 │       ├── page-header.html # Шапка «О нас», контактов и гарантий (title, subtitle)
-│       ├── reading-time.html # Время чтения статьи (возвращает число)
-│       └── icons/          # 27 SVG иконок (experience.html принимает dict: class/years/label)
+│       └── icons/          # 26 SVG иконок (experience.html принимает dict: class/years/label)
 ├── content/                # Markdown контент
 │   ├── blog/               # 36 статей (*.en.md — только EN)
 │   ├── stati/              # 36 статей (*.ru.md — только RU)
